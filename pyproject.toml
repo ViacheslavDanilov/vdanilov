@@ -1,9 +1,0 @@
-[project]
-name = "vdanilov"
-version = "0.1.0"
-description = "Personal website of Viacheslav Danilov"
-readme = "README.md"
-requires-python = ">=3.13"
-dependencies = [
-    "pre-commit>=4.3.0",
-]
