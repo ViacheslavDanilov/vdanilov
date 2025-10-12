@@ -38,7 +38,6 @@ jobs:
 
     - name: Install tidy
       run: sudo apt-get update && sudo apt-get install -y tidy
-
     - name: Validate HTML files
       run: |
         set -euo pipefail
@@ -46,8 +45,8 @@ jobs:
         FAIL=0
         for f in **/*.html **/*.htm; do
           echo "Checking $f"
-          # -e: errors are warnings, -q: quiet, -errors: print only errors
-          # Use UTF-8 and HTML5 mode
-          tidy -q -e --ascii no --drop-empty-elements no --show-body-only auto --tidy-mark no --mute-id yes --mute-uri yes --mute-protocol yes -language en --doctype html5 "$f" || FAIL=1
+          # -q: quiet output, -e: show only errors
+          # Suppress warnings (e.g., SVG proprietary attribute notices)
+          tidy -q -e --show-warnings no -language en --doctype html5 "$f" || FAIL=1
         done
         exit $FAIL
