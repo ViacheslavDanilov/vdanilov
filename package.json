@@ -1,0 +1,19 @@
+{
+  "name": "vdanilov",
+  "version": "1.0.0",
+  "description": "Personal website of Viacheslav Danilov",
+  "scripts": {
+    "prepare": "husky && node --eval \"fs.writeFileSync('.husky/pre-commit','npx lint-staged\\n')\"",
+    "check": "prettier --check .",
+    "format": "prettier --write ."
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
+  },
+  "devDependencies": {
+    "browser-sync": "3.0.4",
+    "husky": "9.1.7",
+    "lint-staged": "16.2.4",
+    "prettier": "3.6.2"
+  }
+}
