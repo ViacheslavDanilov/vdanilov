@@ -36,6 +36,9 @@ yarn-error.log*
 # python/uv virtual environment
 .venv/
 
+# husky
+.husky/
+
 # vercel
 .vercel
 
