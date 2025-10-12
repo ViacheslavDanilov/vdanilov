@@ -22,7 +22,8 @@ repos:
   rev: v2.15.0
   hooks:
   - id: pretty-format-yaml
-    args: [--autofix, --indent, '2', --preserve-quotes]
+    args: [--autofix, --indent, "2", --preserve-quotes]
+  # Prettier is handled via lint-staged + husky (Node-native) as configured in package.json
 
 exclude: |
   (?x)(
