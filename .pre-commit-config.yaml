@@ -4,26 +4,19 @@
 
 # pre-commit hooks
 repos:
-- repo: https://github.com/pre-commit/pre-commit-hooks
-  rev: v6.0.0
-  hooks:
-  - id: check-yaml
-  - id: check-json
-  - id: check-toml
-  - id: check-merge-conflict
-  - id: end-of-file-fixer
-  - id: trailing-whitespace
-  - id: mixed-line-ending
-    args: ["--fix=lf"]
-  - id: detect-private-key
-  - id: check-added-large-files
-
-- repo: https://github.com/macisamuele/language-formatters-pre-commit-hooks
-  rev: v2.15.0
-  hooks:
-  - id: pretty-format-yaml
-    args: [--autofix, --indent, "2", --preserve-quotes]
-  # Prettier is handled via lint-staged + husky (Node-native) as configured in package.json
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: check-yaml
+      - id: check-json
+      - id: check-toml
+      - id: check-merge-conflict
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: mixed-line-ending
+        args: ["--fix=lf"]
+      - id: detect-private-key
+      - id: check-added-large-files
 
 exclude: |
   (?x)(
