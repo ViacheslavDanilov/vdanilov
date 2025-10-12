@@ -2,11 +2,12 @@ tailwind.config = {
   theme: {
     extend: {
       colors: {
-        'dark-bg': '#0b1220',     // deep background
-        'light-bg': '#e6eef8',    // light background
-        'dark-text': '#0f1724',   // deep text color
-        'light-text': '#e6eef8',  // light text color
-        'highlight': '#3b82f6',   // brand / accent color (blue)
+        'bg-dark': '#2A2A2A',     // deep background
+        'bg-light': '#F0F0F0',    // light background
+        'text-dark': '#2A2A2A',   // deep text color
+        'text-light': '#F0F0F0',  // light text color
+        'accent': '#009BDF',      // accent color
+        'selection': '#B3D6FF',   // text selection color
       },
     },
   },
