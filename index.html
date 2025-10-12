@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Viacheslav Danilov</title>
+    <title>Viacheslav Danilov</title>-->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="tailwind.config.js"></script>
-    
+    <script src="css/tailwind.config.js"></script>
+
 </head>
 <body class="bg-dark text-light">
     <!-- Navigation (skeleton) -->
@@ -26,7 +26,7 @@
                     <li><a href="#portfolio" class="hover:text-accent">Portfolio</a></li>
                     <li><a href="#publications" class="hover:text-accent">Publications</a></li>
                     <li><a href="#references" class="hover:text-accent">References</a></li>
-                    <li><a href="#contacts" class="hover:text-accent">Contacts</a></li>
+                    <li><a href="#contact" class="hover:text-accent">Contact</a></li>
                 </ul>
 
                 <!-- Contact CTA -->
@@ -81,61 +81,11 @@
 
     <!-- Main Content -->
     <main class="min-h-screen flex items-center justify-center">
-        <h1 class="text-5xl font-bold text-teal-400">Hello, World!</h1>
-    </main>
-
-    <!-- Main Content -->
-    <main class="min-h-screen flex items-center justify-center">
         <h1 class="text-5xl font-bold text-blue-400">Hello, World!</h1>
     </main>
-    
-    </main>
 
-        <script>
-            (function() {
-                const openBtn = document.getElementById('mobile-menu-button');
-                const closeBtn = document.getElementById('mobile-menu-close');
-                const menu = document.getElementById('mobile-menu');
-                const overlay = document.getElementById('mobile-overlay');
+    <!-- External scripts -->
+    <script src="js/mobile-menu.js" defer></script>
 
-                function openMenu() {
-                    menu.classList.remove('translate-x-full');
-                    menu.classList.add('translate-x-0');
-                    overlay.classList.remove('hidden');
-                    openBtn.setAttribute('aria-expanded', 'true');
-                    menu.setAttribute('aria-hidden', 'false');
-                    // focus first link
-                    const firstLink = menu.querySelector('a');
-                    if (firstLink) firstLink.focus();
-                }
-
-                function closeMenu() {
-                    menu.classList.remove('translate-x-0');
-                    menu.classList.add('translate-x-full');
-                    overlay.classList.add('hidden');
-                    openBtn.setAttribute('aria-expanded', 'false');
-                    menu.setAttribute('aria-hidden', 'true');
-                    openBtn.focus();
-                }
-
-                openBtn.addEventListener('click', openMenu);
-                closeBtn.addEventListener('click', closeMenu);
-                overlay.addEventListener('click', closeMenu);
-
-                // Close on ESC
-                document.addEventListener('keydown', (e) => {
-                    if (e.key === 'Escape') {
-                        if (openBtn.getAttribute('aria-expanded') === 'true') closeMenu();
-                    }
-                });
-
-                // Close when clicking menu links
-                menu.querySelectorAll('a[href^="#"]').forEach(link => {
-                    link.addEventListener('click', () => {
-                        closeMenu();
-                    });
-                });
-            })();
-        </script>
-    </body>
+</body>
 </html>
