@@ -5,12 +5,14 @@
 > https://viacheslavdanilov.github.io/vdanilov/
 
 ## What’s here
+
 - Static site using HTML + Tailwind (via CDN) + vanilla JS
 - No Node.js build tooling required at this stage
 - Minimal project structure:
   - `index.html`, `content/`, `css/`, `js/`
 
 ## Preview locally
+
 - Easiest: open `index.html` in your browser.
 
 - Option 1 — BrowserSync (live reload, recommended)
