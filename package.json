@@ -3,14 +3,11 @@
   "version": "1.0.0",
   "description": "Personal website of Viacheslav Danilov",
   "main": "index.js",
-  "scripts": {
-    "format": "prettier --write .",
-    "prepare": "husky"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run format && git add -A ."
-    }
+  "scripts": {},
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,css,scss,md,html}": [
+      "prettier --write"
+    ]
   },
   "repository": {
     "type": "git",
@@ -26,6 +23,7 @@
   "homepage": "https://github.com/ViacheslavDanilov/vdanilov#readme",
   "devDependencies": {
     "husky": "9.1.7",
+    "lint-staged": "16.2.4",
     "prettier": "3.6.2"
   }
 }
