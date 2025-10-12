@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Personal website of Viacheslav Danilov",
   "scripts": {
-    "prepare": 'husky',
+  "prepare": "husky && node --eval \"fs.writeFileSync('.husky/pre-commit','npx lint-staged\\n')\"",
     "check": "prettier --check .",
     "format": "prettier --write ."
   },
