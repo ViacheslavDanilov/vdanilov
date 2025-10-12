@@ -33,9 +33,7 @@ npm ci
 ## Preview locally
 
 - Easiest: open `index.html` in your browser
-- Recommended: BrowserSync (live reload)
-  - Requires Node.js; npx will download BrowserSync on first run.
-  - Start a server that watches all files and reloads on change:
+- Recommended: BrowserSync (live reload). Start a server that watches all files and reloads on change:
 
 ```sh
 npx browser-sync start --server --directory --files "**/*"
