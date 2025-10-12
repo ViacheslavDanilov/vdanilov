@@ -2,9 +2,10 @@
 # Install locally: pip install pre-commit && pre-commit install
 # Run manually: pre-commit run --all-files
 
+# pre-commit hooks
 repos:
 - repo: https://github.com/pre-commit/pre-commit-hooks
-  rev: v5.0.0
+  rev: v6.0.0
   hooks:
   - id: check-yaml
   - id: check-json
@@ -18,7 +19,7 @@ repos:
   - id: check-added-large-files
 
 - repo: https://github.com/macisamuele/language-formatters-pre-commit-hooks
-  rev: v2.14.0
+  rev: v2.15.0
   hooks:
   - id: pretty-format-yaml
     args: [--autofix, --indent, '2', --preserve-quotes]
