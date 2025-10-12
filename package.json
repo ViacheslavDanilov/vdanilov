@@ -3,14 +3,12 @@
   "version": "1.0.0",
   "description": "Personal website of Viacheslav Danilov",
   "scripts": {
-  "prepare": "husky && node --eval \"fs.writeFileSync('.husky/pre-commit','npx lint-staged\\n')\"",
-    "format": "prettier --write .",
-    "check": "prettier --check ."
+    "prepare": "husky && node --eval \"fs.writeFileSync('.husky/pre-commit','npx lint-staged\\n')\"",
+    "check": "prettier --check .",
+    "format": "prettier --write ."
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx,css,scss,md,html}": [
-      "prettier --write"
-    ]
+    "**/*": "prettier --write --ignore-unknown"
   },
   "devDependencies": {
     "husky": "9.1.7",
