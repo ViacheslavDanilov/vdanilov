@@ -1,0 +1,53 @@
+name: Continuous Integration
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+
+jobs:
+  precommit:
+    name: Pre-commit checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install pre-commit
+        run: pip install pre-commit==4.1.0
+
+      - name: Run pre-commit on all files
+        run: |
+          pre-commit run --all-files --show-diff-on-failure --color always --verbose
+          echo -e "${GREEN}Job completed successfully${NO_COLOR}"
+
+  html-lint:
+    name: HTML validation (tidy)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install tidy
+        run: sudo apt-get update && sudo apt-get install -y tidy
+
+      - name: Validate HTML files
+        run: |
+          set -euo pipefail
+          shopt -s globstar nullglob
+          FAIL=0
+          for f in **/*.html **/*.htm; do
+            echo "Checking $f"
+            # -e: errors are warnings, -q: quiet, -errors: print only errors
+            # Use UTF-8 and HTML5 mode
+            tidy -q -e --ascii no --drop-empty-elements no --show-body-only auto --tidy-mark no --mute-id yes --mute-uri yes --mute-protocol yes -language en --doctype html5 "$f" || FAIL=1
+          done
+          exit $FAIL
