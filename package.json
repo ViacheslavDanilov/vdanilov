@@ -1,0 +1,31 @@
+{
+  "name": "vdanilov",
+  "version": "1.0.0",
+  "description": "Personal website of Viacheslav Danilov",
+  "main": "index.js",
+  "scripts": {
+    "lint": "prettier --check .",
+    "format": "prettier --write ."
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ViacheslavDanilov/vdanilov.git"
+  },
+  "keywords": [],
+  "author": "Viacheslav Danilov",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ViacheslavDanilov/vdanilov/issues"
+  },
+  "homepage": "https://github.com/ViacheslavDanilov/vdanilov#readme",
+  "devDependencies": {
+    "husky": "9.1.7",
+    "prettier": "3.6.2"
+  }
+}
