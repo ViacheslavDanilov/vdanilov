@@ -11,6 +11,25 @@
 - Minimal project structure:
   - `index.html`, `content/`, `css/`, `js/`
 
+## Install
+
+1. Clone the repo:
+
+```sh
+git clone https://github.com/ViacheslavDanilov/vdanilov.git
+cd vdanilov
+```
+
+2. Install Node.js:
+
+https://nodejs.org/
+
+3. Install project dependencies:
+
+```sh
+npm ci
+```
+
 ## Preview locally
 
 - Easiest: open `index.html` in your browser
@@ -22,29 +41,3 @@
 npx browser-sync start --server --directory --files "**/*"
 # then open the URL printed in the terminal (usually http://localhost:3000)
 ```
-
-## Quick setup
-
-Install Node packages and set up git hooks (Prettier + Husky + lint-staged).
-
-```sh
-# install dependencies defined in package.json
-npm ci
-
-# install husky hooks (run once locally)
-npm run prepare
-
-# check formatting
-npm run format:check
-```
-
-To format all files:
-
-```sh
-npm run format
-```
-
-````
-# then open http://localhost:8080
-```
-````
