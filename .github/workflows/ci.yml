@@ -45,8 +45,21 @@ jobs:
         FAIL=0
         for f in **/*.html **/*.htm; do
           echo "Checking $f"
-          # -q: quiet output, -e: show only errors
-          # Suppress warnings (e.g., SVG proprietary attribute notices)
-          tidy -q -e --show-warnings no -language en --doctype html5 "$f" || FAIL=1
+          TMP=$(mktemp)
+          # Run tidy, capture stderr (tidy writes issues to stderr)
+          tidy -q -e --show-warnings no -language en --doctype html5 "$f" 2> "$TMP" || true
+          if [ -s "$TMP" ]; then
+            echo "--- tidy output for $f ---"
+            cat "$TMP"
+            echo "--- end tidy output for $f ---"
+            # If tidy reported 'Error:' lines, treat as failure
+            if grep -q "Error:" "$TMP"; then
+              FAIL=1
+            fi
+          fi
+          rm -f "$TMP"
         done
-        exit $FAIL
+        if [ "$FAIL" -ne 0 ]; then
+          echo "HTML tidy found errors"
+          exit 1
+        fi
