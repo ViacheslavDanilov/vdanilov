@@ -37,5 +37,4 @@ npm ci
 
 ```sh
 npx browser-sync start --server --directory --files "**/*"
-# then open the URL printed in the terminal (usually http://localhost:3000)
 ```
