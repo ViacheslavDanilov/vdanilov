@@ -4,12 +4,12 @@
   "description": "Personal website of Viacheslav Danilov",
   "main": "index.js",
   "scripts": {
-    "lint": "prettier --check .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "prepare": "husky"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint && npm run format"
+      "pre-commit": "npm run format && git add -A ."
     }
   },
   "repository": {
