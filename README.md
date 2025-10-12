@@ -13,9 +13,8 @@
 
 ## Preview locally
 
-- Easiest: open `index.html` in your browser.
-
-- Option 1 — BrowserSync (live reload, recommended)
+- Easiest: open `index.html` in your browser
+- Recommended: BrowserSync (live reload)
   - Requires Node.js; npx will download BrowserSync on first run.
   - Start a server that watches all files and reloads on change:
 
@@ -24,9 +23,28 @@ npx browser-sync start --server --directory --files "**/*"
 # then open the URL printed in the terminal (usually http://localhost:3000)
 ```
 
-- Option 2 — Python built-in server (no live reload)
+## Quick setup
+
+Install Node packages and set up git hooks (Prettier + Husky + lint-staged).
 
 ```sh
-python3 -m http.server 8080
+# install dependencies defined in package.json
+npm ci
+
+# install husky hooks (run once locally)
+npm run prepare
+
+# check formatting
+npm run format:check
+```
+
+To format all files:
+
+```sh
+npm run format
+```
+
+````
 # then open http://localhost:8080
 ```
+````
