@@ -4,6 +4,7 @@
   "description": "Personal website of Viacheslav Danilov",
   "scripts": {
     "prepare": "husky && node --eval \"fs.writeFileSync('.husky/pre-commit','npx lint-staged\\n')\"",
+    "start": "browser-sync start --server --files \"index.html, src/**/*\"",
     "check": "prettier --check .",
     "format": "prettier --write ."
   },
