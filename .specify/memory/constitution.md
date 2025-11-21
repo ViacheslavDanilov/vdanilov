@@ -16,7 +16,7 @@ Follow-up:
 - None.
 -->
 
-# vdanilov.com Rebuild Constitution
+# vdanilov.com Build Constitution
 
 ## Core Principles
 
