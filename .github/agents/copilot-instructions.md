@@ -4,6 +4,9 @@ Auto-generated from all feature plans. Last updated: 2025-11-21
 
 ## Active Technologies
 
+- JavaScript (ES Modules), React 18+ + `vite`, `react`, `react-dom`, `tailwindcss`, `motion` (Framer Motion), `clsx`, `tailwind-merge`, `lucide-react` (002-hero-react-migration)
+- N/A (Static Site) (002-hero-react-migration)
+
 - HTML5, JavaScript (ES6+), CSS3 + Tailwind CSS (v3.x) (001-hero-section)
 
 ## Project Structure
@@ -22,6 +25,8 @@ npm test && npm run lint
 HTML5, JavaScript (ES6+), CSS3: Follow standard conventions
 
 ## Recent Changes
+
+- 002-hero-react-migration: Added JavaScript (ES Modules), React 18+ + `vite`, `react`, `react-dom`, `tailwindcss`, `motion` (Framer Motion), `clsx`, `tailwind-merge`, `lucide-react`
 
 - 001-hero-section: Added HTML5, JavaScript (ES6+), CSS3 + Tailwind CSS (v3.x)
 

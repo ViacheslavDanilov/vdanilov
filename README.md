@@ -4,12 +4,12 @@
 >
 > https://viacheslavdanilov.github.io/vdanilov/
 
-## What’s here
+## What's here
 
-- Static site using HTML + Tailwind (via CDN) + vanilla JS
-- No Node.js build tooling required at this stage
-- Minimal project structure:
-  - `index.html`, `content/`, `css/`, `js/`
+- Modern React application built with Vite
+- Tailwind CSS v4 for styling
+- Framer Motion for animations
+- Responsive design with mobile-first approach
 
 ## Install
 
@@ -20,21 +20,36 @@ git clone https://github.com/ViacheslavDanilov/vdanilov.git
 cd vdanilov
 ```
 
-2. Install Node.js:
+2. Install Node.js (version 18+):
 
 https://nodejs.org/
 
 3. Install project dependencies:
 
 ```sh
-npm ci
+npm install
 ```
 
-## Preview locally
+## Development
 
-- Easiest: open `index.html` in your browser
-- Recommended: BrowserSync (live reload). Start a server that watches all files and reloads on change:
+Start the development server with hot reload:
 
 ```sh
-npx browser-sync start --server --directory --files "**/*"
+npm run dev
+```
+
+The site will be available at `http://localhost:5173`
+
+## Build
+
+Build for production:
+
+```sh
+npm run build
+```
+
+Preview production build:
+
+```sh
+npm run preview
 ```
