@@ -17,9 +17,9 @@
 
 **Purpose**: Project initialization and basic structure
 
-- [ ] T001 Verify all required dependencies are installed (motion, lucide-react, clsx, tailwind-merge)
-- [ ] T002 Create `src/components/ui/` directory if it doesn't exist
-- [ ] T003 [P] Review project structure matches plan.md expectations
+- [x] T001 Verify all required dependencies are installed (motion, lucide-react, clsx, tailwind-merge)
+- [x] T002 Create `src/components/ui/` directory if it doesn't exist
+- [x] T003 [P] Review project structure matches plan.md expectations
 
 ---
 
@@ -29,9 +29,9 @@
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T004 Add typography CSS custom properties to `src/index.css` @theme block (--font-family-sans, --font-family-mono)
-- [ ] T005 Apply default font-family to body element in `src/index.css`
-- [ ] T006 [P] Define navigation items data structure in preparation for Navbar component (icons, labels, hrefs, gradients, colors)
+- [x] T004 Add typography CSS custom properties to `src/index.css` @theme block (--font-family-sans, --font-family-mono)
+- [x] T005 Apply default font-family to body element in `src/index.css`
+- [x] T006 [P] Define navigation items data structure in preparation for Navbar component (icons, labels, hrefs, gradients, colors)
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 

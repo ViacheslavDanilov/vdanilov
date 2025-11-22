@@ -15,10 +15,10 @@ const Hero = () => {
           <p className="text-lg md:text-xl text-accent font-medium">
             Hi there, I am
           </p>
-          <h1 className="text-4xl md:text-6xl font-bold text-light tracking-tight">
+          <h1 className="text-4xl md:text-5xl font-semibold text-light tracking-tight">
             Viacheslav Danilov, PhD
           </h1>
-          <h2 className="text-2xl md:text-3xl text-gray-400 min-h-[1.5em] flex items-center justify-center md:justify-start">
+          <h2 className="text-2xl md:text-3xl text-gray-400 min-h-[2.0em] flex items-center justify-center md:justify-start">
             <FlipWords words={roles} className="text-light" />
           </h2>
 
