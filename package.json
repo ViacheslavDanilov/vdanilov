@@ -5,7 +5,7 @@
   "type": "module",
   "description": "Personal website of Viacheslav Danilov",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "vite build",
     "preview": "vite preview",
     "prepare": "husky && node --eval \"fs.writeFileSync('.husky/pre-commit','npx lint-staged\\n')\"",

@@ -1,5 +1,6 @@
 import React from "react";
 import { FlipWords } from "./ui/flip-words";
+import { ShimmerButton } from "./ui/shimmer-button";
 import { Mail, Phone, Send, FileText, FolderGit2 } from "lucide-react";
 
 const Hero = () => {
@@ -17,7 +18,6 @@ const Hero = () => {
             Viacheslav Danilov, PhD
           </h1>
           <h2 className="text-2xl md:text-3xl text-gray-400 min-h-[1.5em] flex items-center justify-center md:justify-start">
-            I am a
             <FlipWords words={roles} className="text-light" />
           </h2>
 
@@ -51,22 +51,31 @@ const Hero = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 pt-6">
-            <a
-              href="https://drive.google.com/file/d/1jYs54eFCYc367ZKhWjH1Xfry4_sFI7Ir/view?usp=drive_link"
-              className="inline-flex items-center bg-accent text-light px-8 py-3 rounded-full font-medium hover:bg-accent/80 transition-colors duration-300 shadow-lg hover:shadow-accent/50"
-              aria-label="Download CV"
+            <ShimmerButton
+              className="shadow-2xl"
+              onClick={() =>
+                window.open(
+                  "https://drive.google.com/file/d/1jYs54eFCYc367ZKhWjH1Xfry4_sFI7Ir/view?usp=drive_link",
+                  "_blank",
+                )
+              }
             >
-              <FileText className="w-5 h-5 mr-2" />
-              Download CV
-            </a>
-            <a
-              href="https://vdanilov.com/portfolio/"
-              className="inline-flex items-center border border-gray-600 text-light px-8 py-3 rounded-full font-medium hover:border-accent hover:text-accent transition-colors duration-300"
-              aria-label="View my projects portfolio"
+              <span className="whitespace-pre-wrap text-center text-base font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-xl flex items-center gap-2">
+                <FileText className="w-5 h-5" />
+                Download CV
+              </span>
+            </ShimmerButton>
+            <ShimmerButton
+              className="shadow-2xl"
+              onClick={() =>
+                (window.location.href = "https://vdanilov.com/portfolio/")
+              }
             >
-              <FolderGit2 className="w-5 h-5 mr-2" />
-              View my projects
-            </a>
+              <span className="whitespace-pre-wrap text-center text-base font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-xl flex items-center gap-2">
+                <FolderGit2 className="w-5 h-5" />
+                View my projects
+              </span>
+            </ShimmerButton>
           </div>
         </div>
 
