@@ -62,7 +62,7 @@ const Hero = () => {
                 )
               }
             >
-              <span className="whitespace-pre-wrap text-center text-base font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-xl flex items-center gap-2">
+              <span className="whitespace-pre-wrap text-center text-base font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg flex items-center gap-2">
                 <FileText className="w-5 h-5" />
                 Download CV
               </span>
@@ -74,7 +74,7 @@ const Hero = () => {
                 window.open("https://vdanilov.com/portfolio/", "_blank")
               }
             >
-              <span className="whitespace-pre-wrap text-center text-base font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-xl flex items-center gap-2">
+              <span className="whitespace-pre-wrap text-center text-base font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg flex items-center gap-2">
                 <FolderGit2 className="w-5 h-5" />
                 View my projects
               </span>
