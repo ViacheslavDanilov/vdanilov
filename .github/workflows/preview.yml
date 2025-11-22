@@ -36,6 +36,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
           destination_dir: pr-${{ github.event.pull_request.number }}
+          publish_branch: deploy
           keep_files: true
 
       - name: Comment PR with preview URL
@@ -85,10 +86,10 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.action == 'closed'
     steps:
-      - name: Checkout gh-pages
+      - name: Checkout deploy branch
         uses: actions/checkout@v4
         with:
-          ref: gh-pages
+          ref: deploy
 
       - name: Remove preview directory
         run: |
