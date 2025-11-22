@@ -21,9 +21,9 @@ description: "Task list for Hero React Migration"
 
 **Purpose**: Project initialization and basic structure
 
-- [ ] T001 Initialize project dependencies (react, vite, tailwindcss, motion, etc.) in `package.json`
-- [ ] T002 [P] Create Vite configuration in `vite.config.js`
-- [ ] T003 [P] Create Tailwind and PostCSS configuration in `tailwind.config.js` and `postcss.config.js`
+- [x] T001 Initialize project dependencies (react, vite, tailwindcss, motion, etc.) in `package.json`
+- [x] T002 [P] Create Vite configuration in `vite.config.js`
+- [x] T003 [P] Create Tailwind and PostCSS configuration in `tailwind.config.js` and `postcss.config.js`
 
 ---
 
