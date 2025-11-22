@@ -33,9 +33,9 @@ description: "Task list for Hero React Migration"
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T004 [P] Create utility helper for class merging in `src/lib/utils.js`
-- [ ] T005 [P] Create global CSS with Tailwind directives in `src/index.css`
-- [ ] T006 Create Vite entry point HTML in `index.html` (replacing existing)
+- [x] T004 [P] Create utility helper for class merging in `src/lib/utils.js`
+- [x] T005 [P] Create global CSS with Tailwind directives in `src/index.css`
+- [x] T006 Create Vite entry point HTML in `index.html` (replacing existing)
 
 **Checkpoint**: Foundation ready - user story implementation can now begin
 
