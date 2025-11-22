@@ -1,10 +1,14 @@
 {
   "name": "vdanilov",
+  "private": true,
   "version": "1.0.0",
+  "type": "module",
   "description": "Personal website of Viacheslav Danilov",
   "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
     "prepare": "husky && node --eval \"fs.writeFileSync('.husky/pre-commit','npx lint-staged\\n')\"",
-    "start": "browser-sync start --server --files \"index.html, src/**/*\"",
     "check": "prettier --check .",
     "format": "prettier --write ."
   },
@@ -12,6 +16,7 @@
     "**/*": "prettier --write --ignore-unknown"
   },
   "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.17",
     "@vitejs/plugin-react": "^5.1.1",
     "autoprefixer": "^10.4.22",
     "browser-sync": "3.0.4",

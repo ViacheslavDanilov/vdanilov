@@ -49,9 +49,9 @@ description: "Task list for Hero React Migration"
 
 ### Implementation for User Story 1
 
-- [ ] T007 [US1] Create React entry point in `src/main.jsx`
-- [ ] T008 [US1] Create root App component in `src/App.jsx`
-- [ ] T009 [US1] Add build and dev scripts to `package.json`
+- [x] T007 [US1] Create React entry point in `src/main.jsx`
+- [x] T008 [US1] Create root App component in `src/App.jsx`
+- [x] T009 [US1] Add build and dev scripts to `package.json`
 
 **Checkpoint**: At this point, User Story 1 should be fully functional and testable independently (React app runs)
 
@@ -65,9 +65,9 @@ description: "Task list for Hero React Migration"
 
 ### Implementation for User Story 2
 
-- [ ] T010 [P] [US2] Create Flip Words component in `src/components/ui/flip-words.jsx`
-- [ ] T011 [US2] Create Hero component in `src/components/Hero.jsx`
-- [ ] T012 [US2] Integrate Hero component into App in `src/App.jsx`
+- [x] T010 [P] [US2] Create Flip Words component in `src/components/ui/flip-words.jsx`
+- [x] T011 [US2] Create Hero component in `src/components/Hero.jsx`
+- [x] T012 [US2] Integrate Hero component into App in `src/App.jsx`
 
 **Checkpoint**: At this point, User Stories 1 AND 2 should both work independently
 
@@ -77,9 +77,9 @@ description: "Task list for Hero React Migration"
 
 **Purpose**: Improvements that affect multiple user stories
 
-- [ ] T013 Clean up legacy files (e.g., old JS files if unused) in `js/`
-- [ ] T014 Verify responsive layout on mobile in `src/components/Hero.jsx`
-- [ ] T015 Verify video playback and fallback in `src/components/Hero.jsx`
+- [x] T013 Clean up legacy files (e.g., old JS files if unused) in `js/`
+- [x] T014 Verify responsive layout on mobile in `src/components/Hero.jsx`
+- [x] T015 Verify video playback and fallback in `src/components/Hero.jsx`
 
 ---
 
