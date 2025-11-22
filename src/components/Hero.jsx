@@ -37,7 +37,7 @@ const Hero = () => {
               aria-label="Contact via WhatsApp"
             >
               <Phone className="w-5 h-5 mr-2" />
-              Phone
+              WhatsApp
             </a>
             <a
               href="https://t.me/ballmaske"
