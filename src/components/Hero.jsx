@@ -2,6 +2,7 @@ import React from "react";
 import { FlipWords } from "./ui/flip-words";
 import { ShimmerButton } from "./ui/shimmer-button";
 import { Mail, Phone, Send, FileText, FolderGit2 } from "lucide-react";
+import profileVideo from "/content/viacheslav-danilov-1.mp4";
 
 const Hero = () => {
   const roles = ["Tech Lead", "Engineering Manager", "Research Scientist"];
@@ -91,7 +92,7 @@ const Hero = () => {
               playsInline
               className="w-full h-full object-cover"
             >
-              <source src="content/viacheslav-danilov-1.mp4" type="video/mp4" />
+              <source src={profileVideo} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
