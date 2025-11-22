@@ -5,7 +5,7 @@ const ShimmerButton = React.forwardRef(
   (
     {
       shimmerColor = "#ffffff",
-      shimmerSize = "0.1em",
+      shimmerSize = "0.025em",
       shimmerDuration = "3s",
       borderRadius = "25px",
       background = "#202020",

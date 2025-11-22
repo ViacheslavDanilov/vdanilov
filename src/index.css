@@ -6,3 +6,30 @@
   --color-accent: #03b1fb;
   --color-selection: #b3d6ff;
 }
+
+/* Shimmer Button Keyframes */
+@keyframes shimmer-slide {
+  to {
+    translate: calc(100cqw - 100%) 0;
+  }
+}
+
+@keyframes spin-around {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Shimmer Button Animation Classes */
+@layer utilities {
+  .animate-shimmer-slide {
+    animation: shimmer-slide var(--speed, 5s) ease-in-out infinite alternate;
+  }
+
+  .animate-spin-around {
+    animation: spin-around calc(var(--speed, 5s) * 2) infinite linear;
+  }
+}

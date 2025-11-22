@@ -53,6 +53,7 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 pt-6">
             <ShimmerButton
               className="shadow-2xl"
+              shimmerDuration="5s"
               onClick={() =>
                 window.open(
                   "https://drive.google.com/file/d/1jYs54eFCYc367ZKhWjH1Xfry4_sFI7Ir/view?usp=drive_link",
@@ -67,8 +68,9 @@ const Hero = () => {
             </ShimmerButton>
             <ShimmerButton
               className="shadow-2xl"
+              shimmerDuration="5s"
               onClick={() =>
-                (window.location.href = "https://vdanilov.com/portfolio/")
+                window.open("https://vdanilov.com/portfolio/", "_blank")
               }
             >
               <span className="whitespace-pre-wrap text-center text-base font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-xl flex items-center gap-2">
