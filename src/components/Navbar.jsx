@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { MenuBar } from "./ui/glow-menu";
+import { AnimatePresence, motion } from "motion/react";
 import {
   Home,
   Briefcase,
@@ -8,6 +9,8 @@ import {
   FolderGit2,
   BookOpen,
   Users,
+  Menu,
+  X,
 } from "lucide-react";
 
 // Menu glow gradient configuration
@@ -74,6 +77,7 @@ function Navbar() {
   const navigate = useNavigate();
   const location = useLocation();
   const [activeSection, setActiveSection] = useState("Home");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // Update active section based on current route
   useEffect(() => {
@@ -86,7 +90,20 @@ function Navbar() {
   // Navigation handler
   const handleNavClick = (label, href) => {
     navigate(href);
+    setIsMenuOpen(false); // Close mobile menu after navigation
   };
+
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (isMenuOpen && !event.target.closest("nav")) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isMenuOpen]);
 
   return (
     <nav className="relative top-0 left-0 right-0 z-50 bg-dark/95 backdrop-blur-sm border-b border-accent/20">
@@ -112,8 +129,61 @@ function Navbar() {
               onItemClick={handleNavClick}
             />
           </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="md:hidden p-2 text-light hover:text-accent transition-colors"
+            aria-label="Toggle menu"
+          >
+            {isMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
+          </button>
         </div>
       </div>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+            className="md:hidden absolute top-full left-0 right-0 bg-dark/98 backdrop-blur-lg border-b border-accent/20 shadow-lg"
+          >
+            <nav className="max-w-7xl mx-auto px-6 py-4">
+              <ul className="space-y-2">
+                {navItems.map((item) => {
+                  const Icon = item.icon;
+                  const isActive = item.label === activeSection;
+
+                  return (
+                    <li key={item.label}>
+                      <button
+                        onClick={() => handleNavClick(item.label, item.href)}
+                        className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all ${
+                          isActive
+                            ? "bg-accent/10 text-light"
+                            : "text-gray-400 hover:bg-accent/5 hover:text-light"
+                        }`}
+                      >
+                        <Icon
+                          className={`w-5 h-5 ${isActive ? item.iconColor : ""}`}
+                        />
+                        <span className="font-medium">{item.label}</span>
+                      </button>
+                    </li>
+                  );
+                })}
+              </ul>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }
