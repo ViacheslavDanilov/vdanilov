@@ -45,11 +45,11 @@
 
 ### Implementation for User Story 1
 
-- [ ] T007 [US1] Define --font-family-sans CSS custom property in `src/index.css` @theme block with system font stack
-- [ ] T008 [US1] Define --font-family-mono CSS custom property in `src/index.css` @theme block for code elements
-- [ ] T009 [US1] Apply font-family: var(--font-family-sans) to body element in `src/index.css`
-- [ ] T010 [US1] Verify Hero component and existing components use the centralized font automatically
-- [ ] T011 [US1] Test by changing font variable and confirming site-wide font update
+- [x] T007 [US1] Define --font-family-sans CSS custom property in `src/index.css` @theme block with system font stack
+- [x] T008 [US1] Define --font-family-mono CSS custom property in `src/index.css` @theme block for code elements
+- [x] T009 [US1] Apply font-family: var(--font-family-sans) to body element in `src/index.css`
+- [x] T010 [US1] Verify Hero component and existing components use the centralized font automatically
+- [x] T011 [US1] Test by changing font variable and confirming site-wide font update
 
 **Checkpoint**: Typography system complete and testable - verify by changing font variable
 
