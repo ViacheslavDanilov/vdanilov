@@ -1,5 +1,3 @@
-"use client";
-
 import * as React from "react";
 import { motion } from "motion/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -70,6 +68,7 @@ export const MenuBar = React.forwardRef(
             return (
               <motion.li key={item.label} className="relative">
                 <button
+                  type="button"
                   onClick={() => onItemClick?.(item.label, item.href)}
                   className="block w-full cursor-pointer"
                 >
@@ -107,7 +106,7 @@ export const MenuBar = React.forwardRef(
                         className={cn(
                           "transition-colors duration-300",
                           isActive ? item.iconColor : "text-light",
-                          `group-hover:${item.iconColor}`,
+                          // `group-hover:${item.iconColor}`,
                         )}
                       >
                         <FontAwesomeIcon icon={item.icon} className="h-5 w-5" />
@@ -133,7 +132,7 @@ export const MenuBar = React.forwardRef(
                         className={cn(
                           "transition-colors duration-300",
                           isActive ? item.iconColor : "text-light",
-                          `group-hover:${item.iconColor}`,
+                          // `group-hover:${item.iconColor}`,
                         )}
                       >
                         <FontAwesomeIcon icon={item.icon} className="h-5 w-5" />

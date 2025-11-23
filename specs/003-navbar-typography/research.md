@@ -103,6 +103,7 @@ navGlowVariants = {
 **Tailwind CSS 4.x @theme Directive**:
 
 ```css
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import "tailwindcss";
 
 @theme {
@@ -113,11 +114,12 @@ navGlowVariants = {
 
   /* Typography - NEW */
   --font-family-sans:
-    "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-family-mono:
-    ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas,
-    "DejaVu Sans Mono", monospace;
+    ui-monospace, SFMono-Regular, "SF Mono", Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
 }
 
 /* Apply default font */
@@ -131,16 +133,17 @@ body {
 - Matches existing color system pattern
 - Single source of truth for fonts
 - Easy to override for different font choices
-- Supports system font fallbacks
-- No external font loading needed (uses system fonts)
+- Supports system font fallbacks for when Google Fonts is unavailable
 
-**Alternative Considered**: Google Fonts (Inter) - Rejected because:
+**Implementation Note**: Originally planned to use system fonts only to avoid Google Fonts CDN, but switched to Google Fonts (Poppins) during implementation for superior typography quality and better visual hierarchy. The privacy/performance trade-off was accepted for the improved user experience.
 
-- Adds network dependency and load time
-- Privacy concerns (Google Fonts CDN tracking)
-- System fonts provide good quality with zero latency
+**Alternative Considered**: System fonts only - Rejected because:
 
-**Decision**: Use system font stack with Inter as preferred font (if installed locally), fallback to system-ui.
+- While privacy-friendly and zero latency
+- Poppins provides more refined typography and better brand identity
+- Google Fonts CDN is widely cached and performant
+
+**Decision**: Use Google Fonts (Poppins) with system font fallbacks for optimal typography.
 
 ## 3. Mobile Adaptation Strategy
 
@@ -188,39 +191,35 @@ body {
 
 **Decision**: Create separate mobile menu component within Navbar that shares the same MenuItem components but renders them vertically in an overlay.
 
-## 4. Icon Selection (Lucide React)
+## 4. Icon Selection (Font Awesome)
 
-**Navigation Icons** (already installed: lucide-react v0.554.0):
+**Implementation Note**: Originally planned to use Lucide React, but switched to Font Awesome during implementation for better icon variety and more comprehensive solid icon set.
 
-| Section      | Icon Component  | Rationale                                  |
-| ------------ | --------------- | ------------------------------------------ |
-| Home         | `Home`          | Standard home icon, universally recognized |
-| Experience   | `Briefcase`     | Represents professional work/career        |
-| Education    | `GraduationCap` | Academic achievement symbol                |
-| Portfolio    | `FolderGit2`    | Projects/code repository                   |
-| Publications | `BookOpen`      | Research papers/articles                   |
-| References   | `Users`         | People/contacts                            |
+**Navigation Icons** (Font Awesome Free Solid Icons v7.1.0):
+
+| Section      | Icon Component    | Rationale                                  |
+| ------------ | ----------------- | ------------------------------------------ |
+| Home         | `faHouse`         | Standard home icon, universally recognized |
+| Experience   | `faBriefcase`     | Represents professional work/career        |
+| Education    | `faGraduationCap` | Academic achievement symbol                |
+| Portfolio    | `faFolderOpen`    | Projects/code repository                   |
+| Publications | `faBook`          | Research papers/articles                   |
+| References   | `faUsers`         | People/contacts                            |
 
 **Icon Colors** (following 21st.dev pattern):
 
-- Home: `text-blue-500` (matches site accent color)
-- Experience: `text-purple-500`
-- Education: `text-green-500`
-- Portfolio: `text-orange-500`
-- Publications: `text-red-500`
-- References: `text-yellow-500`
+- All icons: `text-blue-500` (unified color scheme for cohesive design)
 
 **Gradient Definitions** (for glow effects):
 
 ```javascript
-{
-  Home: "radial-gradient(circle, rgba(59,130,246,0.15) 0%, rgba(37,99,235,0.06) 50%, rgba(29,78,216,0) 100%)",
-  Experience: "radial-gradient(circle, rgba(168,85,247,0.15) 0%, rgba(147,51,234,0.06) 50%, rgba(126,34,206,0) 100%)",
-  // ... etc
-}
+// Cool Blue (Soft) - Unified gradient for all menu items
+const GLOW_GRADIENT =
+  "radial-gradient(circle, rgba(3, 177, 251, 0.2) 0%, rgba(2,141,200,0.075) 50%, rgba(1,106,150,0) 100%)";
+const ICON_COLOR = "text-blue-500";
 ```
 
-**Decision**: Use Lucide React icons with color-coded gradients to create visual distinction between sections while maintaining cohesive design.
+**Decision**: Use Font Awesome icons with unified blue gradient to create consistent visual identity across all navigation items.
 
 ## 5. Smooth Scroll Implementation
 

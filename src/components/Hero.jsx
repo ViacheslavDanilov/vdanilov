@@ -9,7 +9,6 @@ import {
   faFileArrowDown,
   faFolderOpen,
 } from "@fortawesome/free-solid-svg-icons";
-import profileVideo from "/hero.mp4";
 
 const Hero = () => {
   const roles = ["Tech Lead", "Engineering Manager", "Research Scientist"];
@@ -99,7 +98,10 @@ const Hero = () => {
               playsInline
               className="w-full h-full object-cover"
             >
-              <source src={profileVideo} type="video/mp4" />
+              <source
+                src={`${import.meta.env.BASE_URL}hero.mp4`}
+                type="video/mp4"
+              />
               Your browser does not support the video tag.
             </video>
           </div>

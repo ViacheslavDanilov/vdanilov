@@ -106,13 +106,14 @@ function Navbar() {
   }, [isMenuOpen]);
 
   return (
-    <nav className="relative top-0 left-0 right-0 z-50 bg-dark/95 backdrop-blur-sm border-b border-accent/20">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-dark/95 backdrop-blur-sm border-b border-accent/20">
       <div className="max-w-7xl mx-auto px-6 py-3">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <button
             onClick={() => navigate("/")}
             className="flex items-center gap-2 hover:opacity-80 transition-opacity cursor-pointer bg-transparent border-none"
+            aria-label="Go to home page"
           >
             <img
               src={`${import.meta.env.BASE_URL}logo.png`}
@@ -163,6 +164,7 @@ function Navbar() {
                   return (
                     <li key={item.label}>
                       <button
+                        type="button"
                         onClick={() => handleNavClick(item.label, item.href)}
                         className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all ${
                           isActive
