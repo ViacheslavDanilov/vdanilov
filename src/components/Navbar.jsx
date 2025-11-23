@@ -115,7 +115,7 @@ function Navbar() {
             className="flex items-center gap-2 hover:opacity-80 transition-opacity cursor-pointer bg-transparent border-none"
           >
             <img
-              src={`${import.meta.env.BASE_URL}content/logo.png`}
+              src={`${import.meta.env.BASE_URL}logo.png`}
               alt="Viacheslav Danilov"
               className="h-10 w-auto"
             />
