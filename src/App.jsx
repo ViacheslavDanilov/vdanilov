@@ -10,7 +10,7 @@ import References from "./pages/References";
 
 function App() {
   return (
-    <Router basename="/vdanilov">
+    <Router basename={import.meta.env.BASE_URL}>
       <div className="min-h-screen bg-dark text-light">
         <Navbar />
         <main>
