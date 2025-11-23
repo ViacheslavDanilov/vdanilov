@@ -13,7 +13,7 @@ function App() {
     <Router basename={import.meta.env.BASE_URL}>
       <div className="min-h-screen bg-dark text-light">
         <Navbar />
-        <main>
+        <main className="pt-16">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/experience" element={<Experience />} />
