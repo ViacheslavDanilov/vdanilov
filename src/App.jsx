@@ -1,13 +1,30 @@
 import React from "react";
-import Hero from "./components/Hero";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import Experience from "./pages/Experience";
+import Education from "./pages/Education";
+import Portfolio from "./pages/Portfolio";
+import Publications from "./pages/Publications";
+import References from "./pages/References";
 
 function App() {
   return (
-    <div className="min-h-screen bg-dark text-light">
-      <main className="min-h-screen flex items-center justify-center">
-        <Hero />
-      </main>
-    </div>
+    <Router basename="/vdanilov">
+      <div className="min-h-screen bg-dark text-light">
+        <Navbar />
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/experience" element={<Experience />} />
+            <Route path="/education" element={<Education />} />
+            <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/publications" element={<Publications />} />
+            <Route path="/references" element={<References />} />
+          </Routes>
+        </main>
+      </div>
+    </Router>
   );
 }
 

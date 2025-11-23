@@ -63,16 +63,16 @@
 
 ### Implementation for User Story 2
 
-- [ ] T012 [P] [US2] Create `src/components/ui/glow-menu.jsx` with 21st.dev base component (Motion animation variants, 3D flip, glow effects)
-- [ ] T013 [P] [US2] Define navigation items array in `src/components/Navbar.jsx` with icons from lucide-react (Home, Briefcase, GraduationCap, FolderGit2, BookOpen, Users)
-- [ ] T014 [US2] Create `src/components/Navbar.jsx` skeleton with fixed positioning and glassmorphism styling
-- [ ] T015 [US2] Integrate logo into Navbar (left side, separate from menu items) in `src/components/Navbar.jsx`
-- [ ] T016 [US2] Integrate GlowMenu component for desktop layout (hidden on mobile) in `src/components/Navbar.jsx`
-- [ ] T017 [US2] Implement smooth scroll onClick handler using native scrollIntoView API in `src/components/Navbar.jsx`
-- [ ] T018 [US2] Implement Intersection Observer scroll spy for active section tracking in `src/components/Navbar.jsx`
-- [ ] T019 [US2] Add placeholder sections to `src/App.jsx` (id="home", "experience", "education", "portfolio", "publications", "references")
-- [ ] T020 [US2] Integrate Navbar component into `src/App.jsx` at the top level
-- [ ] T021 [US2] Test desktop navigation: hover animations, smooth scroll, active section highlighting, logo click to home
+- [x] T012 [P] [US2] Create `src/components/ui/glow-menu.jsx` with 21st.dev base component (Motion animation variants, 3D flip, glow effects)
+- [x] T013 [P] [US2] Define navigation items array in `src/components/Navbar.jsx` with icons from lucide-react (Home, Briefcase, GraduationCap, FolderGit2, BookOpen, Users)
+- [x] T014 [US2] Create `src/components/Navbar.jsx` skeleton with fixed positioning and glassmorphism styling
+- [x] T015 [US2] Integrate logo into Navbar (left side, separate from menu items) in `src/components/Navbar.jsx`
+- [x] T016 [US2] Integrate GlowMenu component for desktop layout (hidden on mobile) in `src/components/Navbar.jsx`
+- [x] T017 [US2] Implement smooth scroll onClick handler using native scrollIntoView API in `src/components/Navbar.jsx`
+- [x] T018 [US2] Implement Intersection Observer scroll spy for active section tracking in `src/components/Navbar.jsx`
+- [x] T019 [US2] Add placeholder sections to `src/App.jsx` (id="home", "experience", "education", "portfolio", "publications", "references")
+- [x] T020 [US2] Integrate Navbar component into `src/App.jsx` at the top level
+- [x] T021 [US2] Test desktop navigation: hover animations, smooth scroll, active section highlighting, logo click to home
 
 **Checkpoint**: Desktop navigation fully functional with animations and smooth scrolling
 
