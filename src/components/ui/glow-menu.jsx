@@ -71,7 +71,7 @@ export const MenuBar = React.forwardRef(
               <motion.li key={item.label} className="relative">
                 <button
                   onClick={() => onItemClick?.(item.label, item.href)}
-                  className="block w-full"
+                  className="block w-full cursor-pointer"
                 >
                   <motion.div
                     className="block rounded-xl overflow-visible group relative"
