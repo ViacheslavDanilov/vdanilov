@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import { motion } from "motion/react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { cn } from "../../lib/utils";
 
 // Animation Variants
@@ -64,7 +65,6 @@ export const MenuBar = React.forwardRef(
         />
         <ul className="flex items-center gap-2 relative z-10">
           {items.map((item) => {
-            const Icon = item.icon;
             const isActive = item.label === activeItem;
 
             return (
@@ -110,7 +110,7 @@ export const MenuBar = React.forwardRef(
                           `group-hover:${item.iconColor}`,
                         )}
                       >
-                        <Icon className="h-5 w-5" />
+                        <FontAwesomeIcon icon={item.icon} className="h-5 w-5" />
                       </span>
                       <span>{item.label}</span>
                     </motion.div>
@@ -136,7 +136,7 @@ export const MenuBar = React.forwardRef(
                           `group-hover:${item.iconColor}`,
                         )}
                       >
-                        <Icon className="h-5 w-5" />
+                        <FontAwesomeIcon icon={item.icon} className="h-5 w-5" />
                       </span>
                       <span>{item.label}</span>
                     </motion.div>

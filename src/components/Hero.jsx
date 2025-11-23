@@ -1,7 +1,14 @@
 import React from "react";
 import { FlipWords } from "./ui/flip-words";
 import { ShimmerButton } from "./ui/shimmer-button";
-import { Mail, Phone, Send, FileText, FolderGit2 } from "lucide-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faEnvelope,
+  faPhone,
+  faPaperPlane,
+  faFileArrowDown,
+  faFolderOpen,
+} from "@fortawesome/free-solid-svg-icons";
 import profileVideo from "/hero.mp4";
 
 const Hero = () => {
@@ -29,7 +36,7 @@ const Hero = () => {
               className="flex items-center hover:text-accent transition-colors duration-300"
               aria-label="Email Viacheslav Danilov"
             >
-              <Mail className="w-5 h-5 mr-2" />
+              <FontAwesomeIcon icon={faEnvelope} className="w-5 h-5 mr-2" />
               Email
             </a>
             <a
@@ -37,7 +44,7 @@ const Hero = () => {
               className="flex items-center hover:text-accent transition-colors duration-300"
               aria-label="Contact via WhatsApp"
             >
-              <Phone className="w-5 h-5 mr-2" />
+              <FontAwesomeIcon icon={faPhone} className="w-5 h-5 mr-2" />
               WhatsApp
             </a>
             <a
@@ -45,7 +52,7 @@ const Hero = () => {
               className="flex items-center hover:text-accent transition-colors duration-300"
               aria-label="Contact via Telegram"
             >
-              <Send className="w-5 h-5 mr-2" />
+              <FontAwesomeIcon icon={faPaperPlane} className="w-5 h-5 mr-2" />
               Telegram
             </a>
           </div>
@@ -63,7 +70,7 @@ const Hero = () => {
               }
             >
               <span className="whitespace-pre-wrap text-center text-base font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg flex items-center gap-2">
-                <FileText className="w-5 h-5" />
+                <FontAwesomeIcon icon={faFileArrowDown} className="w-5 h-5" />
                 Download CV
               </span>
             </ShimmerButton>
@@ -75,7 +82,7 @@ const Hero = () => {
               }
             >
               <span className="whitespace-pre-wrap text-center text-base font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg flex items-center gap-2">
-                <FolderGit2 className="w-5 h-5" />
+                <FontAwesomeIcon icon={faFolderOpen} className="w-5 h-5" />
                 View my projects
               </span>
             </ShimmerButton>

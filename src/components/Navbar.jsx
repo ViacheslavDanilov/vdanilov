@@ -2,16 +2,17 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { MenuBar } from "./ui/glow-menu";
 import { AnimatePresence, motion } from "motion/react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  Home,
-  Briefcase,
-  GraduationCap,
-  FolderGit2,
-  BookOpen,
-  Users,
-  Menu,
-  X,
-} from "lucide-react";
+  faHouse,
+  faBriefcase,
+  faGraduationCap,
+  faFolderOpen,
+  faBook,
+  faUsers,
+  faBars,
+  faXmark,
+} from "@fortawesome/free-solid-svg-icons";
 
 // Menu glow gradient configuration
 // Cool Blue (Soft)
@@ -30,42 +31,42 @@ const ICON_COLOR = "text-blue-500";
 // Navigation Items Array
 const navItems = [
   {
-    icon: Home,
+    icon: faHouse,
     label: "Home",
     href: "/",
     gradient: GLOW_GRADIENT,
     iconColor: ICON_COLOR,
   },
   {
-    icon: Briefcase,
+    icon: faBriefcase,
     label: "Experience",
     href: "/experience",
     gradient: GLOW_GRADIENT,
     iconColor: ICON_COLOR,
   },
   {
-    icon: GraduationCap,
+    icon: faGraduationCap,
     label: "Education",
     href: "/education",
     gradient: GLOW_GRADIENT,
     iconColor: ICON_COLOR,
   },
   {
-    icon: FolderGit2,
+    icon: faFolderOpen,
     label: "Portfolio",
     href: "/portfolio",
     gradient: GLOW_GRADIENT,
     iconColor: ICON_COLOR,
   },
   {
-    icon: BookOpen,
+    icon: faBook,
     label: "Publications",
     href: "/publications",
     gradient: GLOW_GRADIENT,
     iconColor: ICON_COLOR,
   },
   {
-    icon: Users,
+    icon: faUsers,
     label: "References",
     href: "/references",
     gradient: GLOW_GRADIENT,
@@ -136,11 +137,10 @@ function Navbar() {
             className="md:hidden p-2 text-light hover:text-accent transition-colors"
             aria-label="Toggle menu"
           >
-            {isMenuOpen ? (
-              <X className="w-6 h-6" />
-            ) : (
-              <Menu className="w-6 h-6" />
-            )}
+            <FontAwesomeIcon
+              icon={isMenuOpen ? faXmark : faBars}
+              className="w-6 h-6"
+            />
           </button>
         </div>
       </div>
@@ -158,7 +158,6 @@ function Navbar() {
             <nav className="max-w-7xl mx-auto px-6 py-4">
               <ul className="space-y-2">
                 {navItems.map((item) => {
-                  const Icon = item.icon;
                   const isActive = item.label === activeSection;
 
                   return (
@@ -171,7 +170,8 @@ function Navbar() {
                             : "text-gray-400 hover:bg-accent/5 hover:text-light"
                         }`}
                       >
-                        <Icon
+                        <FontAwesomeIcon
+                          icon={item.icon}
                           className={`w-5 h-5 ${isActive ? item.iconColor : ""}`}
                         />
                         <span className="font-medium">{item.label}</span>
