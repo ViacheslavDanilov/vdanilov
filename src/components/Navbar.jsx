@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { MenuBar } from "./ui/glow-menu";
+import { MenuToggleIcon } from "./ui/menu-toggle-icon";
 import { AnimatePresence, motion } from "motion/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -10,8 +11,6 @@ import {
   faFolderOpen,
   faBook,
   faUsers,
-  faBars,
-  faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 
 // Menu glow gradient configuration
@@ -137,9 +136,10 @@ function Navbar() {
             className="md:hidden p-2 text-light hover:text-accent transition-colors"
             aria-label="Toggle menu"
           >
-            <FontAwesomeIcon
-              icon={isMenuOpen ? faXmark : faBars}
-              className="w-6 h-6"
+            <MenuToggleIcon
+              open={isMenuOpen}
+              className="w-8 h-8"
+              duration={500}
             />
           </button>
         </div>
