@@ -1,8 +1,14 @@
 import React from "react";
 import { FlipWords } from "./ui/flip-words";
 import { ShimmerButton } from "./ui/shimmer-button";
-import { Mail, Phone, Send, FileText, FolderGit2 } from "lucide-react";
-import profileVideo from "/content/viacheslav-danilov-1.mp4";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faEnvelope,
+  faPhone,
+  faPaperPlane,
+  faFileArrowDown,
+  faFolderOpen,
+} from "@fortawesome/free-solid-svg-icons";
 
 const Hero = () => {
   const roles = ["Tech Lead", "Engineering Manager", "Research Scientist"];
@@ -15,10 +21,10 @@ const Hero = () => {
           <p className="text-lg md:text-xl text-accent font-medium">
             Hi there, I am
           </p>
-          <h1 className="text-4xl md:text-6xl font-bold text-light tracking-tight">
+          <h1 className="text-4xl md:text-5xl font-semibold text-light tracking-tight">
             Viacheslav Danilov, PhD
           </h1>
-          <h2 className="text-2xl md:text-3xl text-gray-400 min-h-[1.5em] flex items-center justify-center md:justify-start">
+          <h2 className="text-2xl md:text-3xl text-gray-400 min-h-[2.0em] flex items-center justify-center md:justify-start">
             <FlipWords words={roles} className="text-light" />
           </h2>
 
@@ -29,7 +35,7 @@ const Hero = () => {
               className="flex items-center hover:text-accent transition-colors duration-300"
               aria-label="Email Viacheslav Danilov"
             >
-              <Mail className="w-5 h-5 mr-2" />
+              <FontAwesomeIcon icon={faEnvelope} className="w-5 h-5 mr-2" />
               Email
             </a>
             <a
@@ -37,7 +43,7 @@ const Hero = () => {
               className="flex items-center hover:text-accent transition-colors duration-300"
               aria-label="Contact via WhatsApp"
             >
-              <Phone className="w-5 h-5 mr-2" />
+              <FontAwesomeIcon icon={faPhone} className="w-5 h-5 mr-2" />
               WhatsApp
             </a>
             <a
@@ -45,7 +51,7 @@ const Hero = () => {
               className="flex items-center hover:text-accent transition-colors duration-300"
               aria-label="Contact via Telegram"
             >
-              <Send className="w-5 h-5 mr-2" />
+              <FontAwesomeIcon icon={faPaperPlane} className="w-5 h-5 mr-2" />
               Telegram
             </a>
           </div>
@@ -62,8 +68,8 @@ const Hero = () => {
                 )
               }
             >
-              <span className="whitespace-pre-wrap text-center text-base font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-xl flex items-center gap-2">
-                <FileText className="w-5 h-5" />
+              <span className="whitespace-pre-wrap text-center text-base font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg flex items-center gap-2">
+                <FontAwesomeIcon icon={faFileArrowDown} className="w-5 h-5" />
                 Download CV
               </span>
             </ShimmerButton>
@@ -74,8 +80,8 @@ const Hero = () => {
                 window.open("https://vdanilov.com/portfolio/", "_blank")
               }
             >
-              <span className="whitespace-pre-wrap text-center text-base font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-xl flex items-center gap-2">
-                <FolderGit2 className="w-5 h-5" />
+              <span className="whitespace-pre-wrap text-center text-base font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg flex items-center gap-2">
+                <FontAwesomeIcon icon={faFolderOpen} className="w-5 h-5" />
                 View my projects
               </span>
             </ShimmerButton>
@@ -92,7 +98,10 @@ const Hero = () => {
               playsInline
               className="w-full h-full object-cover"
             >
-              <source src={profileVideo} type="video/mp4" />
+              <source
+                src={`${import.meta.env.BASE_URL}hero.mp4`}
+                type="video/mp4"
+              />
               Your browser does not support the video tag.
             </video>
           </div>
