@@ -49,3 +49,11 @@ body {
     animation: spin-around calc(var(--speed, 5s) * 2) infinite linear;
   }
 }
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .animate-spin,
+  .animate-\[spin_2s_linear_infinite\] {
+    animation: none !important;
+  }
+}

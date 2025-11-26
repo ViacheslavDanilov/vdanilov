@@ -29,10 +29,10 @@
 
 **⚠️ CRITICAL**: US2 tasks depend on this foundation being complete
 
-- [ ] T001 [P] Create components/ui/animated-gradient-button.jsx file
-- [ ] T002 Implement AnimatedGradientButton component with gradient animation (conic-gradient, spin animation)
-- [ ] T003 [P] Add reduced motion support in app/globals.css for prefers-reduced-motion media query
-- [ ] T004 Test AnimatedGradientButton renders with spinning gradient border in isolation
+- [x] T001 [P] Create components/ui/animated-gradient-button.jsx file
+- [x] T002 Implement AnimatedGradientButton component with gradient animation (conic-gradient, spin animation)
+- [x] T003 [P] Add reduced motion support in app/globals.css for prefers-reduced-motion media query
+- [x] T004 Test AnimatedGradientButton renders with spinning gradient border in isolation
 
 **Checkpoint**: AnimatedGradientButton component is ready - can now modify Hero.jsx
 
