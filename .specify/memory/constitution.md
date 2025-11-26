@@ -14,14 +14,6 @@ Templates Checked:
 - .specify/templates/plan-template.md: ✅ Compatible (generic React structure applies)
 - .specify/templates/spec-template.md: ✅ Compatible
 - .specify/templates/tasks-template.md: ✅ Compatible
-
-Follow-up TODOs:
-- Migration from Vite to Next.js: Convert vite.config.js to next.config.js
-- Refactor existing components to distinguish Server Components (default) vs Client Components ('use client')
-- Migrate routing from React Router to Next.js App Router file-based routing
-- Replace manual lazy loading with Next.js automatic code splitting
-- Implement Next.js Image component for all images
-- Leverage Next.js Metadata API for SEO
 -->
 
 # vdanilov.com Build Constitution

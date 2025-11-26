@@ -6,10 +6,11 @@
 
 ## What's here
 
-- Modern React application built with Vite
+- Modern React application built with Next.js 15
 - Tailwind CSS v4 for styling
 - Framer Motion for animations
 - Responsive design with mobile-first approach
+- Static site generation for GitHub Pages
 
 ## Install
 
@@ -38,18 +39,36 @@ Start the development server with hot reload:
 npm run dev
 ```
 
-The site will be available at `http://localhost:5173`
+The site will be available at `http://localhost:3000`
 
 ## Build
 
-Build for production:
+Build for production (static export):
 
 ```sh
 npm run build
 ```
 
-Preview production build:
+The production build will be output to the `out/` directory.
+
+Preview production build locally:
 
 ```sh
-npm run preview
+npx serve out
 ```
+
+## Code Quality
+
+Format code with Prettier:
+
+```sh
+npm run format
+```
+
+Check code formatting:
+
+```sh
+npm run check
+```
+
+Pre-commit hooks automatically format staged files before each commit.
