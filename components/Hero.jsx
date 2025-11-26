@@ -2,15 +2,9 @@
 
 import React from "react";
 import { FlipWords } from "@/components/ui/flip-words";
-import { ShimmerButton } from "@/components/ui/shimmer-button";
+import { AnimatedGradientButton } from "@/components/ui/animated-gradient-button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faEnvelope,
-  faPhone,
-  faPaperPlane,
-  faFileArrowDown,
-  faFolderOpen,
-} from "@fortawesome/free-solid-svg-icons";
+import { faFileArrowDown } from "@fortawesome/free-solid-svg-icons";
 
 const Hero = () => {
   const roles = ["Tech Lead", "Engineering Manager", "Research Scientist"];
@@ -33,35 +27,21 @@ const Hero = () => {
             Leadership.
           </p>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 pt-6">
-            <ShimmerButton
-              className="shadow-2xl"
-              shimmerDuration="5s"
-              onClick={() =>
-                window.open(
-                  "https://drive.google.com/file/d/1jYs54eFCYc367ZKhWjH1Xfry4_sFI7Ir/view?usp=drive_link",
-                  "_blank",
-                )
-              }
+          {/* CTA Button */}
+          <div className="flex items-center justify-center md:justify-start pt-6">
+            <AnimatedGradientButton
+              href="https://drive.google.com/file/d/1jYs54eFCYc367ZKhWjH1Xfry4_sFI7Ir/view?usp=drive_link"
+              target="_blank"
+              gradient="purple"
+              ariaLabel="Download CV"
+              className="text-base lg:text-lg font-medium"
             >
-              <span className="whitespace-pre-wrap text-center text-base font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg flex items-center gap-2">
-                <FontAwesomeIcon icon={faFileArrowDown} className="w-5 h-5" />
-                Download CV
-              </span>
-            </ShimmerButton>
-            <ShimmerButton
-              className="shadow-2xl"
-              shimmerDuration="5s"
-              onClick={() =>
-                window.open("https://vdanilov.com/portfolio/", "_blank")
-              }
-            >
-              <span className="whitespace-pre-wrap text-center text-base font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg flex items-center gap-2">
-                <FontAwesomeIcon icon={faFolderOpen} className="w-5 h-5" />
-                View my projects
-              </span>
-            </ShimmerButton>
+              <FontAwesomeIcon
+                icon={faFileArrowDown}
+                className="w-5 h-5 mr-2"
+              />
+              Download CV
+            </AnimatedGradientButton>
           </div>
         </div>
 

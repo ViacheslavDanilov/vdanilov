@@ -71,21 +71,21 @@
 
 ### Implementation for User Story 2
 
-- [ ] T014 [US2] Update imports in components/Hero.jsx: add AnimatedGradientButton, remove unused ShimmerButton import (if no longer used)
-- [ ] T015 [US2] Remove "View my projects" ShimmerButton from CTA section in components/Hero.jsx
-- [ ] T016 [US2] Replace "Download CV" ShimmerButton with AnimatedGradientButton in components/Hero.jsx
-- [ ] T017 [US2] Configure AnimatedGradientButton props: href (CV link), target="\_blank", gradient="purple", ariaLabel="Download CV"
-- [ ] T018 [US2] Add FontAwesomeIcon (faFileArrowDown) inside AnimatedGradientButton with proper styling
+- [x] T014 [US2] Update imports in components/Hero.jsx: add AnimatedGradientButton, remove unused ShimmerButton import (if no longer used)
+- [x] T015 [US2] Remove "View my projects" ShimmerButton from CTA section in components/Hero.jsx
+- [x] T016 [US2] Replace "Download CV" ShimmerButton with AnimatedGradientButton in components/Hero.jsx
+- [x] T017 [US2] Configure AnimatedGradientButton props: href (CV link), target="\_blank", gradient="purple", ariaLabel="Download CV"
+- [x] T018 [US2] Add FontAwesomeIcon (faFileArrowDown) inside AnimatedGradientButton with proper styling
 
 ### Validation for User Story 2
 
-- [ ] T019 [US2] Verify only one button ("Download CV") is visible in hero section
-- [ ] T020 [US2] Verify button displays animated gradient border (spinning conic gradient)
-- [ ] T021 [US2] Test button click opens CV in new tab (https://drive.google.com/file/d/1jYs54eFCYc367ZKhWjH1Xfry4_sFI7Ir/view?usp=drive_link)
-- [ ] T022 [US2] Test button hover state shows visual feedback (gradient intensification)
-- [ ] T023 [US2] Verify "View my projects" button is not visible
-- [ ] T024 [US2] Test keyboard navigation: Tab to button, Enter key activates link
-- [ ] T025 [US2] Test button on mobile devices (touch target ≥44x44px)
+- [x] T019 [US2] Verify only one button ("Download CV") is visible in hero section
+- [x] T020 [US2] Verify button displays animated gradient border (spinning conic gradient)
+- [x] T021 [US2] Test button click opens CV in new tab (https://drive.google.com/file/d/1jYs54eFCYc367ZKhWjH1Xfry4_sFI7Ir/view?usp=drive_link)
+- [x] T022 [US2] Test button hover state shows visual feedback (gradient intensification)
+- [x] T023 [US2] Verify "View my projects" button is not visible
+- [x] T024 [US2] Test keyboard navigation: Tab to button, Enter key activates link
+- [x] T025 [US2] Test button on mobile devices (touch target ≥44x44px)
 
 **Checkpoint**: User Story 2 complete - Single premium animated button in hero section
 

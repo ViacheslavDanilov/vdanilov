@@ -4,10 +4,10 @@ import React from "react";
 import { cn } from "@/lib/utils";
 
 const gradients = {
-  blue: "bg-[conic-gradient(from_90deg_at_50%_50%,#60a5fa_0%,#3b82f6_50%,#60a5fa_100%)]",
+  blue: "bg-[conic-gradient(from_90deg_at_50%_50%,#60A5FA_0%,#1E40AF_50%,#60A5FA_100%)]",
   purple:
-    "bg-[conic-gradient(from_90deg_at_50%_50%,#e879f9_0%,#a855f7_50%,#e879f9_100%)]",
-  pink: "bg-[conic-gradient(from_90deg_at_50%_50%,#fda4af_0%,#f43f5e_50%,#fda4af_100%)]",
+    "bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]",
+  pink: "bg-[conic-gradient(from_90deg_at_50%_50%,#FBCFE8_0%,#DB2777_50%,#FBCFE8_100%)]",
 };
 
 export const AnimatedGradientButton = React.forwardRef(
@@ -17,7 +17,7 @@ export const AnimatedGradientButton = React.forwardRef(
       target = "_blank",
       className,
       gradient = "purple",
-      duration = "2s",
+      duration = "3s",
       ariaLabel,
       children,
       ...props
@@ -38,8 +38,8 @@ export const AnimatedGradientButton = React.forwardRef(
           aria-hidden="true"
         />
 
-        {/* Button background */}
-        <div className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-white dark:bg-gray-950">
+        {/* Button background and content */}
+        <div className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-gray-950 text-xs font-medium backdrop-blur-3xl">
           <a
             ref={ref}
             href={href}
@@ -47,16 +47,14 @@ export const AnimatedGradientButton = React.forwardRef(
             rel={target === "_blank" ? "noopener noreferrer" : undefined}
             aria-label={ariaLabel}
             className={cn(
-              "inline-flex rounded-full text-center group items-center justify-center",
-              "bg-gradient-to-tr from-zinc-300/20 via-purple-400/30 to-transparent",
-              "dark:from-zinc-300/5 dark:via-purple-400/20",
-              "text-gray-900 dark:text-white",
-              "border-input border-[1px]",
-              "hover:bg-gradient-to-tr hover:from-zinc-300/30 hover:via-purple-400/40 hover:to-transparent",
-              "dark:hover:from-zinc-300/10 dark:hover:via-purple-400/30",
-              "transition-all duration-300",
-              "py-4 px-10",
-              "focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-gray-950",
+              "inline-flex rounded-full text-center group items-center w-full justify-center",
+              "bg-gradient-to-tr from-zinc-300/5 via-purple-400/20 to-transparent",
+              "text-white",
+              "border-[#262629] border-[1px]",
+              "hover:bg-gradient-to-tr hover:from-zinc-300/10 hover:via-purple-400/30 hover:to-transparent",
+              "transition-all",
+              "sm:w-auto py-4 px-10",
+              "focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-gray-950",
               className,
             )}
             {...props}
