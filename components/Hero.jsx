@@ -1,6 +1,8 @@
+"use client";
+
 import React from "react";
-import { FlipWords } from "./ui/flip-words";
-import { ShimmerButton } from "./ui/shimmer-button";
+import { FlipWords } from "@/components/ui/flip-words";
+import { ShimmerButton } from "@/components/ui/shimmer-button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faEnvelope,
@@ -98,10 +100,7 @@ const Hero = () => {
               playsInline
               className="w-full h-full object-cover"
             >
-              <source
-                src={`${import.meta.env.BASE_URL}hero.mp4`}
-                type="video/mp4"
-              />
+              <source src="/hero.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>

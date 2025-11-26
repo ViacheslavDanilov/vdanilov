@@ -1,7 +1,9 @@
+"use client";
+
 import * as React from "react";
 import { motion } from "motion/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { cn } from "../../lib/utils";
+import { cn } from "@/lib/utils";
 
 // Animation Variants
 const itemVariants = {
