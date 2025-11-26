@@ -19,14 +19,14 @@
 
 **Purpose**: Initialize Next.js project structure and remove Vite dependencies
 
-- [ ] T001 Install Next.js 15.1.8 and remove Vite dependencies from package.json
-- [ ] T002 [P] Create next.config.mjs with static export and basePath configuration
-- [ ] T003 [P] Create jsconfig.json for path aliases (`@/` mapping)
-- [ ] T004 [P] Update postcss.config.mjs for Next.js compatibility
-- [ ] T005 [P] Update .gitignore to include .next/ and out/ directories
-- [ ] T006 Create app/ directory structure (layout.jsx, page.jsx, subdirectories)
-- [ ] T007 Create components/ directory at root level
-- [ ] T008 Create lib/ directory at root level
+- [x] T001 Install Next.js 15.1.8 and remove Vite dependencies from package.json
+- [x] T002 [P] Create next.config.mjs with static export and basePath configuration
+- [x] T003 [P] Create jsconfig.json for path aliases (`@/` mapping)
+- [x] T004 [P] Update postcss.config.mjs for Next.js compatibility
+- [x] T005 [P] Update .gitignore to include .next/ and out/ directories
+- [x] T006 Create app/ directory structure (layout.jsx, page.jsx, subdirectories)
+- [x] T007 Create components/ directory at root level
+- [x] T008 Create lib/ directory at root level
 
 ---
 

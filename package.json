@@ -5,9 +5,9 @@
   "type": "module",
   "description": "Personal website of Viacheslav Danilov",
   "scripts": {
-    "dev": "vite --host",
-    "build": "vite build",
-    "preview": "vite preview",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
     "prepare": "husky && node --eval \"fs.writeFileSync('.husky/pre-commit','npx lint-staged\\n')\"",
     "check": "prettier --check .",
     "format": "prettier --write ."
@@ -17,14 +17,12 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.17",
-    "@vitejs/plugin-react": "^5.1.1",
     "autoprefixer": "^10.4.22",
     "husky": "9.1.7",
     "lint-staged": "16.2.4",
     "postcss": "^8.5.6",
     "prettier": "3.6.2",
-    "tailwindcss": "^4.1.17",
-    "vite": "^7.2.4"
+    "tailwindcss": "^4.1.17"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^7.1.0",
@@ -33,9 +31,9 @@
     "@fortawesome/react-fontawesome": "^3.1.0",
     "clsx": "^2.1.1",
     "motion": "^12.23.24",
+    "next": "15.1.8",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "react-router-dom": "^7.9.6",
     "tailwind-merge": "^3.4.0"
   }
 }
