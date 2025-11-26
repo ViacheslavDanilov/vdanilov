@@ -55,44 +55,44 @@
 
 ### Component Migration for User Story 1
 
-- [ ] T015 [P] [US1] Add 'use client' directive to components/ui/flip-words.jsx and update motion import
-- [ ] T016 [P] [US1] Add 'use client' directive to components/ui/menu-toggle-icon.jsx and update motion import
-- [ ] T017 [P] [US1] Add 'use client' directive to components/ui/shimmer-button.jsx and update motion import
-- [ ] T018 [P] [US1] Add 'use client' directive to components/ui/glow-menu.jsx and verify event handlers
-- [ ] T019 [US1] Move src/components/ to components/ preserving ui/ subdirectory structure
-- [ ] T020 [US1] Add 'use client' to components/Hero.jsx and update video source path from import.meta.env.BASE_URL to direct /hero.mp4 path
-- [ ] T021 [US1] Add 'use client' to components/Navbar.jsx, replace React Router imports with next/navigation (useRouter, usePathname), replace useNavigate with router.push, replace useLocation with usePathname, update logo image path
-- [ ] T022 [US1] Update all component imports in components/Navbar.jsx to use @/ path alias
+- [x] T015 [P] [US1] Add 'use client' directive to components/ui/flip-words.jsx and update motion import
+- [x] T016 [P] [US1] Add 'use client' directive to components/ui/menu-toggle-icon.jsx and update motion import
+- [x] T017 [P] [US1] Add 'use client' directive to components/ui/shimmer-button.jsx and update motion import
+- [x] T018 [P] [US1] Add 'use client' directive to components/ui/glow-menu.jsx and verify event handlers
+- [x] T019 [US1] Move src/components/ to components/ preserving ui/ subdirectory structure
+- [x] T020 [US1] Add 'use client' to components/Hero.jsx and update video source path from import.meta.env.BASE_URL to direct /hero.mp4 path
+- [x] T021 [US1] Add 'use client' to components/Navbar.jsx, replace React Router imports with next/navigation (useRouter, usePathname), replace useNavigate with router.push, replace useLocation with usePathname, update logo image path
+- [x] T022 [US1] Update all component imports in components/Navbar.jsx to use @/ path alias
 
 ### Page Migration for User Story 1
 
-- [ ] T023 [P] [US1] Create app/page.jsx from src/pages/Home.jsx content (Server Component, no 'use client')
-- [ ] T024 [P] [US1] Create app/experience/page.jsx from src/pages/Experience.jsx (Server Component)
-- [ ] T025 [P] [US1] Create app/education/page.jsx from src/pages/Education.jsx (Server Component)
-- [ ] T026 [P] [US1] Create app/portfolio/page.jsx from src/pages/Portfolio.jsx (Server Component)
-- [ ] T027 [P] [US1] Create app/publications/page.jsx from src/pages/Publications.jsx (Server Component)
-- [ ] T028 [P] [US1] Create app/references/page.jsx from src/pages/References.jsx (Server Component)
-- [ ] T029 [US1] Update all page component imports to use @/ path alias for components
+- [x] T023 [P] [US1] Create app/page.jsx from src/pages/Home.jsx content (Server Component, no 'use client')
+- [x] T024 [P] [US1] Create app/experience/page.jsx from src/pages/Experience.jsx (Server Component)
+- [x] T025 [P] [US1] Create app/education/page.jsx from src/pages/Education.jsx (Server Component)
+- [x] T026 [P] [US1] Create app/portfolio/page.jsx from src/pages/Portfolio.jsx (Server Component)
+- [x] T027 [P] [US1] Create app/publications/page.jsx from src/pages/Publications.jsx (Server Component)
+- [x] T028 [P] [US1] Create app/references/page.jsx from src/pages/References.jsx (Server Component)
+- [x] T029 [US1] Update all page component imports to use @/ path alias for components
 
 ### Cleanup for User Story 1
 
-- [ ] T030 [US1] Remove src/App.jsx (routing logic moved to app/layout.jsx)
-- [ ] T031 [US1] Remove src/main.jsx (entry point handled by Next.js)
-- [ ] T032 [US1] Remove index.html from root (Next.js generates HTML)
-- [ ] T033 [US1] Remove index.html.legacy from root
-- [ ] T034 [US1] Remove vite.config.js
-- [ ] T035 [US1] Remove src/ directory after confirming all contents moved
-- [ ] T036 [US1] Remove empty app/experience/, app/education/, app/portfolio/, app/publications/, app/references/ directories (the old ones, not the new page.jsx files)
-- [ ] T037 [US1] Remove dist/ folder if it exists
+- [x] T030 [US1] Remove src/App.jsx (routing logic moved to app/layout.jsx)
+- [x] T031 [US1] Remove src/main.jsx (entry point handled by Next.js)
+- [x] T032 [US1] Remove index.html from root (Next.js generates HTML)
+- [x] T033 [US1] Remove index.html.legacy from root
+- [x] T034 [US1] Remove vite.config.js
+- [x] T035 [US1] Remove src/ directory after confirming all contents moved
+- [x] T036 [US1] Remove empty app/experience/, app/education/, app/portfolio/, app/publications/, app/references/ directories (the old ones, not the new page.jsx files)
+- [x] T037 [US1] Remove dist/ folder if it exists
 
 ### Development Server Validation for User Story 1
 
-- [ ] T038 [US1] Start development server with `npm run dev` and verify no errors
-- [ ] T039 [US1] Test home page loads at http://localhost:3000/
-- [ ] T040 [US1] Test navigation to all pages (/, /experience, /education, /portfolio, /publications, /references)
-- [ ] T041 [US1] Test mobile menu toggle works in responsive view
-- [ ] T042 [US1] Test Hero section animations work (FlipWords, ShimmerButton)
-- [ ] T043 [US1] Test hot reload by modifying a component and verifying instant update
+- [x] T038 [US1] Start development server with `npm run dev` and verify no errors
+- [x] T039 [US1] Test home page loads at http://localhost:3000/
+- [x] T040 [US1] Test navigation to all pages (/, /experience, /education, /portfolio, /publications, /references)
+- [x] T041 [US1] Test mobile menu toggle works in responsive view
+- [x] T042 [US1] Test Hero section animations work (FlipWords, ShimmerButton)
+- [x] T043 [US1] Test hot reload by modifying a component and verifying instant update
 
 **Checkpoint**: At this point, User Story 1 (Development Environment) should be fully functional and independently testable
 

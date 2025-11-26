@@ -1,6 +1,4 @@
-import React from "react";
-
-function Publications() {
+export default function Publications() {
   return (
     <div className="min-h-screen flex items-center justify-center px-6">
       <div className="text-center">
@@ -12,5 +10,3 @@ function Publications() {
     </div>
   );
 }
-
-export default Publications;

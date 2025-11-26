@@ -1,7 +1,9 @@
+"use client";
+
 import React, { useState, useEffect } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
-import { MenuBar } from "./ui/glow-menu";
-import { MenuToggleIcon } from "./ui/menu-toggle-icon";
+import { useRouter, usePathname } from "next/navigation";
+import { MenuBar } from "@/components/ui/glow-menu";
+import { MenuToggleIcon } from "@/components/ui/menu-toggle-icon";
 import { AnimatePresence, motion } from "motion/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -74,22 +76,22 @@ const navItems = [
 ];
 
 function Navbar() {
-  const navigate = useNavigate();
-  const location = useLocation();
+  const router = useRouter();
+  const pathname = usePathname();
   const [activeSection, setActiveSection] = useState("Home");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // Update active section based on current route
   useEffect(() => {
-    const activeItem = navItems.find((item) => item.href === location.pathname);
+    const activeItem = navItems.find((item) => item.href === pathname);
     if (activeItem) {
       setActiveSection(activeItem.label);
     }
-  }, [location.pathname]);
+  }, [pathname]);
 
   // Navigation handler
   const handleNavClick = (label, href) => {
-    navigate(href);
+    router.push(href);
     setIsMenuOpen(false); // Close mobile menu after navigation
   };
 
@@ -111,12 +113,12 @@ function Navbar() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <button
-            onClick={() => navigate("/")}
+            onClick={() => router.push("/")}
             className="flex items-center gap-2 hover:opacity-80 transition-opacity cursor-pointer bg-transparent border-none"
             aria-label="Go to home page"
           >
             <img
-              src={`${import.meta.env.BASE_URL}logo.png`}
+              src="/logo.png"
               alt="Viacheslav Danilov"
               className="h-10 w-auto"
             />
