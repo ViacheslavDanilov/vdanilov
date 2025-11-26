@@ -118,7 +118,7 @@ function Navbar() {
             aria-label="Go to home page"
           >
             <img
-              src="/logo.png"
+              src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logo.png`}
               alt="Viacheslav Danilov"
               className="h-10 w-auto"
             />

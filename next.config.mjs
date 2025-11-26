@@ -7,6 +7,11 @@ const nextConfig = {
   // Only applied when GITHUB_ACTIONS environment variable is set
   basePath: process.env.GITHUB_ACTIONS ? "/vdanilov" : "",
 
+  // Make basePath available to the app at runtime
+  env: {
+    NEXT_PUBLIC_BASE_PATH: process.env.GITHUB_ACTIONS ? "/vdanilov" : "",
+  },
+
   // Disable Image Optimization API (required for static export)
   images: {
     unoptimized: true,

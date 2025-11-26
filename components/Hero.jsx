@@ -100,7 +100,10 @@ const Hero = () => {
               playsInline
               className="w-full h-full object-cover"
             >
-              <source src="/hero.mp4" type="video/mp4" />
+              <source
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/hero.mp4`}
+                type="video/mp4"
+              />
               Your browser does not support the video tag.
             </video>
           </div>
