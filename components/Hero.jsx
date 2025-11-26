@@ -11,7 +11,7 @@ const Hero = () => {
 
   return (
     <section id="hero" className="w-full max-w-7xl mx-auto px-6 py-12 md:py-24">
-      <div className="flex flex-col md:flex-row items-center justify-between gap-10">
+      <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-10">
         {/* Text Content */}
         <div className="w-full md:w-1/2 space-y-4 text-center md:text-left">
           <h1 className="text-4xl md:text-5xl font-semibold text-light tracking-tight">
@@ -23,12 +23,12 @@ const Hero = () => {
 
           {/* Tagline */}
           <p className="text-base md:text-lg text-gray-300 max-w-md mx-auto md:mx-0 pt-2">
-            Science-Driven AI. Engineering-Led Execution. Technically Inspired
-            Leadership.
+            {/* Science-driven AI. Engineering-led execution. Technically inspired leadership. */}
+            Fusing Science with Engineering Precision
           </p>
 
-          {/* CTA Button */}
-          <div className="flex items-center justify-center md:justify-start pt-6">
+          {/* CTA Button - Desktop only */}
+          <div className="hidden md:flex items-center justify-start pt-6">
             <AnimatedGradientButton
               href="https://drive.google.com/file/d/1jYs54eFCYc367ZKhWjH1Xfry4_sFI7Ir/view?usp=drive_link"
               target="_blank"
@@ -62,6 +62,20 @@ const Hero = () => {
               Your browser does not support the video tag.
             </video>
           </div>
+        </div>
+
+        {/* CTA Button - Mobile only (below video) */}
+        <div className="flex md:hidden items-center justify-center w-full">
+          <AnimatedGradientButton
+            href="https://drive.google.com/file/d/1jYs54eFCYc367ZKhWjH1Xfry4_sFI7Ir/view?usp=drive_link"
+            target="_blank"
+            gradient="purple"
+            ariaLabel="Download CV"
+            className="text-base lg:text-lg font-medium"
+          >
+            <FontAwesomeIcon icon={faFileArrowDown} className="w-5 h-5 mr-2" />
+            Download CV
+          </AnimatedGradientButton>
         </div>
       </div>
     </section>
