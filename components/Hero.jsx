@@ -2,27 +2,25 @@
 
 import React from "react";
 import { FlipWords } from "@/components/ui/flip-words";
-import { ShimmerButton } from "@/components/ui/shimmer-button";
+import { AnimatedGradientButton } from "@/components/ui/animated-gradient-button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faEnvelope,
-  faPhone,
-  faPaperPlane,
-  faFileArrowDown,
-  faFolderOpen,
-} from "@fortawesome/free-solid-svg-icons";
+import { faFileArrowDown } from "@fortawesome/free-solid-svg-icons";
 
 const Hero = () => {
   const roles = ["Tech Lead", "Engineering Manager", "Research Scientist"];
 
+  const ButtonContent = () => (
+    <>
+      <FontAwesomeIcon icon={faFileArrowDown} className="w-5 h-5 mr-2" />
+      Download CV
+    </>
+  );
+
   return (
     <section id="hero" className="w-full max-w-7xl mx-auto px-6 py-12 md:py-24">
-      <div className="flex flex-col md:flex-row items-center justify-between gap-10">
+      <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-10">
         {/* Text Content */}
         <div className="w-full md:w-1/2 space-y-4 text-center md:text-left">
-          <p className="text-lg md:text-xl text-accent font-medium">
-            Hi there, I am
-          </p>
           <h1 className="text-4xl md:text-5xl font-semibold text-light tracking-tight">
             Viacheslav Danilov, PhD
           </h1>
@@ -30,63 +28,23 @@ const Hero = () => {
             <FlipWords words={roles} className="text-light" />
           </h2>
 
-          {/* Contact Info */}
-          <div className="flex flex-wrap justify-center md:justify-start gap-4 text-gray-400 pt-4">
-            <a
-              href="mailto:viacheslav.v.danilov@gmail.com"
-              className="flex items-center hover:text-accent transition-colors duration-300"
-              aria-label="Email Viacheslav Danilov"
-            >
-              <FontAwesomeIcon icon={faEnvelope} className="w-5 h-5 mr-2" />
-              Email
-            </a>
-            <a
-              href="https://wa.me/+34634810041"
-              className="flex items-center hover:text-accent transition-colors duration-300"
-              aria-label="Contact via WhatsApp"
-            >
-              <FontAwesomeIcon icon={faPhone} className="w-5 h-5 mr-2" />
-              WhatsApp
-            </a>
-            <a
-              href="https://t.me/ballmaske"
-              className="flex items-center hover:text-accent transition-colors duration-300"
-              aria-label="Contact via Telegram"
-            >
-              <FontAwesomeIcon icon={faPaperPlane} className="w-5 h-5 mr-2" />
-              Telegram
-            </a>
-          </div>
+          {/* Tagline */}
+          <p className="text-base md:text-lg text-gray-300 max-w-md mx-auto md:mx-0 pt-2">
+            {/* Science-driven AI. Engineering-led execution. Technically inspired leadership. */}
+            Fusing Science with Engineering Precision
+          </p>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 pt-6">
-            <ShimmerButton
-              className="shadow-2xl"
-              shimmerDuration="5s"
-              onClick={() =>
-                window.open(
-                  "https://drive.google.com/file/d/1jYs54eFCYc367ZKhWjH1Xfry4_sFI7Ir/view?usp=drive_link",
-                  "_blank",
-                )
-              }
+          {/* CTA Button - Desktop only */}
+          <div className="hidden md:flex items-center justify-start pt-6">
+            <AnimatedGradientButton
+              href="https://drive.google.com/file/d/1jYs54eFCYc367ZKhWjH1Xfry4_sFI7Ir/view?usp=drive_link"
+              target="_blank"
+              gradient="blue"
+              ariaLabel="Download CV"
+              className="text-base lg:text-lg font-medium"
             >
-              <span className="whitespace-pre-wrap text-center text-base font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg flex items-center gap-2">
-                <FontAwesomeIcon icon={faFileArrowDown} className="w-5 h-5" />
-                Download CV
-              </span>
-            </ShimmerButton>
-            <ShimmerButton
-              className="shadow-2xl"
-              shimmerDuration="5s"
-              onClick={() =>
-                window.open("https://vdanilov.com/portfolio/", "_blank")
-              }
-            >
-              <span className="whitespace-pre-wrap text-center text-base font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg flex items-center gap-2">
-                <FontAwesomeIcon icon={faFolderOpen} className="w-5 h-5" />
-                View my projects
-              </span>
-            </ShimmerButton>
+              <ButtonContent />
+            </AnimatedGradientButton>
           </div>
         </div>
 
@@ -107,6 +65,19 @@ const Hero = () => {
               Your browser does not support the video tag.
             </video>
           </div>
+        </div>
+
+        {/* CTA Button - Mobile only (below video) */}
+        <div className="flex md:hidden items-center justify-center w-full">
+          <AnimatedGradientButton
+            href="https://drive.google.com/file/d/1jYs54eFCYc367ZKhWjH1Xfry4_sFI7Ir/view?usp=drive_link"
+            target="_blank"
+            gradient="blue"
+            ariaLabel="Download CV"
+            className="text-base lg:text-lg font-medium"
+          >
+            <ButtonContent />
+          </AnimatedGradientButton>
         </div>
       </div>
     </section>

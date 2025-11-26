@@ -4,12 +4,16 @@ const nextConfig = {
   output: "export",
 
   // Base path for GitHub Pages deployment (repository name)
-  // Only applied when GITHUB_ACTIONS environment variable is set
-  basePath: process.env.GITHUB_ACTIONS ? "/vdanilov" : "",
+  // For PR previews, use NEXT_PUBLIC_BASE_PATH; otherwise use /vdanilov for main deployment
+  basePath:
+    process.env.NEXT_PUBLIC_BASE_PATH ||
+    (process.env.GITHUB_ACTIONS ? "/vdanilov" : ""),
 
   // Make basePath available to the app at runtime
   env: {
-    NEXT_PUBLIC_BASE_PATH: process.env.GITHUB_ACTIONS ? "/vdanilov" : "",
+    NEXT_PUBLIC_BASE_PATH:
+      process.env.NEXT_PUBLIC_BASE_PATH ||
+      (process.env.GITHUB_ACTIONS ? "/vdanilov" : ""),
   },
 
   // Disable Image Optimization API (required for static export)
