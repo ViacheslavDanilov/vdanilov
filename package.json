@@ -8,6 +8,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "serve": "npx serve out -l 3000",
     "prepare": "husky && node --eval \"fs.writeFileSync('.husky/pre-commit','npx lint-staged\\n')\"",
     "check": "prettier --check .",
     "format": "prettier --write ."

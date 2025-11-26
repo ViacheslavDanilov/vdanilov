@@ -4,8 +4,8 @@ const nextConfig = {
   output: "export",
 
   // Base path for GitHub Pages deployment (repository name)
-  // Only applied in production
-  basePath: process.env.NODE_ENV === "production" ? "/vdanilov" : "",
+  // Only applied when GITHUB_ACTIONS environment variable is set
+  basePath: process.env.GITHUB_ACTIONS ? "/vdanilov" : "",
 
   // Disable Image Optimization API (required for static export)
   images: {
