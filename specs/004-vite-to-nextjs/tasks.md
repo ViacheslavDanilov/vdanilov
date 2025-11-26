@@ -36,12 +36,12 @@
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T009 Move src/lib/utils.js to lib/utils.js (no changes to content)
-- [ ] T010 Move src/index.css to app/globals.css and remove Google Fonts @import
-- [ ] T011 Create app/layout.jsx with Poppins font configuration using next/font/google
-- [ ] T012 Import globals.css in app/layout.jsx
-- [ ] T013 Add metadata export to app/layout.jsx (title, description)
-- [ ] T014 Update GitHub Actions workflow .github/workflows/deploy.yml to use out/ directory
+- [x] T009 Move src/lib/utils.js to lib/utils.js (no changes to content)
+- [x] T010 Move src/index.css to app/globals.css and remove Google Fonts @import
+- [x] T011 Create app/layout.jsx with Poppins font configuration using next/font/google
+- [x] T012 Import globals.css in app/layout.jsx
+- [x] T013 Add metadata export to app/layout.jsx (title, description)
+- [x] T014 Update GitHub Actions workflow .github/workflows/deploy.yml to use out/ directory
 
 **Checkpoint**: Foundation ready - component migration can now begin
 
