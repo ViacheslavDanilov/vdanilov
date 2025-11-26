@@ -46,18 +46,18 @@
 
 ### Implementation for User Story 1
 
-- [ ] T005 [US1] Remove "Hi there, I am" paragraph from components/Hero.jsx (line ~23)
-- [ ] T006 [US1] Remove Email, WhatsApp, Telegram contact links section from components/Hero.jsx (lines ~35-58)
-- [ ] T007 [US1] Add tagline paragraph "Science-Driven AI. Engineering-Led Execution. Technically Inspired Leadership." after FlipWords in components/Hero.jsx
-- [ ] T008 [US1] Adjust spacing and typography for tagline (text-base md:text-lg, text-gray-300, max-w-md)
+- [x] T005 [US1] Remove "Hi there, I am" paragraph from components/Hero.jsx (line ~23)
+- [x] T006 [US1] Remove Email, WhatsApp, Telegram contact links section from components/Hero.jsx (lines ~35-58)
+- [x] T007 [US1] Add tagline paragraph "Science-Driven AI. Engineering-Led Execution. Technically Inspired Leadership." after FlipWords in components/Hero.jsx
+- [x] T008 [US1] Adjust spacing and typography for tagline (text-base md:text-lg, text-gray-300, max-w-md)
 
 ### Validation for User Story 1
 
-- [ ] T009 [US1] Start dev server (npm run dev) and verify hero section renders correctly
-- [ ] T010 [US1] Verify "Hi there, I am" text is not visible in browser
-- [ ] T011 [US1] Verify Email, WhatsApp, Telegram links are not visible
-- [ ] T012 [US1] Verify tagline displays with correct text and styling
-- [ ] T013 [US1] Verify responsive layout on mobile (375px), tablet (768px), desktop (1024px)
+- [x] T009 [US1] Start dev server (npm run dev) and verify hero section renders correctly
+- [x] T010 [US1] Verify "Hi there, I am" text is not visible in browser
+- [x] T011 [US1] Verify Email, WhatsApp, Telegram links are not visible
+- [x] T012 [US1] Verify tagline displays with correct text and styling
+- [x] T013 [US1] Verify responsive layout on mobile (375px), tablet (768px), desktop (1024px)
 
 **Checkpoint**: User Story 1 complete - Hero section has clean intro with tagline
 

@@ -20,9 +20,6 @@ const Hero = () => {
       <div className="flex flex-col md:flex-row items-center justify-between gap-10">
         {/* Text Content */}
         <div className="w-full md:w-1/2 space-y-4 text-center md:text-left">
-          <p className="text-lg md:text-xl text-accent font-medium">
-            Hi there, I am
-          </p>
           <h1 className="text-4xl md:text-5xl font-semibold text-light tracking-tight">
             Viacheslav Danilov, PhD
           </h1>
@@ -30,33 +27,11 @@ const Hero = () => {
             <FlipWords words={roles} className="text-light" />
           </h2>
 
-          {/* Contact Info */}
-          <div className="flex flex-wrap justify-center md:justify-start gap-4 text-gray-400 pt-4">
-            <a
-              href="mailto:viacheslav.v.danilov@gmail.com"
-              className="flex items-center hover:text-accent transition-colors duration-300"
-              aria-label="Email Viacheslav Danilov"
-            >
-              <FontAwesomeIcon icon={faEnvelope} className="w-5 h-5 mr-2" />
-              Email
-            </a>
-            <a
-              href="https://wa.me/+34634810041"
-              className="flex items-center hover:text-accent transition-colors duration-300"
-              aria-label="Contact via WhatsApp"
-            >
-              <FontAwesomeIcon icon={faPhone} className="w-5 h-5 mr-2" />
-              WhatsApp
-            </a>
-            <a
-              href="https://t.me/ballmaske"
-              className="flex items-center hover:text-accent transition-colors duration-300"
-              aria-label="Contact via Telegram"
-            >
-              <FontAwesomeIcon icon={faPaperPlane} className="w-5 h-5 mr-2" />
-              Telegram
-            </a>
-          </div>
+          {/* Tagline */}
+          <p className="text-base md:text-lg text-gray-300 max-w-md mx-auto md:mx-0 pt-2">
+            Science-Driven AI. Engineering-Led Execution. Technically Inspired
+            Leadership.
+          </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 pt-6">
