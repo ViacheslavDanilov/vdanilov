@@ -32,7 +32,7 @@ const Hero = () => {
             <AnimatedGradientButton
               href="https://drive.google.com/file/d/1jYs54eFCYc367ZKhWjH1Xfry4_sFI7Ir/view?usp=drive_link"
               target="_blank"
-              gradient="purple"
+              gradient="blue"
               ariaLabel="Download CV"
               className="text-base lg:text-lg font-medium"
             >
@@ -69,7 +69,7 @@ const Hero = () => {
           <AnimatedGradientButton
             href="https://drive.google.com/file/d/1jYs54eFCYc367ZKhWjH1Xfry4_sFI7Ir/view?usp=drive_link"
             target="_blank"
-            gradient="purple"
+            gradient="blue"
             ariaLabel="Download CV"
             className="text-base lg:text-lg font-medium"
           >
