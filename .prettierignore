@@ -1,3 +1,5 @@
 .venv/
 content/
 node_modules/
+.next/
+out/

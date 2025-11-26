@@ -143,19 +143,19 @@
 
 ### Code Quality Configuration for User Story 3
 
-- [ ] T062 [US3] Verify package.json preserves Husky pre-commit hooks
-- [ ] T063 [US3] Verify package.json preserves lint-staged configuration
-- [ ] T064 [US3] Verify package.json preserves format and check scripts
-- [ ] T065 [US3] Verify .prettierignore includes .next/, out/, node_modules/
+- [x] T062 [US3] Verify package.json preserves Husky pre-commit hooks
+- [x] T063 [US3] Verify package.json preserves lint-staged configuration
+- [x] T064 [US3] Verify package.json preserves format and check scripts
+- [x] T065 [US3] Verify .prettierignore includes .next/, out/, node_modules/
 
 ### Code Quality Testing for User Story 3
 
-- [ ] T066 [US3] Run `npm run format` and verify all files are formatted
-- [ ] T067 [US3] Run `npm run check` and verify no formatting issues
-- [ ] T068 [US3] Make a minor change to a file (e.g., add a comment)
-- [ ] T069 [US3] Run `git add` and `git commit` to test pre-commit hook
-- [ ] T070 [US3] Verify Prettier runs automatically during commit
-- [ ] T071 [US3] Verify commit succeeds if formatting is acceptable
+- [x] T066 [US3] Run `npm run format` and verify all files are formatted
+- [x] T067 [US3] Run `npm run check` and verify no formatting issues
+- [x] T068 [US3] Make a minor change to a file (e.g., add a comment)
+- [x] T069 [US3] Run `git add` and `git commit` to test pre-commit hook
+- [x] T070 [US3] Verify Prettier runs automatically during commit
+- [x] T071 [US3] Verify commit succeeds if formatting is acceptable
 
 **Checkpoint**: All user stories should now be independently functional (dev, build, code quality)
 
