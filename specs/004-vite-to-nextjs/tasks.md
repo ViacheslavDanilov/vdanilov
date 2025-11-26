@@ -106,24 +106,24 @@
 
 ### Production Build Configuration for User Story 2
 
-- [ ] T044 [US2] Verify next.config.mjs has output: 'export' and basePath: '/vdanilov' for production
-- [ ] T045 [US2] Verify next.config.mjs has images.unoptimized: true for static export
-- [ ] T046 [US2] Verify next.config.mjs has trailingSlash: true for GitHub Pages compatibility
+- [x] T044 [US2] Verify next.config.mjs has output: 'export' and basePath: '/vdanilov' for production
+- [x] T045 [US2] Verify next.config.mjs has images.unoptimized: true for static export
+- [x] T046 [US2] Verify next.config.mjs has trailingSlash: true for GitHub Pages compatibility
 
 ### Production Build Testing for User Story 2
 
-- [ ] T047 [US2] Run `npm run build` and verify build completes successfully
-- [ ] T048 [US2] Verify out/ directory is created with HTML files for all routes
-- [ ] T049 [US2] Verify all asset paths in out/ include /vdanilov basePath
-- [ ] T050 [US2] Test production build locally with `npx serve out` at http://localhost:3000/vdanilov/
-- [ ] T051 [US2] Test all navigation links work with basePath in production build
-- [ ] T052 [US2] Test assets (logo.png, hero.mp4) load correctly with basePath
-- [ ] T053 [US2] Verify no console errors in production build
+- [x] T047 [US2] Run `npm run build` and verify build completes successfully
+- [x] T048 [US2] Verify out/ directory is created with HTML files for all routes
+- [x] T049 [US2] Verify all asset paths in out/ include /vdanilov basePath
+- [x] T050 [US2] Test production build locally with `npx serve out` at http://localhost:3000/vdanilov/
+- [x] T051 [US2] Test all navigation links work with basePath in production build
+- [x] T052 [US2] Test assets (logo.png, hero.mp4) load correctly with basePath
+- [x] T053 [US2] Verify no console errors in production build
 
 ### GitHub Pages Deployment for User Story 2
 
-- [ ] T054 [US2] Verify .github/workflows/deploy.yml uses publish_dir: ./out (changed from ./dist)
-- [ ] T055 [US2] Verify .github/workflows/deploy.yml sets NODE_ENV=production during build
+- [x] T054 [US2] Verify .github/workflows/deploy.yml uses publish_dir: ./out (changed from ./dist)
+- [x] T055 [US2] Verify .github/workflows/deploy.yml sets NODE_ENV=production during build
 - [ ] T056 [US2] Commit all changes and push to trigger GitHub Actions deployment
 - [ ] T057 [US2] Monitor GitHub Actions workflow for successful build and deploy
 - [ ] T058 [US2] Verify deployed site is accessible at https://viacheslavdanilov.github.io/vdanilov/
