@@ -111,3 +111,4 @@ const Hero = () => {
 };
 
 export default Hero;
+// Test comment for Prettier pre-commit hook
