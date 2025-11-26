@@ -9,6 +9,13 @@ import { faFileArrowDown } from "@fortawesome/free-solid-svg-icons";
 const Hero = () => {
   const roles = ["Tech Lead", "Engineering Manager", "Research Scientist"];
 
+  const ButtonContent = () => (
+    <>
+      <FontAwesomeIcon icon={faFileArrowDown} className="w-5 h-5 mr-2" />
+      Download CV
+    </>
+  );
+
   return (
     <section id="hero" className="w-full max-w-7xl mx-auto px-6 py-12 md:py-24">
       <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-10">
@@ -36,11 +43,7 @@ const Hero = () => {
               ariaLabel="Download CV"
               className="text-base lg:text-lg font-medium"
             >
-              <FontAwesomeIcon
-                icon={faFileArrowDown}
-                className="w-5 h-5 mr-2"
-              />
-              Download CV
+              <ButtonContent />
             </AnimatedGradientButton>
           </div>
         </div>
@@ -73,8 +76,7 @@ const Hero = () => {
             ariaLabel="Download CV"
             className="text-base lg:text-lg font-medium"
           >
-            <FontAwesomeIcon icon={faFileArrowDown} className="w-5 h-5 mr-2" />
-            Download CV
+            <ButtonContent />
           </AnimatedGradientButton>
         </div>
       </div>

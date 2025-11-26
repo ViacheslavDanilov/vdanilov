@@ -30,10 +30,7 @@ export const AnimatedGradientButton = React.forwardRef(
       <span className="relative inline-block overflow-hidden rounded-full p-[1.75px]">
         {/* Animated gradient border */}
         <span
-          className={cn(
-            "absolute inset-[-1000%] animate-[spin_2s_linear_infinite]",
-            gradientClass,
-          )}
+          className={cn("absolute inset-[-1000%] animate-spin", gradientClass)}
           style={{ animationDuration: duration }}
           aria-hidden="true"
         />
