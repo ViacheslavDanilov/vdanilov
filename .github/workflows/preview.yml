@@ -28,7 +28,8 @@ jobs:
       - name: Build for PR preview
         run: npm run build
         env:
-          BASE_URL: /vdanilov/pr-${{ github.event.pull_request.number }}/
+          GITHUB_ACTIONS: true
+          NEXT_PUBLIC_BASE_PATH: /vdanilov/pr-${{ github.event.pull_request.number }}
 
       - name: Deploy to GitHub Pages (PR Preview)
         uses: peaceiris/actions-gh-pages@v4
