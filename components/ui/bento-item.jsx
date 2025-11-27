@@ -1,7 +1,8 @@
 "use client";
 import React, { useEffect, useRef } from "react";
+import { cn } from "@/lib/utils";
 
-const BentoItem = ({ className, children }) => {
+const BentoItem = React.forwardRef(({ className, children }, ref) => {
   const itemRef = useRef(null);
   const MAX_ROTATION = 3;
 
@@ -35,13 +36,20 @@ const BentoItem = ({ className, children }) => {
   }, []);
 
   return (
-    <div
-      ref={itemRef}
-      className={`relative overflow-hidden rounded-xl bg-light/5 border border-light/10 p-6 transition-all duration-300 ease-out hover:shadow-xl hover:shadow-accent/20 ${className || ""}`}
-    >
-      {children}
+    <div ref={ref}>
+      <div
+        ref={itemRef}
+        className={cn(
+          "relative overflow-hidden rounded-xl bg-light/5 border border-light/10 p-6 transition-all duration-300 ease-out hover:shadow-xl hover:shadow-accent/20",
+          className,
+        )}
+      >
+        {children}
+      </div>
     </div>
   );
-};
+});
+
+BentoItem.displayName = "BentoItem";
 
 export default BentoItem;
