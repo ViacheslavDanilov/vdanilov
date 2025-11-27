@@ -36,16 +36,21 @@ const BentoItem = React.forwardRef(({ className, children }, ref) => {
   }, []);
 
   return (
-    <div ref={ref}>
-      <div
-        ref={itemRef}
-        className={cn(
-          "relative overflow-hidden rounded-xl bg-light/5 border border-light/10 p-6 transition-all duration-300 ease-out hover:shadow-xl hover:shadow-accent/20",
-          className,
-        )}
-      >
-        {children}
-      </div>
+    <div
+      ref={(node) => {
+        itemRef.current = node;
+        if (typeof ref === "function") {
+          ref(node);
+        } else if (ref) {
+          ref.current = node;
+        }
+      }}
+      className={cn(
+        "relative overflow-hidden rounded-xl bg-light/5 border border-light/10 p-6 transition-all duration-300 ease-out hover:shadow-xl hover:shadow-accent/20",
+        className,
+      )}
+    >
+      {children}
     </div>
   );
 });
