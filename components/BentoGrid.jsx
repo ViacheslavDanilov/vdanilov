@@ -10,7 +10,7 @@ const BentoGrid = () => {
         </h2>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {/* 1. 10+ Years R&D */}
+        {/* 1. Advanced R&D */}
         <BentoItem className="col-span-1 lg:col-span-2">
           <div className="h-full flex flex-col justify-between">
             <h3 className="text-2xl font-bold text-light mb-2">
@@ -52,32 +52,35 @@ const BentoGrid = () => {
               Building scalable ML and AI systems with AutoML, PyTorch,
               TensorFlow, scikit-learn, MLflow, DVC, LangChain, and Weights &
               Biases, deployed across AWS and Google Cloud. Integrating
-              Generative AI and multimodal capabilities with OpenAI models,
-              Qwen, and Stable Diffusion/Flux to enable intelligent pipelines
-              for reasoning, generation, retrieval, and workflow automation.
+              Generative AI and multimodal capabilities with OpenAI, Qwen,
+              Llama, Stable Diffusion and Flux models to enable intelligent
+              pipelines for reasoning, generation, retrieval, and workflow
+              automation.
             </p>
           </div>
         </BentoItem>
 
-        {/* 4. CTO Leadership */}
+        {/* 4. Technology Leadership */}
         <BentoItem className="col-span-1 lg:col-span-2">
           <div className="h-full flex flex-col justify-between">
             <h3 className="text-2xl font-bold text-light mb-2">
-              CTO Leadership
+              Technology Leadership
             </h3>
             <p className="text-light/80">
-              Acting as the company’s AI thought leader, guiding strategy and
-              implementation. Defining and executing the long-term technical
-              vision across technological units.
+              Serving as the company’s AI thought leader, driving strategic
+              direction, architectural decisions, and execution across client
+              and internal projects. Establishing long-term technical vision and
+              aligning technological units around scalable, AI-driven
+              innovation.
             </p>
           </div>
         </BentoItem>
 
-        {/* 5. Global Management */}
+        {/* 5. Cross-Functional Management */}
         <BentoItem className="col-span-1">
           <div className="h-full flex flex-col justify-between">
             <h3 className="text-xl font-bold text-light mb-2">
-              Global Management
+              Cross-Functional Management
             </h3>
             <p className="text-light/80">
               Leading and scaling a cross-functional department focused on AI,
@@ -87,16 +90,19 @@ const BentoGrid = () => {
           </div>
         </BentoItem>
 
-        {/* 6. Applied AI Impact */}
+        {/* 6. Applied ML & AI Across Industries */}
         <BentoItem className="col-span-1 md:col-span-2 lg:col-span-2">
           <div className="h-full flex flex-col justify-between">
             <h3 className="text-2xl font-bold text-light mb-2">
-              Applied AI Impact
+              Applied ML & AI Across Industries
             </h3>
             <p className="text-light/80">
-              Delivering AI solutions for InsurTech (AmTrust, CNA, Plateau
-              Group), Healthcare (Beth Israel Deaconess, Vall d'Hebron), and
-              Pharma (Bristol Myers Squibb, Boehringer Ingelheim).
+              Developing applied ML & AI systems for insurance, clinical
+              diagnostics, medical imaging, and pharmaceutical research with
+              deployments and collaborations involving AmTrust, CNA, Plateau
+              Group, Beth Israel Deaconess Medical Center, Vall d’Hebron
+              Hospital, Institute for Image-Guided Surgery, Bristol Myers
+              Squibb, Boehringer Ingelheim, and Volastra Therapeutics.
             </p>
           </div>
         </BentoItem>
