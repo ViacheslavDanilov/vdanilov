@@ -125,7 +125,7 @@ function Navbar() {
           </button>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:block">
+          <div className="hidden lg:block">
             <MenuBar
               items={navItems}
               activeItem={activeSection}
@@ -136,7 +136,7 @@ function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 text-light hover:text-accent transition-colors"
+            className="lg:hidden p-2 text-light hover:text-accent transition-colors"
             aria-label="Toggle menu"
           >
             <MenuToggleIcon
@@ -156,7 +156,7 @@ function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden absolute top-full left-0 right-0 bg-dark/98 backdrop-blur-lg border-b border-accent/20 shadow-lg"
+            className="lg:hidden absolute top-full left-0 right-0 bg-dark/98 backdrop-blur-lg border-b border-accent/20 shadow-lg"
           >
             <nav className="max-w-7xl mx-auto px-6 py-4">
               <ul className="space-y-2">
