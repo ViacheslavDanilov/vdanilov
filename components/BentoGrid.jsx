@@ -5,10 +5,10 @@ const BentoGrid = () => {
   return (
     <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <div className="mb-12 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-light mb-4">
           Expertise & Leadership
         </h2>
-        <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+        <p className="text-light/60 text-lg max-w-2xl mx-auto">
           Bridging the gap between advanced AI research and real-world impact.
         </p>
       </div>
@@ -17,14 +17,14 @@ const BentoGrid = () => {
         <BentoItem className="col-span-1 lg:col-span-2">
           <div className="h-full flex flex-col justify-between">
             <div>
-              <h3 className="text-2xl font-bold text-white mb-2">
+              <h3 className="text-2xl font-bold text-light mb-2">
                 Translational AI Research
               </h3>
-              <p className="text-gray-400">
+              <p className="text-light/60">
                 Turning complex biomedical signals into actionable insights.
               </p>
             </div>
-            <p className="mt-4 text-gray-300">
+            <p className="mt-4 text-light/80">
               I build ML models for ICP prediction, hyperspectral analysis, and
               cardiovascular imaging.
             </p>
@@ -35,14 +35,14 @@ const BentoGrid = () => {
         <BentoItem className="col-span-1">
           <div className="h-full flex flex-col justify-between">
             <div>
-              <h3 className="text-xl font-bold text-white mb-2">
+              <h3 className="text-xl font-bold text-light mb-2">
                 Scientific Innovation
               </h3>
-              <p className="text-gray-400">
+              <p className="text-light/60">
                 AI solutions designed alongside clinicians.
               </p>
             </div>
-            <p className="mt-4 text-gray-300">
+            <p className="mt-4 text-light/80">
               From ultrasound segmentation to real-time diagnostics, my work
               bridges lab to clinic.
             </p>
@@ -53,14 +53,14 @@ const BentoGrid = () => {
         <BentoItem className="col-span-1">
           <div className="h-full flex flex-col justify-between">
             <div>
-              <h3 className="text-xl font-bold text-white mb-2">
+              <h3 className="text-xl font-bold text-light mb-2">
                 Industry-Ready AI
               </h3>
-              <p className="text-gray-400">
+              <p className="text-light/60">
                 Applied AI for InsurTech & enterprise.
               </p>
             </div>
-            <p className="mt-4 text-gray-300">
+            <p className="mt-4 text-light/80">
               I help companies deploy scalable, production-grade intelligent
               systems.
             </p>
@@ -71,14 +71,14 @@ const BentoGrid = () => {
         <BentoItem className="col-span-1 lg:col-span-2">
           <div className="h-full flex flex-col justify-between">
             <div>
-              <h3 className="text-2xl font-bold text-white mb-2">
+              <h3 className="text-2xl font-bold text-light mb-2">
                 Strategic Tech Leadership
               </h3>
-              <p className="text-gray-400">
+              <p className="text-light/60">
                 Setting long-term AI vision and guiding technical teams.
               </p>
             </div>
-            <p className="mt-4 text-gray-300">
+            <p className="mt-4 text-light/80">
               As CTO, I lead R&D strategy, architecture decisions, and
               innovation roadmaps.
             </p>
@@ -89,14 +89,14 @@ const BentoGrid = () => {
         <BentoItem className="col-span-1">
           <div className="h-full flex flex-col justify-between">
             <div>
-              <h3 className="text-xl font-bold text-white mb-2">
+              <h3 className="text-xl font-bold text-light mb-2">
                 Team Leadership
               </h3>
-              <p className="text-gray-400">
+              <p className="text-light/60">
                 Managing engineering, science, and product.
               </p>
             </div>
-            <p className="mt-4 text-gray-300">
+            <p className="mt-4 text-light/80">
               I drive alignment, clarity, and high-impact execution across
               teams.
             </p>
@@ -107,12 +107,12 @@ const BentoGrid = () => {
         <BentoItem className="col-span-1 md:col-span-2 lg:col-span-2">
           <div className="h-full flex flex-col justify-between">
             <div>
-              <h3 className="text-2xl font-bold text-white mb-2">
+              <h3 className="text-2xl font-bold text-light mb-2">
                 Business & Tech Management
               </h3>
-              <p className="text-gray-400">Where engineering meets strategy.</p>
+              <p className="text-light/60">Where engineering meets strategy.</p>
             </div>
-            <p className="mt-4 text-gray-300">
+            <p className="mt-4 text-light/80">
               With dual tech + management background, I build AI initiatives
               tied to real business value.
             </p>

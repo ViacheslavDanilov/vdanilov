@@ -37,7 +37,7 @@ const BentoItem = ({ className, children }) => {
   return (
     <div
       ref={itemRef}
-      className={`relative overflow-hidden rounded-xl bg-white/5 border border-white/10 p-6 transition-all duration-300 ease-out hover:shadow-xl hover:shadow-cyan-500/10 ${className || ""}`}
+      className={`relative overflow-hidden rounded-xl bg-light/5 border border-light/10 p-6 transition-all duration-300 ease-out hover:shadow-xl hover:shadow-accent/20 ${className || ""}`}
     >
       {children}
     </div>
