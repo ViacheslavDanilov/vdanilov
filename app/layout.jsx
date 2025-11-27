@@ -11,9 +11,12 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  title: "Viacheslav Danilov - Personal Website",
+  title: "Viacheslav Danilov",
   description:
-    "Personal website of Viacheslav Danilov showcasing experience, education, portfolio, publications, and references.",
+    "Personal website of Viacheslav Danilov, CTO and PhD in Computer Science. Expert in AI, Machine Learning, and R&D leadership, bridging the gap between scientific research and impactful industrial applications.",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({ children }) {
