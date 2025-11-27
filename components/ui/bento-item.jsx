@@ -1,0 +1,47 @@
+"use client";
+import React, { useEffect, useRef } from "react";
+
+const BentoItem = ({ className, children }) => {
+  const itemRef = useRef(null);
+  const MAX_ROTATION = 10;
+
+  useEffect(() => {
+    const item = itemRef.current;
+    if (!item) return;
+
+    const handleMouseMove = (e) => {
+      const rect = item.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateY = ((x - centerX) / centerX) * MAX_ROTATION;
+      const rotateX = (-(y - centerY) / centerY) * MAX_ROTATION;
+      item.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05,1.05,1.05)`;
+    };
+
+    const handleMouseLeave = () => {
+      item.style.transform =
+        "perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)";
+    };
+
+    item.addEventListener("mousemove", handleMouseMove);
+    item.addEventListener("mouseleave", handleMouseLeave);
+
+    return () => {
+      item.removeEventListener("mousemove", handleMouseMove);
+      item.removeEventListener("mouseleave", handleMouseLeave);
+    };
+  }, []);
+
+  return (
+    <div
+      ref={itemRef}
+      className={`relative overflow-hidden rounded-xl bg-white/5 border border-white/10 p-6 transition-all duration-300 ease-out hover:shadow-xl hover:shadow-cyan-500/10 ${className || ""}`}
+    >
+      {children}
+    </div>
+  );
+};
+
+export default BentoItem;
