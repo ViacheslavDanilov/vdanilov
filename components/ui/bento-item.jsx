@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from "react";
 
 const BentoItem = ({ className, children }) => {
   const itemRef = useRef(null);
-  const MAX_ROTATION = 3;
+  const MAX_ROTATION = 2;
 
   useEffect(() => {
     const item = itemRef.current;

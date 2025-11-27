@@ -3,7 +3,7 @@ import BentoItem from "./ui/bento-item";
 
 const BentoGrid = () => {
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-[1400px] mx-auto">
       <div className="mb-12 text-center">
         <h2 className="text-3xl md:text-4xl font-bold text-light mb-4">
           Expertise & Leadership
@@ -11,9 +11,9 @@ const BentoGrid = () => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {/* 1. Advanced R&D */}
-        <BentoItem className="col-span-1 lg:col-span-2">
-          <div className="h-full flex flex-col justify-between">
-            <h3 className="text-2xl font-bold text-light mb-2">
+        <BentoItem className="col-span-1">
+          <div className="h-full flex flex-col gap-4">
+            <h3 className="text-xl font-bold text-light">
               10+ Years of Advanced R&D
             </h3>
             <p className="text-light/80">
@@ -28,10 +28,8 @@ const BentoGrid = () => {
 
         {/* 2. Medical Imaging AI */}
         <BentoItem className="col-span-1">
-          <div className="h-full flex flex-col justify-between">
-            <h3 className="text-xl font-bold text-light mb-2">
-              Medical Imaging AI
-            </h3>
+          <div className="h-full flex flex-col gap-4">
+            <h3 className="text-xl font-bold text-light">Medical Imaging AI</h3>
             <p className="text-light/80">
               Developing advanced ML & AI systems for medical imaging across
               ultrasound, CT, MRI, hyperspectral, and time-series physiological
@@ -44,10 +42,8 @@ const BentoGrid = () => {
 
         {/* 3. Scalable Systems */}
         <BentoItem className="col-span-1">
-          <div className="h-full flex flex-col justify-between">
-            <h3 className="text-xl font-bold text-light mb-2">
-              Scalable Systems
-            </h3>
+          <div className="h-full flex flex-col gap-4">
+            <h3 className="text-xl font-bold text-light">Scalable Systems</h3>
             <p className="text-light/80">
               Building scalable ML and AI systems with AutoML, PyTorch,
               TensorFlow, scikit-learn, MLflow, DVC, LangChain, and Weights &
@@ -61,9 +57,9 @@ const BentoGrid = () => {
         </BentoItem>
 
         {/* 4. Technology Leadership */}
-        <BentoItem className="col-span-1 lg:col-span-2">
-          <div className="h-full flex flex-col justify-between">
-            <h3 className="text-2xl font-bold text-light mb-2">
+        <BentoItem className="col-span-1">
+          <div className="h-full flex flex-col gap-4">
+            <h3 className="text-xl font-bold text-light">
               Technology Leadership
             </h3>
             <p className="text-light/80">
@@ -78,8 +74,8 @@ const BentoGrid = () => {
 
         {/* 5. Cross-Functional Management */}
         <BentoItem className="col-span-1">
-          <div className="h-full flex flex-col justify-between">
-            <h3 className="text-xl font-bold text-light mb-2">
+          <div className="h-full flex flex-col gap-4">
+            <h3 className="text-xl font-bold text-light">
               Cross-Functional Management
             </h3>
             <p className="text-light/80">
@@ -91,9 +87,9 @@ const BentoGrid = () => {
         </BentoItem>
 
         {/* 6. Applied ML & AI Across Industries */}
-        <BentoItem className="col-span-1 md:col-span-2 lg:col-span-2">
-          <div className="h-full flex flex-col justify-between">
-            <h3 className="text-2xl font-bold text-light mb-2">
+        <BentoItem className="col-span-1">
+          <div className="h-full flex flex-col gap-4">
+            <h3 className="text-xl font-bold text-light">
               Applied ML & AI Across Industries
             </h3>
             <p className="text-light/80">
