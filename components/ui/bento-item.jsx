@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from "react";
 
 const BentoItem = ({ className, children }) => {
   const itemRef = useRef(null);
-  const MAX_ROTATION = 10;
+  const MAX_ROTATION = 3;
 
   useEffect(() => {
     const item = itemRef.current;
@@ -17,7 +17,7 @@ const BentoItem = ({ className, children }) => {
       const centerY = rect.height / 2;
       const rotateY = ((x - centerX) / centerX) * MAX_ROTATION;
       const rotateX = (-(y - centerY) / centerY) * MAX_ROTATION;
-      item.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05,1.05,1.05)`;
+      item.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.015,1.015,1.015)`;
     };
 
     const handleMouseLeave = () => {
