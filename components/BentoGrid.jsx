@@ -4,6 +4,14 @@ import BentoItem from "./ui/bento-item";
 const BentoGrid = () => {
   return (
     <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div className="mb-12 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          Expertise & Leadership
+        </h2>
+        <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          Bridging the gap between advanced AI research and real-world impact.
+        </p>
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {/* 1. Translational AI Research */}
         <BentoItem className="col-span-1 lg:col-span-2">
