@@ -20,7 +20,7 @@ const BentoGrid = () => {
             <h3 className="text-xl font-bold text-light">
               10+ Years of Advanced R&D
             </h3>
-            <p className="text-light/80">
+            <p className="text-light/80 text-justify">
               From a{" "}
               <span className={HIGHLIGHT_STYLE}>PhD in Computer Science</span>{" "}
               to research roles across{" "}
@@ -39,7 +39,7 @@ const BentoGrid = () => {
         <BentoItem className="col-span-1">
           <div className="h-full flex flex-col gap-4">
             <h3 className="text-xl font-bold text-light">Medical Imaging AI</h3>
-            <p className="text-light/80">
+            <p className="text-light/80 text-justify">
               Developing{" "}
               <span className={HIGHLIGHT_STYLE}>
                 advanced ML & AI systems for medical imaging
@@ -56,7 +56,7 @@ const BentoGrid = () => {
         <BentoItem className="col-span-1">
           <div className="h-full flex flex-col gap-4">
             <h3 className="text-xl font-bold text-light">Scalable Systems</h3>
-            <p className="text-light/80">
+            <p className="text-light/80 text-justify">
               Building{" "}
               <span className={HIGHLIGHT_STYLE}>scalable ML & AI systems</span>{" "}
               with AutoML, PyTorch, TensorFlow, scikit-learn, MLflow, DVC,
@@ -78,7 +78,7 @@ const BentoGrid = () => {
             <h3 className="text-xl font-bold text-light">
               Technology Leadership
             </h3>
-            <p className="text-light/80">
+            <p className="text-light/80 text-justify">
               Serving as the company’s{" "}
               <span className={HIGHLIGHT_STYLE}>AI thought leader</span>,
               driving strategic direction, architectural decisions, and
@@ -98,7 +98,7 @@ const BentoGrid = () => {
             <h3 className="text-xl font-bold text-light">
               Cross-Functional Management
             </h3>
-            <p className="text-light/80">
+            <p className="text-light/80 text-justify">
               Leading and scaling a{" "}
               <span className={HIGHLIGHT_STYLE}>
                 cross-functional department
@@ -115,7 +115,7 @@ const BentoGrid = () => {
             <h3 className="text-xl font-bold text-light">
               Applied ML & AI Across Industries
             </h3>
-            <p className="text-light/80">
+            <p className="text-light/80 text-justify">
               Developing{" "}
               <span className={HIGHLIGHT_STYLE}>applied ML & AI systems</span>{" "}
               for insurance, clinical diagnostics, medical imaging, and
