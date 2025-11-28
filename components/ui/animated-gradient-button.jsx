@@ -16,8 +16,8 @@ export const AnimatedGradientButton = React.forwardRef(
       href,
       target = "_blank",
       className,
-      gradient = "purple",
-      duration = "3s",
+      gradient = "blue",
+      duration = "2s",
       ariaLabel,
       children,
       ...props
@@ -27,7 +27,7 @@ export const AnimatedGradientButton = React.forwardRef(
     const gradientClass = gradients[gradient] || gradients.purple;
 
     return (
-      <span className="relative inline-block overflow-hidden rounded-full p-[1.75px]">
+      <span className="relative inline-block overflow-hidden rounded-full p-[2.0px]">
         {/* Animated gradient border */}
         <span
           className={cn("absolute inset-[-1000%] animate-spin", gradientClass)}
