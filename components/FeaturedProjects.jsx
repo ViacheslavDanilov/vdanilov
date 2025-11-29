@@ -6,36 +6,59 @@ import Image from "next/image";
 
 const PROJECTS = [
   {
-    title: "Project Alpha",
+    title:
+      "Wavelets in the brain: Deep learning for non-invasive ICP monitoring",
+    client: "Vall d’Hebron Hospital",
+    location: "Barcelona · Spain 🇪🇸",
     description:
-      "A revolutionary AI-driven platform for predictive analytics in healthcare.",
-    stack: ["Next.js", "Python", "TensorFlow", "AWS"],
+      "This project developed a hybrid deep learning system that automates the segmentation of atherosclerotic plaques in OCT images. By combining task-specific neural networks with ensemble learning, it achieved state-of-the-art accuracy and offers clinically relevant insights for cardiovascular risk assessment.",
+    stack: [
+      "PyTorch",
+      "Python",
+      "fast.ai",
+      "Gradio",
+      "DVC",
+      "Weights & Biases",
+    ],
     link: "#",
-    image: "/placeholder-project-1.jpg", // You'll need to replace these
+    image: "/images/projects/wavelets-in-the-brain/preview.webp",
   },
   {
-    title: "Project Beta",
+    title: "SALES PILOT: AI-DRIVEN LEAD SCORING AT SCALE",
+    client: "SYMFA",
+    location: "Miami · United States 🇺🇸",
     description:
-      "Decentralized finance dashboard providing real-time insights and portfolio management.",
-    stack: ["React", "Solidity", "Web3.js", "Tailwind"],
+      "An end-to-end AI system that automates outbound lead generation by scoring jobs, contacts, and companies using hybrid models – dramatically reducing time-to-lead and improving conversion rates.",
+    stack: ["Python", "OpenAI API", "scikit-learn", "DVC", "CI/CD", "LLM"],
     link: "#",
-    image: "/placeholder-project-2.jpg",
+    image: "/images/projects/sales-pilot/preview.webp",
   },
   {
-    title: "Project Gamma",
+    title: "TUMOR IMMUNE PHENOTYPE CLASSIFICATION",
+    client: "BOEHRINGER INGELHEIM",
+    location: "Ingelheim · Germany 🇩🇪",
     description:
-      "High-performance e-commerce solution with advanced search and recommendation engine.",
-    stack: ["Vue.js", "Node.js", "Elasticsearch", "Redis"],
+      "Created a hybrid pipeline to classify tumor immune phenotypes with 89% weighted F1-score, enabling automated analysis of adenocarcinoma slides for personalized treatments.",
+    stack: ["PyTorch", "HoVer-Net", "scikit-learn", "OpenSlide", "AutoML"],
     link: "#",
-    image: "/placeholder-project-3.jpg",
+    image: "/images/projects/tumor-immune-phenotype/preview.webp",
   },
   {
-    title: "Project Delta",
+    title: "HARNESSING MACHINE LEARNING FOR LASER ABLATION",
+    client: "INSTITUTE FOR IMAGE-GUIDED SURGERY",
+    location: "Strasbourg · France 🇫🇷",
     description:
-      "Collaborative workspace tool for remote teams with real-time editing and video chat.",
-    stack: ["TypeScript", "Socket.io", "WebRTC", "PostgreSQL"],
+      "Leveraging deep learning and clustering, this project introduces a robust workflow for analyzing hyperspectral imaging data, enabling precise detection and segmentation of laser-induced tissue ablation, with applications in medical diagnostics and cancer therapy.",
+    stack: [
+      "PyTorch",
+      "MMDetection",
+      "scikit-learn",
+      "DVC",
+      "OpenCV",
+      "MLflow",
+    ],
     link: "#",
-    image: "/placeholder-project-4.jpg",
+    image: "/images/projects/ml-for-laser-ablation/preview.webp",
   },
 ];
 
@@ -55,26 +78,29 @@ const FeaturedProjects = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
         {PROJECTS.map((project, index) => (
           <CyberneticCard key={index} className="h-full flex flex-col">
-            <div className="relative w-full h-48 mb-6 rounded-lg overflow-hidden bg-neutral-800">
-              {/* Placeholder for image - using a colored div for now if image fails */}
-              <div className="absolute inset-0 bg-gradient-to-br from-neutral-800 to-neutral-700 flex items-center justify-center text-neutral-500">
-                <span className="text-sm">Project Preview</span>
+            <div className="flex flex-col sm:flex-row gap-6 mb-4">
+              <div className="relative w-24 h-24 sm:w-32 sm:h-32 flex-shrink-0 rounded-lg overflow-hidden bg-neutral-800 border border-white/10">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
               </div>
-              {/* Uncomment when you have real images
-              <Image 
-                src={project.image} 
-                alt={project.title}
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              */}
-            </div>
 
-            <div className="flex flex-col flex-grow">
-              <div className="flex justify-between items-start mb-4">
-                <h3 className="text-2xl font-bold text-white group-hover:text-accent transition-colors">
+              <div className="flex flex-col justify-center">
+                <h3 className="text-lg font-bold text-white group-hover:text-accent transition-colors uppercase leading-tight mb-2">
                   {project.title}
                 </h3>
+                <div className="text-sm font-semibold text-accent/80 uppercase tracking-wide">
+                  {project.client}
+                </div>
+                <div className="text-xs text-neutral-500 mt-1">
+                  {project.location}
+                </div>
+              </div>
+
+              <div className="ml-auto">
                 <a
                   href={project.link}
                   className="text-neutral-400 hover:text-white transition-colors"
@@ -86,21 +112,21 @@ const FeaturedProjects = () => {
                   />
                 </a>
               </div>
+            </div>
 
-              <p className="text-neutral-400 mb-6 flex-grow">
-                {project.description}
-              </p>
+            <p className="text-neutral-400 mb-6 flex-grow text-sm leading-relaxed">
+              {project.description}
+            </p>
 
-              <div className="flex flex-wrap gap-2 mt-auto">
-                {project.stack.map((tech, i) => (
-                  <span
-                    key={i}
-                    className="px-3 py-1 text-xs font-medium rounded-full bg-white/5 text-neutral-300 border border-white/10"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
+            <div className="flex flex-wrap gap-2 mt-auto">
+              {project.stack.map((tech, i) => (
+                <span
+                  key={i}
+                  className="px-3 py-1 text-xs font-medium rounded-full bg-white/5 text-neutral-300 border border-white/10"
+                >
+                  {tech}
+                </span>
+              ))}
             </div>
           </CyberneticCard>
         ))}
