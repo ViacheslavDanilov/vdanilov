@@ -24,8 +24,8 @@ const PROJECTS = [
     image: "/images/projects/wavelets-in-the-brain/preview.webp",
   },
   {
-    title: "SALES PILOT: AI-DRIVEN LEAD SCORING AT SCALE",
-    client: "SYMFA",
+    title: "Sales pilot: AI-driven lead scoring at scale",
+    client: "Symfa",
     location: "Miami · United States 🇺🇸",
     description:
       "An end-to-end AI system that automates outbound lead generation by scoring jobs, contacts, and companies using hybrid models – dramatically reducing time-to-lead and improving conversion rates.",
@@ -34,8 +34,8 @@ const PROJECTS = [
     image: "/images/projects/sales-pilot/preview.webp",
   },
   {
-    title: "TUMOR IMMUNE PHENOTYPE CLASSIFICATION",
-    client: "BOEHRINGER INGELHEIM",
+    title: "Tumor immune phenotype classification",
+    client: "Boehringer Ingelheim",
     location: "Ingelheim · Germany 🇩🇪",
     description:
       "Created a hybrid pipeline to classify tumor immune phenotypes with 89% weighted F1-score, enabling automated analysis of adenocarcinoma slides for personalized treatments.",
@@ -44,8 +44,9 @@ const PROJECTS = [
     image: "/images/projects/tumor-immune-phenotype/preview.webp",
   },
   {
-    title: "HARNESSING MACHINE LEARNING FOR LASER ABLATION",
-    client: "INSTITUTE FOR IMAGE-GUIDED SURGERY",
+    title:
+      "Harnessing ML for laser ablation assessment in hyperspectral imaging",
+    client: "Institute for Image-Guided Surgery",
     location: "Strasbourg · France 🇫🇷",
     description:
       "Leveraging deep learning and clustering, this project introduces a robust workflow for analyzing hyperspectral imaging data, enabling precise detection and segmentation of laser-induced tissue ablation, with applications in medical diagnostics and cancer therapy.",
