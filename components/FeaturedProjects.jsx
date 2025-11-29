@@ -70,41 +70,33 @@ const FeaturedProjects = () => {
         <h2 className="text-3xl md:text-4xl font-bold text-light mb-4">
           Featured Projects
         </h2>
-        <p className="text-light/60 max-w-2xl mx-auto">
+        {/* <p className="text-light/60 max-w-2xl mx-auto">
           A selection of key projects demonstrating expertise in AI, web
           development, and scalable systems.
-        </p>
+        </p> */}
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {PROJECTS.map((project, index) => (
-          <CyberneticCard key={index} className="h-full flex flex-col relative">
-            {/* Link icon - positioned absolutely in top-right */}
-            <a
-              href={project.link}
-              className="absolute top-4 right-4 z-10 text-neutral-400 hover:text-white transition-colors"
-              aria-label={`View ${project.title}`}
-            >
-              <FontAwesomeIcon
-                icon={faArrowUpRightFromSquare}
-                className="w-5 h-5"
-              />
-            </a>
-
+          <CyberneticCard key={index} className="h-full flex flex-col">
             {/* Mobile layout: centered image */}
             <div className="flex flex-col sm:hidden items-center mb-6">
-              <div className="relative w-48 h-48 rounded-lg overflow-hidden bg-neutral-800 border border-white/10 mb-4">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-              </div>
-              <h3 className="text-lg font-bold text-white group-hover:text-accent transition-colors uppercase leading-tight mb-2 text-center">
-                {project.title}
-              </h3>
-              <div className="text-sm font-semibold text-accent/80 uppercase tracking-wide text-center">
+              <a href={project.link} className="block mb-4">
+                <div className="relative w-48 h-48 rounded-lg overflow-hidden bg-neutral-800 border border-white/10 transition-transform duration-300 hover:scale-105">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </a>
+              <a href={project.link} className="block">
+                <h3 className="text-lg font-bold text-white group-hover:text-accent hover:text-accent transition-colors uppercase leading-tight mb-2 text-center">
+                  {project.title}
+                </h3>
+              </a>
+              <div className="text-sm font-semibold text-white uppercase tracking-wide text-center">
                 {project.client}
               </div>
               <div className="text-xs text-neutral-500 mt-1 text-center">
@@ -114,20 +106,24 @@ const FeaturedProjects = () => {
 
             {/* Desktop/Tablet layout: horizontal */}
             <div className="hidden sm:flex flex-row gap-6 mb-4">
-              <div className="relative w-40 h-40 flex-shrink-0 rounded-lg overflow-hidden bg-neutral-800 border border-white/10">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-              </div>
+              <a href={project.link} className="flex-shrink-0">
+                <div className="relative w-40 h-40 rounded-lg overflow-hidden bg-neutral-800 border border-white/10 transition-transform duration-300 hover:scale-105">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </a>
 
               <div className="flex flex-col justify-center">
-                <h3 className="text-lg font-bold text-white group-hover:text-accent transition-colors uppercase leading-tight mb-2">
-                  {project.title}
-                </h3>
-                <div className="text-sm font-semibold text-accent/80 uppercase tracking-wide">
+                <a href={project.link}>
+                  <h3 className="text-lg font-bold text-white group-hover:text-accent hover:text-accent transition-colors uppercase leading-tight mb-2">
+                    {project.title}
+                  </h3>
+                </a>
+                <div className="text-sm font-semibold text-white uppercase tracking-wide">
                   {project.client}
                 </div>
                 <div className="text-xs text-neutral-500 mt-1">
