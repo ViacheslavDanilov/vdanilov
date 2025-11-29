@@ -95,14 +95,14 @@ const FeaturedProjects = () => {
                 </div>
               </a>
               <a href={project.link} className="block">
-                <h3 className="text-lg font-bold text-white group-hover:text-accent hover:text-accent transition-colors uppercase leading-tight mb-3 text-center">
+                <h3 className="text-sm font-bold text-white group-hover:text-accent hover:text-accent transition-colors uppercase leading-tight tracking-wider mb-3 text-center">
                   {project.title}
                 </h3>
               </a>
-              <div className="text-sm font-semibold text-white uppercase tracking-wide text-center mb-2">
+              <div className="text-sm font-light text-white uppercase tracking-wide text-center mb-2">
                 {project.client}
               </div>
-              <div className="text-xs text-neutral-500 mt-1 text-center">
+              <div className="text-sm text-neutral-500 mt-1 text-center">
                 {project.location}
               </div>
             </div>
@@ -123,14 +123,14 @@ const FeaturedProjects = () => {
 
               <div className="flex flex-col justify-start">
                 <a href={project.link}>
-                  <h3 className="text-lg font-bold text-white group-hover:text-accent hover:text-accent transition-colors uppercase leading-tight mb-3">
+                  <h3 className="text-sm font-bold text-white group-hover:text-accent hover:text-accent uppercase transition-colors leading-tight tracking-wider mb-3">
                     {project.title}
                   </h3>
                 </a>
-                <div className="text-sm font-semibold text-white uppercase tracking-wide mb-2">
+                <div className="text-sm font-light text-white uppercase tracking-wide mb-2">
                   {project.client}
                 </div>
-                <div className="text-xs text-neutral-500 mt-1">
+                <div className="text-sm text-neutral-500 mt-1">
                   {project.location}
                 </div>
               </div>
