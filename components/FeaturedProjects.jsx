@@ -4,11 +4,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 const PROJECTS = [
   {
     title:
       "Wavelets in the brain: Deep learning for non-invasive ICP monitoring",
-    client: "Vall d’Hebron Hospital",
+    client: "Vall d'Hebron Hospital",
     location: "Barcelona · Spain 🇪🇸",
     description:
       "This project developed a hybrid deep learning system that automates the segmentation of atherosclerotic plaques in OCT images. By combining task-specific neural networks with ensemble learning, it achieved state-of-the-art accuracy and offers clinically relevant insights for cardiovascular risk assessment.",
@@ -21,7 +23,7 @@ const PROJECTS = [
       "Weights & Biases",
     ],
     link: "#",
-    image: "/images/projects/wavelets-in-the-brain/preview.webp",
+    image: `${basePath}/images/projects/wavelets-in-the-brain/preview.webp`,
   },
   {
     title: "Sales pilot: AI-driven lead scoring at scale",
@@ -31,7 +33,7 @@ const PROJECTS = [
       "An end-to-end AI system that automates outbound lead generation by scoring jobs, contacts, and companies using hybrid models – dramatically reducing time-to-lead and improving conversion rates.",
     stack: ["Python", "OpenAI API", "scikit-learn", "DVC", "CI/CD", "LLM"],
     link: "#",
-    image: "/images/projects/sales-pilot/preview.webp",
+    image: `${basePath}/images/projects/sales-pilot/preview.webp`,
   },
   {
     title: "Tumor immune phenotype classification",
@@ -41,7 +43,7 @@ const PROJECTS = [
       "Created a hybrid pipeline to classify tumor immune phenotypes with 89% weighted F1-score, enabling automated analysis of adenocarcinoma slides for personalized treatments.",
     stack: ["PyTorch", "HoVer-Net", "scikit-learn", "OpenSlide", "AutoML"],
     link: "#",
-    image: "/images/projects/tumor-immune-phenotype/preview.webp",
+    image: `${basePath}/images/projects/tumor-immune-phenotype/preview.webp`,
   },
   {
     title:
@@ -59,7 +61,7 @@ const PROJECTS = [
       "MLflow",
     ],
     link: "#",
-    image: "/images/projects/ml-for-laser-ablation/preview.webp",
+    image: `${basePath}/images/projects/ml-for-laser-ablation/preview.webp`,
   },
 ];
 
