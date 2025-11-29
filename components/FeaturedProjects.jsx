@@ -76,11 +76,45 @@ const FeaturedProjects = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {PROJECTS.map((project, index) => (
-          <CyberneticCard key={index} className="h-full flex flex-col">
-            <div className="flex flex-col sm:flex-row gap-6 mb-4">
-              <div className="relative w-24 h-24 sm:w-32 sm:h-32 flex-shrink-0 rounded-lg overflow-hidden bg-neutral-800 border border-white/10">
+          <CyberneticCard key={index} className="h-full flex flex-col relative">
+            {/* Link icon - positioned absolutely in top-right */}
+            <a
+              href={project.link}
+              className="absolute top-4 right-4 z-10 text-neutral-400 hover:text-white transition-colors"
+              aria-label={`View ${project.title}`}
+            >
+              <FontAwesomeIcon
+                icon={faArrowUpRightFromSquare}
+                className="w-5 h-5"
+              />
+            </a>
+
+            {/* Mobile layout: centered image */}
+            <div className="flex flex-col sm:hidden items-center mb-6">
+              <div className="relative w-48 h-48 rounded-lg overflow-hidden bg-neutral-800 border border-white/10 mb-4">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <h3 className="text-lg font-bold text-white group-hover:text-accent transition-colors uppercase leading-tight mb-2 text-center">
+                {project.title}
+              </h3>
+              <div className="text-sm font-semibold text-accent/80 uppercase tracking-wide text-center">
+                {project.client}
+              </div>
+              <div className="text-xs text-neutral-500 mt-1 text-center">
+                {project.location}
+              </div>
+            </div>
+
+            {/* Desktop/Tablet layout: horizontal */}
+            <div className="hidden sm:flex flex-row gap-6 mb-4">
+              <div className="relative w-40 h-40 flex-shrink-0 rounded-lg overflow-hidden bg-neutral-800 border border-white/10">
                 <Image
                   src={project.image}
                   alt={project.title}
@@ -99,19 +133,6 @@ const FeaturedProjects = () => {
                 <div className="text-xs text-neutral-500 mt-1">
                   {project.location}
                 </div>
-              </div>
-
-              <div className="ml-auto">
-                <a
-                  href={project.link}
-                  className="text-neutral-400 hover:text-white transition-colors"
-                  aria-label={`View ${project.title}`}
-                >
-                  <FontAwesomeIcon
-                    icon={faArrowUpRightFromSquare}
-                    className="w-5 h-5"
-                  />
-                </a>
               </div>
             </div>
 
