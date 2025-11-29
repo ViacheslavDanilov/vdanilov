@@ -28,11 +28,11 @@ const CyberneticCard = ({ className, children }) => {
     <div
       ref={itemRef}
       className={cn(
-        "cybernetic-card relative overflow-hidden rounded-xl bg-neutral-900 border border-white/10 p-6 group",
+        "cybernetic-card relative overflow-hidden rounded-xl bg-light/5 border border-light/10 p-6 group transition-all duration-500 ease-out",
         className,
       )}
     >
-      <div className="cybernetic-card-glow absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+      <div className="cybernetic-card-glow absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
       <div className="relative z-10 h-full">{children}</div>
     </div>
   );
