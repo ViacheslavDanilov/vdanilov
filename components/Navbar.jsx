@@ -91,6 +91,7 @@ function Navbar() {
 
   // Navigation handler
   const handleNavClick = (label, href) => {
+    setActiveSection(label); // Update active section immediately
     router.push(href);
     setIsMenuOpen(false); // Close mobile menu after navigation
   };
