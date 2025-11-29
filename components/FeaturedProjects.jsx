@@ -95,11 +95,11 @@ const FeaturedProjects = () => {
                 </div>
               </a>
               <a href={project.link} className="block">
-                <h3 className="text-lg font-bold text-white group-hover:text-accent hover:text-accent transition-colors uppercase leading-tight mb-2 text-center">
+                <h3 className="text-lg font-bold text-white group-hover:text-accent hover:text-accent transition-colors uppercase leading-tight mb-3 text-center">
                   {project.title}
                 </h3>
               </a>
-              <div className="text-sm font-semibold text-white uppercase tracking-wide text-center">
+              <div className="text-sm font-semibold text-white uppercase tracking-wide text-center mb-2">
                 {project.client}
               </div>
               <div className="text-xs text-neutral-500 mt-1 text-center">
@@ -121,13 +121,13 @@ const FeaturedProjects = () => {
                 </div>
               </a>
 
-              <div className="flex flex-col justify-center">
+              <div className="flex flex-col justify-start">
                 <a href={project.link}>
-                  <h3 className="text-lg font-bold text-white group-hover:text-accent hover:text-accent transition-colors uppercase leading-tight mb-2">
+                  <h3 className="text-lg font-bold text-white group-hover:text-accent hover:text-accent transition-colors uppercase leading-tight mb-3">
                     {project.title}
                   </h3>
                 </a>
-                <div className="text-sm font-semibold text-white uppercase tracking-wide">
+                <div className="text-sm font-semibold text-white uppercase tracking-wide mb-2">
                   {project.client}
                 </div>
                 <div className="text-xs text-neutral-500 mt-1">
@@ -136,7 +136,7 @@ const FeaturedProjects = () => {
               </div>
             </div>
 
-            <p className="text-neutral-400 mb-6 flex-grow text-sm leading-relaxed">
+            <p className="text-neutral-400 mb-6 flex-grow text-sm leading-relaxed justify-center">
               {project.description}
             </p>
 
