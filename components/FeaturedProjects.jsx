@@ -29,7 +29,7 @@ const PROJECTS = [
     client: "Symfa",
     location: "Miami · United States 🇺🇸",
     description:
-      "An end-to-end AI system that automates outbound lead generation by scoring jobs, contacts, and companies using hybrid models – dramatically reducing time-to-lead and improving conversion rates.",
+      "An end-to-end AI system that automates outbound lead generation by scoring jobs, contacts, and companies using hybrid heuristic–embedding models. It transforms slow manual sourcing into a scalable, data-driven workflow that dramatically cuts time-to-lead from days to minutes while boosting targeting accuracy and conversion potential.",
     stack: ["Python", "OpenAI API", "scikit-learn", "DVC", "CI/CD", "LLM"],
     link: "#",
     image: `${basePath}/images/projects/sales-pilot/preview.webp`,
@@ -40,7 +40,7 @@ const PROJECTS = [
     client: "Boehringer Ingelheim",
     location: "Ingelheim · Germany 🇩🇪",
     description:
-      "Created a hybrid pipeline to classify tumor immune phenotypes with 89% weighted F1-score, enabling automated analysis of adenocarcinoma slides for personalized treatments.",
+      "A hybrid machine learning pipeline that classifies tumor immune phenotypes from whole-slide histopathology images using deep nucleus segmentation, feature engineering, and AutoML-based cell classification. Achieving an 89% weighted F1-score, it enables automated adenocarcinoma slide analysis, reducing manual workload and supporting more precise, personalized immunotherapy decisions.",
     stack: ["PyTorch", "HoVer-Net", "scikit-learn", "OpenSlide", "AutoML"],
     link: "#",
     image: `${basePath}/images/projects/tumor-immune-phenotype/preview.webp`,
@@ -51,7 +51,7 @@ const PROJECTS = [
     client: "Institute for Image-Guided Surgery",
     location: "Strasbourg · France 🇫🇷",
     description:
-      "Leveraging deep learning and clustering, this project introduces a robust workflow for analyzing hyperspectral imaging data, enabling precise detection and segmentation of laser-induced tissue ablation, with applications in medical diagnostics and cancer therapy.",
+      "A multi-stage machine learning pipeline that detects and segments laser-induced tissue ablation from hyperspectral imaging data using PCA/t-SNE reduction, Faster R-CNN detection, and Mean Shift clustering. The workflow enables automated assessment of thermal damage across organs, improving diagnostic accuracy and supporting research in laser-based cancer therapy.",
     stack: [
       "PyTorch",
       "MMDetection",
@@ -136,7 +136,7 @@ const FeaturedProjects = () => {
               </div>
             </div>
 
-            <p className="text-neutral-400 mb-6 flex-grow text-sm leading-relaxed justify-center">
+            <p className="text-neutral-400 mb-6 flex-grow text-sm leading-relaxed text-justify">
               {project.description}
             </p>
 
