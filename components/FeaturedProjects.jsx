@@ -8,12 +8,11 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 const PROJECTS = [
   {
-    title:
-      "Wavelets in the brain: Deep learning for non-invasive ICP monitoring",
+    title: "Wavelets in the brain",
     client: "Vall d'Hebron Hospital",
     location: "Barcelona · Spain 🇪🇸",
     description:
-      "This project developed a hybrid deep learning system that automates the segmentation of atherosclerotic plaques in OCT images. By combining task-specific neural networks with ensemble learning, it achieved state-of-the-art accuracy and offers clinically relevant insights for cardiovascular risk assessment.",
+      "A wavelet-based deep learning system that non-invasively estimates intracranial pressure from cerebral blood-flow signals, enabling accurate bedside ICP monitoring without surgical risk. Validated on 200+ hours of clinical data, the model achieves clinically actionable accuracy and demonstrates a scalable alternative to invasive neuro-monitoring.",
     stack: [
       "PyTorch",
       "Python",
@@ -26,7 +25,7 @@ const PROJECTS = [
     image: `${basePath}/images/projects/wavelets-in-the-brain/preview.webp`,
   },
   {
-    title: "Sales pilot: AI-driven lead scoring at scale",
+    title: "AI-driven lead scoring at scale",
     client: "Symfa",
     location: "Miami · United States 🇺🇸",
     description:
@@ -46,8 +45,7 @@ const PROJECTS = [
     image: `${basePath}/images/projects/tumor-immune-phenotype/preview.webp`,
   },
   {
-    title:
-      "Harnessing ML for laser ablation assessment in hyperspectral imaging",
+    title: "ML for laser ablation assessment",
     client: "Institute for Image-Guided Surgery",
     location: "Strasbourg · France 🇫🇷",
     description:
