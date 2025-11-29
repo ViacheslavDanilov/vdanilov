@@ -110,7 +110,7 @@ function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-dark/95 backdrop-blur-sm border-b border-accent/20">
-      <div className="max-w-7xl mx-auto px-6 py-3">
+      <div className="max-w-7xl mx-auto px-6 py-1 sm:py-2">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <button
@@ -121,7 +121,7 @@ function Navbar() {
             <img
               src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logo.png`}
               alt="Viacheslav Danilov"
-              className="h-10 w-auto"
+              className="h-8 sm:h-10 w-auto"
             />
           </button>
 

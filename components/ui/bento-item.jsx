@@ -46,7 +46,7 @@ const BentoItem = React.forwardRef(({ className, children }, ref) => {
         }
       }}
       className={cn(
-        "relative overflow-hidden rounded-xl bg-light/5 border border-light/10 p-6 transition-all duration-300 ease-out hover:shadow-xl hover:shadow-accent/20",
+        "relative overflow-hidden rounded-xl bg-light/5 border border-light/10 p-6 transition-all duration-300 ease-out",
         className,
       )}
     >
