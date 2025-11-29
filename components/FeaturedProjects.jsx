@@ -1,13 +1,12 @@
 import React from "react";
 import CyberneticCard from "./ui/cybernetic-card";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 const PROJECTS = [
   {
+    id: "wavelets-in-the-brain",
     title: "Wavelets in the brain",
     client: "Vall d'Hebron Hospital",
     location: "Barcelona · Spain 🇪🇸",
@@ -25,6 +24,7 @@ const PROJECTS = [
     image: `${basePath}/images/projects/wavelets-in-the-brain/preview.webp`,
   },
   {
+    id: "sales-pilot",
     title: "AI-driven lead scoring at scale",
     client: "Symfa",
     location: "Miami · United States 🇺🇸",
@@ -35,6 +35,7 @@ const PROJECTS = [
     image: `${basePath}/images/projects/sales-pilot/preview.webp`,
   },
   {
+    id: "tumor-immune-phenotype",
     title: "Tumor immune phenotype classification",
     client: "Boehringer Ingelheim",
     location: "Ingelheim · Germany 🇩🇪",
@@ -45,6 +46,7 @@ const PROJECTS = [
     image: `${basePath}/images/projects/tumor-immune-phenotype/preview.webp`,
   },
   {
+    id: "ml-for-laser-ablation",
     title: "ML for laser ablation assessment",
     client: "Institute for Image-Guided Surgery",
     location: "Strasbourg · France 🇫🇷",
@@ -77,8 +79,8 @@ const FeaturedProjects = () => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {PROJECTS.map((project, index) => (
-          <CyberneticCard key={index} className="h-full flex flex-col">
+        {PROJECTS.map((project) => (
+          <CyberneticCard key={project.id} className="h-full flex flex-col">
             {/* Mobile layout: centered image */}
             <div className="flex flex-col sm:hidden items-center mb-6">
               <a href={project.link} className="block mb-4">
@@ -87,6 +89,7 @@ const FeaturedProjects = () => {
                     src={project.image}
                     alt={project.title}
                     fill
+                    sizes="192px"
                     className="object-cover"
                   />
                 </div>
@@ -112,6 +115,7 @@ const FeaturedProjects = () => {
                     src={project.image}
                     alt={project.title}
                     fill
+                    sizes="(max-width: 640px) 192px, 160px"
                     className="object-cover"
                   />
                 </div>
@@ -137,9 +141,9 @@ const FeaturedProjects = () => {
             </p>
 
             <div className="flex flex-wrap gap-2 mt-auto">
-              {project.stack.map((tech, i) => (
+              {project.stack.map((tech) => (
                 <span
-                  key={i}
+                  key={tech}
                   className="px-3 py-1 text-xs font-medium rounded-full bg-white/5 text-neutral-300 border border-white/10"
                 >
                   {tech}
