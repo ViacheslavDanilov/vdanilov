@@ -21,7 +21,7 @@ const PROJECTS = [
       "Weights & Biases",
     ],
     link: "#",
-    image: `${basePath}/images/projects/wavelets-in-the-brain/preview.webp`,
+    image: `${basePath}/projects/wavelets-in-the-brain/preview.webp`,
   },
   {
     id: "sales-pilot",
@@ -32,7 +32,7 @@ const PROJECTS = [
       "An end-to-end AI system that automates outbound lead generation by scoring jobs, contacts, and companies using hybrid heuristic–embedding models. It transforms slow manual sourcing into a scalable, data-driven workflow that dramatically cuts time-to-lead from days to minutes while boosting targeting accuracy and conversion potential.",
     stack: ["Python", "OpenAI API", "scikit-learn", "DVC", "CI/CD", "LLM"],
     link: "#",
-    image: `${basePath}/images/projects/sales-pilot/preview.webp`,
+    image: `${basePath}/projects/sales-pilot/preview.webp`,
   },
   {
     id: "tumor-immune-phenotype",
@@ -43,7 +43,7 @@ const PROJECTS = [
       "A hybrid machine learning pipeline that classifies tumor immune phenotypes from whole-slide histopathology images using deep nucleus segmentation, feature engineering, and AutoML-based cell classification. Achieving an 89% weighted F1-score, it enables automated adenocarcinoma slide analysis, reducing manual workload and supporting more precise, personalized immunotherapy decisions.",
     stack: ["PyTorch", "HoVer-Net", "scikit-learn", "OpenSlide", "AutoML"],
     link: "#",
-    image: `${basePath}/images/projects/tumor-immune-phenotype/preview.webp`,
+    image: `${basePath}/projects/tumor-immune-phenotype/preview.webp`,
   },
   {
     id: "ml-for-laser-ablation",
@@ -61,7 +61,7 @@ const PROJECTS = [
       "MLflow",
     ],
     link: "#",
-    image: `${basePath}/images/projects/ml-for-laser-ablation/preview.webp`,
+    image: `${basePath}/projects/ml-for-laser-ablation/preview.webp`,
   },
 ];
 
