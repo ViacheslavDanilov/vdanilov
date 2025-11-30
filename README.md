@@ -72,3 +72,25 @@ npm run check
 ```
 
 Pre-commit hooks automatically format staged files before each commit.
+
+## Testing
+
+End-to-end testing with Playwright across 13 configurations (Chromium, Firefox, WebKit, Chrome + 9 mobile devices).
+
+Run all tests:
+
+```sh
+npm run test:e2e
+```
+
+Run with interactive UI:
+
+```sh
+npm run test:e2e:ui
+```
+
+View test report:
+
+```sh
+npx playwright show-report
+```
