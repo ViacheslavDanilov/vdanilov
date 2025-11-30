@@ -12,6 +12,10 @@ const BentoGrid = () => {
         <h2 className="text-3xl md:text-4xl font-bold text-light mb-4">
           Expertise & Leadership
         </h2>
+        <p className="text-gray-400 mt-3 max-w-2xl mx-auto">
+          Bridging the gap between academic research and industrial-scale
+          engineering to build high-performing technical teams.
+        </p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {/* 1. Advanced R&D */}
