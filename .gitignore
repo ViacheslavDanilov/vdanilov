@@ -52,3 +52,7 @@ next-env.d.ts
 
 #
 vdanilov/
+
+# Playwright
+/test-results/
+/playwright-report/
