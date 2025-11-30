@@ -11,13 +11,17 @@
     "serve": "npx serve out -l 3000",
     "prepare": "husky && node --eval \"fs.writeFileSync('.husky/pre-commit','npx lint-staged\\n')\"",
     "check": "prettier --check .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui"
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"
   },
   "devDependencies": {
+    "@playwright/test": "^1.57.0",
     "@tailwindcss/postcss": "^4.1.17",
+    "@types/node": "^24.10.1",
     "autoprefixer": "^10.4.22",
     "husky": "9.1.7",
     "lint-staged": "16.2.4",
