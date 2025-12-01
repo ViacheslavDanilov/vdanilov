@@ -59,7 +59,7 @@ const Hero = () => {
               playsInline
               webkit-playsinline="true"
               preload="auto"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover brightness-150"
             >
               <source
                 src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/hero/hero-video.mp4`}
