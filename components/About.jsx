@@ -134,8 +134,17 @@ const About = () => {
               rel="noopener noreferrer"
               aria-label={social.name}
               className={`text-gray-400 transition-all duration-300 transform hover:scale-110 ${social.color}`}
+              style={{ display: "inline-block" }}
             >
-              <FontAwesomeIcon icon={social.icon} size="lg" />
+              <FontAwesomeIcon
+                icon={social.icon}
+                className="w-5 h-5"
+                style={{
+                  width: "1.25rem",
+                  height: "1.25rem",
+                  display: "block",
+                }}
+              />
             </a>
           ))}
         </div>
@@ -150,7 +159,15 @@ const About = () => {
             className="text-base lg:text-lg font-medium"
           >
             <>
-              <FontAwesomeIcon icon={faWhatsapp} size="lg" className="mr-2" />
+              <FontAwesomeIcon
+                icon={faWhatsapp}
+                className="mr-2 w-5 h-5"
+                style={{
+                  width: "1.25rem",
+                  height: "1.25rem",
+                  display: "inline-block",
+                }}
+              />
               Contact me
             </>
           </AnimatedGradientButton>

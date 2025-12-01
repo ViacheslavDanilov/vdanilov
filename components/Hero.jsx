@@ -12,7 +12,11 @@ const Hero = () => {
 
   const ButtonContent = () => (
     <>
-      <FontAwesomeIcon icon={faFileArrowDown} size="lg" className="mr-2" />
+      <FontAwesomeIcon
+        icon={faFileArrowDown}
+        className="mr-2 w-5 h-5"
+        style={{ width: "1.25rem", height: "1.25rem", display: "inline-block" }}
+      />
       Download CV
     </>
   );
