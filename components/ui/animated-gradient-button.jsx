@@ -51,7 +51,7 @@ export const AnimatedGradientButton = React.forwardRef(
               "hover:bg-gradient-to-tr hover:from-zinc-300/10 hover:via-[#03b1fb]/30 hover:to-transparent",
               "transition-all",
               "sm:w-auto py-4 px-10",
-              "focus:outline-none focus:ring-2 focus:ring-[#03b1fb] focus:ring-offset-2 focus:ring-offset-gray-950",
+              "outline-none focus:outline-none focus-visible:outline-none",
               className,
             )}
             {...props}
