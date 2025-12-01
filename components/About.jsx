@@ -101,21 +101,21 @@ const About = () => {
         </div> */}
 
         {/* Description */}
-        <div className="space-y-6 text-light leading-loose text-center max-w-5xl">
+        <div className="space-y-6 text-light leading-loose text-justify max-w-5xl">
           <p>
             Experienced{" "}
-            <TextShimmer className="font-medium [--base-color:var(--color-accent)] [--base-gradient-color:var(--color-light)]">
+            <TextShimmer className="font-medium [--base-color:#9ca3af] [--base-gradient-color:#e5e7eb]">
               Lead ML Engineer
             </TextShimmer>{" "}
             and{" "}
-            <TextShimmer className="font-medium [--base-color:var(--color-accent)] [--base-gradient-color:var(--color-light)]">
+            <TextShimmer className="font-medium [--base-color:#9ca3af] [--base-gradient-color:#e5e7eb]">
               Research Scientist
             </TextShimmer>{" "}
-            based in Barcelona, holding a PhD in Computer Science and 10 years
-            of experience in AI and data science. Having worked in both academic
-            and industrial settings, I have sharpened skills in data analysis,
-            AI/ML development, and scientific experimentation. I cover the full
-            spectrum from, designing predictive models to engineering scalable
+            based in Barcelona, with a PhD in Computer Science and 10 years of
+            experience in AI and data science. Having worked in both academia
+            and industry, I have sharpened skills in data analysis, AI/ML
+            development, and scientific experimentation. I cover the full
+            spectrum from designing predictive models to engineering scalable
             solutions with modern frameworks and cloud platforms. My projects
             often leverage cloud infrastructure to maximize efficiency. Over my
             career, I have collaborated on a variety of initiatives, and my work
