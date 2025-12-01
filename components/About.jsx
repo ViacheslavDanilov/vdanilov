@@ -135,7 +135,7 @@ const About = () => {
               aria-label={social.name}
               className={`text-gray-400 transition-all duration-300 transform hover:scale-110 ${social.color}`}
             >
-              <FontAwesomeIcon icon={social.icon} className="w-12 h-12" />
+              <FontAwesomeIcon icon={social.icon} size="lg" />
             </a>
           ))}
         </div>
@@ -150,7 +150,7 @@ const About = () => {
             className="text-base lg:text-lg font-medium"
           >
             <>
-              <FontAwesomeIcon icon={faWhatsapp} className="w-5 h-5 mr-2" />
+              <FontAwesomeIcon icon={faWhatsapp} size="lg" className="mr-2" />
               Contact me
             </>
           </AnimatedGradientButton>

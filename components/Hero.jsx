@@ -12,7 +12,7 @@ const Hero = () => {
 
   const ButtonContent = () => (
     <>
-      <FontAwesomeIcon icon={faFileArrowDown} className="w-5 h-5 mr-2" />
+      <FontAwesomeIcon icon={faFileArrowDown} size="lg" className="mr-2" />
       Download CV
     </>
   );
