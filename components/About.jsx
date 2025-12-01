@@ -10,6 +10,7 @@ import {
   faGoogle,
   faOrcid,
   faResearchgate,
+  faWhatsapp,
 } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
@@ -124,7 +125,7 @@ const About = () => {
         </div>
 
         {/* Social Links */}
-        <div className="flex flex-wrap items-center justify-center gap-8 pt-0">
+        <div className="flex flex-wrap items-center justify-center gap-8 pt-2">
           {socialLinks.map((social) => (
             <a
               key={social.name}
@@ -132,9 +133,9 @@ const About = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={social.name}
-              className={`text-gray-400 transition-all duration-300 transform hover:scale-115 ${social.color}`}
+              className={`text-gray-400 transition-all duration-300 transform hover:scale-110 ${social.color}`}
             >
-              <FontAwesomeIcon icon={social.icon} className="w-8 h-8" />
+              <FontAwesomeIcon icon={social.icon} className="w-12 h-12" />
             </a>
           ))}
         </div>
@@ -146,10 +147,10 @@ const About = () => {
             target="_blank"
             gradient="blue"
             ariaLabel="Contact me"
-            className="text-base font-medium"
+            className="text-base lg:text-lg font-medium"
           >
             <>
-              <FontAwesomeIcon icon={faEnvelope} className="w-5 h-5 mr-2" />
+              <FontAwesomeIcon icon={faWhatsapp} className="w-5 h-5 mr-2" />
               Contact me
             </>
           </AnimatedGradientButton>

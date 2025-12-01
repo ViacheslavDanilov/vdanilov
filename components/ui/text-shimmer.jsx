@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 
 export function TextShimmer({
   children,
-  as: Component = "p",
+  as: Component = "span",
   className,
   duration = 2,
   spread = 2,
