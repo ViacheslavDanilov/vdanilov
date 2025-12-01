@@ -8,7 +8,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFileArrowDown } from "@fortawesome/free-solid-svg-icons";
 
 const Hero = () => {
-  const [videoLoaded, setVideoLoaded] = useState(false);
   const roles = ["Tech Lead", "Engineering Manager", "Research Scientist"];
 
   const ButtonContent = () => (
@@ -53,29 +52,17 @@ const Hero = () => {
         {/* Video Content */}
         <div className="w-full md:w-1/2 flex justify-center md:justify-end">
           <div className="relative w-64 h-64 md:w-[400px] md:h-[400px] rounded-full overflow-hidden border-4 border-accent/20 shadow-2xl bg-dark">
-            <div
-              className={`absolute inset-0 z-10 transition-opacity duration-700 ease-in-out ${
-                videoLoaded ? "opacity-0 pointer-events-none" : "opacity-100"
-              }`}
-            >
-              <Image
-                src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/hero-poster.webp`}
-                alt="Hero Animation Placeholder"
-                fill
-                className="object-cover"
-                priority
-              />
-            </div>
             <video
               autoPlay
               muted
               loop
               playsInline
-              onLoadedData={() => setVideoLoaded(true)}
+              webkit-playsinline="true"
+              preload="auto"
               className="w-full h-full object-cover"
             >
               <source
-                src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/hero.mp4`}
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/hero/hero-video.mp4`}
                 type="video/mp4"
               />
               Your browser does not support the video tag.
