@@ -13,43 +13,45 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
+import { TextShimmer } from "@/components/ui/text-shimmer";
+
 const About = () => {
   const socialLinks = [
     {
       name: "LinkedIn",
       icon: faLinkedin,
-      href: "https://www.linkedin.com/in/vdanilov",
-      color: "hover:text-[#0A66C2]",
+      href: "https://www.linkedin.com/in/viacheslav-danilov/",
+      color: "hover:text-light",
     },
     {
       name: "GitHub",
       icon: faGithub,
       href: "https://github.com/ViacheslavDanilov",
-      color: "hover:text-[#FFFFFF]",
+      color: "hover:text-light",
     },
     {
       name: "Google Scholar",
       icon: faGoogle,
-      href: "https://scholar.google.com/citations?user=YOUR_ID",
-      color: "hover:text-[#4285F4]",
+      href: "https://scholar.google.com/citations?user=SJidGZkAAAAJ&hl=en",
+      color: "hover:text-light",
     },
     {
       name: "ORCID",
       icon: faOrcid,
-      href: "https://orcid.org/0000-0001-5177-8763",
-      color: "hover:text-[#A6CE39]",
+      href: "https://orcid.org/0000-0002-1413-1381",
+      color: "hover:text-light",
     },
     {
       name: "ResearchGate",
       icon: faResearchgate,
-      href: "https://www.researchgate.net/profile/Viacheslav-Danilov",
-      color: "hover:text-[#00D0B1]",
+      href: "https://www.researchgate.net/profile/Viacheslav-Danilov-2",
+      color: "hover:text-light",
     },
     {
       name: "Email",
       icon: faEnvelope,
-      href: "mailto:contact@example.com",
-      color: "hover:text-accent",
+      href: "mailto:viacheslav.danilov@gmail.com",
+      color: "hover:text-light",
     },
   ];
 
@@ -98,32 +100,31 @@ const About = () => {
         </div> */}
 
         {/* Description */}
-        <div className="space-y-4 text-gray-300 text-base leading-relaxed text-center max-w-3xl">
+        <div className="space-y-6 text-light leading-loose text-center max-w-5xl">
           <p>
-            I am an experienced{" "}
-            <span className="text-accent font-medium">Lead ML Engineer</span>{" "}
+            Experienced{" "}
+            <TextShimmer className="font-medium [--base-color:var(--color-accent)] [--base-gradient-color:var(--color-light)]">
+              Lead ML Engineer
+            </TextShimmer>{" "}
             and{" "}
-            <span className="text-accent font-medium">Research Professor</span>{" "}
-            based in Barcelona, with a PhD in Computer Science and over 10 years
-            of experience in ML.
-          </p>
-          <p>
-            With experience in both academic and industrial environments, I have
-            honed my skills in data analysis, ML development, and scientific
-            experimentation. I have worked across various machine learning
-            areas, from designing predictive models to building scalable
-            solutions with frameworks like TensorFlow, PyTorch, and Keras. My
-            projects often use cloud services like AWS and GCP to ensure
-            efficiency. Throughout my career, I have collaborated on diverse
-            projects, with my work featured in journals like Springer,
-            Frontiers, and Nature. Whether you need consultation or development
-            support, I am here to provide a range of options to explore
-            together.
+            <TextShimmer className="font-medium [--base-color:var(--color-accent)] [--base-gradient-color:var(--color-light)]">
+              Research Scientist
+            </TextShimmer>{" "}
+            based in Barcelona, holding a PhD in Computer Science and 10 years
+            of experience in AI and data science. Having worked in both academic
+            and industrial settings, I have sharpened skills in data analysis,
+            AI/ML development, and scientific experimentation. I cover the full
+            spectrum from, designing predictive models to engineering scalable
+            solutions with modern frameworks and cloud platforms. My projects
+            often leverage cloud infrastructure to maximize efficiency. Over my
+            career, I have collaborated on a variety of initiatives, and my work
+            has been published in scientific venues like Springer, Frontiers,
+            and Nature.
           </p>
         </div>
 
         {/* Social Links */}
-        <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
+        <div className="flex flex-wrap items-center justify-center gap-8 pt-0">
           {socialLinks.map((social) => (
             <a
               key={social.name}
@@ -131,9 +132,9 @@ const About = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={social.name}
-              className={`text-gray-400 transition-colors duration-300 ${social.color}`}
+              className={`text-gray-400 transition-all duration-300 transform hover:scale-115 ${social.color}`}
             >
-              <FontAwesomeIcon icon={social.icon} className="w-6 h-6" />
+              <FontAwesomeIcon icon={social.icon} className="w-8 h-8" />
             </a>
           ))}
         </div>
@@ -141,7 +142,7 @@ const About = () => {
         {/* Contact Button */}
         <div className="pt-2">
           <AnimatedGradientButton
-            href="mailto:contact@example.com"
+            href="https://wa.me/+34634810041"
             target="_blank"
             gradient="blue"
             ariaLabel="Contact me"
