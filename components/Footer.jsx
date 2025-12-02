@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { motion, useReducedMotion } from "motion/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faLinkedin,
@@ -72,7 +71,7 @@ function Footer() {
       {/* Mobile Layout */}
       <div className="w-full space-y-8 lg:hidden">
         {/* Logo and Description */}
-        <AnimatedContainer className="space-y-4 text-center">
+        <Container className="space-y-4 text-center">
           <Link
             href="/"
             className="inline-flex items-center justify-center gap-2 [@media(hover:hover)]:hover:brightness-125 [@media(hover:hover)]:hover:scale-[1.03] transition-all duration-200 origin-center"
@@ -90,13 +89,13 @@ function Footer() {
             Bridging scientific research and industrial innovation through
             advanced AI and machine learning solutions
           </p>
-        </AnimatedContainer>
+        </Container>
 
         {/* Quick Links and Social Links Grid */}
         <div className="flex justify-center">
           <div className="grid grid-cols-2 gap-x-8 sm:gap-x-12">
             {/* Quick Links */}
-            <AnimatedContainer delay={0.1}>
+            <Container>
               <div>
                 <h3 className="text-xs uppercase tracking-wider text-light font-semibold mb-4">
                   Quick Links
@@ -118,10 +117,10 @@ function Footer() {
                   ))}
                 </ul>
               </div>
-            </AnimatedContainer>
+            </Container>
 
             {/* Social Links */}
-            <AnimatedContainer delay={0.2}>
+            <Container>
               <div>
                 <h3 className="text-xs uppercase tracking-wider text-light font-semibold mb-4">
                   Connect
@@ -145,25 +144,25 @@ function Footer() {
                   ))}
                 </ul>
               </div>
-            </AnimatedContainer>
+            </Container>
           </div>
         </div>
 
         {/* Copyright */}
-        <AnimatedContainer delay={0.4}>
+        <Container>
           <div className="pt-6 border-t border-light/10 text-center">
             <p className="text-sm text-gray-400">
               © {new Date().getFullYear()} Viacheslav Danilov • All rights
               reserved
             </p>
           </div>
-        </AnimatedContainer>
+        </Container>
       </div>
 
       {/* Desktop Layout - 3 Columns */}
       <div className="hidden lg:grid lg:grid-cols-3 lg:gap-12 xl:gap-16 w-full items-start">
         {/* Left Column - Logo and Description */}
-        <AnimatedContainer className="space-y-4">
+        <Container className="space-y-4">
           <Link
             href="/"
             className="inline-flex items-center gap-2 [@media(hover:hover)]:hover:brightness-125 [@media(hover:hover)]:hover:scale-[1.03] transition-all duration-200 origin-center"
@@ -179,41 +178,43 @@ function Footer() {
           </Link>
           <p className="text-sm text-gray-400 max-w-xs leading-relaxed">
             Bridging scientific research and industrial innovation through
-            advanced AI and machine learning solutions.
+            advanced AI and machine learning solutions
           </p>
           <p className="text-sm text-gray-400 pt-4">
             © {new Date().getFullYear()} Viacheslav Danilov • All rights
             reserved
           </p>
-        </AnimatedContainer>
+        </Container>
 
         {/* Middle Column - Quick Links */}
-        <AnimatedContainer delay={0.1} className="flex justify-center">
+        <Container className="flex justify-center">
           <div>
             <h3 className="text-xs uppercase tracking-wider text-light font-semibold mb-4">
               Quick Links
             </h3>
             <ul className="space-y-2 text-sm">
-              {quickLinks.map((link) => (
-                <li key={link.title}>
-                  <Link
-                    href={link.href}
-                    className="text-gray-400 hover:text-accent inline-flex items-center transition-colors duration-300 h-6"
-                  >
-                    <FontAwesomeIcon
-                      icon={link.icon}
-                      className="mr-2 w-4 h-4 flex-shrink-0"
-                    />
-                    {link.title}
-                  </Link>
-                </li>
-              ))}
+              {quickLinks.map((link) => {
+                return (
+                  <li key={link.title}>
+                    <Link
+                      href={link.href}
+                      className="text-gray-400 hover:text-accent inline-flex items-center transition-colors duration-300 h-6"
+                    >
+                      <FontAwesomeIcon
+                        icon={link.icon}
+                        className="mr-2 w-4 h-4 flex-shrink-0"
+                      />
+                      {link.title}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
-        </AnimatedContainer>
+        </Container>
 
         {/* Right Column - Social Links */}
-        <AnimatedContainer delay={0.2}>
+        <Container>
           <div>
             <h3 className="text-xs uppercase tracking-wider text-light font-semibold mb-4">
               Connect
@@ -237,30 +238,14 @@ function Footer() {
               ))}
             </ul>
           </div>
-        </AnimatedContainer>
+        </Container>
       </div>
     </footer>
   );
 }
 
-function AnimatedContainer({ className, delay = 0.1, children }) {
-  const shouldReduceMotion = useReducedMotion();
-
-  if (shouldReduceMotion) {
-    return <div className={className}>{children}</div>;
-  }
-
-  return (
-    <motion.div
-      initial={{ filter: "blur(4px)", translateY: -8, opacity: 0 }}
-      whileInView={{ filter: "blur(0px)", translateY: 0, opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{ delay, duration: 0.8 }}
-      className={className}
-    >
-      {children}
-    </motion.div>
-  );
+function Container({ className, children }) {
+  return <div className={className}>{children}</div>;
 }
 
 export default Footer;
