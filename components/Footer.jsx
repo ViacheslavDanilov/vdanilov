@@ -110,6 +110,11 @@ function Footer() {
                         <FontAwesomeIcon
                           icon={link.icon}
                           className="mr-2 w-4 h-4 flex-shrink-0"
+                          style={{
+                            width: "1rem",
+                            height: "1rem",
+                            display: "block",
+                          }}
                         />
                         {link.title}
                       </Link>
@@ -137,6 +142,11 @@ function Footer() {
                         <FontAwesomeIcon
                           icon={link.icon}
                           className="mr-2 w-4 h-4 flex-shrink-0"
+                          style={{
+                            width: "1rem",
+                            height: "1rem",
+                            display: "block",
+                          }}
                         />
                         <span className="truncate">{link.title}</span>
                       </a>
@@ -203,6 +213,11 @@ function Footer() {
                       <FontAwesomeIcon
                         icon={link.icon}
                         className="mr-2 w-4 h-4 flex-shrink-0"
+                        style={{
+                          width: "1rem",
+                          height: "1rem",
+                          display: "block",
+                        }}
                       />
                       {link.title}
                     </Link>
@@ -231,6 +246,11 @@ function Footer() {
                     <FontAwesomeIcon
                       icon={link.icon}
                       className="mr-2 w-4 h-4 flex-shrink-0"
+                      style={{
+                        width: "1rem",
+                        height: "1rem",
+                        display: "block",
+                      }}
                     />
                     <span>{link.title}</span>
                   </a>
