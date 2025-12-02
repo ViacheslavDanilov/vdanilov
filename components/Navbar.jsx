@@ -115,7 +115,7 @@ function Navbar() {
           {/* Logo */}
           <button
             onClick={() => router.push("/")}
-            className="flex items-center gap-2 hover:opacity-80 transition-opacity cursor-pointer bg-transparent border-none"
+            className="inline-flex items-center gap-2 hover:brightness-125 hover:scale-[1.03] transition-all duration-200 origin-center cursor-pointer bg-transparent border-none"
             aria-label="Go to home page"
           >
             <img

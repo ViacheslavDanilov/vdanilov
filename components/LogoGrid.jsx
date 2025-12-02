@@ -87,7 +87,7 @@ const LogoGrid = () => {
                 href={logo.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative w-40 h-20 transition-all duration-300 opacity-100 hover:brightness-130 hover:scale-101"
+                className="relative w-40 h-20 transition-all duration-300 opacity-100 hover:brightness-125 hover:scale-[1.01]"
               >
                 <Image
                   src={logo.src}

@@ -72,7 +72,11 @@ export function Footer() {
       <div className="w-full space-y-8 lg:hidden">
         {/* Logo and Description */}
         <AnimatedContainer className="space-y-4 text-center">
-          <div className="flex items-center justify-center gap-2">
+          <a
+            href="/"
+            className="inline-flex items-center justify-center gap-2 hover:brightness-125 hover:scale-[1.03] transition-all duration-200 origin-center"
+            aria-label="Go to home page"
+          >
             <Image
               src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logo.png`}
               alt="Viacheslav Danilov"
@@ -80,7 +84,7 @@ export function Footer() {
               height={40}
               className="h-10 w-auto"
             />
-          </div>
+          </a>
           <p className="text-sm text-gray-400 mx-auto max-w-sm">
             Bridging scientific research and industrial innovation through
             advanced AI and machine learning solutions
@@ -159,7 +163,11 @@ export function Footer() {
       <div className="hidden lg:grid lg:grid-cols-3 lg:gap-12 xl:gap-16 w-full items-start">
         {/* Left Column - Logo and Description */}
         <AnimatedContainer className="space-y-4">
-          <div className="flex items-center gap-2">
+          <a
+            href="/"
+            className="inline-flex items-center gap-2 hover:brightness-125 hover:scale-[1.03] transition-all duration-200 origin-center"
+            aria-label="Go to home page"
+          >
             <Image
               src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logo.png`}
               alt="Viacheslav Danilov"
@@ -167,7 +175,7 @@ export function Footer() {
               height={40}
               className="h-10 w-auto"
             />
-          </div>
+          </a>
           <p className="text-sm text-gray-400 max-w-xs leading-relaxed">
             Bridging scientific research and industrial innovation through
             advanced AI and machine learning solutions.
