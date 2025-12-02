@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faLinkedin,
   faGithub,
-  faGoogle,
+  faGoogleScholar,
   faOrcid,
   faResearchgate,
   faWhatsapp,
@@ -32,7 +32,7 @@ const About = () => {
     },
     {
       name: "Google Scholar",
-      icon: faGoogle,
+      icon: faGoogleScholar,
       href: "https://scholar.google.com/citations?user=SJidGZkAAAAJ&hl=en",
       color: "hover:text-light",
     },

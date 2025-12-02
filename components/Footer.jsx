@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faLinkedin,
   faGithub,
-  faGoogle,
+  faGoogleScholar,
   faOrcid,
   faResearchgate,
 } from "@fortawesome/free-brands-svg-icons";
@@ -35,7 +35,7 @@ const socialLinks = [
   {
     title: "Google Scholar",
     href: "https://scholar.google.com/citations?user=SJidGZkAAAAJ&hl=en",
-    icon: faGoogle,
+    icon: faGoogleScholar,
   },
   {
     title: "ORCID",
