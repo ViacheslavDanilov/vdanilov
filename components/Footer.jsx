@@ -63,7 +63,7 @@ const quickLinks = [
   { title: "References", href: "/references", icon: faUsers },
 ];
 
-export function Footer() {
+function Footer() {
   return (
     <footer className="relative w-full max-w-[1400px] mx-auto flex flex-col items-center justify-center rounded-t-xl border-t border-light/10 bg-[radial-gradient(35%_128px_at_50%_0%,theme(backgroundColor.accent/8%),transparent)] px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
       <div className="bg-accent/20 absolute top-0 right-1/2 left-1/2 h-px w-1/3 -translate-x-1/2 -translate-y-1/2 rounded-full blur" />
@@ -92,7 +92,7 @@ export function Footer() {
         </AnimatedContainer>
 
         {/* Quick Links and Social Links Grid */}
-        <div className="flex justify-center pl-10 sm:pl-10">
+        <div className="flex justify-center">
           <div className="grid grid-cols-2 gap-x-8 sm:gap-x-12">
             {/* Quick Links */}
             <AnimatedContainer delay={0.1}>
@@ -261,3 +261,5 @@ function AnimatedContainer({ className, delay = 0.1, children }) {
     </motion.div>
   );
 }
+
+export default Footer;
