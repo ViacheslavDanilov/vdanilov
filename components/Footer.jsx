@@ -88,58 +88,60 @@ export function Footer() {
         </AnimatedContainer>
 
         {/* Quick Links and Social Links Grid */}
-        <div className="grid grid-cols-2 gap-x-8 sm:gap-x-12 justify-items-center px-8 sm:px-12">
-          {/* Quick Links */}
-          <AnimatedContainer delay={0.1} className="justify-self-start">
-            <div>
-              <h3 className="text-xs uppercase tracking-wider text-light font-semibold mb-4">
-                Quick Links
-              </h3>
-              <ul className="space-y-2 text-sm">
-                {quickLinks.map((link) => (
-                  <li key={link.title}>
-                    <a
-                      href={link.href}
-                      className="text-gray-400 hover:text-accent inline-flex items-center transition-colors duration-300 h-6"
-                    >
-                      <FontAwesomeIcon
-                        icon={link.icon}
-                        className="mr-2 w-4 h-4 flex-shrink-0"
-                      />
-                      {link.title}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </AnimatedContainer>
+        <div className="flex justify-center pl-10 sm:pl-10">
+          <div className="grid grid-cols-2 gap-x-8 sm:gap-x-12">
+            {/* Quick Links */}
+            <AnimatedContainer delay={0.1}>
+              <div>
+                <h3 className="text-xs uppercase tracking-wider text-light font-semibold mb-4">
+                  Quick Links
+                </h3>
+                <ul className="space-y-2 text-sm">
+                  {quickLinks.map((link) => (
+                    <li key={link.title}>
+                      <a
+                        href={link.href}
+                        className="text-gray-400 hover:text-accent inline-flex items-center transition-colors duration-300 h-6"
+                      >
+                        <FontAwesomeIcon
+                          icon={link.icon}
+                          className="mr-2 w-4 h-4 flex-shrink-0"
+                        />
+                        {link.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </AnimatedContainer>
 
-          {/* Social Links */}
-          <AnimatedContainer delay={0.2} className="justify-self-end">
-            <div>
-              <h3 className="text-xs uppercase tracking-wider text-light font-semibold mb-4">
-                Connect
-              </h3>
-              <ul className="space-y-2 text-sm">
-                {socialLinks.map((link) => (
-                  <li key={link.title}>
-                    <a
-                      href={link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-gray-400 hover:text-accent inline-flex items-center transition-colors duration-300 h-6"
-                    >
-                      <FontAwesomeIcon
-                        icon={link.icon}
-                        className="mr-2 w-4 h-4 flex-shrink-0"
-                      />
-                      <span className="truncate">{link.title}</span>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </AnimatedContainer>
+            {/* Social Links */}
+            <AnimatedContainer delay={0.2}>
+              <div>
+                <h3 className="text-xs uppercase tracking-wider text-light font-semibold mb-4">
+                  Connect
+                </h3>
+                <ul className="space-y-2 text-sm">
+                  {socialLinks.map((link) => (
+                    <li key={link.title}>
+                      <a
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-gray-400 hover:text-accent inline-flex items-center transition-colors duration-300 h-6"
+                      >
+                        <FontAwesomeIcon
+                          icon={link.icon}
+                          className="mr-2 w-4 h-4 flex-shrink-0"
+                        />
+                        <span className="truncate">{link.title}</span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </AnimatedContainer>
+          </div>
         </div>
 
         {/* Copyright */}
