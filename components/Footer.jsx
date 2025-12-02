@@ -156,7 +156,7 @@ export function Footer() {
       </div>
 
       {/* Desktop Layout - 3 Columns */}
-      <div className="hidden lg:grid lg:grid-cols-[1fr_auto_1fr] lg:gap-12 xl:gap-16 w-full items-start">
+      <div className="hidden lg:grid lg:grid-cols-3 lg:gap-12 xl:gap-16 w-full items-start">
         {/* Left Column - Logo and Description */}
         <AnimatedContainer className="space-y-4">
           <div className="flex items-center gap-2">
@@ -179,7 +179,7 @@ export function Footer() {
         </AnimatedContainer>
 
         {/* Middle Column - Quick Links */}
-        <AnimatedContainer delay={0.1}>
+        <AnimatedContainer delay={0.1} className="flex justify-center">
           <div>
             <h3 className="text-xs uppercase tracking-wider text-light font-semibold mb-4">
               Quick Links
