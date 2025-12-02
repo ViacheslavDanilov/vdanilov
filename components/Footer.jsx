@@ -83,7 +83,7 @@ export function Footer() {
           </div>
           <p className="text-sm text-gray-400 mx-auto max-w-sm">
             Bridging scientific research and industrial innovation through
-            advanced AI and machine learning solutions.
+            advanced AI and machine learning solutions
           </p>
         </AnimatedContainer>
 
