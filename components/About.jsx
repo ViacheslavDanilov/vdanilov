@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faLinkedin,
   faGithub,
-  faGoogle,
+  faGoogleScholar,
   faOrcid,
   faResearchgate,
   faWhatsapp,
@@ -32,7 +32,7 @@ const About = () => {
     },
     {
       name: "Google Scholar",
-      icon: faGoogle,
+      icon: faGoogleScholar,
       href: "https://scholar.google.com/citations?user=SJidGZkAAAAJ&hl=en",
       color: "hover:text-light",
     },
@@ -104,11 +104,11 @@ const About = () => {
         <div className="space-y-6 text-light leading-loose text-justify max-w-5xl">
           <p>
             Experienced{" "}
-            <TextShimmer className="font-medium [--base-color:#9ca3af] [--base-gradient-color:#e5e7eb]">
+            <TextShimmer className="font-bold [--base-color:#64748b] [--base-gradient-color:#94a3b8]">
               Lead ML Engineer
             </TextShimmer>{" "}
             and{" "}
-            <TextShimmer className="font-medium [--base-color:#9ca3af] [--base-gradient-color:#e5e7eb]">
+            <TextShimmer className="font-bold [--base-color:#64748b] [--base-gradient-color:#94a3b8]">
               Research Scientist
             </TextShimmer>{" "}
             based in Barcelona, with a PhD in Computer Science and 10 years of

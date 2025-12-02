@@ -111,7 +111,15 @@ export const MenuBar = React.forwardRef(
                           // `group-hover:${item.iconColor}`,
                         )}
                       >
-                        <FontAwesomeIcon icon={item.icon} className="h-5 w-5" />
+                        <FontAwesomeIcon
+                          icon={item.icon}
+                          className="h-5 w-5"
+                          style={{
+                            width: "1.25rem",
+                            height: "1.25rem",
+                            display: "block",
+                          }}
+                        />
                       </span>
                       <span>{item.label}</span>
                     </motion.div>
@@ -137,7 +145,15 @@ export const MenuBar = React.forwardRef(
                           // `group-hover:${item.iconColor}`,
                         )}
                       >
-                        <FontAwesomeIcon icon={item.icon} className="h-5 w-5" />
+                        <FontAwesomeIcon
+                          icon={item.icon}
+                          className="h-5 w-5"
+                          style={{
+                            width: "1.25rem",
+                            height: "1.25rem",
+                            display: "block",
+                          }}
+                        />
                       </span>
                       <span>{item.label}</span>
                     </motion.div>
