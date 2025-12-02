@@ -9,8 +9,8 @@ export default function Home() {
     <div className="min-h-screen flex flex-col items-center pt-12 md:pt-36 gap-36 pb-32 md:pb-32">
       <Hero />
       <About />
-      <BentoGrid />
       <FeaturedProjects />
+      <BentoGrid />
       <LogoGrid />
     </div>
   );
