@@ -104,7 +104,7 @@ function Footer() {
                 <ul className="space-y-2 text-sm">
                   {quickLinks.map((link) => (
                     <li key={link.title}>
-                      <a
+                      <Link
                         href={link.href}
                         className="text-gray-400 hover:text-accent inline-flex items-center transition-colors duration-300 h-6"
                       >
@@ -113,7 +113,7 @@ function Footer() {
                           className="mr-2 w-4 h-4 flex-shrink-0"
                         />
                         {link.title}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -196,7 +196,7 @@ function Footer() {
             <ul className="space-y-2 text-sm">
               {quickLinks.map((link) => (
                 <li key={link.title}>
-                  <a
+                  <Link
                     href={link.href}
                     className="text-gray-400 hover:text-accent inline-flex items-center transition-colors duration-300 h-6"
                   >
@@ -205,7 +205,7 @@ function Footer() {
                       className="mr-2 w-4 h-4 flex-shrink-0"
                     />
                     {link.title}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
