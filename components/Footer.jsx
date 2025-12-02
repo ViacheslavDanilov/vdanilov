@@ -74,7 +74,7 @@ export function Footer() {
         <AnimatedContainer className="space-y-4 text-center">
           <a
             href="/"
-            className="inline-flex items-center justify-center gap-2 hover:brightness-125 hover:scale-[1.03] transition-all duration-200 origin-center"
+            className="inline-flex items-center justify-center gap-2 hover:brightness-125 hover:scale-[1.01] transition-all duration-200 origin-center"
             aria-label="Go to home page"
           >
             <Image
@@ -165,7 +165,7 @@ export function Footer() {
         <AnimatedContainer className="space-y-4">
           <a
             href="/"
-            className="inline-flex items-center gap-2 hover:brightness-125 hover:scale-[1.03] transition-all duration-200 origin-center"
+            className="inline-flex items-center gap-2 hover:brightness-125 hover:scale-[1.01] transition-all duration-200 origin-center"
             aria-label="Go to home page"
           >
             <Image
