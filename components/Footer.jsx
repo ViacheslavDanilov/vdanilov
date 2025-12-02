@@ -10,7 +10,15 @@ import {
   faOrcid,
   faResearchgate,
 } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import {
+  faEnvelope,
+  faHouse,
+  faBriefcase,
+  faGraduationCap,
+  faFolderOpen,
+  faBook,
+  faUsers,
+} from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 
 const socialLinks = [
@@ -47,17 +55,17 @@ const socialLinks = [
 ];
 
 const quickLinks = [
-  { title: "Home", href: "/" },
-  { title: "Experience", href: "/experience" },
-  { title: "Education", href: "/education" },
-  { title: "Portfolio", href: "/portfolio" },
-  { title: "Publications", href: "/publications" },
-  { title: "References", href: "/references" },
+  { title: "Home", href: "/", icon: faHouse },
+  { title: "Experience", href: "/experience", icon: faBriefcase },
+  { title: "Education", href: "/education", icon: faGraduationCap },
+  { title: "Portfolio", href: "/portfolio", icon: faFolderOpen },
+  { title: "Publications", href: "/publications", icon: faBook },
+  { title: "References", href: "/references", icon: faUsers },
 ];
 
 export function Footer() {
   return (
-    <footer className="relative w-full max-w-[1400px] mx-auto flex flex-col items-center justify-center rounded-t-xl border-t border-light/10 bg-[radial-gradient(35%_128px_at_50%_0%,theme(backgroundColor.accent/8%),transparent)] px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+    <footer className="relative w-full max-w-[1400px] mx-auto flex flex-col items-center justify-center rounded-t-xl border-t border-light/10 bg-[radial-gradient(35%_128px_at_50%_0%,theme(backgroundColor.accent/8%),transparent)] px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
       <div className="bg-accent/20 absolute top-0 right-1/2 left-1/2 h-px w-1/3 -translate-x-1/2 -translate-y-1/2 rounded-full blur" />
 
       {/* Mobile Layout */}
@@ -74,7 +82,8 @@ export function Footer() {
             />
           </div>
           <p className="text-sm text-gray-400 mx-auto max-w-sm">
-            Tech Lead · Engineering Manager · Research Scientist
+            Bridging scientific research and industrial innovation through
+            advanced AI and machine learning solutions.
           </p>
         </AnimatedContainer>
 
@@ -93,6 +102,10 @@ export function Footer() {
                       href={link.href}
                       className="text-gray-400 hover:text-accent inline-flex items-center transition-colors duration-300 h-6"
                     >
+                      <FontAwesomeIcon
+                        icon={link.icon}
+                        className="mr-2 w-4 h-4 flex-shrink-0"
+                      />
                       {link.title}
                     </a>
                   </li>
@@ -154,7 +167,8 @@ export function Footer() {
             />
           </div>
           <p className="text-sm text-gray-400 max-w-xs leading-relaxed">
-            Tech Lead · Engineering Manager · Research Scientist
+            Bridging scientific research and industrial innovation through
+            advanced AI and machine learning solutions.
           </p>
           <p className="text-sm text-gray-400 pt-4">
             © {new Date().getFullYear()} Viacheslav Danilov. All rights
@@ -175,6 +189,10 @@ export function Footer() {
                     href={link.href}
                     className="text-gray-400 hover:text-accent inline-flex items-center transition-colors duration-300 h-6"
                   >
+                    <FontAwesomeIcon
+                      icon={link.icon}
+                      className="mr-2 w-4 h-4 flex-shrink-0"
+                    />
                     {link.title}
                   </a>
                 </li>
