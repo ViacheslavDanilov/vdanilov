@@ -1,5 +1,6 @@
 import Hero from "@/components/Hero";
 import BentoGrid from "@/components/BentoGrid";
+import MagicBento from "@/components/MagicBento";
 import FeaturedProjects from "@/components/FeaturedProjects";
 import LogoGrid from "@/components/LogoGrid";
 import About from "@/components/About";
@@ -11,6 +12,14 @@ export default function Home() {
       <About />
       <FeaturedProjects />
       <BentoGrid />
+      <MagicBento
+        spotlightRadius={250}
+        enableStars={false}
+        enableSpotlight={true}
+        enableTilt={false}
+        clickEffect={true}
+        enableMagnetism={false}
+      />
       <LogoGrid />
     </div>
   );
