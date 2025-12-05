@@ -1,5 +1,5 @@
 import Hero from "@/components/Hero";
-import BentoGrid from "@/components/BentoGrid";
+import MagicBento from "@/components/MagicBento";
 import FeaturedProjects from "@/components/FeaturedProjects";
 import LogoGrid from "@/components/LogoGrid";
 import About from "@/components/About";
@@ -10,7 +10,7 @@ export default function Home() {
       <Hero />
       <About />
       <FeaturedProjects />
-      <BentoGrid />
+      <MagicBento />
       <LogoGrid />
     </div>
   );
