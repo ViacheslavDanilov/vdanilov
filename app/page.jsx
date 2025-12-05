@@ -11,7 +11,7 @@ export default function Home() {
       <Hero />
       <About />
       <FeaturedProjects />
-      <BentoGrid />
+      {/* <BentoGrid /> */}
       <MagicBento />
       <LogoGrid />
     </div>
