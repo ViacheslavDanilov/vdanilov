@@ -4,11 +4,12 @@ import { useRef, useEffect, useState, useCallback } from "react";
 import { gsap } from "gsap";
 
 // Default configuration constants
-const DEFAULT_PARTICLE_COUNT = 12;
-const DEFAULT_SPOTLIGHT_RADIUS = 250;
-const DEFAULT_GLOW_COLOR = "3, 177, 251"; // #03b1fb in RGB
+const DEFAULT_PARTICLE_COUNT = 16;
+const DEFAULT_SPOTLIGHT_RADIUS = 300;
+const DEFAULT_GLOW_COLOR = "#03b1fb";
+const DEFAULT_CARD_BACKGROUND = "rgba(245, 245, 245, 0.05)";
 const DEFAULT_TEXT_AUTO_HIDE = true;
-const DEFAULT_ENABLE_STARS = false;
+const DEFAULT_ENABLE_STARS = true;
 const DEFAULT_ENABLE_SPOTLIGHT = true;
 const DEFAULT_ENABLE_BORDER_GLOW = true;
 const DEFAULT_ENABLE_TILT = false;
@@ -18,42 +19,42 @@ const MOBILE_BREAKPOINT = 768;
 
 const cardData = [
   {
-    color: "#0a0e14",
+    color: DEFAULT_CARD_BACKGROUND,
     title: "10+ Years of Advanced R&D",
     description:
       "From a PhD in Computer Science to research roles across Europe's leading scientific institutions, with experience spanning Pompeu Fabra University, Sorbonne University, Institute of Photonic Sciences, Politecnico di Milano, University of Leeds, Universidad Politécnica de Madrid, and University of Trento.",
     label: "Research & Development",
   },
   {
-    color: "#0a0e14",
+    color: DEFAULT_CARD_BACKGROUND,
     title: "Medical Imaging AI",
     description:
       "Developing advanced ML & AI systems for medical imaging across ultrasound, CT, MRI, hyperspectral, and time-series physiological data, with projects delivered for Vall d'Hebron Hospital, Beth Israel Deaconess Medical Center, Boston Children's Hospital, and Institute for Image-Guided Surgery.",
     label: "Healthcare AI",
   },
   {
-    color: "#0a0e14",
+    color: DEFAULT_CARD_BACKGROUND,
     title: "Scalable Systems",
     description:
       "Building scalable ML & AI systems with AutoML, PyTorch, TensorFlow, scikit-learn, MLflow, DVC, LangChain, and Weights & Biases, deployed across AWS and Google Cloud. Integrating Generative AI and multimodal capabilities with OpenAI, Qwen, Llama, Stable Diffusion and Flux models to enable intelligent pipelines for reasoning, generation, retrieval, and workflow automation.",
     label: "ML Engineering",
   },
   {
-    color: "#0a0e14",
+    color: DEFAULT_CARD_BACKGROUND,
     title: "Technology Leadership",
     description:
       "Serving as the company's AI thought leader, driving strategic direction, architectural decisions, and execution across client and internal projects. Establishing long-term technical vision and aligning technological units around scalable, AI-driven innovation.",
     label: "Strategic Leadership",
   },
   {
-    color: "#0a0e14",
+    color: DEFAULT_CARD_BACKGROUND,
     title: "Cross-Functional Management",
     description:
       "Leading and scaling a cross-functional department focused on AI, ML, autonomous agents, and automation including developers, scientists, and product managers.",
     label: "Team Leadership",
   },
   {
-    color: "#0a0e14",
+    color: DEFAULT_CARD_BACKGROUND,
     title: "Applied ML & AI Across Industries",
     description:
       "Developing applied ML & AI systems for insurance, clinical diagnostics, medical imaging, and pharmaceutical research with deployments and collaborations involving AmTrust, CNA, Plateau Group, Beth Israel Deaconess Medical Center, Vall d'Hebron Hospital, Institute for Image-Guided Surgery, Bristol Myers Squibb, Boehringer Ingelheim, and Volastra Therapeutics.",
@@ -61,7 +62,16 @@ const cardData = [
   },
 ];
 
+// Helper function to convert hex color to RGB string
+const hexToRgb = (hex) => {
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return result
+    ? `${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(result[3], 16)}`
+    : "3, 177, 251";
+};
+
 const createParticleElement = (x, y, color = DEFAULT_GLOW_COLOR) => {
+  const rgbColor = hexToRgb(color);
   const el = document.createElement("div");
   el.className = "particle";
   el.style.cssText = `
@@ -69,8 +79,8 @@ const createParticleElement = (x, y, color = DEFAULT_GLOW_COLOR) => {
     width: 4px;
     height: 4px;
     border-radius: 50%;
-    background: rgba(${color}, 1);
-    box-shadow: 0 0 6px rgba(${color}, 0.6);
+    background: rgba(${rgbColor}, 1);
+    box-shadow: 0 0 6px rgba(${rgbColor}, 0.6);
     pointer-events: none;
     z-index: 100;
     left: ${x}px;
@@ -272,6 +282,7 @@ const ParticleCard = ({
     const handleClick = (e) => {
       if (!clickEffect) return;
 
+      const rgbColor = hexToRgb(glowColor);
       const rect = element.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
@@ -289,7 +300,7 @@ const ParticleCard = ({
         width: ${maxDistance * 2}px;
         height: ${maxDistance * 2}px;
         border-radius: 50%;
-        background: radial-gradient(circle, rgba(${glowColor}, 0.4) 0%, rgba(${glowColor}, 0.2) 30%, transparent 70%);
+        background: radial-gradient(circle, rgba(${rgbColor}, 0.4) 0%, rgba(${rgbColor}, 0.2) 30%, transparent 70%);
         left: ${x - maxDistance}px;
         top: ${y - maxDistance}px;
         pointer-events: none;
@@ -361,6 +372,7 @@ const GlobalSpotlight = ({
   useEffect(() => {
     if (disableAnimations || !gridRef?.current || !enabled) return;
 
+    const rgbColor = hexToRgb(glowColor);
     const spotlight = document.createElement("div");
     spotlight.className = "global-spotlight";
     spotlight.style.cssText = `
@@ -370,11 +382,11 @@ const GlobalSpotlight = ({
       border-radius: 50%;
       pointer-events: none;
       background: radial-gradient(circle,
-        rgba(${glowColor}, 0.12) 0%,
-        rgba(${glowColor}, 0.06) 15%,
-        rgba(${glowColor}, 0.03) 25%,
-        rgba(${glowColor}, 0.015) 40%,
-        rgba(${glowColor}, 0.008) 65%,
+        rgba(${rgbColor}, 0.12) 0%,
+        rgba(${rgbColor}, 0.06) 15%,
+        rgba(${rgbColor}, 0.03) 25%,
+        rgba(${rgbColor}, 0.015) 40%,
+        rgba(${rgbColor}, 0.008) 65%,
         transparent 70%
       );
       z-index: 200;
@@ -544,7 +556,7 @@ const MagicBento = ({
             --glow-y: 50%;
             --glow-intensity: 0;
             --glow-radius: ${spotlightRadius}px;
-            --glow-color: ${glowColor};
+            --glow-color: ${hexToRgb(glowColor)};
             --border-color: rgba(245, 245, 245, 0.1);
             --background-dark: #0a0e14;
             --white: hsl(0, 0%, 100%);
@@ -577,8 +589,8 @@ const MagicBento = ({
             inset: 0;
             padding: 2px;
             background: radial-gradient(var(--glow-radius) circle at var(--glow-x) var(--glow-y),
-                rgba(${glowColor}, calc(var(--glow-intensity) * 0.6)) 0%,
-                rgba(${glowColor}, calc(var(--glow-intensity) * 0.3)) 30%,
+                rgba(${hexToRgb(glowColor)}, calc(var(--glow-intensity) * 0.6)) 0%,
+                rgba(${hexToRgb(glowColor)}, calc(var(--glow-intensity) * 0.3)) 30%,
                 transparent 60%);
             border-radius: inherit;
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -606,7 +618,7 @@ const MagicBento = ({
             left: -2px;
             right: -2px;
             bottom: -2px;
-            background: rgba(${glowColor}, 0.2);
+            background: rgba(${hexToRgb(glowColor)}, 0.2);
             border-radius: 50%;
             z-index: -1;
           }
@@ -742,6 +754,7 @@ const MagicBento = ({
                   const handleClick = (e) => {
                     if (!clickEffect || shouldDisableAnimations) return;
 
+                    const rgbColor = hexToRgb(glowColor);
                     const rect = el.getBoundingClientRect();
                     const x = e.clientX - rect.left;
                     const y = e.clientY - rect.top;
@@ -759,7 +772,7 @@ const MagicBento = ({
                       width: ${maxDistance * 2}px;
                       height: ${maxDistance * 2}px;
                       border-radius: 50%;
-                      background: radial-gradient(circle, rgba(${glowColor}, 0.4) 0%, rgba(${glowColor}, 0.2) 30%, transparent 70%);
+                      background: radial-gradient(circle, rgba(${rgbColor}, 0.4) 0%, rgba(${rgbColor}, 0.2) 30%, transparent 70%);
                       left: ${x - maxDistance}px;
                       top: ${y - maxDistance}px;
                       pointer-events: none;

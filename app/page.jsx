@@ -12,14 +12,7 @@ export default function Home() {
       <About />
       <FeaturedProjects />
       <BentoGrid />
-      <MagicBento
-        spotlightRadius={250}
-        enableStars={false}
-        enableSpotlight={true}
-        enableTilt={false}
-        clickEffect={true}
-        enableMagnetism={false}
-      />
+      <MagicBento />
       <LogoGrid />
     </div>
   );
