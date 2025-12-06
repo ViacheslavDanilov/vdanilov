@@ -805,6 +805,12 @@ const MagicBento = ({
             box-shadow: 0 4px 20px rgba(3, 177, 251, 0.15);
           }
           
+          @media (max-width: 767px) {
+            .card--border-glow:hover {
+              box-shadow: 0 4px 20px rgba(3, 177, 251, 0.20);
+            }
+          }
+          
           .particle::before {
             content: '';
             position: absolute;
