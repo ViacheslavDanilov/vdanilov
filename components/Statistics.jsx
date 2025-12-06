@@ -82,7 +82,7 @@ const Statistics = () => {
               />
               <span className="text-accent">{stat.suffix}</span>
             </div>
-            <p className="text-sm text-gray-400 leading-relaxed">
+            <p className="text-base text-gray-400 leading-relaxed">
               {stat.label}
             </p>
           </div>
