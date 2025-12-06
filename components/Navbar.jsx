@@ -106,10 +106,10 @@ function Navbar() {
               <button
                 key={item.label}
                 onClick={() => handleNavClick(item.label, item.href)}
-                className={`px-4 py-2 rounded-full text-sm font-regular transition-all duration-300 cursor-pointer ${
+                className={`px-4 py-2 rounded-full text-md font-regular transition-all duration-300 cursor-pointer ${
                   isActive
                     ? "bg-accent/20 text-accent"
-                    : "text-gray-300 hover:text-light hover:bg-white/5"
+                    : "text-gray-300 hover:text-light hover:bg-light/10"
                 }`}
               >
                 {item.label}
@@ -155,7 +155,7 @@ function Navbar() {
                         className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all ${
                           isActive
                             ? "bg-accent/20 text-accent"
-                            : "text-gray-400 hover:bg-white/5 hover:text-light"
+                            : "text-gray-400 hover:bg-light/10 hover:text-light"
                         }`}
                       >
                         <FontAwesomeIcon
