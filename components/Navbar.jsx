@@ -84,7 +84,7 @@ function Navbar() {
   return (
     <nav className="fixed top-4 left-0 right-0 z-50 flex justify-center px-6">
       {/* Glassmorphism Pill Container */}
-      <div className="flex items-center justify-between gap-8 px-6 lg:px-6 h-14 rounded-full bg-dark/40 backdrop-blur-lg border-1 border-white/10 shadow-lg max-w-4xl w-full">
+      <div className="flex items-center justify-between gap-8 px-6 lg:px-6 h-14 rounded-full bg-dark/40 backdrop-blur-lg border border-white/10 shadow-lg max-w-4xl w-full">
         {/* Logo */}
         <button
           onClick={() => router.push("/")}
@@ -106,7 +106,7 @@ function Navbar() {
               <button
                 key={item.label}
                 onClick={() => handleNavClick(item.label, item.href)}
-                className={`px-4 py-2 rounded-full text-md font-regular transition-all duration-300 cursor-pointer ${
+                className={`px-4 py-2 rounded-full text-md font-normal transition-all duration-300 cursor-pointer ${
                   isActive
                     ? "bg-accent/20 text-accent"
                     : "text-gray-300 hover:text-light hover:bg-light/10"
@@ -140,7 +140,7 @@ function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden fixed top-20 left-6 right-6 bg-dark/60 backdrop-blur-lg border-1 border-white/10 shadow-lg rounded-2xl"
+            className="lg:hidden fixed top-20 left-6 right-6 bg-dark/60 backdrop-blur-lg border border-white/10 shadow-lg rounded-2xl"
           >
             <div className="px-6 py-4">
               <ul className="space-y-2">
@@ -162,7 +162,7 @@ function Navbar() {
                           icon={item.icon}
                           className={`w-5 h-5 ${isActive ? "text-accent" : ""}`}
                         />
-                        <span className="font-regular">{item.label}</span>
+                        <span className="font-normal">{item.label}</span>
                       </button>
                     </li>
                   );

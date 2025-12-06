@@ -69,7 +69,7 @@ const logos = [
 
 const LogoGrid = () => {
   return (
-    <section className="py-12 px-8 md:px-6 max-w-7xl mx-auto">
+    <section className="py-12 px-6 max-w-7xl mx-auto">
       <div className="mb-12 text-center">
         <h2 className="text-3xl md:text-4xl font-bold text-light mb-4">
           Selected Clients
