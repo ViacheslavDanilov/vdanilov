@@ -69,7 +69,7 @@ const logos = [
 
 const LogoGrid = () => {
   return (
-    <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-[1400px] mx-auto">
+    <section className="py-12 px-8 md:px-6 max-w-7xl mx-auto">
       <div className="mb-12 text-center">
         <h2 className="text-3xl md:text-4xl font-bold text-light mb-4">
           Selected Clients
@@ -79,27 +79,25 @@ const LogoGrid = () => {
           engineering teams
         </p>
       </div>
-      <div className="flex justify-center">
-        <ul className="inline-grid grid-cols-2 gap-x-10 gap-y-8 md:gap-x-16 md:grid-cols-3 lg:grid-cols-4">
-          {logos.map((logo, idx) => (
-            <li key={idx} className="flex items-center justify-center">
-              <Link
-                href={logo.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="relative w-40 h-20 transition-all duration-300 opacity-100 hover:brightness-125 hover:scale-[1.01]"
-              >
-                <Image
-                  src={logo.src}
-                  alt={logo.name}
-                  fill
-                  className="object-contain"
-                />
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <ul className="grid grid-cols-2 gap-x-10 gap-y-8 md:gap-x-16 md:grid-cols-3 lg:grid-cols-4">
+        {logos.map((logo, idx) => (
+          <li key={idx} className="flex items-center justify-center">
+            <Link
+              href={logo.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative w-40 h-20 transition-all duration-300 opacity-100 hover:brightness-125 hover:scale-[1.01]"
+            >
+              <Image
+                src={logo.src}
+                alt={logo.name}
+                fill
+                className="object-contain"
+              />
+            </Link>
+          </li>
+        ))}
+      </ul>
     </section>
   );
 };
