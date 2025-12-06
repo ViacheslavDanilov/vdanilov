@@ -14,8 +14,6 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
-import { TextShimmer } from "@/components/ui/text-shimmer";
-
 const About = () => {
   const socialLinks = [
     {
@@ -104,13 +102,15 @@ const About = () => {
         <div className="space-y-6 text-light leading-loose text-justify max-w-5xl">
           <p>
             Experienced{" "}
-            <TextShimmer className="font-bold [--base-color:#64748b] [--base-gradient-color:#94a3b8]">
-              Lead ML Engineer
-            </TextShimmer>{" "}
+            <span className="font-semibold text-light/90 relative inline-block px-2">
+              <span className="relative z-10">Lead ML Engineer</span>
+              <span className="absolute -inset-2 bg-accent/20 blur-md rounded-full -z-10 scale-100"></span>
+            </span>{" "}
             and{" "}
-            <TextShimmer className="font-bold [--base-color:#64748b] [--base-gradient-color:#94a3b8]">
-              Research Scientist
-            </TextShimmer>{" "}
+            <span className="font-semibold text-light/90 relative inline-block px-2">
+              <span className="relative z-10">Research Scientist</span>
+              <span className="absolute -inset-2 bg-accent/20 blur-md rounded-full -z-10 scale-100"></span>
+            </span>{" "}
             based in Barcelona, with a PhD in Computer Science and 10 years of
             experience in AI and data science. Having worked in both academia
             and industry, I have sharpened skills in data analysis, AI/ML
