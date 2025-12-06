@@ -741,88 +741,17 @@ const MagicBento = ({
   const isMobile = useMobileDetection();
   const shouldDisableAnimations = disableAnimations || isMobile;
 
+  // Set dynamic CSS variables
+  useEffect(() => {
+    if (gridRef.current) {
+      const section = gridRef.current;
+      section.style.setProperty("--glow-radius", `${spotlightRadius}px`);
+      section.style.setProperty("--glow-color", hexToRgb(glowColor));
+    }
+  }, [spotlightRadius, glowColor]);
+
   return (
     <>
-      <style>
-        {`
-          .bento-section {
-            --glow-x: 50%;
-            --glow-y: 50%;
-            --glow-intensity: 0;
-            --glow-radius: ${spotlightRadius}px;
-            --glow-color: ${hexToRgb(glowColor)};
-            --border-color: rgba(245, 245, 245, 0.1);
-            --background-dark: #0a0e14;
-            --white: hsl(0, 0%, 100%);
-            --blue-primary: rgba(3, 177, 251, 1);
-            --blue-glow: rgba(3, 177, 251, 0.2);
-            --blue-border: rgba(3, 177, 251, 0.8);
-          }
-          
-          .card-responsive {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-          }
-          
-          @media (min-width: 768px) {
-            .card-responsive {
-              grid-template-columns: repeat(2, 1fr);
-            }
-          }
-          
-          @media (min-width: 1024px) {
-            .card-responsive {
-              grid-template-columns: repeat(3, 1fr);
-            }
-          }
-          
-          .card--border-glow::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            padding: 2px;
-            background: radial-gradient(var(--glow-radius) circle at var(--glow-x) var(--glow-y),
-                rgba(${hexToRgb(glowColor)}, calc(var(--glow-intensity) * 0.6)) 0%,
-                rgba(${hexToRgb(glowColor)}, calc(var(--glow-intensity) * 0.3)) 30%,
-                transparent 60%);
-            border-radius: inherit;
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            mask-composite: exclude;
-            pointer-events: none;
-            opacity: 1;
-            transition: opacity 0.3s ease;
-            z-index: 1;
-          }
-          
-          .card--border-glow:hover::after {
-            opacity: 1;
-          }
-          
-          .card--border-glow:hover {
-            box-shadow: 0 4px 20px rgba(3, 177, 251, 0.15);
-          }
-          
-          .particle::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: rgba(${hexToRgb(glowColor)}, 0.2);
-            border-radius: 50%;
-            z-index: -1;
-          }
-          
-          .particle-container:hover {
-            box-shadow: 0 4px 20px rgba(3, 177, 251, 0.15);
-          }
-        `}
-      </style>
-
       {enableSpotlight && (
         <GlobalSpotlight
           gridRef={gridRef}
@@ -845,7 +774,7 @@ const MagicBento = ({
         </div>
 
         <BentoCardGrid gridRef={gridRef}>
-          <div className="card-responsive">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {cardData.map((card, index) => {
               const baseClassName = `card flex flex-col gap-4 relative w-full h-full p-6 rounded-xl border border-solid overflow-hidden transition-all duration-300 ease-in-out ${
                 enableBorderGlow ? "card--border-glow" : ""

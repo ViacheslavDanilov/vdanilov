@@ -73,8 +73,8 @@ const FeaturedProjects = () => {
           Featured Projects
         </h2>
         <p className="text-gray-400 mt-3 max-w-2xl mx-auto">
-          Delivering production-grade ML & AI architectures and research tools
-          that solve complex challenges in healthcare and enterprise
+          Delivering ML/AI systems and research tools that solve complex
+          challenges in healthcare, life science, and enterprise
         </p>
       </div>
 

@@ -84,7 +84,7 @@ function Navbar() {
   return (
     <nav className="fixed top-4 left-0 right-0 z-50 flex justify-center px-6">
       {/* Glassmorphism Pill Container */}
-      <div className="flex items-center justify-between gap-8 px-6 lg:px-6 h-14 rounded-full bg-dark/40 backdrop-blur-lg border border-white/10 shadow-lg max-w-4xl w-full">
+      <div className="flex items-center justify-between gap-8 px-6 lg:px-6 h-14 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 shadow-lg max-w-4xl w-full">
         {/* Logo */}
         <button
           onClick={() => router.push("/")}

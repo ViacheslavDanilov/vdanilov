@@ -24,6 +24,66 @@ test.describe("Homepage - Basic Page Tests", () => {
   });
 });
 
+test.describe("Homepage - Statistics Section", () => {
+  test("statistics section has correct heading", async ({ page }) => {
+    await page.goto("/");
+    await expect(
+      page.getByRole("heading", { name: "Career Highlights" }),
+    ).toBeVisible();
+  });
+
+  test("statistics section has correct subtitle", async ({ page }) => {
+    await page.goto("/");
+    await expect(
+      page.getByText(
+        "Building scalable ML and AI solutions and advancing research across multiple domains, companies and countries",
+      ),
+    ).toBeVisible();
+  });
+
+  test("all 6 statistics are visible", async ({ page }) => {
+    await page.goto("/");
+
+    const statLabels = [
+      "Years of Expertise",
+      "ML and AI Projects",
+      "Lines of Code Written",
+      "Research Publications",
+      "Universities Worked At",
+      "Countries of Long-Term Living",
+    ];
+
+    for (const label of statLabels) {
+      await expect(page.getByText(label, { exact: true })).toBeVisible();
+    }
+  });
+
+  test("statistic numbers are displayed", async ({ page }) => {
+    await page.goto("/");
+
+    // Wait for statistics section to be visible
+    await expect(page.locator("#statistics")).toBeVisible();
+
+    // Check that numeric values are rendered (they start animating from CountUp component)
+    const statsSection = page.locator("#statistics");
+    await expect(statsSection).toContainText("10");
+    await expect(statsSection).toContainText("15");
+    await expect(statsSection).toContainText("50k");
+    await expect(statsSection).toContainText("40");
+    await expect(statsSection).toContainText("9");
+    await expect(statsSection).toContainText("6");
+  });
+
+  test("statistics cards have proper styling", async ({ page }) => {
+    await page.goto("/");
+
+    const statCards = page.locator("#statistics > div:nth-child(2) > div");
+    await expect(statCards.first()).toHaveClass(/bg-light\/5/);
+    await expect(statCards.first()).toHaveClass(/border/);
+    await expect(statCards.first()).toHaveClass(/rounded-xl/);
+  });
+});
+
 test.describe("Homepage - Navigation Tests", () => {
   test.describe("Desktop Navigation", () => {
     test.use({ viewport: { width: 1280, height: 720 } });
