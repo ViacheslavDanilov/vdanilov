@@ -67,12 +67,12 @@ const Statistics = () => {
 
       {/* Statistics Grid */}
       <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-        {stats.map((stat, index) => (
+        {stats.map((stat) => (
           <div
-            key={index}
+            key={stat.label.toLowerCase().replace(/\s+/g, "-")}
             className="bg-light/5 border border-light/10 rounded-xl p-6 md:p-10 text-center hover:bg-light/10 transition-colors duration-300"
           >
-            <div className="text-4xl md:text-5xl font-bold text-accent mb-3">
+            <div className="text-4xl md:text-5xl font-semibold text-accent mb-3">
               <CountUp
                 from={0}
                 to={stat.value}

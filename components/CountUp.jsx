@@ -3,6 +3,20 @@
 import { useInView, useMotionValue, useSpring } from "motion/react";
 import { useCallback, useEffect, useRef } from "react";
 
+/**
+ * Animated counter component with spring physics and viewport detection
+ * @param {Object} props - Component props
+ * @param {number} props.to - Target number to count to
+ * @param {number} [props.from=0] - Starting number
+ * @param {"up"|"down"} [props.direction="up"] - Count direction
+ * @param {number} [props.delay=0] - Delay before animation starts (seconds)
+ * @param {number} [props.duration=2] - Animation duration (seconds)
+ * @param {string} [props.className=""] - Additional CSS classes
+ * @param {boolean} [props.startWhen=true] - Whether to start animation
+ * @param {string} [props.separator=""] - Thousands separator character
+ * @param {Function} [props.onStart] - Callback when animation starts
+ * @param {Function} [props.onEnd] - Callback when animation ends
+ */
 export default function CountUp({
   to,
   from = 0,
