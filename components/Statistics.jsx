@@ -21,14 +21,14 @@ const Statistics = () => {
     },
     {
       value: 50,
-      suffix: "k+",
-      label: "Lines of Code",
+      suffix: "k",
+      label: "Lines of Code Written",
       duration: 2,
       delay: 0.2,
     },
     {
-      value: 30,
-      suffix: "+",
+      value: 40,
+      suffix: "",
       label: "Research Publications",
       duration: 2,
       delay: 0.3,
@@ -82,7 +82,7 @@ const Statistics = () => {
               />
               <span className="text-accent">{stat.suffix}</span>
             </div>
-            <p className="text-base text-gray-400 leading-relaxed">
+            <p className="text-sm md:text-base text-gray-400 leading-relaxed">
               {stat.label}
             </p>
           </div>
