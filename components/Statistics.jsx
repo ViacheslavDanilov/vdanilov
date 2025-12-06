@@ -15,7 +15,7 @@ const Statistics = () => {
     {
       value: 15,
       suffix: "+",
-      label: "ML & AI Projects",
+      label: "ML and AI Projects",
       duration: 2,
       delay: 0.1,
     },
@@ -60,7 +60,7 @@ const Statistics = () => {
           Career Highlights
         </h2>
         <p className="text-gray-400 mt-3 max-w-2xl mx-auto leading-relaxed">
-          Building scalable ML & AI solutions and advancing research across
+          Building scalable ML and AI solutions and advancing research across
           multiple domains, companies and countries
         </p>
       </div>
