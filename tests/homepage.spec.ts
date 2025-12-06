@@ -45,12 +45,12 @@ test.describe("Homepage - Statistics Section", () => {
     await page.goto("/");
 
     const statLabels = [
-      "YEARS OF EXPERTISE",
-      "ML AND AI PROJECTS",
-      "LINES OF CODE WRITTEN",
-      "RESEARCH PUBLICATIONS",
-      "UNIVERSITIES WORKED AT",
-      "COUNTRIES OF LONG-TERM LIVING",
+      "Years of Expertise",
+      "ML and AI Projects",
+      "Lines of Code Written",
+      "Research Publications",
+      "Universities Worked At",
+      "Countries of Long-Term Living",
     ];
 
     for (const label of statLabels) {
