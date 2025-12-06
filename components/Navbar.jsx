@@ -84,7 +84,7 @@ function Navbar() {
   return (
     <nav className="fixed top-6 left-0 right-0 z-50 flex justify-center px-6">
       {/* Glassmorphism Pill Container */}
-      <div className="flex items-center justify-between gap-8 px-6 lg:px-6 py-2 rounded-full bg-light/3 backdrop-blur-xl border-2 border-white/10 shadow-lg max-w-4xl w-full">
+      <div className="flex items-center justify-between gap-8 px-6 lg:px-6 h-14 rounded-full bg-dark/40 backdrop-blur-lg border-1 border-white/10 shadow-lg max-w-4xl w-full">
         {/* Logo */}
         <button
           onClick={() => router.push("/")}
@@ -121,7 +121,7 @@ function Navbar() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="lg:hidden p-2 text-light hover:text-accent transition-colors flex-shrink-0"
+          className="lg:hidden text-light hover:text-accent transition-colors flex-shrink-0"
           aria-label="Toggle menu"
         >
           <MenuToggleIcon
@@ -140,7 +140,7 @@ function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden fixed top-24 left-6 right-6 bg-dark/95 backdrop-blur-xl border border-white/10 shadow-lg rounded-2xl"
+            className="lg:hidden fixed top-24 left-6 right-6 bg-dark/40 backdrop-blur-lg border-1 border-white/10 shadow-lg rounded-2xl"
           >
             <div className="px-6 py-4">
               <ul className="space-y-2">
@@ -162,7 +162,7 @@ function Navbar() {
                           icon={item.icon}
                           className={`w-5 h-5 ${isActive ? "text-accent" : ""}`}
                         />
-                        <span className="font-medium">{item.label}</span>
+                        <span className="font-regular">{item.label}</span>
                       </button>
                     </li>
                   );
