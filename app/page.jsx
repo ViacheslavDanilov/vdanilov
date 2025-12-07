@@ -4,16 +4,20 @@ import FeaturedProjects from "@/components/FeaturedProjects";
 import LogoGrid from "@/components/LogoGrid";
 import About from "@/components/About";
 import Statistics from "@/components/Statistics";
+import { Component as SilkBackground } from "@/components/ui/silk-background-animation";
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col items-center pt-12 md:pt-36 gap-36 pb-32">
-      <Hero />
-      <About />
-      <Statistics />
-      <FeaturedProjects />
-      <MagicBento />
-      <LogoGrid />
-    </div>
+    <>
+      <SilkBackground />
+      <div className="min-h-screen flex flex-col items-center pt-12 md:pt-36 gap-36 pb-32">
+        <Hero />
+        <About />
+        <Statistics />
+        <FeaturedProjects />
+        <MagicBento />
+        <LogoGrid />
+      </div>
+    </>
   );
 }
