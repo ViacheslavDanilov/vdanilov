@@ -7,7 +7,7 @@ import { gsap } from "gsap";
 const DEFAULT_PARTICLE_COUNT = 16;
 const DEFAULT_SPOTLIGHT_RADIUS = 200;
 const DEFAULT_GLOW_COLOR = "#03b1fb";
-const DEFAULT_CARD_BACKGROUND = "rgba(245, 245, 245, 0.05)";
+const DEFAULT_CARD_BACKGROUND = "#151a1f";
 const DEFAULT_ENABLE_STARS = true;
 const DEFAULT_ENABLE_SPOTLIGHT = true;
 const DEFAULT_ENABLE_BORDER_GLOW = true;

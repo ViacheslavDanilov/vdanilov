@@ -5,6 +5,8 @@
   --color-light: #f5f5f5;
   --color-accent: #03b1fb;
   --color-selection: #b3d6ff;
+  --color-card: #151a1f;
+  --color-card-hover: #1a2027;
 
   /* Typography System - Centralized Font Control */
   --font-family-sans:
