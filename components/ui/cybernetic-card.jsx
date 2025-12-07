@@ -28,7 +28,7 @@ const CyberneticCard = ({ className, children }) => {
     <div
       ref={itemRef}
       className={cn(
-        "cybernetic-card relative overflow-hidden rounded-xl bg-light/5 border border-light/10 p-6 group transition-all duration-500 ease-out",
+        "cybernetic-card relative overflow-hidden rounded-xl bg-[#0f131b] border border-light/10 p-6 group transition-all duration-500 ease-out",
         className,
       )}
     >
