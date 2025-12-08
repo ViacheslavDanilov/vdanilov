@@ -78,7 +78,7 @@ test.describe("Homepage - Statistics Section", () => {
     await page.goto("/");
 
     const statCards = page.locator("#statistics > div:nth-child(2) > div");
-    await expect(statCards.first()).toHaveClass(/bg-light\/5/);
+    await expect(statCards.first()).toHaveClass(/bg-card/);
     await expect(statCards.first()).toHaveClass(/border/);
     await expect(statCards.first()).toHaveClass(/rounded-xl/);
   });

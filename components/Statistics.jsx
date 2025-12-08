@@ -70,7 +70,7 @@ const Statistics = () => {
         {stats.map((stat) => (
           <div
             key={stat.label.toLowerCase().replace(/\s+/g, "-")}
-            className="bg-light/5 border border-light/10 rounded-xl p-6 md:p-10 text-center hover:bg-light/10 transition-colors duration-300"
+            className="bg-card border border-light/10 rounded-xl p-6 md:p-10 text-center hover:bg-card-hover transition-colors duration-300"
           >
             <div className="text-4xl md:text-5xl font-semibold text-accent mb-3">
               <CountUp

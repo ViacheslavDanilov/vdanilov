@@ -7,7 +7,7 @@ import { gsap } from "gsap";
 const DEFAULT_PARTICLE_COUNT = 16;
 const DEFAULT_SPOTLIGHT_RADIUS = 200;
 const DEFAULT_GLOW_COLOR = "#03b1fb";
-const DEFAULT_CARD_BACKGROUND = "rgba(245, 245, 245, 0.05)";
+const DEFAULT_CARD_BACKGROUND = "#151a1f";
 const DEFAULT_ENABLE_STARS = true;
 const DEFAULT_ENABLE_SPOTLIGHT = true;
 const DEFAULT_ENABLE_BORDER_GLOW = true;
@@ -21,42 +21,42 @@ const cardData = [
     color: DEFAULT_CARD_BACKGROUND,
     title: "10+ Years of Advanced R&D",
     description:
-      "From a PhD in Computer Science to research roles across Europe's leading scientific institutions, with experience spanning Pompeu Fabra University, Sorbonne University, Institute of Photonic Sciences, Politecnico di Milano, University of Leeds, Universidad Politécnica de Madrid, and University of Trento.",
+      "From a PhD in Computer Science to research roles across <highlight>Europe's leading institutions</highlight>: Pompeu Fabra, Sorbonne, ICFO, Politecnico di Milano, University of Leeds, Madrid Polytechnic, and UniTrento. Bridging <highlight>fundamental research</highlight> with practical applications in computer science, big data, AI and machine learning.",
     label: "Research & Development",
   },
   {
     color: DEFAULT_CARD_BACKGROUND,
     title: "Medical Imaging AI",
     description:
-      "Developing advanced ML & AI systems for medical imaging across ultrasound, CT, MRI, hyperspectral, and time-series physiological data, with projects delivered for Vall d'Hebron Hospital, Beth Israel Deaconess Medical Center, Boston Children's Hospital, and Institute for Image-Guided Surgery.",
+      "Developing advanced ML and AI systems for <highlight>medical imaging</highlight> across ultrasound, CT, MRI, hyperspectral, and time-series physiological data. Projects delivered for <highlight>leading medical centers</highlight> including Vall d'Hebron, Beth Israel Deaconess, Boston Children's, and the Institute for Image-Guided Surgery.",
     label: "Healthcare AI",
   },
   {
     color: DEFAULT_CARD_BACKGROUND,
-    title: "Scalable Systems",
+    title: "Scalable ML Systems",
     description:
-      "Building scalable ML & AI systems with AutoML, PyTorch, TensorFlow, scikit-learn, MLflow, DVC, LangChain, and Weights & Biases, deployed across AWS and Google Cloud. Integrating Generative AI and multimodal capabilities with OpenAI, Qwen, Llama, Stable Diffusion and Flux models to enable intelligent pipelines for reasoning, generation, retrieval, and workflow automation.",
+      "Building scalable ML and AI systems with <highlight>AutoML, PyTorch, TensorFlow, LangChain,</highlight> scikit-learn, MLflow, and DVC, deployed across <highlight>AWS and Google Cloud</highlight>. Integrating Generative AI with OpenAI, Qwen, Llama, and Stable Diffusion models for intelligent pipelines and workflow automation.",
     label: "ML Engineering",
   },
   {
     color: DEFAULT_CARD_BACKGROUND,
     title: "Technology Leadership",
     description:
-      "Serving as the company's AI thought leader, driving strategic direction, architectural decisions, and execution across client and internal projects. Establishing long-term technical vision and aligning technological units around scalable, AI-driven innovation.",
+      "Serving as <highlight>AI thought leader</highlight>, driving strategic direction, architectural decisions, and execution across client and internal projects. Establishing <highlight>long-term technical vision</highlight> and aligning technological units around scalable, AI-driven innovation for sustainable growth and competitive advantage.",
     label: "Strategic Leadership",
   },
   {
     color: DEFAULT_CARD_BACKGROUND,
     title: "Cross-Functional Management",
     description:
-      "Leading and scaling a cross-functional department focused on AI, ML, autonomous agents, and automation including developers, scientists, and product managers.",
+      "Leading and scaling a <highlight>cross-functional department</highlight> focused on AI, ML, autonomous agents, and automation. Managing diverse teams including <highlight>developers, scientists, and product managers</highlight> to deliver innovative solutions while fostering collaboration, mentorship, and continuous learning across the organization.",
     label: "Team Leadership",
   },
   {
     color: DEFAULT_CARD_BACKGROUND,
     title: "Applied ML & AI Across Industries",
     description:
-      "Developing applied ML & AI systems for insurance, clinical diagnostics, medical imaging, and pharmaceutical research with deployments and collaborations involving AmTrust, CNA, Plateau Group, Beth Israel Deaconess Medical Center, Vall d'Hebron Hospital, Institute for Image-Guided Surgery, Bristol Myers Squibb, Boehringer Ingelheim, and Volastra Therapeutics.",
+      "Developing applied ML & AI systems for <highlight>insurance, diagnostics, and pharma</highlight> with deployments involving AmTrust, CNA, Plateau Group, leading medical centers, and pharmaceutical companies like Bristol Myers Squibb, Boehringer Ingelheim, and Volastra Therapeutics.",
     label: "Industry Applications",
   },
 ];
@@ -67,6 +67,29 @@ const hexToRgb = (hex) => {
   return result
     ? `${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(result[3], 16)}`
     : "3, 177, 251";
+};
+
+// Helper function to render text with highlighted phrases
+const renderHighlightedText = (text) => {
+  const parts = text.split(/(<highlight>|<\/highlight>)/);
+  const elements = [];
+  let isHighlight = false;
+
+  parts.forEach((part, index) => {
+    if (part === "<highlight>") {
+      isHighlight = true;
+    } else if (part === "</highlight>") {
+      isHighlight = false;
+    } else if (part) {
+      elements.push({
+        text: part,
+        highlight: isHighlight,
+        key: index,
+      });
+    }
+  });
+
+  return elements;
 };
 
 const createParticleElement = (x, y, color = DEFAULT_GLOW_COLOR) => {
@@ -804,16 +827,27 @@ const MagicBento = ({
                     enableMagnetism={enableMagnetism}
                   >
                     <div className="card__header flex justify-between gap-3 relative text-white">
-                      <span className="card__label text-sm uppercase tracking-wide opacity-70">
+                      <span className="card__label text-xs uppercase tracking-wide opacity-70">
                         {card.label}
                       </span>
                     </div>
                     <div className="card__content flex flex-col relative text-white">
-                      <h3 className="card__title font-bold text-xl text-light mb-2">
+                      <h3 className="card__title font-bold text-lg text-light mb-2">
                         {card.title}
                       </h3>
-                      <p className="card__description text-light/80 text-justify leading-relaxed">
-                        {card.description}
+                      <p className="card__description text-sm text-light/80 text-justify leading-relaxed">
+                        {renderHighlightedText(card.description).map((part) =>
+                          part.highlight ? (
+                            <span
+                              key={part.key}
+                              className="text-accent font-medium"
+                            >
+                              {part.text}
+                            </span>
+                          ) : (
+                            <span key={part.key}>{part.text}</span>
+                          ),
+                        )}
                       </p>
                     </div>
                   </ParticleCard>
@@ -832,16 +866,27 @@ const MagicBento = ({
                   shouldDisableAnimations={shouldDisableAnimations}
                 >
                   <div className="card__header flex justify-between gap-3 relative text-white">
-                    <span className="card__label text-sm uppercase tracking-wide opacity-70">
+                    <span className="card__label text-xs uppercase tracking-wide opacity-70">
                       {card.label}
                     </span>
                   </div>
                   <div className="card__content flex flex-col relative text-white">
-                    <h3 className="card__title font-bold text-xl text-light mb-2">
+                    <h3 className="card__title font-bold text-lg text-light mb-2">
                       {card.title}
                     </h3>
-                    <p className="card__description text-light/80 text-justify leading-relaxed">
-                      {card.description}
+                    <p className="card__description text-sm text-light/80 text-justify leading-relaxed">
+                      {renderHighlightedText(card.description).map((part) =>
+                        part.highlight ? (
+                          <span
+                            key={part.key}
+                            className="text-accent font-medium"
+                          >
+                            {part.text}
+                          </span>
+                        ) : (
+                          <span key={part.key}>{part.text}</span>
+                        ),
+                      )}
                     </p>
                   </div>
                 </SimpleCard>
