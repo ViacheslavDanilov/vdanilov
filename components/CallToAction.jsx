@@ -15,16 +15,26 @@ const CallToAction = () => {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
         <div className="absolute inset-0 bg-[radial-gradient(40%_128px_at_50%_0%,theme(backgroundColor.accent/10%),transparent)]" />
 
-        <div className="relative flex flex-col md:flex-row items-center gap-8 md:gap-10 p-8 md:p-12">
+        <div className="relative flex flex-col md:flex-row items-center gap-4 md:gap-10 p-8 md:p-12">
           {/* Image Section */}
-          <div className="flex-shrink-0 flex justify-center md:justify-start">
+          <div className="flex-shrink-0 flex flex-col items-center gap-4">
             <div className="relative w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-2 border-accent/20 shadow-2xl">
               <Image
                 src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/hero/about-poster.webp`}
                 alt="Viacheslav Danilov"
                 fill
-                className="object-cover brightness-125"
+                className="object-cover brightness-150"
                 priority
+              />
+            </div>
+
+            {/* Signature */}
+            <div className="relative w-48 h-16">
+              <Image
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/hero/signature.webp`}
+                alt="Viacheslav Danilov Signature"
+                fill
+                className="object-contain"
               />
             </div>
           </div>
@@ -33,7 +43,7 @@ const CallToAction = () => {
           <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left space-y-6">
             <div className="space-y-4">
               <h2 className="text-2xl md:text-4xl font-bold text-light">
-                Let's Build Something Extraordinary
+                Let’s Build What Matters
               </h2>
               <p className="text-base md:text-lg text-gray-400 leading-relaxed max-w-2xl text-center md:text-left">
                 Whether you are looking to scale your AI capabilities, lead
