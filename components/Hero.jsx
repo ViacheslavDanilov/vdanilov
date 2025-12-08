@@ -58,7 +58,7 @@ const Hero = () => {
           <div className="relative w-64 h-64 md:w-[400px] md:h-[400px] rounded-full overflow-hidden border-4 border-accent/20 shadow-2xl bg-dark">
             <img
               src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/hero/hero-poster.webp`}
-              alt="Hero"
+              alt="Viacheslav Danilov portrait"
               className="absolute inset-0 w-full h-full object-cover brightness-175"
             />
             <video

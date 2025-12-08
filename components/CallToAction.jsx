@@ -48,7 +48,7 @@ const CallToAction = () => {
               <p className="text-base lg:text-lg text-gray-400 leading-relaxed">
                 Whether you are looking to scale your AI capabilities, lead
                 complex research initiatives, or build high-performing technical
-                teams, I'm here to help transform your vision into reality
+                teams, I'm here to help transform your vision into reality.
               </p>
             </div>
 
