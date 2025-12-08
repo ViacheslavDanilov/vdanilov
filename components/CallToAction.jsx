@@ -32,10 +32,10 @@ const CallToAction = () => {
           {/* Content Section */}
           <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left space-y-6">
             <div className="space-y-4">
-              <h2 className="text-2xl md:text-4xl font-bold text-light whitespace-nowrap">
+              <h2 className="text-2xl md:text-4xl font-bold text-light">
                 Let's Build Something Extraordinary
               </h2>
-              <p className="text-base md:text-lg text-gray-400 leading-relaxed max-w-2xl text-justify">
+              <p className="text-base md:text-lg text-gray-400 leading-relaxed max-w-2xl text-center md:text-justify">
                 Whether you are looking to scale your AI capabilities, lead
                 complex research initiatives, or build high-performing technical
                 teams, I'm here to help transform your vision into reality
