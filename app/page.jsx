@@ -4,6 +4,7 @@ import FeaturedProjects from "@/components/FeaturedProjects";
 import LogoGrid from "@/components/LogoGrid";
 import About from "@/components/About";
 import Statistics from "@/components/Statistics";
+import CallToAction from "@/components/CallToAction";
 import LightRays from "@/components/ui/light-rays";
 
 export default function Home() {
@@ -22,6 +23,7 @@ export default function Home() {
         <FeaturedProjects />
         <MagicBento />
         <LogoGrid />
+        <CallToAction />
       </div>
     </>
   );
