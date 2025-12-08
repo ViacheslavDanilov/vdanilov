@@ -71,6 +71,11 @@ const About = () => {
       <div className="flex flex-col items-center justify-center gap-8 max-w-4xl mx-auto">
         {/* Video */}
         <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-accent/20 shadow-2xl bg-dark">
+          <img
+            src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/hero/about-poster.webp`}
+            alt="About"
+            className="absolute inset-0 w-full h-full object-cover brightness-150"
+          />
           <video
             autoPlay
             muted
@@ -78,10 +83,10 @@ const About = () => {
             playsInline
             webkit-playsinline="true"
             preload="auto"
-            className="w-full h-full object-cover brightness-125"
+            className="relative w-full h-full object-cover brightness-125"
           >
             <source
-              src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/hero/about.mp4`}
+              src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/hero/about-video.mp4`}
               type="video/mp4"
             />
             Your browser does not support the video tag.

@@ -56,6 +56,11 @@ const Hero = () => {
         {/* Video Content */}
         <div className="w-full md:w-1/2 flex justify-center md:justify-end">
           <div className="relative w-64 h-64 md:w-[400px] md:h-[400px] rounded-full overflow-hidden border-4 border-accent/20 shadow-2xl bg-dark">
+            <img
+              src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/hero/hero-poster.webp`}
+              alt="Hero"
+              className="absolute inset-0 w-full h-full object-cover brightness-175"
+            />
             <video
               autoPlay
               muted
@@ -63,7 +68,7 @@ const Hero = () => {
               playsInline
               webkit-playsinline="true"
               preload="auto"
-              className="w-full h-full object-cover brightness-150"
+              className="relative w-full h-full object-cover brightness-150"
             >
               <source
                 src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/hero/hero-video.mp4`}
