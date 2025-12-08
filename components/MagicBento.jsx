@@ -54,9 +54,9 @@ const cardData = [
   },
   {
     color: DEFAULT_CARD_BACKGROUND,
-    title: "Applied ML Across Industries",
+    title: "Applied ML & AI Across Industries",
     description:
-      "Developing applied ML and AI systems for <highlight>insurance, diagnostics, and pharma</highlight> with deployments involving AmTrust, CNA, Plateau Group, leading medical centers, and pharmaceutical companies like Bristol Myers Squibb, Boehringer Ingelheim, and Volastra Therapeutics.",
+      "Developing applied ML & AI systems for <highlight>insurance, diagnostics, and pharma</highlight> with deployments involving AmTrust, CNA, Plateau Group, leading medical centers, and pharmaceutical companies like Bristol Myers Squibb, Boehringer Ingelheim, and Volastra Therapeutics.",
     label: "Industry Applications",
   },
 ];
