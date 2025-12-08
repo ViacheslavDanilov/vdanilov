@@ -23,7 +23,7 @@ const CallToAction = () => {
                 src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/hero/about-poster.webp`}
                 alt="Viacheslav Danilov"
                 fill
-                className="object-cover brightness-110"
+                className="object-cover brightness-125"
                 priority
               />
             </div>
@@ -35,10 +35,10 @@ const CallToAction = () => {
               <h2 className="text-2xl md:text-4xl font-bold text-light whitespace-nowrap">
                 Let's Build Something Extraordinary
               </h2>
-              <p className="text-base md:text-lg text-gray-400 leading-relaxed max-w-2xl">
-                Whether you're looking to scale your AI capabilities, lead
+              <p className="text-base md:text-lg text-gray-400 leading-relaxed max-w-2xl text-justify">
+                Whether you are looking to scale your AI capabilities, lead
                 complex research initiatives, or build high-performing technical
-                teams, I'm here to help transform your vision into reality.
+                teams, I'm here to help transform your vision into reality
               </p>
             </div>
 
@@ -82,7 +82,7 @@ const CallToAction = () => {
                       display: "inline-block",
                     }}
                   />
-                  LinkedIn
+                  Connect on LinkedIn
                 </>
               </AnimatedGradientButton>
             </div>
