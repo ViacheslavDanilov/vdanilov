@@ -9,15 +9,15 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 const CallToAction = () => {
   return (
-    <section className="w-full max-w-7xl mx-auto px-6 py-12 md:py-24">
+    <section className="w-full max-w-7xl mx-auto px-6 lg:px-8 py-12 md:py-24">
       <div className="relative rounded-2xl border border-light/10 bg-gradient-to-br from-card/50 to-dark/50 overflow-hidden">
         {/* Decorative background glow */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
         <div className="absolute inset-0 bg-[radial-gradient(40%_128px_at_50%_0%,theme(backgroundColor.accent/10%),transparent)]" />
 
-        <div className="relative flex flex-col md:flex-row items-center gap-4 md:gap-10 p-8 md:p-12">
+        <div className="relative flex flex-col md:flex-row items-center gap-4 md:gap-10 p-8 md:p-12 lg:px-16">
           {/* Image Section */}
-          <div className="flex-shrink-0 flex flex-col items-center gap-4 md:ml-8 lg:ml-12">
+          <div className="flex-shrink-0 flex flex-col items-center gap-4 lg:ml-0">
             <div className="relative w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-2 border-accent/20 shadow-2xl">
               <Image
                 src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/hero/about-poster.webp`}
@@ -40,7 +40,7 @@ const CallToAction = () => {
           </div>
 
           {/* Content Section */}
-          <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left space-y-6 md:pl-8 lg:pl-12 md:pr-8 lg:pr-12">
+          <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left space-y-6 md:pl-8 lg:pl-12 lg:pr-0">
             <div className="space-y-4 w-full">
               <h2 className="text-2xl md:text-4xl font-bold text-light">
                 Let's Build What Matters
