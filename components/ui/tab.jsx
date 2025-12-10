@@ -13,6 +13,7 @@ export function Tab({ text, icon, selected, setSelected, layoutId = "tab" }) {
       className={cn(
         "relative w-fit px-4 py-2 text-sm font-semibold capitalize",
         "text-foreground transition-colors flex items-center gap-2 cursor-pointer",
+        !selected && "hover:text-light hover:bg-white/5 rounded-full",
       )}
     >
       {icon && (
