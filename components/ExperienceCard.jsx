@@ -71,13 +71,13 @@ const PublicationsList = ({ publications }) => (
 // Company logo component
 const CompanyLogo = ({ basePath, logo, company, className = "" }) => (
   <div
-    className={`relative w-32 h-32 flex-shrink-0 rounded-2xl overflow-hidden border border-light/10 bg-card/50 ${className}`}
+    className={`relative w-24 h-24 md:w-32 md:h-32 flex-shrink-0 rounded-2xl overflow-hidden border border-light/10 bg-card/50 ${className}`}
   >
     <Image
       src={`${basePath}${logo}`}
       alt={`${company} logo`}
       fill
-      className="object-contain p-4"
+      className="object-contain p-2 md:p-4 rounded-2xl md:rounded-3xl"
       sizes="128px"
       priority
     />
@@ -92,11 +92,14 @@ const JobInfo = ({
   duration,
   location,
   className = "",
+  centered = false,
 }) => (
   <div className={className}>
     <h3 className="text-xl md:text-2xl font-bold text-light">{title}</h3>
     <p className="text-sm md:text-base font-medium text-accent">{company}</p>
-    <div className="flex flex-wrap gap-2 text-xs md:text-sm text-gray-400">
+    <div
+      className={`flex flex-wrap gap-2 text-xs md:text-sm text-gray-400 ${centered ? "justify-center" : ""}`}
+    >
       <time dateTime={period.split(" - ")[0]}>{period}</time>
       <span aria-hidden="true">•</span>
       <span>{duration}</span>
@@ -157,6 +160,7 @@ const ExperienceCard = ({ experience }) => {
             duration={experience.duration}
             location={experience.location}
             className="text-center space-y-2"
+            centered={true}
           />
         </div>
 
