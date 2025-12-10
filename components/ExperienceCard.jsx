@@ -22,6 +22,15 @@ const ExperienceCard = ({ experience }) => {
     { id: "publications", label: "Publications", icon: faBook },
   ];
 
+  // Toggle accordion: clicking same tab closes it
+  const handleTabClick = (tabId) => {
+    if (activeTab === tabId) {
+      setActiveTab(null); // Close if already open
+    } else {
+      setActiveTab(tabId); // Open new tab
+    }
+  };
+
   const renderTabContent = () => {
     switch (activeTab) {
       case "responsibilities":
@@ -133,25 +142,32 @@ const ExperienceCard = ({ experience }) => {
             text={tab.label}
             icon={tab.icon}
             selected={activeTab === tab.id}
-            setSelected={() => setActiveTab(tab.id)}
+            setSelected={() => handleTabClick(tab.id)}
           />
         ))}
       </div>
 
-      {/* Tab Content with Animation */}
-      <div className="flex-grow min-h-[200px]">
-        <AnimatePresence mode="wait">
+      {/* Tab Content with Animation - Accordion Style */}
+      <AnimatePresence mode="wait">
+        {activeTab && (
           <motion.div
             key={activeTab}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.2 }}
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="overflow-hidden"
           >
-            {renderTabContent()}
+            <motion.div
+              initial={{ y: -10 }}
+              animate={{ y: 0 }}
+              transition={{ duration: 0.2, delay: 0.1 }}
+            >
+              {renderTabContent()}
+            </motion.div>
           </motion.div>
-        </AnimatePresence>
-      </div>
+        )}
+      </AnimatePresence>
     </CyberneticCard>
   );
 };
