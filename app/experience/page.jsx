@@ -1,9 +1,14 @@
 "use client";
 
-import React from "react";
+import React, { useMemo } from "react";
 import ExperienceCard from "@/components/ExperienceCard";
 
-// Calculate duration between two dates
+/**
+ * Calculate duration between two dates in LinkedIn-style format
+ * @param {string} startDate - ISO date string
+ * @param {string|null} endDate - ISO date string or null for ongoing
+ * @returns {string} Formatted duration (e.g., "2 yrs 3 mos")
+ */
 const calculateDuration = (startDate, endDate = null) => {
   const start = new Date(startDate);
   const end = endDate ? new Date(endDate) : new Date();
@@ -16,106 +21,124 @@ const calculateDuration = (startDate, endDate = null) => {
     months += 12;
   }
 
-  if (years > 0 && months > 0) {
-    return `${years} yr${years > 1 ? "s" : ""} ${months} mo${months > 1 ? "s" : ""}`;
-  } else if (years > 0) {
-    return `${years} yr${years > 1 ? "s" : ""}`;
-  } else {
-    return `${months} mo${months > 1 ? "s" : ""}`;
-  }
+  const parts = [];
+  if (years > 0) parts.push(`${years} yr${years > 1 ? "s" : ""}`);
+  if (months > 0) parts.push(`${months} mo${months > 1 ? "s" : ""}`);
+
+  return parts.join(" ") || "Less than a month";
 };
 
-export default function Experience() {
-  const experiences = [
-    {
-      id: "symfa-cto",
-      title: "Chief Technology Officer",
-      company: "Symfa",
-      type: "Full-time",
-      startDate: "2024-11-01",
-      endDate: null,
-      location: "Miami • United States 🇺🇸",
-      logo: "/experience/symfa.webp",
-      responsibilities: [
-        "Defining and executing the company's long-term technical vision across technological units",
-        "Leading and scaling a cross-functional R&D department focused on AI, machine learning, autonomous agents, and automation",
-        "Driving applied research in the InsurTech domain with partners such as AmTrust, CNA, and Plateau Group to deliver innovative, market-aligned solutions",
-        "Acting as the company's AI thought leader, guiding strategy and implementation across client and internal projects",
-        "Publishing business and technical articles to position Symfa at the forefront of AI-driven innovation",
-        "Representing the company at key industry events and conferences",
-      ],
-      publications: [
-        {
-          title:
-            "Testing AI low-code platforms: What actually worked (and what didn't)",
-          url: "https://symfa.com/blog/ai-low-code-tools",
-          type: "Blog Post",
-        },
-        {
-          title:
-            "Freelance Tech Trends: Top IT Skills, Pay Rates, & Regional Demand",
-          url: "https://symfa.com/blog/top-skills-in-demand-in-gig-economy",
-          type: "Blog Post",
-        },
-        {
-          title:
-            "Freelance Pricing Trends 2025: Industry, Location & Expertise Insights",
-          url: "https://symfa.com/blog/insights-and-trends-in-the-gig-economy",
-          type: "Blog Post",
-        },
-      ],
-    },
-    {
-      id: "upf-professor",
-      title: "Research Professor",
-      company: "Pompeu Fabra University",
-      type: "Full-time",
-      startDate: "2023-06-01",
-      endDate: null,
-      location: "Barcelona • Spain 🇪🇸",
-      logo: "/experience/upf.webp",
-      responsibilities: [
-        "Collaborated with the Institute of Photonic Sciences to develop ML solutions for a photonics platform enabling non-invasive ICP estimation via cerebral blood flow monitoring",
-        "Applied biophotonics insights to guide model design, optimization, and validation",
-        "Collected patient data at Vall d'Hebron Hospital, working directly with clinicians and surgeons",
-        "Led time-series analysis and built advanced ML models for real-time, accurate ICP prediction",
-        "Mentored PhD students and post-docs in ML algorithm development for time-series analysis and medical data applications",
-      ],
-      publications: [
-        {
-          title: "SafeICP",
-          url: "https://safeicp.es/",
-          type: "Project Website",
-        },
-        {
-          title:
-            "Hybrid Convolutional and Recurrent Neural Network for Non-Invasive Intracranial Pressure Estimation from Cerebral Blood Flow",
-          url: "https://doi.org/10.1364/BRAIN.2024.BTu3C.7",
-          type: "Conference Paper",
-        },
-        {
-          title:
-            "Intracranial pressure and cerebral blood flow pulse dynamics in patients with idiopathic normal pressure hydrocephalus during Katzman infusion test: a pilot optical monitoring study",
-          url: "https://doi.org/10.1364/ECBO.2025.S4F.2",
-          type: "Conference Paper",
-        },
-      ],
-    },
-  ];
+/**
+ * Format date period in readable format
+ * @param {string} startDate - ISO date string
+ * @param {string|null} endDate - ISO date string or null for ongoing
+ * @returns {string} Formatted period (e.g., "Nov 2024 - Present")
+ */
+const formatPeriod = (startDate, endDate = null) => {
+  const formatDate = (date) =>
+    new Date(date).toLocaleDateString("en-US", {
+      month: "short",
+      year: "numeric",
+    });
 
-  // Add computed duration to each experience
-  const experiencesWithDuration = experiences.map((exp) => ({
-    ...exp,
-    duration: calculateDuration(exp.startDate, exp.endDate),
-    period: `${new Date(exp.startDate).toLocaleDateString("en-US", { month: "short", year: "numeric" })} - ${exp.endDate ? new Date(exp.endDate).toLocaleDateString("en-US", { month: "short", year: "numeric" }) : "Present"}`,
-  }));
+  return `${formatDate(startDate)} - ${endDate ? formatDate(endDate) : "Present"}`;
+};
+
+// Experience data configuration
+const EXPERIENCES_DATA = [
+  {
+    id: "symfa-cto",
+    title: "Chief Technology Officer",
+    company: "Symfa",
+    type: "Full-time",
+    startDate: "2024-11-01",
+    endDate: null,
+    location: "Miami • United States 🇺🇸",
+    logo: "/experience/symfa.webp",
+    responsibilities: [
+      "Defining and executing the company's long-term technical vision across technological units",
+      "Leading and scaling a cross-functional R&D department focused on AI, machine learning, autonomous agents, and automation",
+      "Driving applied research in the InsurTech domain with partners such as AmTrust, CNA, and Plateau Group to deliver innovative, market-aligned solutions",
+      "Acting as the company's AI thought leader, guiding strategy and implementation across client and internal projects",
+      "Publishing business and technical articles to position Symfa at the forefront of AI-driven innovation",
+      "Representing the company at key industry events and conferences",
+    ],
+    publications: [
+      {
+        title:
+          "Testing AI low-code platforms: What actually worked (and what didn't)",
+        url: "https://symfa.com/blog/ai-low-code-tools",
+        type: "Blog Post",
+      },
+      {
+        title:
+          "Freelance Tech Trends: Top IT Skills, Pay Rates, & Regional Demand",
+        url: "https://symfa.com/blog/top-skills-in-demand-in-gig-economy",
+        type: "Blog Post",
+      },
+      {
+        title:
+          "Freelance Pricing Trends 2025: Industry, Location & Expertise Insights",
+        url: "https://symfa.com/blog/insights-and-trends-in-the-gig-economy",
+        type: "Blog Post",
+      },
+    ],
+  },
+  {
+    id: "upf-professor",
+    title: "Research Professor",
+    company: "Pompeu Fabra University",
+    type: "Full-time",
+    startDate: "2023-06-01",
+    endDate: null,
+    location: "Barcelona • Spain 🇪🇸",
+    logo: "/experience/upf.webp",
+    responsibilities: [
+      "Collaborated with the Institute of Photonic Sciences to develop ML solutions for a photonics platform enabling non-invasive ICP estimation via cerebral blood flow monitoring",
+      "Applied biophotonics insights to guide model design, optimization, and validation",
+      "Collected patient data at Vall d'Hebron Hospital, working directly with clinicians and surgeons",
+      "Led time-series analysis and built advanced ML models for real-time, accurate ICP prediction",
+      "Mentored PhD students and post-docs in ML algorithm development for time-series analysis and medical data applications",
+    ],
+    publications: [
+      {
+        title: "SafeICP",
+        url: "https://safeicp.es/",
+        type: "Project Website",
+      },
+      {
+        title:
+          "Hybrid Convolutional and Recurrent Neural Network for Non-Invasive Intracranial Pressure Estimation from Cerebral Blood Flow",
+        url: "https://doi.org/10.1364/BRAIN.2024.BTu3C.7",
+        type: "Conference Paper",
+      },
+      {
+        title:
+          "Intracranial pressure and cerebral blood flow pulse dynamics in patients with idiopathic normal pressure hydrocephalus during Katzman infusion test: a pilot optical monitoring study",
+        url: "https://doi.org/10.1364/ECBO.2025.S4F.2",
+        type: "Conference Paper",
+      },
+    ],
+  },
+];
+
+export default function Experience() {
+  // Memoize processed experiences to prevent recalculation on every render
+  const experiences = useMemo(
+    () =>
+      EXPERIENCES_DATA.map((exp) => ({
+        ...exp,
+        duration: calculateDuration(exp.startDate, exp.endDate),
+        period: formatPeriod(exp.startDate, exp.endDate),
+      })),
+    [],
+  );
 
   return (
-    <div className="min-h-screen pt-24">
+    <main className="min-h-screen pt-24">
       <div className="flex flex-col items-center pt-12 md:pt-36 gap-12 pb-32">
         <section className="w-full max-w-7xl mx-auto px-6">
-          {/* Section Header */}
-          <div className="mb-12 text-center">
+          <header className="mb-12 text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-light mb-4">
               Core Roles
             </h1>
@@ -124,18 +147,20 @@ export default function Experience() {
               engineering contributions across AI, LLMs, machine learning,
               computer vision, and medical and hyperspectral imaging – driving
               innovation, strategy, and execution in both research and industry
-              contexts.
+              contexts
             </p>
-          </div>
+          </header>
 
-          {/* Experience Cards Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {experiencesWithDuration.map((experience) => (
+          <div
+            className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:items-start"
+            role="list"
+          >
+            {experiences.map((experience) => (
               <ExperienceCard key={experience.id} experience={experience} />
             ))}
           </div>
         </section>
       </div>
-    </div>
+    </main>
   );
 }
