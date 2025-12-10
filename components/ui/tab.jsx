@@ -23,7 +23,7 @@ export function Tab({ text, icon, selected, setSelected }) {
         <motion.span
           layoutId="tab"
           transition={{ type: "spring", duration: 0.4 }}
-          className="absolute inset-0 z-0 rounded-full bg-background shadow-sm"
+          className="absolute inset-0 z-0 rounded-full bg-accent/20 border border-accent/30 shadow-sm"
         />
       )}
     </button>

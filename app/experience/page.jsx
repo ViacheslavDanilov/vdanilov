@@ -36,7 +36,7 @@ export default function Experience() {
       endDate: null,
       location: "Miami • United States 🇺🇸",
       logo: "/experience/symfa.webp",
-      accomplishments: [
+      responsibilities: [
         "Defining and executing the company's long-term technical vision across technological units",
         "Leading and scaling a cross-functional R&D department focused on AI, machine learning, autonomous agents, and automation",
         "Driving applied research in the InsurTech domain with partners such as AmTrust, CNA, and Plateau Group to deliver innovative, market-aligned solutions",
@@ -74,7 +74,7 @@ export default function Experience() {
       endDate: null,
       location: "Barcelona • Spain 🇪🇸",
       logo: "/experience/upf.webp",
-      accomplishments: [
+      responsibilities: [
         "Collaborated with the Institute of Photonic Sciences to develop ML solutions for a photonics platform enabling non-invasive ICP estimation via cerebral blood flow monitoring",
         "Applied biophotonics insights to guide model design, optimization, and validation",
         "Collected patient data at Vall d'Hebron Hospital, working directly with clinicians and surgeons",

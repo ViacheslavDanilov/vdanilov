@@ -8,26 +8,26 @@ import { Tab } from "@/components/ui/tab";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faExternalLink,
-  faTrophy,
+  faBriefcase,
   faBook,
 } from "@fortawesome/free-solid-svg-icons";
 
 const ExperienceCard = ({ experience }) => {
-  const [activeTab, setActiveTab] = useState("accomplishments");
+  const [activeTab, setActiveTab] = useState("responsibilities");
 
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
   const tabs = [
-    { id: "accomplishments", label: "Key Accomplishments", icon: faTrophy },
+    { id: "responsibilities", label: "Responsibilities", icon: faBriefcase },
     { id: "publications", label: "Publications", icon: faBook },
   ];
 
   const renderTabContent = () => {
     switch (activeTab) {
-      case "accomplishments":
+      case "responsibilities":
         return (
           <ul className="space-y-3">
-            {experience.accomplishments.map((item, index) => (
+            {experience.responsibilities.map((item, index) => (
               <li key={index} className="flex items-start gap-3">
                 <div className="flex-shrink-0 w-2 h-2 rounded-full bg-accent mt-2" />
                 <p className="text-sm text-gray-300 leading-relaxed text-justify">
