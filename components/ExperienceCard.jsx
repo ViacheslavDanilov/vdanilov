@@ -71,13 +71,13 @@ const PublicationsList = ({ publications }) => (
 // Company logo component
 const CompanyLogo = ({ basePath, logo, company, className = "" }) => (
   <div
-    className={`relative w-24 h-24 md:w-32 md:h-32 flex-shrink-0 rounded-2xl overflow-hidden border border-light/10 bg-card/50 ${className}`}
+    className={`relative w-24 h-24 flex-shrink-0 rounded-2xl overflow-hidden border border-light/10 bg-card/50 ${className}`}
   >
     <Image
       src={`${basePath}${logo}`}
       alt={`${company} logo`}
       fill
-      className="object-contain p-2 md:p-4 rounded-2xl md:rounded-3xl"
+      className="object-contain p-2 rounded-2xl"
       sizes="128px"
       priority
     />
