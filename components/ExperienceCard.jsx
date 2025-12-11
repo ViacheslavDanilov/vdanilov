@@ -95,8 +95,10 @@ const JobInfo = ({
   centered = false,
 }) => (
   <div className={className}>
-    <h3 className="text-xl md:text-2xl font-bold text-light">{title}</h3>
-    <p className="text-sm md:text-base font-medium text-accent">{company}</p>
+    <h3 className="text-lg font-bold uppercase tracking-wider text-light">
+      {title}
+    </h3>
+    <p className="text-sm font-medium text-accent uppercase">{company}</p>
     <div
       className={`flex flex-wrap gap-2 text-xs md:text-sm text-gray-400 ${centered ? "justify-center" : ""}`}
     >
