@@ -26,6 +26,44 @@ const BulletPoint = () => (
   />
 );
 
+// Centralized highlight config (simplified)
+const HIGHLIGHT_KEYWORDS = [
+  "Institute of Photonic Sciences",
+  "Vall d'Hebron Hospital",
+  "AmTrust",
+  "CNA",
+  "Plateau Group",
+  "Symfa",
+  "SafeICP",
+  "Pompeu Fabra University",
+];
+
+const HIGHLIGHT_CLASS =
+  "inline-block bg-accent/10 text-accent font-semibold px-1.5 py-0.5 rounded-2xl";
+
+// Helper to highlight keywords in a string
+function highlightKeywords(text) {
+  if (typeof text !== "string") return text;
+  let result = [text];
+  HIGHLIGHT_KEYWORDS.forEach((word) => {
+    result = result.flatMap((part) =>
+      typeof part === "string" && part.includes(word)
+        ? part.split(word).flatMap((seg, i, arr) =>
+            i < arr.length - 1
+              ? [
+                  seg,
+                  <span key={word + i} className={HIGHLIGHT_CLASS}>
+                    {word}
+                  </span>,
+                ]
+              : [seg],
+          )
+        : [part],
+    );
+  });
+  return result;
+}
+
 // Responsibilities list component
 const ResponsibilitiesList = ({ items }) => (
   <ul className="space-y-3" role="list">
@@ -33,7 +71,7 @@ const ResponsibilitiesList = ({ items }) => (
       <li key={index} className="flex items-start gap-3">
         <BulletPoint />
         <p className="text-sm text-gray-300 leading-relaxed text-justify">
-          {item}
+          {highlightKeywords(item)}
         </p>
       </li>
     ))}
