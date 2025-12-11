@@ -1,6 +1,12 @@
 "use client";
 
-import React, { useState, useMemo, useCallback } from "react";
+import React, {
+  useState,
+  useMemo,
+  useCallback,
+  useRef,
+  useEffect,
+} from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "motion/react";
 import CyberneticCard from "@/components/ui/cybernetic-card";
@@ -113,6 +119,19 @@ const JobInfo = ({
 const ExperienceCard = ({ experience }) => {
   const [activeTab, setActiveTab] = useState(null);
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+  const cardRef = useRef(null);
+
+  // Close tab on outside click
+  useEffect(() => {
+    if (!activeTab) return;
+    function handleClick(event) {
+      if (cardRef.current && !cardRef.current.contains(event.target)) {
+        setActiveTab(null);
+      }
+    }
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, [activeTab]);
 
   // Memoize tabs configuration
   const tabs = useMemo(
@@ -144,6 +163,7 @@ const ExperienceCard = ({ experience }) => {
 
   return (
     <article
+      ref={cardRef}
       className="self-start w-full"
       aria-labelledby={`job-title-${experience.id}`}
     >
