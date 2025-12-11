@@ -18,6 +18,13 @@ import {
   faBook,
 } from "@fortawesome/free-solid-svg-icons";
 
+// --- CONFIGURATION CONSTANTS ---
+const COMPANY_URLS = {
+  Symfa: "https://symfa.com/",
+  "Pompeu Fabra University": "https://www.upf.edu/en/",
+};
+
+// --- COMPONENTS ---
 // Shared bullet point component
 const BulletPoint = () => (
   <div
@@ -113,9 +120,13 @@ const PublicationsList = ({ publications }) => (
 );
 
 // Company logo component
-const CompanyLogo = ({ basePath, logo, company, className = "" }) => (
-  <div
-    className={`relative w-24 h-24 flex-shrink-0 rounded-2xl overflow-hidden border border-light/10 bg-card/50 ${className}`}
+const CompanyLogo = ({ basePath, logo, company, url, className = "" }) => (
+  <a
+    href={url}
+    target="_blank"
+    rel="noopener noreferrer"
+    className={`relative w-24 h-24 flex-shrink-0 rounded-2xl overflow-hidden border border-light/10 bg-card/50 cursor-pointer ${className}`}
+    aria-label={`${company} website`}
   >
     <Image
       src={`${basePath}${logo}`}
@@ -125,13 +136,14 @@ const CompanyLogo = ({ basePath, logo, company, className = "" }) => (
       sizes="128px"
       priority
     />
-  </div>
+  </a>
 );
 
 // Job info component
 const JobInfo = ({
   title,
   company,
+  url,
   period,
   duration,
   location,
@@ -142,7 +154,15 @@ const JobInfo = ({
     <h3 className="text-lg font-bold uppercase tracking-wider text-light">
       {title}
     </h3>
-    <p className="text-sm font-medium text-accent uppercase">{company}</p>
+    <a
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-sm font-medium text-accent uppercase cursor-pointer"
+      aria-label={`${company} website`}
+    >
+      {company}
+    </a>
     <div
       className={`flex flex-wrap gap-2 text-xs md:text-sm text-gray-400 ${centered ? "justify-center" : ""}`}
     >
@@ -212,10 +232,12 @@ const ExperienceCard = ({ experience }) => {
             basePath={basePath}
             logo={experience.logo}
             company={experience.company}
+            url={COMPANY_URLS[experience.company]}
           />
           <JobInfo
             title={experience.title}
             company={experience.company}
+            url={COMPANY_URLS[experience.company]}
             period={experience.period}
             duration={experience.duration}
             location={experience.location}
@@ -230,10 +252,12 @@ const ExperienceCard = ({ experience }) => {
             basePath={basePath}
             logo={experience.logo}
             company={experience.company}
+            url={COMPANY_URLS[experience.company]}
           />
           <JobInfo
             title={experience.title}
             company={experience.company}
+            url={COMPANY_URLS[experience.company]}
             period={experience.period}
             duration={experience.duration}
             location={experience.location}
