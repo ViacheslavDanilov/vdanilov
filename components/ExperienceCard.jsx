@@ -39,7 +39,7 @@ const HIGHLIGHT_KEYWORDS = [
 ];
 
 const HIGHLIGHT_CLASS =
-  "inline-block bg-accent/10 text-accent font-semibold px-1.5 py-0.5 rounded-2xl";
+  "inline-block bg-accent/10 text-accent font-semibold px-2 py-0.75 rounded-xl";
 
 // Helper to highlight keywords in a string
 function highlightKeywords(text) {
