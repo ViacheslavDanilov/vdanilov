@@ -102,14 +102,9 @@ const EXPERIENCES_DATA = [
     ],
     publications: [
       {
-        title: "SafeICP",
-        url: "https://safeicp.es/",
-        type: "Project Website",
-      },
-      {
         title:
-          "Hybrid Convolutional and Recurrent Neural Network for Non-Invasive Intracranial Pressure Estimation from Cerebral Blood Flow",
-        url: "https://doi.org/10.1364/BRAIN.2024.BTu3C.7",
+          "Non-invasive intracranial pressure estimation from cerebral blood flow dynamics using wavelet-based deep learning",
+        url: "https://doi.org/10.1364/ECBO.2025.W5B.5",
         type: "Conference Paper",
       },
       {
@@ -117,6 +112,17 @@ const EXPERIENCES_DATA = [
           "Intracranial pressure and cerebral blood flow pulse dynamics in patients with idiopathic normal pressure hydrocephalus during Katzman infusion test: a pilot optical monitoring study",
         url: "https://doi.org/10.1364/ECBO.2025.S4F.2",
         type: "Conference Paper",
+      },
+      {
+        title:
+          "Hybrid convolutional and recurrent neural network for non-invasive intracranial pressure estimation from cerebral blood flow",
+        url: "https://doi.org/10.1364/BRAIN.2024.BTu3C.7",
+        type: "Conference Paper",
+      },
+      {
+        title: "SafeICP",
+        url: "https://safeicp.es/",
+        type: "Project Website",
       },
     ],
   },
