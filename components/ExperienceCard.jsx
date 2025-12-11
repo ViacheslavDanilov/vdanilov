@@ -151,26 +151,26 @@ const JobInfo = ({
   centered = false,
 }) => (
   <div className={className}>
-    <h3 className="text-lg font-bold uppercase tracking-wider text-light">
+    <h3 className="text-lg font-bold uppercase tracking-wider text-light mb-2">
       {title}
     </h3>
     <a
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className="text-sm font-medium text-accent uppercase cursor-pointer"
+      className="text-sm font-medium text-accent uppercase cursor-pointer mb-2 block"
       aria-label={`${company} website`}
     >
       {company}
     </a>
     <div
-      className={`flex flex-wrap gap-2 text-xs md:text-sm text-gray-400 ${centered ? "justify-center" : ""}`}
+      className={`flex flex-wrap gap-2 text-xs md:text-sm text-gray-400 mb-2 ${centered ? "justify-center" : ""}`}
     >
       <time dateTime={period.split(" - ")[0]}>{period}</time>
       <span aria-hidden="true">•</span>
       <span>{duration}</span>
     </div>
-    <p className="text-sm text-gray-400">{location}</p>
+    <p className="text-sm text-gray-400 mb-0">{location}</p>
   </div>
 );
 
