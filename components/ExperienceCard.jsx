@@ -152,7 +152,7 @@ const CompanyLogo = ({ basePath, logo, company, url, className = "" }) => (
     href={url}
     target="_blank"
     rel="noopener noreferrer"
-    className={`relative w-24 h-24 flex-shrink-0 rounded-2xl overflow-hidden border border-light/10 bg-card/50 cursor-pointer ${className}`}
+    className={`relative w-20 h-20 flex-shrink-0 rounded-2xl overflow-hidden border border-light/10 bg-card/50 cursor-pointer ${className}`}
     aria-label={`${company} website`}
   >
     <Image
@@ -178,7 +178,7 @@ const JobInfo = ({
   centered = false,
 }) => (
   <div className={className}>
-    <h3 className="text-lg font-bold uppercase tracking-wider text-light mb-2">
+    <h3 className="text-md font-bold uppercase tracking-wider text-light mb-2">
       {title}
     </h3>
     <a
