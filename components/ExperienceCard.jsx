@@ -25,6 +25,7 @@ const COMPANY_URLS = {
   Quantori: "https://quantori.com/",
   "Politecnico di Milano": "https://www.polimi.it/en",
   "Intelerad Medical Systems": "https://www.intelerad.com/",
+  "Tomsk Polytechnic University": "https://tpu.ru/en/",
 };
 
 // --- COMPONENTS ---
@@ -59,6 +60,10 @@ const HIGHLIGHT_KEYWORDS = [
   "Bristol Myers Squibb",
   "CLOVA OCR",
   "CRAFT",
+  "Tomsk Polytechnic University",
+  "Boston Children's Hospital",
+  "Incom Group",
+  "Kemerovo Cardiology Center",
 ];
 
 const HIGHLIGHT_CLASS =

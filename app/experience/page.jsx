@@ -218,6 +218,53 @@ const EXPERIENCES_DATA = [
     ],
     publications: [],
   },
+  {
+    id: "tpu-research-scientist",
+    title: "Senior Research Scientist",
+    company: "Tomsk Polytechnic University",
+    type: "Full-time",
+    startDate: "2016-03-01",
+    endDate: "2022-08-01",
+    location: "Tomsk • Russia 🇷🇺",
+    logo: "/experience/core/tpu.webp",
+    responsibilities: [
+      "Supervising a group of 5 developers in the creation of CV algorithms and ML models",
+      "Designing a specialized deep learning model for segmenting medical devices in ultrasound for Boston Children's Hospital",
+      "Building an automatic fire detection system utilizing machine learning techniques for the Incom Group",
+      "Developing a multi-task learning based system for tracking aorta and catheter key points for Kemerovo Cardiology Center",
+    ],
+    publications: [
+      {
+        title: "Solution for minimally invasive heart valve replacement",
+        url: "https://minzdrav.gov.ru/regional_news/13932-sovmestnaya-razrabotka-uchenyh-kemerova-i-tomska-pozvolit-provodit-maloinvazivnye-operatsii-po-zamene-klapana-serdtsa-bez-ispolzovaniya-importnyh-izdeliy",
+        type: "News",
+      },
+      {
+        title:
+          "Use of semi-synthetic data for catheter segmentation improvement",
+        url: "https://doi.org/10.1016/j.compmedimag.2023.102188",
+        type: "Journal Article",
+      },
+      {
+        title:
+          "Aortography keypoint tracking for transcatheter aortic valve implantation based on multi-task learning",
+        url: "https://doi.org/10.3389/fcvm.2021.697737",
+        type: "Journal Article",
+      },
+      {
+        title:
+          "Real-time coronary artery stenosis detection based on modern neural networks",
+        url: "https://doi.org/10.1038/s41598-021-87174-2",
+        type: "Journal Article",
+      },
+      {
+        title:
+          "Efficient workflow for automatic segmentation of the right heart based on 2D echocardiography",
+        url: "https://doi.org/10.1007/s10554-018-1314-4",
+        type: "Journal Article",
+      },
+    ],
+  },
 ];
 
 export default function Experience() {
