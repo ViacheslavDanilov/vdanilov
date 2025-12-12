@@ -54,7 +54,7 @@ const EXPERIENCES_DATA = [
     startDate: "2024-11-01",
     endDate: null,
     location: "Miami • United States 🇺🇸",
-    logo: "/experience/core/symfa.webp",
+    logo: "/experience/core-roles/symfa.webp",
     responsibilities: [
       "Defining and executing the company's long-term technical vision across technological units",
       "Leading and scaling a cross-functional R&D department focused on AI, machine learning, autonomous agents, and automation",
@@ -92,7 +92,7 @@ const EXPERIENCES_DATA = [
     startDate: "2023-06-01",
     endDate: null,
     location: "Barcelona • Spain 🇪🇸",
-    logo: "/experience/core/upf.webp",
+    logo: "/experience/core-roles/upf.webp",
     responsibilities: [
       "Collaborated with the Institute of Photonic Sciences to develop ML solutions for a photonics platform enabling non-invasive ICP estimation via cerebral blood flow monitoring",
       "Applied biophotonics insights to guide model design, optimization, and validation",
@@ -134,7 +134,7 @@ const EXPERIENCES_DATA = [
     startDate: "2020-11-01",
     endDate: "2025-11-01",
     location: "Cambridge • United States 🇺🇸",
-    logo: "/experience/core/quantori.webp",
+    logo: "/experience/core-roles/quantori.webp",
     responsibilities: [
       "Leading a team of 6 developers in the areas of ML, DS, and CV",
       "Developing an ML/DL pipeline for tumor immune phenotype classification from histopathology images for Boehringer Ingelheim",
@@ -176,7 +176,7 @@ const EXPERIENCES_DATA = [
     startDate: "2022-05-01",
     endDate: "2024-09-01",
     location: "Milan • Italy 🇮🇹",
-    logo: "/experience/core/polimi.webp",
+    logo: "/experience/core-roles/polimi.webp",
     responsibilities: [
       "Collected, processed, and analyzed hyperspectral data at the Institute for Image-Guided Surgery, supporting experimental surgery projects in cancer ablation and treatment",
       "Developed advanced machine learning models for hyperspectral detection and clustering, enabling more precise identification of tumor margins and evaluation of treatment effectiveness",
@@ -208,7 +208,7 @@ const EXPERIENCES_DATA = [
     startDate: "2020-04-01",
     endDate: "2022-09-01",
     location: "Montreal • Canada 🇨🇦",
-    logo: "/experience/core/intelerad.webp",
+    logo: "/experience/core-roles/intelerad.webp",
     responsibilities: [
       "Developing a model for obscuring faces and ears on 3D MRI/CT data for Biospective",
       "Creation of a contrast classification model using CT data for Bristol Myers Squibb",
@@ -226,7 +226,7 @@ const EXPERIENCES_DATA = [
     startDate: "2016-03-01",
     endDate: "2022-08-01",
     location: "Tomsk • Russia 🇷🇺",
-    logo: "/experience/core/tpu.webp",
+    logo: "/experience/core-roles/tpu.webp",
     responsibilities: [
       "Supervising a group of 5 developers in the creation of CV algorithms and ML models",
       "Designing a specialized deep learning model for segmenting medical devices in ultrasound for Boston Children's Hospital",
@@ -273,7 +273,7 @@ const EXPERIENCES_DATA = [
     startDate: "2015-05-01",
     endDate: "2017-05-01",
     location: "Tomsk • Russia 🇷🇺",
-    logo: "/experience/core/sibur.webp",
+    logo: "/experience/core-roles/sibur.webp",
     responsibilities: [
       "Implementation of process control systems within petrochemical pipelines",
       "Maintenance and repair of measurement devices, as well as automated process control systems such as Siemens S300/400, Yokogawa Centum, Numerik PS2000 and Remicont",
