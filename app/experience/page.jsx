@@ -14,7 +14,7 @@ const calculateDuration = (startDate, endDate = null) => {
   const end = endDate ? new Date(endDate) : new Date();
 
   let years = end.getFullYear() - start.getFullYear();
-  let months = end.getMonth() - start.getMonth();
+  let months = end.getMonth() - start.getMonth() + 1;
 
   if (months < 0) {
     years--;
@@ -174,7 +174,7 @@ const EXPERIENCES_DATA = [
     company: "Politecnico di Milano",
     type: "Full-time",
     startDate: "2022-05-01",
-    endDate: "2023-09-01",
+    endDate: "2024-09-01",
     location: "Milan • Italy 🇮🇹",
     logo: "/experience/core/polimi.webp",
     responsibilities: [
@@ -199,6 +199,24 @@ const EXPERIENCES_DATA = [
         type: "ERC Grant",
       },
     ],
+  },
+  {
+    id: "intelerad-senior-ml",
+    title: "Senior Machine Learning Engineer",
+    company: "Intelerad Medical Systems",
+    type: "Full-time",
+    startDate: "2020-04-01",
+    endDate: "2022-09-01",
+    location: "Montreal • Canada 🇨🇦",
+    logo: "/experience/core/intelerad.webp",
+    responsibilities: [
+      "Developing a model for obscuring faces and ears on 3D MRI/CT data for Biospective",
+      "Creation of a contrast classification model using CT data for Bristol Myers Squibb",
+      "Retraining and implementing the CLOVA OCR for medical text recognition",
+      "Developing ML models for recognizing body parts, utilizing both MRI and CT data for Bristol Myers Squibb",
+      "Implementing the CRAFT (Character-Region Awareness) text detector",
+    ],
+    publications: [],
   },
 ];
 

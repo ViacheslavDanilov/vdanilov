@@ -24,6 +24,7 @@ const COMPANY_URLS = {
   "Pompeu Fabra University": "https://www.upf.edu/en/",
   Quantori: "https://quantori.com/",
   "Politecnico di Milano": "https://www.polimi.it/en",
+  "Intelerad Medical Systems": "https://www.intelerad.com/",
 };
 
 // --- COMPONENTS ---
@@ -53,6 +54,11 @@ const HIGHLIGHT_KEYWORDS = [
   "Institute for Image-Guided Surgery",
   "HyperSIGHT",
   "LASER OPTIMAL",
+  "Intelerad Medical Systems",
+  "Biospective",
+  "Bristol Myers Squibb",
+  "CLOVA OCR",
+  "CRAFT",
 ];
 
 const HIGHLIGHT_CLASS =
