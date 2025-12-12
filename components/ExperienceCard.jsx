@@ -26,6 +26,7 @@ const COMPANY_URLS = {
   "Politecnico di Milano": "https://www.polimi.it/en",
   "Intelerad Medical Systems": "https://www.intelerad.com/",
   "Tomsk Polytechnic University": "https://tpu.ru/en/",
+  SIBUR: "https://www.sibur.ru/en/",
 };
 
 // --- COMPONENTS ---
@@ -64,6 +65,11 @@ const HIGHLIGHT_KEYWORDS = [
   "Boston Children's Hospital",
   "Incom Group",
   "Kemerovo Cardiology Center",
+  "SIBUR",
+  "Siemens S300/400",
+  "Yokogawa Centum",
+  "Numerik PS2000",
+  "Remicont",
 ];
 
 const HIGHLIGHT_CLASS =

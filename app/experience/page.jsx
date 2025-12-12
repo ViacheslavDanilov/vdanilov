@@ -265,6 +265,21 @@ const EXPERIENCES_DATA = [
       },
     ],
   },
+  {
+    id: "sibur-process-control",
+    title: "Process Control Engineer",
+    company: "SIBUR",
+    type: "Full-time",
+    startDate: "2015-05-01",
+    endDate: "2017-05-01",
+    location: "Tomsk • Russia 🇷🇺",
+    logo: "/experience/core/sibur.webp",
+    responsibilities: [
+      "Implementation of process control systems within petrochemical pipelines",
+      "Maintenance and repair of measurement devices, as well as automated process control systems such as Siemens S300/400, Yokogawa Centum, Numerik PS2000 and Remicont",
+    ],
+    publications: [],
+  },
 ];
 
 export default function Experience() {
