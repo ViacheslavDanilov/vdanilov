@@ -358,7 +358,7 @@ export default function Experience() {
         </section>
 
         {/* Visiting Roles Section */}
-        <section className="w-full max-w-7xl mx-auto px-6">
+        <section className="w-full max-w-7xl mx-auto px-6 mt-16">
           <header className="mb-12 text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-light mb-4">
               Visiting Roles
