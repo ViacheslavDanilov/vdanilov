@@ -132,31 +132,29 @@ const ResponsibilitiesList = ({ items }) => (
 // Publications list component
 const PublicationsList = ({ publications }) => (
   <ul className="space-y-3" role="list">
-    {publications.map((pub, index) => (
-      <li key={index} className="flex items-start gap-3">
+    {publications.map((pub) => (
+      <li key={pub.url} className="flex items-start gap-3">
         <BulletPoint />
         <div className="flex-1">
-          <div className="flex items-start gap-2 flex-wrap">
-            {pub.type && (
-              <span className="px-2 py-0.5 text-xs font-medium rounded-full bg-white/5 text-neutral-300 border border-white/10 flex-shrink-0">
-                {pub.type}
-              </span>
-            )}
-            <a
-              href={pub.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm text-accent hover:text-light transition-colors inline-flex items-start gap-2 group flex-1 min-w-0"
-              aria-label={`${pub.type}: ${pub.title}`}
-            >
-              <span className="leading-relaxed break-words">{pub.title}</span>
-              <FontAwesomeIcon
-                icon={faExternalLink}
-                className="w-3 h-3 mt-1 flex-shrink-0 opacity-70 group-hover:opacity-100 transition-opacity"
-                aria-hidden="true"
-              />
-            </a>
-          </div>
+          {pub.type && (
+            <span className="inline-block px-2 py-0.5 text-xs font-medium rounded-full bg-white/5 text-neutral-300 border border-white/10 mr-2 align-top">
+              {pub.type}
+            </span>
+          )}
+          <a
+            href={pub.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-accent hover:text-light transition-colors inline gap-2 group align-top"
+            aria-label={`${pub.type}: ${pub.title}`}
+          >
+            <span className="leading-relaxed break-words">{pub.title}</span>
+            <FontAwesomeIcon
+              icon={faExternalLink}
+              className="w-3 h-3 ml-1 opacity-70 group-hover:opacity-100 transition-opacity inline"
+              aria-hidden="true"
+            />
+          </a>
         </div>
       </li>
     ))}
