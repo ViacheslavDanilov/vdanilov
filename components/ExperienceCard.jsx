@@ -23,6 +23,7 @@ const COMPANY_URLS = {
   Symfa: "https://symfa.com/",
   "Pompeu Fabra University": "https://www.upf.edu/en/",
   Quantori: "https://quantori.com/",
+  "Politecnico di Milano": "https://www.polimi.it/en",
 };
 
 // --- COMPONENTS ---
@@ -48,6 +49,10 @@ const HIGHLIGHT_KEYWORDS = [
   "Boehringer Ingelheim",
   "Volastra Therapeutics",
   "Beth Israel Deaconess Medical Center",
+  "Politecnico di Milano",
+  "Institute for Image-Guided Surgery",
+  "HyperSIGHT",
+  "LASER OPTIMAL",
 ];
 
 const HIGHLIGHT_CLASS =

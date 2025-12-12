@@ -168,6 +168,38 @@ const EXPERIENCES_DATA = [
       },
     ],
   },
+  {
+    id: "polimi-research-scientist",
+    title: "Senior Research Scientist",
+    company: "Politecnico di Milano",
+    type: "Full-time",
+    startDate: "2022-05-01",
+    endDate: "2023-09-01",
+    location: "Milan • Italy 🇮🇹",
+    logo: "/experience/core/polimi.webp",
+    responsibilities: [
+      "Collected, processed, and analyzed hyperspectral data at the Institute for Image-Guided Surgery, supporting experimental surgery projects in cancer ablation and treatment",
+      "Developed advanced machine learning models for hyperspectral detection and clustering, enabling more precise identification of tumor margins and evaluation of treatment effectiveness",
+    ],
+    publications: [
+      {
+        title:
+          "Advancing laser ablation assessment in hyperspectral imaging through machine learning",
+        url: "https://doi.org/10.1016/j.compbiomed.2024.108849",
+        type: "Journal Article",
+      },
+      {
+        title: "HyperSIGHT",
+        url: "https://www.laseroptimal.polimi.it/hypersight/",
+        type: "Project Website",
+      },
+      {
+        title: "LASER OPTIMAL",
+        url: "https://cordis.europa.eu/project/id/759159",
+        type: "ERC Grant",
+      },
+    ],
+  },
 ];
 
 export default function Experience() {
