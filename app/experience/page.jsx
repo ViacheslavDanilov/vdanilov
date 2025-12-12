@@ -307,6 +307,44 @@ const VISITING_ROLES_DATA = [
       },
     ],
   },
+  {
+    id: "leeds-research-fellow",
+    title: "Data Scientist · Research Fellow",
+    company: "University of Leeds",
+    type: "Visiting",
+    startDate: "2019-02-01",
+    endDate: "2019-08-01",
+    location: "Leeds • United Kingdom 🇬🇧",
+    logo: "/experience/visiting-roles/uol.webp",
+    responsibilities: [
+      "Designed and implemented an ML-driven system for automated stenosis detection and scoring, enhancing diagnostic precision and reproducibility in vascular imaging",
+      "Advanced medical data synthesis using VAEs and GANs to overcome dataset scarcity and improve model generalization",
+      "Collaborated with Prof. Alejandro F. Frangi on applied DL for cardiovascular imaging, contributing to publications in Scientific Reports and ISPRS Archives",
+    ],
+    publications: [
+      {
+        title: "Research statement",
+        url: "https://drive.google.com/file/d/1dvqSkgi90FnY-98qX5V0rVOHDlBIDBxq/view",
+        type: "Research Statement",
+      },
+      {
+        title: "Reference letter by prof. Alejandro F. Frangi",
+        url: "https://drive.google.com/file/d/1JG56_Z3b_l810wcrfjgwe_Jq6QUIQr1I/view",
+        type: "Reference Letter",
+      },
+      {
+        title:
+          "Real-time coronary artery stenosis detection based on modern neural networks",
+        url: "https://doi.org/10.1038/s41598-021-87174-2",
+        type: "Journal Article",
+      },
+      {
+        title: "Ray-based segmentation algorithm for medical imaging",
+        url: "https://doi.org/10.5194/isprs-archives-XLII-2-W12-37-2019",
+        type: "Conference Paper",
+      },
+    ],
+  },
 ];
 
 export default function Experience() {

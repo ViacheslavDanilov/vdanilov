@@ -28,6 +28,7 @@ const COMPANY_URLS = {
   "Tomsk Polytechnic University": "https://tpu.ru/en/",
   SIBUR: "https://www.sibur.ru/en/",
   "Sorbonne University": "https://www.sorbonne-universite.fr/en",
+  "University of Leeds": "https://www.leeds.ac.uk/",
 };
 
 // --- COMPONENTS ---
@@ -76,6 +77,10 @@ const HIGHLIGHT_KEYWORDS = [
   "Prof. Dmitrii Todorov",
   "Prof. Olivier Couture",
   "Prof. Lori Bridal",
+  "University of Leeds",
+  "Prof. Alejandro F. Frangi",
+  "VAEs",
+  "GANs",
 ];
 
 const HIGHLIGHT_CLASS =
