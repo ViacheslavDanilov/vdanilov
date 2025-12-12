@@ -303,11 +303,9 @@ export default function Experience() {
               Core Roles
             </h1>
             <p className="text-gray-400 mt-3 max-w-3xl mx-auto leading-relaxed">
-              The following positions reflect my long-term leadership and
-              engineering contributions across AI, LLMs, machine learning,
-              computer vision, and medical and hyperspectral imaging – driving
-              innovation, strategy, and execution in both research and industry
-              contexts
+              Leadership and engineering roles spanning AI, machine learning,
+              data science, computer vision, and biomedical imaging across
+              research and industry
             </p>
           </header>
 
