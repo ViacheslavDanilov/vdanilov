@@ -22,6 +22,7 @@ import {
 const COMPANY_URLS = {
   Symfa: "https://symfa.com/",
   "Pompeu Fabra University": "https://www.upf.edu/en/",
+  Quantori: "https://quantori.com/",
 };
 
 // --- COMPONENTS ---
@@ -43,6 +44,10 @@ const HIGHLIGHT_KEYWORDS = [
   "Symfa",
   "SafeICP",
   "Pompeu Fabra University",
+  "Quantori",
+  "Boehringer Ingelheim",
+  "Volastra Therapeutics",
+  "Beth Israel Deaconess Medical Center",
 ];
 
 const HIGHLIGHT_CLASS =

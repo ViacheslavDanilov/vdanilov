@@ -126,6 +126,48 @@ const EXPERIENCES_DATA = [
       },
     ],
   },
+  {
+    id: "quantori-lead-ml",
+    title: "Lead Machine Learning Engineer",
+    company: "Quantori",
+    type: "Full-time",
+    startDate: "2020-11-01",
+    endDate: "2025-11-01",
+    location: "Cambridge • United States 🇺🇸",
+    logo: "/experience/core/quantori.webp",
+    responsibilities: [
+      "Leading a team of 6 developers in the areas of ML, DS, and CV",
+      "Developing an ML/DL pipeline for tumor immune phenotype classification from histopathology images for Boehringer Ingelheim",
+      "Designing and implementing a specialized image processing system for Volastra Therapeutics, utilized for cell counting, classification, and detection",
+      "Building a COVID-19/pneumonia classification and scoring model that utilizes guided attention for the Beth Israel Deaconess Medical Center",
+    ],
+    publications: [
+      {
+        title:
+          "Harnessing AI for Histopathology: A Leap Towards Precision Medicine",
+        url: "https://quantori.com/blog/harnessing-ai-for-histopathology-a-leap-towards-precision-medicine",
+        type: "Blog Post",
+      },
+      {
+        title:
+          "Explainable AI to identify radiographic features of pulmonary edema",
+        url: "https://doi.org/10.1093/radadv/umae003",
+        type: "Journal Article",
+      },
+      {
+        title:
+          "Automatic scoring of COVID-19 severity in X-ray imaging based on a novel deep learning workflow",
+        url: "https://doi.org/10.1038/s41598-022-15013-z",
+        type: "Journal Article",
+      },
+      {
+        title:
+          "Indirect supervision applied to COVID-19 and pneumonia classification",
+        url: "https://doi.org/10.1016/j.imu.2021.100835",
+        type: "Journal Article",
+      },
+    ],
+  },
 ];
 
 export default function Experience() {
