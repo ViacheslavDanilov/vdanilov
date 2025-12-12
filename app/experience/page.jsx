@@ -282,6 +282,33 @@ const EXPERIENCES_DATA = [
   },
 ];
 
+// Visiting roles data configuration
+const VISITING_ROLES_DATA = [
+  {
+    id: "sorbonne-visiting-prof",
+    title: "Visiting Professor",
+    company: "Sorbonne University",
+    type: "Visiting",
+    startDate: "2025-03-01",
+    endDate: "2025-04-01",
+    location: "Paris • France 🇫🇷",
+    logo: "/experience/visiting-roles/sorbonne.webp",
+    responsibilities: [
+      "Collaborated with the Neural Connectivity and Plasticity group on integrating neuroimaging (fMRI, PET, electrophysiology) with machine learning",
+      "Presented research on non-invasive intracranial pressure prediction using photonics and AI as part of the SafeICP project",
+      "Participated in hands-on training and interdisciplinary work on ML-based diagnostics for hydrocephalus and brain trauma",
+      "Engaged with faculty including Prof. Dmitrii Todorov, Prof. Olivier Couture, and Prof. Lori Bridal to initiate future joint research and publications",
+    ],
+    publications: [
+      {
+        title: "Certificate of attendance",
+        url: "https://drive.google.com/file/d/1HsBKzfXy9qrggTqh20Q4CQPxlxVy_dWe/view?usp=drive_link",
+        type: "Certificate",
+      },
+    ],
+  },
+];
+
 export default function Experience() {
   // Memoize processed experiences to prevent recalculation on every render
   const experiences = useMemo(
@@ -290,6 +317,17 @@ export default function Experience() {
         ...exp,
         duration: calculateDuration(exp.startDate, exp.endDate),
         period: formatPeriod(exp.startDate, exp.endDate),
+      })),
+    [],
+  );
+
+  // Memoize processed visiting roles to prevent recalculation on every render
+  const visitingRoles = useMemo(
+    () =>
+      VISITING_ROLES_DATA.map((role) => ({
+        ...role,
+        duration: calculateDuration(role.startDate, role.endDate),
+        period: formatPeriod(role.startDate, role.endDate),
       })),
     [],
   );
@@ -315,6 +353,29 @@ export default function Experience() {
           >
             {experiences.map((experience) => (
               <ExperienceCard key={experience.id} experience={experience} />
+            ))}
+          </div>
+        </section>
+
+        {/* Visiting Roles Section */}
+        <section className="w-full max-w-7xl mx-auto px-6">
+          <header className="mb-12 text-center">
+            <h1 className="text-4xl md:text-5xl font-bold text-light mb-4">
+              Visiting Roles
+            </h1>
+            <p className="text-gray-400 mt-3 max-w-3xl mx-auto leading-relaxed">
+              Collaborative research contributions in machine learning, AI, and
+              biomedical imaging through short- and mid-term academic
+              engagements
+            </p>
+          </header>
+
+          <div
+            className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:items-start"
+            role="list"
+          >
+            {visitingRoles.map((role) => (
+              <ExperienceCard key={role.id} experience={role} />
             ))}
           </div>
         </section>

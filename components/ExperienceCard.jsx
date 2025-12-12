@@ -27,6 +27,7 @@ const COMPANY_URLS = {
   "Intelerad Medical Systems": "https://www.intelerad.com/",
   "Tomsk Polytechnic University": "https://tpu.ru/en/",
   SIBUR: "https://www.sibur.ru/en/",
+  "Sorbonne University": "https://www.sorbonne-universite.fr/en",
 };
 
 // --- COMPONENTS ---
@@ -70,6 +71,11 @@ const HIGHLIGHT_KEYWORDS = [
   "Yokogawa Centum",
   "Numerik PS2000",
   "Remicont",
+  "Sorbonne University",
+  "Neural Connectivity and Plasticity",
+  "Prof. Dmitrii Todorov",
+  "Prof. Olivier Couture",
+  "Prof. Lori Bridal",
 ];
 
 const HIGHLIGHT_CLASS =
