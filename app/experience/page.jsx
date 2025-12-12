@@ -54,7 +54,7 @@ const EXPERIENCES_DATA = [
     startDate: "2024-11-01",
     endDate: null,
     location: "Miami • United States 🇺🇸",
-    logo: "/experience/symfa.webp",
+    logo: "/experience/core/symfa.webp",
     responsibilities: [
       "Defining and executing the company's long-term technical vision across technological units",
       "Leading and scaling a cross-functional R&D department focused on AI, machine learning, autonomous agents, and automation",
@@ -92,7 +92,7 @@ const EXPERIENCES_DATA = [
     startDate: "2023-06-01",
     endDate: null,
     location: "Barcelona • Spain 🇪🇸",
-    logo: "/experience/upf.webp",
+    logo: "/experience/core/upf.webp",
     responsibilities: [
       "Collaborated with the Institute of Photonic Sciences to develop ML solutions for a photonics platform enabling non-invasive ICP estimation via cerebral blood flow monitoring",
       "Applied biophotonics insights to guide model design, optimization, and validation",
