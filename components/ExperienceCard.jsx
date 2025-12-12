@@ -29,6 +29,7 @@ const COMPANY_URLS = {
   SIBUR: "https://www.sibur.ru/en/",
   "Sorbonne University": "https://www.sorbonne-universite.fr/en",
   "University of Leeds": "https://www.leeds.ac.uk/",
+  "Technical University of Madrid": "https://www.upm.es/",
 };
 
 // --- COMPONENTS ---
@@ -81,6 +82,8 @@ const HIGHLIGHT_KEYWORDS = [
   "Prof. Alejandro F. Frangi",
   "VAEs",
   "GANs",
+  "Technical University of Madrid",
+  "Prof. Maria J. Ledesma-Carbayo",
 ];
 
 const HIGHLIGHT_CLASS =

@@ -323,11 +323,6 @@ const VISITING_ROLES_DATA = [
     ],
     publications: [
       {
-        title: "Research statement",
-        url: "https://drive.google.com/file/d/1dvqSkgi90FnY-98qX5V0rVOHDlBIDBxq/view",
-        type: "Research Statement",
-      },
-      {
         title: "Reference letter by prof. Alejandro F. Frangi",
         url: "https://drive.google.com/file/d/1JG56_Z3b_l810wcrfjgwe_Jq6QUIQr1I/view",
         type: "Reference Letter",
@@ -341,6 +336,40 @@ const VISITING_ROLES_DATA = [
       {
         title: "Ray-based segmentation algorithm for medical imaging",
         url: "https://doi.org/10.5194/isprs-archives-XLII-2-W12-37-2019",
+        type: "Conference Paper",
+      },
+    ],
+  },
+  {
+    id: "upm-research-fellow",
+    title: "Data Scientist · Research Fellow",
+    company: "Technical University of Madrid",
+    type: "Visiting",
+    startDate: "2018-08-01",
+    endDate: "2019-01-01",
+    location: "Madrid • Spain 🇪🇸",
+    logo: "/experience/visiting-roles/upm.webp",
+    responsibilities: [
+      "Developed an approach for semi-synthetic ultrasound data generation to enhance segmentation accuracy and robustness in medical imaging",
+      "Implemented ML models for pulmonary emphysema detection and unsupervised biomedical image segmentation, improving interpretability and diagnostic automation",
+      "Collaborated with Prof. Maria J. Ledesma-Carbayo on image reconstruction and data augmentation, contributing to publications in Computerized Medical Imaging and Graphics and ISPRS Archives",
+    ],
+    publications: [
+      {
+        title: "Reference letter by prof. Maria J. Ledesma-Carbayo",
+        url: "https://drive.google.com/file/d/1RBCxGWQOzUe_7MWqtZRYgyylUgbRr3nK/view",
+        type: "Reference Letter",
+      },
+      {
+        title:
+          "Use of semi-synthetic data for catheter segmentation improvement",
+        url: "https://doi.org/10.1016/j.compmedimag.2023.102188",
+        type: "Journal Article",
+      },
+      {
+        title:
+          "Boosting segmentation accuracy of the deep learning models based on the synthetic data generation",
+        url: "https://doi.org/10.5194/isprs-archives-XLIV-2-W1-2021-33-2021",
         type: "Conference Paper",
       },
     ],
