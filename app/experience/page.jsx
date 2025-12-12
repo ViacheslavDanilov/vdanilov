@@ -374,6 +374,39 @@ const VISITING_ROLES_DATA = [
       },
     ],
   },
+  {
+    id: "trento-research-fellow",
+    title: "Data Scientist · Research Fellow",
+    company: "University of Trento",
+    type: "Visiting",
+    startDate: "2017-03-01",
+    endDate: "2017-08-01",
+    location: "Trento • Italy 🇮🇹",
+    logo: "/experience/visiting-roles/uot.webp",
+    responsibilities: [
+      "Developed a volumetric ultrasound catheter detection and segmentation algorithm using SVM and texture-based features",
+      "Designed and evaluated a feature selection method based on PDF/PMF area difference, benchmarked against established techniques",
+      "Collaborated with Prof. Farid Melgani on biomedical signal processing research published in Biomedical Signal Processing and Control and Scientific Visualization",
+    ],
+    publications: [
+      {
+        title: "Reference letter by prof. Farid Melgani",
+        url: "https://drive.google.com/file/d/1L_8GD3Lu-G7tRf4QXjimTENsSkiFzt76/view",
+        type: "Reference Letter",
+      },
+      {
+        title: "Feature selection algorithm based on PDF/PMF area difference",
+        url: "https://doi.org/10.1016/j.bspc.2019.101681",
+        type: "Journal Article",
+      },
+      {
+        title:
+          "Catheter detection and segmentation in volumetric ultrasound using SVM and GLCM",
+        url: "https://doi.org/10.26583/sv.10.4.03",
+        type: "Journal Article",
+      },
+    ],
+  },
 ];
 
 export default function Experience() {

@@ -30,6 +30,7 @@ const COMPANY_URLS = {
   "Sorbonne University": "https://www.sorbonne-universite.fr/en",
   "University of Leeds": "https://www.leeds.ac.uk/",
   "Technical University of Madrid": "https://www.upm.es/",
+  "University of Trento": "https://www.unitn.it/en",
 };
 
 // --- COMPONENTS ---
@@ -84,6 +85,8 @@ const HIGHLIGHT_KEYWORDS = [
   "GANs",
   "Technical University of Madrid",
   "Prof. Maria J. Ledesma-Carbayo",
+  "University of Trento",
+  "Prof. Farid Melgani",
 ];
 
 const HIGHLIGHT_CLASS =
