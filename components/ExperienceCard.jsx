@@ -175,10 +175,10 @@ const CompanyLogo = ({ logo, company, url, className = "" }) => (
     <Image
       src={logo}
       alt={`${company} logo`}
-      width={256}
-      height={256}
+      width={512}
+      height={512}
       className="object-contain p-2 rounded-2xl w-full h-full"
-      sizes="256px"
+      sizes="512px"
       quality={100}
       priority
     />
