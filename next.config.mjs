@@ -1,24 +1,30 @@
 /** @type {import('next').NextConfig} */
+
+// Check if deploying to Vercel
+const isVercel = process.env.VERCEL === "1";
+
 const nextConfig = {
-  // Enable static site generation for GitHub Pages
-  output: "export",
+  // Enable static site generation for GitHub Pages only
+  ...(isVercel ? {} : { output: "export" }),
 
   // Base path for GitHub Pages deployment (repository name)
-  // For PR previews, use NEXT_PUBLIC_BASE_PATH; otherwise use /vdanilov for main deployment
-  basePath:
-    process.env.NEXT_PUBLIC_BASE_PATH ||
-    (process.env.GITHUB_ACTIONS ? "/vdanilov" : ""),
+  // For Vercel, no basePath needed
+  basePath: isVercel
+    ? ""
+    : process.env.NEXT_PUBLIC_BASE_PATH ||
+      (process.env.GITHUB_ACTIONS ? "/vdanilov" : ""),
 
   // Make basePath available to the app at runtime
   env: {
-    NEXT_PUBLIC_BASE_PATH:
-      process.env.NEXT_PUBLIC_BASE_PATH ||
-      (process.env.GITHUB_ACTIONS ? "/vdanilov" : ""),
+    NEXT_PUBLIC_BASE_PATH: isVercel
+      ? ""
+      : process.env.NEXT_PUBLIC_BASE_PATH ||
+        (process.env.GITHUB_ACTIONS ? "/vdanilov" : ""),
   },
 
-  // Disable Image Optimization API (required for static export)
+  // Image optimization: enabled on Vercel, disabled for static export
   images: {
-    unoptimized: true,
+    unoptimized: !isVercel,
   },
 
   // Add trailing slashes to URLs for compatibility
