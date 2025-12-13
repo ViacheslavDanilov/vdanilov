@@ -164,7 +164,7 @@ const PublicationsList = ({ publications }) => (
 );
 
 // Company logo component
-const CompanyLogo = ({ basePath, logo, company, url, className = "" }) => (
+const CompanyLogo = ({ logo, company, url, className = "" }) => (
   <a
     href={url}
     target="_blank"
@@ -222,7 +222,6 @@ const JobInfo = ({
 
 const ExperienceCard = ({ experience }) => {
   const [activeTab, setActiveTab] = useState(null);
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
   const cardRef = useRef(null);
 
   // Close tab on outside click
@@ -305,7 +304,6 @@ const ExperienceCard = ({ experience }) => {
           )}
           <div className="flex justify-center">
             <CompanyLogo
-              basePath={basePath}
               logo={experience.logo}
               company={experience.company}
               url={COMPANY_URLS[experience.company]}
@@ -326,7 +324,6 @@ const ExperienceCard = ({ experience }) => {
         {/* Desktop Layout */}
         <div className="hidden md:flex flex-row gap-6 mb-6 items-start">
           <CompanyLogo
-            basePath={basePath}
             logo={experience.logo}
             company={experience.company}
             url={COMPANY_URLS[experience.company]}

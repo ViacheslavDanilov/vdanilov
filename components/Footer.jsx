@@ -78,7 +78,7 @@ function Footer() {
             aria-label="Go to home page"
           >
             <Image
-              src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logo.png`}
+              src="/logo.png"
               alt="Viacheslav Danilov"
               width={40}
               height={40}
@@ -179,7 +179,7 @@ function Footer() {
             aria-label="Go to home page"
           >
             <Image
-              src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logo.png`}
+              src="/logo.png"
               alt="Viacheslav Danilov"
               width={40}
               height={40}
