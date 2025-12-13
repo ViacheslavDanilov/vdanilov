@@ -16,6 +16,7 @@ import {
   faExternalLink,
   faBriefcase,
   faBook,
+  faFlask,
 } from "@fortawesome/free-solid-svg-icons";
 
 // --- CONFIGURATION CONSTANTS ---
@@ -261,6 +262,20 @@ const ExperienceCard = ({ experience }) => {
     }
   }, [activeTab, experience.responsibilities, experience.publications]);
 
+  // Category badge styling - soft pastel colors matching mockup
+  const getCategoryStyle = (category) => {
+    if (category === "research") {
+      return "bg-accent/7 text-accent/80 border-accent/10";
+    }
+    return "bg-accent/7 text-accent/80 border-accent/10";
+    // return "bg-blue-400/[0.1] text-blue-400/90 border-blue-500/20";
+    // return "bg-emerald-500/[0.125] text-emerald-400/80 border-emerald-500/20";
+  };
+
+  const getCategoryLabel = (category) => {
+    return category === "research" ? "Research" : "Industry";
+  };
+
   return (
     <article
       ref={cardRef}
@@ -269,13 +284,29 @@ const ExperienceCard = ({ experience }) => {
     >
       <CyberneticCard className="flex flex-col">
         {/* Mobile Layout */}
-        <div className="flex flex-col md:hidden items-center mb-6 space-y-4">
-          <CompanyLogo
-            basePath={basePath}
-            logo={experience.logo}
-            company={experience.company}
-            url={COMPANY_URLS[experience.company]}
-          />
+        <div className="flex flex-col md:hidden mb-6 space-y-4 relative">
+          {/* Category Badge - Mobile (absolute positioning) */}
+          {experience.category && (
+            <span
+              className={`absolute top-0 right-0 px-3 py-1 text-xs font-medium rounded-full border inline-flex items-center gap-1.5 ${getCategoryStyle(experience.category)}`}
+            >
+              <FontAwesomeIcon
+                icon={
+                  experience.category === "research" ? faFlask : faBriefcase
+                }
+                className="w-3 h-3"
+              />
+              {getCategoryLabel(experience.category)}
+            </span>
+          )}
+          <div className="flex justify-center">
+            <CompanyLogo
+              basePath={basePath}
+              logo={experience.logo}
+              company={experience.company}
+              url={COMPANY_URLS[experience.company]}
+            />
+          </div>
           <JobInfo
             title={experience.title}
             company={experience.company}
@@ -296,15 +327,31 @@ const ExperienceCard = ({ experience }) => {
             company={experience.company}
             url={COMPANY_URLS[experience.company]}
           />
-          <JobInfo
-            title={experience.title}
-            company={experience.company}
-            url={COMPANY_URLS[experience.company]}
-            period={experience.period}
-            duration={experience.duration}
-            location={experience.location}
-            className="flex-1 space-y-2"
-          />
+          <div className="flex-1 flex items-start justify-between gap-4">
+            <JobInfo
+              title={experience.title}
+              company={experience.company}
+              url={COMPANY_URLS[experience.company]}
+              period={experience.period}
+              duration={experience.duration}
+              location={experience.location}
+              className="space-y-2"
+            />
+            {/* Category Badge - Desktop */}
+            {experience.category && (
+              <span
+                className={`px-3 py-1 text-xs font-medium rounded-full border flex-shrink-0 inline-flex items-center gap-1.5 ${getCategoryStyle(experience.category)}`}
+              >
+                <FontAwesomeIcon
+                  icon={
+                    experience.category === "research" ? faFlask : faBriefcase
+                  }
+                  className="w-3 h-3"
+                />
+                {getCategoryLabel(experience.category)}
+              </span>
+            )}
+          </div>
         </div>
 
         {/* Tabs */}
