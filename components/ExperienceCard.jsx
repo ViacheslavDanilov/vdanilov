@@ -173,11 +173,13 @@ const CompanyLogo = ({ basePath, logo, company, url, className = "" }) => (
     aria-label={`${company} website`}
   >
     <Image
-      src={`${basePath}${logo}`}
+      src={logo}
       alt={`${company} logo`}
-      fill
-      className="object-contain p-2 rounded-2xl"
-      sizes="128px"
+      width={256}
+      height={256}
+      className="object-contain p-2 rounded-2xl w-full h-full"
+      sizes="256px"
+      quality={100}
       priority
     />
   </a>
