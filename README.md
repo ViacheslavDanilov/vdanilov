@@ -1,16 +1,16 @@
 # Personal Website
 
-> Status: Under construction. The current version is live at:
->
-> https://viacheslavdanilov.github.io/vdanilov/
+[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=flat&logo=vercel)](https://vdanilov.vercel.app)
+
+> Live at: **https://vdanilov.vercel.app**
 
 ## What's here
 
-- Modern React application built with Next.js 15
+- Modern React application built with Next.js 16
 - Tailwind CSS v4 for styling
 - Framer Motion for animations
 - Responsive design with mobile-first approach
-- Static site generation for GitHub Pages
+- Deployed on Vercel with automatic preview deployments
 
 ## Install
 
@@ -43,19 +43,25 @@ The site will be available at `http://localhost:3000`
 
 ## Build
 
-Build for production (static export):
+Build for production:
 
 ```sh
 npm run build
 ```
 
-The production build will be output to the `out/` directory.
-
-Preview production build locally:
+Start production server locally:
 
 ```sh
-npx serve out
+npm start
 ```
+
+## Deployment
+
+The site is automatically deployed to Vercel:
+
+- **Production**: Pushes to `main` branch deploy to production
+- **Preview**: Pull requests get automatic preview deployments with unique URLs
+- **CI/CD**: Vercel handles build, optimization, and deployment automatically
 
 ## Code Quality
 
@@ -94,3 +100,13 @@ View test report:
 ```sh
 npx playwright show-report
 ```
+
+## Tech Stack
+
+- **Framework**: Next.js 16 (React 19)
+- **Styling**: Tailwind CSS v4
+- **Animations**: Framer Motion, GSAP
+- **Icons**: Font Awesome
+- **Deployment**: Vercel
+- **Testing**: Playwright
+- **Code Quality**: Prettier, Husky, lint-staged

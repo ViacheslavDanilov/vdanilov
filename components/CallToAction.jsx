@@ -20,7 +20,7 @@ const CallToAction = () => {
           <div className="flex-shrink-0 flex flex-col items-center gap-4">
             <div className="relative w-48 h-48 lg:w-56 lg:h-56 rounded-full overflow-hidden border-2 border-accent/20 shadow-2xl">
               <Image
-                src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/hero/about-poster.webp`}
+                src="/hero/about-poster.webp"
                 alt="Viacheslav Danilov"
                 fill
                 className="object-cover brightness-150"
@@ -31,7 +31,7 @@ const CallToAction = () => {
             {/* Signature */}
             <div className="relative w-48 h-16">
               <Image
-                src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/hero/signature.webp`}
+                src="/hero/signature.webp"
                 alt="Viacheslav Danilov Signature"
                 fill
                 className="object-contain"

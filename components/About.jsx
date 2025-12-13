@@ -72,7 +72,7 @@ const About = () => {
         {/* Video */}
         <div className="relative w-64 h-64 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-accent/20 shadow-2xl bg-dark">
           <img
-            src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/hero/about-poster.webp`}
+            src="/hero/about-poster.webp"
             alt="Viacheslav Danilov in professional setting"
             className="absolute inset-0 w-full h-full object-cover brightness-150"
           />
@@ -85,10 +85,7 @@ const About = () => {
             preload="auto"
             className="relative w-full h-full object-cover brightness-125"
           >
-            <source
-              src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/hero/about-video.mp4`}
-              type="video/mp4"
-            />
+            <source src="/hero/about-video.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
@@ -96,7 +93,7 @@ const About = () => {
         {/* Signature (Commented out) */}
         {/* <div className="relative w-48 h-24">
           <Image
-            src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/hero/signature.webp`}
+            src="/hero/signature.webp"
             alt="Viacheslav Danilov Signature"
             fill
             className="object-contain"

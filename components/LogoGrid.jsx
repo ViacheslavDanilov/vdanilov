@@ -2,67 +2,65 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
-
 const logos = [
   {
     name: "BCH",
-    src: `${basePath}/clients/bch.webp`,
+    src: "/clients/bch.webp",
     href: "https://www.childrenshospital.org/",
   },
   {
     name: "Boehringer Ingelheim",
-    src: `${basePath}/clients/boehringer-ingelheim.webp`,
+    src: "/clients/boehringer-ingelheim.webp",
     href: "https://www.boehringer-ingelheim.com/",
   },
   {
     name: "Biospective",
-    src: `${basePath}/clients/biospective.webp`,
+    src: "/clients/biospective.webp",
     href: "https://www.biospective.com/",
   },
   {
     name: "BIDMC",
-    src: `${basePath}/clients/bidmc.webp`,
+    src: "/clients/bidmc.webp",
     href: "https://www.bidmc.org/",
   },
   {
     name: "IHU",
-    src: `${basePath}/clients/ihu.webp`,
+    src: "/clients/ihu.webp",
     href: "https://www.ihu-strasbourg.eu/",
   },
   {
     name: "BMS",
-    src: `${basePath}/clients/bms.webp`,
+    src: "/clients/bms.webp",
     href: "https://www.bms.com/",
   },
   {
     name: "VHIR",
-    src: `${basePath}/clients/vhir.webp`,
+    src: "/clients/vhir.webp",
     href: "https://www.vhir.org/",
   },
   {
     name: "Volastra",
-    src: `${basePath}/clients/volastra.webp`,
+    src: "/clients/volastra.webp",
     href: "https://www.volastratx.com/",
   },
   {
     name: "AmTrust",
-    src: `${basePath}/clients/amtrust.webp`,
+    src: "/clients/amtrust.webp",
     href: "https://amtrustfinancial.com/",
   },
   {
     name: "Plateau",
-    src: `${basePath}/clients/plateau.webp`,
+    src: "/clients/plateau.webp",
     href: "https://www.plateaugroup.com/",
   },
   {
     name: "CNA",
-    src: `${basePath}/clients/cna.webp`,
+    src: "/clients/cna.webp",
     href: "https://www.cna.com/",
   },
   {
     name: "Huawei",
-    src: `${basePath}/clients/huawei.webp`,
+    src: "/clients/huawei.webp",
     href: "https://www.huawei.com/",
   },
 ];
