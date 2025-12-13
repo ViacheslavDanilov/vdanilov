@@ -55,7 +55,7 @@ const Hero = () => {
 
         {/* Video Content */}
         <div className="w-full md:w-1/2 flex justify-center md:justify-end">
-          <div className="relative w-64 h-64 md:w-[400px] md:h-[400px] rounded-full overflow-hidden border-4 border-accent/20 shadow-2xl bg-dark">
+          <div className="relative w-64 h-64 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-accent/20 shadow-2xl bg-dark">
             <img
               src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/hero/hero-poster.webp`}
               alt="Viacheslav Danilov portrait"

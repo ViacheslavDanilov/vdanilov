@@ -70,7 +70,7 @@ const About = () => {
 
       <div className="flex flex-col items-center justify-center gap-8 max-w-4xl mx-auto">
         {/* Video */}
-        <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-accent/20 shadow-2xl bg-dark">
+        <div className="relative w-64 h-64 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-accent/20 shadow-2xl bg-dark">
           <img
             src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/hero/about-poster.webp`}
             alt="Viacheslav Danilov in professional setting"
@@ -107,14 +107,12 @@ const About = () => {
         <div className="space-y-6 text-light leading-loose text-justify max-w-5xl">
           <p>
             Experienced{" "}
-            <span className="font-semibold text-light/90 relative inline-block px-2">
-              <span className="relative z-10">Lead ML Engineer</span>
-              <span className="absolute -inset-2 bg-accent/20 blur-md rounded-full -z-10 scale-100"></span>
+            <span className="inline-block bg-accent/10 text-accent font-semibold px-4 py-0.5 rounded-3xl">
+              Lead ML Engineer
             </span>{" "}
             and{" "}
-            <span className="font-semibold text-light/90 relative inline-block px-2">
-              <span className="relative z-10">Research Scientist</span>
-              <span className="absolute -inset-2 bg-accent/20 blur-md rounded-full -z-10 scale-100"></span>
+            <span className="inline-block bg-accent/10 text-accent font-semibold px-4 py-0.5 rounded-3xl">
+              Research Scientist
             </span>{" "}
             based in Barcelona, with a PhD in Computer Science and 10 years of
             experience in AI and data science. Having worked in both academia
