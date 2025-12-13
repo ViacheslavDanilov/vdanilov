@@ -17,7 +17,11 @@ export function Tab({ text, icon, selected, setSelected, layoutId = "tab" }) {
       )}
     >
       {icon && (
-        <FontAwesomeIcon icon={icon} className="w-4 h-4 relative z-10" />
+        <FontAwesomeIcon
+          icon={icon}
+          className="w-4 h-4 relative z-10"
+          style={{ width: "1rem", height: "1rem" }}
+        />
       )}
       <span className="relative z-10">{text}</span>
       {selected && (

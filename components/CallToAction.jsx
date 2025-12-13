@@ -62,7 +62,11 @@ const CallToAction = () => {
                 className="text-base lg:text-lg font-medium w-full sm:w-auto"
               >
                 <>
-                  <FontAwesomeIcon icon={faEnvelope} className="mr-2 w-5 h-5" />
+                  <FontAwesomeIcon
+                    icon={faEnvelope}
+                    className="mr-2 w-5 h-5"
+                    style={{ width: "1.25rem", height: "1.25rem" }}
+                  />
                   Email Me
                 </>
               </AnimatedGradientButton>
@@ -75,7 +79,11 @@ const CallToAction = () => {
                 className="text-base lg:text-lg font-medium w-full sm:w-auto"
               >
                 <>
-                  <FontAwesomeIcon icon={faLinkedin} className="mr-2 w-5 h-5" />
+                  <FontAwesomeIcon
+                    icon={faLinkedin}
+                    className="mr-2 w-5 h-5"
+                    style={{ width: "1.25rem", height: "1.25rem" }}
+                  />
                   Connect on LinkedIn
                 </>
               </AnimatedGradientButton>

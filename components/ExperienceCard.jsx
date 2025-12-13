@@ -153,6 +153,7 @@ const PublicationsList = ({ publications }) => (
             <FontAwesomeIcon
               icon={faExternalLink}
               className="w-3 h-3 ml-1 opacity-70 group-hover:opacity-100 transition-opacity inline"
+              style={{ width: "0.75rem", height: "0.75rem" }}
               aria-hidden="true"
             />
           </a>
@@ -295,6 +296,7 @@ const ExperienceCard = ({ experience }) => {
                   experience.category === "research" ? faFlask : faBriefcase
                 }
                 className="w-3 h-3"
+                style={{ width: "0.75rem", height: "0.75rem" }}
               />
               {getCategoryLabel(experience.category)}
             </span>
@@ -347,6 +349,7 @@ const ExperienceCard = ({ experience }) => {
                     experience.category === "research" ? faFlask : faBriefcase
                   }
                   className="w-3 h-3"
+                  style={{ width: "0.75rem", height: "0.75rem" }}
                 />
                 {getCategoryLabel(experience.category)}
               </span>
