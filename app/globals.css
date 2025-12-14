@@ -143,7 +143,7 @@ body {
   --glow-x: 50%;
   --glow-y: 50%;
   --glow-intensity: 0;
-  --glow-radius: 200px;
+  --glow-radius: 150px;
   --glow-color: 255, 255, 255;
   --border-color: rgba(245, 245, 245, 0.1);
   --background-dark: #0a0e14;

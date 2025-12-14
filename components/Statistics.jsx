@@ -13,7 +13,7 @@ const hexToRgb = (hex) => {
 };
 
 // Default configuration constants
-const DEFAULT_SPOTLIGHT_RADIUS = 200;
+const DEFAULT_SPOTLIGHT_RADIUS = 150;
 const DEFAULT_GLOW_COLOR = "#ffffff";
 const DEFAULT_CARD_BACKGROUND = "#151a1f";
 const MOBILE_BREAKPOINT = 768;
@@ -58,16 +58,9 @@ const GlobalSpotlight = ({
       width: ${spotlightRadius * 2}px;
       height: ${spotlightRadius * 2}px;
       pointer-events: none;
-      background: radial-gradient(circle,
-        rgba(${rgbColor}, 0.18) 0%,
-        rgba(${rgbColor}, 0.13) 20%,
-        rgba(${rgbColor}, 0.09) 35%,
-        rgba(${rgbColor}, 0.045) 50%,
-        rgba(${rgbColor}, 0.02) 65%,
-        rgba(${rgbColor}, 0.008) 80%,
-        transparent 100%
-      );
-      filter: blur(40px);
+      background: rgba(${rgbColor}, 0.25);
+      border-radius: 50%;
+      filter: blur(80px);
       z-index: 200;
       opacity: 0;
       transform: translate(-50%, -50%);
@@ -234,7 +227,7 @@ const useMobileDetection = () => {
 };
 
 const Statistics = ({
-  enableSpotlight = true,
+  enableSpotlight = false,
   enableBorderGlow = true,
   disableAnimations = false,
   spotlightRadius = DEFAULT_SPOTLIGHT_RADIUS,

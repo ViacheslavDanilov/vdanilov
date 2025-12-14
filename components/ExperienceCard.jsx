@@ -9,7 +9,7 @@ import React, {
 } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "motion/react";
-import CyberneticCard from "@/components/ui/cybernetic-card";
+import BentoCard from "@/components/ui/bento-card";
 import { Tab } from "@/components/ui/tab";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -284,7 +284,11 @@ const ExperienceCard = ({ experience }) => {
       className="self-start w-full"
       aria-labelledby={`job-title-${experience.id}`}
     >
-      <CyberneticCard className="flex flex-col">
+      <BentoCard
+        enableSpotlight={false}
+        enableBorderGlow={true}
+        className="flex flex-col p-6"
+      >
         {/* Mobile Layout */}
         <div className="flex flex-col md:hidden mb-6 space-y-4 relative">
           {/* Category Badge - Mobile (absolute positioning) */}
@@ -391,7 +395,7 @@ const ExperienceCard = ({ experience }) => {
             </motion.div>
           )}
         </AnimatePresence>
-      </CyberneticCard>
+      </BentoCard>
     </article>
   );
 };
