@@ -45,10 +45,10 @@ export const AnimatedGradientButton = React.forwardRef(
             aria-label={ariaLabel}
             className={cn(
               "inline-flex rounded-full text-center group items-center w-full justify-center",
-              "bg-gradient-to-tr from-zinc-300/5 via-[#03b1fb]/20 to-transparent",
+              "bg-gradient-to-tr from-zinc-300/5 via-accent/20 to-transparent",
               "text-white",
               "border-[#262629] border-[1px]",
-              "hover:bg-gradient-to-tr hover:from-zinc-300/10 hover:via-[#03b1fb]/30 hover:to-transparent",
+              "hover:bg-gradient-to-tr hover:from-zinc-300/10 hover:via-accent/30 hover:to-transparent",
               "transition-all",
               "sm:w-auto py-4 px-10",
               "outline-none focus:outline-none focus-visible:outline-none",

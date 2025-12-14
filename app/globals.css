@@ -1,6 +1,12 @@
+/**
+ * Design System - Essential design tokens only
+ * All values here are actually used in components
+ */
+
 @import "tailwindcss";
 
 @theme {
+  /* Core colors - generate Tailwind classes */
   --color-dark: #0a0e14;
   --color-light: #f5f5f5;
   --color-accent: #03b1fb;
@@ -8,17 +14,43 @@
   --color-card: #151a1f;
   --color-card-hover: #1a2027;
 
-  /* Typography System - Centralized Font Control */
+  /* Font family */
   --font-family-sans:
     "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-family-mono:
-    ui-monospace, SFMono-Regular, "SF Mono", Monaco, Consolas,
-    "Liberation Mono", "Courier New", monospace;
 }
 
-/* Apply centralized typography to body */
+/* Additional tokens - accessible but won't generate Tailwind classes */
+:root {
+  /* Text colors used in components */
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+
+  /* Component-specific: Bento Grid */
+  --glow-x: 50%;
+  --glow-y: 50%;
+  --glow-intensity: 0;
+  --glow-radius: 200px;
+  --glow-color: 3, 177, 251;
+  --border-color: rgba(245, 245, 245, 0.1);
+  --background-dark: #0a0e14;
+  --white: hsl(0, 0%, 100%);
+
+  /* Component-specific: Shimmer Button */
+  --speed: 10s;
+  --bg: transparent;
+  --radius: 9999px;
+  --shimmer-color: rgba(255, 255, 255, 0.3);
+  --spread: 60deg;
+  --cut: 0.1em;
+
+  /* Component-specific: Cybernetic Card */
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+}
+
+/* Apply typography to body */
 body {
   font-family: var(--font-family-sans);
   background-color: var(--color-dark);
@@ -94,7 +126,7 @@ body {
   opacity: 1;
 }
 
-/* Magic Bento Card Styles - Only what's actually needed */
+/* Magic Bento Card Styles */
 .bento-section {
   --glow-x: 50%;
   --glow-y: 50%;

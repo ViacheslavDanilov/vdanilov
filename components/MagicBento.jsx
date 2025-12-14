@@ -3,6 +3,14 @@
 import { useRef, useEffect, useState, useCallback } from "react";
 import { gsap } from "gsap";
 
+// Helper function to convert hex color to RGB string
+const hexToRgb = (hex) => {
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return result
+    ? `${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(result[3], 16)}`
+    : "3, 177, 251";
+};
+
 // Default configuration constants
 const DEFAULT_PARTICLE_COUNT = 16;
 const DEFAULT_SPOTLIGHT_RADIUS = 200;
@@ -60,14 +68,6 @@ const cardData = [
     label: "Industry Applications",
   },
 ];
-
-// Helper function to convert hex color to RGB string
-const hexToRgb = (hex) => {
-  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-  return result
-    ? `${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(result[3], 16)}`
-    : "3, 177, 251";
-};
 
 // Helper function to render text with highlighted phrases
 const renderHighlightedText = (text) => {
