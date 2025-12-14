@@ -154,7 +154,6 @@ const About = () => {
           <AnimatedGradientButton
             href="https://wa.me/+34634810041"
             target="_blank"
-            gradient="blue"
             ariaLabel="Contact me"
             className="text-base lg:text-lg font-medium"
           >
