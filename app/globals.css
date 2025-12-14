@@ -14,6 +14,10 @@
   --color-card: #151a1f;
   --color-card-hover: #1a2027;
 
+  /* Gray colors for text */
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+
   /* Font family */
   --font-family-sans:
     "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
@@ -21,12 +25,8 @@
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
-/* Additional tokens - accessible but won't generate Tailwind classes */
+/* Dynamic variables updated by JavaScript */
 :root {
-  /* Text colors used in components */
-  --color-gray-300: #d1d5db;
-  --color-gray-400: #9ca3af;
-
   /* Component-specific: Cybernetic Card */
   --mouse-x: 50%;
   --mouse-y: 50%;
@@ -49,10 +49,7 @@ body {
   /* Animation */
   --button-animation-duration: 2s;
 
-  /* Colors */
-  --button-bg: #0a0a0a;
-  --button-border-color: #262629;
-  --button-text-color: #ffffff;
+  /* Gradient colors */
   --button-gradient-direction: to top right;
   --button-gradient-from: rgba(212, 212, 212, 0.05);
   --button-gradient-via: rgba(3, 177, 251, 0.3);

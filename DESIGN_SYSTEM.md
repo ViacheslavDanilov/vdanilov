@@ -76,12 +76,13 @@ Want to customize buttons?
 
 **Colors:**
 
-- `--button-bg` - Background color
-- `--button-border-color` - Border color
-- `--button-text-color` - Text color
 - `--button-gradient-direction` - Gradient angle (e.g., `to top right`, `to bottom`, `135deg`)
-- `--button-gradient-via` - Accent color in gradient (change the middle value)
-- `--button-hover-gradient-via` - Hover accent color
+- `--button-gradient-from` - Start color opacity
+- `--button-gradient-via` - Accent color opacity (main color)
+- `--button-gradient-to` - End color (usually transparent)
+- `--button-hover-gradient-from` - Hover start color opacity
+- `--button-hover-gradient-via` - Hover accent color opacity
+- `--button-hover-gradient-to` - Hover end color
 - `--button-border-gradient` - Animated border gradient (conic-gradient)
 
 4. Save - all buttons update automatically! ✅
