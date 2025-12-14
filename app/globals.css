@@ -27,24 +27,6 @@
   --color-gray-300: #d1d5db;
   --color-gray-400: #9ca3af;
 
-  /* Component-specific: Bento Grid */
-  --glow-x: 50%;
-  --glow-y: 50%;
-  --glow-intensity: 0;
-  --glow-radius: 200px;
-  --glow-color: 3, 177, 251;
-  --border-color: rgba(245, 245, 245, 0.1);
-  --background-dark: #0a0e14;
-  --white: hsl(0, 0%, 100%);
-
-  /* Component-specific: Shimmer Button */
-  --speed: 10s;
-  --bg: transparent;
-  --radius: 9999px;
-  --shimmer-color: rgba(255, 255, 255, 0.3);
-  --spread: 60deg;
-  --cut: 0.1em;
-
   /* Component-specific: Cybernetic Card */
   --mouse-x: 50%;
   --mouse-y: 50%;
@@ -55,33 +37,6 @@ body {
   font-family: var(--font-family-sans);
   background-color: var(--color-dark);
   color: var(--color-light);
-}
-
-/* Shimmer Button Keyframes */
-@keyframes shimmer-slide {
-  to {
-    translate: calc(100cqw - 100%) 0;
-  }
-}
-
-@keyframes spin-around {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-/* Shimmer Button Animation Classes */
-@layer utilities {
-  .animate-shimmer-slide {
-    animation: shimmer-slide var(--speed, 5s) ease-in-out infinite alternate;
-  }
-
-  .animate-spin-around {
-    animation: spin-around calc(var(--speed, 5s) * 2) infinite linear;
-  }
 }
 
 /* Respect user's motion preferences */

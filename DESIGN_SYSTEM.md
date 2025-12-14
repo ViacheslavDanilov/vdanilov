@@ -4,7 +4,7 @@ Minimal design system with only the tokens actually used in the codebase.
 
 ## File
 
-- **`/app/globals.css`** - All design tokens (195 lines)
+- **`/app/globals.css`** - All design tokens (141 lines)
 
 That's it! No separate JavaScript files needed.
 
@@ -31,7 +31,6 @@ That's it! No separate JavaScript files needed.
 ### Component Variables
 
 - **Bento Grid**: `--glow-x`, `--glow-y`, `--glow-intensity`, `--glow-radius`, `--glow-color`, `--border-color`, `--background-dark`, `--white`
-- **Shimmer Button**: `--speed`, `--bg`, `--radius`, `--shimmer-color`, `--spread`, `--cut`
 - **Cybernetic Card**: `--mouse-x`, `--mouse-y`
 
 ## How to Use
@@ -59,13 +58,6 @@ Want to change the accent color?
 2. Find `--color-accent: #03b1fb;`
 3. Change to your color (e.g., `#8b5cf6` for purple)
 4. Save - all components update automatically! ✅
-
-Want to change the shimmer button speed?
-
-1. Open `/app/globals.css`
-2. Find `--speed: 10s;`
-3. Change to your preferred speed (e.g., `5s` for faster)
-4. Save ✅
 
 ## Philosophy
 
