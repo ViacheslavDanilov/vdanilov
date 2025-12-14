@@ -138,13 +138,13 @@ body {
   }
 }
 
-/* Magic Bento Card Styles - For Expertise Section with Global Spotlight */
+/* Bento Card Styles - For sections with Global Spotlight */
 .bento-section {
   --glow-x: 50%;
   --glow-y: 50%;
   --glow-intensity: 0;
   --glow-radius: 200px;
-  --glow-color: 3, 177, 251;
+  --glow-color: 255, 255, 255;
   --border-color: rgba(245, 245, 245, 0.1);
   --background-dark: #0a0e14;
   --white: hsl(0, 0%, 100%);
@@ -181,11 +181,11 @@ body {
 }
 
 .card--border-glow:hover {
-  box-shadow: 0 4px 20px rgba(3, 177, 251, 0.15);
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.15);
 }
 
 @media (max-width: 767px) {
   .card--border-glow:hover {
-    box-shadow: 0 4px 20px rgba(3, 177, 251, 0.2);
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
   }
 }

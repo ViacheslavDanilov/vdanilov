@@ -14,7 +14,7 @@ const hexToRgb = (hex) => {
 
 // Default configuration constants
 const DEFAULT_SPOTLIGHT_RADIUS = 200;
-const DEFAULT_GLOW_COLOR = "#03b1fb";
+const DEFAULT_GLOW_COLOR = "#ffffff";
 const DEFAULT_CARD_BACKGROUND = "#151a1f";
 const MOBILE_BREAKPOINT = 768;
 
