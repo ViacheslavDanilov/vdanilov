@@ -57,7 +57,6 @@ const CallToAction = () => {
               <AnimatedGradientButton
                 href="mailto:viacheslav.danilov@gmail.com"
                 target="_blank"
-                gradient="blue"
                 ariaLabel="Send email"
                 className="text-base lg:text-lg font-medium w-full sm:w-auto"
               >
@@ -74,7 +73,6 @@ const CallToAction = () => {
               <AnimatedGradientButton
                 href="https://www.linkedin.com/in/viacheslav-danilov/"
                 target="_blank"
-                gradient="blue"
                 ariaLabel="Connect on LinkedIn"
                 className="text-base lg:text-lg font-medium w-full sm:w-auto"
               >

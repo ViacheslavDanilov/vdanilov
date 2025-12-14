@@ -59,6 +59,33 @@ Want to change the accent color?
 3. Change to your color (e.g., `#8b5cf6` for purple)
 4. Save - all components update automatically! ✅
 
+Want to customize buttons?
+
+1. Open `/app/globals.css`
+2. Find `.animated-gradient-button-wrapper` section
+3. Change any of these variables:
+
+**Sizing:**
+
+- `--button-padding-y` / `--button-padding-x` - Button size
+- `--button-border-width` - Border thickness
+
+**Animation:**
+
+- `--button-animation-duration` - Border animation speed
+
+**Colors:**
+
+- `--button-bg` - Background color
+- `--button-border-color` - Border color
+- `--button-text-color` - Text color
+- `--button-gradient-direction` - Gradient angle (e.g., `to top right`, `to bottom`, `135deg`)
+- `--button-gradient-via` - Accent color in gradient (change the middle value)
+- `--button-hover-gradient-via` - Hover accent color
+- `--button-border-gradient` - Animated border gradient (conic-gradient)
+
+4. Save - all buttons update automatically! ✅
+
 ## Philosophy
 
 **Keep it simple.** Only include what you actually use.

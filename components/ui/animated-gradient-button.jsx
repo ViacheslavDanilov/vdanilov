@@ -3,40 +3,36 @@
 import React from "react";
 import { cn } from "@/lib/utils";
 
-const gradients = {
-  blue: "bg-[conic-gradient(from_90deg_at_50%_50%,#80d0ff_0%,#0284c7_50%,#80d0ff_100%)]",
-  purple:
-    "bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]",
-  pink: "bg-[conic-gradient(from_90deg_at_50%_50%,#FBCFE8_0%,#DB2777_50%,#FBCFE8_100%)]",
-};
-
 export const AnimatedGradientButton = React.forwardRef(
   (
     {
       href,
       target = "_blank",
       className,
-      gradient = "blue",
-      duration = "2s",
+      duration,
       ariaLabel,
       children,
       ...props
     },
     ref,
   ) => {
-    const gradientClass = gradients[gradient] || gradients.purple;
-
     return (
-      <span className="relative inline-block overflow-hidden rounded-full p-[2.0px]">
+      <span
+        className="animated-gradient-button-wrapper relative inline-block overflow-hidden rounded-full"
+        style={{ padding: "var(--button-border-width)" }}
+      >
         {/* Animated gradient border */}
         <span
-          className={cn("absolute inset-[-1000%] animate-spin", gradientClass)}
-          style={{ animationDuration: duration }}
+          className="absolute inset-[-1000%] animate-spin"
+          style={{
+            animationDuration: duration || "var(--button-animation-duration)",
+            background: "var(--button-border-gradient)",
+          }}
           aria-hidden="true"
         />
 
         {/* Button background and content */}
-        <div className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-gray-950 text-xs font-medium backdrop-blur-3xl">
+        <div className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-gray-950 backdrop-blur-3xl">
           <a
             ref={ref}
             href={href}
@@ -45,15 +41,26 @@ export const AnimatedGradientButton = React.forwardRef(
             aria-label={ariaLabel}
             className={cn(
               "inline-flex rounded-full text-center group items-center w-full justify-center",
-              "bg-gradient-to-tr from-zinc-300/5 via-accent/20 to-transparent",
-              "text-white",
-              "border-[#262629] border-[1px]",
-              "hover:bg-gradient-to-tr hover:from-zinc-300/10 hover:via-accent/30 hover:to-transparent",
               "transition-all",
-              "sm:w-auto py-4 px-10",
+              "sm:w-auto",
               "outline-none focus:outline-none focus-visible:outline-none",
               className,
             )}
+            style={{
+              paddingTop: "var(--button-padding-y)",
+              paddingBottom: "var(--button-padding-y)",
+              paddingLeft: "var(--button-padding-x)",
+              paddingRight: "var(--button-padding-x)",
+              background: `linear-gradient(var(--button-gradient-direction), var(--button-gradient-from), var(--button-gradient-via), var(--button-gradient-to))`,
+              color: "var(--button-text-color)",
+              border: `1px solid var(--button-border-color)`,
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = `linear-gradient(var(--button-gradient-direction), var(--button-hover-gradient-from), var(--button-hover-gradient-via), var(--button-hover-gradient-to))`;
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = `linear-gradient(var(--button-gradient-direction), var(--button-gradient-from), var(--button-gradient-via), var(--button-gradient-to))`;
+            }}
             {...props}
           >
             {children}

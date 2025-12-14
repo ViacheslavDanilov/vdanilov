@@ -39,7 +39,37 @@ body {
   color: var(--color-light);
 }
 
-/* Respect user's motion preferences */
+/* Button Styles - Scoped to button component */
+.animated-gradient-button-wrapper {
+  /* Sizing */
+  --button-padding-y: 1rem;
+  --button-padding-x: 2.5rem;
+  --button-border-width: 2px;
+
+  /* Animation */
+  --button-animation-duration: 2s;
+
+  /* Colors */
+  --button-bg: #0a0a0a;
+  --button-border-color: #262629;
+  --button-text-color: #ffffff;
+  --button-gradient-direction: to top right;
+  --button-gradient-from: rgba(212, 212, 212, 0.05);
+  --button-gradient-via: rgba(3, 177, 251, 0.3);
+  --button-gradient-to: transparent;
+  --button-hover-gradient-from: rgba(212, 212, 212, 0.1);
+  --button-hover-gradient-via: rgba(3, 177, 251, 0.35);
+  --button-hover-gradient-to: transparent;
+
+  /* Animated border gradient */
+  --button-border-gradient: conic-gradient(
+    from 90deg at 50% 50%,
+    #80d0ff 0%,
+    #0284c7 50%,
+    #80d0ff 100%
+  );
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-spin,
   .animate-\[spin_2s_linear_infinite\] {
