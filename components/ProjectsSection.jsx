@@ -355,7 +355,7 @@ const ProjectsSection = ({
                   {/* Mobile layout: centered image */}
                   <div className="flex flex-col sm:hidden items-center mb-6">
                     <a href={project.link} className="block mb-4">
-                      <div className="relative w-48 h-48 rounded-lg overflow-hidden bg-neutral-800 border border-white/10 transition-transform duration-300 hover:scale-105">
+                      <div className="relative w-48 h-48 rounded-lg overflow-hidden bg-neutral-800 border border-white/10">
                         <Image
                           src={project.image}
                           alt={project.title}
@@ -381,7 +381,7 @@ const ProjectsSection = ({
                   {/* Desktop/Tablet layout: horizontal */}
                   <div className="hidden sm:flex flex-row gap-6 mb-4">
                     <a href={project.link} className="flex-shrink-0">
-                      <div className="relative w-40 h-40 rounded-lg overflow-hidden bg-neutral-800 border border-white/10 transition-transform duration-300 hover:scale-105">
+                      <div className="relative w-40 h-40 rounded-lg overflow-hidden bg-neutral-800 border border-white/10">
                         <Image
                           src={project.image}
                           alt={project.title}
