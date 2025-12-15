@@ -132,7 +132,7 @@ const ExpertiseSection = ({
                     part.highlight ? (
                       <span
                         key={part.key}
-                        className="text-white font-semibold transition-colors duration-300 group-hover:text-accent"
+                        className="text-light/90 font-semibold transition-colors duration-300 group-hover:text-accent"
                       >
                         {part.text}
                       </span>
