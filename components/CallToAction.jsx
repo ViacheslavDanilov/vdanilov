@@ -2,20 +2,29 @@
 
 import React from "react";
 import Image from "next/image";
+import { GlowCard } from "@/components/ui/glow-card";
 import { AnimatedGradientButton } from "@/components/ui/animated-gradient-button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
-const CallToAction = () => {
+const CallToAction = ({
+  enableSpotlight = true,
+  enableBorderGlow = true,
+  glowColor = "blue",
+  spotlightSize = 400,
+}) => {
   return (
     <section className="w-full max-w-7xl mx-auto px-6 lg:px-8 py-12 lg:py-24">
-      <div className="relative rounded-2xl border border-light/10 bg-gradient-to-br from-card/50 to-dark/50 overflow-hidden">
-        {/* Decorative background glow */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
-        <div className="absolute inset-0 bg-[radial-gradient(40%_128px_at_50%_0%,theme(backgroundColor.accent/10%),transparent)]" />
-
-        <div className="relative flex flex-col lg:flex-row items-center gap-4 lg:gap-10 p-8 lg:py-12 lg:px-16">
+      <GlowCard
+        glowColor={glowColor}
+        customSize={true}
+        className="w-full h-full"
+        enableSpotlight={enableSpotlight}
+        enableBorderGlow={enableBorderGlow}
+        spotlightSize={spotlightSize}
+      >
+        <div className="flex flex-col lg:flex-row items-center gap-4 lg:gap-10 p-8 lg:py-12 lg:px-16">
           {/* Image Section */}
           <div className="flex-shrink-0 flex flex-col items-center gap-4">
             <div className="relative w-48 h-48 lg:w-56 lg:h-56 rounded-full overflow-hidden border-2 border-accent/20 shadow-2xl">
@@ -48,7 +57,7 @@ const CallToAction = () => {
               <p className="text-base lg:text-lg text-gray-400 leading-relaxed">
                 Whether you are looking to scale your AI capabilities, lead
                 complex research initiatives, or build high-performing technical
-                teams, I'm here to help transform your vision into reality.
+                teams, I'm here to help transform your vision into reality
               </p>
             </div>
 
@@ -64,7 +73,11 @@ const CallToAction = () => {
                   <FontAwesomeIcon
                     icon={faEnvelope}
                     className="mr-2 w-5 h-5"
-                    style={{ width: "1.25rem", height: "1.25rem" }}
+                    style={{
+                      width: "1.25rem",
+                      height: "1.25rem",
+                      display: "inline-block",
+                    }}
                   />
                   Email Me
                 </>
@@ -80,7 +93,11 @@ const CallToAction = () => {
                   <FontAwesomeIcon
                     icon={faLinkedin}
                     className="mr-2 w-5 h-5"
-                    style={{ width: "1.25rem", height: "1.25rem" }}
+                    style={{
+                      width: "1.25rem",
+                      height: "1.25rem",
+                      display: "inline-block",
+                    }}
                   />
                   Connect on LinkedIn
                 </>
@@ -88,7 +105,7 @@ const CallToAction = () => {
             </div>
           </div>
         </div>
-      </div>
+      </GlowCard>
     </section>
   );
 };
