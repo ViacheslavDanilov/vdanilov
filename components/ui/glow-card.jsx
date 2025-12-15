@@ -27,6 +27,7 @@ const GlowCard = ({
   customSize = false,
   enableSpotlight = true,
   enableBorderGlow = true,
+  spotlightSize = 180,
 }) => {
   const cardRef = useRef(null);
   const innerRef = useRef(null);
@@ -73,7 +74,7 @@ const GlowCard = ({
       "--border": "1.5",
       "--backdrop": "hsl(0 0% 60% / 0.06)",
       "--backup-border": "var(--backdrop)",
-      "--size": "180",
+      "--size": spotlightSize.toString(),
       "--outer": enableBorderGlow ? "1" : "0",
       "--border-size": "calc(var(--border, 2) * 1px)",
       "--spotlight-size": "calc(var(--size, 150) * 1px)",

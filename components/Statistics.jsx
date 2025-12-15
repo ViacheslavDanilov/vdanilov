@@ -7,6 +7,7 @@ const Statistics = ({
   enableSpotlight = true,
   enableBorderGlow = true,
   glowColor = "blue",
+  spotlightSize = 180,
 }) => {
   const stats = [
     {
@@ -77,6 +78,7 @@ const Statistics = ({
             className="w-full h-full p-6 md:p-10"
             enableSpotlight={enableSpotlight}
             enableBorderGlow={enableBorderGlow}
+            spotlightSize={spotlightSize}
           >
             <div className="flex flex-col items-center justify-center h-full text-center">
               <div className="text-4xl md:text-5xl font-semibold text-accent mb-3">
