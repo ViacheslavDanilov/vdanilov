@@ -126,7 +126,9 @@ body {
   }
 }
 
-/* Project title hover effect */
-[data-glow].group:hover .project-title {
-  color: var(--color-accent);
+/* Project title hover effect - Devices with hover capability only */
+@media (hover: hover) {
+  [data-glow].group:hover .project-title {
+    color: var(--color-accent);
+  }
 }
