@@ -9,7 +9,7 @@ import React, {
 } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "motion/react";
-import BentoCard from "@/components/ui/bento-card";
+import { GlowCard } from "@/components/ui/glow-card";
 import { Tab } from "@/components/ui/tab";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -220,7 +220,13 @@ const JobInfo = ({
   </div>
 );
 
-const ExperienceCard = ({ experience }) => {
+const ExperienceCard = ({
+  experience,
+  enableSpotlight = true,
+  enableBorderGlow = true,
+  glowColor = "blue",
+  spotlightSize = 300,
+}) => {
   const [activeTab, setActiveTab] = useState(null);
   const cardRef = useRef(null);
 
@@ -284,10 +290,13 @@ const ExperienceCard = ({ experience }) => {
       className="self-start w-full"
       aria-labelledby={`job-title-${experience.id}`}
     >
-      <BentoCard
-        enableSpotlight={false}
-        enableBorderGlow={true}
-        className="flex flex-col p-6"
+      <GlowCard
+        glowColor={glowColor}
+        customSize={true}
+        className="w-full h-full p-6"
+        enableSpotlight={enableSpotlight}
+        enableBorderGlow={enableBorderGlow}
+        spotlightSize={spotlightSize}
       >
         {/* Mobile Layout */}
         <div className="flex flex-col md:hidden mb-6 space-y-4 relative">
@@ -386,7 +395,11 @@ const ExperienceCard = ({ experience }) => {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
+              transition={{
+                duration: 0.25,
+                // ease: [0.25, 0.1, 0.25, 1],
+                ease: "easeInOut",
+              }}
               className="overflow-hidden"
               role="tabpanel"
               aria-labelledby={`tab-${activeTab}`}
@@ -395,7 +408,7 @@ const ExperienceCard = ({ experience }) => {
             </motion.div>
           )}
         </AnimatePresence>
-      </BentoCard>
+      </GlowCard>
     </article>
   );
 };
