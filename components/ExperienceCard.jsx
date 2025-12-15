@@ -387,20 +387,18 @@ const ExperienceCard = ({
           ))}
         </nav>
 
-        {/* Tab Content with Accordion Animation */}
-        <AnimatePresence initial={false}>
+        {/* Tab Content with Fade Animation */}
+        <AnimatePresence mode="wait">
           {activeTab && (
             <motion.div
               key={`content-${experience.id}-${activeTab}`}
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
               transition={{
                 duration: 0.25,
-                // ease: [0.25, 0.1, 0.25, 1],
                 ease: "easeInOut",
               }}
-              className="overflow-hidden"
               role="tabpanel"
               aria-labelledby={`tab-${activeTab}`}
             >
