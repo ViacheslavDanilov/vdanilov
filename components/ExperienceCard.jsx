@@ -9,7 +9,7 @@ import React, {
 } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "motion/react";
-import CyberneticCard from "@/components/ui/cybernetic-card";
+import { GlowCard } from "@/components/ui/glow-card";
 import { Tab } from "@/components/ui/tab";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -220,7 +220,13 @@ const JobInfo = ({
   </div>
 );
 
-const ExperienceCard = ({ experience }) => {
+const ExperienceCard = ({
+  experience,
+  enableSpotlight = true,
+  enableBorderGlow = true,
+  glowColor = "blue",
+  spotlightSize = 300,
+}) => {
   const [activeTab, setActiveTab] = useState(null);
   const cardRef = useRef(null);
 
@@ -284,9 +290,16 @@ const ExperienceCard = ({ experience }) => {
       className="self-start w-full"
       aria-labelledby={`job-title-${experience.id}`}
     >
-      <CyberneticCard className="flex flex-col">
+      <GlowCard
+        glowColor={glowColor}
+        customSize={true}
+        className="w-full h-full p-5"
+        enableSpotlight={enableSpotlight}
+        enableBorderGlow={enableBorderGlow}
+        spotlightSize={spotlightSize}
+      >
         {/* Mobile Layout */}
-        <div className="flex flex-col md:hidden mb-6 space-y-4 relative">
+        <div className="flex flex-col md:hidden mb-4 space-y-3 relative">
           {/* Category Badge - Mobile (absolute positioning) */}
           {experience.category && (
             <span
@@ -322,7 +335,7 @@ const ExperienceCard = ({ experience }) => {
         </div>
 
         {/* Desktop Layout */}
-        <div className="hidden md:flex flex-row gap-6 mb-6 items-start">
+        <div className="hidden md:flex flex-row gap-6 mb-4 items-start">
           <CompanyLogo
             logo={experience.logo}
             company={experience.company}
@@ -358,7 +371,7 @@ const ExperienceCard = ({ experience }) => {
 
         {/* Tabs */}
         <nav
-          className="flex items-center justify-center gap-1 mb-6 bg-card/30 rounded-full p-1 border border-light/10"
+          className="flex items-center justify-center gap-1 mb-4 bg-card/30 rounded-full p-1 border border-light/10"
           role="tablist"
           aria-label="Job information tabs"
         >
@@ -391,7 +404,7 @@ const ExperienceCard = ({ experience }) => {
             </motion.div>
           )}
         </AnimatePresence>
-      </CyberneticCard>
+      </GlowCard>
     </article>
   );
 };

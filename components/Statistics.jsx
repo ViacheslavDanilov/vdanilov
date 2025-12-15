@@ -1,9 +1,14 @@
 "use client";
 
-import React from "react";
 import CountUp from "@/components/CountUp";
+import { GlowCard } from "@/components/ui/glow-card";
 
-const Statistics = () => {
+const Statistics = ({
+  enableSpotlight = true,
+  enableBorderGlow = true,
+  glowColor = "blue",
+  spotlightSize = 180,
+}) => {
   const stats = [
     {
       value: 10,
@@ -54,7 +59,6 @@ const Statistics = () => {
       id="statistics"
       className="w-full max-w-7xl mx-auto py-12 md:py-24 px-6"
     >
-      {/* Section Header */}
       <div className="mb-12 text-center">
         <h2 className="text-3xl md:text-4xl font-bold text-light mb-4">
           Career Highlights
@@ -65,27 +69,33 @@ const Statistics = () => {
         </p>
       </div>
 
-      {/* Statistics Grid */}
       <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
         {stats.map((stat) => (
-          <div
+          <GlowCard
             key={stat.label.toLowerCase().replace(/\s+/g, "-")}
-            className="bg-card border border-light/10 rounded-xl p-6 md:p-10 text-center hover:bg-card-hover transition-colors duration-300"
+            glowColor={glowColor}
+            customSize={true}
+            className="w-full h-full p-6 md:p-10"
+            enableSpotlight={enableSpotlight}
+            enableBorderGlow={enableBorderGlow}
+            spotlightSize={spotlightSize}
           >
-            <div className="text-4xl md:text-5xl font-semibold text-accent mb-3">
-              <CountUp
-                from={0}
-                to={stat.value}
-                duration={stat.duration}
-                delay={stat.delay}
-                className="inline-block"
-              />
-              <span className="text-accent">{stat.suffix}</span>
+            <div className="flex flex-col items-center justify-center h-full text-center">
+              <div className="text-4xl md:text-5xl font-semibold text-accent mb-3">
+                <CountUp
+                  from={0}
+                  to={stat.value}
+                  duration={stat.duration}
+                  delay={stat.delay}
+                  className="inline-block"
+                />
+                <span className="text-accent">{stat.suffix}</span>
+              </div>
+              <p className="text-sm md:text-base text-gray-400 leading-relaxed">
+                {stat.label}
+              </p>
             </div>
-            <p className="text-sm md:text-base text-gray-400 leading-relaxed">
-              {stat.label}
-            </p>
-          </div>
+          </GlowCard>
         ))}
       </div>
     </section>

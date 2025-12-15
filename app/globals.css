@@ -25,13 +25,6 @@
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
-/* Dynamic variables updated by JavaScript */
-:root {
-  /* Component-specific: Cybernetic Card */
-  --mouse-x: 50%;
-  --mouse-y: 50%;
-}
-
 /* Apply typography to body */
 body {
   font-family: var(--font-family-sans);
@@ -74,88 +67,9 @@ body {
   }
 }
 
-/* Cybernetic Card Glow Effect */
-.cybernetic-card-glow {
-  background: radial-gradient(
-    800px circle at var(--mouse-x) var(--mouse-y),
-    rgba(255, 255, 255, 0.06),
-    transparent 40%
-  );
-}
-
-.cybernetic-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1px;
-  background: radial-gradient(
-    600px circle at var(--mouse-x) var(--mouse-y),
-    rgba(255, 255, 255, 0.4),
-    transparent 40%
-  );
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  opacity: 0;
-  transition: opacity 0.3s;
-  pointer-events: none;
-}
-
-.cybernetic-card:hover::before {
-  opacity: 1;
-}
-
-/* Magic Bento Card Styles */
-.bento-section {
-  --glow-x: 50%;
-  --glow-y: 50%;
-  --glow-intensity: 0;
-  --glow-radius: 200px;
-  --glow-color: 3, 177, 251;
-  --border-color: rgba(245, 245, 245, 0.1);
-  --background-dark: #0a0e14;
-  --white: hsl(0, 0%, 100%);
-}
-
-.card--border-glow::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  padding: 2px;
-  background: radial-gradient(
-    var(--glow-radius) circle at var(--glow-x) var(--glow-y),
-    rgba(var(--glow-color), calc(var(--glow-intensity) * 0.6)) 0%,
-    rgba(var(--glow-color), calc(var(--glow-intensity) * 0.3)) 30%,
-    transparent 60%
-  );
-  border-radius: inherit;
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  mask-composite: exclude;
-  pointer-events: none;
-  opacity: 1;
-  transition: opacity 0.3s ease;
-  z-index: 1;
-}
-
-.card--border-glow:hover::after {
-  opacity: 1;
-}
-
-.card--border-glow:hover {
-  box-shadow: 0 4px 20px rgba(3, 177, 251, 0.15);
-}
-
-@media (max-width: 767px) {
-  .card--border-glow:hover {
-    box-shadow: 0 4px 20px rgba(3, 177, 251, 0.2);
+/* Project title hover effect - Devices with hover capability only */
+@media (hover: hover) {
+  [data-glow].group:hover .project-title {
+    color: var(--color-accent);
   }
 }
