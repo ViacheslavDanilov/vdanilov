@@ -293,13 +293,13 @@ const ExperienceCard = ({
       <GlowCard
         glowColor={glowColor}
         customSize={true}
-        className="w-full h-full p-6"
+        className="w-full h-full p-5"
         enableSpotlight={enableSpotlight}
         enableBorderGlow={enableBorderGlow}
         spotlightSize={spotlightSize}
       >
         {/* Mobile Layout */}
-        <div className="flex flex-col md:hidden mb-6 space-y-4 relative">
+        <div className="flex flex-col md:hidden mb-4 space-y-3 relative">
           {/* Category Badge - Mobile (absolute positioning) */}
           {experience.category && (
             <span
@@ -335,7 +335,7 @@ const ExperienceCard = ({
         </div>
 
         {/* Desktop Layout */}
-        <div className="hidden md:flex flex-row gap-6 mb-6 items-start">
+        <div className="hidden md:flex flex-row gap-6 mb-4 items-start">
           <CompanyLogo
             logo={experience.logo}
             company={experience.company}
@@ -371,7 +371,7 @@ const ExperienceCard = ({
 
         {/* Tabs */}
         <nav
-          className="flex items-center justify-center gap-1 mb-6 bg-card/30 rounded-full p-1 border border-light/10"
+          className="flex items-center justify-center gap-1 mb-4 bg-card/30 rounded-full p-1 border border-light/10"
           role="tablist"
           aria-label="Job information tabs"
         >
