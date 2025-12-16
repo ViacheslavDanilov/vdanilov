@@ -11,11 +11,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { GlowCard } from "@/components/ui/glow-card";
 import { Tab } from "@/components/ui/tab";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faBook,
-  faGraduationCap,
-  faCertificate,
-} from "@fortawesome/free-solid-svg-icons";
+import { faBook, faGraduationCap } from "@fortawesome/free-solid-svg-icons";
 import {
   CompanyLogo,
   JobInfo,
@@ -123,6 +119,12 @@ const EducationCard = ({
       >
         {/* Mobile Layout */}
         <div className="flex flex-col md:hidden mb-4 space-y-3 relative">
+          {/* Honors Badge - Mobile (absolute positioning) */}
+          {education.honors && (
+            <span className="absolute top-0 right-0 px-3 py-1 text-xs font-medium rounded-full border inline-flex items-center bg-yellow-500/10 text-yellow-500 border-yellow-500/20">
+              {education.honors}
+            </span>
+          )}
           <div className="flex justify-center">
             <CompanyLogo
               logo={education.logo}
@@ -130,16 +132,41 @@ const EducationCard = ({
               url={education.url}
             />
           </div>
-          <JobInfo
-            title={education.degree}
-            company={education.institution}
-            url={education.url}
-            period={education.period}
-            duration={education.gpa ? `GPA: ${education.gpa}` : ""}
-            location={education.location}
-            className="text-center space-y-2"
-            centered={true}
-          />
+
+          <div className="text-center">
+            {/* Degree Only (Badge is absolute) */}
+            <div className="flex flex-col items-center gap-2 mb-2">
+              <h3 className="text-md font-bold uppercase tracking-wider text-light">
+                {education.degree}
+              </h3>
+            </div>
+
+            {/* Field */}
+            {education.field && (
+              <div className="text-sm text-gray-400 font-medium normal-case mb-2">
+                {education.field}
+              </div>
+            )}
+
+            {/* University */}
+            <a
+              href={education.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-medium text-accent uppercase cursor-pointer mb-2 inline-block"
+              aria-label={`${education.institution} website`}
+            >
+              {education.institution}
+            </a>
+
+            {/* Metadata */}
+            <div className="flex flex-wrap gap-2 text-xs md:text-sm text-gray-400 justify-center mb-2">
+              <time dateTime={education.period.split(" - ")[0]}>
+                {education.period}
+              </time>
+            </div>
+            <p className="text-sm text-gray-400 mb-0">{education.location}</p>
+          </div>
         </div>
 
         {/* Desktop Layout */}
@@ -149,16 +176,44 @@ const EducationCard = ({
             company={education.institution}
             url={education.url}
           />
-          <div className="flex-1 flex items-start justify-between gap-4">
-            <JobInfo
-              title={education.degree}
-              company={education.institution}
-              url={education.url}
-              period={education.period}
-              duration={education.gpa ? `GPA: ${education.gpa}` : ""}
-              location={education.location}
-              className="space-y-2"
-            />
+          <div className="flex-1">
+            {/* Row 1: Degree + Badge */}
+            <div className="flex justify-between items-start gap-4 mb-1">
+              <h3 className="text-md font-bold uppercase tracking-wider text-light">
+                {education.degree}
+              </h3>
+              {education.honors && (
+                <span className="flex-shrink-0 px-3 py-1 text-xs font-medium rounded-full border inline-flex items-center bg-yellow-500/10 text-yellow-500 border-yellow-500/20">
+                  {education.honors}
+                </span>
+              )}
+            </div>
+
+            {/* Row 2: Field */}
+            {education.field && (
+              <div className="text-sm text-gray-400 font-medium normal-case mb-2">
+                {education.field}
+              </div>
+            )}
+
+            {/* Row 3: University */}
+            <a
+              href={education.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-medium text-accent uppercase cursor-pointer mb-2 inline-block"
+              aria-label={`${education.institution} website`}
+            >
+              {education.institution}
+            </a>
+
+            {/* Row 4: Metadata */}
+            <div className="flex flex-wrap gap-2 text-xs md:text-sm text-gray-400 mb-2">
+              <time dateTime={education.period.split(" - ")[0]}>
+                {education.period}
+              </time>
+            </div>
+            <p className="text-sm text-gray-400 mb-0">{education.location}</p>
           </div>
         </div>
 

@@ -11,10 +11,11 @@ const INSTITUTION_URLS = {
 const CORE_EDUCATION_DATA = [
   {
     id: "phd-tpu",
-    degree: "PhD · Computer Science and Applied Mathematics",
+    degree: "PhD in Computer Science",
+    field: "Applied Mathematics & Machine Learning",
     institution: "Tomsk Polytechnic University",
     url: INSTITUTION_URLS["Tomsk Polytechnic University"],
-    gpa: "5.0 out of 5.0",
+    honors: "Summa Cum Laude",
     period: "Sep 2015 - Sep 2020",
     location: "Tomsk • Russia 🇷🇺",
     logo: "/education/universities/tpu.webp",
