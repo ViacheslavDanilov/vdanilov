@@ -298,7 +298,7 @@ const VISITING_ROLES_DATA = [
     type: "Visiting",
     category: "research",
     startDate: "2025-03-01",
-    endDate: "2025-03-01",
+    endDate: "2025-04-01",
     location: "Paris • France 🇫🇷",
     logo: "/experience/visiting-roles/sorbonne.webp",
     responsibilities: [

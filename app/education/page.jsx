@@ -6,6 +6,7 @@ import EducationCard from "@/components/EducationCard";
 // Configuration Constants
 const INSTITUTION_URLS = {
   "Tomsk Polytechnic University": "https://tpu.ru/en/",
+  "Tomsk State University": "https://en.tsu.ru/",
 };
 
 const CORE_EDUCATION_DATA = [
@@ -33,7 +34,7 @@ const CORE_EDUCATION_DATA = [
     field: "Information & Control Systems",
     institution: "Tomsk Polytechnic University",
     url: INSTITUTION_URLS["Tomsk Polytechnic University"],
-    honors: "",
+    honors: "", // GPA: 4.94/5.0
     period: "Sep 2011 - Sep 2013",
     location: "Tomsk • Russia 🇷🇺",
     logo: "/education/universities/tpu.webp",
@@ -46,6 +47,26 @@ const CORE_EDUCATION_DATA = [
     ],
     thesis:
       "Development of a stabilisation system for a tethered underwater vehicle",
+  },
+  {
+    id: "msc-tsu",
+    degree: "MSc in Business Management",
+    field: "Corporate Finance & Strategic Management",
+    institution: "Tomsk State University",
+    url: INSTITUTION_URLS["Tomsk State University"],
+    honors: "Honors",
+    period: "Sep 2011 - Sep 2013",
+    location: "Tomsk • Russia 🇷🇺",
+    logo: "/education/universities/tsu.webp",
+    coreCourses: [
+      "Project management",
+      "International financial reporting standards",
+      "Customer relationship management systems",
+      "Research methods in management",
+      "Corporate finance",
+    ],
+    thesis:
+      "Development of the optimal financial strategy for the organization",
   },
 ];
 
