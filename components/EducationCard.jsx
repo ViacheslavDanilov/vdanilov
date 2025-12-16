@@ -181,7 +181,7 @@ const EducationCard = ({
                 {education.degree}
               </h3>
               {education.honors && (
-                <span className="flex-shrink-0 px-3 py-1 text-xs font-medium rounded-full border inline-flex items-center bg-accent/7 text-accent border-accent/10">
+                <span className="flex-shrink-0 px-3 py-0.5 text-xs font-medium rounded-full border inline-flex items-center bg-accent/7 text-accent border-accent/10">
                   {education.honors}
                 </span>
               )}

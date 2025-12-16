@@ -13,10 +13,10 @@ const CORE_EDUCATION_DATA = [
   {
     id: "phd-tpu",
     degree: "PhD in Computer Science",
-    field: "Applied Mathematics & Machine Learning",
+    field: "Applied Mathematics and Machine Learning",
     institution: "Tomsk Polytechnic University",
     url: INSTITUTION_URLS["Tomsk Polytechnic University"],
-    honors: "Honors", // Summa Cum Laude
+    honors: "Honors", // GPA: 5.0/5.0
     period: "Sep 2015 - Sep 2020",
     location: "Tomsk • Russia 🇷🇺",
     logo: "/education/universities/tpu.webp",
@@ -31,10 +31,10 @@ const CORE_EDUCATION_DATA = [
   {
     id: "msc-tpu",
     degree: "MSc in Computer Engineering",
-    field: "Information & Control Systems",
+    field: "Information and Control Systems",
     institution: "Tomsk Polytechnic University",
     url: INSTITUTION_URLS["Tomsk Polytechnic University"],
-    honors: "", // GPA: 4.94/5.0
+    honors: "Honors", // GPA: 4.94/5.0
     period: "Sep 2011 - Sep 2013",
     location: "Tomsk • Russia 🇷🇺",
     logo: "/education/universities/tpu.webp",
@@ -51,10 +51,10 @@ const CORE_EDUCATION_DATA = [
   {
     id: "msc-tsu",
     degree: "MSc in Business Management",
-    field: "Corporate Finance & Strategic Management",
+    field: "Corporate Finance and Strategic Management",
     institution: "Tomsk State University",
     url: INSTITUTION_URLS["Tomsk State University"],
-    honors: "Honors",
+    honors: "Honors", // GPA: 5.0/5.0
     period: "Sep 2011 - Sep 2013",
     location: "Tomsk • Russia 🇷🇺",
     logo: "/education/universities/tsu.webp",
@@ -67,6 +67,26 @@ const CORE_EDUCATION_DATA = [
     ],
     thesis:
       "Development of the optimal financial strategy for the organization",
+  },
+  {
+    id: "bsc-tpu",
+    degree: "BSc in Robotics",
+    field: "Robotics and Intelligent Control",
+    institution: "Tomsk Polytechnic University",
+    url: INSTITUTION_URLS["Tomsk Polytechnic University"],
+    honors: "", // GPA: 4.8/5.0
+    period: "Sep 2007 - Sep 2011",
+    location: "Tomsk • Russia 🇷🇺",
+    logo: "/education/universities/tpu.webp",
+    coreCourses: [
+      "Information devices and systems in mechatronics",
+      "Automatic control theory",
+      "Automation facilities",
+      "Electromechanical and mechatronic systems",
+      "Computer numerical control machines and flexible manufacturing systems",
+    ],
+    thesis:
+      "Development of emergency protection for the catalyst dosing unit in propylene polymerization reactors",
   },
 ];
 
