@@ -36,7 +36,7 @@ const COMPANY_URLS = {
 
 // --- COMPONENTS ---
 // Shared bullet point component
-const BulletPoint = () => (
+export const BulletPoint = () => (
   <div
     className="flex-shrink-0 w-2 h-2 rounded-full bg-accent mt-2"
     aria-hidden="true"
@@ -94,7 +94,7 @@ const HIGHLIGHT_CLASS =
   "inline-block bg-accent/10 text-accent font-semibold px-2 py-0.75 rounded-xl";
 
 // Helper to highlight keywords in a string
-function highlightKeywords(text) {
+export function highlightKeywords(text) {
   if (typeof text !== "string") return text;
   let result = [text];
   HIGHLIGHT_KEYWORDS.forEach((word) => {
@@ -164,7 +164,7 @@ const PublicationsList = ({ publications }) => (
 );
 
 // Company logo component
-const CompanyLogo = ({ logo, company, url, className = "" }) => (
+export const CompanyLogo = ({ logo, company, url, className = "" }) => (
   <a
     href={url}
     target="_blank"
@@ -186,7 +186,7 @@ const CompanyLogo = ({ logo, company, url, className = "" }) => (
 );
 
 // Job info component
-const JobInfo = ({
+export const JobInfo = ({
   title,
   company,
   url,
