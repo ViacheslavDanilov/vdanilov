@@ -176,7 +176,7 @@ const EducationCard = ({
           />
           <div className="flex-1">
             {/* Row 1: Degree + Badge */}
-            <div className="flex justify-between items-start gap-4 mb-1">
+            <div className="flex justify-between items-start gap-4 mb-2">
               <h3 className="text-md font-bold uppercase tracking-wider text-light">
                 {education.degree}
               </h3>

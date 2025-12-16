@@ -27,6 +27,26 @@ const CORE_EDUCATION_DATA = [
     thesis:
       "Methods and algorithms for medical image segmentation based on machine learning",
   },
+  {
+    id: "msc-tpu",
+    degree: "MSc in Computer Engineering",
+    field: "Information & Control Systems",
+    institution: "Tomsk Polytechnic University",
+    url: INSTITUTION_URLS["Tomsk Polytechnic University"],
+    honors: "",
+    period: "Sep 2011 - Sep 2013",
+    location: "Tomsk • Russia 🇷🇺",
+    logo: "/education/universities/tpu.webp",
+    coreCourses: [
+      "Object-oriented programming",
+      "Design of control systems",
+      "Optimization methods",
+      "Adaptive control systems",
+      "Automated control in engineering systems",
+    ],
+    thesis:
+      "Development of a stabilisation system for a tethered underwater vehicle",
+  },
 ];
 
 const ADDITIONAL_EDUCATION_DATA = [];
