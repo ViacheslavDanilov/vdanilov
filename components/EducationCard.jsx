@@ -160,7 +160,7 @@ const EducationCard = ({
             </a>
 
             {/* Metadata */}
-            <div className="flex flex-wrap gap-2 text-xs md:text-sm text-gray-400 justify-center mb-2">
+            <div className="flex flex-wrap gap-2 text-sm text-gray-400 justify-center mb-2">
               <time dateTime={education.period.split(" - ")[0]}>
                 {education.period}
               </time>
@@ -208,7 +208,7 @@ const EducationCard = ({
             </a>
 
             {/* Row 4: Metadata */}
-            <div className="flex flex-wrap gap-2 text-xs md:text-sm text-gray-400 mb-2">
+            <div className="flex flex-wrap gap-2 text-sm text-gray-400 mb-2">
               <time dateTime={education.period.split(" - ")[0]}>
                 {education.period}
               </time>

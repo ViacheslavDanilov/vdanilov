@@ -210,7 +210,7 @@ export const JobInfo = ({
       {company}
     </a>
     <div
-      className={`flex flex-wrap gap-2 text-xs md:text-sm text-gray-400 mb-2 ${centered ? "justify-center" : ""}`}
+      className={`flex flex-wrap gap-2 text-sm text-gray-400 mb-2 ${centered ? "justify-center" : ""}`}
     >
       <time dateTime={period.split(" - ")[0]}>{period}</time>
       <span aria-hidden="true">•</span>
