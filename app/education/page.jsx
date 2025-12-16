@@ -7,6 +7,10 @@ import EducationCard from "@/components/EducationCard";
 const INSTITUTION_URLS = {
   "Tomsk Polytechnic University": "https://tpu.ru/en/",
   "Tomsk State University": "https://en.tsu.ru/",
+  "University of Leeds": "https://www.leeds.ac.uk/",
+  "Technical University of Madrid": "https://www.upm.es/",
+  "University of Trento": "https://www.unitn.it/",
+  "University of Lisbon": "https://tecnico.ulisboa.pt/",
 };
 
 const CORE_EDUCATION_DATA = [
@@ -34,7 +38,7 @@ const CORE_EDUCATION_DATA = [
     field: "Information and Control Systems",
     institution: "Tomsk Polytechnic University",
     url: INSTITUTION_URLS["Tomsk Polytechnic University"],
-    honors: "Honors", // GPA: 4.94/5.0
+    honors: "", // GPA: 4.94/5.0
     period: "Sep 2011 - Sep 2013",
     location: "Tomsk • Russia 🇷🇺",
     logo: "/education/universities/tpu.webp",
@@ -90,7 +94,64 @@ const CORE_EDUCATION_DATA = [
   },
 ];
 
-const ADDITIONAL_EDUCATION_DATA = [];
+const ADDITIONAL_EDUCATION_DATA = [
+  {
+    id: "visiting-phd-uol",
+    degree: "PhD Student in Computer Science",
+    field: "Machine Learning and Medical Image Analysis",
+    institution: "University of Leeds",
+    url: INSTITUTION_URLS["University of Leeds"],
+    period: "Jan 2019 - Aug 2019",
+    location: "Leeds • United Kingdom 🇬🇧",
+    logo: "/education/universities/uol.webp",
+    coreCourses: ["Machine learning and deep learning research"],
+  },
+  {
+    id: "visiting-phd-upm",
+    degree: "PhD Student in Data Science",
+    field: "Machine Learning for Biomedical Imaging",
+    institution: "Technical University of Madrid",
+    url: INSTITUTION_URLS["Technical University of Madrid"],
+    period: "Mar 2019 - Jul 2019",
+    location: "Madrid • Spain 🇪🇸",
+    logo: "/education/universities/upm.webp",
+    coreCourses: [
+      "Advanced methods in medical imaging",
+      "Predictive and descriptive learning",
+      "Data science foundations and applications",
+      "Machine Learning",
+    ],
+  },
+  {
+    id: "visiting-phd-uot",
+    degree: "PhD Student in Machine Learning",
+    field: "Pattern Recognition and Signal Processing",
+    institution: "University of Trento",
+    url: INSTITUTION_URLS["University of Trento"],
+    period: "Mar 2017 - Aug 2017",
+    location: "Trento • Italy 🇮🇹",
+    logo: "/education/universities/uot-white.webp",
+    coreCourses: [
+      "Recognition systems",
+      "Signal processing and pattern recognition",
+    ],
+  },
+  {
+    id: "visiting-msc-uol",
+    degree: "MSc Student in Robotics",
+    field: "Intelligent Systems and AI",
+    institution: "University of Lisbon",
+    url: INSTITUTION_URLS["University of Lisbon"],
+    period: "Jan 2013 - Aug 2013",
+    location: "Lisbon • Portugal 🇵🇹",
+    logo: "/education/universities/ist.webp",
+    coreCourses: [
+      "Robotics",
+      "Computer graphics",
+      "Natural language processing",
+    ],
+  },
+];
 const CERTIFICATIONS_DATA = [];
 
 export default function Education() {
