@@ -15,7 +15,7 @@ const CORE_EDUCATION_DATA = [
     field: "Applied Mathematics & Machine Learning",
     institution: "Tomsk Polytechnic University",
     url: INSTITUTION_URLS["Tomsk Polytechnic University"],
-    honors: "Summa Cum Laude",
+    honors: "Honors", // Summa Cum Laude
     period: "Sep 2015 - Sep 2020",
     location: "Tomsk • Russia 🇷🇺",
     logo: "/education/universities/tpu.webp",

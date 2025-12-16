@@ -10,11 +10,9 @@ import React, {
 import { AnimatePresence, motion } from "motion/react";
 import { GlowCard } from "@/components/ui/glow-card";
 import { Tab } from "@/components/ui/tab";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBook, faGraduationCap } from "@fortawesome/free-solid-svg-icons";
 import {
   CompanyLogo,
-  JobInfo,
   highlightKeywords,
   BulletPoint,
 } from "@/components/ExperienceCard";
@@ -121,7 +119,7 @@ const EducationCard = ({
         <div className="flex flex-col md:hidden mb-4 space-y-3 relative">
           {/* Honors Badge - Mobile (absolute positioning) */}
           {education.honors && (
-            <span className="absolute top-0 right-0 px-3 py-1 text-xs font-medium rounded-full border inline-flex items-center bg-yellow-500/10 text-yellow-500 border-yellow-500/20">
+            <span className="absolute top-0 right-0 px-3 py-1 text-xs font-medium rounded-full border inline-flex items-center bg-accent/7 text-accent border-accent/10">
               {education.honors}
             </span>
           )}
@@ -183,7 +181,7 @@ const EducationCard = ({
                 {education.degree}
               </h3>
               {education.honors && (
-                <span className="flex-shrink-0 px-3 py-1 text-xs font-medium rounded-full border inline-flex items-center bg-yellow-500/10 text-yellow-500 border-yellow-500/20">
+                <span className="flex-shrink-0 px-3 py-1 text-xs font-medium rounded-full border inline-flex items-center bg-accent/7 text-accent border-accent/10">
                   {education.honors}
                 </span>
               )}
