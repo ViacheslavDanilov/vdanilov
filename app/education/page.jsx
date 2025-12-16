@@ -46,10 +46,10 @@ export default function Education() {
               Core Education
             </h1>
             <p className="text-gray-400 mt-3 max-w-3xl mx-auto leading-relaxed">
-              My academic foundation includes a PhD in Computer Science, along
-              with a technical Master’s in engineering and a business-focused
-              Master’s in management, offering a balanced blend of technical and
-              strategic expertise.
+              Academic foundation combining a PhD in Computer Science, a
+              technical Master’s in engineering, and a business-focused Master’s
+              in management, offering a balanced blend of technical and
+              strategic expertise
             </p>
           </header>
 
@@ -70,10 +70,10 @@ export default function Education() {
               Additional Education
             </h1>
             <p className="text-gray-400 mt-3 max-w-3xl mx-auto leading-relaxed">
-              I have broadened my academic experience through various
-              international programs, including visiting PhD positions in the
-              UK, Spain, and Italy, deepening my expertise in machine learning,
-              big data, and biomedical applications.
+              Broadened academic experience through various international
+              programs, including visiting PhD positions in the UK, Spain, and
+              Italy, formatted to deepen expertise in machine learning, big
+              data, and biomedical applications
             </p>
           </header>
 
@@ -100,10 +100,9 @@ export default function Education() {
               Certifications
             </h1>
             <p className="text-gray-400 mt-3 max-w-3xl mx-auto leading-relaxed">
-              In addition to formal education, I hold certifications in computer
-              science, advanced data science, and machine learning, reinforcing
-              my commitment to continuous learning and practical skill
-              development in cutting-edge technologies.
+              Professional certifications in computer science, advanced data
+              science, and machine learning, reinforcing a commitment to
+              continuous learning and practical skill development
             </p>
           </header>
 
