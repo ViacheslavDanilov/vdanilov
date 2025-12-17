@@ -2,6 +2,7 @@
 
 import React, { useMemo } from "react";
 import EducationCard from "@/components/EducationCard";
+import CertificateCard from "@/components/CertificateCard";
 
 // Configuration Constants
 const INSTITUTION_URLS = {
@@ -152,12 +153,85 @@ const ADDITIONAL_EDUCATION_DATA = [
     ],
   },
 ];
-const CERTIFICATIONS_DATA = [];
+const CERTIFICATES_DATA = [
+  {
+    id: "meta-db-engineer",
+    title: "Database Engineer",
+    organization: "Meta",
+    date: "Nov 2023",
+    logo: "/education/certificates/meta.png",
+    url: "#", // Placeholder as requested
+  },
+  {
+    id: "jhu-web-dev",
+    title: "Web Development",
+    organization: "Johns Hopkins University",
+    date: "Sep 2023",
+    logo: "/education/certificates/jhu.png",
+    url: "https://coursera.org/verify/specialization/4TE0FF6R5JCB",
+  },
+  {
+    id: "skillshare-figma",
+    title: "Figma UI / UX Design",
+    organization: "Skillshare",
+    date: "Aug 2023",
+    logo: "/education/certificates/skillshare.png",
+    url: "https://coursera.org/verify/specialization/I4H76PVZN9Z2",
+  },
+  {
+    id: "scrimba-tailwind",
+    title: "Tailwind CSS",
+    organization: "Scrimba",
+    date: "Jul 2023",
+    logo: "/education/certificates/scrimba.png",
+    url: "https://coursera.org/verify/specialization/5UGXLV455V59",
+  },
+  {
+    id: "aws-ml-specialty",
+    title: "Machine Learning Specialty",
+    organization: "Amazon Web Services",
+    date: "Dec 2022",
+    logo: "/education/certificates/aws.png",
+    url: "https://www.udemy.com/certificate/UC-eb6e5170-fed4-42d1-b014-6186c4d5e23e/",
+  },
+  {
+    id: "mda-english",
+    title: "English Language",
+    organization: "MDA College",
+    date: "Jun 2019",
+    logo: "/education/certificates/mda.png",
+    url: "https://drive.google.com/file/d/1xgvnBmdxNRfj9ZeLHjnaOk5z4FLs_177/view?usp=sharing",
+  },
+  {
+    id: "tpu-cv",
+    title: "Computer Vision",
+    organization: "Tomsk Polytechnic University",
+    date: "May 2018",
+    logo: "/education/certificates/tpu.png",
+    url: "https://drive.google.com/open?id=17gZz3O2m8MVzWcSLr_c537VRYAEMkOhu",
+  },
+  {
+    id: "google-ml-specialty",
+    title: "Machine Learning Specialty",
+    organization: "Google",
+    date: "Jan 2024",
+    logo: "/education/certificates/google.png",
+    url: "https://drive.google.com/open?id=1_2BI1VgwfsmzPtYTeqCrIANK3SUvDiFe",
+  },
+  {
+    id: "google-digital-marketing",
+    title: "Digital Marketing",
+    organization: "Google",
+    date: "Mar 2021",
+    logo: "/education/certificates/google.png",
+    url: "https://drive.google.com/open?id=10O0Mt0r_lGgbyAYJyM64H84hHweFpRmH",
+  },
+];
 
 export default function Education() {
   const coreEducation = useMemo(() => CORE_EDUCATION_DATA, []);
   const additionalEducation = useMemo(() => ADDITIONAL_EDUCATION_DATA, []);
-  const certifications = useMemo(() => CERTIFICATIONS_DATA, []);
+  const certifications = useMemo(() => CERTIFICATES_DATA, []);
 
   return (
     <main className="min-h-screen pt-24">
@@ -230,12 +304,12 @@ export default function Education() {
           </header>
 
           <div
-            className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:items-start"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
             role="list"
           >
             {certifications.length > 0 ? (
               certifications.map((cert) => (
-                <EducationCard key={cert.id} education={cert} />
+                <CertificateCard key={cert.id} certificate={cert} />
               ))
             ) : (
               <p className="col-span-full text-center text-gray-500 italic">
