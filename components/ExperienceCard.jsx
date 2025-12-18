@@ -211,7 +211,7 @@ export const JobInfo = ({
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className="text-sm font-medium text-accent uppercase cursor-pointer mb-2 inline-block"
+      className="text-sm font-medium text-light md:hover:text-accent uppercase cursor-pointer mb-2 inline-block transition-colors"
       aria-label={`${company} website`}
     >
       {company}

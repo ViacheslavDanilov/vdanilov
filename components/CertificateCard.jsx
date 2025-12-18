@@ -62,9 +62,14 @@ const CertificateCard = ({
               />
             </a>
 
-            <div className="text-sm font-medium text-accent uppercase tracking-wider">
+            <a
+              href={certificate.organizationUrl || certificate.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-medium text-light md:hover:text-accent uppercase tracking-wider transition-colors cursor-pointer"
+            >
               {certificate.organization}
-            </div>
+            </a>
 
             {certificate.date && (
               <div className="text-sm text-gray-400">{certificate.date}</div>
@@ -111,9 +116,14 @@ const CertificateCard = ({
               />
             </a>
 
-            <div className="text-sm font-medium text-accent uppercase tracking-wider truncate">
+            <a
+              href={certificate.organizationUrl || certificate.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-medium text-light md:hover:text-accent uppercase tracking-wider transition-colors cursor-pointer truncate"
+            >
               {certificate.organization}
-            </div>
+            </a>
 
             {certificate.date && (
               <div className="text-sm text-gray-400">{certificate.date}</div>

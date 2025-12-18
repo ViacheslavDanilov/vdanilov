@@ -152,7 +152,7 @@ const EducationCard = ({
               href={education.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-medium text-accent uppercase cursor-pointer mb-2 inline-block"
+              className="text-sm font-medium text-light md:hover:text-accent uppercase cursor-pointer mb-2 inline-block transition-colors"
               aria-label={`${education.institution} website`}
             >
               {education.institution}
@@ -201,7 +201,7 @@ const EducationCard = ({
               href={education.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-medium text-accent uppercase cursor-pointer mb-2 inline-block"
+              className="text-sm font-medium text-light md:hover:text-accent uppercase cursor-pointer mb-2 inline-block transition-colors"
               aria-label={`${education.institution} website`}
             >
               {education.institution}
