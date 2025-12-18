@@ -128,7 +128,7 @@ const EXPERIENCES_DATA = [
         type: "Project Website",
       },
     ],
-    logoBrightness: 1.1,
+    logoBrightness: 1.0,
   },
   {
     id: "quantori-lead-ml",
