@@ -169,7 +169,7 @@ export const CompanyLogo = ({ logo, company, url, className = "" }) => (
     href={url}
     target="_blank"
     rel="noopener noreferrer"
-    className={`relative w-20 h-20 flex-shrink-0 rounded-2xl overflow-hidden border border-light/10 bg-card/50 cursor-pointer ${className}`}
+    className={`relative w-16 h-16 flex-shrink-0 rounded-2xl overflow-hidden border border-light/10 bg-card/50 cursor-pointer ${className}`}
     aria-label={`${company} website`}
   >
     <Image
@@ -177,7 +177,7 @@ export const CompanyLogo = ({ logo, company, url, className = "" }) => (
       alt={`${company} logo`}
       width={512}
       height={512}
-      className="object-contain p-2 rounded-2xl w-full h-full"
+      className="object-contain p-1 rounded-2xl w-full h-full"
       sizes="512px"
       quality={100}
       priority
