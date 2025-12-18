@@ -78,7 +78,7 @@ const CertificateCard = ({
         </div>
 
         {/* Desktop Layout */}
-        <div className="hidden md:flex flex-row items-center gap-5 h-full">
+        <div className="hidden md:flex flex-row items-start gap-5 h-full">
           {/* Logo */}
           <a
             href={certificate.organizationUrl || certificate.url}
