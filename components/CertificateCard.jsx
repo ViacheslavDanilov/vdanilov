@@ -26,7 +26,7 @@ const CertificateCard = ({
         {/* Mobile Layout */}
         <div className="flex flex-col md:hidden items-center gap-4 h-full justify-center">
           {/* Logo */}
-          <div className="relative w-16 h-16 flex-shrink-0 rounded-2xl overflow-hidden border border-light/10 bg-card/50 p-1 flex items-center justify-center">
+          <div className="relative w-16 h-16 flex-shrink-0 rounded-2xl overflow-hidden border border-light/10 bg-card/50 p-1 flex items-center justify-center transition-all duration-300 md:hover:scale-[1.03] md:hover:border-accent/30">
             <Image
               src={certificate.logo}
               alt={`${certificate.organization} logo`}
@@ -69,7 +69,7 @@ const CertificateCard = ({
         {/* Desktop Layout */}
         <div className="hidden md:flex flex-row items-center gap-5 h-full">
           {/* Logo */}
-          <div className="relative w-16 h-16 flex-shrink-0 rounded-2xl overflow-hidden border border-light/10 bg-card/50 p-1 flex items-center justify-center">
+          <div className="relative w-16 h-16 flex-shrink-0 rounded-2xl overflow-hidden border border-light/10 bg-card/50 p-1 flex items-center justify-center transition-all duration-300 md:hover:scale-[1.03] md:hover:border-accent/30">
             <Image
               src={certificate.logo}
               alt={`${certificate.organization} logo`}
