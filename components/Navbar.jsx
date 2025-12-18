@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { useRouter, usePathname } from "next/navigation";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { MenuToggleIcon } from "@/components/ui/menu-toggle-icon";
 import { AnimatePresence, motion } from "motion/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -49,24 +50,12 @@ const navItems = [
 ];
 
 function Navbar() {
-  const router = useRouter();
   const pathname = usePathname();
-  const [activeSection, setActiveSection] = useState("Home");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Update active section based on current route
-  useEffect(() => {
-    const activeItem = navItems.find((item) => item.href === pathname);
-    if (activeItem) {
-      setActiveSection(activeItem.label);
-    }
-  }, [pathname]);
-
-  // Navigation handler
-  const handleNavClick = (label, href) => {
-    setActiveSection(label); // Update active section immediately
-    router.push(href);
-    setIsMenuOpen(false); // Close mobile menu after navigation
+  // Close mobile menu after navigation
+  const handleNavClick = () => {
+    setIsMenuOpen(false);
   };
 
   // Close menu when clicking outside
@@ -86,9 +75,9 @@ function Navbar() {
       {/* Glassmorphism Pill Container */}
       <div className="flex items-center justify-between gap-8 px-6 lg:px-6 h-14 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 shadow-lg max-w-4xl w-full">
         {/* Logo */}
-        <button
-          onClick={() => router.push("/")}
-          className="inline-flex items-center gap-2 hover:brightness-125 hover:scale-[1.03] transition-all duration-200 origin-center cursor-pointer bg-transparent border-none flex-shrink-0"
+        <Link
+          href="/"
+          className="inline-flex items-center gap-2 hover:brightness-125 hover:scale-[1.03] transition-all duration-200 origin-center cursor-pointer flex-shrink-0"
           aria-label="Go to home page"
         >
           <img
@@ -96,16 +85,20 @@ function Navbar() {
             alt="Viacheslav Danilov"
             className="h-8 w-auto"
           />
-        </button>
+        </Link>
 
         {/* Desktop Navigation Links */}
-        <div className="hidden lg:flex items-center gap-1">
+        <div key={pathname} className="hidden lg:flex items-center gap-1">
           {navItems.map((item) => {
-            const isActive = item.label === activeSection;
+            const isActive =
+              item.href === "/"
+                ? pathname === "/"
+                : pathname.startsWith(item.href);
             return (
-              <button
+              <Link
                 key={item.label}
-                onClick={() => handleNavClick(item.label, item.href)}
+                href={item.href}
+                onClick={() => window.scrollTo(0, 0)}
                 className={`px-4 py-2 rounded-full text-md font-normal transition-all duration-300 cursor-pointer ${
                   isActive
                     ? "bg-accent/20 text-accent"
@@ -113,7 +106,7 @@ function Navbar() {
                 }`}
               >
                 {item.label}
-              </button>
+              </Link>
             );
           })}
         </div>
@@ -145,13 +138,16 @@ function Navbar() {
             <div className="px-6 py-4">
               <ul className="space-y-2">
                 {navItems.map((item) => {
-                  const isActive = item.label === activeSection;
+                  const isActive =
+                    item.href === "/"
+                      ? pathname === "/"
+                      : pathname.startsWith(item.href);
 
                   return (
                     <li key={item.label}>
-                      <button
-                        type="button"
-                        onClick={() => handleNavClick(item.label, item.href)}
+                      <Link
+                        href={item.href}
+                        onClick={handleNavClick}
                         className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all ${
                           isActive
                             ? "bg-accent/20 text-accent"
@@ -163,7 +159,7 @@ function Navbar() {
                           className={`w-5 h-5 ${isActive ? "text-accent" : ""}`}
                         />
                         <span className="font-normal">{item.label}</span>
-                      </button>
+                      </Link>
                     </li>
                   );
                 })}
