@@ -36,7 +36,7 @@ const COMPANY_URLS = {
 
 // --- COMPONENTS ---
 // Shared bullet point component
-const BulletPoint = () => (
+export const BulletPoint = () => (
   <div
     className="flex-shrink-0 w-2 h-2 rounded-full bg-accent mt-2"
     aria-hidden="true"
@@ -94,7 +94,7 @@ const HIGHLIGHT_CLASS =
   "inline-block bg-accent/10 text-accent font-semibold px-2 py-0.75 rounded-xl";
 
 // Helper to highlight keywords in a string
-function highlightKeywords(text) {
+export function highlightKeywords(text) {
   if (typeof text !== "string") return text;
   let result = [text];
   HIGHLIGHT_KEYWORDS.forEach((word) => {
@@ -164,12 +164,18 @@ const PublicationsList = ({ publications }) => (
 );
 
 // Company logo component
-const CompanyLogo = ({ logo, company, url, className = "" }) => (
+export const CompanyLogo = ({
+  logo,
+  company,
+  url,
+  className = "",
+  brightness = 1,
+}) => (
   <a
     href={url}
     target="_blank"
     rel="noopener noreferrer"
-    className={`relative w-20 h-20 flex-shrink-0 rounded-2xl overflow-hidden border border-light/10 bg-card/50 cursor-pointer ${className}`}
+    className={`relative w-16 h-16 flex-shrink-0 rounded-2xl overflow-hidden border border-light/10 bg-card/50 cursor-pointer transition-all duration-300 md:hover:scale-[1.03] md:hover:border-accent/30 ${className}`}
     aria-label={`${company} website`}
   >
     <Image
@@ -177,7 +183,8 @@ const CompanyLogo = ({ logo, company, url, className = "" }) => (
       alt={`${company} logo`}
       width={512}
       height={512}
-      className="object-contain p-2 rounded-2xl w-full h-full"
+      className="object-contain p-1 rounded-2xl w-full h-full"
+      style={{ filter: `brightness(${brightness})` }}
       sizes="512px"
       quality={100}
       priority
@@ -186,7 +193,7 @@ const CompanyLogo = ({ logo, company, url, className = "" }) => (
 );
 
 // Job info component
-const JobInfo = ({
+export const JobInfo = ({
   title,
   company,
   url,
@@ -196,21 +203,23 @@ const JobInfo = ({
   className = "",
   centered = false,
 }) => (
-  <div className={className}>
-    <h3 className="text-md font-bold uppercase tracking-wider text-light mb-2">
+  <div
+    className={`flex flex-col ${centered ? "items-center text-center" : "items-start text-left"} gap-2 ${className}`}
+  >
+    <h3 className="text-md font-bold uppercase tracking-wider text-light">
       {title}
     </h3>
     <a
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className="text-sm font-medium text-accent uppercase cursor-pointer mb-2 inline-block"
+      className="text-sm font-medium text-light md:hover:text-accent uppercase cursor-pointer transition-colors"
       aria-label={`${company} website`}
     >
       {company}
     </a>
     <div
-      className={`flex flex-wrap gap-2 text-xs md:text-sm text-gray-400 mb-2 ${centered ? "justify-center" : ""}`}
+      className={`flex flex-wrap gap-2 text-sm text-gray-400 ${centered ? "justify-center" : ""}`}
     >
       <time dateTime={period.split(" - ")[0]}>{period}</time>
       <span aria-hidden="true">•</span>
@@ -320,6 +329,7 @@ const ExperienceCard = ({
               logo={experience.logo}
               company={experience.company}
               url={COMPANY_URLS[experience.company]}
+              brightness={experience.logoBrightness}
             />
           </div>
           <JobInfo
@@ -340,6 +350,7 @@ const ExperienceCard = ({
             logo={experience.logo}
             company={experience.company}
             url={COMPANY_URLS[experience.company]}
+            brightness={experience.logoBrightness}
           />
           <div className="flex-1 flex items-start justify-between gap-4">
             <JobInfo

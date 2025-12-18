@@ -84,6 +84,7 @@ const EXPERIENCES_DATA = [
         type: "Blog Post",
       },
     ],
+    logoBrightness: 1.1,
   },
   {
     id: "upf-professor",
@@ -127,6 +128,7 @@ const EXPERIENCES_DATA = [
         type: "Project Website",
       },
     ],
+    logoBrightness: 1.0,
   },
   {
     id: "quantori-lead-ml",
@@ -170,6 +172,7 @@ const EXPERIENCES_DATA = [
         type: "Journal Article",
       },
     ],
+    logoBrightness: 1.0,
   },
   {
     id: "polimi-research-scientist",
@@ -203,6 +206,7 @@ const EXPERIENCES_DATA = [
         type: "ERC Grant",
       },
     ],
+    logoBrightness: 1.1,
   },
   {
     id: "intelerad-senior-ml",
@@ -222,6 +226,7 @@ const EXPERIENCES_DATA = [
       "Implementing the CRAFT (Character-Region Awareness) text detector",
     ],
     publications: [],
+    logoBrightness: 1.0,
   },
   {
     id: "tpu-research-scientist",
@@ -270,6 +275,7 @@ const EXPERIENCES_DATA = [
         type: "Journal Article",
       },
     ],
+    logoBrightness: 1.1,
   },
   {
     id: "sibur-process-control",
@@ -286,6 +292,7 @@ const EXPERIENCES_DATA = [
       "Maintenance and repair of measurement devices, as well as automated process control systems such as Siemens S300/400, Yokogawa Centum, Numerik PS2000 and Remicont",
     ],
     publications: [],
+    logoBrightness: 1.0,
   },
 ];
 
@@ -298,7 +305,7 @@ const VISITING_ROLES_DATA = [
     type: "Visiting",
     category: "research",
     startDate: "2025-03-01",
-    endDate: "2025-03-01",
+    endDate: "2025-04-01",
     location: "Paris • France 🇫🇷",
     logo: "/experience/visiting-roles/sorbonne.webp",
     responsibilities: [
@@ -314,6 +321,7 @@ const VISITING_ROLES_DATA = [
         type: "Certificate",
       },
     ],
+    logoBrightness: 1.1,
   },
   {
     id: "leeds-research-fellow",
@@ -348,6 +356,7 @@ const VISITING_ROLES_DATA = [
         type: "Conference Paper",
       },
     ],
+    logoBrightness: 1.1,
   },
   {
     id: "upm-research-fellow",
@@ -383,6 +392,7 @@ const VISITING_ROLES_DATA = [
         type: "Conference Paper",
       },
     ],
+    logoBrightness: 1.0,
   },
   {
     id: "trento-research-fellow",
@@ -417,6 +427,7 @@ const VISITING_ROLES_DATA = [
         type: "Journal Article",
       },
     ],
+    logoBrightness: 1.1,
   },
 ];
 
@@ -445,7 +456,7 @@ export default function Experience() {
 
   return (
     <main className="min-h-screen pt-24">
-      <div className="flex flex-col items-center pt-12 md:pt-36 gap-12 pb-32">
+      <div className="flex flex-col items-center pt-12 md:pt-24 gap-12 pb-32">
         <section className="w-full max-w-7xl mx-auto px-6">
           <header className="mb-12 text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-light mb-4">
