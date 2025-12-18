@@ -26,7 +26,7 @@ const CertificateCard = ({
         {/* Mobile Layout */}
         <div className="flex flex-col md:hidden items-center gap-4 h-full justify-center">
           {/* Logo */}
-          <div className="relative w-24 h-24 flex-shrink-0 rounded-2xl overflow-hidden border border-light/10 bg-card/50 p-3 flex items-center justify-center">
+          <div className="relative w-20 h-20 flex-shrink-0 rounded-2xl overflow-hidden border border-light/10 bg-card/50 p-2 flex items-center justify-center">
             <Image
               src={certificate.logo}
               alt={`${certificate.organization} logo`}
