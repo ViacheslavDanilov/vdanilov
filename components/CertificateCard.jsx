@@ -11,7 +11,7 @@ const CertificateCard = ({
   enableSpotlight = true,
   enableBorderGlow = true,
   glowColor = "blue",
-  spotlightSize = 300,
+  spotlightSize = 180,
 }) => {
   return (
     <article className="h-full w-full">
@@ -26,7 +26,13 @@ const CertificateCard = ({
         {/* Mobile Layout */}
         <div className="flex flex-col md:hidden items-center gap-4 h-full justify-center">
           {/* Logo */}
-          <div className="relative w-16 h-16 flex-shrink-0 rounded-2xl overflow-hidden border border-light/10 bg-card/50 p-1 flex items-center justify-center transition-all duration-300 md:hover:scale-[1.03] md:hover:border-accent/30">
+          <a
+            href={certificate.organizationUrl || certificate.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative w-16 h-16 flex-shrink-0 rounded-2xl overflow-hidden border border-light/10 bg-card/50 p-1 flex items-center justify-center transition-all duration-300 md:hover:scale-[1.03] md:hover:border-accent/30"
+            aria-label={`${certificate.organization} website`}
+          >
             <Image
               src={certificate.logo}
               alt={`${certificate.organization} logo`}
@@ -37,7 +43,7 @@ const CertificateCard = ({
                 filter: `brightness(${certificate.logoBrightness || 1})`,
               }}
             />
-          </div>
+          </a>
 
           {/* Content */}
           <div className="flex flex-col gap-1.5 items-center text-center">
@@ -69,7 +75,13 @@ const CertificateCard = ({
         {/* Desktop Layout */}
         <div className="hidden md:flex flex-row items-center gap-5 h-full">
           {/* Logo */}
-          <div className="relative w-16 h-16 flex-shrink-0 rounded-2xl overflow-hidden border border-light/10 bg-card/50 p-1 flex items-center justify-center transition-all duration-300 md:hover:scale-[1.03] md:hover:border-accent/30">
+          <a
+            href={certificate.organizationUrl || certificate.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative w-16 h-16 flex-shrink-0 rounded-2xl overflow-hidden border border-light/10 bg-card/50 p-1 flex items-center justify-center transition-all duration-300 md:hover:scale-[1.03] md:hover:border-accent/30"
+            aria-label={`${certificate.organization} website`}
+          >
             <Image
               src={certificate.logo}
               alt={`${certificate.organization} logo`}
@@ -80,7 +92,7 @@ const CertificateCard = ({
                 filter: `brightness(${certificate.logoBrightness || 1})`,
               }}
             />
-          </div>
+          </a>
 
           {/* Content */}
           <div className="flex-1 min-w-0 flex flex-col gap-1 justify-center">

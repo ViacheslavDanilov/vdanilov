@@ -169,6 +169,8 @@ const CERTIFICATES_DATA = [
     date: "Feb 2026",
     logo: "/education/certificates/meta.png",
     url: "#", // Placeholder
+    organizationUrl:
+      "https://certifications.facebookblueprint.com/student/catalog",
     logoBrightness: 1.0,
   },
   {
@@ -178,6 +180,7 @@ const CERTIFICATES_DATA = [
     date: "Oct 2025",
     logo: "/education/certificates/skillshare.png",
     url: "https://coursera.org/verify/specialization/I4H76PVZN9Z2",
+    organizationUrl: "https://www.skillshare.com/",
     logoBrightness: 1.1,
   },
   {
@@ -187,6 +190,7 @@ const CERTIFICATES_DATA = [
     date: "Oct 2025",
     logo: "/education/certificates/scrimba.png",
     url: "https://coursera.org/verify/specialization/5UGXLV455V59",
+    organizationUrl: "https://scrimba.com/",
     logoBrightness: 1.0,
   },
   {
@@ -196,6 +200,7 @@ const CERTIFICATES_DATA = [
     date: "Sep 2025",
     logo: "/education/certificates/jhu.png",
     url: "https://coursera.org/verify/specialization/4TE0FF6R5JCB",
+    organizationUrl: "https://www.jhu.edu/",
     logoBrightness: 1.1,
   },
   {
@@ -205,6 +210,7 @@ const CERTIFICATES_DATA = [
     date: "Sep 2021",
     logo: "/education/certificates/aws.png",
     url: "https://www.udemy.com/certificate/UC-eb6e5170-fed4-42d1-b014-6186c4d5e23e/",
+    organizationUrl: "https://aws.amazon.com/certification/",
     logoBrightness: 1.1,
   },
   {
@@ -214,6 +220,7 @@ const CERTIFICATES_DATA = [
     date: "Sep 2019",
     logo: "/education/certificates/tpu.png",
     url: "https://drive.google.com/open?id=17gZz3O2m8MVzWcSLr_c537VRYAEMkOhu",
+    organizationUrl: "https://tpu.ru/en/",
     logoBrightness: 1.1,
   },
   {
@@ -223,6 +230,7 @@ const CERTIFICATES_DATA = [
     date: "Jul 2019",
     logo: "/education/certificates/mda.png",
     url: "https://drive.google.com/file/d/1xgvnBmdxNRfj9ZeLHjnaOk5z4FLs_177/view?usp=sharing",
+    organizationUrl: "https://takeielts.britishcouncil.org/mda-college/",
     logoBrightness: 1.1,
   },
   {
@@ -232,6 +240,7 @@ const CERTIFICATES_DATA = [
     date: "Sep 2018",
     logo: "/education/certificates/google.png",
     url: "https://drive.google.com/open?id=10O0Mt0r_lGgbyAYJyM64H84hHweFpRmH",
+    organizationUrl: "https://developers.google.com/",
     logoBrightness: 1.1,
   },
   {
@@ -241,6 +250,7 @@ const CERTIFICATES_DATA = [
     date: "Aug 2018",
     logo: "/education/certificates/google.png",
     url: "https://drive.google.com/open?id=1_2BI1VgwfsmzPtYTeqCrIANK3SUvDiFe",
+    organizationUrl: "https://developers.google.com/",
     logoBrightness: 1.1,
   },
 ];
