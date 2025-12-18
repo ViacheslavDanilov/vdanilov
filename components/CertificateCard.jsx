@@ -33,6 +33,9 @@ const CertificateCard = ({
               width={128}
               height={128}
               className="w-full h-full object-contain rounded-xl"
+              style={{
+                filter: `brightness(${certificate.logoBrightness || 1})`,
+              }}
             />
           </div>
 
@@ -73,6 +76,9 @@ const CertificateCard = ({
               width={128}
               height={128}
               className="w-full h-full object-contain rounded-xl"
+              style={{
+                filter: `brightness(${certificate.logoBrightness || 1})`,
+              }}
             />
           </div>
 

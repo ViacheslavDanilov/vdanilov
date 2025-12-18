@@ -32,6 +32,7 @@ const CORE_EDUCATION_DATA = [
     ],
     thesis:
       "Methods and algorithms for medical image segmentation based on machine learning",
+    logoBrightness: 1.1,
   },
   {
     id: "msc-tpu",
@@ -52,6 +53,7 @@ const CORE_EDUCATION_DATA = [
     ],
     thesis:
       "Development of a stabilisation system for a tethered underwater vehicle",
+    logoBrightness: 1.1,
   },
   {
     id: "msc-tsu",
@@ -72,6 +74,7 @@ const CORE_EDUCATION_DATA = [
     ],
     thesis:
       "Development of the optimal financial strategy for the organization",
+    logoBrightness: 1.3,
   },
   {
     id: "bsc-tpu",
@@ -92,6 +95,7 @@ const CORE_EDUCATION_DATA = [
     ],
     thesis:
       "Development of emergency protection for the catalyst dosing unit in propylene polymerization reactors",
+    logoBrightness: 1.1,
   },
 ];
 
@@ -106,6 +110,7 @@ const ADDITIONAL_EDUCATION_DATA = [
     location: "Leeds • United Kingdom 🇬🇧",
     logo: "/education/universities/uol.webp",
     coreCourses: ["Machine learning and deep learning research"],
+    logoBrightness: 1.1,
   },
   {
     id: "visiting-phd-upm",
@@ -122,6 +127,7 @@ const ADDITIONAL_EDUCATION_DATA = [
       "Data science foundations and applications",
       "Machine Learning",
     ],
+    logoBrightness: 1.0,
   },
   {
     id: "visiting-phd-uot",
@@ -136,6 +142,7 @@ const ADDITIONAL_EDUCATION_DATA = [
       "Recognition systems",
       "Signal processing and pattern recognition",
     ],
+    logoBrightness: 1.1,
   },
   {
     id: "visiting-msc-uol",
@@ -151,6 +158,7 @@ const ADDITIONAL_EDUCATION_DATA = [
       "Computer graphics",
       "Natural language processing",
     ],
+    logoBrightness: 1.1,
   },
 ];
 const CERTIFICATES_DATA = [
@@ -161,6 +169,7 @@ const CERTIFICATES_DATA = [
     date: "Feb 2026",
     logo: "/education/certificates/meta.png",
     url: "#", // Placeholder
+    logoBrightness: 1.0,
   },
   {
     id: "skillshare-figma",
@@ -169,6 +178,7 @@ const CERTIFICATES_DATA = [
     date: "Oct 2025",
     logo: "/education/certificates/skillshare.png",
     url: "https://coursera.org/verify/specialization/I4H76PVZN9Z2",
+    logoBrightness: 1.1,
   },
   {
     id: "scrimba-tailwind",
@@ -177,6 +187,7 @@ const CERTIFICATES_DATA = [
     date: "Oct 2025",
     logo: "/education/certificates/scrimba.png",
     url: "https://coursera.org/verify/specialization/5UGXLV455V59",
+    logoBrightness: 1.0,
   },
   {
     id: "jhu-web-dev",
@@ -185,6 +196,7 @@ const CERTIFICATES_DATA = [
     date: "Sep 2025",
     logo: "/education/certificates/jhu.png",
     url: "https://coursera.org/verify/specialization/4TE0FF6R5JCB",
+    logoBrightness: 1.1,
   },
   {
     id: "aws-ml-specialty",
@@ -193,6 +205,7 @@ const CERTIFICATES_DATA = [
     date: "Sep 2021",
     logo: "/education/certificates/aws.png",
     url: "https://www.udemy.com/certificate/UC-eb6e5170-fed4-42d1-b014-6186c4d5e23e/",
+    logoBrightness: 1.1,
   },
   {
     id: "tpu-cv",
@@ -201,6 +214,7 @@ const CERTIFICATES_DATA = [
     date: "Sep 2019",
     logo: "/education/certificates/tpu.png",
     url: "https://drive.google.com/open?id=17gZz3O2m8MVzWcSLr_c537VRYAEMkOhu",
+    logoBrightness: 1.1,
   },
   {
     id: "mda-english",
@@ -209,6 +223,7 @@ const CERTIFICATES_DATA = [
     date: "Jul 2019",
     logo: "/education/certificates/mda.png",
     url: "https://drive.google.com/file/d/1xgvnBmdxNRfj9ZeLHjnaOk5z4FLs_177/view?usp=sharing",
+    logoBrightness: 1.1,
   },
   {
     id: "google-digital-marketing",
@@ -217,6 +232,7 @@ const CERTIFICATES_DATA = [
     date: "Sep 2018",
     logo: "/education/certificates/google.png",
     url: "https://drive.google.com/open?id=10O0Mt0r_lGgbyAYJyM64H84hHweFpRmH",
+    logoBrightness: 1.1,
   },
   {
     id: "google-ml-specialty",
@@ -225,6 +241,7 @@ const CERTIFICATES_DATA = [
     date: "Aug 2018",
     logo: "/education/certificates/google.png",
     url: "https://drive.google.com/open?id=1_2BI1VgwfsmzPtYTeqCrIANK3SUvDiFe",
+    logoBrightness: 1.1,
   },
 ];
 

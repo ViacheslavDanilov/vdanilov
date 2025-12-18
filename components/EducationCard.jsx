@@ -128,6 +128,7 @@ const EducationCard = ({
               logo={education.logo}
               company={education.institution}
               url={education.url}
+              brightness={education.logoBrightness}
             />
           </div>
 
@@ -173,6 +174,7 @@ const EducationCard = ({
             logo={education.logo}
             company={education.institution}
             url={education.url}
+            brightness={education.logoBrightness}
           />
           <div className="flex-1">
             {/* Row 1: Degree + Badge */}

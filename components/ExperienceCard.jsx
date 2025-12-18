@@ -164,7 +164,13 @@ const PublicationsList = ({ publications }) => (
 );
 
 // Company logo component
-export const CompanyLogo = ({ logo, company, url, className = "" }) => (
+export const CompanyLogo = ({
+  logo,
+  company,
+  url,
+  className = "",
+  brightness = 1,
+}) => (
   <a
     href={url}
     target="_blank"
@@ -178,6 +184,7 @@ export const CompanyLogo = ({ logo, company, url, className = "" }) => (
       width={512}
       height={512}
       className="object-contain p-1 rounded-2xl w-full h-full"
+      style={{ filter: `brightness(${brightness})` }}
       sizes="512px"
       quality={100}
       priority
@@ -320,6 +327,7 @@ const ExperienceCard = ({
               logo={experience.logo}
               company={experience.company}
               url={COMPANY_URLS[experience.company]}
+              brightness={experience.logoBrightness}
             />
           </div>
           <JobInfo
@@ -340,6 +348,7 @@ const ExperienceCard = ({
             logo={experience.logo}
             company={experience.company}
             url={COMPANY_URLS[experience.company]}
+            brightness={experience.logoBrightness}
           />
           <div className="flex-1 flex items-start justify-between gap-4">
             <JobInfo
