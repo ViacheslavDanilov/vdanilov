@@ -270,10 +270,9 @@ export default function Education() {
               Core Education
             </h1>
             <p className="text-gray-400 mt-3 max-w-3xl mx-auto leading-relaxed">
-              Academic foundation combining a PhD in Computer Science, a
-              technical Master’s in engineering, and a business-focused Master’s
-              in management, offering a balanced blend of technical and
-              strategic expertise
+              Academic foundation combining a PhD in Computer Science, technical
+              Master's in engineering, and business Master's in management,
+              offering a blend of technical and strategic expertise
             </p>
           </header>
 
