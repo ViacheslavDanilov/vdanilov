@@ -90,6 +90,7 @@ const LogoGrid = () => {
                 src={logo.src}
                 alt={logo.name}
                 fill
+                sizes="512px"
                 className="object-contain"
               />
             </Link>
