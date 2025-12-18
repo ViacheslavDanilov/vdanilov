@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { MenuToggleIcon } from "@/components/ui/menu-toggle-icon";
 import { AnimatePresence, motion } from "motion/react";
@@ -80,11 +81,15 @@ function Navbar() {
           className="inline-flex items-center gap-2 hover:brightness-125 hover:scale-[1.03] transition-all duration-200 origin-center cursor-pointer flex-shrink-0"
           aria-label="Go to home page"
         >
-          <img
-            src="/logo.png"
-            alt="Viacheslav Danilov"
-            className="h-8 w-auto"
-          />
+          <div className="relative h-10 w-10">
+            <Image
+              src="/logo.png"
+              alt="Viacheslav Danilov"
+              fill
+              sizes="512px"
+              className="object-contain"
+            />
+          </div>
         </Link>
 
         {/* Desktop Navigation Links */}
