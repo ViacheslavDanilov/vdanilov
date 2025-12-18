@@ -203,21 +203,23 @@ export const JobInfo = ({
   className = "",
   centered = false,
 }) => (
-  <div className={className}>
-    <h3 className="text-md font-bold uppercase tracking-wider text-light mb-2">
+  <div
+    className={`flex flex-col ${centered ? "items-center text-center" : "items-start text-left"} gap-2 ${className}`}
+  >
+    <h3 className="text-md font-bold uppercase tracking-wider text-light">
       {title}
     </h3>
     <a
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className="text-sm font-medium text-light md:hover:text-accent uppercase cursor-pointer mb-2 inline-block transition-colors"
+      className="text-sm font-medium text-light md:hover:text-accent uppercase cursor-pointer transition-colors"
       aria-label={`${company} website`}
     >
       {company}
     </a>
     <div
-      className={`flex flex-wrap gap-2 text-sm text-gray-400 mb-2 ${centered ? "justify-center" : ""}`}
+      className={`flex flex-wrap gap-2 text-sm text-gray-400 ${centered ? "justify-center" : ""}`}
     >
       <time dateTime={period.split(" - ")[0]}>{period}</time>
       <span aria-hidden="true">•</span>

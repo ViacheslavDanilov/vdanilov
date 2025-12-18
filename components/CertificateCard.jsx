@@ -46,7 +46,7 @@ const CertificateCard = ({
           </a>
 
           {/* Content */}
-          <div className="flex flex-col gap-1.5 items-center text-center">
+          <div className="flex flex-col gap-2 items-center text-center">
             <a
               href={certificate.url}
               target="_blank"
@@ -100,7 +100,7 @@ const CertificateCard = ({
           </a>
 
           {/* Content */}
-          <div className="flex-1 min-w-0 flex flex-col gap-1 justify-center">
+          <div className="flex-1 min-w-0 flex flex-col gap-2 justify-center">
             <a
               href={certificate.url}
               target="_blank"

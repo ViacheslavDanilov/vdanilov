@@ -132,34 +132,32 @@ const EducationCard = ({
             />
           </div>
 
-          <div className="text-center">
+          <div className="text-center flex flex-col items-center gap-2">
             {/* Degree Only (Badge is absolute) */}
-            <div className="flex flex-col items-center gap-2 mb-2">
-              <h3 className="text-md font-bold uppercase tracking-wider text-light">
-                {education.degree}
-              </h3>
-            </div>
-
-            {/* Field */}
-            {education.field && (
-              <div className="text-sm text-gray-400 font-medium normal-case mb-2">
-                {education.field}
-              </div>
-            )}
+            <h3 className="text-md font-bold uppercase tracking-wider text-light">
+              {education.degree}
+            </h3>
 
             {/* University */}
             <a
               href={education.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-medium text-light md:hover:text-accent uppercase cursor-pointer mb-2 inline-block transition-colors"
+              className="text-sm font-medium text-light md:hover:text-accent uppercase cursor-pointer transition-colors"
               aria-label={`${education.institution} website`}
             >
               {education.institution}
             </a>
 
+            {/* Field */}
+            {education.field && (
+              <div className="text-sm text-gray-400 font-medium normal-case">
+                {education.field}
+              </div>
+            )}
+
             {/* Metadata */}
-            <div className="flex flex-wrap gap-2 text-sm text-gray-400 justify-center mb-2">
+            <div className="flex flex-wrap gap-2 text-sm text-gray-400 justify-center">
               <time dateTime={education.period.split(" - ")[0]}>
                 {education.period}
               </time>
@@ -176,9 +174,9 @@ const EducationCard = ({
             url={education.url}
             brightness={education.logoBrightness}
           />
-          <div className="flex-1">
+          <div className="flex-1 flex flex-col gap-2">
             {/* Row 1: Degree + Badge */}
-            <div className="flex justify-between items-start gap-4 mb-2">
+            <div className="flex justify-between items-start gap-4">
               <h3 className="text-md font-bold uppercase tracking-wider text-light">
                 {education.degree}
               </h3>
@@ -189,26 +187,26 @@ const EducationCard = ({
               )}
             </div>
 
-            {/* Row 2: Field */}
-            {education.field && (
-              <div className="text-sm text-gray-400 font-medium normal-case mb-2">
-                {education.field}
-              </div>
-            )}
-
-            {/* Row 3: University */}
+            {/* Row 2: University */}
             <a
               href={education.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-medium text-light md:hover:text-accent uppercase cursor-pointer mb-2 inline-block transition-colors"
+              className="text-sm font-medium text-light md:hover:text-accent uppercase cursor-pointer transition-colors"
               aria-label={`${education.institution} website`}
             >
               {education.institution}
             </a>
 
+            {/* Row 3: Field */}
+            {education.field && (
+              <div className="text-sm text-gray-400 font-medium normal-case">
+                {education.field}
+              </div>
+            )}
+
             {/* Row 4: Metadata */}
-            <div className="flex flex-wrap gap-2 text-sm text-gray-400 mb-2">
+            <div className="flex flex-wrap gap-2 text-sm text-gray-400">
               <time dateTime={education.period.split(" - ")[0]}>
                 {education.period}
               </time>
