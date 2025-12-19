@@ -8,9 +8,27 @@ const JOURNAL_ARTICLES = [
   {
     id: "journal-1",
     title:
+      "Segmentation and quantification of atherosclerotic plaques in optical coherence tomography",
+    venue: "Computers in Biology and Medicine",
+    year: "2025",
+    url: "https://doi.org/10.1016/j.compbiomed.2025.111061",
+    type: "Journal Article",
+    tags: ["Computer Vision", "Medical Imaging", "Deep Learning"],
+  },
+  {
+    id: "journal-2",
+    title:
+      "Optimized aortic root segmentation during transcatheter aortic valve implantation",
+    venue: "Frontiers in Cardiovascular Medicine",
+    year: "2025",
+    url: "https://doi.org/10.3389/fcvm.2025.1602780",
+    type: "Journal Article",
+    tags: ["Segmentation", "Medical Imaging", "Cardiology"],
+  },
+  {
+    id: "journal-3",
+    title:
       "Advancing laser ablation assessment in hyperspectral imaging through machine learning",
-    authors:
-      "V. Danilov, D. Giakoumettis, A. Bano, M. Suhling, A. Mattos, A. Bano, A. Ostler, P. Jannin, A. Hostettler",
     venue: "Computers in Biology and Medicine",
     year: "2024",
     url: "https://doi.org/10.1016/j.compbiomed.2024.108849",
@@ -18,16 +36,112 @@ const JOURNAL_ARTICLES = [
     tags: ["Machine Learning", "Hyperspectral Imaging", "Medical Imaging"],
   },
   {
-    id: "journal-2",
+    id: "journal-4",
+    title:
+      "ML-driven segmentation of microvascular features during histological examination of tissue-engineered vascular grafts",
+    venue: "Frontiers in Bioengineering and Biotechnology",
+    year: "2024",
+    url: "https://doi.org/10.3389/fbioe.2024.1411680",
+    type: "Journal Article",
+    tags: ["Machine Learning", "Bioengineering", "Histology"],
+  },
+  {
+    id: "journal-5",
     title:
       "Explainable AI to identify radiographic features of pulmonary edema",
-    authors:
-      "V. Danilov, D. Proutski, A. Kirillova, D. Klyuev, Y. Gankin, A. Blokhin, M. Goncharov, I. Gombolevskiy",
     venue: "Radiology Advances",
     year: "2024",
     url: "https://doi.org/10.1093/radadv/umae003",
     type: "Journal Article",
     tags: ["Explainable AI", "Radiology", "Deep Learning"],
+  },
+  {
+    id: "journal-6",
+    title:
+      "Perfect prosthetic heart valve: Generative design with machine learning, modeling, and optimization",
+    venue: "Frontiers in Bioengineering and Biotechnology",
+    year: "2023",
+    url: "https://doi.org/10.3389/fbioe.2023.1238130",
+    type: "Journal Article",
+    tags: ["Generative Design", "Optimization", "Biomedical Engineering"],
+  },
+  {
+    id: "journal-7",
+    title: "Use of semi-synthetic data for catheter segmentation improvement",
+    venue: "Computerized Medical Imaging and Graphics",
+    year: "2023",
+    url: "https://doi.org/10.1016/j.compmedimag.2023.102188",
+    type: "Journal Article",
+    tags: ["Data Augmentation", "Medical Imaging", "Segmentation"],
+  },
+  {
+    id: "journal-8",
+    title:
+      "Cardiovascular and renal comorbidities included into neural networks predict the outcome in COVID-19 patients admitted to an intensive care unit",
+    venue: "Journal of Cardiovascular Development and Disease",
+    year: "2023",
+    url: "https://doi.org/10.3390/jcdd10020039",
+    type: "Journal Article",
+    tags: ["Neural Networks", "COVID-19", "Clinical Prediction"],
+  },
+  {
+    id: "journal-9",
+    title:
+      "FABRIKx: Tackling the inverse kinematics problem of continuum robots with variable curvature",
+    venue: "Robotics",
+    year: "2022",
+    url: "https://doi.org/10.3390/robotics11060128",
+    type: "Journal Article",
+    tags: ["Robotics", "Inverse Kinematics", "Algorithms"],
+  },
+  {
+    id: "journal-10",
+    title:
+      "Automatic scoring of COVID-19 severity in X-ray imaging based on a novel deep learning workflow",
+    venue: "Scientific Reports",
+    year: "2022",
+    url: "https://doi.org/10.1038/s41598-022-15013-z",
+    type: "Journal Article",
+    tags: ["Deep Learning", "COVID-19", "Medical Imaging"],
+  },
+  {
+    id: "journal-11",
+    title:
+      "Indirect supervision applied to COVID-19 and pneumonia classification",
+    venue: "Informatics in Medicine Unlocked",
+    year: "2022",
+    url: "https://doi.org/10.1016/j.imu.2021.100835",
+    type: "Journal Article",
+    tags: ["Weakly Supervised Learning", "COVID-19", "Classification"],
+  },
+  {
+    id: "journal-12",
+    title:
+      "Aortography keypoint tracking for transcatheter aortic valve implantation based on multi-task learning",
+    venue: "Frontiers in Cardiovascular Medicine",
+    year: "2021",
+    url: "https://doi.org/10.3389/fcvm.2021.697737",
+    type: "Journal Article",
+    tags: ["Multi-Task Learning", "Medical Imaging", "Keypoint Detection"],
+  },
+  {
+    id: "journal-13",
+    title:
+      "Real-time coronary artery stenosis detection based on modern neural networks",
+    venue: "Scientific Reports",
+    year: "2021",
+    url: "https://doi.org/10.1038/s41598-021-87174-2",
+    type: "Journal Article",
+    tags: ["Real-Time Detection", "Neural Networks", "Cardiology"],
+  },
+  {
+    id: "journal-14",
+    title: "Feature selection algorithm based on PDF/PMF area difference",
+    venue: "Biomedical Signal Processing and Control",
+    year: "2020",
+    url: "https://doi.org/10.1016/j.bspc.2019.101681",
+    type: "Journal Article",
+    tags: ["Feature Selection", "Signal Processing", "Algorithms"],
   },
 ];
 
