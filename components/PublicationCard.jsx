@@ -3,7 +3,7 @@
 import React from "react";
 import { GlowCard } from "@/components/ui/glow-card";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faExternalLink } from "@fortawesome/free-solid-svg-icons";
+import { faAngleRight, faAnglesRight } from "@fortawesome/free-solid-svg-icons";
 
 /**
  * Minimalistic publication card component
@@ -14,7 +14,7 @@ const PublicationCard = ({
   enableSpotlight = true,
   enableBorderGlow = true,
   glowColor = "blue",
-  spotlightSize = 300,
+  spotlightSize = 240,
 }) => {
   const { title, authors, venue, year, url, type, tags } = publication;
 
@@ -23,53 +23,60 @@ const PublicationCard = ({
       <GlowCard
         glowColor={glowColor}
         customSize={true}
-        className="w-full h-full p-5 group"
+        className="w-full h-full p-5 group relative"
         enableSpotlight={enableSpotlight}
         enableBorderGlow={enableBorderGlow}
         spotlightSize={spotlightSize}
       >
-        <div className="flex flex-col gap-3">
-          {/* Type Badge */}
-          {type && (
-            <div className="flex items-center justify-between">
-              <span className="px-3 py-1 text-xs font-medium rounded-full bg-accent/7 text-accent/80 border border-accent/10">
-                {type}
-              </span>
-              {year && (
-                <span className="text-sm text-gray-400 font-medium">
-                  {year}
-                </span>
-              )}
-            </div>
-          )}
+        {/* Type Badge - Top Right Corner */}
+        {type && (
+          <span className="absolute top-5 right-5 px-3 py-1 text-xs font-medium rounded-full bg-accent/7 text-accent/80 border border-accent/10">
+            {type}
+          </span>
+        )}
 
+        <div className="flex flex-col gap-3">
           {/* Title */}
           {url ? (
             <a
               href={url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group/link"
+              className="group/link pr-28"
             >
-              <h3 className="text-base font-semibold text-light leading-snug group-hover/link:text-accent transition-colors flex items-start gap-2">
-                <span className="flex-1">{title}</span>
-                <FontAwesomeIcon
-                  icon={faExternalLink}
-                  className="w-3.5 h-3.5 mt-1 opacity-60 group-hover/link:opacity-100 transition-opacity flex-shrink-0"
-                  style={{ width: "0.875rem", height: "0.875rem" }}
-                  aria-hidden="true"
-                />
+              <h3 className="text-base font-semibold text-light leading-snug group-hover/link:text-accent transition-colors inline">
+                {title}
+                <span className="relative inline-flex items-center justify-center w-3 h-3 ml-1.5">
+                  <FontAwesomeIcon
+                    icon={faAngleRight}
+                    className="absolute w-3 h-3 opacity-60 transition-opacity duration-300 group-hover/link:opacity-0"
+                    aria-hidden="true"
+                  />
+                  <FontAwesomeIcon
+                    icon={faAnglesRight}
+                    className="absolute w-3 h-3 opacity-0 transition-opacity duration-300 group-hover/link:opacity-60"
+                    aria-hidden="true"
+                  />
+                </span>
               </h3>
             </a>
           ) : (
-            <h3 className="text-base font-semibold text-light leading-snug">
+            <h3 className="text-base font-semibold text-light leading-snug pr-28">
               {title}
             </h3>
           )}
 
-          {/* Venue */}
+          {/* Venue and Year */}
           {venue && (
-            <p className="text-sm text-gray-300 font-medium italic">{venue}</p>
+            <div className="flex items-center gap-2 text-sm text-gray-300">
+              <p className="font-medium italic">{venue}</p>
+              {year && (
+                <>
+                  <span className="text-gray-500">•</span>
+                  <span className="font-medium text-gray-400">{year}</span>
+                </>
+              )}
+            </div>
           )}
 
           {/* Tags */}

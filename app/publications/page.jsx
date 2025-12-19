@@ -12,7 +12,7 @@ const JOURNAL_ARTICLES = [
     venue: "Computers in Biology and Medicine",
     year: "2025",
     url: "https://doi.org/10.1016/j.compbiomed.2025.111061",
-    type: "Journal Article",
+    type: "Journal",
     tags: ["Computer Vision", "Medical Imaging", "Deep Learning"],
   },
   {
@@ -22,7 +22,7 @@ const JOURNAL_ARTICLES = [
     venue: "Frontiers in Cardiovascular Medicine",
     year: "2025",
     url: "https://doi.org/10.3389/fcvm.2025.1602780",
-    type: "Journal Article",
+    type: "Journal",
     tags: ["Segmentation", "Medical Imaging", "Cardiology"],
   },
   {
@@ -32,7 +32,7 @@ const JOURNAL_ARTICLES = [
     venue: "Computers in Biology and Medicine",
     year: "2024",
     url: "https://doi.org/10.1016/j.compbiomed.2024.108849",
-    type: "Journal Article",
+    type: "Journal",
     tags: ["Machine Learning", "Hyperspectral Imaging", "Medical Imaging"],
   },
   {
@@ -42,7 +42,7 @@ const JOURNAL_ARTICLES = [
     venue: "Frontiers in Bioengineering and Biotechnology",
     year: "2024",
     url: "https://doi.org/10.3389/fbioe.2024.1411680",
-    type: "Journal Article",
+    type: "Journal",
     tags: ["Machine Learning", "Bioengineering", "Histology"],
   },
   {
@@ -52,7 +52,7 @@ const JOURNAL_ARTICLES = [
     venue: "Radiology Advances",
     year: "2024",
     url: "https://doi.org/10.1093/radadv/umae003",
-    type: "Journal Article",
+    type: "Journal",
     tags: ["Explainable AI", "Radiology", "Deep Learning"],
   },
   {
@@ -62,7 +62,7 @@ const JOURNAL_ARTICLES = [
     venue: "Frontiers in Bioengineering and Biotechnology",
     year: "2023",
     url: "https://doi.org/10.3389/fbioe.2023.1238130",
-    type: "Journal Article",
+    type: "Journal",
     tags: ["Generative Design", "Optimization", "Biomedical Engineering"],
   },
   {
@@ -71,7 +71,7 @@ const JOURNAL_ARTICLES = [
     venue: "Computerized Medical Imaging and Graphics",
     year: "2023",
     url: "https://doi.org/10.1016/j.compmedimag.2023.102188",
-    type: "Journal Article",
+    type: "Journal",
     tags: ["Data Augmentation", "Medical Imaging", "Segmentation"],
   },
   {
@@ -81,7 +81,7 @@ const JOURNAL_ARTICLES = [
     venue: "Journal of Cardiovascular Development and Disease",
     year: "2023",
     url: "https://doi.org/10.3390/jcdd10020039",
-    type: "Journal Article",
+    type: "Journal",
     tags: ["Neural Networks", "COVID-19", "Clinical Prediction"],
   },
   {
@@ -91,7 +91,7 @@ const JOURNAL_ARTICLES = [
     venue: "Robotics",
     year: "2022",
     url: "https://doi.org/10.3390/robotics11060128",
-    type: "Journal Article",
+    type: "Journal",
     tags: ["Robotics", "Inverse Kinematics", "Algorithms"],
   },
   {
@@ -101,7 +101,7 @@ const JOURNAL_ARTICLES = [
     venue: "Scientific Reports",
     year: "2022",
     url: "https://doi.org/10.1038/s41598-022-15013-z",
-    type: "Journal Article",
+    type: "Journal",
     tags: ["Deep Learning", "COVID-19", "Medical Imaging"],
   },
   {
@@ -111,7 +111,7 @@ const JOURNAL_ARTICLES = [
     venue: "Informatics in Medicine Unlocked",
     year: "2022",
     url: "https://doi.org/10.1016/j.imu.2021.100835",
-    type: "Journal Article",
+    type: "Journal",
     tags: ["Weakly Supervised Learning", "COVID-19", "Classification"],
   },
   {
@@ -121,7 +121,7 @@ const JOURNAL_ARTICLES = [
     venue: "Frontiers in Cardiovascular Medicine",
     year: "2021",
     url: "https://doi.org/10.3389/fcvm.2021.697737",
-    type: "Journal Article",
+    type: "Journal",
     tags: ["Multi-Task Learning", "Medical Imaging", "Keypoint Detection"],
   },
   {
@@ -131,7 +131,7 @@ const JOURNAL_ARTICLES = [
     venue: "Scientific Reports",
     year: "2021",
     url: "https://doi.org/10.1038/s41598-021-87174-2",
-    type: "Journal Article",
+    type: "Journal",
     tags: ["Real-Time Detection", "Neural Networks", "Cardiology"],
   },
   {
@@ -140,7 +140,7 @@ const JOURNAL_ARTICLES = [
     venue: "Biomedical Signal Processing and Control",
     year: "2020",
     url: "https://doi.org/10.1016/j.bspc.2019.101681",
-    type: "Journal Article",
+    type: "Journal",
     tags: ["Feature Selection", "Signal Processing", "Algorithms"],
   },
 ];
@@ -157,7 +157,7 @@ const CONFERENCE_PROCEEDINGS = [
       "European Conferences on Biomedical Optics 2025 (ECBO), Munich, Germany",
     year: "2025",
     url: "https://doi.org/10.1364/ECBO.2025.W5B.5",
-    type: "Conference Paper",
+    type: "Conference",
     tags: ["Biophotonics", "Neural Networks", "Medical Devices"],
   },
   {
@@ -169,7 +169,7 @@ const CONFERENCE_PROCEEDINGS = [
       "Biophotonics Congress: Biomedical Optics 2024 (BRAIN), Fort Lauderdale, USA",
     year: "2024",
     url: "https://doi.org/10.1364/BRAIN.2024.BTu3C.7",
-    type: "Conference Paper",
+    type: "Conference",
     tags: ["CNN-RNN", "Time Series", "Biomedical Optics"],
   },
 ];
