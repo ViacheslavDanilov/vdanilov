@@ -67,11 +67,6 @@ const PublicationCard = ({
             </h3>
           )}
 
-          {/* Authors */}
-          {authors && (
-            <p className="text-sm text-gray-400 leading-relaxed">{authors}</p>
-          )}
-
           {/* Venue */}
           {venue && (
             <p className="text-sm text-gray-300 font-medium italic">{venue}</p>

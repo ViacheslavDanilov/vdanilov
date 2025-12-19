@@ -11,7 +11,7 @@ const JOURNAL_ARTICLES = [
       "Advancing laser ablation assessment in hyperspectral imaging through machine learning",
     authors:
       "V. Danilov, D. Giakoumettis, A. Bano, M. Suhling, A. Mattos, A. Bano, A. Ostler, P. Jannin, A. Hostettler",
-    venue: "Computers in Biology and Medicine, vol. 179, 108849",
+    venue: "Computers in Biology and Medicine",
     year: "2024",
     url: "https://doi.org/10.1016/j.compbiomed.2024.108849",
     type: "Journal Article",
@@ -23,7 +23,7 @@ const JOURNAL_ARTICLES = [
       "Explainable AI to identify radiographic features of pulmonary edema",
     authors:
       "V. Danilov, D. Proutski, A. Kirillova, D. Klyuev, Y. Gankin, A. Blokhin, M. Goncharov, I. Gombolevskiy",
-    venue: "Radiology Advances, vol. 1, no. 1, umae003",
+    venue: "Radiology Advances",
     year: "2024",
     url: "https://doi.org/10.1093/radadv/umae003",
     type: "Journal Article",
