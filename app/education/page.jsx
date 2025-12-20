@@ -293,10 +293,9 @@ export default function Education() {
               Additional Education
             </h1>
             <p className="text-gray-400 mt-3 max-w-3xl mx-auto leading-relaxed">
-              Broadened academic experience through various international
-              programs, including visiting PhD positions in the UK, Spain, and
-              Italy, formatted to deepen expertise in machine learning, big
-              data, and biomedical applications
+              International research experience through visiting PhD positions
+              in the UK, Spain, Italy, and Portugal, deepening expertise in
+              machine learning, biomedical imaging, and intelligent systems
             </p>
           </header>
 
