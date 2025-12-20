@@ -20,8 +20,13 @@ const REFERENCES_DATA = [
     location: "Manchester · United Kingdom 🇬🇧",
     category: "Research",
     image: "/references/alex-frangi.webp",
-    linkedin: "https://www.linkedin.com/in/alex-frangi-5765853/",
-    email: "a.frangi@manchester.ac.uk",
+    socials: {
+      website: "https://research.manchester.ac.uk/en/persons/alejandro-frangi",
+      linkedin: "https://www.linkedin.com/in/alejandro-frangi/",
+      researchgate: "https://www.researchgate.net/profile/Alejandro-Frangi",
+      googleScholar: "https://scholar.google.com/citations?user=9fGrB0sAAAAJ",
+      email: "alejandro.frangi@manchester.ac.uk",
+    },
   },
   {
     id: "lori-bridal",
@@ -31,8 +36,13 @@ const REFERENCES_DATA = [
     location: "Paris · France 🇫🇷",
     category: "Research",
     image: "/references/lori-bridal.webp",
-    linkedin: "https://www.linkedin.com/in/lori-bridal-05ab8a5/",
-    email: "lori.bridal@sorbonne-universite.fr",
+    socials: {
+      website: "https://ieee-uffc.org/contact/s-lori-bridal",
+      linkedin: "https://www.linkedin.com/in/s-lori-bridal-57262313",
+      researchgate: "https://www.researchgate.net/profile/S-Bridal",
+      orcid: "https://orcid.org/0000-0001-5053-5423",
+      email: "lori.bridal@sorbonne-universite.fr",
+    },
   },
   {
     id: "paola-saccomandi",
@@ -42,8 +52,14 @@ const REFERENCES_DATA = [
     location: "Milan · Italy 🇮🇹",
     category: "Research",
     image: "/references/paola-saccomandi.webp",
-    linkedin: "https://www.linkedin.com/in/paola-saccomandi-93410645/",
-    email: "paola.saccomandi@polimi.it",
+    socials: {
+      website: "https://www.mecc.polimi.it/en/staff/paola.saccomandi",
+      linkedin: "https://www.linkedin.com/in/paola-saccomandi-92759561",
+      researchgate: "https://www.researchgate.net/profile/Paola-Saccomandi",
+      googleScholar:
+        "https://scholar.google.it/citations?user=VBOinLAAAAAJ&hl=en",
+      email: "paola.saccomandi@polimi.it",
+    },
   },
   {
     id: "farid-melgani",
@@ -53,8 +69,14 @@ const REFERENCES_DATA = [
     location: "Trento · Italy 🇮🇹",
     category: "Research",
     image: "/references/farid-melgani.webp",
-    linkedin: "https://www.linkedin.com/in/farid-melgani-36549215/",
-    email: "farid.melgani@unitn.it",
+    socials: {
+      website: "https://webapps.unitn.it/du/en/Persona/PER0004197/Didattica",
+      linkedin: "https://www.linkedin.com/in/farid-melgani-1a227712",
+      researchgate: "https://www.researchgate.net/profile/Farid-Melgani",
+      googleScholar:
+        "https://scholar.google.com/citations?user=j5MVrE0AAAAJ&hl=en",
+      email: "farid.melgani@unitn.it",
+    },
   },
   {
     id: "gemma-piella",
@@ -64,8 +86,14 @@ const REFERENCES_DATA = [
     location: "Barcelona · Spain 🇪🇸",
     category: "Research",
     image: "/references/gemma-piella.webp",
-    linkedin: "https://www.linkedin.com/in/gemma-piella-27a5232b/",
-    email: "gemma.piella@upf.edu",
+    socials: {
+      website: "https://memoir.icrea.cat/academia_awardees/piella-gemma/",
+      linkedin: "https://www.linkedin.com/in/gemma-piella-a234b4/",
+      researchgate: "https://www.researchgate.net/profile/Gemma-Piella",
+      googleScholar:
+        "https://scholar.google.com/citations?user=Q6zjCpsAAAAJ&hl=en",
+      email: "gemma.piella@upf.edu",
+    },
   },
   {
     id: "turgut-durduran",
@@ -75,8 +103,14 @@ const REFERENCES_DATA = [
     location: "Barcelona · Spain 🇪🇸",
     category: "Research",
     image: "/references/turgut-durduran.webp",
-    linkedin: "https://www.linkedin.com/in/turgut-durduran-4b66aa16/",
-    email: "turgut.durduran@icfo.eu",
+    socials: {
+      website: "https://www.icrea.cat/community/icreas/16857/turgut-durduran/",
+      linkedin: "https://www.linkedin.com/in/turgut-durduran-5a47a294",
+      researchgate: "https://www.researchgate.net/profile/Turgut-Durduran",
+      googleScholar:
+        "https://scholar.google.com/citations?user=c7reUlAAAAAJ&hl=en",
+      email: "turgut.durduran@icfo.eu",
+    },
   },
   {
     id: "maria-ledesma",
@@ -86,8 +120,14 @@ const REFERENCES_DATA = [
     location: "Madrid · Spain 🇪🇸",
     category: "Research",
     image: "/references/maria-ledesma.webp",
-    linkedin: "https://www.linkedin.com/in/maria-j-ledesma-carbayo-98907/",
-    email: "mledesma@die.upm.es",
+    socials: {
+      website: "https://ieeexplore.ieee.org/author/37327193600",
+      linkedin: "https://www.linkedin.com/in/maria-j-ledesma-carbayo-440aa8275",
+      orcid: "https://orcid.org/0000-0001-6846-3923",
+      googleScholar:
+        "https://scholar.google.es/citations?user=jCcBex0AAAAJ&hl=en",
+      email: "mj.ledesma@upm.es",
+    },
   },
   // Medicine
   {
@@ -98,8 +138,14 @@ const REFERENCES_DATA = [
     location: "Kemerovo · Russia 🇷🇺",
     category: "Medicine",
     image: "/references/evgeny-ovcharenko.webp",
-    linkedin: "https://www.linkedin.com/in/evgeny-ovcharenko-467b3545/",
-    email: "ov.evgeny@gmail.com",
+    socials: {
+      website: "https://loop.frontiersin.org/people/355364",
+      linkedin: "https://www.linkedin.com/in/evgeny-ovcharenko-89098722",
+      researchgate: "https://www.researchgate.net/profile/Evgeny-Ovcharenko",
+      googleScholar:
+        "https://scholar.google.ru/citations?user=taoklzsAAAAJ&hl=en",
+      email: "ov.eugene@gmail.com",
+    },
   },
   {
     id: "diana-litmanovich",
@@ -109,8 +155,15 @@ const REFERENCES_DATA = [
     location: "Boston · United States 🇺🇸",
     category: "Medicine",
     image: "/references/diana-litmanovich.webp",
-    linkedin: "https://www.linkedin.com/in/diana-litmanovich-4a51b212/",
-    email: "dlitmanovich@bwh.harvard.edu",
+    socials: {
+      website:
+        "https://findadoc.bidmc.org/details/929/diana-litmanovich-diagnostic_radiology-boston-needham",
+      linkedin: "https://www.linkedin.com/in/diana-litmanovich-55577276",
+      researchgate: "https://www.researchgate.net/profile/Diana-Litmanovich",
+      googleScholar:
+        "https://scholar.google.com/citations?user=i3JdQAYAAAAJ&hl=en",
+      email: "dlitmano@bidmc.harvard.edu",
+    },
   },
   {
     id: "nikolay-vasilyev",
@@ -120,8 +173,14 @@ const REFERENCES_DATA = [
     location: "Denver · United States 🇺🇸",
     category: "Medicine",
     image: "/references/nikolay-vasilyev.webp",
-    linkedin: "https://www.linkedin.com/in/nikolay-vasilyev-8666384/",
-    email: "nikolay.vasilyev@pfizer.com",
+    socials: {
+      website: "https://www.ctsnet.org/home/nvasiliev",
+      linkedin: "https://www.linkedin.com/in/nikolayvasilyev/",
+      researchgate: "https://www.researchgate.net/profile/Nikolay-Vasilyev-2",
+      googleScholar:
+        "https://scholar.google.com/citations?user=HnEl5nYAAAAJ&hl=en",
+      email: "nikolay.v.vasilyev.md@gmail.com",
+    },
   },
   // Business
   {
@@ -132,8 +191,13 @@ const REFERENCES_DATA = [
     location: "Cambridge · United States 🇺🇸",
     category: "Business",
     image: "/references/yuriy-gankin.webp",
-    linkedin: "https://www.linkedin.com/in/yurygankin/",
-    email: "yury.gankin@quantori.com",
+    socials: {
+      website: "https://quantori.com/about/yuriy-gankin",
+      linkedin: "https://www.linkedin.com/in/yuriygankin/",
+      orcid: "https://orcid.org/0000-0003-0046-1037",
+      googleScholar: "https://scholar.google.com/citations?user=0H_Ty8sAAAAJ",
+      email: "yuriy.gankin@quantori.com",
+    },
   },
   {
     id: "efim-furman",
@@ -143,8 +207,11 @@ const REFERENCES_DATA = [
     location: "Boston · United States 🇺🇸",
     category: "Business",
     image: "/references/efim-furman.webp",
-    linkedin: "https://www.linkedin.com/in/efim-furman/",
-    email: "efim@centaurlabs.com",
+    socials: {
+      facebook: "https://www.facebook.com/efim.furman",
+      linkedin: "https://www.linkedin.com/in/fima-furman-74133a",
+      email: "efimfurman@gmail.com",
+    },
   },
 ];
 

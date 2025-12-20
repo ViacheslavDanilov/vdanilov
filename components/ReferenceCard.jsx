@@ -3,8 +3,14 @@
 import React from "react";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import {
+  faLinkedin,
+  faResearchgate,
+  faOrcid,
+  faGoogleScholar,
+  faFacebookSquare,
+} from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope, faGlobe } from "@fortawesome/free-solid-svg-icons";
 import { GlowCard } from "@/components/ui/glow-card";
 
 const BADGE_STYLES = {
@@ -28,6 +34,16 @@ const BADGE_STYLES = {
   },
 };
 
+const SOCIAL_ICONS = {
+  website: { icon: faGlobe, label: "Website" },
+  linkedin: { icon: faLinkedin, label: "LinkedIn" },
+  researchgate: { icon: faResearchgate, label: "ResearchGate" },
+  googleScholar: { icon: faGoogleScholar, label: "Google Scholar" },
+  orcid: { icon: faOrcid, label: "ORCID" },
+  facebook: { icon: faFacebookSquare, label: "Facebook" },
+  email: { icon: faEnvelope, label: "Email" },
+};
+
 const ReferenceCard = ({ reference }) => {
   const {
     name,
@@ -36,10 +52,25 @@ const ReferenceCard = ({ reference }) => {
     location,
     category,
     image,
-    linkedin,
-    email,
+    socials = {},
   } = reference;
   const badgeStyle = BADGE_STYLES[category] || BADGE_STYLES.Research;
+
+  // Build array of social links to render
+  const socialLinks = [];
+  if (socials.website)
+    socialLinks.push({ type: "website", url: socials.website });
+  if (socials.linkedin)
+    socialLinks.push({ type: "linkedin", url: socials.linkedin });
+  if (socials.researchgate)
+    socialLinks.push({ type: "researchgate", url: socials.researchgate });
+  if (socials.googleScholar)
+    socialLinks.push({ type: "googleScholar", url: socials.googleScholar });
+  if (socials.orcid) socialLinks.push({ type: "orcid", url: socials.orcid });
+  if (socials.facebook)
+    socialLinks.push({ type: "facebook", url: socials.facebook });
+  if (socials.email)
+    socialLinks.push({ type: "email", url: `mailto:${socials.email}` });
 
   return (
     <GlowCard
@@ -83,43 +114,32 @@ const ReferenceCard = ({ reference }) => {
         <p className="text-xs text-gray-500 mb-4">{location}</p>
 
         {/* Social Links */}
-        <div className="flex items-center justify-center gap-4 mt-auto pt-2">
-          {linkedin && (
-            <a
-              href={linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`${name}'s LinkedIn`}
-              className="text-gray-400 hover:text-light transition-all duration-300 transform hover:scale-110"
-            >
-              <FontAwesomeIcon
-                icon={faLinkedin}
-                className="w-5 h-5"
-                style={{
-                  width: "1.25rem",
-                  height: "1.25rem",
-                  display: "block",
-                }}
-              />
-            </a>
-          )}
-          {email && (
-            <a
-              href={`mailto:${email}`}
-              aria-label={`Email ${name}`}
-              className="text-gray-400 hover:text-light transition-all duration-300 transform hover:scale-110"
-            >
-              <FontAwesomeIcon
-                icon={faEnvelope}
-                className="w-5 h-5"
-                style={{
-                  width: "1.25rem",
-                  height: "1.25rem",
-                  display: "block",
-                }}
-              />
-            </a>
-          )}
+        <div className="flex flex-wrap items-center justify-center gap-4 mt-auto pt-2">
+          {socialLinks.map((social) => {
+            const iconConfig = SOCIAL_ICONS[social.type];
+            return (
+              <a
+                key={social.type}
+                href={social.url}
+                target={social.type === "email" ? undefined : "_blank"}
+                rel={
+                  social.type === "email" ? undefined : "noopener noreferrer"
+                }
+                aria-label={`${name}'s ${iconConfig.label}`}
+                className="text-gray-400 hover:text-light transition-all duration-300 transform hover:scale-110"
+              >
+                <FontAwesomeIcon
+                  icon={iconConfig.icon}
+                  className="w-5 h-5"
+                  style={{
+                    width: "1.25rem",
+                    height: "1.25rem",
+                    display: "block",
+                  }}
+                />
+              </a>
+            );
+          })}
         </div>
       </div>
     </GlowCard>
