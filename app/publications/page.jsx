@@ -219,24 +219,61 @@ const POSTS = [
   {
     id: "post-1",
     title:
-      "Testing AI low-code platforms: What actually worked (and what didn't)",
-    authors: "V. Danilov",
+      "Testing AI low-code platforms: What actually worked and what didn't",
     venue: "Symfa Blog",
-    year: "2024",
+    year: "2025",
     url: "https://symfa.com/blog/ai-low-code-tools",
     type: "Blog Post",
-    tags: ["AI Tools", "Low-Code", "Product Review"],
+    tags: ["AI Tools", "Low-Code", "Product Development"],
   },
   {
     id: "post-2",
+    title: "The future of business challenges: People + AI or People vs AI",
+    venue: "LinkedIn",
+    year: "2025",
+    url: "https://www.linkedin.com/posts/viacheslav-danilov_the-future-of-business-challenges-activity-7315342704802959379-spfI",
+    type: "Blog Post",
+    tags: ["AI Development", "Leadership", "Digital Transformation"],
+  },
+  {
+    id: "post-3",
     title:
-      "Harnessing AI for Histopathology: A Leap Towards Precision Medicine",
-    authors: "V. Danilov",
+      "Freelance tech trends: Top IT skills, pay rates, and regional demand",
+    venue: "Symfa Blog",
+    year: "2025",
+    url: "https://symfa.com/blog/top-skills-in-demand-in-gig-economy",
+    type: "Blog Post",
+    tags: ["Data Analysis", "Tech Trends", "Market Research"],
+  },
+  {
+    id: "post-4",
+    title:
+      "Freelance pricing trends: Industry, location, and expertise insights",
+    venue: "Symfa Blog",
+    year: "2025",
+    url: "https://symfa.com/blog/insights-and-trends-in-the-gig-economy",
+    type: "Blog Post",
+    tags: ["Data Analysis", "Tech Trends", "Market Research"],
+  },
+  {
+    id: "post-5",
+    title:
+      "Transforming chaotic data into clarity: Practical insights and a streamlined pipeline",
+    venue: "Medium",
+    year: "2024",
+    url: "https://medium.com/@symfa_stories/from-data-chaos-to-clarity-streamlining-a-freelance-platform-dataset-96534c6af1fc",
+    type: "Blog Post",
+    tags: ["Data Engineering", "ETL Pipeline", "Data Science"],
+  },
+  {
+    id: "post-6",
+    title:
+      "Harnessing AI for histopathology: A leap towards precision medicine",
     venue: "Quantori Blog",
-    year: "2023",
+    year: "2024",
     url: "https://quantori.com/blog/harnessing-ai-for-histopathology-a-leap-towards-precision-medicine",
     type: "Blog Post",
-    tags: ["Digital Pathology", "Precision Medicine", "Computer Vision"],
+    tags: ["Digital Pathology", "Precision Medicine", "Medical AI"],
   },
 ];
 
