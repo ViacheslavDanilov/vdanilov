@@ -3,7 +3,7 @@
 import React from "react";
 import { GlowCard } from "@/components/ui/glow-card";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleRight, faAnglesRight } from "@fortawesome/free-solid-svg-icons";
+import { faAngleRight, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 /**
  * Minimalistic publication card component
@@ -53,7 +53,7 @@ const PublicationCard = ({
                     aria-hidden="true"
                   />
                   <FontAwesomeIcon
-                    icon={faAnglesRight}
+                    icon={faArrowRight}
                     className="absolute w-3 h-3 opacity-0 transition-opacity duration-300 group-hover/link:opacity-60"
                     aria-hidden="true"
                   />
