@@ -83,7 +83,7 @@ const ExpertiseSection = ({
   enableSpotlight = true,
   enableBorderGlow = true,
   glowColor = "blue",
-  spotlightSize = 180,
+  spotlightSize = 240,
 }) => {
   return (
     <section className="py-12 px-6 max-w-7xl mx-auto">

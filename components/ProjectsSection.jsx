@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleRight, faAnglesRight } from "@fortawesome/free-solid-svg-icons";
+import { faAngleRight, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { GlowCard } from "@/components/ui/glow-card";
 
 const PROJECTS = [
@@ -123,7 +123,7 @@ const ProjectsSection = ({
                         }}
                       />
                       <FontAwesomeIcon
-                        icon={faAnglesRight}
+                        icon={faArrowRight}
                         className="absolute w-3 h-3 opacity-0 transition-opacity duration-300 group-hover:opacity-60"
                         style={{
                           width: "0.75rem",
@@ -171,7 +171,7 @@ const ProjectsSection = ({
                           }}
                         />
                         <FontAwesomeIcon
-                          icon={faAnglesRight}
+                          icon={faArrowRight}
                           className="absolute w-3 h-3 opacity-0 transition-opacity duration-300 group-hover:opacity-60"
                           style={{
                             width: "0.75rem",

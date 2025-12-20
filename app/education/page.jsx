@@ -270,10 +270,9 @@ export default function Education() {
               Core Education
             </h1>
             <p className="text-gray-400 mt-3 max-w-3xl mx-auto leading-relaxed">
-              Academic foundation combining a PhD in Computer Science, a
-              technical Master’s in engineering, and a business-focused Master’s
-              in management, offering a balanced blend of technical and
-              strategic expertise
+              Academic foundation combining a PhD in Computer Science, technical
+              Master's in engineering, and business Master's in management,
+              offering a blend of technical and strategic expertise
             </p>
           </header>
 
@@ -294,10 +293,9 @@ export default function Education() {
               Additional Education
             </h1>
             <p className="text-gray-400 mt-3 max-w-3xl mx-auto leading-relaxed">
-              Broadened academic experience through various international
-              programs, including visiting PhD positions in the UK, Spain, and
-              Italy, formatted to deepen expertise in machine learning, big
-              data, and biomedical applications
+              International research experience through visiting PhD positions
+              in the UK, Spain, Italy, and Portugal, deepening expertise in
+              machine learning, biomedical imaging, and intelligent systems
             </p>
           </header>
 
