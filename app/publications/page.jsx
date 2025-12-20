@@ -178,7 +178,7 @@ const CONFERENCE_PROCEEDINGS = [
     year: "2024",
     url: "https://doi.org/10.1364/brain.2024.btu3c.7",
     type: "Conference",
-    tags: ["CNN-RNN", "Neural Networks", "Biomedical Optics"],
+    tags: ["Time Series", "Deep Learning", "Biomedical Optics"],
   },
   {
     id: "conference-4",
@@ -189,7 +189,7 @@ const CONFERENCE_PROCEEDINGS = [
     year: "2021",
     url: "https://doi.org/10.5194/isprs-archives-xliv-2-w1-2021-33-2021",
     type: "Conference",
-    tags: ["Synthetic Data", "Segmentation", "Deep Learning"],
+    tags: ["Synthetic Data", "Deep Learning", "Medical Imaging"],
   },
   {
     id: "conference-5",
