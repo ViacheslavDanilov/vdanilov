@@ -53,11 +53,35 @@ const navItems = [
 function Navbar() {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   // Close mobile menu after navigation
   const handleNavClick = () => {
     setIsMenuOpen(false);
   };
+
+  // Handle scroll to show/hide navbar
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      // Show navbar when scrolling up, hide when scrolling down
+      if (currentScrollY < lastScrollY || currentScrollY < 10) {
+        // Scrolling up or near the top
+        setIsVisible(true);
+      } else if (currentScrollY > lastScrollY && currentScrollY > 10) {
+        // Scrolling down and past threshold
+        setIsVisible(false);
+        setIsMenuOpen(false); // Close mobile menu when hiding navbar
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
 
   // Close menu when clicking outside
   useEffect(() => {
@@ -72,7 +96,13 @@ function Navbar() {
   }, [isMenuOpen]);
 
   return (
-    <nav className="fixed top-4 left-0 right-0 z-50 flex justify-center px-6">
+    <nav
+      className="fixed top-4 left-0 right-0 z-50 flex justify-center px-6"
+      style={{
+        transform: isVisible ? "translateY(0)" : "translateY(-130%)",
+        transition: "transform 0.3s ease-in-out",
+      }}
+    >
       {/* Glassmorphism Pill Container */}
       <div className="flex items-center justify-between gap-8 px-6 lg:px-6 h-14 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 shadow-lg max-w-4xl w-full">
         {/* Logo */}

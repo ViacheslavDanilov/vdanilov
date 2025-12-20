@@ -7,7 +7,7 @@ const Statistics = ({
   enableSpotlight = true,
   enableBorderGlow = true,
   glowColor = "blue",
-  spotlightSize = 180,
+  spotlightSize = 240,
 }) => {
   const stats = [
     {
