@@ -66,14 +66,20 @@ const PublicationCard = ({
             </h3>
           )}
 
-          {/* Venue and Year */}
+          {/* Venue, Location, and Year */}
           {venue && (
-            <p className="text-sm text-gray-300 font-medium italic">
+            <p className="text-sm text-gray-300 font-medium">
               {venue}
+              {publication.location && (
+                <>
+                  <span className="text-gray-500 mx-2">•</span>
+                  <span>{publication.location}</span>
+                </>
+              )}
               {year && (
                 <>
                   <span className="text-gray-500 mx-2">•</span>
-                  <span className="text-gray-400 not-italic">{year}</span>
+                  <span>{year}</span>
                 </>
               )}
             </p>

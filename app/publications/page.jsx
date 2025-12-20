@@ -151,7 +151,8 @@ const CONFERENCE_PROCEEDINGS = [
     id: "conference-1",
     title:
       "Non-invasive intracranial pressure estimation from cerebral blood flow dynamics using wavelet-based deep learning",
-    venue: "European Conferences on Biomedical Optics, Munich, Germany",
+    venue: "European Conferences on Biomedical Optics",
+    location: "Munich, Germany 🇩🇪",
     year: "2025",
     url: "https://doi.org/10.1364/ECBO.2025.W5B.5",
     type: "Conference",
@@ -161,7 +162,8 @@ const CONFERENCE_PROCEEDINGS = [
     id: "conference-2",
     title:
       "Intracranial pressure and cerebral blood flow pulse dynamics in patients with idiopathic normal pressure hydrocephalus during Katzman infusion test",
-    venue: "European Conferences on Biomedical Optics, Munich, Germany",
+    venue: "European Conferences on Biomedical Optics",
+    location: "Munich, Germany 🇩🇪",
     year: "2025",
     url: "https://doi.org/10.1364/ECBO.2025.S4F.2",
     type: "Conference",
@@ -170,8 +172,9 @@ const CONFERENCE_PROCEEDINGS = [
   {
     id: "conference-3",
     title:
-      "Hybrid convolutional and recurrent neural network for non-invasive intracranial pressure estimation from cerebral blood flow",
-    venue: "Optica Biophotonics Congress, Miami, United States",
+      "Hybrid convolutional and recurrent neural network for non-invasive ICP estimation from CBF", // "Hybrid convolutional and recurrent neural network for non-invasive intracranial pressure estimation from cerebral blood flow"
+    venue: "Optica Biophotonics Congress",
+    location: "Miami, United States 🇺🇸",
     year: "2024",
     url: "https://doi.org/10.1364/brain.2024.btu3c.7",
     type: "Conference",
@@ -181,8 +184,8 @@ const CONFERENCE_PROCEEDINGS = [
     id: "conference-4",
     title:
       "Boosting segmentation accuracy of the deep learning models based on the synthetic data generation",
-    venue:
-      "International Workshop on Photogrammetric & Computer Vision Techniques, Moscow, Russia",
+    venue: "ISPRS Workshop on Computer Vision Techniques", // International Workshop on Photogrammetric & Computer Vision Techniques
+    location: "Moscow, Russia 🇷🇺",
     year: "2021",
     url: "https://doi.org/10.5194/isprs-archives-xliv-2-w1-2021-33-2021",
     type: "Conference",
@@ -191,9 +194,9 @@ const CONFERENCE_PROCEEDINGS = [
   {
     id: "conference-5",
     title:
-      "Comparative study of deep learning models for automatic coronary stenosis detection in X-ray angiography",
-    venue:
-      "International Conference on Computer Graphics and Vision, Saint Petersburg, Russia",
+      "Comparative study of deep learning models for automatic coronary stenosis detection",
+    venue: "GraphiCon", // International Conference on Computer Graphics and Vision
+    location: "Saint Petersburg, Russia 🇷🇺",
     year: "2020",
     url: "https://doi.org/10.51130/graphicon-2020-2-3-75",
     type: "Conference",
@@ -202,7 +205,8 @@ const CONFERENCE_PROCEEDINGS = [
   {
     id: "conference-6",
     title: "FABRIK-based inverse kinematics for multi-section continuum robots",
-    venue: "International Conference on Mechatronics, Brno, Czech Republic",
+    venue: "International Conference on Mechatronics",
+    location: "Brno, Czech Republic 🇨🇿",
     year: "2019",
     url: "https://ieeexplore.ieee.org/document/8624888",
     type: "Conference",
