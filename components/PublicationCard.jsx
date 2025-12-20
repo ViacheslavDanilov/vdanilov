@@ -69,7 +69,7 @@ const PublicationCard = ({
           {/* Venue, Location, and Year */}
           {venue && (
             <p className="text-sm text-gray-300 font-medium">
-              {venue}
+              <span className="italic">{venue}</span>
               {publication.location && (
                 <>
                   <span className="text-gray-500 mx-2">•</span>
