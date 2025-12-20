@@ -38,7 +38,7 @@ const JOURNAL_ARTICLES = [
   {
     id: "journal-4",
     title:
-      "ML-driven segmentation of microvascular features during histological examination of tissue-engineered vascular grafts",
+      "ML-driven segmentation of microvascular features during histological examination of vascular grafts",
     venue: "Frontiers in Bioengineering and Biotechnology",
     year: "2024",
     url: "https://doi.org/10.3389/fbioe.2024.1411680",
@@ -77,7 +77,7 @@ const JOURNAL_ARTICLES = [
   {
     id: "journal-8",
     title:
-      "Cardiovascular and renal comorbidities included into neural networks predict the outcome in COVID-19 patients admitted to an intensive care unit",
+      "Cardiovascular and renal comorbidities in neural networks predict COVID-19 ICU outcomes",
     venue: "Journal of Cardiovascular Development and Disease",
     year: "2023",
     url: "https://doi.org/10.3390/jcdd10020039",
@@ -281,24 +281,79 @@ const POSTS = [
 const DATASETS = [
   {
     id: "dataset-1",
-    title: "COVID-19 Chest X-ray Severity Scoring Dataset",
-    authors:
-      "V. Danilov, D. Proutski, A. Kirillova, D. Klyuev, Y. Gankin, A. Blokhin, M. Goncharov",
-    venue: "Mendeley Data, v2",
-    year: "2022",
-    url: "https://data.mendeley.com/datasets/8h65ywd2jr/2",
+    title:
+      "OCT dataset for segmentation of atherosclerotic plaque morphological features",
+    venue: "Zenodo",
+    year: "2025",
+    url: "https://doi.org/10.5281/zenodo.14478209",
     type: "Dataset",
-    tags: ["COVID-19", "Chest X-ray", "Annotated Data"],
+    tags: ["OCT Imaging", "Atherosclerosis", "Segmentation"],
   },
   {
     id: "dataset-2",
-    title: "Hyperspectral Laser Ablation Assessment Dataset",
-    authors: "V. Danilov, A. Bano, M. Suhling, A. Hostettler",
+    title:
+      "Histological dataset for microvascular segmentation of tissue-engineered vascular grafts",
     venue: "Zenodo",
     year: "2024",
-    url: "#",
+    url: "https://doi.org/10.5281/zenodo.10838383",
     type: "Dataset",
-    tags: ["Hyperspectral", "Laser Surgery", "Medical Imaging"],
+    tags: ["Histology", "Vascular Grafts", "Segmentation"],
+  },
+  {
+    id: "dataset-3",
+    title:
+      "Hyperspectral imaging dataset for laser thermal ablation monitoring in vital organs",
+    venue: "Zenodo",
+    year: "2023",
+    url: "https://doi.org/10.5281/zenodo.10444212",
+    type: "Dataset",
+    tags: ["Hyperspectral Imaging", "Laser Ablation", "Medical Imaging"],
+  },
+  {
+    id: "dataset-4",
+    title:
+      "Dataset for detection and segmentation of the radiographic features of pulmonary edema",
+    venue: "Zenodo",
+    year: "2023",
+    url: "https://doi.org/10.5281/zenodo.8383776",
+    type: "Dataset",
+    tags: ["Chest X-ray", "Pulmonary Edema", "Segmentation"],
+  },
+  {
+    id: "dataset-5",
+    title: "COVID-19 segmentation and severity scoring",
+    venue: "Mendeley Data",
+    year: "2022",
+    url: "http://doi.org/10.17632/36fjrg9s69.1",
+    type: "Dataset",
+    tags: ["COVID-19", "Chest X-ray", "Severity Scoring"],
+  },
+  {
+    id: "dataset-6",
+    title: "Chest X-ray dataset for lung segmentation",
+    venue: "Mendeley Data",
+    year: "2022",
+    url: "http://doi.org/10.17632/8gf9vpkhgy.1",
+    type: "Dataset",
+    tags: ["Chest X-ray", "Lung Segmentation", "Medical Imaging"],
+  },
+  {
+    id: "dataset-7",
+    title: "Angiographic dataset for stenosis detection",
+    venue: "Mendeley Data",
+    year: "2021",
+    url: "https://doi.org/10.17632/ydrm75xywg.2",
+    type: "Dataset",
+    tags: ["Angiography", "Stenosis Detection", "Cardiology"],
+  },
+  {
+    id: "dataset-8",
+    title: "Aortography keypoint tracking for TAVI",
+    venue: "Mendeley Data",
+    year: "2021",
+    url: "https://doi.org/10.17632/pgynfy766g.2",
+    type: "Dataset",
+    tags: ["Aortography", "TAVI", "Keypoint Tracking"],
   },
 ];
 
