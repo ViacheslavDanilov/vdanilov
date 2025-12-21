@@ -67,7 +67,7 @@ const PublicationCard = ({
         {/* Type Badge - Top Right Corner */}
         {type && (
           <span
-            className={`absolute top-5 right-5 px-3 py-1 text-xs font-medium rounded-full border inline-flex items-center gap-1.5 ${typeStyle.bg} ${typeStyle.border} ${typeStyle.text}`}
+            className={`absolute top-5 right-5 z-10 px-3 py-1 text-xs font-medium rounded-full border inline-flex items-center gap-1.5 ${typeStyle.bg} ${typeStyle.border} ${typeStyle.text}`}
           >
             <FontAwesomeIcon
               icon={typeStyle.icon}

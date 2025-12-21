@@ -375,7 +375,7 @@ export default function Publications() {
           </header>
 
           <div
-            className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:items-start"
+            className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:items-start"
             role="list"
           >
             {JOURNAL_ARTICLES.map((publication) => (
@@ -398,7 +398,7 @@ export default function Publications() {
           </header>
 
           <div
-            className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:items-start"
+            className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:items-start"
             role="list"
           >
             {CONFERENCE_PROCEEDINGS.map((publication) => (
@@ -421,7 +421,7 @@ export default function Publications() {
           </header>
 
           <div
-            className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:items-start"
+            className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:items-start"
             role="list"
           >
             {POSTS.map((publication) => (
@@ -444,7 +444,7 @@ export default function Publications() {
           </header>
 
           <div
-            className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:items-start"
+            className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:items-start"
             role="list"
           >
             {DATASETS.map((publication) => (
