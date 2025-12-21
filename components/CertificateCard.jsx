@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { GlowCard } from "@/components/ui/glow-card";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLink } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 const CertificateCard = ({
   certificate,
@@ -56,10 +56,20 @@ const CertificateCard = ({
               <span className="uppercase tracking-wide">
                 {certificate.title}
               </span>
-              <FontAwesomeIcon
-                icon={faLink}
-                className="w-3 h-3 text-gray-500 group-hover:text-accent transition-colors"
-              />
+              <span
+                className="inline-block transition-transform duration-300 group-hover:translate-x-1"
+                style={{ width: "0.75rem", height: "0.75rem" }}
+              >
+                <FontAwesomeIcon
+                  icon={faArrowRight}
+                  className="opacity-60"
+                  style={{
+                    width: "0.75rem",
+                    height: "0.75rem",
+                    display: "block",
+                  }}
+                />
+              </span>
             </a>
 
             <a
@@ -111,10 +121,20 @@ const CertificateCard = ({
                 <span className="uppercase tracking-wide truncate">
                   {certificate.title}
                 </span>
-                <FontAwesomeIcon
-                  icon={faLink}
-                  className="w-3 h-3 text-gray-500 group-hover:text-accent transition-colors"
-                />
+                <span
+                  className="inline-block transition-transform duration-300 group-hover:translate-x-1"
+                  style={{ width: "0.75rem", height: "0.75rem" }}
+                >
+                  <FontAwesomeIcon
+                    icon={faArrowRight}
+                    className="opacity-60"
+                    style={{
+                      width: "0.75rem",
+                      height: "0.75rem",
+                      display: "block",
+                    }}
+                  />
+                </span>
               </a>
 
               <a
