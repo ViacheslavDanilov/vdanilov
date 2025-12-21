@@ -98,7 +98,7 @@ const REFERENCES_DATA = [
   {
     id: "turgut-durduran",
     name: "Turgut Durduran, PhD",
-    role: "Group Head",
+    role: "Medical Optics Group Head",
     organization: "Institute of Photonic Sciences",
     location: "Barcelona · Spain 🇪🇸",
     category: "Research",
@@ -133,7 +133,7 @@ const REFERENCES_DATA = [
   {
     id: "evgeny-ovcharenko",
     name: "Evgeny Ovcharenko, PhD",
-    role: "Lab Head",
+    role: "Head of Biomaterials Lab",
     organization: "Kuzbass Cardiology Center",
     location: "Kemerovo · Russia 🇷🇺",
     category: "Medicine",

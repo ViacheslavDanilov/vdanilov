@@ -82,14 +82,14 @@ const ReferenceCard = ({ reference }) => {
     <GlowCard
       glowColor="blue"
       customSize={true}
-      className="group w-full h-full p-6 relative"
+      className="group w-full h-full p-5 relative"
       enableSpotlight={true}
       enableBorderGlow={true}
       spotlightSize={250}
     >
       {/* Category Badge */}
       <div
-        className={`absolute top-4 right-4 z-10 px-3 py-1 rounded-full text-xs font-medium border ${badgeStyle.bg} ${badgeStyle.border} ${badgeStyle.text} flex items-center gap-1.5`}
+        className={`absolute top-5 right-5 z-10 px-3 py-1 rounded-full text-xs font-medium border ${badgeStyle.bg} ${badgeStyle.border} ${badgeStyle.text} flex items-center gap-1.5`}
       >
         <FontAwesomeIcon
           icon={badgeStyle.icon}
