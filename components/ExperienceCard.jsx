@@ -11,6 +11,7 @@ import Image from "next/image";
 import { AnimatePresence, motion } from "motion/react";
 import { GlowCard } from "@/components/ui/glow-card";
 import { Tab } from "@/components/ui/tab";
+import { Badge } from "@/components/ui/badge";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faExternalLink,
@@ -279,16 +280,12 @@ const ExperienceCard = ({
     }
   }, [activeTab, experience.responsibilities, experience.publications]);
 
-  // Category badge styling - matching References page colors
-  const getCategoryStyle = (category) => {
+  // Category badge configuration
+  const getCategoryConfig = (category) => {
     if (category === "research") {
-      return "bg-blue-600/20 text-blue-400 border-blue-600/40";
+      return { variant: "blue", icon: faFlask, label: "Research" };
     }
-    return "bg-teal-600/20 text-teal-400 border-teal-600/40";
-  };
-
-  const getCategoryLabel = (category) => {
-    return category === "research" ? "Research" : "Industry";
+    return { variant: "teal", icon: faBriefcase, label: "Industry" };
   };
 
   return (
@@ -309,18 +306,13 @@ const ExperienceCard = ({
         <div className="flex flex-col md:hidden mb-4 space-y-3 relative">
           {/* Category Badge - Mobile (absolute positioning) */}
           {experience.category && (
-            <span
-              className={`absolute top-0 right-0 px-3 py-1 text-xs font-medium rounded-full border inline-flex items-center gap-1.5 ${getCategoryStyle(experience.category)}`}
+            <Badge
+              variant={getCategoryConfig(experience.category).variant}
+              icon={getCategoryConfig(experience.category).icon}
+              className="absolute top-0 right-0"
             >
-              <FontAwesomeIcon
-                icon={
-                  experience.category === "research" ? faFlask : faBriefcase
-                }
-                className="w-3 h-3"
-                style={{ width: "0.75rem", height: "0.75rem" }}
-              />
-              {getCategoryLabel(experience.category)}
-            </span>
+              {getCategoryConfig(experience.category).label}
+            </Badge>
           )}
           <div className="flex justify-center">
             <CompanyLogo
@@ -362,18 +354,13 @@ const ExperienceCard = ({
             />
             {/* Category Badge - Desktop */}
             {experience.category && (
-              <span
-                className={`px-3 py-1 text-xs font-medium rounded-full border flex-shrink-0 inline-flex items-center gap-1.5 ${getCategoryStyle(experience.category)}`}
+              <Badge
+                variant={getCategoryConfig(experience.category).variant}
+                icon={getCategoryConfig(experience.category).icon}
+                className="flex-shrink-0"
               >
-                <FontAwesomeIcon
-                  icon={
-                    experience.category === "research" ? faFlask : faBriefcase
-                  }
-                  className="w-3 h-3"
-                  style={{ width: "0.75rem", height: "0.75rem" }}
-                />
-                {getCategoryLabel(experience.category)}
-              </span>
+                {getCategoryConfig(experience.category).label}
+              </Badge>
             )}
           </div>
         </div>

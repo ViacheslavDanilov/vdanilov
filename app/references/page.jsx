@@ -134,7 +134,7 @@ const REFERENCES_DATA = [
     id: "evgeny-ovcharenko",
     name: "Evgeny Ovcharenko, PhD",
     role: "Head of Biomaterials Lab",
-    organization: "Kuzbass Cardiology Center",
+    organization: "Kemerovo Cardiology Center",
     location: "Kemerovo · Russia 🇷🇺",
     category: "Medicine",
     image: "/references/evgeny-ovcharenko.webp",

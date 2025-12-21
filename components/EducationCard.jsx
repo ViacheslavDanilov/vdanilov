@@ -10,6 +10,7 @@ import React, {
 import { AnimatePresence, motion } from "motion/react";
 import { GlowCard } from "@/components/ui/glow-card";
 import { Tab } from "@/components/ui/tab";
+import { Badge } from "@/components/ui/badge";
 import {
   faBook,
   faGraduationCap,
@@ -124,14 +125,13 @@ const EducationCard = ({
         <div className="flex flex-col md:hidden mb-4 space-y-3 relative">
           {/* Honors Badge - Mobile (absolute positioning) */}
           {education.honors && (
-            <span className="absolute top-0 right-0 px-3 py-1 text-xs font-medium rounded-full border inline-flex items-center gap-1.5 bg-teal-600/20 text-teal-400 border-teal-600/40">
-              <FontAwesomeIcon
-                icon={faAward}
-                className="w-3 h-3"
-                style={{ width: "0.75rem", height: "0.75rem" }}
-              />
+            <Badge
+              variant="teal"
+              icon={faAward}
+              className="absolute top-0 right-0"
+            >
               {education.honors}
-            </span>
+            </Badge>
           )}
           <div className="flex justify-center">
             <CompanyLogo
@@ -180,14 +180,13 @@ const EducationCard = ({
         <div className="hidden md:flex flex-row gap-6 mb-4 items-start relative">
           {/* Honors Badge - Desktop (absolute positioning) */}
           {education.honors && (
-            <span className="absolute top-0 right-0 px-3 py-1 text-xs font-medium rounded-full border inline-flex items-center gap-1.5 bg-teal-600/20 text-teal-400 border-teal-600/40">
-              <FontAwesomeIcon
-                icon={faAward}
-                className="w-3 h-3"
-                style={{ width: "0.75rem", height: "0.75rem" }}
-              />
+            <Badge
+              variant="teal"
+              icon={faAward}
+              className="absolute top-0 right-0"
+            >
               {education.honors}
-            </span>
+            </Badge>
           )}
           <CompanyLogo
             logo={education.logo}

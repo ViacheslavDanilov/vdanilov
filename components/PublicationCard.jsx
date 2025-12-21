@@ -2,6 +2,7 @@
 
 import React from "react";
 import { GlowCard } from "@/components/ui/glow-card";
+import { Badge } from "@/components/ui/badge";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faAngleRight,
@@ -12,32 +13,12 @@ import {
   faDatabase,
 } from "@fortawesome/free-solid-svg-icons";
 
-// Type badge styling - matching References page colors
-const TYPE_STYLES = {
-  Journal: {
-    bg: "bg-blue-600/20",
-    border: "border-blue-600/40",
-    text: "text-blue-400",
-    icon: faBook,
-  },
-  Conference: {
-    bg: "bg-teal-600/20",
-    border: "border-teal-600/40",
-    text: "text-teal-400",
-    icon: faUsers,
-  },
-  "Blog Post": {
-    bg: "bg-violet-600/20",
-    border: "border-violet-600/40",
-    text: "text-violet-400",
-    icon: faPenNib,
-  },
-  Dataset: {
-    bg: "bg-cyan-600/20",
-    border: "border-cyan-600/40",
-    text: "text-cyan-400",
-    icon: faDatabase,
-  },
+// Badge configuration for each publication type
+const TYPE_CONFIG = {
+  Journal: { variant: "blue", icon: faBook },
+  Conference: { variant: "teal", icon: faUsers },
+  "Blog Post": { variant: "violet", icon: faPenNib },
+  Dataset: { variant: "cyan", icon: faDatabase },
 };
 
 /**
@@ -52,7 +33,7 @@ const PublicationCard = ({
   spotlightSize = 240,
 }) => {
   const { title, authors, venue, year, url, type, tags } = publication;
-  const typeStyle = TYPE_STYLES[type] || TYPE_STYLES.Journal;
+  const config = TYPE_CONFIG[type] || TYPE_CONFIG.Journal;
 
   return (
     <article className="self-start w-full">
@@ -66,16 +47,13 @@ const PublicationCard = ({
       >
         {/* Type Badge - Top Right Corner */}
         {type && (
-          <span
-            className={`absolute top-5 right-5 z-10 px-3 py-1 text-xs font-medium rounded-full border inline-flex items-center gap-1.5 ${typeStyle.bg} ${typeStyle.border} ${typeStyle.text}`}
+          <Badge
+            variant={config.variant}
+            icon={config.icon}
+            className="absolute top-5 right-5 z-10"
           >
-            <FontAwesomeIcon
-              icon={typeStyle.icon}
-              className="w-3 h-3"
-              style={{ width: "0.75rem", height: "0.75rem" }}
-            />
             {type}
-          </span>
+          </Badge>
         )}
 
         <div className="flex flex-col gap-3">

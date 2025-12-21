@@ -18,26 +18,13 @@ import {
   faHeartPulse,
 } from "@fortawesome/free-solid-svg-icons";
 import { GlowCard } from "@/components/ui/glow-card";
+import { Badge } from "@/components/ui/badge";
 
-const BADGE_STYLES = {
-  Research: {
-    bg: "bg-blue-600/20",
-    border: "border-blue-600/40",
-    text: "text-blue-400",
-    icon: faFlask,
-  },
-  Industry: {
-    bg: "bg-violet-600/20",
-    border: "border-violet-600/40",
-    text: "text-violet-400",
-    icon: faBriefcase,
-  },
-  Medicine: {
-    bg: "bg-teal-600/20",
-    border: "border-teal-600/40",
-    text: "text-teal-400",
-    icon: faHeartPulse,
-  },
+// Badge configuration for each category
+const CATEGORY_CONFIG = {
+  Research: { variant: "blue", icon: faFlask },
+  Industry: { variant: "violet", icon: faBriefcase },
+  Medicine: { variant: "teal", icon: faHeartPulse },
 };
 
 const SOCIAL_ICONS = {
@@ -60,7 +47,7 @@ const ReferenceCard = ({ reference }) => {
     image,
     socials = {},
   } = reference;
-  const badgeStyle = BADGE_STYLES[category] || BADGE_STYLES.Research;
+  const config = CATEGORY_CONFIG[category] || CATEGORY_CONFIG.Research;
 
   // Build array of social links to render
   const socialLinks = [];
@@ -88,16 +75,13 @@ const ReferenceCard = ({ reference }) => {
       spotlightSize={250}
     >
       {/* Category Badge */}
-      <div
-        className={`absolute top-5 right-5 z-10 px-3 py-1 rounded-full text-xs font-medium border ${badgeStyle.bg} ${badgeStyle.border} ${badgeStyle.text} flex items-center gap-1.5`}
+      <Badge
+        variant={config.variant}
+        icon={config.icon}
+        className="absolute top-5 right-5 z-10"
       >
-        <FontAwesomeIcon
-          icon={badgeStyle.icon}
-          className="w-3 h-3"
-          style={{ width: "0.75rem", height: "0.75rem" }}
-        />
-        <span>{category}</span>
-      </div>
+        {category}
+      </Badge>
 
       <div className="flex flex-col items-center text-center h-full">
         {/* Profile Photo */}
