@@ -246,7 +246,7 @@ export default function References() {
 
   return (
     <main className="min-h-screen pt-24">
-      <div className="flex flex-col items-center pt-12 md:pt-24 gap-8 pb-32">
+      <div className="flex flex-col items-center pt-12 md:pt-24 gap-36 pb-48">
         {/* Header Section */}
         <section className="w-full max-w-7xl mx-auto px-6">
           <header className="mb-8 text-center">
