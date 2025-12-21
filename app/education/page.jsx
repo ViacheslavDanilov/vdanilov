@@ -40,7 +40,7 @@ const CORE_EDUCATION_DATA = [
     field: "Information and Control Systems",
     institution: "Tomsk Polytechnic University",
     url: INSTITUTION_URLS["Tomsk Polytechnic University"],
-    honors: "", // GPA: 4.94/5.0
+    honors: "Honors", // GPA: 4.94/5.0
     period: "Sep 2011 - Sep 2013",
     location: "Tomsk • Russia 🇷🇺",
     logo: "/education/universities/tpu.webp",

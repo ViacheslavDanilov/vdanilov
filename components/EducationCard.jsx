@@ -177,7 +177,18 @@ const EducationCard = ({
         </div>
 
         {/* Desktop Layout */}
-        <div className="hidden md:flex flex-row gap-6 mb-4 items-start">
+        <div className="hidden md:flex flex-row gap-6 mb-4 items-start relative">
+          {/* Honors Badge - Desktop (absolute positioning) */}
+          {education.honors && (
+            <span className="absolute top-0 right-0 px-3 py-1 text-xs font-medium rounded-full border inline-flex items-center gap-1.5 bg-teal-600/20 text-teal-400 border-teal-600/40">
+              <FontAwesomeIcon
+                icon={faAward}
+                className="w-3 h-3"
+                style={{ width: "0.75rem", height: "0.75rem" }}
+              />
+              {education.honors}
+            </span>
+          )}
           <CompanyLogo
             logo={education.logo}
             company={education.institution}
@@ -185,22 +196,10 @@ const EducationCard = ({
             brightness={education.logoBrightness}
           />
           <div className="flex-1 flex flex-col gap-2">
-            {/* Row 1: Degree + Badge */}
-            <div className="flex justify-between items-start gap-4">
-              <h3 className="text-md font-bold uppercase tracking-wider text-light">
-                {education.degree}
-              </h3>
-              {education.honors && (
-                <span className="flex-shrink-0 px-3 py-1 text-xs font-medium rounded-full border inline-flex items-center gap-1.5 bg-teal-600/20 text-teal-400 border-teal-600/40">
-                  <FontAwesomeIcon
-                    icon={faAward}
-                    className="w-3 h-3"
-                    style={{ width: "0.75rem", height: "0.75rem" }}
-                  />
-                  {education.honors}
-                </span>
-              )}
-            </div>
+            {/* Row 1: Degree */}
+            <h3 className="text-md font-bold uppercase tracking-wider text-light">
+              {education.degree}
+            </h3>
 
             {/* Row 2: University */}
             <a
