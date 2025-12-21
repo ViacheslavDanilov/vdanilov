@@ -21,15 +21,15 @@ const BADGE_STYLES = {
     emoji: "🔬",
   },
   Business: {
-    bg: "bg-emerald-500/20",
-    border: "border-emerald-500/40",
-    text: "text-emerald-400",
+    bg: "bg-violet-500/20",
+    border: "border-violet-500/40",
+    text: "text-violet-400",
     emoji: "💼",
   },
   Medicine: {
-    bg: "bg-purple-500/20",
-    border: "border-purple-500/40",
-    text: "text-purple-400",
+    bg: "bg-teal-500/20",
+    border: "border-teal-500/40",
+    text: "text-teal-400",
     emoji: "🏥",
   },
 };
