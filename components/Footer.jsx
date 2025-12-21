@@ -82,7 +82,8 @@ function Footer() {
                 src="/logo.png"
                 alt="Viacheslav Danilov"
                 fill
-                sizes="512px"
+                sizes="120px"
+                priority
                 className="object-contain"
               />
             </div>
@@ -185,7 +186,8 @@ function Footer() {
                 src="/logo.png"
                 alt="Viacheslav Danilov"
                 fill
-                sizes="512px"
+                sizes="120px"
+                priority
                 className="object-contain"
               />
             </div>
