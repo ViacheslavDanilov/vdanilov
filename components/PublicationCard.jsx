@@ -3,7 +3,42 @@
 import React from "react";
 import { GlowCard } from "@/components/ui/glow-card";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleRight, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import {
+  faAngleRight,
+  faArrowRight,
+  faBook,
+  faUsers,
+  faPenNib,
+  faDatabase,
+} from "@fortawesome/free-solid-svg-icons";
+
+// Type badge styling - matching References page colors
+const TYPE_STYLES = {
+  Journal: {
+    bg: "bg-blue-600/20",
+    border: "border-blue-600/40",
+    text: "text-blue-400",
+    icon: faBook,
+  },
+  Conference: {
+    bg: "bg-teal-600/20",
+    border: "border-teal-600/40",
+    text: "text-teal-400",
+    icon: faUsers,
+  },
+  "Blog Post": {
+    bg: "bg-violet-600/20",
+    border: "border-violet-600/40",
+    text: "text-violet-400",
+    icon: faPenNib,
+  },
+  Dataset: {
+    bg: "bg-cyan-600/20",
+    border: "border-cyan-600/40",
+    text: "text-cyan-400",
+    icon: faDatabase,
+  },
+};
 
 /**
  * Minimalistic publication card component
@@ -17,6 +52,7 @@ const PublicationCard = ({
   spotlightSize = 240,
 }) => {
   const { title, authors, venue, year, url, type, tags } = publication;
+  const typeStyle = TYPE_STYLES[type] || TYPE_STYLES.Journal;
 
   return (
     <article className="self-start w-full">
@@ -30,7 +66,14 @@ const PublicationCard = ({
       >
         {/* Type Badge - Top Right Corner */}
         {type && (
-          <span className="absolute top-5 right-5 px-3 py-1 text-xs font-medium rounded-full bg-accent/7 text-accent/80 border border-accent/10">
+          <span
+            className={`absolute top-5 right-5 px-3 py-1 text-xs font-medium rounded-full border inline-flex items-center gap-1.5 ${typeStyle.bg} ${typeStyle.border} ${typeStyle.text}`}
+          >
+            <FontAwesomeIcon
+              icon={typeStyle.icon}
+              className="w-3 h-3"
+              style={{ width: "0.75rem", height: "0.75rem" }}
+            />
             {type}
           </span>
         )}
