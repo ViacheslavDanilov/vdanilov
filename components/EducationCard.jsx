@@ -10,7 +10,12 @@ import React, {
 import { AnimatePresence, motion } from "motion/react";
 import { GlowCard } from "@/components/ui/glow-card";
 import { Tab } from "@/components/ui/tab";
-import { faBook, faGraduationCap } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBook,
+  faGraduationCap,
+  faAward,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   CompanyLogo,
   highlightKeywords,
@@ -119,7 +124,12 @@ const EducationCard = ({
         <div className="flex flex-col md:hidden mb-4 space-y-3 relative">
           {/* Honors Badge - Mobile (absolute positioning) */}
           {education.honors && (
-            <span className="absolute top-0 right-0 px-3 py-1 text-xs font-medium rounded-full border inline-flex items-center bg-accent/7 text-accent border-accent/10">
+            <span className="absolute top-0 right-0 px-3 py-1 text-xs font-medium rounded-full border inline-flex items-center gap-1.5 bg-teal-600/20 text-teal-400 border-teal-600/40">
+              <FontAwesomeIcon
+                icon={faAward}
+                className="w-3 h-3"
+                style={{ width: "0.75rem", height: "0.75rem" }}
+              />
               {education.honors}
             </span>
           )}
@@ -181,7 +191,12 @@ const EducationCard = ({
                 {education.degree}
               </h3>
               {education.honors && (
-                <span className="flex-shrink-0 px-3 py-0.5 text-xs font-medium rounded-full border inline-flex items-center bg-accent/7 text-accent border-accent/10">
+                <span className="flex-shrink-0 px-3 py-1 text-xs font-medium rounded-full border inline-flex items-center gap-1.5 bg-teal-600/20 text-teal-400 border-teal-600/40">
+                  <FontAwesomeIcon
+                    icon={faAward}
+                    className="w-3 h-3"
+                    style={{ width: "0.75rem", height: "0.75rem" }}
+                  />
                   {education.honors}
                 </span>
               )}
