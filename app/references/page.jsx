@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
+import { AnimatePresence, motion } from "motion/react";
 import ReferenceCard from "@/components/ReferenceCard";
 import { Tab } from "@/components/ui/tab";
 import {
@@ -279,15 +280,21 @@ export default function References() {
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
             role="list"
           >
-            {filteredReferences.map((reference) => (
-              <div
-                key={reference.id}
-                className="transition-all duration-300"
-                role="listitem"
-              >
-                <ReferenceCard reference={reference} />
-              </div>
-            ))}
+            <AnimatePresence mode="popLayout">
+              {filteredReferences.map((reference) => (
+                <motion.div
+                  key={reference.id}
+                  layout
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  transition={{ duration: 0.3 }}
+                  role="listitem"
+                >
+                  <ReferenceCard reference={reference} />
+                </motion.div>
+              ))}
+            </AnimatePresence>
           </div>
 
           {/* Empty State */}
