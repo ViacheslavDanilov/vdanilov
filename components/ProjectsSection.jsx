@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleRight, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { GlowCard } from "@/components/ui/glow-card";
 
 const PROJECTS = [
@@ -112,23 +112,17 @@ const ProjectsSection = ({
                 <a href={project.link} className="block">
                   <h3 className="project-title text-sm font-bold text-white uppercase leading-tight tracking-wider mb-3 text-center transition-colors flex items-center justify-center gap-2">
                     {project.title}
-                    <span className="relative inline-flex items-center justify-center w-3 h-3">
-                      <FontAwesomeIcon
-                        icon={faAngleRight}
-                        className="absolute w-3 h-3 opacity-60 transition-opacity duration-300 group-hover:opacity-0"
-                        style={{
-                          width: "0.75rem",
-                          height: "0.75rem",
-                          display: "inline-block",
-                        }}
-                      />
+                    <span
+                      className="inline-block transition-transform duration-300 group-hover:translate-x-1"
+                      style={{ width: "0.75rem", height: "0.75rem" }}
+                    >
                       <FontAwesomeIcon
                         icon={faArrowRight}
-                        className="absolute w-3 h-3 opacity-0 transition-opacity duration-300 group-hover:opacity-60"
+                        className="opacity-60"
                         style={{
                           width: "0.75rem",
                           height: "0.75rem",
-                          display: "inline-block",
+                          display: "block",
                         }}
                       />
                     </span>
@@ -160,23 +154,17 @@ const ProjectsSection = ({
                   <a href={project.link}>
                     <h3 className="project-title text-sm font-bold text-white uppercase leading-tight tracking-wider mb-3 transition-colors flex items-center gap-2">
                       {project.title}
-                      <span className="relative inline-flex items-center justify-center w-3 h-3">
-                        <FontAwesomeIcon
-                          icon={faAngleRight}
-                          className="absolute w-3 h-3 opacity-60 transition-opacity duration-300 group-hover:opacity-0"
-                          style={{
-                            width: "0.75rem",
-                            height: "0.75rem",
-                            display: "inline-block",
-                          }}
-                        />
+                      <span
+                        className="inline-block transition-transform duration-300 group-hover:translate-x-1"
+                        style={{ width: "0.75rem", height: "0.75rem" }}
+                      >
                         <FontAwesomeIcon
                           icon={faArrowRight}
-                          className="absolute w-3 h-3 opacity-0 transition-opacity duration-300 group-hover:opacity-60"
+                          className="opacity-60"
                           style={{
                             width: "0.75rem",
                             height: "0.75rem",
-                            display: "inline-block",
+                            display: "block",
                           }}
                         />
                       </span>
