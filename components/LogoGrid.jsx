@@ -79,19 +79,29 @@ const LogoGrid = () => {
       </div>
       <ul className="grid grid-cols-2 gap-x-10 gap-y-8 md:gap-x-16 md:grid-cols-3 lg:grid-cols-4">
         {logos.map((logo, idx) => (
-          <li key={idx} className="flex items-center justify-center">
+          <li
+            key={idx}
+            className="flex items-center justify-center"
+            style={{ minHeight: "5rem" }}
+          >
             <Link
               href={logo.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="transition-all duration-300 hover:brightness-125 hover:scale-[1.01]"
-              style={{ position: "relative", width: "10rem", height: "5rem" }}
+              className="flex items-center justify-center transition-all duration-300 hover:brightness-125 hover:scale-[1.01]"
+              style={{ width: "10rem", height: "5rem" }}
             >
               <Image
                 src={logo.src}
                 alt={logo.name}
-                fill
-                sizes="160px"
+                width={320}
+                height={160}
+                style={{
+                  width: "auto",
+                  height: "auto",
+                  maxWidth: "100%",
+                  maxHeight: "100%",
+                }}
                 className="object-contain"
               />
             </Link>
