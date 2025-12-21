@@ -112,13 +112,13 @@ const ReferenceCard = ({ reference }) => {
         </div>
 
         {/* Name */}
-        <h3 className="text-lg font-bold text-light mb-1">{name}</h3>
+        <h3 className="text-lg font-bold text-light mb-1.5">{name}</h3>
 
         {/* Role */}
-        <p className="text-sm font-medium text-accent mb-1">{role}</p>
+        <p className="text-sm font-medium text-accent mb-1.5">{role}</p>
 
         {/* Organization */}
-        <p className="text-sm text-gray-300 mb-1">{organization}</p>
+        <p className="text-sm text-gray-300 mb-1.5">{organization}</p>
 
         {/* Location */}
         <p className="text-xs text-gray-500 mb-4">{location}</p>
