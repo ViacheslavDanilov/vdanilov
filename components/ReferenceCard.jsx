@@ -15,20 +15,26 @@ import { GlowCard } from "@/components/ui/glow-card";
 
 const BADGE_STYLES = {
   Research: {
-    bg: "bg-blue-500/20",
-    border: "border-blue-500/40",
+    // bg: "bg-blue-500/15",
+    // border: "border-blue-500/40",
+    bg: "bg-blue-600/20",
+    border: "border-blue-600/40",
     text: "text-blue-400",
     emoji: "🔬",
   },
   Business: {
-    bg: "bg-violet-500/20",
-    border: "border-violet-500/40",
+    // bg: "bg-violet-500/15",
+    // border: "border-violet-500/40",
+    bg: "bg-violet-600/20",
+    border: "border-violet-600/40",
     text: "text-violet-400",
     emoji: "💼",
   },
   Medicine: {
-    bg: "bg-teal-500/20",
-    border: "border-teal-500/40",
+    // bg: "bg-teal-500/15",
+    // border: "border-teal-500/40",
+    bg: "bg-teal-600/20",
+    border: "border-teal-600/40",
     text: "text-teal-400",
     emoji: "🏥",
   },
