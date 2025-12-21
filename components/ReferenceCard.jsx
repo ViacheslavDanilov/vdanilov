@@ -10,33 +10,33 @@ import {
   faGoogleScholar,
   faFacebookSquare,
 } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope, faGlobe } from "@fortawesome/free-solid-svg-icons";
+import {
+  faEnvelope,
+  faGlobe,
+  faFlask,
+  faBriefcase,
+  faHeartPulse,
+} from "@fortawesome/free-solid-svg-icons";
 import { GlowCard } from "@/components/ui/glow-card";
 
 const BADGE_STYLES = {
   Research: {
-    // bg: "bg-blue-500/15",
-    // border: "border-blue-500/40",
     bg: "bg-blue-600/20",
     border: "border-blue-600/40",
     text: "text-blue-400",
-    emoji: "🔬",
+    icon: faFlask,
   },
   Business: {
-    // bg: "bg-violet-500/15",
-    // border: "border-violet-500/40",
     bg: "bg-violet-600/20",
     border: "border-violet-600/40",
     text: "text-violet-400",
-    emoji: "💼",
+    icon: faBriefcase,
   },
   Medicine: {
-    // bg: "bg-teal-500/15",
-    // border: "border-teal-500/40",
     bg: "bg-teal-600/20",
     border: "border-teal-600/40",
     text: "text-teal-400",
-    emoji: "🏥",
+    icon: faHeartPulse,
   },
 };
 
@@ -91,7 +91,11 @@ const ReferenceCard = ({ reference }) => {
       <div
         className={`absolute top-4 right-4 z-10 px-3 py-1 rounded-full text-xs font-medium border ${badgeStyle.bg} ${badgeStyle.border} ${badgeStyle.text} flex items-center gap-1.5`}
       >
-        <span>{badgeStyle.emoji}</span>
+        <FontAwesomeIcon
+          icon={badgeStyle.icon}
+          className="w-3 h-3"
+          style={{ width: "0.75rem", height: "0.75rem" }}
+        />
         <span>{category}</span>
       </div>
 
