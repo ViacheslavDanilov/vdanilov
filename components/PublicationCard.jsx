@@ -5,7 +5,6 @@ import { GlowCard } from "@/components/ui/glow-card";
 import { Badge } from "@/components/ui/badge";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faAngleRight,
   faArrowRight,
   faBook,
   faUsers,
@@ -67,15 +66,18 @@ const PublicationCard = ({
             >
               <h3 className="text-base font-semibold text-light leading-snug group-hover/link:text-accent transition-colors inline">
                 {title}
-                <span className="relative inline-flex items-center justify-center w-3 h-3 ml-1.5">
-                  <FontAwesomeIcon
-                    icon={faAngleRight}
-                    className="absolute w-3 h-3 opacity-60 transition-opacity duration-300 group-hover/link:opacity-0"
-                    aria-hidden="true"
-                  />
+                <span
+                  className="inline-block ml-1.5 align-baseline transition-transform duration-300 group-hover/link:translate-x-1"
+                  style={{ width: "0.75rem", height: "0.75rem" }}
+                >
                   <FontAwesomeIcon
                     icon={faArrowRight}
-                    className="absolute w-3 h-3 opacity-0 transition-opacity duration-300 group-hover/link:opacity-60"
+                    className="opacity-60"
+                    style={{
+                      width: "0.75rem",
+                      height: "0.75rem",
+                      display: "block",
+                    }}
                     aria-hidden="true"
                   />
                 </span>
