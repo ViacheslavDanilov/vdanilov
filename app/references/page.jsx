@@ -182,14 +182,14 @@ const REFERENCES_DATA = [
       email: "nikolay.v.vasilyev.md@gmail.com",
     },
   },
-  // Business
+  // Industry
   {
     id: "yuriy-gankin",
     name: "Yuriy Gankin, PhD",
     role: "Chief Scientific Officer",
     organization: "Quantori",
     location: "Cambridge · United States 🇺🇸",
-    category: "Business",
+    category: "Industry",
     image: "/references/yuriy-gankin.webp",
     socials: {
       website: "https://quantori.com/about/yuriy-gankin",
@@ -205,7 +205,7 @@ const REFERENCES_DATA = [
     role: "Chief Architect",
     organization: "Centaur Labs",
     location: "Boston · United States 🇺🇸",
-    category: "Business",
+    category: "Industry",
     image: "/references/efim-furman.webp",
     socials: {
       facebook: "https://www.facebook.com/efim.furman",
@@ -218,7 +218,7 @@ const REFERENCES_DATA = [
 const FILTER_OPTIONS = [
   { id: "all", label: "All", icon: null },
   { id: "Research", label: "Research", icon: faFlask },
-  { id: "Business", label: "Business", icon: faBriefcase },
+  { id: "Industry", label: "Industry", icon: faBriefcase },
   { id: "Medicine", label: "Medicine", icon: faHeartPulse },
 ];
 

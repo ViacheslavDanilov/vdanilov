@@ -26,7 +26,7 @@ const BADGE_STYLES = {
     text: "text-blue-400",
     icon: faFlask,
   },
-  Business: {
+  Industry: {
     bg: "bg-violet-600/20",
     border: "border-violet-600/40",
     text: "text-violet-400",
