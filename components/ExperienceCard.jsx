@@ -279,14 +279,12 @@ const ExperienceCard = ({
     }
   }, [activeTab, experience.responsibilities, experience.publications]);
 
-  // Category badge styling - soft pastel colors matching mockup
+  // Category badge styling - matching References page colors
   const getCategoryStyle = (category) => {
     if (category === "research") {
-      return "bg-accent/7 text-accent/80 border-accent/10";
+      return "bg-blue-600/20 text-blue-400 border-blue-600/40";
     }
-    return "bg-accent/7 text-accent/80 border-accent/10";
-    // return "bg-blue-400/[0.1] text-blue-400/90 border-blue-500/20";
-    // return "bg-emerald-500/[0.125] text-emerald-400/80 border-emerald-500/20";
+    return "bg-teal-600/20 text-teal-400 border-teal-600/40";
   };
 
   const getCategoryLabel = (category) => {
