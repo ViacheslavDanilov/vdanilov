@@ -10,7 +10,13 @@ import React, {
 import { AnimatePresence, motion } from "motion/react";
 import { GlowCard } from "@/components/ui/glow-card";
 import { Tab } from "@/components/ui/tab";
-import { faBook, faGraduationCap } from "@fortawesome/free-solid-svg-icons";
+import { Badge } from "@/components/ui/badge";
+import {
+  faBook,
+  faGraduationCap,
+  faAward,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   CompanyLogo,
   highlightKeywords,
@@ -119,9 +125,13 @@ const EducationCard = ({
         <div className="flex flex-col md:hidden mb-4 space-y-3 relative">
           {/* Honors Badge - Mobile (absolute positioning) */}
           {education.honors && (
-            <span className="absolute top-0 right-0 px-3 py-1 text-xs font-medium rounded-full border inline-flex items-center bg-accent/7 text-accent border-accent/10">
+            <Badge
+              variant="teal"
+              icon={faAward}
+              className="absolute top-0 right-0"
+            >
               {education.honors}
-            </span>
+            </Badge>
           )}
           <div className="flex justify-center">
             <CompanyLogo
@@ -167,7 +177,17 @@ const EducationCard = ({
         </div>
 
         {/* Desktop Layout */}
-        <div className="hidden md:flex flex-row gap-6 mb-4 items-start">
+        <div className="hidden md:flex flex-row gap-6 mb-4 items-start relative">
+          {/* Honors Badge - Desktop (absolute positioning) */}
+          {education.honors && (
+            <Badge
+              variant="teal"
+              icon={faAward}
+              className="absolute top-0 right-0"
+            >
+              {education.honors}
+            </Badge>
+          )}
           <CompanyLogo
             logo={education.logo}
             company={education.institution}
@@ -175,17 +195,10 @@ const EducationCard = ({
             brightness={education.logoBrightness}
           />
           <div className="flex-1 flex flex-col gap-2">
-            {/* Row 1: Degree + Badge */}
-            <div className="flex justify-between items-start gap-4">
-              <h3 className="text-md font-bold uppercase tracking-wider text-light">
-                {education.degree}
-              </h3>
-              {education.honors && (
-                <span className="flex-shrink-0 px-3 py-0.5 text-xs font-medium rounded-full border inline-flex items-center bg-accent/7 text-accent border-accent/10">
-                  {education.honors}
-                </span>
-              )}
-            </div>
+            {/* Row 1: Degree */}
+            <h3 className="text-md font-bold uppercase tracking-wider text-light">
+              {education.degree}
+            </h3>
 
             {/* Row 2: University */}
             <a

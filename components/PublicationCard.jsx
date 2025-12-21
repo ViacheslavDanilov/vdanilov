@@ -2,8 +2,23 @@
 
 import React from "react";
 import { GlowCard } from "@/components/ui/glow-card";
+import { Badge } from "@/components/ui/badge";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleRight, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import {
+  faArrowRight,
+  faBook,
+  faUsers,
+  faPenNib,
+  faDatabase,
+} from "@fortawesome/free-solid-svg-icons";
+
+// Badge configuration for each publication type
+const TYPE_CONFIG = {
+  Journal: { variant: "blue", icon: faBook },
+  Conference: { variant: "teal", icon: faUsers },
+  "Blog Post": { variant: "violet", icon: faPenNib },
+  Dataset: { variant: "cyan", icon: faDatabase },
+};
 
 /**
  * Minimalistic publication card component
@@ -17,6 +32,7 @@ const PublicationCard = ({
   spotlightSize = 240,
 }) => {
   const { title, authors, venue, year, url, type, tags } = publication;
+  const config = TYPE_CONFIG[type] || TYPE_CONFIG.Journal;
 
   return (
     <article className="self-start w-full">
@@ -30,9 +46,13 @@ const PublicationCard = ({
       >
         {/* Type Badge - Top Right Corner */}
         {type && (
-          <span className="absolute top-5 right-5 px-3 py-1 text-xs font-medium rounded-full bg-accent/7 text-accent/80 border border-accent/10">
+          <Badge
+            variant={config.variant}
+            icon={config.icon}
+            className="absolute top-5 right-5 z-10"
+          >
             {type}
-          </span>
+          </Badge>
         )}
 
         <div className="flex flex-col gap-3">
@@ -46,15 +66,18 @@ const PublicationCard = ({
             >
               <h3 className="text-base font-semibold text-light leading-snug group-hover/link:text-accent transition-colors inline">
                 {title}
-                <span className="relative inline-flex items-center justify-center w-3 h-3 ml-1.5">
-                  <FontAwesomeIcon
-                    icon={faAngleRight}
-                    className="absolute w-3 h-3 opacity-60 transition-opacity duration-300 group-hover/link:opacity-0"
-                    aria-hidden="true"
-                  />
+                <span
+                  className="inline-block ml-1.5 align-baseline transition-transform duration-300 group-hover/link:translate-x-1"
+                  style={{ width: "0.75rem", height: "0.75rem" }}
+                >
                   <FontAwesomeIcon
                     icon={faArrowRight}
-                    className="absolute w-3 h-3 opacity-0 transition-opacity duration-300 group-hover/link:opacity-60"
+                    className="opacity-60"
+                    style={{
+                      width: "0.75rem",
+                      height: "0.75rem",
+                      display: "block",
+                    }}
                     aria-hidden="true"
                   />
                 </span>

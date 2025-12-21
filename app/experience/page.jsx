@@ -456,7 +456,7 @@ export default function Experience() {
 
   return (
     <main className="min-h-screen pt-24">
-      <div className="flex flex-col items-center pt-12 md:pt-24 gap-12 pb-32">
+      <div className="flex flex-col items-center pt-12 md:pt-24 gap-36 pb-48">
         <section className="w-full max-w-7xl mx-auto px-6">
           <header className="mb-12 text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-light mb-4">
@@ -480,7 +480,7 @@ export default function Experience() {
         </section>
 
         {/* Visiting Roles Section */}
-        <section className="w-full max-w-7xl mx-auto px-6 mt-16">
+        <section className="w-full max-w-7xl mx-auto px-6">
           <header className="mb-12 text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-light mb-4">
               Visiting Roles
