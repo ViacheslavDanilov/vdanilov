@@ -1,12 +1,156 @@
+"use client";
+
+import React, { useState, useMemo } from "react";
+import { AnimatePresence, motion } from "motion/react";
+import PortfolioCard from "@/components/PortfolioCard";
+import { Tab } from "@/components/ui/tab";
+import {
+  faBrain,
+  faCode,
+  faPalette,
+  faLayerGroup,
+} from "@fortawesome/free-solid-svg-icons";
+
+// Placeholder project data
+const PROJECTS_DATA = [
+  {
+    id: "ai-dissects-arterial-risk",
+    title: "AI Dissects Arterial Risk",
+    description:
+      "Deep learning pipeline for OCT plaque segmentation, enabling precise arterial risk assessment in cardiovascular imaging.",
+    category: "AI/ML",
+    image: "/portfolio/previews/ai-dissects-arterial-risk.webp",
+  },
+  {
+    id: "ai-powered-microscopy",
+    title: "AI-Powered Microscopy",
+    description:
+      "Automated detection and counting of cancer cells using advanced computer vision and neural networks.",
+    category: "AI/ML",
+    image: "/portfolio/previews/ai-powered-microscopy.webp",
+  },
+  {
+    id: "automatic-scoring-of-covid-19-severity",
+    title: "COVID-19 Severity Scoring",
+    description:
+      "Machine learning system for automatic assessment of COVID-19 lung involvement from CT scans.",
+    category: "AI/ML",
+    image: "/portfolio/previews/automatic-scoring-of-covid-19-severity.webp",
+  },
+];
+
+const FILTER_OPTIONS = [
+  { id: "all", label: "All", icon: faLayerGroup },
+  { id: "AI/ML", label: "AI/ML", icon: faBrain },
+  { id: "Web", label: "Web", icon: faCode },
+  { id: "Design", label: "Design", icon: faPalette },
+];
+
 export default function Portfolio() {
+  const [activeFilter, setActiveFilter] = useState("all");
+
+  const filteredProjects = useMemo(() => {
+    if (activeFilter === "all") {
+      return PROJECTS_DATA;
+    }
+    return PROJECTS_DATA.filter((project) => project.category === activeFilter);
+  }, [activeFilter]);
+
+  const getCounts = useMemo(() => {
+    const counts = { all: PROJECTS_DATA.length };
+    FILTER_OPTIONS.forEach((option) => {
+      if (option.id !== "all") {
+        counts[option.id] = PROJECTS_DATA.filter(
+          (project) => project.category === option.id,
+        ).length;
+      }
+    });
+    return counts;
+  }, []);
+
   return (
-    <div className="min-h-screen flex items-center justify-center px-6">
-      <div className="text-center">
-        <h1 className="text-4xl md:text-5xl font-bold text-light mb-4">
-          Portfolio
-        </h1>
-        <p className="text-xl text-gray-400">Coming Soon</p>
+    <main className="min-h-screen pt-24">
+      <div className="flex flex-col items-center pt-12 md:pt-24 gap-16 pb-48">
+        {/* Header Section */}
+        <section className="w-full max-w-7xl mx-auto px-6">
+          <header className="mb-12 text-center">
+            <h1 className="text-4xl md:text-5xl font-bold text-light mb-4">
+              Portfolio
+            </h1>
+            <p className="text-gray-400 mt-3 max-w-3xl mx-auto leading-relaxed">
+              A curated collection of projects showcasing expertise in machine
+              learning, artificial intelligence, and data-driven solutions
+            </p>
+          </header>
+
+          {/* Filter Tabs */}
+          <div className="flex flex-wrap justify-center gap-2 mb-12">
+            {FILTER_OPTIONS.map((option) => (
+              <Tab
+                key={option.id}
+                text={`${option.label} (${getCounts[option.id]})`}
+                icon={option.icon}
+                selected={activeFilter === option.id}
+                setSelected={() => setActiveFilter(option.id)}
+                layoutId="portfolio-filter"
+              />
+            ))}
+          </div>
+
+          {/* Projects Grid */}
+          <div
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            role="list"
+          >
+            <AnimatePresence mode="popLayout">
+              {filteredProjects.map((project) => (
+                <motion.div
+                  key={project.id}
+                  layout
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  transition={{ duration: 0.3 }}
+                  role="listitem"
+                >
+                  <PortfolioCard project={project} />
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </div>
+
+          {/* Empty State */}
+          {filteredProjects.length === 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-center py-16"
+            >
+              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-card border border-white/10 flex items-center justify-center">
+                <svg
+                  className="w-8 h-8 text-gray-500"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={1.5}
+                    d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                  />
+                </svg>
+              </div>
+              <p className="text-gray-400 text-lg">
+                No projects in this category yet.
+              </p>
+              <p className="text-gray-500 text-sm mt-2">
+                Check back soon for updates!
+              </p>
+            </motion.div>
+          )}
+        </section>
       </div>
-    </div>
+    </main>
   );
 }
