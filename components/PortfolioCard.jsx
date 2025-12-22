@@ -2,19 +2,17 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "motion/react";
+import { Badge } from "@/components/ui/badge";
 
 const PortfolioCard = ({ project }) => {
   const { id, title, description, category, image } = project;
 
   return (
     <Link href={`/portfolio/${id}`} className="group block">
-      <motion.article
+      <article
         className="relative overflow-hidden rounded-2xl bg-card border border-white/10 
                    transition-all duration-300 hover:border-accent/30 hover:shadow-lg 
                    hover:shadow-accent/5"
-        whileHover={{ y: -4 }}
-        transition={{ type: "spring", stiffness: 300, damping: 20 }}
       >
         {/* Image Container */}
         <div className="relative aspect-[16/10] overflow-hidden">
@@ -23,7 +21,7 @@ const PortfolioCard = ({ project }) => {
             alt={title}
             fill
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            className="object-cover transition-transform duration-500 group-hover:scale-102"
           />
           {/* Gradient Overlay */}
           <div
@@ -31,13 +29,10 @@ const PortfolioCard = ({ project }) => {
                         opacity-60 transition-opacity duration-300 group-hover:opacity-80"
           />
 
-          {/* Category Badge */}
-          <span
-            className="absolute top-4 left-4 px-3 py-1 text-xs font-medium rounded-full 
-                         bg-accent/20 text-accent border border-accent/30 backdrop-blur-sm"
-          >
+          {/* Category Badge - Top Right Corner */}
+          <Badge variant="teal" className="absolute top-5 right-5 z-10">
             {category}
-          </span>
+          </Badge>
         </div>
 
         {/* Content */}
@@ -70,7 +65,7 @@ const PortfolioCard = ({ project }) => {
             </svg>
           </div>
         </div>
-      </motion.article>
+      </article>
     </Link>
   );
 };
