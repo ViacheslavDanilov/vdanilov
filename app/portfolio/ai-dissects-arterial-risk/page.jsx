@@ -18,6 +18,7 @@ import {
   faGoogle,
   faOrcid,
 } from "@fortawesome/free-brands-svg-icons";
+import ImageLightbox from "@/components/ImageLightbox";
 
 export const metadata = {
   title: "AI Dissects Arterial Risk – Viacheslav Danilov",
@@ -202,7 +203,7 @@ function TeamMemberCard({ member }) {
 export default function ProjectPage() {
   return (
     <main className="min-h-screen pt-24">
-      <div className="max-w-4xl mx-auto px-6 py-12 md:py-24">
+      <div className="w-full max-w-5xl mx-auto px-6 py-12 md:py-24">
         {/* Back Navigation */}
         <Link
           href="/portfolio"
@@ -333,11 +334,11 @@ export default function ProjectPage() {
             </div>
           </section>
 
-          {/* Summary */}
+          {/* Overview */}
           <section>
             <h2 className="text-xl font-semibold text-light mb-4 flex items-center gap-3">
               <span className="w-1 h-6 bg-accent rounded-full"></span>
-              Summary
+              Overview
             </h2>
             <div className="prose prose-invert max-w-none">
               <p className="text-gray-400 leading-relaxed mb-4">
@@ -386,14 +387,11 @@ export default function ProjectPage() {
             </h2>
 
             {/* Annotation Methodology Image */}
-            <div className="relative aspect-[16/9] rounded-xl overflow-hidden mb-6 border border-white/10">
-              <Image
-                src="/portfolio/ai-dissects-arterial-risk/oct-annotation-methodology.webp"
-                alt="OCT Annotation Methodology"
-                fill
-                className="object-cover"
-              />
-            </div>
+            <ImageLightbox
+              src="/portfolio/ai-dissects-arterial-risk/oct-annotation-methodology.webp"
+              alt="OCT Annotation Methodology"
+              className="mb-6"
+            />
 
             <p className="text-gray-400 leading-relaxed mb-4">
               This project utilized a diverse and clinically representative
@@ -467,14 +465,11 @@ export default function ProjectPage() {
             </h2>
 
             {/* Loss and DSC Evolution */}
-            <div className="relative aspect-[16/9] rounded-xl overflow-hidden mb-6 border border-white/10">
-              <Image
-                src="/portfolio/ai-dissects-arterial-risk/loss-and-dsc-evolution.webp"
-                alt="Loss and DSC Evolution during training"
-                fill
-                className="object-cover"
-              />
-            </div>
+            <ImageLightbox
+              src="/portfolio/ai-dissects-arterial-risk/loss-and-dsc-evolution.webp"
+              alt="Loss and DSC Evolution during training"
+              className="mb-6"
+            />
 
             <p className="text-gray-400 leading-relaxed mb-4">
               The project&apos;s methodology addressed both architectural
@@ -581,14 +576,11 @@ export default function ProjectPage() {
             </h2>
 
             {/* Comparison Ground Truth and Predictions */}
-            <div className="relative aspect-[16/9] rounded-xl overflow-hidden mb-6 border border-white/10">
-              <Image
-                src="/portfolio/ai-dissects-arterial-risk/comparison-ground-truth-and-predictions.webp"
-                alt="Comparison of Ground Truth and Model Predictions"
-                fill
-                className="object-cover"
-              />
-            </div>
+            <ImageLightbox
+              src="/portfolio/ai-dissects-arterial-risk/comparison-ground-truth-and-predictions.webp"
+              alt="Comparison of Ground Truth and Model Predictions"
+              className="mb-6"
+            />
 
             <p className="text-gray-400 leading-relaxed mb-6">
               The hybrid deep learning framework showed consistent, high
@@ -633,14 +625,11 @@ export default function ProjectPage() {
             </div>
 
             {/* Activation Maps */}
-            <div className="relative aspect-[16/9] rounded-xl overflow-hidden mb-6 border border-white/10">
-              <Image
-                src="/portfolio/ai-dissects-arterial-risk/activation-maps-for-lumen.webp"
-                alt="Activation Maps for Lumen Segmentation"
-                fill
-                className="object-cover"
-              />
-            </div>
+            <ImageLightbox
+              src="/portfolio/ai-dissects-arterial-risk/activation-maps-for-lumen.webp"
+              alt="Activation Maps for Lumen Segmentation"
+              className="mb-6"
+            />
 
             <p className="text-gray-400 leading-relaxed">
               Visual evaluation of model predictions shows a high overlap with
