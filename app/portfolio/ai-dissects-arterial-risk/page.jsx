@@ -390,6 +390,7 @@ export default function ProjectPage() {
             <ImageLightbox
               src="/portfolio/ai-dissects-arterial-risk/oct-annotation-methodology.webp"
               alt="OCT Annotation Methodology"
+              maxWidth="full"
               className="mb-6"
             />
 
@@ -468,6 +469,7 @@ export default function ProjectPage() {
             <ImageLightbox
               src="/portfolio/ai-dissects-arterial-risk/loss-and-dsc-evolution.webp"
               alt="Loss and DSC Evolution during training"
+              maxWidth="3xl"
               className="mb-6"
             />
 
@@ -579,6 +581,7 @@ export default function ProjectPage() {
             <ImageLightbox
               src="/portfolio/ai-dissects-arterial-risk/comparison-ground-truth-and-predictions.webp"
               alt="Comparison of Ground Truth and Model Predictions"
+              maxWidth="2xl"
               className="mb-6"
             />
 
@@ -628,6 +631,7 @@ export default function ProjectPage() {
             <ImageLightbox
               src="/portfolio/ai-dissects-arterial-risk/activation-maps-for-lumen.webp"
               alt="Activation Maps for Lumen Segmentation"
+              maxWidth="2xl"
               className="mb-6"
             />
 
