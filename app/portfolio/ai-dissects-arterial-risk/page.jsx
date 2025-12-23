@@ -19,6 +19,7 @@ import {
   faOrcid,
 } from "@fortawesome/free-brands-svg-icons";
 import ImageLightbox from "@/components/ImageLightbox";
+import { GlowCard } from "@/components/ui/glow-card";
 
 export const metadata = {
   title: "AI Dissects Arterial Risk – Viacheslav Danilov",
@@ -54,7 +55,7 @@ const TEAM_MEMBERS = [
     name: "Viacheslav Danilov",
     role: "Lead Data Scientist",
     organization: "Pompeu Fabra University",
-    location: "Barcelona, Spain 🇪🇸",
+    location: "Barcelona · Spain 🇪🇸",
     photo: "/portfolio/team/viacheslav-danilov.webp",
     links: {
       linkedin: "https://www.linkedin.com/in/viacheslav-danilov/",
@@ -68,7 +69,7 @@ const TEAM_MEMBERS = [
     name: "Vladislav Laptev",
     role: "Senior Data Scientist",
     organization: "Siberian Medical University",
-    location: "Tomsk, Russia 🇷🇺",
+    location: "Tomsk · Russia 🇷🇺",
     photo: "/portfolio/team/vladislav-laptev.webp",
     links: {
       globe: "https://loop.frontiersin.org/people/2713564/overview",
@@ -81,7 +82,7 @@ const TEAM_MEMBERS = [
     name: "Kirill Klyshnikov",
     role: "Middle Data Engineer",
     organization: "Kuzbass Cardiac Center",
-    location: "Kemerovo, Russia 🇷🇺",
+    location: "Kemerovo · Russia 🇷🇺",
     photo: "/portfolio/team/kirill-klyshnikov.webp",
     links: {
       globe: "https://loop.frontiersin.org/people/1380790/overview",
@@ -95,7 +96,7 @@ const TEAM_MEMBERS = [
     name: "Evgeny Ovcharenko",
     role: "Senior Researcher",
     organization: "Kuzbass Cardiac Center",
-    location: "Kemerovo, Russia 🇷🇺",
+    location: "Kemerovo · Russia 🇷🇺",
     photo: "/portfolio/team/evgeny-ovcharenko.webp",
     links: {
       globe: "https://loop.frontiersin.org/people/355364/overview",
@@ -109,7 +110,7 @@ const TEAM_MEMBERS = [
     name: "Nikita Kochergin",
     role: "Cardiothoracic Surgeon",
     organization: "Kuzbass Cardiac Center",
-    location: "Kemerovo, Russia 🇷🇺",
+    location: "Kemerovo · Russia 🇷🇺",
     photo: "/portfolio/team/nikita-kochergin.webp",
     links: {
       globe:
@@ -161,42 +162,63 @@ function TeamMemberCard({ member }) {
   };
 
   return (
-    <div className="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-accent/30 transition-colors">
-      <div className="flex items-start gap-4">
+    <GlowCard
+      glowColor="blue"
+      customSize={true}
+      className="w-full h-full p-5"
+      enableSpotlight={true}
+      enableBorderGlow={true}
+      spotlightSize={240}
+    >
+      {/* Mobile: Centered vertical layout | Desktop: Horizontal layout */}
+      <div className="flex flex-col items-center text-center sm:flex-row sm:items-start sm:text-left gap-4">
         {/* Photo */}
-        <div className="relative w-16 h-16 flex-shrink-0 rounded-full overflow-hidden border-2 border-accent/30">
+        <div className="relative w-20 h-20 sm:w-18 sm:h-18 flex-shrink-0 rounded-full overflow-hidden border-2 border-accent/20 shadow-lg bg-dark">
           <Image
             src={member.photo}
             alt={member.name}
             fill
+            sizes="(max-width: 640px) 80px, 72px"
             className="object-cover"
           />
         </div>
         {/* Info */}
         <div className="flex-1 min-w-0">
-          <h4 className="text-light font-semibold text-sm">{member.name}</h4>
-          <p className="text-accent text-xs mt-0.5">{member.role}</p>
-          <p className="text-gray-500 text-xs mt-1 truncate">
+          <h4 className="text-base font-bold text-light mb-1.5">
+            {member.name}
+          </h4>
+          <p className="text-sm font-medium text-accent mb-1.5">
+            {member.role}
+          </p>
+          <p className="text-sm text-gray-300 mb-1.5 sm:truncate">
             {member.organization}
           </p>
-          <p className="text-gray-500 text-xs">{member.location}</p>
-          <div className="flex flex-wrap gap-2 mt-2">
+          <p className="text-xs text-gray-500 mb-3">{member.location}</p>
+          <div className="flex flex-wrap justify-center sm:justify-start gap-4">
             {Object.entries(member.links).map(([key, url]) => (
               <a
                 key={key}
                 href={key === "email" ? `mailto:${url}` : url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-accent transition-colors"
+                target={key === "email" ? undefined : "_blank"}
+                rel={key === "email" ? undefined : "noopener noreferrer"}
+                className="text-gray-400 hover:text-light transition-all duration-300 transform hover:scale-110"
                 aria-label={key}
               >
-                <FontAwesomeIcon icon={iconMap[key]} className="w-3.5 h-3.5" />
+                <FontAwesomeIcon
+                  icon={iconMap[key]}
+                  className="w-5 h-5"
+                  style={{
+                    width: "1.25rem",
+                    height: "1.25rem",
+                    display: "block",
+                  }}
+                />
               </a>
             ))}
           </div>
         </div>
       </div>
-    </div>
+    </GlowCard>
   );
 }
 
