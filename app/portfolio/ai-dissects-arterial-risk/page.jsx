@@ -54,6 +54,7 @@ const TEAM_MEMBERS = [
     role: "Lead Data Scientist",
     organization: "Pompeu Fabra University",
     location: "Barcelona, Spain 🇪🇸",
+    photo: "/portfolio/team/viacheslav-danilov.webp",
     links: {
       linkedin: "https://www.linkedin.com/in/viacheslav-danilov/",
       github: "https://github.com/ViacheslavDanilov",
@@ -67,6 +68,7 @@ const TEAM_MEMBERS = [
     role: "Senior Data Scientist",
     organization: "Siberian Medical University",
     location: "Tomsk, Russia 🇷🇺",
+    photo: "/portfolio/team/vladislav-laptev.webp",
     links: {
       globe: "https://loop.frontiersin.org/people/2713564/overview",
       github: "https://github.com/vladislavml",
@@ -79,6 +81,7 @@ const TEAM_MEMBERS = [
     role: "Middle Data Engineer",
     organization: "Kuzbass Cardiac Center",
     location: "Kemerovo, Russia 🇷🇺",
+    photo: "/portfolio/team/kirill-klyshnikov.webp",
     links: {
       globe: "https://loop.frontiersin.org/people/1380790/overview",
       linkedin: "https://www.linkedin.com/in/kirill-klyshnikov-83304b78/",
@@ -92,6 +95,7 @@ const TEAM_MEMBERS = [
     role: "Senior Researcher",
     organization: "Kuzbass Cardiac Center",
     location: "Kemerovo, Russia 🇷🇺",
+    photo: "/portfolio/team/evgeny-ovcharenko.webp",
     links: {
       globe: "https://loop.frontiersin.org/people/355364/overview",
       linkedin: "https://ru.linkedin.com/in/evgeny-ovcharenko-89098722",
@@ -105,6 +109,7 @@ const TEAM_MEMBERS = [
     role: "Cardiothoracic Surgeon",
     organization: "Kuzbass Cardiac Center",
     location: "Kemerovo, Russia 🇷🇺",
+    photo: "/portfolio/team/nikita-kochergin.webp",
     links: {
       globe:
         "https://kemcardio.ru/news/molodye-uchenye-nii-kpssz-vyigrali-tri-granta-rossijskogo-nauchnogo-fonda/",
@@ -156,23 +161,39 @@ function TeamMemberCard({ member }) {
 
   return (
     <div className="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-accent/30 transition-colors">
-      <h4 className="text-light font-semibold text-sm">{member.name}</h4>
-      <p className="text-accent text-xs mt-0.5">{member.role}</p>
-      <p className="text-gray-500 text-xs mt-1">{member.organization}</p>
-      <p className="text-gray-500 text-xs">{member.location}</p>
-      <div className="flex flex-wrap gap-2 mt-3">
-        {Object.entries(member.links).map(([key, url]) => (
-          <a
-            key={key}
-            href={key === "email" ? `mailto:${url}` : url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-400 hover:text-accent transition-colors"
-            aria-label={key}
-          >
-            <FontAwesomeIcon icon={iconMap[key]} className="w-3.5 h-3.5" />
-          </a>
-        ))}
+      <div className="flex items-start gap-4">
+        {/* Photo */}
+        <div className="relative w-16 h-16 flex-shrink-0 rounded-full overflow-hidden border-2 border-accent/30">
+          <Image
+            src={member.photo}
+            alt={member.name}
+            fill
+            className="object-cover"
+          />
+        </div>
+        {/* Info */}
+        <div className="flex-1 min-w-0">
+          <h4 className="text-light font-semibold text-sm">{member.name}</h4>
+          <p className="text-accent text-xs mt-0.5">{member.role}</p>
+          <p className="text-gray-500 text-xs mt-1 truncate">
+            {member.organization}
+          </p>
+          <p className="text-gray-500 text-xs">{member.location}</p>
+          <div className="flex flex-wrap gap-2 mt-2">
+            {Object.entries(member.links).map(([key, url]) => (
+              <a
+                key={key}
+                href={key === "email" ? `mailto:${url}` : url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-accent transition-colors"
+                aria-label={key}
+              >
+                <FontAwesomeIcon icon={iconMap[key]} className="w-3.5 h-3.5" />
+              </a>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -295,6 +316,19 @@ export default function ProjectPage() {
                     </p>
                   </div>
                 </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Core Team */}
+          <section>
+            <h2 className="text-xl font-semibold text-light mb-6 flex items-center gap-3">
+              <span className="w-1 h-6 bg-accent rounded-full"></span>
+              Core Team
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {TEAM_MEMBERS.map((member) => (
+                <TeamMemberCard key={member.name} member={member} />
               ))}
             </div>
           </section>
@@ -637,19 +671,6 @@ export default function ProjectPage() {
               + IVUS), real-time deployment with lightweight models, and
               application across diverse populations through expanded datasets.
             </p>
-          </section>
-
-          {/* Core Team */}
-          <section>
-            <h2 className="text-xl font-semibold text-light mb-6 flex items-center gap-3">
-              <span className="w-1 h-6 bg-accent rounded-full"></span>
-              Core Team
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {TEAM_MEMBERS.map((member) => (
-                <TeamMemberCard key={member.name} member={member} />
-              ))}
-            </div>
           </section>
         </div>
       </div>
