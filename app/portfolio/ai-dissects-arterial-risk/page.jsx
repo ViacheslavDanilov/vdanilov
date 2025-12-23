@@ -170,52 +170,45 @@ function TeamMemberCard({ member }) {
       enableBorderGlow={true}
       spotlightSize={240}
     >
-      {/* Mobile: Centered vertical layout | Desktop: Horizontal layout */}
-      <div className="flex flex-col items-center text-center sm:flex-row sm:items-start sm:text-left gap-4">
+      {/* Centered vertical layout */}
+      <div className="flex flex-col items-center text-center h-full">
         {/* Photo */}
-        <div className="relative w-20 h-20 sm:w-18 sm:h-18 flex-shrink-0 rounded-full overflow-hidden border-2 border-accent/20 shadow-lg bg-dark">
+        <div className="relative w-24 h-24 md:w-24 md:h-24 rounded-full overflow-hidden border-2 border-accent/20 shadow-lg bg-dark mb-4">
           <Image
             src={member.photo}
             alt={member.name}
             fill
-            sizes="(max-width: 640px) 80px, 72px"
+            sizes="(max-width: 768px) 80px, 96px"
             className="object-cover"
           />
         </div>
         {/* Info */}
-        <div className="flex-1 min-w-0">
-          <h4 className="text-base font-bold text-light mb-1.5">
-            {member.name}
-          </h4>
-          <p className="text-sm font-medium text-accent mb-1.5">
-            {member.role}
-          </p>
-          <p className="text-sm text-gray-300 mb-1.5 sm:truncate">
-            {member.organization}
-          </p>
-          <p className="text-xs text-gray-500 mb-3">{member.location}</p>
-          <div className="flex flex-wrap justify-center sm:justify-start gap-4">
-            {Object.entries(member.links).map(([key, url]) => (
-              <a
-                key={key}
-                href={key === "email" ? `mailto:${url}` : url}
-                target={key === "email" ? undefined : "_blank"}
-                rel={key === "email" ? undefined : "noopener noreferrer"}
-                className="text-gray-400 hover:text-light transition-all duration-300 transform hover:scale-110"
-                aria-label={key}
-              >
-                <FontAwesomeIcon
-                  icon={iconMap[key]}
-                  className="w-5 h-5"
-                  style={{
-                    width: "1.25rem",
-                    height: "1.25rem",
-                    display: "block",
-                  }}
-                />
-              </a>
-            ))}
-          </div>
+        <h4 className="text-base font-bold text-light mb-1.5">{member.name}</h4>
+        <p className="text-sm font-medium text-accent mb-2">{member.role}</p>
+        <p className="text-sm text-gray-300 mb-2">{member.organization}</p>
+        <p className="text-sm text-gray-500 mb-4">{member.location}</p>
+        {/* Social Links */}
+        <div className="flex flex-wrap items-center justify-center gap-4 mt-auto">
+          {Object.entries(member.links).map(([key, url]) => (
+            <a
+              key={key}
+              href={key === "email" ? `mailto:${url}` : url}
+              target={key === "email" ? undefined : "_blank"}
+              rel={key === "email" ? undefined : "noopener noreferrer"}
+              className="text-gray-400 hover:text-light transition-all duration-300 transform hover:scale-110"
+              aria-label={key}
+            >
+              <FontAwesomeIcon
+                icon={iconMap[key]}
+                className="w-4 h-4"
+                style={{
+                  width: "1rem",
+                  height: "1rem",
+                  display: "block",
+                }}
+              />
+            </a>
+          ))}
         </div>
       </div>
     </GlowCard>
@@ -349,7 +342,7 @@ export default function ProjectPage() {
               <span className="w-1 h-6 bg-accent rounded-full"></span>
               Core Team
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
               {TEAM_MEMBERS.map((member) => (
                 <TeamMemberCard key={member.name} member={member} />
               ))}
