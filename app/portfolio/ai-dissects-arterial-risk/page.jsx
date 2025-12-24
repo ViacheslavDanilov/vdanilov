@@ -31,7 +31,7 @@ const QUICK_LOOK_ITEMS = [
   {
     icon: faSearch,
     label: "Situation",
-    text: "Cardiologists at the Kuzbass Cardiology Center needed a faster, more accurate way to analyze OCT scans for plaque vulnerability, as manual annotation was labor-intensive and prone to variability.",
+    text: "Cardiologists at the Kemerovo Cardiology Center needed a faster, more accurate way to analyze OCT scans for plaque vulnerability, as manual annotation was labor-intensive and prone to variability.",
   },
   {
     icon: faBullseye,
@@ -81,7 +81,7 @@ const TEAM_MEMBERS = [
   {
     name: "Kirill Klyshnikov",
     role: "Middle Data Engineer",
-    organization: "Kuzbass Cardiac Center",
+    organization: "Kemerovo Cardiac Center",
     location: "Kemerovo · Russia 🇷🇺",
     photo: "/portfolio/team/kirill-klyshnikov.webp",
     links: {
@@ -95,7 +95,7 @@ const TEAM_MEMBERS = [
   {
     name: "Evgeny Ovcharenko",
     role: "Senior Researcher",
-    organization: "Kuzbass Cardiac Center",
+    organization: "Kemerovo Cardiac Center",
     location: "Kemerovo · Russia 🇷🇺",
     photo: "/portfolio/team/evgeny-ovcharenko.webp",
     links: {
@@ -109,7 +109,7 @@ const TEAM_MEMBERS = [
   {
     name: "Nikita Kochergin",
     role: "Cardiothoracic Surgeon",
-    organization: "Kuzbass Cardiac Center",
+    organization: "Kemerovo Cardiac Center",
     location: "Kemerovo · Russia 🇷🇺",
     photo: "/portfolio/team/nikita-kochergin.webp",
     links: {
@@ -262,7 +262,7 @@ export default function ProjectPage() {
               rel="noopener noreferrer"
               className="text-accent"
             >
-              Kuzbass Cardiology Center
+              Kemerovo Cardiology Center
             </a>
             <span className="text-gray-500">, Kemerovo · Russia 🇷🇺</span>
           </div>
