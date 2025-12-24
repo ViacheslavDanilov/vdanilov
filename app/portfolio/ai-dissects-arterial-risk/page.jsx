@@ -41,7 +41,7 @@ const QUICK_LOOK_ITEMS = [
   {
     icon: faCogs,
     label: "Action",
-    text: "Designed a hybrid ensemble of nine neural networks with task-specific models, Bayesian hyperparameter tuning, and explainable AI.",
+    text: "Designed a hybrid ensemble of 9 neural networks with task-specific models, Bayesian hyperparameter tuning, and explainable AI.",
   },
   {
     icon: faChartLine,
@@ -311,27 +311,39 @@ export default function ProjectPage() {
               <span className="w-1 h-6 bg-accent rounded-full"></span>
               Quick Look
             </h2>
-            <div className="grid gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {QUICK_LOOK_ITEMS.map((item, index) => (
-                <div
+                <GlowCard
                   key={item.label}
-                  className="flex items-start gap-4 p-4 rounded-xl bg-card/50 border border-white/5"
+                  glowColor="blue"
+                  customSize={true}
+                  className="group w-full h-full p-5"
+                  enableSpotlight={true}
+                  enableBorderGlow={true}
+                  spotlightSize={240}
                 >
-                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-accent/20 flex items-center justify-center">
-                    <FontAwesomeIcon
-                      icon={item.icon}
-                      className="w-4 h-4 text-accent"
-                    />
-                  </div>
-                  <div>
-                    <span className="text-xs font-semibold text-accent uppercase tracking-wider">
-                      {item.label}
-                    </span>
-                    <p className="text-gray-300 text-sm mt-1 leading-relaxed">
+                  <div className="flex flex-col gap-3">
+                    {/* Icon + Label row */}
+                    <div className="flex items-center gap-2">
+                      <FontAwesomeIcon
+                        icon={item.icon}
+                        className="w-4 h-4 text-white/70 transition-colors duration-300 group-hover:text-accent"
+                        style={{
+                          width: "1rem",
+                          height: "1rem",
+                          display: "inline-block",
+                        }}
+                      />
+                      <span className="text-xs uppercase tracking-wider text-light transition-colors duration-300 group-hover:text-accent font-semibold">
+                        {item.label}
+                      </span>
+                    </div>
+                    {/* Description */}
+                    <p className="text-sm text-light/80 leading-relaxed text-justify">
                       {item.text}
                     </p>
                   </div>
-                </div>
+                </GlowCard>
               ))}
             </div>
           </section>
