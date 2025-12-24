@@ -245,9 +245,6 @@ export default function ProjectPage() {
 
         {/* Project Header */}
         <header className="mb-12">
-          <span className="inline-block px-3 py-1 text-xs font-medium rounded-full bg-accent/20 text-accent border border-accent/30 mb-4">
-            AI/ML
-          </span>
           <h1 className="text-3xl md:text-4xl font-bold text-light mb-4">
             AI Dissects Arterial Risk
           </h1>
@@ -267,7 +264,7 @@ export default function ProjectPage() {
             >
               Kuzbass Cardiology Center
             </a>
-            <span className="text-gray-500"> · Kemerovo · Russia 🇷🇺</span>
+            <span className="text-gray-500">, Kemerovo · Russia 🇷🇺</span>
           </div>
 
           {/* Tech Stack Pills */}
