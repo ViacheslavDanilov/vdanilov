@@ -11,12 +11,16 @@ import { faXmark, faExpand } from "@fortawesome/free-solid-svg-icons";
  * @param {Object} props
  * @param {string} props.src - Image source path
  * @param {string} props.alt - Alt text for the image
+ * @param {number} [props.width] - Image width for aspect ratio (default: 1920)
+ * @param {number} [props.height] - Image height for aspect ratio (default: 1080)
  * @param {string} [props.maxWidth] - Max width: 'sm'|'md'|'lg'|'xl'|'2xl'|'3xl'|'4xl'|'full' or custom CSS value
  * @param {string} [props.className] - Additional container classes
  */
 export default function ImageLightbox({
   src,
   alt,
+  width = 1920,
+  height = 1080,
   maxWidth = "full",
   className = "",
 }) {
@@ -73,12 +77,12 @@ export default function ImageLightbox({
         onKeyDown={(e) => e.key === "Enter" && setIsOpen(true)}
         aria-label={`View ${alt} in full size`}
       >
-        {/* Image with natural aspect ratio */}
+        {/* Image with specified dimensions for layout stability */}
         <Image
           src={src}
           alt={alt}
-          width={1920}
-          height={1080}
+          width={width}
+          height={height}
           className="w-full h-auto"
           style={{ display: "block" }}
         />

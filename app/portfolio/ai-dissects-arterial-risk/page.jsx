@@ -136,7 +136,7 @@ const RESOURCES = [
   { label: "Dataset", url: "https://doi.org/10.5281/zenodo.14478209" },
 ];
 
-const TECH_STACK = ["Python", "PyTorch", "DVC", "Hydra", "Docker", "CI/CD"];
+const TECH_STACK = ["Python", "PyTorch", "DVC", "Streamlit", "Docker", "CI/CD"];
 
 const MODEL_ARCHITECTURES = [
   "U-Net",
@@ -322,10 +322,10 @@ export default function ProjectPage() {
                     <div className="flex items-center gap-2">
                       <FontAwesomeIcon
                         icon={item.icon}
-                        className="w-4 h-4 text-white/70 transition-colors duration-300 group-hover:text-accent"
+                        className="w-3.5 h-3.5 text-white/70 transition-colors duration-300 group-hover:text-accent"
                         style={{
-                          width: "1rem",
-                          height: "1rem",
+                          width: "0.875rem",
+                          height: "0.875rem",
                           display: "inline-block",
                         }}
                       />
@@ -408,10 +408,12 @@ export default function ProjectPage() {
               Data
             </h2>
 
-            {/* Annotation Methodology Image */}
+            {/* Annotation Methodology Image - 2520x900 */}
             <ImageLightbox
               src="/portfolio/ai-dissects-arterial-risk/oct-annotation-methodology.webp"
               alt="OCT Annotation Methodology"
+              width={2520}
+              height={900}
               maxWidth="full"
               className="mb-6"
             />
@@ -487,10 +489,12 @@ export default function ProjectPage() {
               Methods
             </h2>
 
-            {/* Loss and DSC Evolution */}
+            {/* Loss and DSC Evolution - 2480x2320 */}
             <ImageLightbox
               src="/portfolio/ai-dissects-arterial-risk/loss-and-dsc-evolution.webp"
               alt="Loss and DSC Evolution during training"
+              width={2480}
+              height={2320}
               maxWidth="3xl"
               className="mb-6"
             />
@@ -599,10 +603,12 @@ export default function ProjectPage() {
               Results
             </h2>
 
-            {/* Comparison Ground Truth and Predictions */}
+            {/* Comparison Ground Truth and Predictions - 2256x2550 */}
             <ImageLightbox
               src="/portfolio/ai-dissects-arterial-risk/comparison-ground-truth-and-predictions.webp"
               alt="Comparison of Ground Truth and Model Predictions"
+              width={2256}
+              height={2550}
               maxWidth="2xl"
               className="mb-6"
             />
@@ -649,10 +655,12 @@ export default function ProjectPage() {
               </p>
             </div>
 
-            {/* Activation Maps */}
+            {/* Activation Maps - 2256x2256 */}
             <ImageLightbox
               src="/portfolio/ai-dissects-arterial-risk/activation-maps-for-lumen.webp"
               alt="Activation Maps for Lumen Segmentation"
+              width={2256}
+              height={2256}
               maxWidth="2xl"
               className="mb-6"
             />
