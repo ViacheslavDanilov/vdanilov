@@ -15,7 +15,7 @@ import {
   faGithub,
   faLinkedin,
   faResearchgate,
-  faGoogle,
+  faGoogleScholar,
   faOrcid,
 } from "@fortawesome/free-brands-svg-icons";
 import ImageLightbox from "@/components/ImageLightbox";
@@ -155,7 +155,7 @@ function TeamMemberCard({ member }) {
     linkedin: faLinkedin,
     github: faGithub,
     researchgate: faResearchgate,
-    google: faGoogle,
+    google: faGoogleScholar,
     orcid: faOrcid,
     globe: faGlobe,
     email: faEnvelope,
