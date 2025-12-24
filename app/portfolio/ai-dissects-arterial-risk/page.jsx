@@ -233,7 +233,7 @@ export default function ProjectPage() {
         </Link>
 
         {/* Hero Image */}
-        <div className="relative aspect-[16/9] rounded-2xl overflow-hidden mb-8 border border-white/10">
+        {/* <div className="relative aspect-[16/9] rounded-2xl overflow-hidden mb-8 border border-white/10">
           <Image
             src="/portfolio/previews/ai-dissects-arterial-risk.webp"
             alt="AI Dissects Arterial Risk - OCT Plaque Segmentation"
@@ -241,58 +241,67 @@ export default function ProjectPage() {
             className="object-cover"
             priority
           />
-        </div>
+        </div> */}
 
-        {/* Project Header */}
-        <header className="mb-12">
-          <h1 className="text-3xl md:text-4xl font-bold text-light mb-4">
+        {/* Project Header - Option A: Subtle Gradient Background */}
+        <header className="mb-16 p-8 -mx-2 rounded-2xl bg-gradient-to-br from-accent/10 via-accent/5 to-transparent border border-white/5">
+          <h1 className="text-3xl md:text-4xl font-bold text-light mb-3">
             AI Dissects Arterial Risk
           </h1>
-          <p className="text-xl text-gray-400 leading-relaxed">
+          <p className="text-lg text-gray-400 leading-relaxed">
             OCT plaque segmentation with deep learning for cardiovascular risk
             assessment
           </p>
 
+          {/* Divider */}
+          <div className="h-px bg-white/10 my-8" />
+
           {/* Client */}
-          <div className="mt-6 text-sm text-gray-400">
+          <div className="text-sm text-gray-400">
             <span className="text-gray-500">Client: </span>
             <a
               href="https://eng.kemcardio.ru/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-accent"
+              className="text-accent hover:underline"
             >
               Kemerovo Cardiology Center
             </a>
             <span className="text-gray-500">, Kemerovo · Russia 🇷🇺</span>
           </div>
 
-          {/* Tech Stack Pills */}
-          <div className="flex flex-wrap gap-2 mt-4">
+          {/* Tech Stack Pills - smaller */}
+          <div className="flex flex-wrap gap-1.5 mt-4">
             {TECH_STACK.map((tech) => (
               <span
                 key={tech}
-                className="px-3 py-1 text-xs rounded-full bg-card border border-white/10 text-gray-300"
+                className="px-2.5 py-0.5 text-[11px] rounded-full bg-white/5 border border-white/10 text-gray-400"
               >
                 {tech}
               </span>
             ))}
           </div>
 
-          {/* Resources */}
-          <div className="flex flex-wrap gap-3 mt-6">
+          {/* Divider */}
+          <div className="h-px bg-white/10 my-8" />
+
+          {/* Resources - slightly smaller */}
+          <div className="flex flex-wrap gap-2">
             {RESOURCES.map((resource) => (
               <a
                 key={resource.label}
                 href={resource.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium 
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium 
                            rounded-lg bg-accent/10 text-accent border border-accent/30 
                            hover:bg-accent/20 transition-colors"
               >
                 {resource.label}
-                <FontAwesomeIcon icon={faExternalLinkAlt} className="w-3 h-3" />
+                <FontAwesomeIcon
+                  icon={faExternalLinkAlt}
+                  className="w-2.5 h-2.5"
+                />
               </a>
             ))}
           </div>
@@ -363,7 +372,7 @@ export default function ProjectPage() {
               Overview
             </h2>
             <div className="prose prose-invert max-w-none">
-              <p className="text-gray-400 leading-relaxed mb-4">
+              <p className="text-gray-400 leading-relaxed mb-4 text-justify">
                 Cardiovascular disease, often driven by atherosclerosis, remains
                 the leading cause of death globally. While{" "}
                 <a
@@ -380,7 +389,7 @@ export default function ProjectPage() {
                 machine learning framework trained on real-world OCT data from
                 103 patients.
               </p>
-              <p className="text-gray-400 leading-relaxed">
+              <p className="text-gray-400 leading-relaxed text-justify">
                 We evaluated nine deep learning architectures and designed a
                 hybrid strategy combining single-class and multi-class models to
                 account for class imbalance and feature complexity. The
@@ -418,7 +427,7 @@ export default function ProjectPage() {
               className="mb-6"
             />
 
-            <p className="text-gray-400 leading-relaxed mb-4">
+            <p className="text-gray-400 leading-relaxed mb-4 text-justify">
               This project utilized a diverse and clinically representative
               multi-center, multi-scanner OCT dataset:
             </p>
@@ -499,7 +508,7 @@ export default function ProjectPage() {
               className="mb-6"
             />
 
-            <p className="text-gray-400 leading-relaxed mb-4">
+            <p className="text-gray-400 leading-relaxed mb-4 text-justify">
               The project&apos;s methodology addressed both architectural
               optimization and class-specific learning strategies:
             </p>
@@ -613,7 +622,7 @@ export default function ProjectPage() {
               className="mb-6"
             />
 
-            <p className="text-gray-400 leading-relaxed mb-6">
+            <p className="text-gray-400 leading-relaxed mb-6 text-justify">
               The hybrid deep learning framework showed consistent, high
               performance in accurately segmenting plaque components:
             </p>
@@ -665,7 +674,7 @@ export default function ProjectPage() {
               className="mb-6"
             />
 
-            <p className="text-gray-400 leading-relaxed">
+            <p className="text-gray-400 leading-relaxed text-justify">
               Visual evaluation of model predictions shows a high overlap with
               ground truth, particularly for the lumen and lipid core.
               Challenges remained for the fibrous cap due to its thin and
@@ -681,7 +690,7 @@ export default function ProjectPage() {
               <span className="w-1 h-6 bg-accent rounded-full"></span>
               Conclusion
             </h2>
-            <p className="text-gray-400 leading-relaxed mb-4">
+            <p className="text-gray-400 leading-relaxed mb-4 text-justify">
               This project delivers a powerful ML framework for automating
               atherosclerotic plaque segmentation in OCT scans. The hybrid
               segmentation design, coupled with rigorous tuning and an ensemble
@@ -689,7 +698,7 @@ export default function ProjectPage() {
               features. The use of explainability techniques reinforces clinical
               trust in predictions.
             </p>
-            <p className="text-gray-400 leading-relaxed">
+            <p className="text-gray-400 leading-relaxed text-justify">
               Future enhancements will explore multimodal data fusion (e.g., OCT
               + IVUS), real-time deployment with lightweight models, and
               application across diverse populations through expanded datasets.
