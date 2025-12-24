@@ -27,7 +27,7 @@ export const metadata = {
     "Deep learning pipeline for OCT plaque segmentation and cardiovascular risk assessment. Achieved 88.2% weighted Dice score using hybrid ensemble of neural networks.",
 };
 
-const QUICK_LOOK_ITEMS = [
+const HIGHLIGHTS_ITEMS = [
   {
     icon: faSearch,
     label: "Situation",
@@ -300,14 +300,14 @@ export default function ProjectPage() {
 
         {/* Content Sections */}
         <div className="space-y-16">
-          {/* Quick Look - STAR Section */}
+          {/* Highlights - STAR Section */}
           <section>
             <h2 className="text-xl font-semibold text-light mb-6 flex items-center gap-3">
               <span className="w-1 h-6 bg-accent rounded-full"></span>
-              Quick Look
+              Highlights
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {QUICK_LOOK_ITEMS.map((item, index) => (
+              {HIGHLIGHTS_ITEMS.map((item, index) => (
                 <GlowCard
                   key={item.label}
                   glowColor="blue"
