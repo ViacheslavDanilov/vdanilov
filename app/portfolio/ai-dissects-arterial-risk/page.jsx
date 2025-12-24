@@ -306,7 +306,7 @@ export default function ProjectPage() {
         {/* Content Sections */}
         <div className="space-y-16">
           {/* Quick Look - STAR Section */}
-          <section className="p-6 rounded-2xl bg-gradient-to-br from-accent/5 to-transparent border border-accent/20">
+          <section>
             <h2 className="text-xl font-semibold text-light mb-6 flex items-center gap-3">
               <span className="w-1 h-6 bg-accent rounded-full"></span>
               Quick Look
