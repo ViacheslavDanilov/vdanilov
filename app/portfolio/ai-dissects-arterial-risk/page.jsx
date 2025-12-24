@@ -256,20 +256,18 @@ export default function ProjectPage() {
             assessment
           </p>
 
-          {/* Client & Tech Stack */}
-          <div className="flex flex-wrap items-center gap-4 mt-6 text-sm text-gray-400">
-            <span className="flex items-center gap-2">
-              <span className="text-gray-500">Client:</span>
-              <a
-                href="https://eng.kemcardio.ru/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-accent hover:underline"
-              >
-                Kuzbass Cardiology Center
-              </a>
-              <span className="text-gray-500">· Kemerovo · Russia 🇷🇺</span>
-            </span>
+          {/* Client */}
+          <div className="mt-6 text-sm text-gray-400">
+            <span className="text-gray-500">Client: </span>
+            <a
+              href="https://eng.kemcardio.ru/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-accent"
+            >
+              Kuzbass Cardiology Center
+            </a>
+            <span className="text-gray-500"> · Kemerovo · Russia 🇷🇺</span>
           </div>
 
           {/* Tech Stack Pills */}
