@@ -67,19 +67,162 @@ Creates a new portfolio project page following the established structure.
 
 ## Styling Reference
 
+### Main Container
+
+```jsx
+<main className="min-h-screen pt-24">
+  <div className="w-full max-w-5xl mx-auto px-6 py-12 md:py-24">
+```
+
 ### Header Card
 
 ```jsx
 className = "mb-16 p-6 rounded-2xl bg-light/[0.03]";
 ```
 
-### Section Heading
+### Client Info
+
+```jsx
+<div className="text-sm text-gray-400">
+  <span className="text-gray-400 font-medium">Client: </span>
+  <a href="..." className="text-accent hover:underline">
+    Client Name
+  </a>
+  <span className="text-gray-400"> · City · Country 🏳️</span>
+</div>
+```
+
+### Section Headings
+
+**Highlights & Core Team sections use `mb-6`:**
+
+```jsx
+<h2 className="text-xl font-semibold text-light mb-6 flex items-center gap-3">
+  <span className="w-1 h-6 bg-accent rounded-full"></span>
+  Highlights / Core Team
+</h2>
+```
+
+**Content sections (Overview, Data, Methods, Results, Conclusion) use `mb-4`:**
 
 ```jsx
 <h2 className="text-xl font-semibold text-light mb-4 flex items-center gap-3">
   <span className="w-1 h-6 bg-accent rounded-full"></span>
   Section Title
 </h2>
+```
+
+### Highlights Section (Individual GlowCards)
+
+**CRITICAL: Each highlight item must be a separate GlowCard, NOT wrapped in a single card.**
+
+```jsx
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+  {HIGHLIGHTS_ITEMS.map((item, index) => (
+    <GlowCard
+      key={item.label}
+      glowColor="blue"
+      customSize={true}
+      className="group w-full h-full p-5"
+      enableSpotlight={true}
+      enableBorderGlow={true}
+      spotlightSize={240}
+    >
+      <div className="flex flex-col gap-3">
+        <div className="flex items-center gap-2">
+          <FontAwesomeIcon
+            icon={item.icon}
+            className="w-3.5 h-3.5 text-white/70 transition-colors duration-300 group-hover:text-accent"
+            style={{
+              width: "0.875rem",
+              height: "0.875rem",
+              display: "inline-block",
+            }}
+          />
+          <span className="text-xs uppercase tracking-wider text-light transition-colors duration-300 group-hover:text-accent font-semibold">
+            {item.label}
+          </span>
+        </div>
+        <p className="text-sm text-light/80 leading-relaxed text-justify">
+          {item.text}
+        </p>
+      </div>
+    </GlowCard>
+  ))}
+</div>
+```
+
+### TeamMemberCard Component
+
+**CRITICAL: Must use GlowCard with centered vertical layout.**
+
+```jsx
+function TeamMemberCard({ member }) {
+  const iconMap = {
+    linkedin: faLinkedin,
+    github: faGithub,
+    gitlab: faGitlab,
+    researchgate: faResearchgate,
+    google: faGoogleScholar,
+    orcid: faOrcid,
+    globe: faGlobe,
+    email: faEnvelope,
+  };
+
+  return (
+    <GlowCard
+      glowColor="blue"
+      customSize={true}
+      className="w-full h-full p-5"
+      enableSpotlight={true}
+      enableBorderGlow={true}
+      spotlightSize={240}
+    >
+      <div className="flex flex-col items-center text-center h-full">
+        <div className="relative w-24 h-24 rounded-full overflow-hidden border-2 border-accent/20 shadow-lg bg-dark mb-4">
+          <Image
+            src={member.photo}
+            alt={member.name}
+            fill
+            sizes="96px"
+            className="object-cover"
+          />
+        </div>
+        <h4 className="text-base font-bold text-light mb-1.5">{member.name}</h4>
+        <p className="text-sm font-medium text-accent mb-2">{member.role}</p>
+        <p className="text-sm text-gray-300 mb-2">{member.organization}</p>
+        <p className="text-sm text-gray-500 mb-4">{member.location}</p>
+        <div className="flex flex-wrap items-center justify-center gap-4 mt-auto">
+          {Object.entries(member.links).map(([key, url]) => (
+            <a
+              key={key}
+              href={key === "email" ? `mailto:${url}` : url}
+              target={key === "email" ? undefined : "_blank"}
+              className="text-gray-400 hover:text-light transition-all duration-300 transform hover:scale-110"
+            >
+              <FontAwesomeIcon
+                icon={iconMap[key]}
+                style={{ width: "1rem", height: "1rem", display: "block" }}
+              />
+            </a>
+          ))}
+        </div>
+      </div>
+    </GlowCard>
+  );
+}
+```
+
+### Core Team Grid
+
+**Use 3-column layout on medium screens:**
+
+```jsx
+<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+  {TEAM_MEMBERS.map((member) => (
+    <TeamMemberCard key={member.name} member={member} />
+  ))}
+</div>
 ```
 
 ### Figure with Caption

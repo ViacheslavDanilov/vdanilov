@@ -21,6 +21,14 @@ const PROJECTS_DATA = [
     category: "AI/ML",
     image: "/portfolio/previews/ai-dissects-arterial-risk.webp",
   },
+  {
+    id: "wavelets-in-the-brain",
+    title: "Wavelets in the Brain",
+    description:
+      "Non-invasive ICP monitoring using deep learning on cerebral blood flow signals from near-infrared photonic sensors.",
+    category: "AI/ML",
+    image: "/portfolio/previews/wavelets-in-the-brain.webp",
+  },
 ];
 
 const FILTER_OPTIONS = [
