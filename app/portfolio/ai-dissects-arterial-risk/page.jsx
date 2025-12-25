@@ -138,18 +138,6 @@ const RESOURCES = [
 
 const TECH_STACK = ["Python", "PyTorch", "DVC", "Streamlit", "Docker", "CI/CD"];
 
-const MODEL_ARCHITECTURES = [
-  "U-Net",
-  "U-Net++",
-  "DeepLabV3",
-  "DeepLabV3+",
-  "FPN",
-  "LinkNet",
-  "PSPNet",
-  "PAN",
-  "MA-Net",
-];
-
 function TeamMemberCard({ member }) {
   const iconMap = {
     linkedin: faLinkedin,
@@ -232,18 +220,7 @@ export default function ProjectPage() {
           <span>Back to Portfolio</span>
         </Link>
 
-        {/* Hero Image */}
-        {/* <div className="relative aspect-[16/9] rounded-2xl overflow-hidden mb-8 border border-white/10">
-          <Image
-            src="/portfolio/previews/ai-dissects-arterial-risk.webp"
-            alt="AI Dissects Arterial Risk - OCT Plaque Segmentation"
-            fill
-            className="object-cover"
-            priority
-          />
-        </div> */}
-
-        {/* Project Header - Option A: Subtle Gradient Background */}
+        {/* Project Header */}
         <header className="mb-16 p-8 -mx-2 rounded-2xl bg-gradient-to-br from-accent/10 via-accent/5 to-transparent border border-white/5">
           <h1 className="text-3xl md:text-4xl font-bold text-light mb-3">
             AI Dissects Arterial Risk
@@ -270,7 +247,7 @@ export default function ProjectPage() {
             <span className="text-gray-500">, Kemerovo · Russia 🇷🇺</span>
           </div>
 
-          {/* Tech Stack Pills - smaller */}
+          {/* Tech Stack Pills */}
           <div className="flex flex-wrap gap-1.5 mt-4">
             {TECH_STACK.map((tech) => (
               <span
@@ -285,7 +262,7 @@ export default function ProjectPage() {
           {/* Divider */}
           <div className="h-px bg-white/10 my-8" />
 
-          {/* Resources - slightly smaller */}
+          {/* Resources */}
           <div className="flex flex-wrap gap-2">
             {RESOURCES.map((resource) => (
               <a
@@ -417,21 +394,11 @@ export default function ProjectPage() {
               Data
             </h2>
 
-            {/* Annotation Methodology Image - 2520x900 */}
-            <ImageLightbox
-              src="/portfolio/ai-dissects-arterial-risk/oct-annotation-methodology.webp"
-              alt="OCT Annotation Methodology"
-              width={2520}
-              height={900}
-              maxWidth="full"
-              className="mb-6"
-            />
-
             <p className="text-gray-400 leading-relaxed mb-4 text-justify">
               This project utilized a diverse and clinically representative
               multi-center, multi-scanner OCT dataset:
             </p>
-            <ul className="space-y-2 text-gray-400">
+            <ul className="space-y-2 text-gray-400 mb-6">
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
@@ -489,6 +456,21 @@ export default function ProjectPage() {
                 </span>
               </li>
             </ul>
+
+            <p className="text-gray-400 leading-relaxed mb-6 text-justify">
+              These annotations captured key morphological features essential
+              for cardiovascular diagnosis and formed the foundation for model
+              training and evaluation.
+            </p>
+
+            {/* Annotation Methodology Image */}
+            <ImageLightbox
+              src="/portfolio/ai-dissects-arterial-risk/oct-annotation-methodology.webp"
+              alt="OCT Annotation Methodology"
+              width={2520}
+              height={900}
+              maxWidth="full"
+            />
           </section>
 
           {/* Methods */}
@@ -498,111 +480,78 @@ export default function ProjectPage() {
               Methods
             </h2>
 
-            {/* Loss and DSC Evolution - 2480x2320 */}
+            <p className="text-gray-400 leading-relaxed mb-4 text-justify">
+              The project&apos;s methodology addressed both architectural
+              optimization and class-specific learning strategies. The following
+              techniques were applied to ensure both high performance and
+              clinical relevance:
+            </p>
+
+            <ul className="space-y-4 text-gray-400 mb-6">
+              <li>
+                <strong className="text-gray-200">Model Architectures:</strong>{" "}
+                Nine state-of-the-art segmentation networks were tested,
+                including{" "}
+                <span className="text-gray-300">
+                  U-Net, U-Net++, DeepLabV3, DeepLabV3+, FPN, LinkNet, PSPNet,
+                  PAN, and MA-Net
+                </span>
+                . These were chosen for their strengths in biomedical image
+                segmentation and complementary design philosophies.
+              </li>
+              <li>
+                <strong className="text-gray-200">Hybrid Strategy:</strong>{" "}
+                Lumen and vasa vasorum were trained using single-class models
+                due to their dominance (lumen) or rarity (vasa vasorum). Fibrous
+                cap and lipid core were trained with a two-class model due to
+                overlapping morphology.
+              </li>
+              <li>
+                <strong className="text-gray-200">
+                  Hyperparameter Tuning:
+                </strong>{" "}
+                Over 1,000 configurations were tested using Bayesian
+                Optimization and HyperBand early stopping, focusing on encoder
+                type, input size, optimizer, and learning rate. This tuning was
+                performed on a representative subset of 40 patients to save
+                compute time.
+              </li>
+              <li>
+                <strong className="text-gray-200">Data Augmentation:</strong>{" "}
+                Applied using{" "}
+                <a
+                  href="https://albumentations.ai/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-accent hover:underline"
+                >
+                  Albumentations
+                </a>
+                , including random flipping, cropping, scaling, rotation,
+                brightness/contrast adjustment, and Gaussian noise to improve
+                generalization.
+              </li>
+              <li>
+                <strong className="text-gray-200">Validation Strategy:</strong>{" "}
+                Employed 5-fold cross-validation without patient overlap to
+                prevent data leakage.
+              </li>
+              <li>
+                <strong className="text-gray-200">Explainability Tools:</strong>{" "}
+                Class activation maps (CAM) like GradCAM, LayerCAM, and HiResCAM
+                were used to visualize model attention, especially for the
+                fibrous cap and vasa vasorum features.
+              </li>
+            </ul>
+
+            {/* Loss and DSC Evolution */}
             <ImageLightbox
               src="/portfolio/ai-dissects-arterial-risk/loss-and-dsc-evolution.webp"
               alt="Loss and DSC Evolution during training"
               width={2480}
               height={2320}
               maxWidth="3xl"
-              className="mb-6"
             />
-
-            <p className="text-gray-400 leading-relaxed mb-4 text-justify">
-              The project&apos;s methodology addressed both architectural
-              optimization and class-specific learning strategies:
-            </p>
-
-            <div className="space-y-4">
-              <div className="p-4 rounded-xl bg-white/5 border border-white/10">
-                <h4 className="text-light font-medium mb-2">
-                  Model Architectures
-                </h4>
-                <p className="text-gray-400 text-sm mb-3">
-                  Nine state-of-the-art segmentation networks were tested:
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {MODEL_ARCHITECTURES.map((arch) => (
-                    <span
-                      key={arch}
-                      className="px-3 py-1 text-xs rounded-full bg-accent/10 text-accent border border-accent/20"
-                    >
-                      {arch}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <div className="p-4 rounded-xl bg-white/5 border border-white/10">
-                <h4 className="text-light font-medium mb-2">Hybrid Strategy</h4>
-                <ul className="space-y-2 text-gray-400 text-sm">
-                  <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1">•</span>
-                    <span>
-                      <strong className="text-gray-300">
-                        Lumen and vasa vasorum:
-                      </strong>{" "}
-                      Trained using single-class models due to their dominance
-                      (lumen) or rarity (vasa vasorum)
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1">•</span>
-                    <span>
-                      <strong className="text-gray-300">
-                        Fibrous cap and lipid core:
-                      </strong>{" "}
-                      Trained with a two-class model due to overlapping
-                      morphology
-                    </span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="p-4 rounded-xl bg-white/5 border border-white/10">
-                <h4 className="text-light font-medium mb-2">
-                  Hyperparameter Tuning
-                </h4>
-                <p className="text-gray-400 text-sm">
-                  Over 1,000 configurations were tested using Bayesian
-                  Optimization and HyperBand early stopping, focusing on encoder
-                  type, input size, optimizer, and learning rate. This tuning
-                  was performed on a representative subset of 40 patients to
-                  save compute time.
-                </p>
-              </div>
-
-              <div className="p-4 rounded-xl bg-white/5 border border-white/10">
-                <h4 className="text-light font-medium mb-2">
-                  Data Augmentation
-                </h4>
-                <p className="text-gray-400 text-sm">
-                  Applied using{" "}
-                  <a
-                    href="https://albumentations.ai/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-accent hover:underline"
-                  >
-                    Albumentations
-                  </a>
-                  , including random flipping, cropping, scaling, rotation,
-                  brightness/contrast adjustment, and Gaussian noise to improve
-                  generalization.
-                </p>
-              </div>
-
-              <div className="p-4 rounded-xl bg-white/5 border border-white/10">
-                <h4 className="text-light font-medium mb-2">
-                  Explainability Tools
-                </h4>
-                <p className="text-gray-400 text-sm">
-                  Class activation maps (CAM) like GradCAM, LayerCAM, and
-                  HiResCAM were used to visualize model attention, especially
-                  for the fibrous cap and vasa vasorum features.
-                </p>
-              </div>
-            </div>
           </section>
 
           {/* Results */}
@@ -612,7 +561,54 @@ export default function ProjectPage() {
               Results
             </h2>
 
-            {/* Comparison Ground Truth and Predictions - 2256x2550 */}
+            <p className="text-gray-400 leading-relaxed mb-4 text-justify">
+              The hybrid deep learning framework showed consistent, high
+              performance in accurately segmenting plaque components. Notable
+              outcomes included:
+            </p>
+
+            <ul className="space-y-2 text-gray-400 mb-4">
+              <li>
+                <strong className="text-gray-200">Lumen:</strong> DSC of{" "}
+                <span className="text-green-400 font-semibold">0.987</span> –
+                indicating nearly perfect agreement with expert annotations.
+              </li>
+              <li>
+                <strong className="text-gray-200">Fibrous Cap:</strong> DSC of{" "}
+                <span className="text-yellow-400 font-semibold">0.736</span> –
+                strong performance despite thin, complex structure.
+              </li>
+              <li>
+                <strong className="text-gray-200">Lipid Core:</strong> DSC of{" "}
+                <span className="text-yellow-400 font-semibold">0.751</span> –
+                reliable detection despite challenging textures.
+              </li>
+              <li>
+                <strong className="text-gray-200">Vasa Vasorum:</strong> DSC of{" "}
+                <span className="text-orange-400 font-semibold">0.610</span> –
+                moderate performance for a rare, fine-grained feature.
+              </li>
+              <li>
+                <strong className="text-gray-200">
+                  Ensemble Weighted DSC:
+                </strong>{" "}
+                <span className="text-accent font-bold">0.882</span> –
+                demonstrating the synergy of combined models.
+              </li>
+            </ul>
+
+            <p className="text-gray-400 leading-relaxed mb-6 text-justify">
+              Visual evaluation of model predictions shows a high overlap with
+              ground truth, particularly for the lumen and lipid core.
+              Challenges remained for the fibrous cap due to its thin and
+              diffuse boundaries. Further analysis with class activation maps
+              confirmed that the best-performing models focused on anatomically
+              relevant areas. These results establish the reliability of the
+              segmentation models and affirm the utility of ensemble and
+              explainable AI techniques in high-stakes biomedical imaging tasks.
+            </p>
+
+            {/* Comparison Ground Truth and Predictions */}
             <ImageLightbox
               src="/portfolio/ai-dissects-arterial-risk/comparison-ground-truth-and-predictions.webp"
               alt="Comparison of Ground Truth and Model Predictions"
@@ -622,66 +618,14 @@ export default function ProjectPage() {
               className="mb-6"
             />
 
-            <p className="text-gray-400 leading-relaxed mb-6 text-justify">
-              The hybrid deep learning framework showed consistent, high
-              performance in accurately segmenting plaque components:
-            </p>
-
-            {/* Results Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-              {[
-                { label: "Lumen", dsc: "0.987", color: "text-green-400" },
-                {
-                  label: "Fibrous Cap",
-                  dsc: "0.736",
-                  color: "text-yellow-400",
-                },
-                { label: "Lipid Core", dsc: "0.751", color: "text-yellow-400" },
-                {
-                  label: "Vasa Vasorum",
-                  dsc: "0.610",
-                  color: "text-orange-400",
-                },
-              ].map((result) => (
-                <div
-                  key={result.label}
-                  className="p-4 rounded-xl bg-white/5 border border-white/10 text-center"
-                >
-                  <p className={`text-2xl font-bold ${result.color}`}>
-                    {result.dsc}
-                  </p>
-                  <p className="text-gray-400 text-sm mt-1">{result.label}</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="p-4 rounded-xl bg-accent/10 border border-accent/30 mb-6">
-              <p className="text-center">
-                <span className="text-accent font-bold text-2xl">0.882</span>
-                <span className="text-gray-300 ml-2">
-                  Ensemble Weighted Dice Score
-                </span>
-              </p>
-            </div>
-
-            {/* Activation Maps - 2256x2256 */}
+            {/* Activation Maps */}
             <ImageLightbox
               src="/portfolio/ai-dissects-arterial-risk/activation-maps-for-lumen.webp"
               alt="Activation Maps for Lumen Segmentation"
               width={2256}
               height={2256}
               maxWidth="2xl"
-              className="mb-6"
             />
-
-            <p className="text-gray-400 leading-relaxed text-justify">
-              Visual evaluation of model predictions shows a high overlap with
-              ground truth, particularly for the lumen and lipid core.
-              Challenges remained for the fibrous cap due to its thin and
-              diffuse boundaries. Further analysis with class activation maps
-              confirmed that the best-performing models focused on anatomically
-              relevant areas.
-            </p>
           </section>
 
           {/* Conclusion */}
