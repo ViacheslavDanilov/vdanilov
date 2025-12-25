@@ -603,21 +603,41 @@ export default function ProjectPage() {
               </li>
             </ul>
 
-            <p className="text-gray-300 leading-relaxed mb-6 text-justify">
+            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
               According to standards set by the American National Standards
               Institute and the Association for the Advancement of Medical
-              Instrumentation, non-invasive ICP monitoring must achieve ±2 mmHg
-              accuracy for values in the 0–20 mmHg range. While the test MAE
-              exceeds this strict threshold, the model remains clinically
-              actionable in the most relevant range for iNPH patients (
+              Instrumentation, non-invasive ICP monitoring must achieve:
+            </p>
+
+            <ul className="space-y-2 text-gray-300 mb-6 text-justify">
+              <li className="flex items-start gap-2">
+                <span className="text-accent mt-1">•</span>
+                <span>
+                  <strong className="text-gray-200">±2 mmHg accuracy</strong>{" "}
+                  for true ICP values in the 0–20 mmHg range
+                </span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-accent mt-1">•</span>
+                <span>
+                  <strong className="text-gray-200">±10% accuracy</strong> for
+                  ICP values above 20 mmHg
+                </span>
+              </li>
+            </ul>
+
+            <p className="text-gray-300 leading-relaxed mb-6 text-justify">
+              While the test MAE exceeds the strict ±2 mmHg threshold, the model
+              remains clinically actionable in the most relevant range for iNPH
+              patients: 0–15 mmHg. The error distribution (
               <a href="#figure-3" className="text-accent hover:underline">
                 Figure 3
               </a>
-              ).
+              ) confirms that predictions cluster within acceptable bounds.
             </p>
 
             {/* Figure 3 */}
-            <figure id="figure-3" className="scroll-mt-24">
+            <figure id="figure-3" className="scroll-mt-24 mb-8">
               <ImageLightbox
                 src="/portfolio/wavelets-in-the-brain/error-distribution-mWDN.webp"
                 alt="Error Distribution of mWDN Model"
@@ -629,6 +649,66 @@ export default function ProjectPage() {
                 <span className="text-gray-300">Figure 3.</span> Error
                 distribution of the mWDN model showing prediction accuracy
                 across different ICP ranges.
+              </figcaption>
+            </figure>
+
+            <p className="text-gray-300 leading-relaxed mb-6 text-justify">
+              To visualize model behavior,{" "}
+              <a href="#figure-4" className="text-accent hover:underline">
+                Figure 4
+              </a>{" "}
+              shows predictions on validation subjects, where red-shaded regions
+              denote validation windows. The predicted ICP (blue) closely tracks
+              the true ICP (green), capturing both slow drifts and fast spikes.{" "}
+              <a href="#figure-5" className="text-accent hover:underline">
+                Figure 5
+              </a>{" "}
+              presents performance on completely unseen test subjects,
+              demonstrating strong generalization.
+            </p>
+
+            {/* Figure 4 - Validation Video */}
+            <figure id="figure-4" className="scroll-mt-24 mb-8">
+              <div className="relative rounded-xl overflow-hidden border border-white/10">
+                <video
+                  className="w-full"
+                  controls
+                  preload="metadata"
+                  poster="/portfolio/wavelets-in-the-brain/cbf-to-icp-workflow.webp"
+                >
+                  <source
+                    src="/portfolio/wavelets-in-the-brain/predictions-mWDN-train-val.mp4"
+                    type="video/mp4"
+                  />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <figcaption className="text-center text-sm text-gray-400 mt-3">
+                <span className="text-gray-300">Figure 4.</span> Predicted vs.
+                true ICP values on the validation set. Red regions indicate
+                validation intervals.
+              </figcaption>
+            </figure>
+
+            {/* Figure 5 - Test Video */}
+            <figure id="figure-5" className="scroll-mt-24">
+              <div className="relative rounded-xl overflow-hidden border border-white/10">
+                <video
+                  className="w-full"
+                  controls
+                  preload="metadata"
+                  poster="/portfolio/wavelets-in-the-brain/cbf-to-icp-workflow.webp"
+                >
+                  <source
+                    src="/portfolio/wavelets-in-the-brain/predictions-mWDN-test.mp4"
+                    type="video/mp4"
+                  />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <figcaption className="text-center text-sm text-gray-400 mt-3">
+                <span className="text-gray-300">Figure 5.</span> Predicted vs.
+                true ICP values on the held-out test subject.
               </figcaption>
             </figure>
           </section>
