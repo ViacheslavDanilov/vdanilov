@@ -398,7 +398,7 @@ export default function ProjectPage() {
               This project utilized a diverse and clinically representative
               multi-center, multi-scanner OCT dataset:
             </p>
-            <ul className="space-y-2 text-gray-400 mb-6">
+            <ul className="space-y-2 text-gray-400 mb-6 text-justify">
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
@@ -498,7 +498,7 @@ export default function ProjectPage() {
               clinical relevance:
             </p>
 
-            <ul className="space-y-4 text-gray-400 mb-6">
+            <ul className="space-y-4 text-gray-400 mb-6 text-justify">
               <li>
                 <strong className="text-gray-200">Model Architectures:</strong>{" "}
                 Nine state-of-the-art segmentation networks were tested,
