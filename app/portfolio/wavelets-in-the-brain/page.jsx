@@ -672,9 +672,12 @@ export default function ProjectPage() {
               <div className="relative rounded-xl overflow-hidden border border-white/10">
                 <video
                   className="w-full"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
                   controls
-                  preload="metadata"
-                  poster="/portfolio/wavelets-in-the-brain/cbf-to-icp-workflow.webp"
+                  poster="/portfolio/wavelets-in-the-brain/predictions-mWDN-train-val-poster.webp"
                 >
                   <source
                     src="/portfolio/wavelets-in-the-brain/predictions-mWDN-train-val.mp4"
@@ -695,9 +698,12 @@ export default function ProjectPage() {
               <div className="relative rounded-xl overflow-hidden border border-white/10">
                 <video
                   className="w-full"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
                   controls
-                  preload="metadata"
-                  poster="/portfolio/wavelets-in-the-brain/cbf-to-icp-workflow.webp"
+                  poster="/portfolio/wavelets-in-the-brain/predictions-mWDN-test-poster.webp"
                 >
                   <source
                     src="/portfolio/wavelets-in-the-brain/predictions-mWDN-test.mp4"

@@ -19,7 +19,7 @@ const PROJECTS_DATA = [
       "Deep learning pipeline for OCT plaque segmentation, enabling precise arterial risk assessment in cardiovascular imaging.",
     category: "AI/ML",
     image: "/portfolio/previews/ai-dissects-arterial-risk.webp",
-    date: "2025-12",
+    date: "2025-06",
     featured: true,
   },
   {
@@ -29,7 +29,7 @@ const PROJECTS_DATA = [
       "Non-invasive ICP monitoring using deep learning on cerebral blood flow signals from near-infrared photonic sensors.",
     category: "AI/ML",
     image: "/portfolio/previews/wavelets-in-the-brain.webp",
-    date: "2025-06",
+    date: "2025-12",
     featured: true,
   },
 ];
