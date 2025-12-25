@@ -349,7 +349,7 @@ export default function ProjectPage() {
               Overview
             </h2>
             <div className="prose prose-invert max-w-none">
-              <p className="text-gray-400 leading-relaxed mb-4 text-justify">
+              <p className="text-gray-300 leading-relaxed mb-4 text-justify">
                 Cardiovascular disease, often driven by atherosclerosis, remains
                 the leading cause of death globally. While{" "}
                 <a
@@ -366,7 +366,7 @@ export default function ProjectPage() {
                 machine learning framework trained on real-world OCT data from
                 103 patients.
               </p>
-              <p className="text-gray-400 leading-relaxed text-justify">
+              <p className="text-gray-300 leading-relaxed text-justify">
                 We evaluated nine deep learning architectures and designed a
                 hybrid strategy combining single-class and multi-class models to
                 account for class imbalance and feature complexity. The
@@ -394,11 +394,11 @@ export default function ProjectPage() {
               Data
             </h2>
 
-            <p className="text-gray-400 leading-relaxed mb-4 text-justify">
+            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
               This project utilized a diverse and clinically representative
               multi-center, multi-scanner OCT dataset:
             </p>
-            <ul className="space-y-2 text-gray-400 mb-6 text-justify">
+            <ul className="space-y-2 text-gray-300 mb-6 text-justify">
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
@@ -457,7 +457,7 @@ export default function ProjectPage() {
               </li>
             </ul>
 
-            <p className="text-gray-400 leading-relaxed mb-6 text-justify">
+            <p className="text-gray-300 leading-relaxed mb-6 text-justify">
               These annotations captured key morphological features essential
               for cardiovascular diagnosis and formed the foundation for model
               training and evaluation (
@@ -476,8 +476,8 @@ export default function ProjectPage() {
                 height={900}
                 maxWidth="full"
               />
-              <figcaption className="text-center text-sm text-gray-500 mt-3">
-                <span className="text-gray-400">Figure 1.</span> OCT annotation
+              <figcaption className="text-center text-sm text-gray-400 mt-3">
+                <span className="text-gray-300">Figure 1.</span> OCT annotation
                 methodology showing the segmentation workflow and plaque feature
                 identification.
               </figcaption>
@@ -491,14 +491,14 @@ export default function ProjectPage() {
               Methods
             </h2>
 
-            <p className="text-gray-400 leading-relaxed mb-4 text-justify">
+            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
               The project&apos;s methodology addressed both architectural
               optimization and class-specific learning strategies. The following
               techniques were applied to ensure both high performance and
               clinical relevance:
             </p>
 
-            <ul className="space-y-4 text-gray-400 mb-6 text-justify">
+            <ul className="space-y-4 text-gray-300 mb-6 text-justify">
               <li>
                 <strong className="text-gray-200">Model Architectures:</strong>{" "}
                 Nine state-of-the-art segmentation networks were tested,
@@ -569,8 +569,8 @@ export default function ProjectPage() {
                 height={2320}
                 maxWidth="3xl"
               />
-              <figcaption className="text-center text-sm text-gray-500 mt-3">
-                <span className="text-gray-400">Figure 2.</span> Training
+              <figcaption className="text-center text-sm text-gray-400 mt-3">
+                <span className="text-gray-300">Figure 2.</span> Training
                 metrics showing loss convergence and Dice Similarity Coefficient
                 evolution across epochs.
               </figcaption>
@@ -584,13 +584,13 @@ export default function ProjectPage() {
               Results
             </h2>
 
-            <p className="text-gray-400 leading-relaxed mb-4 text-justify">
+            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
               The hybrid deep learning framework showed consistent, high
               performance in accurately segmenting plaque components. Notable
               outcomes included:
             </p>
 
-            <ul className="space-y-2 text-gray-400 mb-4">
+            <ul className="space-y-2 text-gray-300 mb-4">
               <li>
                 <strong className="text-gray-200">Lumen:</strong> DSC of{" "}
                 <span className="font-semibold" style={{ color: "#ff17cd" }}>
@@ -628,7 +628,7 @@ export default function ProjectPage() {
               </li>
             </ul>
 
-            <p className="text-gray-400 leading-relaxed mb-6 text-justify">
+            <p className="text-gray-300 leading-relaxed mb-6 text-justify">
               Visual evaluation of model predictions shows a high overlap with
               ground truth (
               <a href="#figure-3" className="text-accent hover:underline">
@@ -655,8 +655,8 @@ export default function ProjectPage() {
                 height={2550}
                 maxWidth="2xl"
               />
-              <figcaption className="text-center text-sm text-gray-500 mt-3">
-                <span className="text-gray-400">Figure 3.</span> Comparison
+              <figcaption className="text-center text-sm text-gray-400 mt-3">
+                <span className="text-gray-300">Figure 3.</span> Comparison
                 between ground truth annotations and model predictions for
                 plaque segmentation.
               </figcaption>
@@ -671,8 +671,8 @@ export default function ProjectPage() {
                 height={2256}
                 maxWidth="2xl"
               />
-              <figcaption className="text-center text-sm text-gray-500 mt-3">
-                <span className="text-gray-400">Figure 4.</span> Class
+              <figcaption className="text-center text-sm text-gray-400 mt-3">
+                <span className="text-gray-300">Figure 4.</span> Class
                 activation maps showing model attention focused on anatomically
                 relevant areas.
               </figcaption>
@@ -685,7 +685,7 @@ export default function ProjectPage() {
               <span className="w-1 h-6 bg-accent rounded-full"></span>
               Conclusion
             </h2>
-            <p className="text-gray-400 leading-relaxed mb-4 text-justify">
+            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
               This project delivers a powerful ML framework for automating
               atherosclerotic plaque segmentation in OCT scans. The hybrid
               segmentation design, coupled with rigorous tuning and an ensemble
@@ -693,7 +693,7 @@ export default function ProjectPage() {
               features. The use of explainability techniques reinforces clinical
               trust in predictions.
             </p>
-            <p className="text-gray-400 leading-relaxed text-justify">
+            <p className="text-gray-300 leading-relaxed text-justify">
               Future enhancements will explore multimodal data fusion (e.g., OCT
               + IVUS), real-time deployment with lightweight models, and
               application across diverse populations through expanded datasets.
