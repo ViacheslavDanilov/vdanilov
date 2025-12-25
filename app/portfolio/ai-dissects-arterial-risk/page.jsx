@@ -235,7 +235,7 @@ export default function ProjectPage() {
 
           {/* Client */}
           <div className="text-sm text-gray-400">
-            <span className="text-gray-500">Client: </span>
+            <span className="text-gray-400 font-medium">Client: </span>
             <a
               href="https://eng.kemcardio.ru/"
               target="_blank"
@@ -244,7 +244,7 @@ export default function ProjectPage() {
             >
               Kemerovo Cardiology Center
             </a>
-            <span className="text-gray-500">, Kemerovo · Russia 🇷🇺</span>
+            <span className="text-gray-400"> · Kemerovo · Russia 🇷🇺</span>
           </div>
 
           {/* Tech Stack Pills */}
