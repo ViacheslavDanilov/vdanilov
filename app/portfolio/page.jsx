@@ -6,12 +6,11 @@ import PortfolioCard from "@/components/PortfolioCard";
 import { Tab } from "@/components/ui/tab";
 import {
   faBrain,
-  faCode,
-  faPalette,
   faLayerGroup,
+  faStar,
 } from "@fortawesome/free-solid-svg-icons";
 
-// Placeholder project data
+// Project data with date and featured fields
 const PROJECTS_DATA = [
   {
     id: "ai-dissects-arterial-risk",
@@ -20,6 +19,8 @@ const PROJECTS_DATA = [
       "Deep learning pipeline for OCT plaque segmentation, enabling precise arterial risk assessment in cardiovascular imaging.",
     category: "AI/ML",
     image: "/portfolio/previews/ai-dissects-arterial-risk.webp",
+    date: "2025-12",
+    featured: true,
   },
   {
     id: "wavelets-in-the-brain",
@@ -28,30 +29,46 @@ const PROJECTS_DATA = [
       "Non-invasive ICP monitoring using deep learning on cerebral blood flow signals from near-infrared photonic sensors.",
     category: "AI/ML",
     image: "/portfolio/previews/wavelets-in-the-brain.webp",
+    date: "2025-06",
+    featured: true,
   },
 ];
 
 const FILTER_OPTIONS = [
   { id: "all", label: "All", icon: faLayerGroup },
+  { id: "featured", label: "Featured", icon: faStar },
   { id: "AI/ML", label: "AI/ML", icon: faBrain },
-  { id: "Web", label: "Web", icon: faCode },
-  { id: "Design", label: "Design", icon: faPalette },
 ];
+
+// Sort projects by date (newest first)
+const sortByDate = (projects) => {
+  return [...projects].sort((a, b) => new Date(b.date) - new Date(a.date));
+};
 
 export default function Portfolio() {
   const [activeFilter, setActiveFilter] = useState("all");
 
   const filteredProjects = useMemo(() => {
+    let filtered;
     if (activeFilter === "all") {
-      return PROJECTS_DATA;
+      filtered = PROJECTS_DATA;
+    } else if (activeFilter === "featured") {
+      filtered = PROJECTS_DATA.filter((project) => project.featured);
+    } else {
+      filtered = PROJECTS_DATA.filter(
+        (project) => project.category === activeFilter,
+      );
     }
-    return PROJECTS_DATA.filter((project) => project.category === activeFilter);
+    return sortByDate(filtered);
   }, [activeFilter]);
 
   const getCounts = useMemo(() => {
-    const counts = { all: PROJECTS_DATA.length };
+    const counts = {
+      all: PROJECTS_DATA.length,
+      featured: PROJECTS_DATA.filter((p) => p.featured).length,
+    };
     FILTER_OPTIONS.forEach((option) => {
-      if (option.id !== "all") {
+      if (option.id !== "all" && option.id !== "featured") {
         counts[option.id] = PROJECTS_DATA.filter(
           (project) => project.category === option.id,
         ).length;
