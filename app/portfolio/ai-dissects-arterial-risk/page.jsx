@@ -460,17 +460,28 @@ export default function ProjectPage() {
             <p className="text-gray-400 leading-relaxed mb-6 text-justify">
               These annotations captured key morphological features essential
               for cardiovascular diagnosis and formed the foundation for model
-              training and evaluation.
+              training and evaluation (
+              <a href="#figure-1" className="text-accent hover:underline">
+                Figure 1
+              </a>
+              ).
             </p>
 
-            {/* Annotation Methodology Image */}
-            <ImageLightbox
-              src="/portfolio/ai-dissects-arterial-risk/oct-annotation-methodology.webp"
-              alt="OCT Annotation Methodology"
-              width={2520}
-              height={900}
-              maxWidth="full"
-            />
+            {/* Figure 1: Annotation Methodology Image */}
+            <figure id="figure-1" className="scroll-mt-24">
+              <ImageLightbox
+                src="/portfolio/ai-dissects-arterial-risk/oct-annotation-methodology.webp"
+                alt="OCT Annotation Methodology"
+                width={2520}
+                height={900}
+                maxWidth="full"
+              />
+              <figcaption className="text-center text-sm text-gray-500 mt-3">
+                <span className="text-gray-400">Figure 1.</span> OCT annotation
+                methodology showing the segmentation workflow and plaque feature
+                identification.
+              </figcaption>
+            </figure>
           </section>
 
           {/* Methods */}
@@ -534,7 +545,12 @@ export default function ProjectPage() {
               <li>
                 <strong className="text-gray-200">Validation Strategy:</strong>{" "}
                 Employed 5-fold cross-validation without patient overlap to
-                prevent data leakage.
+                prevent data leakage. Training and testing progress was
+                monitored through loss and DSC evolution (
+                <a href="#figure-2" className="text-accent hover:underline">
+                  Figure 2
+                </a>
+                ).
               </li>
               <li>
                 <strong className="text-gray-200">Explainability Tools:</strong>{" "}
@@ -544,14 +560,21 @@ export default function ProjectPage() {
               </li>
             </ul>
 
-            {/* Loss and DSC Evolution */}
-            <ImageLightbox
-              src="/portfolio/ai-dissects-arterial-risk/loss-and-dsc-evolution.webp"
-              alt="Loss and DSC Evolution during training"
-              width={2480}
-              height={2320}
-              maxWidth="3xl"
-            />
+            {/* Figure 2: Loss and DSC Evolution */}
+            <figure id="figure-2" className="scroll-mt-24">
+              <ImageLightbox
+                src="/portfolio/ai-dissects-arterial-risk/loss-and-dsc-evolution.webp"
+                alt="Loss and DSC evolution during training"
+                width={2480}
+                height={2320}
+                maxWidth="3xl"
+              />
+              <figcaption className="text-center text-sm text-gray-500 mt-3">
+                <span className="text-gray-400">Figure 2.</span> Training
+                metrics showing loss convergence and Dice Similarity Coefficient
+                evolution across epochs.
+              </figcaption>
+            </figure>
           </section>
 
           {/* Results */}
@@ -607,33 +630,53 @@ export default function ProjectPage() {
 
             <p className="text-gray-400 leading-relaxed mb-6 text-justify">
               Visual evaluation of model predictions shows a high overlap with
-              ground truth, particularly for the lumen and lipid core.
-              Challenges remained for the fibrous cap due to its thin and
-              diffuse boundaries. Further analysis with class activation maps
-              confirmed that the best-performing models focused on anatomically
-              relevant areas. These results establish the reliability of the
-              segmentation models and affirm the utility of ensemble and
-              explainable AI techniques in high-stakes biomedical imaging tasks.
+              ground truth (
+              <a href="#figure-3" className="text-accent hover:underline">
+                Figure 3
+              </a>
+              ), particularly for the lumen and lipid core. Challenges remained
+              for the fibrous cap due to its thin and diffuse boundaries.
+              Further analysis with class activation maps confirmed that the
+              best-performing models focused on anatomically relevant areas (
+              <a href="#figure-4" className="text-accent hover:underline">
+                Figure 4
+              </a>
+              ). These results establish the reliability of the segmentation
+              models and affirm the utility of ensemble and explainable AI
+              techniques in high-stakes biomedical imaging tasks.
             </p>
 
-            {/* Comparison Ground Truth and Predictions */}
-            <ImageLightbox
-              src="/portfolio/ai-dissects-arterial-risk/comparison-ground-truth-and-predictions.webp"
-              alt="Comparison of Ground Truth and Model Predictions"
-              width={2256}
-              height={2550}
-              maxWidth="2xl"
-              className="mb-6"
-            />
+            {/* Figure 3: Comparison Ground Truth and Predictions */}
+            <figure id="figure-3" className="mb-6 scroll-mt-24">
+              <ImageLightbox
+                src="/portfolio/ai-dissects-arterial-risk/comparison-ground-truth-and-predictions.webp"
+                alt="Comparison of Ground Truth and Model Predictions"
+                width={2256}
+                height={2550}
+                maxWidth="2xl"
+              />
+              <figcaption className="text-center text-sm text-gray-500 mt-3">
+                <span className="text-gray-400">Figure 3.</span> Comparison
+                between ground truth annotations and model predictions for
+                plaque segmentation.
+              </figcaption>
+            </figure>
 
-            {/* Activation Maps */}
-            <ImageLightbox
-              src="/portfolio/ai-dissects-arterial-risk/activation-maps-for-lumen.webp"
-              alt="Activation Maps for Lumen Segmentation"
-              width={2256}
-              height={2256}
-              maxWidth="2xl"
-            />
+            {/* Figure 4: Activation Maps */}
+            <figure id="figure-4" className="scroll-mt-24">
+              <ImageLightbox
+                src="/portfolio/ai-dissects-arterial-risk/activation-maps-for-lumen.webp"
+                alt="Activation Maps for Lumen Segmentation"
+                width={2256}
+                height={2256}
+                maxWidth="2xl"
+              />
+              <figcaption className="text-center text-sm text-gray-500 mt-3">
+                <span className="text-gray-400">Figure 4.</span> Class
+                activation maps showing model attention focused on anatomically
+                relevant areas.
+              </figcaption>
+            </figure>
           </section>
 
           {/* Conclusion */}
