@@ -744,6 +744,8 @@ export default function ProjectPage() {
           </section>
         </div>
       </div>
+      {/* Bottom spacing before footer */}
+      <div className="pb-24" />
     </main>
   );
 }
