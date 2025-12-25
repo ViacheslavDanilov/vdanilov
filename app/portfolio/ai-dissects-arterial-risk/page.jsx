@@ -570,23 +570,31 @@ export default function ProjectPage() {
             <ul className="space-y-2 text-gray-400 mb-4">
               <li>
                 <strong className="text-gray-200">Lumen:</strong> DSC of{" "}
-                <span className="text-green-400 font-semibold">0.987</span> –
-                indicating nearly perfect agreement with expert annotations.
+                <span className="font-semibold" style={{ color: "#ff17cd" }}>
+                  0.987
+                </span>{" "}
+                – indicating nearly perfect agreement with expert annotations.
               </li>
               <li>
                 <strong className="text-gray-200">Fibrous Cap:</strong> DSC of{" "}
-                <span className="text-yellow-400 font-semibold">0.736</span> –
-                strong performance despite thin, complex structure.
+                <span className="font-semibold" style={{ color: "#5eade6" }}>
+                  0.736
+                </span>{" "}
+                – strong performance despite thin, complex structure.
               </li>
               <li>
                 <strong className="text-gray-200">Lipid Core:</strong> DSC of{" "}
-                <span className="text-yellow-400 font-semibold">0.751</span> –
-                reliable detection despite challenging textures.
+                <span className="font-semibold" style={{ color: "#00e379" }}>
+                  0.751
+                </span>{" "}
+                – reliable detection despite challenging textures.
               </li>
               <li>
                 <strong className="text-gray-200">Vasa Vasorum:</strong> DSC of{" "}
-                <span className="text-orange-400 font-semibold">0.610</span> –
-                moderate performance for a rare, fine-grained feature.
+                <span className="font-semibold" style={{ color: "#f20515" }}>
+                  0.610
+                </span>{" "}
+                – moderate performance for a rare, fine-grained feature.
               </li>
               <li>
                 <strong className="text-gray-200">
