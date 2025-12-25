@@ -21,22 +21,6 @@ const PROJECTS_DATA = [
     category: "AI/ML",
     image: "/portfolio/previews/ai-dissects-arterial-risk.webp",
   },
-  {
-    id: "ai-powered-microscopy",
-    title: "AI-Powered Microscopy",
-    description:
-      "Automated detection and counting of cancer cells using advanced computer vision and neural networks.",
-    category: "AI/ML",
-    image: "/portfolio/previews/ai-powered-microscopy.webp",
-  },
-  {
-    id: "automatic-scoring-of-covid-19-severity",
-    title: "COVID-19 Severity Scoring",
-    description:
-      "Machine learning system for automatic assessment of COVID-19 lung involvement from CT scans.",
-    category: "AI/ML",
-    image: "/portfolio/previews/automatic-scoring-of-covid-19-severity.webp",
-  },
 ];
 
 const FILTER_OPTIONS = [
