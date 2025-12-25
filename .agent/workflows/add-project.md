@@ -69,9 +69,21 @@ Creates a new portfolio project page following the established structure.
 
 ### Main Container
 
+**Opening:**
+
 ```jsx
 <main className="min-h-screen pt-24">
   <div className="w-full max-w-5xl mx-auto px-6 py-12 md:py-24">
+```
+
+**Closing (with bottom spacing before footer):**
+
+```jsx
+        </div>
+      </div>
+      {/* Bottom spacing before footer */}
+      <div className="pb-24" />
+    </main>
 ```
 
 ### Header Card
