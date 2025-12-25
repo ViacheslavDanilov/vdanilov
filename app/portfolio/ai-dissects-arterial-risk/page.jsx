@@ -479,7 +479,11 @@ export default function ProjectPage() {
               <figcaption className="text-center text-sm text-gray-400 mt-3">
                 <span className="text-gray-300">Figure 1.</span> OCT annotation
                 methodology showing the segmentation workflow and plaque feature
-                identification.
+                identification. Color legend:{" "}
+                <span style={{ color: "#ff17cd" }}>lumen</span>,{" "}
+                <span style={{ color: "#5eade6" }}>fibrous cap</span>,{" "}
+                <span style={{ color: "#00e379" }}>lipid core</span>,{" "}
+                <span style={{ color: "#f20515" }}>vasa vasorum</span>.
               </figcaption>
             </figure>
           </section>
@@ -567,7 +571,7 @@ export default function ProjectPage() {
                 alt="Loss and DSC evolution during training"
                 width={2480}
                 height={2320}
-                maxWidth="3xl"
+                maxWidth="2xl"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
                 <span className="text-gray-300">Figure 2.</span> Training
@@ -592,38 +596,34 @@ export default function ProjectPage() {
 
             <ul className="space-y-2 text-gray-300 mb-4">
               <li>
-                <strong className="text-gray-200">Lumen:</strong> DSC of{" "}
-                <span className="font-semibold" style={{ color: "#ff17cd" }}>
-                  0.987
-                </span>{" "}
-                – indicating nearly perfect agreement with expert annotations.
+                <strong className="text-gray-200">Lumen</strong> (
+                <span style={{ color: "#ff17cd" }}>magenta</span>): DSC of{" "}
+                <span className="font-semibold">0.987</span> – indicating nearly
+                perfect agreement with expert annotations.
               </li>
               <li>
-                <strong className="text-gray-200">Fibrous Cap:</strong> DSC of{" "}
-                <span className="font-semibold" style={{ color: "#5eade6" }}>
-                  0.736
-                </span>{" "}
-                – strong performance despite thin, complex structure.
+                <strong className="text-gray-200">Fibrous Cap</strong> (
+                <span style={{ color: "#5eade6" }}>blue</span>): DSC of{" "}
+                <span className="font-semibold">0.736</span> – strong
+                performance despite thin, complex structure.
               </li>
               <li>
-                <strong className="text-gray-200">Lipid Core:</strong> DSC of{" "}
-                <span className="font-semibold" style={{ color: "#00e379" }}>
-                  0.751
-                </span>{" "}
-                – reliable detection despite challenging textures.
+                <strong className="text-gray-200">Lipid Core</strong> (
+                <span style={{ color: "#00e379" }}>green</span>): DSC of{" "}
+                <span className="font-semibold">0.751</span> – reliable
+                detection despite challenging textures.
               </li>
               <li>
-                <strong className="text-gray-200">Vasa Vasorum:</strong> DSC of{" "}
-                <span className="font-semibold" style={{ color: "#f20515" }}>
-                  0.610
-                </span>{" "}
-                – moderate performance for a rare, fine-grained feature.
+                <strong className="text-gray-200">Vasa Vasorum</strong> (
+                <span style={{ color: "#f20515" }}>red</span>): DSC of{" "}
+                <span className="font-semibold">0.610</span> – moderate
+                performance for a rare, fine-grained feature.
               </li>
               <li>
                 <strong className="text-gray-200">
                   Ensemble Weighted DSC:
                 </strong>{" "}
-                <span className="text-accent font-bold">0.882</span> –
+                <span className="text-light font-semibold">0.882</span> –
                 demonstrating the synergy of combined models.
               </li>
             </ul>
