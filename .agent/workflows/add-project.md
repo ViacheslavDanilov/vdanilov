@@ -87,8 +87,8 @@ className = "mb-16 p-6 rounded-2xl bg-light/[0.03]";
 ```jsx
 <figure id="figure-N" className="scroll-mt-24">
   <ImageLightbox src="..." alt="..." width={W} height={H} maxWidth="..." />
-  <figcaption className="text-center text-sm text-gray-500 mt-3">
-    <span className="text-gray-400">Figure N.</span> Description...
+  <figcaption className="text-center text-sm text-gray-400 mt-3">
+    <span className="text-gray-300">Figure N.</span> Description...
   </figcaption>
 </figure>
 ```
@@ -104,17 +104,17 @@ className = "mb-16 p-6 rounded-2xl bg-light/[0.03]";
 ### Paragraph
 
 ```jsx
-<p className="text-gray-400 leading-relaxed mb-4 text-justify">
+<p className="text-gray-300 leading-relaxed mb-4 text-justify">
 ```
 
 ### Bullet List
 
 ```jsx
-<ul className="space-y-2 text-gray-400 mb-6 text-justify">
+<ul className="space-y-2 text-gray-300 mb-6 text-justify">
   <li className="flex items-start gap-2">
     <span className="text-accent mt-1">•</span>
     <span>
-      <strong className="text-gray-300">Label:</strong> Description
+      <strong className="text-gray-200">Label:</strong> Description
     </span>
   </li>
 </ul>
