@@ -479,7 +479,7 @@ export default function ProjectPage() {
                 alt="CBF and ICP Acquisition Setup"
                 width={1920}
                 height={1080}
-                maxWidth="full"
+                maxWidth="2xl"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
                 <span className="text-gray-300">Figure 1.</span> Simultaneous
