@@ -82,7 +82,7 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Turgut Durduran",
-    role: "Biophotonics Scientist​",
+    role: "Medical Optics Group Head",
     organization: "ICFO",
     location: "Barcelona · Spain 🇪🇸",
     photo: "/portfolio/team/turgut-durduran.webp",
@@ -96,7 +96,7 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Maria Poca",
-    role: "Lead Neurosurgeon",
+    role: "Head of Neurosurgery",
     organization: "Vall d'Hebron Hospital",
     location: "Barcelona · Spain 🇪🇸",
     photo: "/portfolio/team/maria-poca.webp",
@@ -105,6 +105,19 @@ const TEAM_MEMBERS = [
         "https://www.vallhebron.com/es/profesionales/maria-antonia-poca-pastor",
       orcid: "https://orcid.org/0000-0002-3831-0536",
       email: "pocama@neurotrauma.net",
+    },
+  },
+  {
+    name: "Juan Sahuquillo",
+    role: "Lead Neurosurgeon",
+    organization: "Vall d'Hebron Hospital",
+    location: "Barcelona · Spain 🇪🇸",
+    photo: "/portfolio/team/juan-sahuquillo.webp",
+    links: {
+      globe: "https://www.neurotrauma.com/equipindex.php?Up=GD",
+      researchgate: "https://www.researchgate.net/profile/Juan-Sahuquillo",
+      google: "https://scholar.google.com/citations?user=kR8_L9MAAAAJ&hl=en",
+      email: "sahuquillo@neurotrauma.net",
     },
   },
   {
