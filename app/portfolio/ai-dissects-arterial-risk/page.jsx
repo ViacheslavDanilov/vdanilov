@@ -221,7 +221,7 @@ export default function ProjectPage() {
         </Link>
 
         {/* Project Header */}
-        <header className="mb-16 p-8 -mx-2 rounded-2xl bg-gradient-to-br from-accent/10 via-accent/5 to-transparent border border-white/5">
+        <header className="mb-16 p-6 rounded-2xl bg-light/[0.03]">
           <h1 className="text-3xl md:text-4xl font-bold text-light mb-3">
             AI Dissects Arterial Risk
           </h1>
@@ -231,7 +231,7 @@ export default function ProjectPage() {
           </p>
 
           {/* Divider */}
-          <div className="h-px bg-white/10 my-8" />
+          <div className="h-px bg-light/10 my-8" />
 
           {/* Client */}
           <div className="text-sm text-gray-400">
@@ -260,7 +260,7 @@ export default function ProjectPage() {
           </div>
 
           {/* Divider */}
-          <div className="h-px bg-white/10 my-8" />
+          <div className="h-px bg-light/10 my-8" />
 
           {/* Resources */}
           <div className="flex flex-wrap gap-2">
