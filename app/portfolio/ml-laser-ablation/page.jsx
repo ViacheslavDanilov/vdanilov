@@ -457,6 +457,52 @@ export default function ProjectPage() {
               Reflectance and absorbance imaging modes were utilized, providing
               complementary insights into tissue properties.
             </p>
+
+            {/* Video demonstrations */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+              <figure>
+                <video
+                  src="/portfolio/ml-laser-ablation/input_data_abs.mp4"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  controls
+                  className="w-full rounded-lg"
+                />
+                <figcaption className="text-center text-sm text-gray-400 mt-2">
+                  Absorbance modality
+                </figcaption>
+              </figure>
+              <figure>
+                <video
+                  src="/portfolio/ml-laser-ablation/input_data_hsv.mp4"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  controls
+                  className="w-full rounded-lg"
+                />
+                <figcaption className="text-center text-sm text-gray-400 mt-2">
+                  HSV modality
+                </figcaption>
+              </figure>
+              <figure>
+                <video
+                  src="/portfolio/ml-laser-ablation/input_data_ref.mp4"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  controls
+                  className="w-full rounded-lg"
+                />
+                <figcaption className="text-center text-sm text-gray-400 mt-2">
+                  Reflectance modality
+                </figcaption>
+              </figure>
+            </div>
           </section>
 
           {/* Methods */}
