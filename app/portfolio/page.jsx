@@ -18,7 +18,7 @@ const PROJECTS_DATA = [
     description:
       "ML workflow for tissue ablation assessment in hyperspectral imaging using PCA, Faster R-CNN, and Mean Shift clustering.",
     category: "AI/ML",
-    image: "/portfolio/previews/harnessing-ml-for-laser-ablation.webp",
+    image: "/portfolio/previews/hypervision-ablation.webp",
     date: "2024-07",
     featured: true,
   },
@@ -38,7 +38,7 @@ const PROJECTS_DATA = [
     description:
       "Deep learning pipeline for OCT plaque segmentation, enabling precise arterial risk assessment in cardiovascular imaging.",
     category: "AI/ML",
-    image: "/portfolio/previews/ai-dissects-arterial-risk.webp",
+    image: "/portfolio/previews/coronary-insight.webp",
     date: "2025-06",
     featured: true,
   },
@@ -48,7 +48,7 @@ const PROJECTS_DATA = [
     description:
       "Non-invasive ICP monitoring using deep learning on cerebral blood flow signals from near-infrared photonic sensors.",
     category: "AI/ML",
-    image: "/portfolio/previews/wavelets-in-the-brain.webp",
+    image: "/portfolio/previews/deep-brainwatch.webp",
     date: "2025-12",
     featured: true,
   },
@@ -58,7 +58,7 @@ const PROJECTS_DATA = [
     description:
       "ML-driven workflow for tumor immune phenotype classification using HoVer-Net and AutoML on histopathology images.",
     category: "AI/ML",
-    image: "/portfolio/previews/tumor-immune-phenotype-classification.webp",
+    image: "/portfolio/previews/immune-profiler.webp",
     date: "2024-06",
     featured: true,
   },
@@ -68,7 +68,7 @@ const PROJECTS_DATA = [
     description:
       "Deep learning pipeline for segmenting microvascular features in tissue-engineered vascular grafts with 89% Dice score.",
     category: "AI/ML",
-    image: "/portfolio/previews/segmentation-of-microvascular-features.webp",
+    image: "/portfolio/previews/histo-scanner.webp",
     date: "2024-05",
     featured: true,
   },
