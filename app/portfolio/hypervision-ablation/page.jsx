@@ -22,7 +22,7 @@ import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
 
 export const metadata = {
-  title: "Laser Ablation HSI – Viacheslav Danilov",
+  title: "HyperVision Ablation – Viacheslav Danilov",
   description:
     "ML workflow for tissue ablation assessment in hyperspectral imaging. Combines PCA, t-SNE, Faster R-CNN, and Mean Shift clustering for automated segmentation.",
 };
@@ -238,7 +238,7 @@ export default function ProjectPage() {
         {/* Project Header */}
         <header className="mb-16 p-6 rounded-2xl bg-light/[0.03]">
           <h1 className="text-3xl md:text-4xl font-bold text-light mb-3">
-            Laser Ablation HSI
+            HyperVision Ablation
           </h1>
           <p className="text-lg text-gray-400 leading-relaxed">
             Harnessing ML for laser ablation assessment in hyperspectral imaging
@@ -462,7 +462,7 @@ export default function ProjectPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
               <figure>
                 <video
-                  src="/portfolio/ml-laser-ablation/input_data_abs.mp4"
+                  src="/portfolio/hypervision-ablation/input_data_abs.mp4"
                   autoPlay
                   loop
                   muted
@@ -476,7 +476,7 @@ export default function ProjectPage() {
               </figure>
               <figure>
                 <video
-                  src="/portfolio/ml-laser-ablation/input_data_hsv.mp4"
+                  src="/portfolio/hypervision-ablation/input_data_hsv.mp4"
                   autoPlay
                   loop
                   muted
@@ -490,7 +490,7 @@ export default function ProjectPage() {
               </figure>
               <figure>
                 <video
-                  src="/portfolio/ml-laser-ablation/input_data_ref.mp4"
+                  src="/portfolio/hypervision-ablation/input_data_ref.mp4"
                   autoPlay
                   loop
                   muted
@@ -551,7 +551,7 @@ export default function ProjectPage() {
             {/* Figure 1: Workflow */}
             <figure id="figure-1" className="scroll-mt-24">
               <ImageLightbox
-                src="/portfolio/ml-laser-ablation/hsi-analysis-workflow.webp"
+                src="/portfolio/hypervision-ablation/hsi-analysis-workflow.webp"
                 alt="HSI Analysis Workflow"
                 width={1920}
                 height={1080}
@@ -633,7 +633,7 @@ export default function ProjectPage() {
             {/* Figure 2: Clustering */}
             <figure id="figure-2" className="mb-6 scroll-mt-24">
               <ImageLightbox
-                src="/portfolio/ml-laser-ablation/clustering.webp"
+                src="/portfolio/hypervision-ablation/clustering.webp"
                 alt="Clustering Comparison"
                 width={1920}
                 height={1080}
@@ -648,7 +648,7 @@ export default function ProjectPage() {
             {/* Figure 3: Cluster Number Comparison */}
             <figure id="figure-3" className="scroll-mt-24">
               <ImageLightbox
-                src="/portfolio/ml-laser-ablation/сluster-number-comparison.webp"
+                src="/portfolio/hypervision-ablation/сluster-number-comparison.webp"
                 alt="Cluster Number Comparison"
                 width={1920}
                 height={1080}
