@@ -52,6 +52,16 @@ const PROJECTS_DATA = [
     date: "2025-12",
     featured: true,
   },
+  {
+    id: "immune-profiler",
+    title: "Immune Profiler",
+    description:
+      "ML-driven workflow for tumor immune phenotype classification using HoVer-Net and AutoML on histopathology images.",
+    category: "AI/ML",
+    image: "/portfolio/previews/tumor-immune-phenotype-classification.webp",
+    date: "2024-06",
+    featured: true,
+  },
 ];
 
 const FILTER_OPTIONS = [
