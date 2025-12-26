@@ -340,11 +340,11 @@ export default function ProjectPage() {
             </div>
           </section>
 
-          {/* Summary */}
+          {/* Overview */}
           <section>
             <h2 className="text-xl font-semibold text-light mb-4 flex items-center gap-3">
               <span className="w-1 h-6 bg-accent rounded-full"></span>
-              Summary
+              Overview
             </h2>
             <div className="prose prose-invert max-w-none">
               <p className="text-gray-300 leading-relaxed mb-4 text-justify">

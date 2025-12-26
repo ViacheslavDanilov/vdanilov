@@ -34,6 +34,14 @@ Creates a new portfolio project page following the established structure.
    - Data constants (HIGHLIGHTS_ITEMS, TEAM_MEMBERS, RESOURCES, TECH_STACK)
    - TeamMemberCard component
    - ProjectPage component
+4. **CRITICAL - Section names must be EXACTLY:**
+   - "Highlights" (not "Quick Look" or other variations)
+   - "Core Team" (if applicable)
+   - "Overview" (NOT "Summary" - this is the project context section)
+   - "Data" (if applicable)
+   - "Methods" (if applicable)
+   - "Results" (if applicable)
+   - "Conclusion"
 
 ### Step 3: Add to Portfolio Listing
 
