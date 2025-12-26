@@ -13,6 +13,16 @@ import {
 // Project data with date and featured fields
 const PROJECTS_DATA = [
   {
+    id: "ml-laser-ablation",
+    title: "Laser Ablation HSI",
+    description:
+      "ML workflow for tissue ablation assessment in hyperspectral imaging using PCA, Faster R-CNN, and Mean Shift clustering.",
+    category: "AI/ML",
+    image: "/portfolio/previews/harnessing-ml-for-laser-ablation.webp",
+    date: "2024-07",
+    featured: true,
+  },
+  {
     id: "sales-pilot",
     title: "Sales Pilot",
     description:
