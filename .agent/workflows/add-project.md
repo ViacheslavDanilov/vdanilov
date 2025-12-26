@@ -25,10 +25,19 @@ Creates a new portfolio project page following the established structure.
 1. Read the provided URL using `read_url_content`
 2. Extract: title, description, sections, team, resources
 
-### Step 2: Create Project Page
+### Step 2: Suggest Title & Slug
+
+1. Based on the fetched content, propose **3-5 title options** that are:
+   - Telegraphic (2-3 words max)
+   - Attractive and memorable
+   - Consistent with existing projects (e.g., "HyperVision Ablation", "Coronary Insight", "Deep BrainWatch")
+2. For each title, suggest a corresponding slug (lowercase, hyphenated)
+3. **STOP and wait for user approval** before proceeding to implementation
+
+### Step 3: Create Project Page
 
 1. Create `app/portfolio/[slug]/page.jsx`
-2. Use `ai-dissects-arterial-risk/page.jsx` as the reference structure
+2. Use `coronary-insight/page.jsx` as the reference structure
 3. Include all standard sections in order:
    - Metadata export
    - Data constants (HIGHLIGHTS_ITEMS, TEAM_MEMBERS, RESOURCES, TECH_STACK)
@@ -43,12 +52,12 @@ Creates a new portfolio project page following the established structure.
    - "Results" (if applicable)
    - "Conclusion"
 
-### Step 3: Add to Portfolio Listing
+### Step 4: Add to Portfolio Listing
 
 1. Edit `app/portfolio/page.jsx`
 2. Add entry to `PROJECTS_DATA` array
 
-### Step 4: Verify
+### Step 5: Verify
 
 1. Run `npm run dev`
 2. Navigate to the new project page
