@@ -405,7 +405,7 @@ export default function ProjectPage() {
               porcine liver, pancreas, and stomach tissues. These hypercubes
               were acquired using a{" "}
               <a
-                href="https://diaspective-vision.com/en/produkt/tivita-2-0/#produkt"
+                href="https://protexhealthcare.com/products/tivita/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-accent hover:underline"
@@ -652,7 +652,7 @@ export default function ProjectPage() {
                 alt="Cluster Number Comparison"
                 width={1920}
                 height={1080}
-                maxWidth="xl"
+                maxWidth="2xl"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
                 <span className="text-gray-300">Figure 3.</span> Cluster number
