@@ -13,6 +13,16 @@ import {
 // Project data with date and featured fields
 const PROJECTS_DATA = [
   {
+    id: "sales-pilot",
+    title: "Sales Pilot",
+    description:
+      "AI-powered lead scoring system using hybrid heuristics and OpenAI embeddings to automate and prioritize high-fit leads at scale.",
+    category: "AI/ML",
+    image: "/portfolio/previews/sales-pilot.webp",
+    date: "2025-12",
+    featured: true,
+  },
+  {
     id: "ai-dissects-arterial-risk",
     title: "AI Dissects Arterial Risk",
     description:
