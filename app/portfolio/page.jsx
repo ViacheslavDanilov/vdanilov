@@ -62,6 +62,16 @@ const PROJECTS_DATA = [
     date: "2024-06",
     featured: true,
   },
+  {
+    id: "histo-scanner",
+    title: "Histo Scanner",
+    description:
+      "Deep learning pipeline for segmenting microvascular features in tissue-engineered vascular grafts with 89% Dice score.",
+    category: "AI/ML",
+    image: "/portfolio/previews/segmentation-of-microvascular-features.webp",
+    date: "2024-05",
+    featured: true,
+  },
 ];
 
 const FILTER_OPTIONS = [
