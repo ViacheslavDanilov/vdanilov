@@ -19,7 +19,7 @@ const PROJECTS_DATA = [
       "AI-powered lead scoring system using hybrid heuristics and OpenAI embeddings to automate and prioritize high-fit leads at scale.",
     category: "AI/ML",
     image: "/portfolio/previews/sales-pilot.webp",
-    date: "2025-12",
+    date: "2025-05",
     featured: true,
   },
   {
