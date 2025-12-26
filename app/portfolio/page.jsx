@@ -33,8 +33,8 @@ const PROJECTS_DATA = [
     featured: true,
   },
   {
-    id: "ai-dissects-arterial-risk",
-    title: "AI Dissects Arterial Risk",
+    id: "coronary-insight",
+    title: "Coronary Insight",
     description:
       "Deep learning pipeline for OCT plaque segmentation, enabling precise arterial risk assessment in cardiovascular imaging.",
     category: "AI/ML",
@@ -43,8 +43,8 @@ const PROJECTS_DATA = [
     featured: true,
   },
   {
-    id: "wavelets-in-the-brain",
-    title: "Wavelets in the Brain",
+    id: "deep-brainwatch",
+    title: "Deep BrainWatch",
     description:
       "Non-invasive ICP monitoring using deep learning on cerebral blood flow signals from near-infrared photonic sensors.",
     category: "AI/ML",

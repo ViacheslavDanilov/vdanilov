@@ -23,7 +23,7 @@ import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
 
 export const metadata = {
-  title: "Wavelets in the Brain – Viacheslav Danilov",
+  title: "Deep BrainWatch – Viacheslav Danilov",
   description:
     "Non-invasive ICP monitoring using deep learning on cerebral blood flow signals. Achieved 71% predictions within ±6 mmHg in the clinically critical 0–15 mmHg range.",
 };
@@ -254,7 +254,7 @@ export default function ProjectPage() {
         {/* Project Header */}
         <header className="mb-16 p-6 rounded-2xl bg-light/[0.03]">
           <h1 className="text-3xl md:text-4xl font-bold text-light mb-3">
-            Wavelets in the Brain
+            Deep BrainWatch
           </h1>
           <p className="text-lg text-gray-400 leading-relaxed">
             Deep learning for non-invasive intracranial pressure monitoring
@@ -475,7 +475,7 @@ export default function ProjectPage() {
             {/* Figure 1 */}
             <figure id="figure-1" className="scroll-mt-24">
               <ImageLightbox
-                src="/portfolio/wavelets-in-the-brain/cbf-and-icp-acquisition.webp"
+                src="/portfolio/deep-brainwatch/cbf-and-icp-acquisition.webp"
                 alt="CBF and ICP Acquisition Setup"
                 width={1920}
                 height={1080}
@@ -544,7 +544,7 @@ export default function ProjectPage() {
             {/* Figure 2 */}
             <figure id="figure-2" className="scroll-mt-24">
               <ImageLightbox
-                src="/portfolio/wavelets-in-the-brain/cbf-to-icp-workflow.webp"
+                src="/portfolio/deep-brainwatch/cbf-to-icp-workflow.webp"
                 alt="CBF to ICP Prediction Workflow"
                 width={1920}
                 height={1080}
@@ -639,7 +639,7 @@ export default function ProjectPage() {
             {/* Figure 3 */}
             <figure id="figure-3" className="scroll-mt-24 mb-8">
               <ImageLightbox
-                src="/portfolio/wavelets-in-the-brain/error-distribution-mWDN.webp"
+                src="/portfolio/deep-brainwatch/error-distribution-mWDN.webp"
                 alt="Error Distribution of mWDN Model"
                 width={1920}
                 height={1080}
@@ -677,10 +677,10 @@ export default function ProjectPage() {
                   muted
                   playsInline
                   controls
-                  poster="/portfolio/wavelets-in-the-brain/predictions-mWDN-train-val-poster.webp"
+                  poster="/portfolio/deep-brainwatch/predictions-mWDN-train-val-poster.webp"
                 >
                   <source
-                    src="/portfolio/wavelets-in-the-brain/predictions-mWDN-train-val.mp4"
+                    src="/portfolio/deep-brainwatch/predictions-mWDN-train-val.mp4"
                     type="video/mp4"
                   />
                   Your browser does not support the video tag.
@@ -703,10 +703,10 @@ export default function ProjectPage() {
                   muted
                   playsInline
                   controls
-                  poster="/portfolio/wavelets-in-the-brain/predictions-mWDN-test-poster.webp"
+                  poster="/portfolio/deep-brainwatch/predictions-mWDN-test-poster.webp"
                 >
                   <source
-                    src="/portfolio/wavelets-in-the-brain/predictions-mWDN-test.mp4"
+                    src="/portfolio/deep-brainwatch/predictions-mWDN-test.mp4"
                     type="video/mp4"
                   />
                   Your browser does not support the video tag.

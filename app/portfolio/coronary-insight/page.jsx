@@ -22,7 +22,7 @@ import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
 
 export const metadata = {
-  title: "AI Dissects Arterial Risk – Viacheslav Danilov",
+  title: "Coronary Insight – Viacheslav Danilov",
   description:
     "Deep learning pipeline for OCT plaque segmentation and cardiovascular risk assessment. Achieved 88.2% weighted Dice score using hybrid ensemble of neural networks.",
 };
@@ -223,7 +223,7 @@ export default function ProjectPage() {
         {/* Project Header */}
         <header className="mb-16 p-6 rounded-2xl bg-light/[0.03]">
           <h1 className="text-3xl md:text-4xl font-bold text-light mb-3">
-            AI Dissects Arterial Risk
+            Coronary Insight
           </h1>
           <p className="text-lg text-gray-400 leading-relaxed">
             OCT plaque segmentation with deep learning for cardiovascular risk
@@ -470,7 +470,7 @@ export default function ProjectPage() {
             {/* Figure 1: Annotation Methodology Image */}
             <figure id="figure-1" className="scroll-mt-24">
               <ImageLightbox
-                src="/portfolio/ai-dissects-arterial-risk/oct-annotation-methodology.webp"
+                src="/portfolio/coronary-insight/oct-annotation-methodology.webp"
                 alt="OCT Annotation Methodology"
                 width={2520}
                 height={900}
@@ -567,7 +567,7 @@ export default function ProjectPage() {
             {/* Figure 2: Loss and DSC Evolution */}
             <figure id="figure-2" className="scroll-mt-24">
               <ImageLightbox
-                src="/portfolio/ai-dissects-arterial-risk/loss-and-dsc-evolution.webp"
+                src="/portfolio/coronary-insight/loss-and-dsc-evolution.webp"
                 alt="Loss and DSC evolution during training"
                 width={2480}
                 height={2320}
@@ -649,7 +649,7 @@ export default function ProjectPage() {
             {/* Figure 3: Comparison Ground Truth and Predictions */}
             <figure id="figure-3" className="mb-6 scroll-mt-24">
               <ImageLightbox
-                src="/portfolio/ai-dissects-arterial-risk/comparison-ground-truth-and-predictions.webp"
+                src="/portfolio/coronary-insight/comparison-ground-truth-and-predictions.webp"
                 alt="Comparison of Ground Truth and Model Predictions"
                 width={2256}
                 height={2550}
@@ -665,7 +665,7 @@ export default function ProjectPage() {
             {/* Figure 4: Activation Maps */}
             <figure id="figure-4" className="scroll-mt-24">
               <ImageLightbox
-                src="/portfolio/ai-dissects-arterial-risk/activation-maps-for-lumen.webp"
+                src="/portfolio/coronary-insight/activation-maps-for-lumen.webp"
                 alt="Activation Maps for Lumen Segmentation"
                 width={2256}
                 height={2256}
