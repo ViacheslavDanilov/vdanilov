@@ -104,6 +104,17 @@ const TEAM_MEMBERS = [
     },
   },
   {
+    name: "Rita Tretyakevich",
+    role: "Business Analyst",
+    organization: "Symfa",
+    location: "Warsaw · Poland 🇵🇱",
+    photo: "/portfolio/team/rita-tretyakevich.webp",
+    links: {
+      linkedin: "https://www.linkedin.com/in/rita-tretyakevich/",
+      email: "m.tretyakevich@symfa.com",
+    },
+  },
+  {
     name: "Vitali Yurkevich",
     role: "Product Owner",
     organization: "Symfa",
