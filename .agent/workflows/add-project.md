@@ -13,6 +13,9 @@ Creates a new portfolio project page following the established structure.
    - `public/portfolio/previews/[slug].webp` - Hero/preview image
    - `public/portfolio/[slug]/` - Project-specific images
    - `public/portfolio/team/` - New team member photos (if any)
+   - **Note**: If a team member photo is not available, use placeholder photos:
+     - `/portfolio/team/jane-doe.webp` for female team members
+     - `/portfolio/team/john-doe.webp` for male team members
 
 ---
 
