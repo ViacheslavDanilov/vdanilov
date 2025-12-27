@@ -112,6 +112,16 @@ const PROJECTS_DATA = [
     date: "2022-07",
     featured: true,
   },
+  {
+    id: "pulmolens",
+    title: "PulmoLens",
+    description:
+      "Attention-guided deep learning for COVID-19 and pneumonia detection in chest X-rays, achieving 84% accuracy with Grad-CAM supervision.",
+    category: "AI/ML",
+    image: "/portfolio/previews/pulmolens.webp",
+    date: "2022-01",
+    featured: true,
+  },
 ];
 
 const FILTER_OPTIONS = [
