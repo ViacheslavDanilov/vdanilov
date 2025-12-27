@@ -38,12 +38,17 @@ Creates a new portfolio project page following the established structure.
 
 1. Create `app/portfolio/[slug]/page.jsx`
 2. Use `coronary-insight/page.jsx` as the reference structure
-3. Include all standard sections in order:
+3. **CRITICAL - Discover and integrate images:**
+   - List images from `public/portfolio/[slug]/` directory
+   - Add figures with proper captions in relevant sections (Data, Methods, Results)
+   - Add in-text figure references linking to the figures
+   - Use ImageLightbox component for all images
+4. Include all standard sections in order:
    - Metadata export
    - Data constants (HIGHLIGHTS_ITEMS, TEAM_MEMBERS, RESOURCES, TECH_STACK)
    - TeamMemberCard component
    - ProjectPage component
-4. **CRITICAL - Section names must be EXACTLY:**
+5. **CRITICAL - Section names must be EXACTLY:**
    - "Highlights" (not "Quick Look" or other variations)
    - "Core Team" (if applicable)
    - "Overview" (NOT "Summary" - this is the project context section)
