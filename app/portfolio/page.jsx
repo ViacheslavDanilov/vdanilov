@@ -102,6 +102,16 @@ const PROJECTS_DATA = [
     date: "2023-02",
     featured: true,
   },
+  {
+    id: "pulmoscore",
+    title: "PulmoScore",
+    description:
+      "Two-stage ML workflow for COVID-19 severity scoring on chest X-rays, achieving MAE of 0.30 and 11× faster processing.",
+    category: "AI/ML",
+    image: "/portfolio/previews/pulmoscore.webp",
+    date: "2022-07",
+    featured: true,
+  },
 ];
 
 const FILTER_OPTIONS = [
