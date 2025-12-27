@@ -7,8 +7,8 @@ import { GlowCard } from "@/components/ui/glow-card";
 
 const PROJECTS = [
   {
-    id: "wavelets-in-the-brain",
-    title: "Wavelets in the brain",
+    id: "deep-brainwatch",
+    title: "Deep BrainWatch",
     client: "Vall d'Hebron Hospital",
     location: "Barcelona · Spain 🇪🇸",
     description:
@@ -21,34 +21,34 @@ const PROJECTS = [
       "DVC",
       "Weights & Biases",
     ],
-    link: "#",
-    image: "/projects/wavelets-in-the-brain/preview.webp",
+    link: "/portfolio/deep-brainwatch",
+    image: "/portfolio/previews/deep-brainwatch.webp",
   },
   {
     id: "sales-pilot",
-    title: "AI-driven lead scoring at scale",
+    title: "Sales Pilot",
     client: "Symfa",
     location: "Miami · United States 🇺🇸",
     description:
       "An end-to-end AI system that automates outbound lead generation by scoring jobs, contacts, and companies using hybrid heuristic–embedding models. It transforms slow manual sourcing into a scalable, data-driven workflow that dramatically cuts time-to-lead from days to minutes while boosting targeting accuracy and conversion potential.",
     stack: ["Python", "OpenAI API", "scikit-learn", "DVC", "CI/CD", "LLM"],
-    link: "#",
-    image: "/projects/sales-pilot/preview.webp",
+    link: "/portfolio/sales-pilot",
+    image: "/portfolio/previews/sales-pilot.webp",
   },
   {
-    id: "tumor-immune-phenotype",
-    title: "Tumor immune phenotype classification",
+    id: "immune-profiler",
+    title: "Immune Profiler",
     client: "Boehringer Ingelheim",
     location: "Ingelheim · Germany 🇩🇪",
     description:
       "A hybrid machine learning pipeline that classifies tumor immune phenotypes from whole-slide histopathology images using deep nucleus segmentation, feature engineering, and AutoML-based cell classification. Achieving an 89% weighted F1-score, it enables automated adenocarcinoma slide analysis, reducing manual workload and supporting more precise, personalized immunotherapy decisions.",
     stack: ["PyTorch", "HoVer-Net", "scikit-learn", "OpenSlide", "AutoML"],
-    link: "#",
-    image: "/projects/tumor-immune-phenotype/preview.webp",
+    link: "/portfolio/immune-profiler",
+    image: "/portfolio/previews/immune-profiler.webp",
   },
   {
-    id: "ml-for-laser-ablation",
-    title: "ML for laser ablation assessment",
+    id: "hypervision-ablation",
+    title: "HyperVision Ablation",
     client: "Institute for Image-Guided Surgery",
     location: "Strasbourg · France 🇫🇷",
     description:
@@ -61,8 +61,8 @@ const PROJECTS = [
       "OpenCV",
       "MLflow",
     ],
-    link: "#",
-    image: "/projects/ml-for-laser-ablation/preview.webp",
+    link: "/portfolio/hypervision-ablation",
+    image: "/portfolio/previews/hypervision-ablation.webp",
   },
 ];
 
