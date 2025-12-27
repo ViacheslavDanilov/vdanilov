@@ -72,6 +72,16 @@ const PROJECTS_DATA = [
     date: "2024-05",
     featured: true,
   },
+  {
+    id: "pulmovision",
+    title: "PulmoVision",
+    description:
+      "Explainable AI framework for detecting pulmonary edema features in chest X-rays using deep learning segmentation and object detection.",
+    category: "AI/ML",
+    image: "/portfolio/previews/pulmovision.webp",
+    date: "2024-03",
+    featured: true,
+  },
 ];
 
 const FILTER_OPTIONS = [
