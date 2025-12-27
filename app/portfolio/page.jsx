@@ -142,6 +142,16 @@ const PROJECTS_DATA = [
     date: "2021-07",
     featured: true,
   },
+  {
+    id: "stenosis-spotter",
+    title: "Stenosis Spotter",
+    description:
+      "Real-time coronary stenosis detection using deep learning for intraoperative angiographic image analysis with 0.94 mAP.",
+    category: "AI/ML",
+    image: "/portfolio/previews/stenosis-spotter.webp",
+    date: "2021-04",
+    featured: true,
+  },
 ];
 
 const FILTER_OPTIONS = [

@@ -300,6 +300,32 @@ function TeamMemberCard({ member }) {
 </ul>
 ```
 
+### Video with Caption
+
+```jsx
+<figure id="figure-N" className="scroll-mt-24">
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div className="rounded-xl overflow-hidden border border-white/10">
+      <video
+        src="/portfolio/[slug]/video-file.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+        controls
+        className="w-full h-auto"
+        preload="metadata"
+      >
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+  <figcaption className="text-center text-sm text-gray-400 mt-3">
+    <span className="text-gray-300">Figure N.</span> Description...
+  </figcaption>
+</figure>
+```
+
 ---
 
 ## Reference Implementation
