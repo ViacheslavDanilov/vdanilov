@@ -82,6 +82,16 @@ const PROJECTS_DATA = [
     date: "2024-03",
     featured: true,
   },
+  {
+    id: "provalve-design",
+    title: "ProValve Design",
+    description:
+      "ML-driven generative design framework for prosthetic heart valves using optimization algorithms, achieving 95% design efficacy.",
+    category: "AI/ML",
+    image: "/portfolio/previews/provalve-design.webp",
+    date: "2023-09",
+    featured: true,
+  },
 ];
 
 const FILTER_OPTIONS = [
