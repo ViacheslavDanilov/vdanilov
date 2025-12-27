@@ -132,6 +132,16 @@ const PROJECTS_DATA = [
     date: "2021-09",
     featured: true,
   },
+  {
+    id: "tavi-pinpoint",
+    title: "TAVI PinPoint",
+    description:
+      "Real-time landmark tracking for safer valve implantation during TAVI procedures using multi-task deep learning with 97% accuracy.",
+    category: "AI/ML",
+    image: "/portfolio/previews/tavi-pinpoint.webp",
+    date: "2021-07",
+    featured: true,
+  },
 ];
 
 const FILTER_OPTIONS = [
