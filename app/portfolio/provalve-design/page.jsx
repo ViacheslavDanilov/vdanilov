@@ -594,6 +594,10 @@ export default function ProjectPage() {
               <figure className="scroll-mt-24">
                 <video
                   controls
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
                   className="w-full rounded-lg border border-white/10"
                 >
                   <source
@@ -611,6 +615,10 @@ export default function ProjectPage() {
               <figure className="scroll-mt-24">
                 <video
                   controls
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
                   className="w-full rounded-lg border border-white/10"
                 >
                   <source

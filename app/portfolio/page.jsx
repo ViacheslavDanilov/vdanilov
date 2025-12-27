@@ -92,6 +92,16 @@ const PROJECTS_DATA = [
     date: "2023-09",
     featured: true,
   },
+  {
+    id: "sonoguide",
+    title: "SonoGuide",
+    description:
+      "Deep learning solution for surgical tool segmentation in 3D ultrasound, achieving 93.6% Dice score for real-time catheter localization.",
+    category: "AI/ML",
+    image: "/portfolio/previews/sonoguide.webp",
+    date: "2023-02",
+    featured: true,
+  },
 ];
 
 const FILTER_OPTIONS = [
