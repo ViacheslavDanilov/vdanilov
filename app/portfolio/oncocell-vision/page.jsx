@@ -666,7 +666,7 @@ export default function ProjectPage() {
                 alt="Detection comparison MB-231 63X"
                 width={800}
                 height={600}
-                maxWidth="full"
+                maxWidth="3xl"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
                 <span className="text-gray-300">Figure 3.</span> Detection
@@ -682,7 +682,7 @@ export default function ProjectPage() {
                 alt="Detection comparison HeLa"
                 width={800}
                 height={600}
-                maxWidth="full"
+                maxWidth="3xl"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
                 <span className="text-gray-300">Figure 4.</span> Detection
@@ -698,7 +698,7 @@ export default function ProjectPage() {
                 alt="Detection comparison CAL51"
                 width={800}
                 height={600}
-                maxWidth="full"
+                maxWidth="3xl"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
                 <span className="text-gray-300">Figure 5.</span> Detection
