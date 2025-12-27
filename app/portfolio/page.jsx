@@ -122,6 +122,16 @@ const PROJECTS_DATA = [
     date: "2022-01",
     featured: true,
   },
+  {
+    id: "deep-deface",
+    title: "Deep Deface",
+    description:
+      "GPU-accelerated 3D anonymization pipeline for CT and MRI scans, detecting and blurring facial/ear regions while preserving 100% of brain anatomy.",
+    category: "AI/ML",
+    image: "/portfolio/previews/deep-deface.webp",
+    date: "2021-09",
+    featured: true,
+  },
 ];
 
 const FILTER_OPTIONS = [
