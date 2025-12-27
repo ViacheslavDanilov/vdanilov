@@ -152,6 +152,16 @@ const PROJECTS_DATA = [
     date: "2021-04",
     featured: true,
   },
+  {
+    id: "oncocell-vision",
+    title: "OncoCell Vision",
+    description:
+      "AI-powered microscopy pipeline for detecting and counting cancer cell biomarkers using EfficientDet, achieving 85% mAP for nuclei detection.",
+    category: "AI/ML",
+    image: "/portfolio/previews/oncocell-vision.webp",
+    date: "2021-01",
+    featured: true,
+  },
 ];
 
 const FILTER_OPTIONS = [
