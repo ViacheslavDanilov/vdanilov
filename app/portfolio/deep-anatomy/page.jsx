@@ -54,7 +54,7 @@ const TEAM_MEMBERS = [
   {
     name: "Viacheslav Danilov",
     role: "Research Scientist",
-    organization: "Tomsk Polytech. University",
+    organization: "Tomsk Polytechnic University",
     location: "Tomsk · Russia 🇷🇺",
     photo: "/portfolio/team/viacheslav-danilov.webp",
     links: {
@@ -67,8 +67,8 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Olga Gerget",
-    role: "Research Supervisor",
-    organization: "Tomsk Polytech. University",
+    role: "Professor",
+    organization: "Tomsk Polytechnic University",
     location: "Tomsk · Russia 🇷🇺",
     photo: "/portfolio/team/jane-doe.webp",
     links: {
@@ -80,7 +80,7 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Nikolay Vasilyev",
-    role: "Medical Supervisor",
+    role: "Cardiac Surgeon",
     organization: "Boston Children's Hospital",
     location: "Boston · United States 🇺🇸",
     photo: "/portfolio/team/nikolay-vasilyev.webp",
@@ -94,8 +94,8 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Maria Ledesma",
-    role: "Research Supervisor",
-    organization: "Tech. University of Madrid",
+    role: "Professor",
+    organization: "Technical University of Madrid",
     location: "Madrid · Spain 🇪🇸",
     photo: "/portfolio/team/maria-ledesma.webp",
     links: {

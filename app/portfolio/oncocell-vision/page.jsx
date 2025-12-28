@@ -55,7 +55,7 @@ const TEAM_MEMBERS = [
     name: "Viacheslav Danilov",
     role: "Senior Data Scientist",
     organization: "Quantori",
-    location: "Cambridge · US 🇺🇸",
+    location: "Cambridge · United States 🇺🇸",
     photo: "/portfolio/team/viacheslav-danilov.webp",
     links: {
       linkedin: "https://www.linkedin.com/in/viacheslav-danilov/",
@@ -69,7 +69,7 @@ const TEAM_MEMBERS = [
     name: "Oleg Talalov",
     role: "Senior ML Engineer",
     organization: "Quantori",
-    location: "Cambridge · US 🇺🇸",
+    location: "Cambridge · United States 🇺🇸",
     photo: "/portfolio/team/oleg-talalov.webp",
     links: {
       linkedin: "https://www.linkedin.com/in/olegtalalov/",
@@ -79,9 +79,9 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Vladislav Laptev",
-    role: "Middle Data Scientist",
+    role: "Data Scientist",
     organization: "Quantori",
-    location: "Cambridge · US 🇺🇸",
+    location: "Cambridge · United States 🇺🇸",
     photo: "/portfolio/team/vladislav-laptev.webp",
     links: {
       globe: "https://loop.frontiersin.org/people/2713564/overview",
@@ -94,7 +94,7 @@ const TEAM_MEMBERS = [
     name: "Akanksha Verma",
     role: "Senior Bioinformatician",
     organization: "Volastra Therapeutics",
-    location: "New York · US 🇺🇸",
+    location: "New York · United States 🇺🇸",
     photo: "/portfolio/team/akanksha-verma.webp",
     links: {
       globe: "https://www.statnews.com/wunderkinds-2021/akanksha-verma/",
@@ -108,7 +108,7 @@ const TEAM_MEMBERS = [
     name: "Christina Eng",
     role: "Lead Bioinformatician",
     organization: "Volastra Therapeutics",
-    location: "New York · US 🇺🇸",
+    location: "New York · United States 🇺🇸",
     photo: "/portfolio/team/christina-eng.webp",
     links: {
       globe: "https://www.volastratx.com/our-team/christina-eng/",

@@ -69,7 +69,7 @@ const TEAM_MEMBERS = [
   {
     name: "Monica Torrecilla",
     role: "Biophotonics Scientist",
-    organization: "ICFO",
+    organization: "Institute of Photonic Sciences",
     location: "Barcelona · Spain 🇪🇸",
     photo: "/portfolio/team/monica-torrecilla.webp",
     links: {
@@ -83,7 +83,7 @@ const TEAM_MEMBERS = [
   {
     name: "Turgut Durduran",
     role: "Medical Optics Group Head",
-    organization: "ICFO",
+    organization: "Institute of Photonic Sciences",
     location: "Barcelona · Spain 🇪🇸",
     photo: "/portfolio/team/turgut-durduran.webp",
     links: {
@@ -109,7 +109,7 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Juan Sahuquillo",
-    role: "Lead Neurosurgeon",
+    role: "Neurosurgeon",
     organization: "Vall d'Hebron Hospital",
     location: "Barcelona · Spain 🇪🇸",
     photo: "/portfolio/team/juan-sahuquillo.webp",

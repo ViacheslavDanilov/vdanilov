@@ -67,7 +67,7 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Anton Makoveev",
-    role: "Middle ML Engineer",
+    role: "ML Engineer",
     organization: "Symfa",
     location: "Prague · Czechia 🇨🇿",
     photo: "/portfolio/team/anton-makoveev.webp",
@@ -81,7 +81,7 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Mikhail Vinogradov",
-    role: "Middle Data Scientist",
+    role: "Data Scientist",
     organization: "Symfa",
     location: "Barcelona · Spain 🇪🇸",
     photo: "/portfolio/team/mikhail-vinogradov.webp",

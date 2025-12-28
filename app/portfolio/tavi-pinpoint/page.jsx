@@ -31,7 +31,7 @@ const HIGHLIGHTS_ITEMS = [
   {
     icon: faSearch,
     label: "Situation",
-    text: "The Kuzbass Cardiology Center needed better intraoperative guidance for TAVI procedures to reduce valve misplacement risks.",
+    text: "The Kemerovo Cardiology Center needed better intraoperative guidance for TAVI procedures to reduce valve misplacement risks.",
   },
   {
     icon: faBullseye,
@@ -54,7 +54,7 @@ const TEAM_MEMBERS = [
   {
     name: "Viacheslav Danilov",
     role: "Senior Data Scientist",
-    organization: "Tomsk Polytech. University",
+    organization: "Tomsk Polytechnic University",
     location: "Tomsk · Russia 🇷🇺",
     photo: "/portfolio/team/viacheslav-danilov.webp",
     links: {
@@ -67,8 +67,8 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Kirill Klyshnikov",
-    role: "Senior Data Engineer",
-    organization: "Kuzbass Cardiac Center",
+    role: "Biomedical Scientist",
+    organization: "Kemerovo Cardiology Center",
     location: "Kemerovo · Russia 🇷🇺",
     photo: "/portfolio/team/kirill-klyshnikov.webp",
     links: {
@@ -81,8 +81,8 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Anton Kutikhin",
-    role: "Senior Researcher",
-    organization: "Kuzbass Cardiac Center",
+    role: "Research Scientist",
+    organization: "Kemerovo Cardiology Center",
     location: "Kemerovo · Russia 🇷🇺",
     photo: "/portfolio/team/anton-kutikhin.webp",
     links: {
@@ -95,7 +95,7 @@ const TEAM_MEMBERS = [
   {
     name: "Vladimir Ganyukov",
     role: "Cardiothoracic Surgeon",
-    organization: "Kuzbass Cardiac Center",
+    organization: "Kemerovo Cardiology Center",
     location: "Kemerovo · Russia 🇷🇺",
     photo: "/portfolio/team/vladimir-ganyukov.webp",
     links: {
@@ -109,8 +109,8 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Evgeny Ovcharenko",
-    role: "Senior Researcher",
-    organization: "Kuzbass Cardiac Center",
+    role: "Biomedical Engineer",
+    organization: "Kemerovo Cardiology Center",
     location: "Kemerovo · Russia 🇷🇺",
     photo: "/portfolio/team/evgeny-ovcharenko.webp",
     links: {
@@ -259,7 +259,7 @@ export default function ProjectPage() {
               rel="noopener noreferrer"
               className="text-accent hover:underline"
             >
-              Kuzbass Cardiology Center
+              Kemerovo Cardiology Center
             </a>
             <span className="text-gray-400"> · Kemerovo · Russia 🇷🇺</span>
           </div>

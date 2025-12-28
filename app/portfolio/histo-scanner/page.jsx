@@ -31,7 +31,7 @@ const HIGHLIGHTS_ITEMS = [
   {
     icon: faSearch,
     label: "Situation",
-    text: "Clinical biologists at the Kuzbass Cardiology Center needed accurate segmentation of microvascular features in TEVG histology images to assess vascular regeneration in sheep models.",
+    text: "Clinical biologists at the Kemerovo Cardiology Center needed accurate segmentation of microvascular features in TEVG histology images to assess vascular regeneration in sheep models.",
   },
   {
     icon: faBullseye,
@@ -80,8 +80,8 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Kirill Klyshnikov",
-    role: "Middle Data Engineer",
-    organization: "Kuzbass Cardiac Center",
+    role: "Biomedical Scientist",
+    organization: "Kemerovo Cardiology Center",
     location: "Kemerovo · Russia 🇷🇺",
     photo: "/portfolio/team/kirill-klyshnikov.webp",
     links: {
@@ -94,8 +94,8 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Evgeny Ovcharenko",
-    role: "Senior Researcher",
-    organization: "Kuzbass Cardiac Center",
+    role: "Biomedical Engineer",
+    organization: "Kemerovo Cardiology Center",
     location: "Kemerovo · Russia 🇷🇺",
     photo: "/portfolio/team/evgeny-ovcharenko.webp",
     links: {
@@ -108,8 +108,8 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Anton Kutikhin",
-    role: "Lead Pathologist",
-    organization: "Kuzbass Cardiac Center",
+    role: "Pathologist",
+    organization: "Kemerovo Cardiology Center",
     location: "Kemerovo · Russia 🇷🇺",
     photo: "/portfolio/team/anton-kutikhin.webp",
     links: {
@@ -243,7 +243,7 @@ export default function ProjectPage() {
               rel="noopener noreferrer"
               className="text-accent hover:underline"
             >
-              Kuzbass Cardiology Center
+              Kemerovo Cardiology Center
             </a>
             <span className="text-gray-400"> · Kemerovo · Russia 🇷🇺</span>
           </div>

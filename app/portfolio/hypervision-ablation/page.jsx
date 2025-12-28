@@ -53,7 +53,7 @@ const HIGHLIGHTS_ITEMS = [
 const TEAM_MEMBERS = [
   {
     name: "Viacheslav Danilov",
-    role: "Senior Researcher",
+    role: "Research Scientist",
     organization: "Politecnico di Milano",
     location: "Milan · Italy 🇮🇹",
     photo: "/portfolio/team/viacheslav-danilov.webp",
@@ -67,7 +67,7 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Martina De Landro",
-    role: "Senior Researcher",
+    role: "Research Scientist",
     organization: "Politecnico di Milano",
     location: "Milan · Italy 🇮🇹",
     photo: "/portfolio/team/martina-de-landro.webp",
@@ -82,7 +82,7 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Manuel Barberio",
-    role: "Surgeon",
+    role: "Digestive Surgeon",
     organization: "Cardinale Panico Hospital",
     location: "Tricase · Italy 🇮🇹",
     photo: "/portfolio/team/manuel-barberio.webp",
@@ -96,9 +96,9 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Michele Diana",
-    role: "Surgeon Scientist",
-    organization: "Geneva University Hospital",
-    location: "Geneva · Switzerland 🇨🇭",
+    role: "Scientific Director",
+    organization: "IRCAD",
+    location: "Strasbourg · France 🇫🇷",
     photo: "/portfolio/team/michael-diana.webp",
     links: {
       globe: "https://sciprofiles.com/profile/1373035",
@@ -110,7 +110,7 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Paola Saccomandi",
-    role: "Research Supervisor",
+    role: "Principal Investigator",
     organization: "Politecnico di Milano",
     location: "Milan · Italy 🇮🇹",
     photo: "/portfolio/team/paola-saccomandi.webp",

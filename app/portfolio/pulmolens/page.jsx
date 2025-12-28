@@ -18,6 +18,7 @@ import {
   faGoogleScholar,
   faOrcid,
 } from "@fortawesome/free-brands-svg-icons";
+import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
 
 export const metadata = {
@@ -54,7 +55,7 @@ const TEAM_MEMBERS = [
     name: "Viacheslav Danilov",
     role: "Lead Data Scientist",
     organization: "Quantori",
-    location: "Cambridge · US 🇺🇸",
+    location: "Cambridge · United States 🇺🇸",
     photo: "/portfolio/team/viacheslav-danilov.webp",
     links: {
       linkedin: "https://www.linkedin.com/in/viacheslav-danilov/",
@@ -66,10 +67,10 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Alex Proutski",
-    role: "Senior Researcher",
+    role: "Research Scientist",
     organization: "Quantori",
     location: "Hague · Netherlands 🇳🇱",
-    photo: "/portfolio/team/john-doe.webp",
+    photo: "/portfolio/team/alex-proutski.webp",
     links: {
       linkedin: "https://www.linkedin.com/in/alexanderproutski/",
       email: "alex_proutski@hotmail.com",
@@ -77,10 +78,10 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Alexander Kirpich",
-    role: "Senior Researcher",
+    role: "Research Scientist",
     organization: "Georgia State University",
-    location: "Atlanta · US 🇺🇸",
-    photo: "/portfolio/team/john-doe.webp",
+    location: "Atlanta · United States 🇺🇸",
+    photo: "/portfolio/team/alexander-kirpich.webp",
     links: {
       globe: "https://publichealth.gsu.edu/profile/alexander-kirpich/",
       linkedin: "https://www.linkedin.com/in/alexander-kirpich-ph-d-27b8944/",
@@ -91,10 +92,10 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Diana Litmanovich",
-    role: "Senior Radiologist",
+    role: "Radiologist",
     organization: "BID Medical Center",
-    location: "Boston · US 🇺🇸",
-    photo: "/portfolio/team/jane-doe.webp",
+    location: "Boston · United States 🇺🇸",
+    photo: "/portfolio/team/diana-litmanovich.webp",
     links: {
       globe:
         "https://findadoc.bidmc.org/details/929/diana-litmanovich-diagnostic_radiology-boston-needham",
@@ -106,10 +107,10 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Yuriy Gankin",
-    role: "Research Supervisor",
+    role: "Chief Science Officer",
     organization: "Quantori",
-    location: "Cambridge · US 🇺🇸",
-    photo: "/portfolio/team/john-doe.webp",
+    location: "Cambridge · United States 🇺🇸",
+    photo: "/portfolio/team/yuriy-gankin.webp",
     links: {
       globe: "https://quantori.com/about/yuriy-gankin",
       linkedin: "https://www.linkedin.com/in/yuriygankin/",
@@ -535,6 +536,23 @@ export default function ProjectPage() {
                 predictions.
               </li>
             </ul>
+
+            {/* Figure 1: Indirect Supervision Workflow */}
+            <figure id="figure-1" className="scroll-mt-24">
+              <ImageLightbox
+                src="/portfolio/pulmolens/indirect-supervision-workflow.webp"
+                alt="Indirect Supervision Workflow"
+                width={2400}
+                height={1200}
+                maxWidth="full"
+              />
+              <figcaption className="text-center text-sm text-gray-400 mt-3">
+                <span className="text-gray-300">Figure 1.</span> Indirect
+                supervision workflow showing Grad-CAM attention map integration,
+                shared weights, and attention-based masking during
+                backpropagation.
+              </figcaption>
+            </figure>
           </section>
 
           {/* Results */}
@@ -629,6 +647,38 @@ export default function ProjectPage() {
               lightweight yet powerful enhancement to conventional CNN training
               in medical imaging contexts.
             </p>
+
+            {/* Figure 2: COVID-19 Detection Attention Maps */}
+            <figure id="figure-2" className="mb-6 scroll-mt-24">
+              <ImageLightbox
+                src="/portfolio/pulmolens/indirect-supervision-covid-finding.webp"
+                alt="COVID-19 Detection Attention Maps"
+                width={2400}
+                height={1200}
+                maxWidth="2xl"
+              />
+              <figcaption className="text-center text-sm text-gray-400 mt-3">
+                <span className="text-gray-300">Figure 2.</span> Grad-CAM
+                attention maps for COVID-19 detection showing model focus on
+                clinically relevant lung regions affected by the disease.
+              </figcaption>
+            </figure>
+
+            {/* Figure 3: Pneumonia Detection Attention Maps */}
+            <figure id="figure-3" className="scroll-mt-24">
+              <ImageLightbox
+                src="/portfolio/pulmolens/indirect-supervision-pneumonia-finding.webp"
+                alt="Pneumonia Detection Attention Maps"
+                width={2400}
+                height={1200}
+                maxWidth="2xl"
+              />
+              <figcaption className="text-center text-sm text-gray-400 mt-3">
+                <span className="text-gray-300">Figure 3.</span> Grad-CAM
+                attention maps for pneumonia detection demonstrating
+                anatomically accurate focus on affected lung areas.
+              </figcaption>
+            </figure>
           </section>
 
           {/* Conclusion */}

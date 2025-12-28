@@ -55,7 +55,7 @@ const TEAM_MEMBERS = [
     name: "Viacheslav Danilov",
     role: "Lead ML Engineer",
     organization: "Quantori",
-    location: "Cambridge · US 🇺🇸",
+    location: "Cambridge · United States 🇺🇸",
     photo: "/portfolio/team/viacheslav-danilov.webp",
     links: {
       linkedin: "https://www.linkedin.com/in/viacheslav-danilov/",
@@ -69,7 +69,7 @@ const TEAM_MEMBERS = [
     name: "Maxim Kazanskiy",
     role: "Senior CV Engineer",
     organization: "Quantori",
-    location: "Cambridge · US 🇺🇸",
+    location: "Cambridge · United States 🇺🇸",
     photo: "/portfolio/team/maxim-kazanskiy.webp",
     links: {
       linkedin: "https://www.linkedin.com/in/maksim-kazanskii-16658930/",
@@ -78,9 +78,9 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Anton Makoveev",
-    role: "Middle CV Engineer",
+    role: "CV Engineer",
     organization: "Quantori",
-    location: "Cambridge · US 🇺🇸",
+    location: "Cambridge · United States 🇺🇸",
     photo: "/portfolio/team/anton-makoveev.webp",
     links: {
       linkedin: "https://www.linkedin.com/in/anton-makoveev/",
@@ -103,9 +103,9 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Di Feng",
-    role: "Lead Bioinformatics Expert",
+    role: "Lead Bioinformatics Scientist",
     organization: "Boehringer Ingelheim",
-    location: "Ridgefield · US 🇺🇸",
+    location: "Ridgefield · United States 🇺🇸",
     photo: "/portfolio/team/di-feng.webp",
     links: {
       globe: "https://rocketreach.co/di-feng-email_7695000",
