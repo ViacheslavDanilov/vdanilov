@@ -18,6 +18,7 @@ import {
   faGoogleScholar,
   faOrcid,
 } from "@fortawesome/free-brands-svg-icons";
+import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
 
 export const metadata = {
@@ -535,6 +536,23 @@ export default function ProjectPage() {
                 predictions.
               </li>
             </ul>
+
+            {/* Figure 1: Indirect Supervision Workflow */}
+            <figure id="figure-1" className="scroll-mt-24">
+              <ImageLightbox
+                src="/portfolio/pulmolens/indirect-supervision-workflow.webp"
+                alt="Indirect Supervision Workflow"
+                width={2400}
+                height={1200}
+                maxWidth="full"
+              />
+              <figcaption className="text-center text-sm text-gray-400 mt-3">
+                <span className="text-gray-300">Figure 1.</span> Indirect
+                supervision workflow showing Grad-CAM attention map integration,
+                shared weights, and attention-based masking during
+                backpropagation.
+              </figcaption>
+            </figure>
           </section>
 
           {/* Results */}
@@ -629,6 +647,38 @@ export default function ProjectPage() {
               lightweight yet powerful enhancement to conventional CNN training
               in medical imaging contexts.
             </p>
+
+            {/* Figure 2: COVID-19 Detection Attention Maps */}
+            <figure id="figure-2" className="mb-6 scroll-mt-24">
+              <ImageLightbox
+                src="/portfolio/pulmolens/indirect-supervision-covid-finding.webp"
+                alt="COVID-19 Detection Attention Maps"
+                width={2400}
+                height={1200}
+                maxWidth="2xl"
+              />
+              <figcaption className="text-center text-sm text-gray-400 mt-3">
+                <span className="text-gray-300">Figure 2.</span> Grad-CAM
+                attention maps for COVID-19 detection showing model focus on
+                clinically relevant lung regions affected by the disease.
+              </figcaption>
+            </figure>
+
+            {/* Figure 3: Pneumonia Detection Attention Maps */}
+            <figure id="figure-3" className="scroll-mt-24">
+              <ImageLightbox
+                src="/portfolio/pulmolens/indirect-supervision-pneumonia-finding.webp"
+                alt="Pneumonia Detection Attention Maps"
+                width={2400}
+                height={1200}
+                maxWidth="2xl"
+              />
+              <figcaption className="text-center text-sm text-gray-400 mt-3">
+                <span className="text-gray-300">Figure 3.</span> Grad-CAM
+                attention maps for pneumonia detection demonstrating
+                anatomically accurate focus on affected lung areas.
+              </figcaption>
+            </figure>
           </section>
 
           {/* Conclusion */}
