@@ -172,6 +172,16 @@ const PROJECTS_DATA = [
     date: "2020-07",
     featured: true,
   },
+  {
+    id: "deepvision-wildfire",
+    title: "DeepVision Wildfire",
+    description:
+      "Real-time wildfire detection system for Siberian forests combining EfficientDet and CNN-RNN, achieving 95.6% accuracy at 9 FPS.",
+    category: "AI/ML",
+    image: "/portfolio/previews/deepvision-wildfire.webp",
+    date: "2019-07",
+    featured: true,
+  },
 ];
 
 const FILTER_OPTIONS = [
