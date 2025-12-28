@@ -14,9 +14,20 @@ const formatDate = (dateString) => {
   return date.toLocaleDateString("en-US", { month: "long", year: "numeric" });
 };
 
+// Category display names mapping
+const CATEGORY_LABELS = {
+  "medical-imaging": "Medical Imaging",
+  "clinical-decision-support": "Clinical Decision Support",
+  "biomedical-research": "Biomedical Research",
+  "medical-devices": "Medical Devices",
+  "business-applications": "Business Applications",
+};
+
 const PortfolioCard = ({ project }) => {
-  const { id, title, description, category, image, date } = project;
+  const { id, title, description, image, date, categories } = project;
   const formattedDate = formatDate(date);
+  const primaryCategory = categories?.[0];
+  const categoryLabel = CATEGORY_LABELS[primaryCategory] || primaryCategory;
 
   return (
     <Link href={`/portfolio/${id}`} className="group block">
@@ -40,10 +51,12 @@ const PortfolioCard = ({ project }) => {
                         opacity-60 transition-opacity duration-300 group-hover:opacity-80"
           />
 
-          {/* Category Badge - Top Right Corner */}
-          <Badge variant="teal" className="absolute top-5 right-5 z-10">
-            {category}
-          </Badge>
+          {/* Primary Category Badge - Top Right Corner */}
+          {categoryLabel && (
+            <Badge variant="teal" className="absolute top-5 right-5 z-10">
+              {categoryLabel}
+            </Badge>
+          )}
         </div>
 
         {/* Content */}

@@ -5,9 +5,13 @@ import { AnimatePresence, motion } from "motion/react";
 import PortfolioCard from "@/components/PortfolioCard";
 import { Tab } from "@/components/ui/tab";
 import {
-  faBrain,
+  faChartLine,
+  faGears,
+  faHeartPulse,
   faLayerGroup,
+  faMicroscope,
   faStar,
+  faXRay,
 } from "@fortawesome/free-solid-svg-icons";
 
 // Project data with date and featured fields
@@ -17,7 +21,7 @@ const PROJECTS_DATA = [
     title: "HyperVision Ablation",
     description:
       "ML workflow for tissue ablation assessment in hyperspectral imaging using PCA, Faster R-CNN, and Mean Shift clustering.",
-    category: "AI/ML",
+    categories: ["biomedical-research", "clinical-decision-support"],
     image: "/portfolio/previews/hypervision-ablation.webp",
     date: "2024-07",
     featured: true,
@@ -27,7 +31,7 @@ const PROJECTS_DATA = [
     title: "Sales Pilot",
     description:
       "AI-powered lead scoring system using hybrid heuristics and OpenAI embeddings to automate and prioritize high-fit leads at scale.",
-    category: "AI/ML",
+    categories: ["business-applications"],
     image: "/portfolio/previews/sales-pilot.webp",
     date: "2025-05",
     featured: true,
@@ -37,7 +41,7 @@ const PROJECTS_DATA = [
     title: "Coronary Insight",
     description:
       "Deep learning pipeline for OCT plaque segmentation, enabling precise arterial risk assessment in cardiovascular imaging.",
-    category: "AI/ML",
+    categories: ["medical-imaging", "clinical-decision-support"],
     image: "/portfolio/previews/coronary-insight.webp",
     date: "2025-06",
     featured: true,
@@ -47,7 +51,7 @@ const PROJECTS_DATA = [
     title: "Deep BrainWatch",
     description:
       "Non-invasive ICP monitoring using deep learning on cerebral blood flow signals from near-infrared photonic sensors.",
-    category: "AI/ML",
+    categories: ["medical-devices", "clinical-decision-support"],
     image: "/portfolio/previews/deep-brainwatch.webp",
     date: "2025-12",
     featured: true,
@@ -57,27 +61,27 @@ const PROJECTS_DATA = [
     title: "Immune Profiler",
     description:
       "ML-driven workflow for tumor immune phenotype classification using HoVer-Net and AutoML on histopathology images.",
-    category: "AI/ML",
+    categories: ["biomedical-research"],
     image: "/portfolio/previews/immune-profiler.webp",
     date: "2024-06",
-    featured: true,
+    featured: false,
   },
   {
     id: "histo-scanner",
     title: "Histo Scanner",
     description:
       "Deep learning pipeline for segmenting microvascular features in tissue-engineered vascular grafts with 89% Dice score.",
-    category: "AI/ML",
+    categories: ["biomedical-research"],
     image: "/portfolio/previews/histo-scanner.webp",
     date: "2024-05",
-    featured: true,
+    featured: false,
   },
   {
     id: "pulmovision",
     title: "PulmoVision",
     description:
       "Explainable AI framework for detecting pulmonary edema features in chest X-rays using deep learning segmentation and object detection.",
-    category: "AI/ML",
+    categories: ["medical-imaging", "clinical-decision-support"],
     image: "/portfolio/previews/pulmovision.webp",
     date: "2024-03",
     featured: true,
@@ -87,17 +91,17 @@ const PROJECTS_DATA = [
     title: "ProValve Design",
     description:
       "ML-driven generative design framework for prosthetic heart valves using optimization algorithms, achieving 95% design efficacy.",
-    category: "AI/ML",
+    categories: ["medical-devices"],
     image: "/portfolio/previews/provalve-design.webp",
     date: "2023-09",
-    featured: true,
+    featured: false,
   },
   {
     id: "sonoguide",
     title: "SonoGuide",
     description:
       "Deep learning solution for surgical tool segmentation in 3D ultrasound, achieving 93.6% Dice score for real-time catheter localization.",
-    category: "AI/ML",
+    categories: ["clinical-decision-support", "medical-imaging"],
     image: "/portfolio/previews/sonoguide.webp",
     date: "2023-02",
     featured: true,
@@ -107,97 +111,113 @@ const PROJECTS_DATA = [
     title: "PulmoScore",
     description:
       "Two-stage ML workflow for COVID-19 severity scoring on chest X-rays, achieving MAE of 0.30 and 11× faster processing.",
-    category: "AI/ML",
+    categories: ["medical-imaging", "clinical-decision-support"],
     image: "/portfolio/previews/pulmoscore.webp",
     date: "2022-07",
-    featured: true,
+    featured: false,
   },
   {
     id: "pulmolens",
     title: "PulmoLens",
     description:
       "Attention-guided deep learning for COVID-19 and pneumonia detection in chest X-rays, achieving 84% accuracy with Grad-CAM supervision.",
-    category: "AI/ML",
+    categories: ["medical-imaging"],
     image: "/portfolio/previews/pulmolens.webp",
     date: "2022-01",
-    featured: true,
+    featured: false,
   },
   {
     id: "deep-deface",
     title: "Deep Deface",
     description:
       "GPU-accelerated 3D anonymization pipeline for CT and MRI scans, detecting and blurring facial/ear regions while preserving 100% of brain anatomy.",
-    category: "AI/ML",
+    categories: ["medical-imaging"],
     image: "/portfolio/previews/deep-deface.webp",
     date: "2021-09",
-    featured: true,
+    featured: false,
   },
   {
     id: "tavi-pinpoint",
     title: "TAVI PinPoint",
     description:
       "Real-time landmark tracking for safer valve implantation during TAVI procedures using multi-task deep learning with 97% accuracy.",
-    category: "AI/ML",
+    categories: ["clinical-decision-support"],
     image: "/portfolio/previews/tavi-pinpoint.webp",
     date: "2021-07",
-    featured: true,
+    featured: false,
   },
   {
     id: "stenosis-spotter",
     title: "Stenosis Spotter",
     description:
       "Real-time coronary stenosis detection using deep learning for intraoperative angiographic image analysis with 0.94 mAP.",
-    category: "AI/ML",
+    categories: ["clinical-decision-support", "medical-imaging"],
     image: "/portfolio/previews/stenosis-spotter.webp",
     date: "2021-04",
-    featured: true,
+    featured: false,
   },
   {
     id: "oncocell-vision",
     title: "OncoCell Vision",
     description:
       "AI-powered microscopy pipeline for detecting and counting cancer cell biomarkers using EfficientDet, achieving 85% mAP for nuclei detection.",
-    category: "AI/ML",
+    categories: ["biomedical-research"],
     image: "/portfolio/previews/oncocell-vision.webp",
     date: "2021-01",
-    featured: true,
+    featured: false,
   },
   {
     id: "deep-anatomy",
     title: "Deep Anatomy",
     description:
       "High-precision 3D organ segmentation via V-net architecture with dense skip connections, achieving up to 96% Dice score across 5 anatomical structures.",
-    category: "AI/ML",
+    categories: ["medical-imaging"],
     image: "/portfolio/previews/deep-anatomy.webp",
     date: "2020-07",
-    featured: true,
+    featured: false,
   },
   {
     id: "deepvision-wildfire",
     title: "DeepVision Wildfire",
     description:
       "Real-time wildfire detection system for Siberian forests combining EfficientDet and CNN-RNN, achieving 95.6% accuracy at 9 FPS.",
-    category: "AI/ML",
+    categories: ["business-applications"],
     image: "/portfolio/previews/deepvision-wildfire.webp",
     date: "2019-07",
-    featured: true,
+    featured: false,
   },
   {
     id: "raytrace-segment",
     title: "RayTrace Segment",
     description:
       "Ray-casting segmentation algorithm for convex anatomical structures in MRI, achieving up to 91.8% Dice score with millisecond-level runtime.",
-    category: "AI/ML",
+    categories: ["medical-imaging"],
     image: "/portfolio/previews/raytrace-segment.webp",
     date: "2019-05",
-    featured: true,
+    featured: false,
   },
 ];
 
 const FILTER_OPTIONS = [
   { id: "all", label: "All", icon: faLayerGroup },
   { id: "featured", label: "Featured", icon: faStar },
-  { id: "AI/ML", label: "AI/ML", icon: faBrain },
+  { id: "medical-imaging", label: "Medical Imaging", icon: faXRay },
+  {
+    id: "clinical-decision-support",
+    label: "Clinical Decision Support",
+    icon: faHeartPulse,
+  },
+  {
+    id: "biomedical-research",
+    label: "Biomedical Research",
+    icon: faMicroscope,
+  },
+  { id: "medical-devices", label: "Medical Devices", icon: faGears },
+  {
+    id: "business-applications",
+    label: "Business Applications",
+    icon: faChartLine,
+  },
 ];
 
 // Sort projects by date (newest first)
@@ -215,8 +235,8 @@ export default function Portfolio() {
     } else if (activeFilter === "featured") {
       filtered = PROJECTS_DATA.filter((project) => project.featured);
     } else {
-      filtered = PROJECTS_DATA.filter(
-        (project) => project.category === activeFilter,
+      filtered = PROJECTS_DATA.filter((project) =>
+        project.categories.includes(activeFilter),
       );
     }
     return sortByDate(filtered);
@@ -229,8 +249,8 @@ export default function Portfolio() {
     };
     FILTER_OPTIONS.forEach((option) => {
       if (option.id !== "all" && option.id !== "featured") {
-        counts[option.id] = PROJECTS_DATA.filter(
-          (project) => project.category === option.id,
+        counts[option.id] = PROJECTS_DATA.filter((project) =>
+          project.categories.includes(option.id),
         ).length;
       }
     });
