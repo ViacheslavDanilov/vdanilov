@@ -109,7 +109,7 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Juan Sahuquillo",
-    role: "Lead Neurosurgeon",
+    role: "Neurosurgeon",
     organization: "Vall d'Hebron Hospital",
     location: "Barcelona · Spain 🇪🇸",
     photo: "/portfolio/team/juan-sahuquillo.webp",

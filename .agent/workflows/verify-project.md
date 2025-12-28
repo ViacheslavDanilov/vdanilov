@@ -63,20 +63,28 @@ For each team member, evaluate if their role title is appropriate based on:
 1. **Research sphere**: Does the title match their field (medical, engineering, data science)?
 2. **Professional links**: Check ResearchGate, Google Scholar, ORCID for their actual focus
 3. **Domain conventions**:
-   - Tech/Data Science: Use levels (Junior/Senior/Lead)
-   - Academia/Research: Use position titles (Researcher, Professor)
-   - Medicine: Use specialty (Cardiologist, Surgeon) without levels
+   - Tech/Data Science: Use levels (Junior/Senior/Lead) ✅
+   - Academia/Research: Use position titles (Researcher, Professor, Fellow) - no levels
+   - Medicine/Surgery: Use specialty or position - **never use levels like Lead/Senior**
 
 **Role appropriateness guidelines:**
 
-| Domain       | Good Examples                                       | Avoid             |
-| ------------ | --------------------------------------------------- | ----------------- |
-| Medical      | Cardiovascular Surgeon, Interventional Cardiologist | Senior Surgeon    |
-| Research     | Biomedical Scientist, Research Scientist            | Middle Researcher |
-| Engineering  | Biomedical Engineer, ML Engineer                    | -                 |
-| Data Science | Lead Data Scientist, Senior Data Scientist          | -                 |
+| Domain       | ✅ Good Examples                                                                        | ❌ Avoid                            |
+| ------------ | --------------------------------------------------------------------------------------- | ----------------------------------- |
+| Medical      | Neurosurgeon, Cardiovascular Surgeon, Head of Neurosurgery, Interventional Cardiologist | Lead Neurosurgeon, Senior Surgeon   |
+| Research     | Biophotonics Scientist, Research Scientist, Group Head                                  | Middle Researcher, Senior Scientist |
+| Engineering  | Biomedical Engineer, ML Engineer                                                        | -                                   |
+| Data Science | Lead Data Scientist, Senior Data Scientist                                              | -                                   |
+| Academia     | Professor, Principal Investigator, Research Fellow                                      | Senior Professor                    |
 
-If a role seems mismatched (e.g., "Data Engineer" for someone doing research), suggest a better alternative.
+**Medical role title rules:**
+
+- **Never** use "Lead", "Senior", "Middle", "Junior" for surgeons/doctors
+- Use **position titles** instead: "Head of Neurosurgery", "Department Chief", "Consultant"
+- Use **specialty** without levels: "Neurosurgeon", "Interventional Cardiologist"
+- If distinguishing seniority, use descriptive roles: "Attending Surgeon" vs "Resident"
+
+If a role uses inappropriate levels (e.g., "Lead Neurosurgeon"), suggest the corrected title.
 
 ### Step 5: Output Verdict
 
