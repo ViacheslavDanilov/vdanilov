@@ -68,7 +68,7 @@ const TEAM_MEMBERS = [
   {
     name: "Olga Gerget",
     role: "Professor",
-    organization: "Tomsk Polytech. University",
+    organization: "Tomsk Polytechnic University",
     location: "Tomsk · Russia 🇷🇺",
     photo: "/portfolio/team/jane-doe.webp",
     links: {
@@ -201,7 +201,7 @@ export default function ProjectPage() {
           <div className="text-sm text-gray-400">
             <span className="text-gray-400 font-medium">Client: </span>
             <a
-              href="https://www.cistib.org/members"
+              href="https://www.cistib.org/r-d/en/our-r-d-programmes"
               target="_blank"
               rel="noopener noreferrer"
               className="text-accent hover:underline"
