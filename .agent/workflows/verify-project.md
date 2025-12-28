@@ -30,11 +30,14 @@ Compares content between the old website (reference) and the new website to ensu
    - Highlights/STAR items
    - Content sections: Overview, Data, Methods, Results, Conclusion
    - Key metrics and numerical data
+   - **Media references**: Figure/image mentions, video references, captions
 
 ### Step 2: Read New Project Page
 
 1. Read the project page from `app/portfolio/[slug]/page.jsx`
 2. Extract: metadata, HIGHLIGHTS_ITEMS, TEAM_MEMBERS, RESOURCES, TECH_STACK, and all content sections
+3. Check for `ImageLightbox` and `<video>` components - these are the media elements
+4. List all `<figure>` elements with their IDs, image sources, and captions
 
 ### Step 3: Compare Content
 
@@ -54,7 +57,33 @@ Compare the following aspects between old and new using a table format:
 | **Methods**      | Technical approach fully preserved?                 |
 | **Results**      | All metrics and findings accurate?                  |
 | **Conclusion**   | Key takeaways and future work present?              |
-| **Figures**      | Images with proper captions included?               |
+| **Figures**      | All images with proper captions included?           |
+| **Videos**       | All video content preserved?                        |
+
+### Step 3.5: Verify Media Content
+
+For each figure/video mentioned in the old website:
+
+1. **Identify media references** in the old content (e.g., "Figure 1", "Figure 2", video embeds)
+2. **Check for corresponding media** in the new project page:
+   - `ImageLightbox` components for images
+   - `<video>` elements for videos
+   - `<figure>` elements with proper `id` attributes
+3. **Verify captions** match or are improved
+4. **Check file paths** exist in `/public/portfolio/[slug]/`
+
+**Media verification table format:**
+
+| Media    | Old Website   | New Website | File Path                       | Status |
+| -------- | ------------- | ----------- | ------------------------------- | ------ |
+| Figure 1 | [description] | [caption]   | `/portfolio/slug/filename.webp` | ✅/❌  |
+| Video 1  | [description] | [caption]   | `/portfolio/slug/video.mp4`     | ✅/❌  |
+
+**If media is missing:**
+
+- Flag as ❌ in the verification table
+- Add to "Missing or Incorrect Content" section
+- Specify what media needs to be added
 
 ### Step 4: Analyze Team Member Roles
 
@@ -111,15 +140,27 @@ Provide a structured verdict using this format:
 
 ### ✅ Team Members Verification
 
-| Name   | Old Role         | New Role         | Status            |
-| ------ | ---------------- | ---------------- | ----------------- |
-| [Name] | [old role @ org] | [new role @ org] | ✅ Match/Improved |
+| Name   | Old Role         | New Role         | Photo             | Status            |
+| ------ | ---------------- | ---------------- | ----------------- | ----------------- |
+| [Name] | [old role @ org] | [new role @ org] | ✅/⚠️ Placeholder | ✅ Match/Improved |
+
+**Photo status key:**
+
+- ✅ = Real photo (named after person, e.g., `viacheslav-danilov.webp`)
+- ⚠️ Placeholder = Uses `john-doe.webp` or `jane-doe.webp` - needs real photo
 
 ### 💡 Role Analysis (if applicable)
 
 | Name   | Current Role | Background              | Suggested Role          | Rationale |
 | ------ | ------------ | ----------------------- | ----------------------- | --------- |
 | [Name] | [current]    | [based on links/sphere] | [suggestion or ✅ Keep] | [why]     |
+
+### 🖼️ Media Verification
+
+| Media    | Old Website       | New Website   | File Path | Status |
+| -------- | ----------------- | ------------- | --------- | ------ |
+| Figure 1 | [old description] | [new caption] | [path]    | ✅/❌  |
+| Video 1  | [old description] | [new caption] | [path]    | ✅/❌  |
 
 ### ⚠️ Minor Deviations (Acceptable)
 
