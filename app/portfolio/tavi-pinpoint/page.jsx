@@ -54,7 +54,7 @@ const TEAM_MEMBERS = [
   {
     name: "Viacheslav Danilov",
     role: "Senior Data Scientist",
-    organization: "Tomsk Polytech. University",
+    organization: "Tomsk Polytechnic University",
     location: "Tomsk · Russia 🇷🇺",
     photo: "/portfolio/team/viacheslav-danilov.webp",
     links: {

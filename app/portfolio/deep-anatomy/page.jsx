@@ -54,7 +54,7 @@ const TEAM_MEMBERS = [
   {
     name: "Viacheslav Danilov",
     role: "Research Scientist",
-    organization: "Tomsk Polytech. University",
+    organization: "Tomsk Polytechnic University",
     location: "Tomsk · Russia 🇷🇺",
     photo: "/portfolio/team/viacheslav-danilov.webp",
     links: {
@@ -68,7 +68,7 @@ const TEAM_MEMBERS = [
   {
     name: "Olga Gerget",
     role: "Professor",
-    organization: "Tomsk Polytech. University",
+    organization: "Tomsk Polytechnic University",
     location: "Tomsk · Russia 🇷🇺",
     photo: "/portfolio/team/jane-doe.webp",
     links: {
@@ -95,7 +95,7 @@ const TEAM_MEMBERS = [
   {
     name: "Maria Ledesma",
     role: "Professor",
-    organization: "Tech. University of Madrid",
+    organization: "Technical University of Madrid",
     location: "Madrid · Spain 🇪🇸",
     photo: "/portfolio/team/maria-ledesma.webp",
     links: {
