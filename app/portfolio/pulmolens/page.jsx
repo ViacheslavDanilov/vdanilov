@@ -69,7 +69,7 @@ const TEAM_MEMBERS = [
     role: "Research Scientist",
     organization: "Quantori",
     location: "Hague · Netherlands 🇳🇱",
-    photo: "/portfolio/team/john-doe.webp",
+    photo: "/portfolio/team/alex-proutski.webp",
     links: {
       linkedin: "https://www.linkedin.com/in/alexanderproutski/",
       email: "alex_proutski@hotmail.com",
@@ -80,7 +80,7 @@ const TEAM_MEMBERS = [
     role: "Research Scientist",
     organization: "Georgia State University",
     location: "Atlanta · US 🇺🇸",
-    photo: "/portfolio/team/john-doe.webp",
+    photo: "/portfolio/team/alexander-kirpich.webp",
     links: {
       globe: "https://publichealth.gsu.edu/profile/alexander-kirpich/",
       linkedin: "https://www.linkedin.com/in/alexander-kirpich-ph-d-27b8944/",
@@ -94,7 +94,7 @@ const TEAM_MEMBERS = [
     role: "Radiologist",
     organization: "BID Medical Center",
     location: "Boston · US 🇺🇸",
-    photo: "/portfolio/team/jane-doe.webp",
+    photo: "/portfolio/team/diana-litmanovich.webp",
     links: {
       globe:
         "https://findadoc.bidmc.org/details/929/diana-litmanovich-diagnostic_radiology-boston-needham",
@@ -109,7 +109,7 @@ const TEAM_MEMBERS = [
     role: "Chief Science Officer",
     organization: "Quantori",
     location: "Cambridge · US 🇺🇸",
-    photo: "/portfolio/team/john-doe.webp",
+    photo: "/portfolio/team/yuriy-gankin.webp",
     links: {
       globe: "https://quantori.com/about/yuriy-gankin",
       linkedin: "https://www.linkedin.com/in/yuriygankin/",
