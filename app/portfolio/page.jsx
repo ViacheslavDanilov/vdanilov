@@ -199,24 +199,40 @@ const PROJECTS_DATA = [
 ];
 
 const FILTER_OPTIONS = [
-  { id: "all", label: "All", icon: faLayerGroup },
-  { id: "featured", label: "Featured", icon: faStar },
-  { id: "medical-imaging", label: "Medical Imaging", icon: faXRay },
+  {
+    id: "all",
+    label: "All",
+    icon: "" /* faLayerGroup */,
+  },
+  {
+    id: "featured",
+    label: "Featured",
+    icon: "" /* faStar */,
+  },
+  {
+    id: "medical-imaging",
+    label: "Medical Imaging",
+    icon: "" /* faXRay */,
+  },
   {
     id: "clinical-decision-support",
     label: "Clinical Decision Support",
-    icon: faHeartPulse,
+    icon: "" /* faHeartPulse */,
   },
   {
     id: "biomedical-research",
     label: "Biomedical Research",
-    icon: faMicroscope,
+    icon: "" /* faMicroscope */,
   },
-  { id: "medical-devices", label: "Medical Devices", icon: faGears },
+  {
+    id: "medical-devices",
+    label: "Medical Devices",
+    icon: "" /* faGears */,
+  },
   {
     id: "business-applications",
     label: "Business Applications",
-    icon: faChartLine,
+    icon: "" /* faChartLine */,
   },
 ];
 
@@ -272,18 +288,34 @@ export default function Portfolio() {
             </p>
           </header>
 
-          {/* Filter Tabs */}
-          <div className="flex flex-wrap justify-center gap-2 mb-12">
-            {FILTER_OPTIONS.map((option) => (
-              <Tab
-                key={option.id}
-                text={`${option.label} (${getCounts[option.id]})`}
-                icon={option.icon}
-                selected={activeFilter === option.id}
-                setSelected={() => setActiveFilter(option.id)}
-                layoutId="portfolio-filter"
-              />
-            ))}
+          {/* Filter Tabs - Two rows: 4 on top, 3 centered below */}
+          <div className="flex flex-col items-center gap-2 mb-12">
+            {/* First row - 4 tabs */}
+            <div className="flex flex-wrap justify-center gap-2">
+              {FILTER_OPTIONS.slice(0, 4).map((option) => (
+                <Tab
+                  key={option.id}
+                  text={`${option.label} (${getCounts[option.id]})`}
+                  icon={option.icon}
+                  selected={activeFilter === option.id}
+                  setSelected={() => setActiveFilter(option.id)}
+                  layoutId="portfolio-filter"
+                />
+              ))}
+            </div>
+            {/* Second row - 3 tabs centered */}
+            <div className="flex flex-wrap justify-center gap-2">
+              {FILTER_OPTIONS.slice(4).map((option) => (
+                <Tab
+                  key={option.id}
+                  text={`${option.label} (${getCounts[option.id]})`}
+                  icon={option.icon}
+                  selected={activeFilter === option.id}
+                  setSelected={() => setActiveFilter(option.id)}
+                  layoutId="portfolio-filter"
+                />
+              ))}
+            </div>
           </div>
 
           {/* Projects Grid */}
