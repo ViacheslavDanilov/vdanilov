@@ -66,7 +66,7 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Alex Proutski",
-    role: "Senior Researcher",
+    role: "Research Scientist",
     organization: "Quantori",
     location: "Hague · Netherlands 🇳🇱",
     photo: "/portfolio/team/john-doe.webp",
@@ -77,7 +77,7 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Alexander Kirpich",
-    role: "Senior Researcher",
+    role: "Research Scientist",
     organization: "Georgia State University",
     location: "Atlanta · US 🇺🇸",
     photo: "/portfolio/team/john-doe.webp",
@@ -91,7 +91,7 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Diana Litmanovich",
-    role: "Senior Radiologist",
+    role: "Radiologist",
     organization: "BID Medical Center",
     location: "Boston · US 🇺🇸",
     photo: "/portfolio/team/jane-doe.webp",
@@ -106,7 +106,7 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Yuriy Gankin",
-    role: "Research Supervisor",
+    role: "Chief Science Officer",
     organization: "Quantori",
     location: "Cambridge · US 🇺🇸",
     photo: "/portfolio/team/john-doe.webp",

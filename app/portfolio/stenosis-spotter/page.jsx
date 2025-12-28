@@ -67,7 +67,7 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Kirill Klyshnikov",
-    role: "Senior Data Engineer",
+    role: "Biomedical Scientist",
     organization: "Kuzbass Cardiac Center",
     location: "Kemerovo · Russia 🇷🇺",
     photo: "/portfolio/team/kirill-klyshnikov.webp",
@@ -81,7 +81,7 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Evgeny Ovcharenko",
-    role: "Senior Researcher",
+    role: "Biomedical Engineer",
     organization: "Kuzbass Cardiac Center",
     location: "Kemerovo · Russia 🇷🇺",
     photo: "/portfolio/team/evgeny-ovcharenko.webp",
@@ -95,7 +95,7 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Anton Kutikhin",
-    role: "Senior Researcher",
+    role: "Research Scientist",
     organization: "Kuzbass Cardiac Center",
     location: "Kemerovo · Russia 🇷🇺",
     photo: "/portfolio/team/anton-kutikhin.webp",
@@ -108,7 +108,7 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Alex Frangi",
-    role: "Research Supervisor",
+    role: "Professor",
     organization: "University of Leeds",
     location: "Leeds · United Kingdom 🇬🇧",
     photo: "/portfolio/team/alex-frangi.webp",

@@ -104,7 +104,7 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Olga Gerget",
-    role: "Research Supervisor",
+    role: "Professor",
     organization: "TPU",
     location: "Tomsk · Russia 🇷🇺",
     photo: "/portfolio/team/jane-doe.webp",

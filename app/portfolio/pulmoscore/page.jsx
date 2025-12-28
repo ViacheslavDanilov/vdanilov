@@ -67,7 +67,7 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Alex Proutski",
-    role: "Researcher",
+    role: "Research Scientist",
     organization: "Quantori",
     location: "Hague · Netherlands 🇳🇱",
     photo: "/portfolio/team/alex-proutski.webp",
@@ -90,7 +90,7 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Diana Litmanovich",
-    role: "Senior Radiologist",
+    role: "Radiologist",
     organization: "BID Medical Center",
     location: "Boston · US 🇺🇸",
     photo: "/portfolio/team/diana-litmanovich.webp",
@@ -105,7 +105,7 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Yuriy Gankin",
-    role: "Supervisor",
+    role: "Chief Science Officer",
     organization: "Quantori",
     location: "Cambridge · US 🇺🇸",
     photo: "/portfolio/team/yuriy-gankin.webp",

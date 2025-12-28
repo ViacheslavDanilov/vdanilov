@@ -67,7 +67,7 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Olga Gerget",
-    role: "Research Supervisor",
+    role: "Professor",
     organization: "Tomsk Polytech. University",
     location: "Tomsk · Russia 🇷🇺",
     photo: "/portfolio/team/jane-doe.webp",
@@ -80,7 +80,7 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Alex Frangi",
-    role: "Research Supervisor",
+    role: "Professor",
     organization: "University of Leeds",
     location: "Leeds · United Kingdom 🇬🇧",
     photo: "/portfolio/team/alex-frangi.webp",

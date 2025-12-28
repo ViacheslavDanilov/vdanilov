@@ -79,7 +79,7 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Vladislav Laptev",
-    role: "Middle Data Scientist",
+    role: "Data Scientist",
     organization: "Quantori",
     location: "Cambridge · US 🇺🇸",
     photo: "/portfolio/team/vladislav-laptev.webp",
