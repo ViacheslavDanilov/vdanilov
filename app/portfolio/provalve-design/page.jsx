@@ -30,7 +30,7 @@ const HIGHLIGHTS_ITEMS = [
   {
     icon: faSearch,
     label: "Situation",
-    text: "The Kuzbass Cardiology Center needed a faster, data-driven method to prototype prosthetic heart valves, as traditional CAD/FEM approaches were time-intensive.",
+    text: "The Kemerovo Cardiology Center needed a faster, data-driven method to prototype prosthetic heart valves, as traditional CAD/FEM approaches were time-intensive.",
   },
   {
     icon: faBullseye,
@@ -67,7 +67,7 @@ const TEAM_MEMBERS = [
   {
     name: "Kirill Klyshnikov",
     role: "Biomedical Scientist",
-    organization: "Kuzbass Cardiac Center",
+    organization: "Kemerovo Cardiology Center",
     location: "Kemerovo · Russia 🇷🇺",
     photo: "/portfolio/team/kirill-klyshnikov.webp",
     links: {
@@ -95,7 +95,7 @@ const TEAM_MEMBERS = [
   {
     name: "Pavel Onishchenko",
     role: "Research Scientist",
-    organization: "Kuzbass Cardiac Center",
+    organization: "Kemerovo Cardiology Center",
     location: "Kemerovo · Russia 🇷🇺",
     photo: "/portfolio/team/pavel-onishchenko.webp",
     links: {
@@ -107,7 +107,7 @@ const TEAM_MEMBERS = [
   {
     name: "Evgeny Ovcharenko",
     role: "Biomedical Engineer",
-    organization: "Kuzbass Cardiac Center",
+    organization: "Kemerovo Cardiology Center",
     location: "Kemerovo · Russia 🇷🇺",
     photo: "/portfolio/team/evgeny-ovcharenko.webp",
     links: {
@@ -243,7 +243,7 @@ export default function ProjectPage() {
               rel="noopener noreferrer"
               className="text-accent hover:underline"
             >
-              Kuzbass Cardiology Center
+              Kemerovo Cardiology Center
             </a>
             <span className="text-gray-400"> · Kemerovo · Russia 🇷🇺</span>
           </div>
