@@ -53,7 +53,7 @@ const PortfolioCard = ({ project }) => {
 
           {/* Primary Category Badge - Top Right Corner */}
           {categoryLabel && (
-            <Badge variant="teal" className="absolute top-5 right-5 z-10">
+            <Badge variant="teal-blur" className="absolute top-5 right-5 z-10">
               {categoryLabel}
             </Badge>
           )}
