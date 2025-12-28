@@ -8,7 +8,7 @@ Compares content between the old website (reference) and the new website to ensu
 
 ## Input Required
 
-1. **Reference URL**: URL from the old website (e.g., `https://old-website.com/portfolio/project-name`)
+1. **Reference URL**: URL from the old website (e.g., `https://vdanilov.com/project-name/`)
 2. **Project Slug**: The slug of the project on the new website (e.g., `coronary-insight`)
 
 ---
@@ -20,83 +20,136 @@ Compares content between the old website (reference) and the new website to ensu
 ### Step 1: Fetch Reference Content
 
 1. Read the provided reference URL using `read_url_content`
-2. Extract and note:
-   - Project title
-   - Description/overview
-   - Key sections and their content
-   - Team members (names, roles, organizations)
-   - Technical details (methods, data, results)
+2. Fetch all content chunks (positions 0-3 typically)
+3. Extract and note:
+   - Project title and description
+   - Client info (name, location)
+   - Tech stack
    - Resources (publications, datasets, code repositories)
-   - Highlights/key achievements
+   - Team members (names, roles, organizations, locations, links)
+   - Highlights/STAR items
+   - Content sections: Overview, Data, Methods, Results, Conclusion
+   - Key metrics and numerical data
 
 ### Step 2: Read New Project Page
 
 1. Read the project page from `app/portfolio/[slug]/page.jsx`
-2. Extract and note the same information categories as Step 1
+2. Extract: metadata, HIGHLIGHTS_ITEMS, TEAM_MEMBERS, RESOURCES, TECH_STACK, and all content sections
 
 ### Step 3: Compare Content
 
-Compare the following aspects between old and new:
+Compare the following aspects between old and new using a table format:
 
-| Aspect           | Check                                  |
-| ---------------- | -------------------------------------- |
-| **Title**        | Same or improved?                      |
-| **Description**  | Core meaning preserved?                |
-| **Overview**     | Key context included?                  |
-| **Team Members** | All members present with correct info? |
-| **Highlights**   | Main achievements captured?            |
-| **Data**         | Dataset info accurate?                 |
-| **Methods**      | Technical approach preserved?          |
-| **Results**      | Metrics and findings accurate?         |
-| **Resources**    | All links/publications included?       |
-| **Conclusion**   | Key takeaways present?                 |
+| Aspect           | Check                                               |
+| ---------------- | --------------------------------------------------- |
+| **Title**        | Same or improved (concise, memorable)?              |
+| **Description**  | Core meaning preserved?                             |
+| **Client**       | Same organization and location?                     |
+| **Tech Stack**   | All technologies listed?                            |
+| **Resources**    | All links/publications included?                    |
+| **Team Members** | All members with correct roles/orgs/links?          |
+| **Highlights**   | All 4 STAR items (Situation, Task, Action, Result)? |
+| **Overview**     | Key context and significance included?              |
+| **Data**         | Dataset specifications accurate?                    |
+| **Methods**      | Technical approach fully preserved?                 |
+| **Results**      | All metrics and findings accurate?                  |
+| **Conclusion**   | Key takeaways and future work present?              |
+| **Figures**      | Images with proper captions included?               |
 
-### Step 4: Output Verdict
+### Step 4: Analyze Team Member Roles
 
-Provide a structured verdict:
+For each team member, evaluate if their role title is appropriate based on:
 
-```
+1. **Research sphere**: Does the title match their field (medical, engineering, data science)?
+2. **Professional links**: Check ResearchGate, Google Scholar, ORCID for their actual focus
+3. **Domain conventions**:
+   - Tech/Data Science: Use levels (Junior/Senior/Lead)
+   - Academia/Research: Use position titles (Researcher, Professor)
+   - Medicine: Use specialty (Cardiologist, Surgeon) without levels
+
+**Role appropriateness guidelines:**
+
+| Domain       | Good Examples                                       | Avoid             |
+| ------------ | --------------------------------------------------- | ----------------- |
+| Medical      | Cardiovascular Surgeon, Interventional Cardiologist | Senior Surgeon    |
+| Research     | Biomedical Scientist, Research Scientist            | Middle Researcher |
+| Engineering  | Biomedical Engineer, ML Engineer                    | -                 |
+| Data Science | Lead Data Scientist, Senior Data Scientist          | -                 |
+
+If a role seems mismatched (e.g., "Data Engineer" for someone doing research), suggest a better alternative.
+
+### Step 5: Output Verdict
+
+Provide a structured verdict using this format:
+
+```markdown
 ## Verification Verdict
 
 ### ✅ Matching Content
-- [List items that match or are improved]
+
+| Aspect     | Old Website | New Website | Status            |
+| ---------- | ----------- | ----------- | ----------------- |
+| **Title**  | [old]       | [new]       | ✅ Match/Improved |
+| **Client** | [old]       | [new]       | ✅ Match          |
+| ...        | ...         | ...         | ...               |
+
+### ✅ Team Members Verification
+
+| Name   | Old Role         | New Role         | Status            |
+| ------ | ---------------- | ---------------- | ----------------- |
+| [Name] | [old role @ org] | [new role @ org] | ✅ Match/Improved |
+
+### 💡 Role Analysis (if applicable)
+
+| Name   | Current Role | Background              | Suggested Role          | Rationale |
+| ------ | ------------ | ----------------------- | ----------------------- | --------- |
+| [Name] | [current]    | [based on links/sphere] | [suggestion or ✅ Keep] | [why]     |
 
 ### ⚠️ Minor Deviations (Acceptable)
-- [List acceptable differences, e.g., improved wording, restructuring]
+
+1. [Deviation description] - [Why it's acceptable]
 
 ### ❌ Missing or Incorrect Content
-- [List any critical issues that need fixing]
 
-### Overall Status: [PASS / NEEDS ATTENTION / FAIL]
+- [List any critical issues, or "None identified"]
+
+## Overall Status: ✅ PASS / ⚠️ NEEDS ATTENTION / ❌ FAIL
+
+[Brief summary of verification result]
 ```
 
 ---
 
 ## Acceptance Criteria
 
-A project **PASSES** verification if:
+### ✅ PASS
 
-- All core information is preserved
-- Team members are correctly listed
-- Technical content (methods, results) is accurate
-- Resources are properly linked
-- Minor improvements or restructuring are acceptable
+- All core information preserved
+- Team members correctly listed with accurate roles
+- All metrics and numerical data match exactly
+- Resources properly linked
+- Minor improvements (titles, wording) are acceptable
 
-A project **NEEDS ATTENTION** if:
+### ⚠️ NEEDS ATTENTION
 
-- Some content is missing but can be easily added
-- Minor inaccuracies exist
+- Some content missing but can be easily added
+- Minor inaccuracies in non-critical fields
+- Missing links that can be added
 
-A project **FAILS** if:
+### ❌ FAIL
 
-- Critical information is missing
-- Incorrect data or metrics
-- Team members incorrectly attributed
+- Critical information missing
+- Incorrect metrics or numerical data
+- Team members incorrectly attributed or missing
+- Wrong resources/publications linked
 
 ---
 
 ## Quick Reference
 
-**New project pages location**: `app/portfolio/[slug]/page.jsx`
-
-**Common slugs format**: lowercase, hyphenated (e.g., `coronary-insight`, `ai-dissects-arterial-risk`)
+| Item              | Location                               |
+| ----------------- | -------------------------------------- |
+| **New pages**     | `app/portfolio/[slug]/page.jsx`        |
+| **Slug format**   | lowercase, hyphenated                  |
+| **Example slugs** | `coronary-insight`, `deep-brainwatch`  |
+| **Old site URL**  | `https://vdanilov.com/[project-name]/` |
