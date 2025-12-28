@@ -55,7 +55,7 @@ const TEAM_MEMBERS = [
     name: "Viacheslav Danilov",
     role: "Lead Data Scientist",
     organization: "Quantori",
-    location: "Cambridge · US 🇺🇸",
+    location: "Cambridge · United States 🇺🇸",
     photo: "/portfolio/team/viacheslav-danilov.webp",
     links: {
       linkedin: "https://www.linkedin.com/in/viacheslav-danilov/",
@@ -80,7 +80,7 @@ const TEAM_MEMBERS = [
     name: "Alexander Kirpich",
     role: "Research Scientist",
     organization: "Georgia State University",
-    location: "Atlanta · US 🇺🇸",
+    location: "Atlanta · United States 🇺🇸",
     photo: "/portfolio/team/alexander-kirpich.webp",
     links: {
       globe: "https://publichealth.gsu.edu/profile/alexander-kirpich/",
@@ -94,7 +94,7 @@ const TEAM_MEMBERS = [
     name: "Diana Litmanovich",
     role: "Radiologist",
     organization: "BID Medical Center",
-    location: "Boston · US 🇺🇸",
+    location: "Boston · United States 🇺🇸",
     photo: "/portfolio/team/diana-litmanovich.webp",
     links: {
       globe:
@@ -109,7 +109,7 @@ const TEAM_MEMBERS = [
     name: "Yuriy Gankin",
     role: "Chief Science Officer",
     organization: "Quantori",
-    location: "Cambridge · US 🇺🇸",
+    location: "Cambridge · United States 🇺🇸",
     photo: "/portfolio/team/yuriy-gankin.webp",
     links: {
       globe: "https://quantori.com/about/yuriy-gankin",
