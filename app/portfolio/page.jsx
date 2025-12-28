@@ -21,7 +21,7 @@ const PROJECTS_DATA = [
     title: "HyperVision Ablation",
     description:
       "ML workflow for tissue ablation assessment in hyperspectral imaging using PCA, Faster R-CNN, and Mean Shift clustering.",
-    categories: ["biomedical-research", "clinical-decision-support"],
+    category: "biomedical-research",
     image: "/portfolio/previews/hypervision-ablation.webp",
     date: "2024-07",
     featured: true,
@@ -31,7 +31,7 @@ const PROJECTS_DATA = [
     title: "Sales Pilot",
     description:
       "AI-powered lead scoring system using hybrid heuristics and OpenAI embeddings to automate and prioritize high-fit leads at scale.",
-    categories: ["business-applications"],
+    category: "business-applications",
     image: "/portfolio/previews/sales-pilot.webp",
     date: "2025-05",
     featured: true,
@@ -41,7 +41,7 @@ const PROJECTS_DATA = [
     title: "Coronary Insight",
     description:
       "Deep learning pipeline for OCT plaque segmentation, enabling precise arterial risk assessment in cardiovascular imaging.",
-    categories: ["medical-imaging", "clinical-decision-support"],
+    category: "medical-imaging",
     image: "/portfolio/previews/coronary-insight.webp",
     date: "2025-06",
     featured: true,
@@ -51,7 +51,7 @@ const PROJECTS_DATA = [
     title: "Deep BrainWatch",
     description:
       "Non-invasive ICP monitoring using deep learning on cerebral blood flow signals from near-infrared photonic sensors.",
-    categories: ["medical-devices", "clinical-decision-support"],
+    category: "medical-devices",
     image: "/portfolio/previews/deep-brainwatch.webp",
     date: "2025-12",
     featured: true,
@@ -61,7 +61,7 @@ const PROJECTS_DATA = [
     title: "Immune Profiler",
     description:
       "ML-driven workflow for tumor immune phenotype classification using HoVer-Net and AutoML on histopathology images.",
-    categories: ["biomedical-research"],
+    category: "biomedical-research",
     image: "/portfolio/previews/immune-profiler.webp",
     date: "2024-06",
     featured: false,
@@ -71,7 +71,7 @@ const PROJECTS_DATA = [
     title: "Histo Scanner",
     description:
       "Deep learning pipeline for segmenting microvascular features in tissue-engineered vascular grafts with 89% Dice score.",
-    categories: ["biomedical-research"],
+    category: "biomedical-research",
     image: "/portfolio/previews/histo-scanner.webp",
     date: "2024-05",
     featured: false,
@@ -81,7 +81,7 @@ const PROJECTS_DATA = [
     title: "PulmoVision",
     description:
       "Explainable AI framework for detecting pulmonary edema features in chest X-rays using deep learning segmentation and object detection.",
-    categories: ["medical-imaging", "clinical-decision-support"],
+    category: "medical-imaging",
     image: "/portfolio/previews/pulmovision.webp",
     date: "2024-03",
     featured: true,
@@ -91,7 +91,7 @@ const PROJECTS_DATA = [
     title: "ProValve Design",
     description:
       "ML-driven generative design framework for prosthetic heart valves using optimization algorithms, achieving 95% design efficacy.",
-    categories: ["medical-devices"],
+    category: "medical-devices",
     image: "/portfolio/previews/provalve-design.webp",
     date: "2023-09",
     featured: false,
@@ -101,7 +101,7 @@ const PROJECTS_DATA = [
     title: "SonoGuide",
     description:
       "Deep learning solution for surgical tool segmentation in 3D ultrasound, achieving 93.6% Dice score for real-time catheter localization.",
-    categories: ["clinical-decision-support", "medical-imaging"],
+    category: "clinical-decision-support",
     image: "/portfolio/previews/sonoguide.webp",
     date: "2023-02",
     featured: true,
@@ -111,7 +111,7 @@ const PROJECTS_DATA = [
     title: "PulmoScore",
     description:
       "Two-stage ML workflow for COVID-19 severity scoring on chest X-rays, achieving MAE of 0.30 and 11× faster processing.",
-    categories: ["medical-imaging", "clinical-decision-support"],
+    category: "medical-imaging",
     image: "/portfolio/previews/pulmoscore.webp",
     date: "2022-07",
     featured: false,
@@ -121,7 +121,7 @@ const PROJECTS_DATA = [
     title: "PulmoLens",
     description:
       "Attention-guided deep learning for COVID-19 and pneumonia detection in chest X-rays, achieving 84% accuracy with Grad-CAM supervision.",
-    categories: ["medical-imaging"],
+    category: "medical-imaging",
     image: "/portfolio/previews/pulmolens.webp",
     date: "2022-01",
     featured: false,
@@ -131,7 +131,7 @@ const PROJECTS_DATA = [
     title: "Deep Deface",
     description:
       "GPU-accelerated 3D anonymization pipeline for CT and MRI scans, detecting and blurring facial/ear regions while preserving 100% of brain anatomy.",
-    categories: ["medical-imaging"],
+    category: "medical-imaging",
     image: "/portfolio/previews/deep-deface.webp",
     date: "2021-09",
     featured: false,
@@ -141,7 +141,7 @@ const PROJECTS_DATA = [
     title: "TAVI PinPoint",
     description:
       "Real-time landmark tracking for safer valve implantation during TAVI procedures using multi-task deep learning with 97% accuracy.",
-    categories: ["clinical-decision-support"],
+    category: "clinical-decision-support",
     image: "/portfolio/previews/tavi-pinpoint.webp",
     date: "2021-07",
     featured: false,
@@ -151,7 +151,7 @@ const PROJECTS_DATA = [
     title: "Stenosis Spotter",
     description:
       "Real-time coronary stenosis detection using deep learning for intraoperative angiographic image analysis with 0.94 mAP.",
-    categories: ["clinical-decision-support", "medical-imaging"],
+    category: "clinical-decision-support",
     image: "/portfolio/previews/stenosis-spotter.webp",
     date: "2021-04",
     featured: false,
@@ -161,7 +161,7 @@ const PROJECTS_DATA = [
     title: "OncoCell Vision",
     description:
       "AI-powered microscopy pipeline for detecting and counting cancer cell biomarkers using EfficientDet, achieving 85% mAP for nuclei detection.",
-    categories: ["biomedical-research"],
+    category: "biomedical-research",
     image: "/portfolio/previews/oncocell-vision.webp",
     date: "2021-01",
     featured: false,
@@ -171,7 +171,7 @@ const PROJECTS_DATA = [
     title: "Deep Anatomy",
     description:
       "High-precision 3D organ segmentation via V-net architecture with dense skip connections, achieving up to 96% Dice score across 5 anatomical structures.",
-    categories: ["medical-imaging"],
+    category: "medical-imaging",
     image: "/portfolio/previews/deep-anatomy.webp",
     date: "2020-07",
     featured: false,
@@ -181,7 +181,7 @@ const PROJECTS_DATA = [
     title: "DeepVision Wildfire",
     description:
       "Real-time wildfire detection system for Siberian forests combining EfficientDet and CNN-RNN, achieving 95.6% accuracy at 9 FPS.",
-    categories: ["business-applications"],
+    category: "business-applications",
     image: "/portfolio/previews/deepvision-wildfire.webp",
     date: "2019-07",
     featured: false,
@@ -191,7 +191,7 @@ const PROJECTS_DATA = [
     title: "RayTrace Segment",
     description:
       "Ray-casting segmentation algorithm for convex anatomical structures in MRI, achieving up to 91.8% Dice score with millisecond-level runtime.",
-    categories: ["medical-imaging"],
+    category: "medical-imaging",
     image: "/portfolio/previews/raytrace-segment.webp",
     date: "2019-05",
     featured: false,
@@ -251,8 +251,8 @@ export default function Portfolio() {
     } else if (activeFilter === "featured") {
       filtered = PROJECTS_DATA.filter((project) => project.featured);
     } else {
-      filtered = PROJECTS_DATA.filter((project) =>
-        project.categories.includes(activeFilter),
+      filtered = PROJECTS_DATA.filter(
+        (project) => project.category === activeFilter,
       );
     }
     return sortByDate(filtered);
@@ -265,8 +265,8 @@ export default function Portfolio() {
     };
     FILTER_OPTIONS.forEach((option) => {
       if (option.id !== "all" && option.id !== "featured") {
-        counts[option.id] = PROJECTS_DATA.filter((project) =>
-          project.categories.includes(option.id),
+        counts[option.id] = PROJECTS_DATA.filter(
+          (project) => project.category === option.id,
         ).length;
       }
     });

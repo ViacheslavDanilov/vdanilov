@@ -24,10 +24,9 @@ const CATEGORY_LABELS = {
 };
 
 const PortfolioCard = ({ project }) => {
-  const { id, title, description, image, date, categories } = project;
+  const { id, title, description, image, date, category } = project;
   const formattedDate = formatDate(date);
-  const primaryCategory = categories?.[0];
-  const categoryLabel = CATEGORY_LABELS[primaryCategory] || primaryCategory;
+  const categoryLabel = CATEGORY_LABELS[category] || category;
 
   return (
     <Link href={`/portfolio/${id}`} className="group block">
