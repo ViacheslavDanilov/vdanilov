@@ -84,7 +84,15 @@ For each team member, evaluate if their role title is appropriate based on:
 - Use **specialty** without levels: "Neurosurgeon", "Interventional Cardiologist"
 - If distinguishing seniority, use descriptive roles: "Attending Surgeon" vs "Resident"
 
-If a role uses inappropriate levels (e.g., "Lead Neurosurgeon"), suggest the corrected title.
+**Tech/Data Science role title rules:**
+
+- **Avoid** "Middle" level - uncommon in US/international contexts
+- Use **standard levels**: Junior, Senior, Staff, Principal, Lead
+- ✅ Good: "ML Engineer", "Data Scientist", "Senior Data Scientist", "Staff ML Engineer"
+- ❌ Avoid: "Middle ML Engineer", "Middle Data Scientist"
+- If no level needed, just use the role: "Data Scientist", "ML Engineer"
+
+If a role uses inappropriate levels (e.g., "Lead Neurosurgeon", "Middle ML Engineer"), suggest the corrected title.
 
 ### Step 5: Output Verdict
 
