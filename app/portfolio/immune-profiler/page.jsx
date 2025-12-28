@@ -78,7 +78,7 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Anton Makoveev",
-    role: "Middle CV Engineer",
+    role: "CV Engineer",
     organization: "Quantori",
     location: "Cambridge · US 🇺🇸",
     photo: "/portfolio/team/anton-makoveev.webp",
@@ -103,7 +103,7 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Di Feng",
-    role: "Lead Bioinformatics Expert",
+    role: "Lead Bioinformatics Scientist",
     organization: "Boehringer Ingelheim",
     location: "Ridgefield · US 🇺🇸",
     photo: "/portfolio/team/di-feng.webp",
