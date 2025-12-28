@@ -182,6 +182,16 @@ const PROJECTS_DATA = [
     date: "2019-07",
     featured: true,
   },
+  {
+    id: "raytrace-segment",
+    title: "RayTrace Segment",
+    description:
+      "Ray-casting segmentation algorithm for convex anatomical structures in MRI, achieving up to 91.8% Dice score with millisecond-level runtime.",
+    category: "AI/ML",
+    image: "/portfolio/previews/raytrace-segment.webp",
+    date: "2019-05",
+    featured: true,
+  },
 ];
 
 const FILTER_OPTIONS = [
