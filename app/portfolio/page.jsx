@@ -162,6 +162,16 @@ const PROJECTS_DATA = [
     date: "2021-01",
     featured: true,
   },
+  {
+    id: "deep-anatomy",
+    title: "Deep Anatomy",
+    description:
+      "High-precision 3D organ segmentation via V-net architecture with dense skip connections, achieving up to 96% Dice score across 5 anatomical structures.",
+    category: "AI/ML",
+    image: "/portfolio/previews/deep-anatomy.webp",
+    date: "2020-07",
+    featured: true,
+  },
 ];
 
 const FILTER_OPTIONS = [
