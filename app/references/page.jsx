@@ -21,6 +21,7 @@ const REFERENCES_DATA = [
     location: "Manchester · United Kingdom 🇬🇧",
     category: "Research",
     image: "/references/alex-frangi.webp",
+    featured: true,
     socials: {
       website: "https://research.manchester.ac.uk/en/persons/alejandro-frangi",
       linkedin: "https://www.linkedin.com/in/alejandro-frangi/",
@@ -37,6 +38,7 @@ const REFERENCES_DATA = [
     location: "Paris · France 🇫🇷",
     category: "Research",
     image: "/references/lori-bridal.webp",
+    featured: false,
     socials: {
       website: "https://ieee-uffc.org/contact/s-lori-bridal",
       linkedin: "https://www.linkedin.com/in/s-lori-bridal-57262313",
@@ -53,6 +55,7 @@ const REFERENCES_DATA = [
     location: "Milan · Italy 🇮🇹",
     category: "Research",
     image: "/references/paola-saccomandi.webp",
+    featured: false,
     socials: {
       website: "https://www.mecc.polimi.it/en/staff/paola.saccomandi",
       linkedin: "https://www.linkedin.com/in/paola-saccomandi-92759561",
@@ -70,6 +73,7 @@ const REFERENCES_DATA = [
     location: "Trento · Italy 🇮🇹",
     category: "Research",
     image: "/references/farid-melgani.webp",
+    featured: true,
     socials: {
       website: "https://webapps.unitn.it/du/en/Persona/PER0004197/Didattica",
       linkedin: "https://www.linkedin.com/in/farid-melgani-1a227712",
@@ -87,6 +91,7 @@ const REFERENCES_DATA = [
     location: "Barcelona · Spain 🇪🇸",
     category: "Research",
     image: "/references/gemma-piella.webp",
+    featured: true,
     socials: {
       website: "https://memoir.icrea.cat/academia_awardees/piella-gemma/",
       linkedin: "https://www.linkedin.com/in/gemma-piella-a234b4/",
@@ -104,6 +109,7 @@ const REFERENCES_DATA = [
     location: "Barcelona · Spain 🇪🇸",
     category: "Research",
     image: "/references/turgut-durduran.webp",
+    featured: false,
     socials: {
       website: "https://www.icrea.cat/community/icreas/16857/turgut-durduran/",
       linkedin: "https://www.linkedin.com/in/turgut-durduran-5a47a294",
@@ -121,6 +127,7 @@ const REFERENCES_DATA = [
     location: "Madrid · Spain 🇪🇸",
     category: "Research",
     image: "/references/maria-ledesma.webp",
+    featured: false,
     socials: {
       website: "https://ieeexplore.ieee.org/author/37327193600",
       linkedin: "https://www.linkedin.com/in/maria-j-ledesma-carbayo-440aa8275",
@@ -139,6 +146,7 @@ const REFERENCES_DATA = [
     location: "Kemerovo · Russia 🇷🇺",
     category: "Medicine",
     image: "/references/evgeny-ovcharenko.webp",
+    featured: false,
     socials: {
       website: "https://loop.frontiersin.org/people/355364",
       linkedin: "https://www.linkedin.com/in/evgeny-ovcharenko-89098722",
@@ -156,6 +164,7 @@ const REFERENCES_DATA = [
     location: "Boston · United States 🇺🇸",
     category: "Medicine",
     image: "/references/diana-litmanovich.webp",
+    featured: true,
     socials: {
       website:
         "https://findadoc.bidmc.org/details/929/diana-litmanovich-diagnostic_radiology-boston-needham",
@@ -174,6 +183,7 @@ const REFERENCES_DATA = [
     location: "Denver · United States 🇺🇸",
     category: "Medicine",
     image: "/references/nikolay-vasilyev.webp",
+    featured: false,
     socials: {
       website: "https://www.ctsnet.org/home/nvasiliev",
       linkedin: "https://www.linkedin.com/in/nikolayvasilyev/",
@@ -192,6 +202,7 @@ const REFERENCES_DATA = [
     location: "Cambridge · United States 🇺🇸",
     category: "Industry",
     image: "/references/yuriy-gankin.webp",
+    featured: true,
     socials: {
       website: "https://quantori.com/about/yuriy-gankin",
       linkedin: "https://www.linkedin.com/in/yuriygankin/",
@@ -208,6 +219,7 @@ const REFERENCES_DATA = [
     location: "Boston · United States 🇺🇸",
     category: "Industry",
     image: "/references/efim-furman.webp",
+    featured: true,
     socials: {
       facebook: "https://www.facebook.com/efim.furman",
       linkedin: "https://www.linkedin.com/in/fima-furman-74133a",
@@ -218,6 +230,7 @@ const REFERENCES_DATA = [
 
 const FILTER_OPTIONS = [
   { id: "all", label: "All", icon: null },
+  { id: "featured", label: "Featured", icon: null },
   { id: "Research", label: "Research", icon: faFlask },
   { id: "Industry", label: "Industry", icon: faBriefcase },
   { id: "Medicine", label: "Medicine", icon: faHeartPulse },
@@ -230,13 +243,19 @@ export default function References() {
     if (activeFilter === "all") {
       return REFERENCES_DATA;
     }
+    if (activeFilter === "featured") {
+      return REFERENCES_DATA.filter((ref) => ref.featured);
+    }
     return REFERENCES_DATA.filter((ref) => ref.category === activeFilter);
   }, [activeFilter]);
 
   const getCounts = useMemo(() => {
-    const counts = { all: REFERENCES_DATA.length };
+    const counts = {
+      all: REFERENCES_DATA.length,
+      featured: REFERENCES_DATA.filter((ref) => ref.featured).length,
+    };
     FILTER_OPTIONS.forEach((option) => {
-      if (option.id !== "all") {
+      if (option.id !== "all" && option.id !== "featured") {
         counts[option.id] = REFERENCES_DATA.filter(
           (ref) => ref.category === option.id,
         ).length;
