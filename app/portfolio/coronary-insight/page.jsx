@@ -81,7 +81,7 @@ const TEAM_MEMBERS = [
   {
     name: "Kirill Klyshnikov",
     role: "Biomedical Scientist",
-    organization: "Kemerovo Cardiac Center",
+    organization: "Kemerovo Cardiology Center",
     location: "Kemerovo · Russia 🇷🇺",
     photo: "/portfolio/team/kirill-klyshnikov.webp",
     links: {
@@ -95,7 +95,7 @@ const TEAM_MEMBERS = [
   {
     name: "Evgeny Ovcharenko",
     role: "Biomedical Engineer",
-    organization: "Kemerovo Cardiac Center",
+    organization: "Kemerovo Cardiology Center",
     location: "Kemerovo · Russia 🇷🇺",
     photo: "/portfolio/team/evgeny-ovcharenko.webp",
     links: {
@@ -109,7 +109,7 @@ const TEAM_MEMBERS = [
   {
     name: "Nikita Kochergin",
     role: "Cardiovascular Surgeon",
-    organization: "Kemerovo Cardiac Center",
+    organization: "Kemerovo Cardiology Center",
     location: "Kemerovo · Russia 🇷🇺",
     photo: "/portfolio/team/nikita-kochergin.webp",
     links: {
