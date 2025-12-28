@@ -54,7 +54,7 @@ const TEAM_MEMBERS = [
   {
     name: "Viacheslav Danilov",
     role: "Research Supervisor",
-    organization: "TPU",
+    organization: "Tomsk Polytechnic University",
     location: "Tomsk · Russia 🇷🇺",
     photo: "/portfolio/team/viacheslav-danilov.webp",
     links: {
@@ -68,9 +68,9 @@ const TEAM_MEMBERS = [
   {
     name: "Nikita Laptev",
     role: "ML Engineer",
-    organization: "TPU",
+    organization: "Tomsk Polytechnic University",
     location: "Tomsk · Russia 🇷🇺",
-    photo: "/portfolio/team/john-doe.webp",
+    photo: "/portfolio/team/nikita-laptev.webp",
     links: {
       globe: "https://ieeexplore.ieee.org/author/37086602301",
       researchgate:
@@ -81,7 +81,7 @@ const TEAM_MEMBERS = [
   {
     name: "Vladislav Laptev",
     role: "Data Scientist",
-    organization: "TPU",
+    organization: "Tomsk Polytechnic University",
     location: "Tomsk · Russia 🇷🇺",
     photo: "/portfolio/team/vladislav-laptev.webp",
     links: {
@@ -94,7 +94,7 @@ const TEAM_MEMBERS = [
   {
     name: "Andrey Kravchenko",
     role: "Software Developer",
-    organization: "TPU",
+    organization: "Tomsk Polytechnic University",
     location: "Tomsk · Russia 🇷🇺",
     photo: "/portfolio/team/john-doe.webp",
     links: {
@@ -105,7 +105,7 @@ const TEAM_MEMBERS = [
   {
     name: "Olga Gerget",
     role: "Professor",
-    organization: "TPU",
+    organization: "Tomsk Polytechnic University",
     location: "Tomsk · Russia 🇷🇺",
     photo: "/portfolio/team/jane-doe.webp",
     links: {
