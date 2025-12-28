@@ -8,6 +8,8 @@ import {
   faFlask,
   faBriefcase,
   faHeartPulse,
+  faLayerGroup,
+  faStar,
 } from "@fortawesome/free-solid-svg-icons";
 
 // Reference data
@@ -229,8 +231,8 @@ const REFERENCES_DATA = [
 ];
 
 const FILTER_OPTIONS = [
-  { id: "all", label: "All", icon: null },
-  { id: "featured", label: "Featured", icon: null },
+  { id: "all", label: "All", icon: faLayerGroup },
+  { id: "featured", label: "Featured", icon: faStar },
   { id: "Research", label: "Research", icon: faFlask },
   { id: "Industry", label: "Industry", icon: faBriefcase },
   { id: "Medicine", label: "Medicine", icon: faHeartPulse },
