@@ -67,7 +67,7 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Olga Gerget",
-    role: "Research Supervisor",
+    role: "Professor",
     organization: "Tomsk Polytechnic University",
     location: "Tomsk · Russia 🇷🇺",
     photo: "/portfolio/team/jane-doe.webp",
@@ -80,7 +80,7 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Nikolay Vasilyev",
-    role: "Medical Supervisor",
+    role: "Cardiac Surgeon",
     organization: "Boston Children's Hospital",
     location: "Boston · United States 🇺🇸",
     photo: "/portfolio/team/nikolay-vasilyev.webp",
@@ -94,7 +94,7 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Maria Ledesma",
-    role: "Research Supervisor",
+    role: "Professor",
     organization: "Technical University of Madrid",
     location: "Madrid · Spain 🇪🇸",
     photo: "/portfolio/team/maria-ledesma.webp",
