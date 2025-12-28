@@ -66,7 +66,7 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Kirill Klyshnikov",
-    role: "Senior Researcher",
+    role: "Biomedical Scientist",
     organization: "Kuzbass Cardiac Center",
     location: "Kemerovo · Russia 🇷🇺",
     photo: "/portfolio/team/kirill-klyshnikov.webp",
@@ -80,7 +80,7 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Farid Melgani",
-    role: "Senior Researcher",
+    role: "Professor",
     organization: "University of Trento",
     location: "Trento · Italy 🇮🇹",
     photo: "/portfolio/team/farid-melgani.webp",
@@ -94,7 +94,7 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Pavel Onishchenko",
-    role: "Researcher",
+    role: "Research Scientist",
     organization: "Kuzbass Cardiac Center",
     location: "Kemerovo · Russia 🇷🇺",
     photo: "/portfolio/team/pavel-onishchenko.webp",
@@ -106,7 +106,7 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Evgeny Ovcharenko",
-    role: "Research Supervisor",
+    role: "Biomedical Engineer",
     organization: "Kuzbass Cardiac Center",
     location: "Kemerovo · Russia 🇷🇺",
     photo: "/portfolio/team/evgeny-ovcharenko.webp",
