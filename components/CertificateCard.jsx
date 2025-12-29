@@ -51,7 +51,7 @@ const CertificateCard = ({
               href={certificate.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-2 text-md font-bold text-light hover:text-accent transition-colors"
+              className="group flex items-center gap-2 text-md font-bold text-light hover:text-accent transition-colors w-fit"
             >
               <span className="uppercase tracking-wide">
                 {certificate.title}
@@ -76,7 +76,7 @@ const CertificateCard = ({
               href={certificate.organizationUrl || certificate.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-medium text-light md:hover:text-accent uppercase tracking-wider transition-colors cursor-pointer"
+              className="text-sm font-medium text-light md:hover:text-accent uppercase tracking-wider transition-colors cursor-pointer w-fit"
             >
               {certificate.organization}
             </a>
@@ -116,7 +116,7 @@ const CertificateCard = ({
                 href={certificate.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center gap-2 text-md font-bold text-light hover:text-accent transition-colors"
+                className="group flex items-center gap-2 text-md font-bold text-light hover:text-accent transition-colors w-fit"
               >
                 <span className="uppercase tracking-wide truncate">
                   {certificate.title}
@@ -141,7 +141,7 @@ const CertificateCard = ({
                 href={certificate.organizationUrl || certificate.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-medium text-light md:hover:text-accent uppercase tracking-wider transition-colors cursor-pointer truncate"
+                className="text-sm font-medium text-light md:hover:text-accent uppercase tracking-wider transition-colors cursor-pointer truncate w-fit"
               >
                 {certificate.organization}
               </a>
