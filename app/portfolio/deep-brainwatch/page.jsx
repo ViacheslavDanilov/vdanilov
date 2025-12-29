@@ -57,7 +57,7 @@ const TEAM_MEMBERS = [
     role: "Lead ML Engineer",
     organization: "Pompeu Fabra University",
     location: "Barcelona · Spain 🇪🇸",
-    photo: "/portfolio/team/viacheslav-danilov.webp",
+    photo: "/people/viacheslav-danilov.webp",
     links: {
       linkedin: "https://www.linkedin.com/in/viacheslav-danilov/",
       github: "https://github.com/ViacheslavDanilov",
@@ -71,7 +71,7 @@ const TEAM_MEMBERS = [
     role: "Biophotonics Scientist",
     organization: "Institute of Photonic Sciences",
     location: "Barcelona · Spain 🇪🇸",
-    photo: "/portfolio/team/monica-torrecilla.webp",
+    photo: "/people/monica-torrecilla.webp",
     links: {
       globe:
         "https://becarios.fundacionlacaixa.org/en/monica-torrecilla-vall-llossera-B006214",
@@ -85,7 +85,7 @@ const TEAM_MEMBERS = [
     role: "Medical Optics Group Head",
     organization: "Institute of Photonic Sciences",
     location: "Barcelona · Spain 🇪🇸",
-    photo: "/portfolio/team/turgut-durduran.webp",
+    photo: "/people/turgut-durduran.webp",
     links: {
       globe: "https://www.icrea.cat/community/icreas/16857/turgut-durduran/",
       linkedin: "https://www.linkedin.com/in/turgut-durduran-5a47a294",
@@ -99,7 +99,7 @@ const TEAM_MEMBERS = [
     role: "Head of Neurosurgery",
     organization: "Vall d'Hebron Hospital",
     location: "Barcelona · Spain 🇪🇸",
-    photo: "/portfolio/team/maria-poca.webp",
+    photo: "/people/maria-poca.webp",
     links: {
       globe:
         "https://www.vallhebron.com/es/profesionales/maria-antonia-poca-pastor",
@@ -112,7 +112,7 @@ const TEAM_MEMBERS = [
     role: "Neurosurgeon",
     organization: "Vall d'Hebron Hospital",
     location: "Barcelona · Spain 🇪🇸",
-    photo: "/portfolio/team/juan-sahuquillo.webp",
+    photo: "/people/juan-sahuquillo.webp",
     links: {
       globe: "https://www.neurotrauma.com/equipindex.php?Up=GD",
       researchgate: "https://www.researchgate.net/profile/Juan-Sahuquillo",
@@ -125,7 +125,7 @@ const TEAM_MEMBERS = [
     role: "Professor",
     organization: "Pompeu Fabra University",
     location: "Barcelona · Spain 🇪🇸",
-    photo: "/portfolio/team/gemma-piella.webp",
+    photo: "/people/gemma-piella.webp",
     links: {
       globe: "https://memoir.icrea.cat/academia_awardees/piella-gemma/",
       linkedin: "https://www.linkedin.com/in/gemma-piella-a234b4/",

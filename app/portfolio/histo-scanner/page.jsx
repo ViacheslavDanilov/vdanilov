@@ -56,7 +56,7 @@ const TEAM_MEMBERS = [
     role: "Lead Data Scientist",
     organization: "Pompeu Fabra University",
     location: "Barcelona · Spain 🇪🇸",
-    photo: "/portfolio/team/viacheslav-danilov.webp",
+    photo: "/people/viacheslav-danilov.webp",
     links: {
       linkedin: "https://www.linkedin.com/in/viacheslav-danilov/",
       github: "https://github.com/ViacheslavDanilov",
@@ -70,7 +70,7 @@ const TEAM_MEMBERS = [
     role: "Senior Data Scientist",
     organization: "Siberian Medical University",
     location: "Tomsk · Russia 🇷🇺",
-    photo: "/portfolio/team/vladislav-laptev.webp",
+    photo: "/people/vladislav-laptev.webp",
     links: {
       globe: "https://loop.frontiersin.org/people/2713564/overview",
       github: "https://github.com/vladislavml",
@@ -83,7 +83,7 @@ const TEAM_MEMBERS = [
     role: "Biomedical Scientist",
     organization: "Kemerovo Cardiology Center",
     location: "Kemerovo · Russia 🇷🇺",
-    photo: "/portfolio/team/kirill-klyshnikov.webp",
+    photo: "/people/kirill-klyshnikov.webp",
     links: {
       globe: "https://loop.frontiersin.org/people/1380790/overview",
       linkedin: "https://www.linkedin.com/in/kirill-klyshnikov-83304b78/",
@@ -97,7 +97,7 @@ const TEAM_MEMBERS = [
     role: "Biomedical Engineer",
     organization: "Kemerovo Cardiology Center",
     location: "Kemerovo · Russia 🇷🇺",
-    photo: "/portfolio/team/evgeny-ovcharenko.webp",
+    photo: "/people/evgeny-ovcharenko.webp",
     links: {
       globe: "https://loop.frontiersin.org/people/355364/overview",
       linkedin: "https://ru.linkedin.com/in/evgeny-ovcharenko-89098722",
@@ -111,7 +111,7 @@ const TEAM_MEMBERS = [
     role: "Pathologist",
     organization: "Kemerovo Cardiology Center",
     location: "Kemerovo · Russia 🇷🇺",
-    photo: "/portfolio/team/anton-kutikhin.webp",
+    photo: "/people/anton-kutikhin.webp",
     links: {
       globe: "https://loop.frontiersin.org/people/98953/overview",
       researchgate: "https://www.researchgate.net/profile/Anton-Kutikhin",

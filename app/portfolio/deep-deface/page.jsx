@@ -57,7 +57,7 @@ const TEAM_MEMBERS = [
     role: "Senior Data Scientist",
     organization: "Intelerad Medical Systems",
     location: "Montreal · Canada 🇨🇦",
-    photo: "/portfolio/team/viacheslav-danilov.webp",
+    photo: "/people/viacheslav-danilov.webp",
     links: {
       linkedin: "https://www.linkedin.com/in/viacheslav-danilov/",
       github: "https://github.com/ViacheslavDanilov",
@@ -71,7 +71,7 @@ const TEAM_MEMBERS = [
     role: "Senior Data Scientist",
     organization: "Intelerad Medical Systems",
     location: "Montreal · Canada 🇨🇦",
-    photo: "/portfolio/team/alexey-kachalov.webp",
+    photo: "/people/alexey-kachalov.webp",
     links: {
       linkedin: "https://www.linkedin.com/in/alexey-kachalov",
       kaggle: "https://www.kaggle.com/alekseykachalov",
@@ -83,7 +83,7 @@ const TEAM_MEMBERS = [
     role: "Machine Learning Director",
     organization: "Intelerad Medical Systems",
     location: "Boston · United States 🇺🇸",
-    photo: "/portfolio/team/efim-furman.webp",
+    photo: "/people/efim-furman.webp",
     links: {
       facebook: "https://www.facebook.com/efim.furman",
       linkedin: "https://www.linkedin.com/in/fima-furman-74133a",

@@ -56,7 +56,7 @@ const TEAM_MEMBERS = [
     role: "R&D Lead",
     organization: "Symfa",
     location: "Barcelona · Spain 🇪🇸",
-    photo: "/portfolio/team/viacheslav-danilov.webp",
+    photo: "/people/viacheslav-danilov.webp",
     links: {
       linkedin: "https://www.linkedin.com/in/viacheslav-danilov/",
       github: "https://github.com/ViacheslavDanilov",
@@ -70,7 +70,7 @@ const TEAM_MEMBERS = [
     role: "ML Engineer",
     organization: "Symfa",
     location: "Prague · Czechia 🇨🇿",
-    photo: "/portfolio/team/anton-makoveev.webp",
+    photo: "/people/anton-makoveev.webp",
     links: {
       linkedin: "https://www.linkedin.com/in/anton-makoveev/",
       github: "https://github.com/mak-en",
@@ -84,7 +84,7 @@ const TEAM_MEMBERS = [
     role: "Data Scientist",
     organization: "Symfa",
     location: "Barcelona · Spain 🇪🇸",
-    photo: "/portfolio/team/mikhail-vinogradov.webp",
+    photo: "/people/mikhail-vinogradov.webp",
     links: {
       linkedin: "https://www.linkedin.com/in/michaelvin1322",
       github: "https://github.com/michaelvin1322",
@@ -96,7 +96,7 @@ const TEAM_MEMBERS = [
     role: "Senior JS Developer",
     organization: "Symfa",
     location: "Barcelona · Spain 🇪🇸",
-    photo: "/portfolio/team/aleksandr-nasstrom.webp",
+    photo: "/people/aleksandr-nasstrom.webp",
     links: {
       linkedin: "https://www.linkedin.com/in/a-nasstrom",
       github: "https://github.com/a-nasstrom",
@@ -108,7 +108,7 @@ const TEAM_MEMBERS = [
     role: "Business Analyst",
     organization: "Symfa",
     location: "Warsaw · Poland 🇵🇱",
-    photo: "/portfolio/team/rita-tretyakevich.webp",
+    photo: "/people/rita-tretyakevich.webp",
     links: {
       linkedin: "https://www.linkedin.com/in/rita-tretyakevich/",
       email: "m.tretyakevich@symfa.com",
@@ -119,7 +119,7 @@ const TEAM_MEMBERS = [
     role: "Product Owner",
     organization: "Symfa",
     location: "Miami · United States 🇺🇸",
-    photo: "/portfolio/team/vitali-yurkevich.webp",
+    photo: "/people/vitali-yurkevich.webp",
     links: {
       linkedin: "https://www.linkedin.com/in/vitalisymfa",
       email: "vitaly.yurkevich@symfa.com",

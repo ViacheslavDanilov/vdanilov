@@ -56,7 +56,7 @@ const TEAM_MEMBERS = [
     role: "Research Scientist",
     organization: "Politecnico di Milano",
     location: "Milan · Italy 🇮🇹",
-    photo: "/portfolio/team/viacheslav-danilov.webp",
+    photo: "/people/viacheslav-danilov.webp",
     links: {
       linkedin: "https://www.linkedin.com/in/viacheslav-danilov/",
       github: "https://github.com/ViacheslavDanilov",
@@ -70,7 +70,7 @@ const TEAM_MEMBERS = [
     role: "Research Scientist",
     organization: "Politecnico di Milano",
     location: "Milan · Italy 🇮🇹",
-    photo: "/portfolio/team/martina-de-landro.webp",
+    photo: "/people/martina-de-landro.webp",
     links: {
       globe:
         "https://www.mecc.polimi.it/dottorato/i-nostri-dottorandi/xxxiv-ciclo/martina-de-landro",
@@ -85,7 +85,7 @@ const TEAM_MEMBERS = [
     role: "Digestive Surgeon",
     organization: "Cardinale Panico Hospital",
     location: "Tricase · Italy 🇮🇹",
-    photo: "/portfolio/team/manuel-barberio.webp",
+    photo: "/people/manuel-barberio.webp",
     links: {
       globe: "https://sciprofiles.com/profile/1245061",
       linkedin: "https://www.linkedin.com/in/manuel-barberio-0977a2186/",
@@ -99,7 +99,7 @@ const TEAM_MEMBERS = [
     role: "Scientific Director",
     organization: "IRCAD",
     location: "Strasbourg · France 🇫🇷",
-    photo: "/portfolio/team/michael-diana.webp",
+    photo: "/people/michael-diana.webp",
     links: {
       globe: "https://sciprofiles.com/profile/1373035",
       linkedin: "https://www.linkedin.com/in/michele-diana-b972382a/",
@@ -113,7 +113,7 @@ const TEAM_MEMBERS = [
     role: "Principal Investigator",
     organization: "Politecnico di Milano",
     location: "Milan · Italy 🇮🇹",
-    photo: "/portfolio/team/paola-saccomandi.webp",
+    photo: "/people/paola-saccomandi.webp",
     links: {
       globe: "https://www.mecc.polimi.it/en/staff/paola.saccomandi",
       linkedin: "https://www.linkedin.com/in/paola-saccomandi-92759561",

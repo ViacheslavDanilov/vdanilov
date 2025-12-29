@@ -56,7 +56,7 @@ const TEAM_MEMBERS = [
     role: "Senior Data Scientist",
     organization: "University of Leeds",
     location: "Leeds · United Kingdom 🇬🇧",
-    photo: "/portfolio/team/viacheslav-danilov.webp",
+    photo: "/people/viacheslav-danilov.webp",
     links: {
       linkedin: "https://www.linkedin.com/in/viacheslav-danilov/",
       github: "https://github.com/ViacheslavDanilov",
@@ -70,7 +70,7 @@ const TEAM_MEMBERS = [
     role: "Biomedical Scientist",
     organization: "Kemerovo Cardiology Center",
     location: "Kemerovo · Russia 🇷🇺",
-    photo: "/portfolio/team/kirill-klyshnikov.webp",
+    photo: "/people/kirill-klyshnikov.webp",
     links: {
       globe: "https://loop.frontiersin.org/people/1380790/overview",
       linkedin: "https://www.linkedin.com/in/kirill-klyshnikov-83304b78/",
@@ -84,7 +84,7 @@ const TEAM_MEMBERS = [
     role: "Biomedical Engineer",
     organization: "Kemerovo Cardiology Center",
     location: "Kemerovo · Russia 🇷🇺",
-    photo: "/portfolio/team/evgeny-ovcharenko.webp",
+    photo: "/people/evgeny-ovcharenko.webp",
     links: {
       globe: "https://loop.frontiersin.org/people/355364/overview",
       linkedin: "https://ru.linkedin.com/in/evgeny-ovcharenko-89098722",
@@ -98,7 +98,7 @@ const TEAM_MEMBERS = [
     role: "Research Scientist",
     organization: "Kemerovo Cardiology Center",
     location: "Kemerovo · Russia 🇷🇺",
-    photo: "/portfolio/team/anton-kutikhin.webp",
+    photo: "/people/anton-kutikhin.webp",
     links: {
       globe: "https://loop.frontiersin.org/people/98953/overview",
       researchgate: "https://www.researchgate.net/profile/Anton-Kutikhin",
@@ -111,7 +111,7 @@ const TEAM_MEMBERS = [
     role: "Professor",
     organization: "University of Leeds",
     location: "Leeds · United Kingdom 🇬🇧",
-    photo: "/portfolio/team/alex-frangi.webp",
+    photo: "/people/alex-frangi.webp",
     links: {
       globe: "https://research.manchester.ac.uk/en/persons/alejandro-frangi",
       linkedin: "https://www.linkedin.com/in/alejandro-frangi/",

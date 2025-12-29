@@ -55,7 +55,7 @@ const TEAM_MEMBERS = [
     role: "Lead Data Scientist",
     organization: "Politecnico di Milano",
     location: "Milan · Italy 🇮🇹",
-    photo: "/portfolio/team/viacheslav-danilov.webp",
+    photo: "/people/viacheslav-danilov.webp",
     links: {
       linkedin: "https://www.linkedin.com/in/viacheslav-danilov/",
       github: "https://github.com/ViacheslavDanilov",
@@ -69,7 +69,7 @@ const TEAM_MEMBERS = [
     role: "Biomedical Scientist",
     organization: "Kemerovo Cardiology Center",
     location: "Kemerovo · Russia 🇷🇺",
-    photo: "/portfolio/team/kirill-klyshnikov.webp",
+    photo: "/people/kirill-klyshnikov.webp",
     links: {
       globe: "https://loop.frontiersin.org/people/1380790/overview",
       linkedin: "https://www.linkedin.com/in/kirill-klyshnikov-83304b78/",
@@ -83,7 +83,7 @@ const TEAM_MEMBERS = [
     role: "Professor",
     organization: "University of Trento",
     location: "Trento · Italy 🇮🇹",
-    photo: "/portfolio/team/farid-melgani.webp",
+    photo: "/people/farid-melgani.webp",
     links: {
       globe: "https://webapps.unitn.it/du/en/Persona/PER0004197/Didattica",
       linkedin: "https://www.linkedin.com/in/farid-melgani-1a227712",
@@ -97,7 +97,7 @@ const TEAM_MEMBERS = [
     role: "Research Scientist",
     organization: "Kemerovo Cardiology Center",
     location: "Kemerovo · Russia 🇷🇺",
-    photo: "/portfolio/team/pavel-onishchenko.webp",
+    photo: "/people/pavel-onishchenko.webp",
     links: {
       globe: "https://loop.frontiersin.org/people/2420713/overview",
       researchgate: "https://www.researchgate.net/profile/Pavel-Onishchenko",
@@ -109,7 +109,7 @@ const TEAM_MEMBERS = [
     role: "Biomedical Engineer",
     organization: "Kemerovo Cardiology Center",
     location: "Kemerovo · Russia 🇷🇺",
-    photo: "/portfolio/team/evgeny-ovcharenko.webp",
+    photo: "/people/evgeny-ovcharenko.webp",
     links: {
       globe: "https://loop.frontiersin.org/people/355364/overview",
       linkedin: "https://ru.linkedin.com/in/evgeny-ovcharenko-89098722",

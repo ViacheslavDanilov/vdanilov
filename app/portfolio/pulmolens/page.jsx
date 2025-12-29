@@ -56,7 +56,7 @@ const TEAM_MEMBERS = [
     role: "Lead Data Scientist",
     organization: "Quantori",
     location: "Cambridge · United States 🇺🇸",
-    photo: "/portfolio/team/viacheslav-danilov.webp",
+    photo: "/people/viacheslav-danilov.webp",
     links: {
       linkedin: "https://www.linkedin.com/in/viacheslav-danilov/",
       github: "https://github.com/ViacheslavDanilov",
@@ -70,7 +70,7 @@ const TEAM_MEMBERS = [
     role: "Research Scientist",
     organization: "Quantori",
     location: "Hague · Netherlands 🇳🇱",
-    photo: "/portfolio/team/alex-proutski.webp",
+    photo: "/people/alex-proutski.webp",
     links: {
       linkedin: "https://www.linkedin.com/in/alexanderproutski/",
       email: "alex_proutski@hotmail.com",
@@ -81,7 +81,7 @@ const TEAM_MEMBERS = [
     role: "Research Scientist",
     organization: "Georgia State University",
     location: "Atlanta · United States 🇺🇸",
-    photo: "/portfolio/team/alexander-kirpich.webp",
+    photo: "/people/alexander-kirpich.webp",
     links: {
       globe: "https://publichealth.gsu.edu/profile/alexander-kirpich/",
       linkedin: "https://www.linkedin.com/in/alexander-kirpich-ph-d-27b8944/",
@@ -95,7 +95,7 @@ const TEAM_MEMBERS = [
     role: "Radiologist",
     organization: "BID Medical Center",
     location: "Boston · United States 🇺🇸",
-    photo: "/portfolio/team/diana-litmanovich.webp",
+    photo: "/people/diana-litmanovich.webp",
     links: {
       globe:
         "https://findadoc.bidmc.org/details/929/diana-litmanovich-diagnostic_radiology-boston-needham",
@@ -110,7 +110,7 @@ const TEAM_MEMBERS = [
     role: "Chief Science Officer",
     organization: "Quantori",
     location: "Cambridge · United States 🇺🇸",
-    photo: "/portfolio/team/yuriy-gankin.webp",
+    photo: "/people/yuriy-gankin.webp",
     links: {
       globe: "https://quantori.com/about/yuriy-gankin",
       linkedin: "https://www.linkedin.com/in/yuriygankin/",

@@ -56,7 +56,7 @@ const TEAM_MEMBERS = [
     role: "Lead ML Engineer",
     organization: "Quantori",
     location: "Cambridge · United States 🇺🇸",
-    photo: "/portfolio/team/viacheslav-danilov.webp",
+    photo: "/people/viacheslav-danilov.webp",
     links: {
       linkedin: "https://www.linkedin.com/in/viacheslav-danilov/",
       github: "https://github.com/ViacheslavDanilov",
@@ -70,7 +70,7 @@ const TEAM_MEMBERS = [
     role: "Senior CV Engineer",
     organization: "Quantori",
     location: "Cambridge · United States 🇺🇸",
-    photo: "/portfolio/team/maxim-kazanskiy.webp",
+    photo: "/people/maxim-kazanskiy.webp",
     links: {
       linkedin: "https://www.linkedin.com/in/maksim-kazanskii-16658930/",
       email: "mkazanskii@googlemail.com",
@@ -81,7 +81,7 @@ const TEAM_MEMBERS = [
     role: "CV Engineer",
     organization: "Quantori",
     location: "Cambridge · United States 🇺🇸",
-    photo: "/portfolio/team/anton-makoveev.webp",
+    photo: "/people/anton-makoveev.webp",
     links: {
       linkedin: "https://www.linkedin.com/in/anton-makoveev/",
       github: "https://github.com/mak-en",
@@ -95,7 +95,7 @@ const TEAM_MEMBERS = [
     role: "Histopathologist",
     organization: "AstraZeneca",
     location: "Munich · Germany 🇩🇪",
-    photo: "/portfolio/team/yuriy-popov.webp",
+    photo: "/people/yuriy-popov.webp",
     links: {
       linkedin: "https://www.linkedin.com/in/yury-popov-170298222/",
       email: "popow.yu.a@gmail.com",
@@ -106,7 +106,7 @@ const TEAM_MEMBERS = [
     role: "Lead Bioinformatics Scientist",
     organization: "Boehringer Ingelheim",
     location: "Ridgefield · United States 🇺🇸",
-    photo: "/portfolio/team/di-feng.webp",
+    photo: "/people/di-feng.webp",
     links: {
       globe: "https://rocketreach.co/di-feng-email_7695000",
       linkedin: "https://www.linkedin.com/in/di-feng-23310810/",

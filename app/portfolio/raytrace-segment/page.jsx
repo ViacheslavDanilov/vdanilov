@@ -56,7 +56,7 @@ const TEAM_MEMBERS = [
     role: "Research Scientist",
     organization: "University of Leeds",
     location: "Leeds · United Kingdom 🇬🇧",
-    photo: "/portfolio/team/viacheslav-danilov.webp",
+    photo: "/people/viacheslav-danilov.webp",
     links: {
       linkedin: "https://www.linkedin.com/in/viacheslav-danilov/",
       github: "https://github.com/ViacheslavDanilov",
@@ -70,7 +70,7 @@ const TEAM_MEMBERS = [
     role: "Professor",
     organization: "Tomsk Polytechnic University",
     location: "Tomsk · Russia 🇷🇺",
-    photo: "/portfolio/team/jane-doe.webp",
+    photo: "/people/jane-doe.webp",
     links: {
       globe: "https://ieeexplore.ieee.org/author/37086166435",
       orcid: "https://orcid.org/0000-0002-6242-9502",
@@ -83,7 +83,7 @@ const TEAM_MEMBERS = [
     role: "Professor",
     organization: "University of Leeds",
     location: "Leeds · United Kingdom 🇬🇧",
-    photo: "/portfolio/team/alex-frangi.webp",
+    photo: "/people/alex-frangi.webp",
     links: {
       globe: "https://research.manchester.ac.uk/en/persons/alejandro-frangi",
       linkedin: "https://www.linkedin.com/in/alejandro-frangi/",
