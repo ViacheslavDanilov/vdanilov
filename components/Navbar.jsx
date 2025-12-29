@@ -111,19 +111,16 @@ function Navbar() {
           className="inline-flex items-center gap-2 hover:brightness-125 hover:scale-[1.03] transition-all duration-200 origin-center cursor-pointer flex-shrink-0"
           aria-label="Go to home page"
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/logo.webp"
-            alt="Viacheslav Danilov"
-            width={40}
-            height={40}
-            className="object-contain"
-            style={{
-              width: "40px",
-              height: "40px",
-              display: "block",
-            }}
-          />
+          <div className="relative h-10 w-10">
+            <Image
+              src="/logo.webp"
+              alt="Viacheslav Danilov"
+              fill
+              sizes="40px"
+              priority
+              className="object-contain"
+            />
+          </div>
         </Link>
 
         {/* Desktop Navigation Links */}
