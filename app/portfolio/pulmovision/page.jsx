@@ -22,7 +22,7 @@ import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
 
 export const metadata = {
-  title: "PulmoVision – Viacheslav Danilov",
+  title: "PulmoVision",
   description:
     "Explainable AI framework for detecting pulmonary edema features in chest X-rays using deep learning segmentation and object detection networks.",
 };

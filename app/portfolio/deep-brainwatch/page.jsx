@@ -23,7 +23,7 @@ import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
 
 export const metadata = {
-  title: "Deep BrainWatch – Viacheslav Danilov",
+  title: "Deep BrainWatch",
   description:
     "Non-invasive ICP monitoring using deep learning on cerebral blood flow signals. Achieved 71% predictions within ±6 mmHg in the clinically critical 0–15 mmHg range.",
 };

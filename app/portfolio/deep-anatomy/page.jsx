@@ -22,7 +22,7 @@ import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
 
 export const metadata = {
-  title: "Deep Anatomy – Viacheslav Danilov",
+  title: "Deep Anatomy",
   description:
     "High-precision 3D organ segmentation via V-net architecture with dense skip connections. Achieved up to 96% Dice score, outperforming 11 benchmark models.",
 };

@@ -22,7 +22,7 @@ import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
 
 export const metadata = {
-  title: "HyperVision Ablation – Viacheslav Danilov",
+  title: "HyperVision Ablation",
   description:
     "ML workflow for tissue ablation assessment in hyperspectral imaging. Combines PCA, t-SNE, Faster R-CNN, and Mean Shift clustering for automated segmentation.",
 };

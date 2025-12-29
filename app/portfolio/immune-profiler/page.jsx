@@ -22,7 +22,7 @@ import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
 
 export const metadata = {
-  title: "Immune Profiler – Viacheslav Danilov",
+  title: "Immune Profiler",
   description:
     "ML-driven workflow for tumor immune phenotype classification. Achieved 89% F1-score classifying immune inflamed, excluded, and desert phenotypes from histopathology images.",
 };

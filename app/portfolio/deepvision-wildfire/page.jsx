@@ -22,7 +22,7 @@ import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
 
 export const metadata = {
-  title: "DeepVision Wildfire – Viacheslav Danilov",
+  title: "DeepVision Wildfire",
   description:
     "Deep learning wildfire detection system combining EfficientDet and CNN-RNN for real-time smoke detection in Siberian forests. Achieved 95.6% accuracy and 94% F1-score.",
 };

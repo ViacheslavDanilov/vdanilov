@@ -22,7 +22,7 @@ import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
 
 export const metadata = {
-  title: "SonoGuide – Viacheslav Danilov",
+  title: "SonoGuide",
   description:
     "Deep learning solution for surgical tool segmentation in 3D ultrasound, achieving 93.6% Dice score for real-time catheter localization during minimally invasive cardiac surgery.",
 };

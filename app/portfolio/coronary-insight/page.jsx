@@ -22,7 +22,7 @@ import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
 
 export const metadata = {
-  title: "Coronary Insight – Viacheslav Danilov",
+  title: "Coronary Insight",
   description:
     "Deep learning pipeline for OCT plaque segmentation and cardiovascular risk assessment. Achieved 88.2% weighted Dice score using hybrid ensemble of neural networks.",
 };
