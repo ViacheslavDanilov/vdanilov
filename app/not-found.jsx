@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHouse, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 export default function NotFound() {
   const router = useRouter();
@@ -40,14 +42,7 @@ export default function NotFound() {
                          px-6 py-3 rounded-full bg-accent text-dark font-medium
                          hover:bg-accent/90 transition-all duration-300 hover:scale-[1.02]"
             >
-              <svg
-                className="w-4 h-4"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                aria-hidden="true"
-              >
-                <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
-              </svg>
+              <FontAwesomeIcon icon={faHouse} className="w-4 h-4" />
               Take Me Home
             </Link>
 
@@ -58,20 +53,10 @@ export default function NotFound() {
                          border border-white/20 hover:bg-white/5 cursor-pointer
                          transition-all duration-300 hover:scale-[1.02]"
             >
-              <svg
+              <FontAwesomeIcon
+                icon={faArrowLeft}
                 className="w-4 h-4 transition-transform group-hover:-translate-x-1"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M10 19l-7-7m0 0l7-7m-7 7h18"
-                />
-              </svg>
+              />
               Go Back
             </button>
           </div>
