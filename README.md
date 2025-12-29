@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="public/readme-banner.png" alt="Banner" width="100%" />
+  <img src="public/profile.png" alt="Viacheslav Danilov" width="200" />
 </p>
 
 <h1 align="center">Viacheslav Danilov</h1>
