@@ -164,7 +164,7 @@ function Footer() {
         {/* Copyright */}
         <Container>
           <div className="pt-6 border-t border-light/10 text-center">
-            <p className="text-sm text-gray-400">
+            <p className="text-sm text-gray-400" suppressHydrationWarning>
               © {new Date().getFullYear()} Viacheslav Danilov • All rights
               reserved
             </p>
@@ -196,7 +196,7 @@ function Footer() {
             Bridging scientific research and industrial innovation through
             advanced AI and machine learning solutions
           </p>
-          <p className="text-sm text-gray-400 pt-4">
+          <p className="text-sm text-gray-400 pt-4" suppressHydrationWarning>
             © {new Date().getFullYear()} Viacheslav Danilov • All rights
             reserved
           </p>
