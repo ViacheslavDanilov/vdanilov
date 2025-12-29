@@ -1,6 +1,11 @@
+"use client";
+
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function NotFound() {
+  const router = useRouter();
+
   return (
     <div className="min-h-[80vh] flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-12">
       <div className="w-full max-w-4xl mx-auto text-center">
@@ -46,8 +51,8 @@ export default function NotFound() {
               Take Me Home
             </Link>
 
-            <a
-              href="javascript:history.back()"
+            <button
+              onClick={() => router.back()}
               className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 
                          px-6 py-3 rounded-full bg-transparent text-light font-medium
                          border border-white/20 hover:bg-white/5 cursor-pointer
@@ -68,7 +73,7 @@ export default function NotFound() {
                 />
               </svg>
               Go Back
-            </a>
+            </button>
           </div>
 
           {/* Contact link */}
