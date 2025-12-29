@@ -1,10 +1,21 @@
 "use client";
 
-import React from "react";
+import React, { useState, useMemo } from "react";
+import { AnimatePresence, motion } from "motion/react";
 import PublicationCard from "@/components/PublicationCard";
+import { Tab } from "@/components/ui/tab";
+import {
+  faLayerGroup,
+  faStar,
+  faBook,
+  faUsers,
+  faPenNib,
+  faDatabase,
+} from "@fortawesome/free-solid-svg-icons";
 
-// Journal Articles Data
-const JOURNAL_ARTICLES = [
+// All publications data with category and featured fields
+const PUBLICATIONS_DATA = [
+  // Journal Articles
   {
     id: "journal-1",
     title:
@@ -13,6 +24,8 @@ const JOURNAL_ARTICLES = [
     year: "2025",
     url: "https://doi.org/10.1016/j.compbiomed.2025.111061",
     type: "Journal",
+    category: "Journal",
+    featured: true,
     tags: ["Computer Vision", "Medical Imaging", "Deep Learning"],
   },
   {
@@ -23,6 +36,8 @@ const JOURNAL_ARTICLES = [
     year: "2025",
     url: "https://doi.org/10.3389/fcvm.2025.1602780",
     type: "Journal",
+    category: "Journal",
+    featured: false,
     tags: ["Segmentation", "Medical Imaging", "Cardiology"],
   },
   {
@@ -33,6 +48,8 @@ const JOURNAL_ARTICLES = [
     year: "2024",
     url: "https://doi.org/10.1016/j.compbiomed.2024.108849",
     type: "Journal",
+    category: "Journal",
+    featured: false,
     tags: ["Machine Learning", "Hyperspectral Imaging", "Medical Imaging"],
   },
   {
@@ -43,6 +60,8 @@ const JOURNAL_ARTICLES = [
     year: "2024",
     url: "https://doi.org/10.3389/fbioe.2024.1411680",
     type: "Journal",
+    category: "Journal",
+    featured: false,
     tags: ["Machine Learning", "Bioengineering", "Histology"],
   },
   {
@@ -53,6 +72,8 @@ const JOURNAL_ARTICLES = [
     year: "2024",
     url: "https://doi.org/10.1093/radadv/umae003",
     type: "Journal",
+    category: "Journal",
+    featured: false,
     tags: ["Explainable AI", "Radiology", "Deep Learning"],
   },
   {
@@ -63,6 +84,8 @@ const JOURNAL_ARTICLES = [
     year: "2023",
     url: "https://doi.org/10.3389/fbioe.2023.1238130",
     type: "Journal",
+    category: "Journal",
+    featured: false,
     tags: ["Generative Design", "Optimization", "Biomedical Engineering"],
   },
   {
@@ -72,6 +95,8 @@ const JOURNAL_ARTICLES = [
     year: "2023",
     url: "https://doi.org/10.1016/j.compmedimag.2023.102188",
     type: "Journal",
+    category: "Journal",
+    featured: false,
     tags: ["Data Augmentation", "Medical Imaging", "Segmentation"],
   },
   {
@@ -82,6 +107,8 @@ const JOURNAL_ARTICLES = [
     year: "2023",
     url: "https://doi.org/10.3390/jcdd10020039",
     type: "Journal",
+    category: "Journal",
+    featured: false,
     tags: ["Neural Networks", "COVID-19", "Clinical Prediction"],
   },
   {
@@ -92,6 +119,8 @@ const JOURNAL_ARTICLES = [
     year: "2022",
     url: "https://doi.org/10.3390/robotics11060128",
     type: "Journal",
+    category: "Journal",
+    featured: false,
     tags: ["Robotics", "Inverse Kinematics", "Algorithms"],
   },
   {
@@ -102,6 +131,8 @@ const JOURNAL_ARTICLES = [
     year: "2022",
     url: "https://doi.org/10.1038/s41598-022-15013-z",
     type: "Journal",
+    category: "Journal",
+    featured: false,
     tags: ["Deep Learning", "COVID-19", "Medical Imaging"],
   },
   {
@@ -112,6 +143,8 @@ const JOURNAL_ARTICLES = [
     year: "2022",
     url: "https://doi.org/10.1016/j.imu.2021.100835",
     type: "Journal",
+    category: "Journal",
+    featured: false,
     tags: ["Weakly Supervised Learning", "COVID-19", "Classification"],
   },
   {
@@ -122,6 +155,8 @@ const JOURNAL_ARTICLES = [
     year: "2021",
     url: "https://doi.org/10.3389/fcvm.2021.697737",
     type: "Journal",
+    category: "Journal",
+    featured: false,
     tags: ["Multi-Task Learning", "Medical Imaging", "Keypoint Detection"],
   },
   {
@@ -132,6 +167,8 @@ const JOURNAL_ARTICLES = [
     year: "2021",
     url: "https://doi.org/10.1038/s41598-021-87174-2",
     type: "Journal",
+    category: "Journal",
+    featured: true,
     tags: ["Real-Time Detection", "Neural Networks", "Cardiology"],
   },
   {
@@ -141,12 +178,11 @@ const JOURNAL_ARTICLES = [
     year: "2020",
     url: "https://doi.org/10.1016/j.bspc.2019.101681",
     type: "Journal",
+    category: "Journal",
+    featured: false,
     tags: ["Feature Selection", "Signal Processing", "Algorithms"],
   },
-];
-
-// Conference Proceedings Data
-const CONFERENCE_PROCEEDINGS = [
+  // Conference Proceedings
   {
     id: "conference-1",
     title:
@@ -156,6 +192,8 @@ const CONFERENCE_PROCEEDINGS = [
     year: "2025",
     url: "https://doi.org/10.1364/ECBO.2025.W5B.5",
     type: "Conference",
+    category: "Conference",
+    featured: true,
     tags: ["Biophotonics", "Deep Learning", "Medical Devices"],
   },
   {
@@ -167,39 +205,47 @@ const CONFERENCE_PROCEEDINGS = [
     year: "2025",
     url: "https://doi.org/10.1364/ECBO.2025.S4F.2",
     type: "Conference",
+    category: "Conference",
+    featured: false,
     tags: ["Biophotonics", "Clinical Study", "Hydrocephalus"],
   },
   {
     id: "conference-3",
     title:
-      "Hybrid convolutional and recurrent neural network for non-invasive ICP estimation from CBF", // "Hybrid convolutional and recurrent neural network for non-invasive intracranial pressure estimation from cerebral blood flow"
+      "Hybrid convolutional and recurrent neural network for non-invasive ICP estimation from CBF",
     venue: "Optica Biophotonics Congress",
     location: "Miami, United States 🇺🇸",
     year: "2024",
     url: "https://doi.org/10.1364/brain.2024.btu3c.7",
     type: "Conference",
+    category: "Conference",
+    featured: false,
     tags: ["Time Series", "Deep Learning", "Biomedical Optics"],
   },
   {
     id: "conference-4",
     title:
       "Boosting segmentation accuracy of the deep learning models based on the synthetic data generation",
-    venue: "ISPRS Workshop on Computer Vision Techniques", // International Workshop on Photogrammetric & Computer Vision Techniques
+    venue: "ISPRS Workshop on Computer Vision Techniques",
     location: "Moscow, Russia 🇷🇺",
     year: "2021",
     url: "https://doi.org/10.5194/isprs-archives-xliv-2-w1-2021-33-2021",
     type: "Conference",
+    category: "Conference",
+    featured: true,
     tags: ["Synthetic Data", "Deep Learning", "Medical Imaging"],
   },
   {
     id: "conference-5",
     title:
       "Comparative study of deep learning models for automatic coronary stenosis detection",
-    venue: "GraphiCon", // International Conference on Computer Graphics and Vision
+    venue: "GraphiCon",
     location: "Saint Petersburg, Russia 🇷🇺",
     year: "2020",
     url: "https://doi.org/10.51130/graphicon-2020-2-3-75",
     type: "Conference",
+    category: "Conference",
+    featured: false,
     tags: ["Deep Learning", "Medical Imaging", "Stenosis Detection"],
   },
   {
@@ -210,12 +256,11 @@ const CONFERENCE_PROCEEDINGS = [
     year: "2019",
     url: "https://ieeexplore.ieee.org/document/8624888",
     type: "Conference",
+    category: "Conference",
+    featured: false,
     tags: ["Robotics", "Inverse Kinematics", "Continuum Robots"],
   },
-];
-
-// Posts Data
-const POSTS = [
+  // Blog Posts
   {
     id: "post-1",
     title:
@@ -224,6 +269,8 @@ const POSTS = [
     year: "2025",
     url: "https://symfa.com/blog/ai-low-code-tools",
     type: "Blog Post",
+    category: "Blog Post",
+    featured: true,
     tags: ["AI Tools", "Low-Code", "Product Development"],
   },
   {
@@ -233,6 +280,8 @@ const POSTS = [
     year: "2025",
     url: "https://www.linkedin.com/posts/viacheslav-danilov_the-future-of-business-challenges-activity-7315342704802959379-spfI",
     type: "Blog Post",
+    category: "Blog Post",
+    featured: false,
     tags: ["AI Development", "Leadership", "Digital Transformation"],
   },
   {
@@ -243,6 +292,8 @@ const POSTS = [
     year: "2025",
     url: "https://symfa.com/blog/top-skills-in-demand-in-gig-economy",
     type: "Blog Post",
+    category: "Blog Post",
+    featured: false,
     tags: ["Data Analysis", "Tech Trends", "Market Research"],
   },
   {
@@ -253,6 +304,8 @@ const POSTS = [
     year: "2025",
     url: "https://symfa.com/blog/insights-and-trends-in-the-gig-economy",
     type: "Blog Post",
+    category: "Blog Post",
+    featured: false,
     tags: ["Data Analysis", "Tech Trends", "Market Research"],
   },
   {
@@ -263,6 +316,8 @@ const POSTS = [
     year: "2024",
     url: "https://medium.com/@symfa_stories/from-data-chaos-to-clarity-streamlining-a-freelance-platform-dataset-96534c6af1fc",
     type: "Blog Post",
+    category: "Blog Post",
+    featured: false,
     tags: ["Data Engineering", "ETL Pipeline", "Data Science"],
   },
   {
@@ -273,12 +328,11 @@ const POSTS = [
     year: "2024",
     url: "https://quantori.com/blog/harnessing-ai-for-histopathology-a-leap-towards-precision-medicine",
     type: "Blog Post",
+    category: "Blog Post",
+    featured: true,
     tags: ["Digital Pathology", "Precision Medicine", "Medical AI"],
   },
-];
-
-// Datasets Data
-const DATASETS = [
+  // Datasets
   {
     id: "dataset-1",
     title:
@@ -287,6 +341,8 @@ const DATASETS = [
     year: "2025",
     url: "https://doi.org/10.5281/zenodo.14478209",
     type: "Dataset",
+    category: "Dataset",
+    featured: false,
     tags: ["OCT Imaging", "Atherosclerosis", "Segmentation"],
   },
   {
@@ -297,6 +353,8 @@ const DATASETS = [
     year: "2024",
     url: "https://doi.org/10.5281/zenodo.10838383",
     type: "Dataset",
+    category: "Dataset",
+    featured: false,
     tags: ["Histology", "Vascular Grafts", "Segmentation"],
   },
   {
@@ -307,6 +365,8 @@ const DATASETS = [
     year: "2023",
     url: "https://doi.org/10.5281/zenodo.10444212",
     type: "Dataset",
+    category: "Dataset",
+    featured: false,
     tags: ["Hyperspectral Imaging", "Laser Ablation", "Medical Imaging"],
   },
   {
@@ -317,6 +377,8 @@ const DATASETS = [
     year: "2023",
     url: "https://doi.org/10.5281/zenodo.8383776",
     type: "Dataset",
+    category: "Dataset",
+    featured: false,
     tags: ["Chest X-ray", "Pulmonary Edema", "Segmentation"],
   },
   {
@@ -326,6 +388,8 @@ const DATASETS = [
     year: "2022",
     url: "http://doi.org/10.17632/36fjrg9s69.1",
     type: "Dataset",
+    category: "Dataset",
+    featured: false,
     tags: ["COVID-19", "Chest X-ray", "Severity Scoring"],
   },
   {
@@ -335,6 +399,8 @@ const DATASETS = [
     year: "2022",
     url: "http://doi.org/10.17632/8gf9vpkhgy.1",
     type: "Dataset",
+    category: "Dataset",
+    featured: true,
     tags: ["Chest X-ray", "Lung Segmentation", "Medical Imaging"],
   },
   {
@@ -344,6 +410,8 @@ const DATASETS = [
     year: "2021",
     url: "https://doi.org/10.17632/ydrm75xywg.2",
     type: "Dataset",
+    category: "Dataset",
+    featured: true,
     tags: ["Angiography", "Stenosis Detection", "Cardiology"],
   },
   {
@@ -353,104 +421,107 @@ const DATASETS = [
     year: "2021",
     url: "https://doi.org/10.17632/pgynfy766g.2",
     type: "Dataset",
+    category: "Dataset",
+    featured: false,
     tags: ["Aortography", "TAVI", "Keypoint Tracking"],
   },
 ];
 
+const FILTER_OPTIONS = [
+  { id: "all", label: "All", icon: faLayerGroup },
+  { id: "featured", label: "Featured", icon: faStar },
+  { id: "Journal", label: "Journal", icon: faBook },
+  { id: "Conference", label: "Conference", icon: faUsers },
+  { id: "Blog Post", label: "Blog Post", icon: faPenNib },
+  { id: "Dataset", label: "Dataset", icon: faDatabase },
+];
+
 export default function Publications() {
+  const [activeFilter, setActiveFilter] = useState("all");
+
+  const filteredPublications = useMemo(() => {
+    if (activeFilter === "all") {
+      return PUBLICATIONS_DATA;
+    }
+    if (activeFilter === "featured") {
+      return PUBLICATIONS_DATA.filter((pub) => pub.featured);
+    }
+    return PUBLICATIONS_DATA.filter((pub) => pub.category === activeFilter);
+  }, [activeFilter]);
+
+  const getCounts = useMemo(() => {
+    const counts = {
+      all: PUBLICATIONS_DATA.length,
+      featured: PUBLICATIONS_DATA.filter((pub) => pub.featured).length,
+    };
+    FILTER_OPTIONS.forEach((option) => {
+      if (option.id !== "all" && option.id !== "featured") {
+        counts[option.id] = PUBLICATIONS_DATA.filter(
+          (pub) => pub.category === option.id,
+        ).length;
+      }
+    });
+    return counts;
+  }, []);
+
   return (
     <main className="min-h-screen pt-24">
       <div className="flex flex-col items-center pt-12 md:pt-24 gap-36 pb-48">
-        {/* Journal Articles Section */}
+        {/* Header Section */}
         <section className="w-full max-w-7xl mx-auto px-6">
-          <header className="mb-12 text-center">
+          <header className="mb-8 text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-light mb-4">
-              Journal Articles
+              Publications
             </h1>
             <p className="text-gray-400 mt-3 max-w-3xl mx-auto leading-relaxed">
-              Peer-reviewed research published in leading scientific journals,
-              advancing the intersection of machine learning, biomedical
-              imaging, and data-driven healthcare innovation
+              Peer-reviewed research, conference proceedings, technical
+              articles, and open-access datasets spanning machine learning,
+              computer vision, data science, and applied AI
             </p>
           </header>
 
+          {/* Filter Buttons */}
+          <div className="flex flex-wrap justify-center gap-2 mb-12">
+            {FILTER_OPTIONS.map((option) => (
+              <Tab
+                key={option.id}
+                text={`${option.label} (${getCounts[option.id]})`}
+                icon={option.icon}
+                selected={activeFilter === option.id}
+                setSelected={() => setActiveFilter(option.id)}
+                layoutId="publications-filter"
+              />
+            ))}
+          </div>
+
+          {/* Publications Grid */}
           <div
             className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:items-start"
             role="list"
           >
-            {JOURNAL_ARTICLES.map((publication) => (
-              <PublicationCard key={publication.id} publication={publication} />
-            ))}
+            <AnimatePresence mode="popLayout">
+              {filteredPublications.map((publication) => (
+                <motion.div
+                  key={publication.id}
+                  layout
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  transition={{ duration: 0.3 }}
+                  role="listitem"
+                >
+                  <PublicationCard publication={publication} />
+                </motion.div>
+              ))}
+            </AnimatePresence>
           </div>
-        </section>
 
-        {/* Conference Proceedings Section */}
-        <section className="w-full max-w-7xl mx-auto px-6">
-          <header className="mb-12 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-light mb-4">
-              Conference Proceedings
-            </h1>
-            <p className="text-gray-400 mt-3 max-w-3xl mx-auto leading-relaxed">
-              Presentations and papers from international conferences,
-              showcasing emerging research, collaborative insights, and
-              domain-specific AI applications across academia and industry
+          {/* Empty State */}
+          {filteredPublications.length === 0 && (
+            <p className="text-center text-gray-500 italic py-12">
+              No publications found for this category.
             </p>
-          </header>
-
-          <div
-            className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:items-start"
-            role="list"
-          >
-            {CONFERENCE_PROCEEDINGS.map((publication) => (
-              <PublicationCard key={publication.id} publication={publication} />
-            ))}
-          </div>
-        </section>
-
-        {/* Posts Section */}
-        <section className="w-full max-w-7xl mx-auto px-6">
-          <header className="mb-12 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-light mb-4">
-              Posts
-            </h1>
-            <p className="text-gray-400 mt-3 max-w-3xl mx-auto leading-relaxed">
-              Technical articles and thought leadership pieces bridging applied
-              ML, research-to-product translation, and strategic AI adoption for
-              professional audiences
-            </p>
-          </header>
-
-          <div
-            className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:items-start"
-            role="list"
-          >
-            {POSTS.map((publication) => (
-              <PublicationCard key={publication.id} publication={publication} />
-            ))}
-          </div>
-        </section>
-
-        {/* Datasets Section */}
-        <section className="w-full max-w-7xl mx-auto px-6">
-          <header className="mb-12 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-light mb-4">
-              Datasets
-            </h1>
-            <p className="text-gray-400 mt-3 max-w-3xl mx-auto leading-relaxed">
-              Curated open-access datasets supporting reproducible research in
-              AI and biomedicine, built with rigorous annotation standards to
-              enable validation, benchmarking, and novel discovery
-            </p>
-          </header>
-
-          <div
-            className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:items-start"
-            role="list"
-          >
-            {DATASETS.map((publication) => (
-              <PublicationCard key={publication.id} publication={publication} />
-            ))}
-          </div>
+          )}
         </section>
       </div>
     </main>
