@@ -12,7 +12,7 @@ const liquidButtonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-transparent hover:scale-[0.99] active:scale-[0.97] duration-300 transition text-light",
+          "bg-transparent hover:scale-[0.995] active:scale-[0.98] duration-300 transition text-light",
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",
@@ -108,13 +108,14 @@ export function LiquidButton({
       {/* Glass blur backdrop */}
       <div
         className="absolute top-0 left-0 isolate -z-10 h-full w-full overflow-hidden rounded-full"
-        style={{ backdropFilter: 'url("#container-glass")' }}
+        style={{
+          backdropFilter: "blur(12px)",
+          WebkitBackdropFilter: "blur(12px)",
+        }}
       />
 
       {/* Button content */}
       <div className="pointer-events-none z-10">{children}</div>
-
-      <GlassFilter />
     </Comp>
   );
 }
@@ -154,15 +155,16 @@ export function LiquidButtonLink({
       {/* Glass blur backdrop */}
       <div
         className="absolute top-0 left-0 isolate -z-10 h-full w-full overflow-hidden rounded-full"
-        style={{ backdropFilter: 'url("#container-glass")' }}
+        style={{
+          backdropFilter: "blur(12px)",
+          WebkitBackdropFilter: "blur(12px)",
+        }}
       />
 
       {/* Button content */}
       <div className={cn("pointer-events-none z-10", textClassName)}>
         {children}
       </div>
-
-      <GlassFilter />
     </a>
   );
 }
