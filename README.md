@@ -9,8 +9,8 @@
 </p>
 
 <p align="center">
-  <a href="https://vdanilov.vercel.app">
-    <img src="https://img.shields.io/badge/🌐_Live_Site-vdanilov.vercel.app-8B5CF6?style=for-the-badge" alt="Live Site" />
+  <a href="https://vdanilov.com">
+    <img src="https://img.shields.io/badge/🌐_Live_Site-vdanilov.com-10B981?style=for-the-badge" alt="Live Site" />
   </a>
 </p>
 
