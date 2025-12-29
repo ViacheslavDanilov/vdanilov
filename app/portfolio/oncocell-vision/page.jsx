@@ -56,7 +56,7 @@ const TEAM_MEMBERS = [
     role: "Senior Data Scientist",
     organization: "Quantori",
     location: "Cambridge · United States 🇺🇸",
-    photo: "/portfolio/team/viacheslav-danilov.webp",
+    photo: "/people/viacheslav-danilov.webp",
     links: {
       linkedin: "https://www.linkedin.com/in/viacheslav-danilov/",
       github: "https://github.com/ViacheslavDanilov",
@@ -70,7 +70,7 @@ const TEAM_MEMBERS = [
     role: "Senior ML Engineer",
     organization: "Quantori",
     location: "Cambridge · United States 🇺🇸",
-    photo: "/portfolio/team/oleg-talalov.webp",
+    photo: "/people/oleg-talalov.webp",
     links: {
       linkedin: "https://www.linkedin.com/in/olegtalalov/",
       github: "https://github.com/olegtalalov",
@@ -82,7 +82,7 @@ const TEAM_MEMBERS = [
     role: "Data Scientist",
     organization: "Quantori",
     location: "Cambridge · United States 🇺🇸",
-    photo: "/portfolio/team/vladislav-laptev.webp",
+    photo: "/people/vladislav-laptev.webp",
     links: {
       globe: "https://loop.frontiersin.org/people/2713564/overview",
       github: "https://github.com/vladislavml",
@@ -95,7 +95,7 @@ const TEAM_MEMBERS = [
     role: "Senior Bioinformatician",
     organization: "Volastra Therapeutics",
     location: "New York · United States 🇺🇸",
-    photo: "/portfolio/team/akanksha-verma.webp",
+    photo: "/people/akanksha-verma.webp",
     links: {
       globe: "https://www.statnews.com/wunderkinds-2021/akanksha-verma/",
       linkedin: "https://www.linkedin.com/in/akanksha-verma-49752160/",
@@ -109,7 +109,7 @@ const TEAM_MEMBERS = [
     role: "Lead Bioinformatician",
     organization: "Volastra Therapeutics",
     location: "New York · United States 🇺🇸",
-    photo: "/portfolio/team/christina-eng.webp",
+    photo: "/people/christina-eng.webp",
     links: {
       globe: "https://www.volastratx.com/our-team/christina-eng/",
       linkedin: "https://www.linkedin.com/in/christina-eng-4840546/",

@@ -22,7 +22,7 @@ const REFERENCES_DATA = [
     organization: "Christabel Pankhurst Institute",
     location: "Manchester · United Kingdom 🇬🇧",
     category: "Research",
-    image: "/references/alex-frangi.webp",
+    image: "/people/alex-frangi.webp",
     featured: true,
     socials: {
       website: "https://research.manchester.ac.uk/en/persons/alejandro-frangi",
@@ -39,7 +39,7 @@ const REFERENCES_DATA = [
     organization: "Sorbonne University",
     location: "Paris · France 🇫🇷",
     category: "Research",
-    image: "/references/lori-bridal.webp",
+    image: "/people/lori-bridal.webp",
     featured: false,
     socials: {
       website: "https://ieee-uffc.org/contact/s-lori-bridal",
@@ -56,7 +56,7 @@ const REFERENCES_DATA = [
     organization: "Politecnico di Milano",
     location: "Milan · Italy 🇮🇹",
     category: "Research",
-    image: "/references/paola-saccomandi.webp",
+    image: "/people/paola-saccomandi.webp",
     featured: false,
     socials: {
       website: "https://www.mecc.polimi.it/en/staff/paola.saccomandi",
@@ -74,7 +74,7 @@ const REFERENCES_DATA = [
     organization: "University of Trento",
     location: "Trento · Italy 🇮🇹",
     category: "Research",
-    image: "/references/farid-melgani.webp",
+    image: "/people/farid-melgani.webp",
     featured: true,
     socials: {
       website: "https://webapps.unitn.it/du/en/Persona/PER0004197/Didattica",
@@ -92,7 +92,7 @@ const REFERENCES_DATA = [
     organization: "Pompeu Fabra University",
     location: "Barcelona · Spain 🇪🇸",
     category: "Research",
-    image: "/references/gemma-piella.webp",
+    image: "/people/gemma-piella.webp",
     featured: true,
     socials: {
       website: "https://memoir.icrea.cat/academia_awardees/piella-gemma/",
@@ -110,7 +110,7 @@ const REFERENCES_DATA = [
     organization: "Institute of Photonic Sciences",
     location: "Barcelona · Spain 🇪🇸",
     category: "Research",
-    image: "/references/turgut-durduran.webp",
+    image: "/people/turgut-durduran.webp",
     featured: false,
     socials: {
       website: "https://www.icrea.cat/community/icreas/16857/turgut-durduran/",
@@ -128,7 +128,7 @@ const REFERENCES_DATA = [
     organization: "Technical University of Madrid",
     location: "Madrid · Spain 🇪🇸",
     category: "Research",
-    image: "/references/maria-ledesma.webp",
+    image: "/people/maria-ledesma.webp",
     featured: false,
     socials: {
       website: "https://ieeexplore.ieee.org/author/37327193600",
@@ -147,7 +147,7 @@ const REFERENCES_DATA = [
     organization: "Kemerovo Cardiology Center",
     location: "Kemerovo · Russia 🇷🇺",
     category: "Medicine",
-    image: "/references/evgeny-ovcharenko.webp",
+    image: "/people/evgeny-ovcharenko.webp",
     featured: false,
     socials: {
       website: "https://loop.frontiersin.org/people/355364",
@@ -165,7 +165,7 @@ const REFERENCES_DATA = [
     organization: "Harvard University",
     location: "Boston · United States 🇺🇸",
     category: "Medicine",
-    image: "/references/diana-litmanovich.webp",
+    image: "/people/diana-litmanovich.webp",
     featured: true,
     socials: {
       website:
@@ -184,7 +184,7 @@ const REFERENCES_DATA = [
     organization: "Pfizer",
     location: "Denver · United States 🇺🇸",
     category: "Medicine",
-    image: "/references/nikolay-vasilyev.webp",
+    image: "/people/nikolay-vasilyev.webp",
     featured: false,
     socials: {
       website: "https://www.ctsnet.org/home/nvasiliev",
@@ -203,7 +203,7 @@ const REFERENCES_DATA = [
     organization: "Quantori",
     location: "Cambridge · United States 🇺🇸",
     category: "Industry",
-    image: "/references/yuriy-gankin.webp",
+    image: "/people/yuriy-gankin.webp",
     featured: true,
     socials: {
       website: "https://quantori.com/about/yuriy-gankin",
@@ -220,7 +220,7 @@ const REFERENCES_DATA = [
     organization: "Centaur Labs",
     location: "Boston · United States 🇺🇸",
     category: "Industry",
-    image: "/references/efim-furman.webp",
+    image: "/people/efim-furman.webp",
     featured: true,
     socials: {
       facebook: "https://www.facebook.com/efim.furman",

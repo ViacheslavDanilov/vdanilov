@@ -4,15 +4,6 @@ import React, { useState, useMemo } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import PortfolioCard from "@/components/PortfolioCard";
 import { Tab } from "@/components/ui/tab";
-import {
-  faChartLine,
-  faGears,
-  faHeartPulse,
-  faLayerGroup,
-  faMicroscope,
-  faStar,
-  faXRay,
-} from "@fortawesome/free-solid-svg-icons";
 
 // Project data with date and featured fields
 const PROJECTS_DATA = [

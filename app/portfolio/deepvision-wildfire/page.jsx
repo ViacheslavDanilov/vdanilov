@@ -56,7 +56,7 @@ const TEAM_MEMBERS = [
     role: "Research Supervisor",
     organization: "Tomsk Polytechnic University",
     location: "Tomsk · Russia 🇷🇺",
-    photo: "/portfolio/team/viacheslav-danilov.webp",
+    photo: "/people/viacheslav-danilov.webp",
     links: {
       linkedin: "https://www.linkedin.com/in/viacheslav-danilov/",
       github: "https://github.com/ViacheslavDanilov",
@@ -70,7 +70,7 @@ const TEAM_MEMBERS = [
     role: "ML Engineer",
     organization: "Tomsk Polytechnic University",
     location: "Tomsk · Russia 🇷🇺",
-    photo: "/portfolio/team/nikita-laptev.webp",
+    photo: "/people/nikita-laptev.webp",
     links: {
       globe: "https://ieeexplore.ieee.org/author/37086602301",
       researchgate:
@@ -83,7 +83,7 @@ const TEAM_MEMBERS = [
     role: "Data Scientist",
     organization: "Tomsk Polytechnic University",
     location: "Tomsk · Russia 🇷🇺",
-    photo: "/portfolio/team/vladislav-laptev.webp",
+    photo: "/people/vladislav-laptev.webp",
     links: {
       globe: "https://loop.frontiersin.org/people/2713564/overview",
       github: "https://github.com/vladislavml",
@@ -96,7 +96,7 @@ const TEAM_MEMBERS = [
     role: "Software Developer",
     organization: "Tomsk Polytechnic University",
     location: "Tomsk · Russia 🇷🇺",
-    photo: "/portfolio/team/john-doe.webp",
+    photo: "/people/john-doe.webp",
     links: {
       researchgate: "https://www.researchgate.net/profile/Andrey-Kravchenko-4",
       email: "kravch2013@yandex.ru",
@@ -107,7 +107,7 @@ const TEAM_MEMBERS = [
     role: "Professor",
     organization: "Tomsk Polytechnic University",
     location: "Tomsk · Russia 🇷🇺",
-    photo: "/portfolio/team/jane-doe.webp",
+    photo: "/people/jane-doe.webp",
     links: {
       globe: "https://ieeexplore.ieee.org/author/37086166435",
       orcid: "https://orcid.org/0000-0002-6242-9502",

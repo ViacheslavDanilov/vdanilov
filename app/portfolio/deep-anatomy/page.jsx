@@ -56,7 +56,7 @@ const TEAM_MEMBERS = [
     role: "Research Scientist",
     organization: "Tomsk Polytechnic University",
     location: "Tomsk · Russia 🇷🇺",
-    photo: "/portfolio/team/viacheslav-danilov.webp",
+    photo: "/people/viacheslav-danilov.webp",
     links: {
       linkedin: "https://www.linkedin.com/in/viacheslav-danilov/",
       github: "https://github.com/ViacheslavDanilov",
@@ -70,7 +70,7 @@ const TEAM_MEMBERS = [
     role: "Professor",
     organization: "Tomsk Polytechnic University",
     location: "Tomsk · Russia 🇷🇺",
-    photo: "/portfolio/team/jane-doe.webp",
+    photo: "/people/jane-doe.webp",
     links: {
       globe: "https://ieeexplore.ieee.org/author/37086166435",
       orcid: "https://orcid.org/0000-0002-6242-9502",
@@ -83,7 +83,7 @@ const TEAM_MEMBERS = [
     role: "Cardiac Surgeon",
     organization: "Boston Children's Hospital",
     location: "Boston · United States 🇺🇸",
-    photo: "/portfolio/team/nikolay-vasilyev.webp",
+    photo: "/people/nikolay-vasilyev.webp",
     links: {
       globe: "https://www.ctsnet.org/home/nvasiliev",
       linkedin: "https://www.linkedin.com/in/nikolayvasilyev/",
@@ -97,7 +97,7 @@ const TEAM_MEMBERS = [
     role: "Professor",
     organization: "Technical University of Madrid",
     location: "Madrid · Spain 🇪🇸",
-    photo: "/portfolio/team/maria-ledesma.webp",
+    photo: "/people/maria-ledesma.webp",
     links: {
       globe: "https://ieeexplore.ieee.org/author/37327193600",
       linkedin: "https://www.linkedin.com/in/maria-j-ledesma-carbayo-440aa8275",
