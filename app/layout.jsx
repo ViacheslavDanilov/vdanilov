@@ -23,7 +23,7 @@ export const metadata = {
   description:
     "Personal website of Viacheslav Danilov, CTO and PhD in Computer Science. Expert in AI, Machine Learning, and R&D leadership, bridging the gap between scientific research and impactful industrial applications.",
   icons: {
-    icon: "/favicon.png",
+    icon: "/favicon.webp",
   },
 };
 
