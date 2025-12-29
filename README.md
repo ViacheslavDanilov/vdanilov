@@ -1,112 +1,47 @@
-# Personal Website
+<p align="center">
+  <img src="public/profile.png" alt="Viacheslav Danilov" width="200" />
+</p>
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=flat&logo=vercel)](https://vdanilov.vercel.app)
+<h1 align="center">Viacheslav Danilov</h1>
 
-> Live at: **https://vdanilov.vercel.app**
+<p align="center">
+  <strong>Personal Portfolio & Website</strong>
+</p>
 
-## What's here
+<p align="center">
+  <a href="https://vdanilov.vercel.app">
+    <img src="https://img.shields.io/badge/🌐_Live_Site-vdanilov.vercel.app-8B5CF6?style=for-the-badge" alt="Live Site" />
+  </a>
+</p>
 
-- Modern React application built with Next.js 16
-- Tailwind CSS v4 for styling
-- Framer Motion for animations
-- Responsive design with mobile-first approach
-- Deployed on Vercel with automatic preview deployments
+<p align="center">
+  <img src="https://img.shields.io/badge/Next.js-16-black?style=flat-square&logo=next.js" alt="Next.js" />
+  <img src="https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react" alt="React" />
+  <img src="https://img.shields.io/badge/Tailwind-4-38B2AC?style=flat-square&logo=tailwindcss" alt="Tailwind" />
+  <img src="https://img.shields.io/badge/Vercel-Deployed-black?style=flat-square&logo=vercel" alt="Vercel" />
+</p>
 
-## Install
+## ✨ Features
 
-1. Clone the repo:
+- **Modern Stack** — Built with Next.js 16, React 19, and Tailwind CSS v4
+- **Smooth Animations** — Powered by Framer Motion & GSAP
+- **Fully Responsive** — Mobile-first design that looks great everywhere
+- **Production Ready** — Deployed on Vercel with CI/CD
 
-```sh
+## 🚀 Quick Start
+
+```bash
+# Clone & install
 git clone https://github.com/ViacheslavDanilov/vdanilov.git
 cd vdanilov
-```
-
-2. Install Node.js (version 18+):
-
-https://nodejs.org/
-
-3. Install project dependencies:
-
-```sh
 npm install
-```
 
-## Development
-
-Start the development server with hot reload:
-
-```sh
+# Start development server
 npm run dev
 ```
 
-The site will be available at `http://localhost:3000`
+Open [localhost:3000](http://localhost:3000) to view the site.
 
-## Build
+## 📄 License
 
-Build for production:
-
-```sh
-npm run build
-```
-
-Start production server locally:
-
-```sh
-npm start
-```
-
-## Deployment
-
-The site is automatically deployed to Vercel:
-
-- **Production**: Pushes to `main` branch deploy to production
-- **Preview**: Pull requests get automatic preview deployments with unique URLs
-- **CI/CD**: Vercel handles build, optimization, and deployment automatically
-
-## Code Quality
-
-Format code with Prettier:
-
-```sh
-npm run format
-```
-
-Check code formatting:
-
-```sh
-npm run check
-```
-
-Pre-commit hooks automatically format staged files before each commit.
-
-## Testing
-
-End-to-end testing with Playwright across 13 configurations (Chromium, Firefox, WebKit, Chrome + 9 mobile devices).
-
-Run all tests:
-
-```sh
-npm run test:e2e
-```
-
-Run with interactive UI:
-
-```sh
-npm run test:e2e:ui
-```
-
-View test report:
-
-```sh
-npx playwright show-report
-```
-
-## Tech Stack
-
-- **Framework**: Next.js 16 (React 19)
-- **Styling**: Tailwind CSS v4
-- **Animations**: Framer Motion, GSAP
-- **Icons**: Font Awesome
-- **Deployment**: Vercel
-- **Testing**: Playwright
-- **Code Quality**: Prettier, Husky, lint-staged
+MIT © Viacheslav Danilov

@@ -1,8 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
-import Image from "next/image";
-import { AnimatedGradientButton } from "@/components/ui/animated-gradient-button";
+import React from "react";
+import { LiquidButtonLink } from "@/components/ui/liquid-button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faLinkedin,
@@ -151,25 +150,16 @@ const About = () => {
 
         {/* Contact Button */}
         <div className="pt-2">
-          <AnimatedGradientButton
+          <LiquidButtonLink
             href="https://wa.me/+34634810041"
             target="_blank"
             ariaLabel="Contact me"
-            className="text-base lg:text-lg font-medium"
+            size="xxl"
+            textClassName="text-sm"
           >
-            <>
-              <FontAwesomeIcon
-                icon={faWhatsapp}
-                className="mr-2 w-5 h-5"
-                style={{
-                  width: "1.25rem",
-                  height: "1.25rem",
-                  display: "inline-block",
-                }}
-              />
-              Contact me
-            </>
-          </AnimatedGradientButton>
+            <FontAwesomeIcon icon={faWhatsapp} className="w-4 h-4" />
+            &nbsp;Contact me
+          </LiquidButtonLink>
         </div>
       </div>
     </section>

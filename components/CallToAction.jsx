@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { GlowCard } from "@/components/ui/glow-card";
-import { AnimatedGradientButton } from "@/components/ui/animated-gradient-button";
+import { LiquidButtonLink } from "@/components/ui/liquid-button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
@@ -65,45 +65,29 @@ const CallToAction = ({
 
             {/* Contact Buttons */}
             <div className="flex flex-col sm:flex-row items-center gap-4 pt-2">
-              <AnimatedGradientButton
+              <LiquidButtonLink
                 href="mailto:viacheslav.danilov@gmail.com"
                 target="_blank"
                 ariaLabel="Send email"
-                className="text-base lg:text-lg font-medium w-full sm:w-auto"
+                size="xxl"
+                textClassName="text-sm"
+                className="w-full sm:w-auto"
               >
-                <>
-                  <FontAwesomeIcon
-                    icon={faEnvelope}
-                    className="mr-2 w-5 h-5"
-                    style={{
-                      width: "1.25rem",
-                      height: "1.25rem",
-                      display: "inline-block",
-                    }}
-                  />
-                  Email Me
-                </>
-              </AnimatedGradientButton>
+                <FontAwesomeIcon icon={faEnvelope} className="w-4 h-4" />
+                &nbsp;Email Me
+              </LiquidButtonLink>
 
-              <AnimatedGradientButton
+              <LiquidButtonLink
                 href="https://www.linkedin.com/in/viacheslav-danilov/"
                 target="_blank"
                 ariaLabel="Connect on LinkedIn"
-                className="text-base lg:text-lg font-medium w-full sm:w-auto"
+                size="xxl"
+                textClassName="text-sm"
+                className="w-full sm:w-auto"
               >
-                <>
-                  <FontAwesomeIcon
-                    icon={faLinkedin}
-                    className="mr-2 w-5 h-5"
-                    style={{
-                      width: "1.25rem",
-                      height: "1.25rem",
-                      display: "inline-block",
-                    }}
-                  />
-                  Connect on LinkedIn
-                </>
-              </AnimatedGradientButton>
+                <FontAwesomeIcon icon={faLinkedin} className="w-4 h-4" />
+                &nbsp;Connect on LinkedIn
+              </LiquidButtonLink>
             </div>
           </div>
         </div>
