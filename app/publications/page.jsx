@@ -428,8 +428,8 @@ const PUBLICATIONS_DATA = [
 ];
 
 const FILTER_OPTIONS = [
-  { id: "all", label: "All", icon: faLayerGroup },
   { id: "featured", label: "Featured", icon: faStar },
+  { id: "all", label: "All", icon: faLayerGroup },
   { id: "Journal", label: "Journal", icon: faBook },
   { id: "Conference", label: "Conference", icon: faUsers },
   { id: "Blog Post", label: "Blog Post", icon: faPenNib },

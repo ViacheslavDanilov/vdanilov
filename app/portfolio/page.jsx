@@ -200,14 +200,14 @@ const PROJECTS_DATA = [
 
 const FILTER_OPTIONS = [
   {
-    id: "all",
-    label: "All",
-    icon: "" /* faLayerGroup */,
-  },
-  {
     id: "featured",
     label: "Featured",
     icon: "" /* faStar */,
+  },
+  {
+    id: "all",
+    label: "All",
+    icon: "" /* faLayerGroup */,
   },
   {
     id: "medical-imaging",
