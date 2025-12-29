@@ -437,7 +437,7 @@ const FILTER_OPTIONS = [
 ];
 
 export default function Publications() {
-  const [activeFilter, setActiveFilter] = useState("all");
+  const [activeFilter, setActiveFilter] = useState("featured");
 
   const filteredPublications = useMemo(() => {
     if (activeFilter === "all") {

@@ -242,7 +242,7 @@ const sortByDate = (projects) => {
 };
 
 export default function Portfolio() {
-  const [activeFilter, setActiveFilter] = useState("all");
+  const [activeFilter, setActiveFilter] = useState("featured");
 
   const filteredProjects = useMemo(() => {
     let filtered;

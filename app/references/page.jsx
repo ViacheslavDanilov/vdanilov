@@ -239,7 +239,7 @@ const FILTER_OPTIONS = [
 ];
 
 export default function References() {
-  const [activeFilter, setActiveFilter] = useState("all");
+  const [activeFilter, setActiveFilter] = useState("featured");
 
   const filteredReferences = useMemo(() => {
     if (activeFilter === "all") {
