@@ -200,14 +200,14 @@ const PROJECTS_DATA = [
 
 const FILTER_OPTIONS = [
   {
-    id: "all",
-    label: "All",
-    icon: "" /* faLayerGroup */,
-  },
-  {
     id: "featured",
     label: "Featured",
     icon: "" /* faStar */,
+  },
+  {
+    id: "all",
+    label: "All",
+    icon: "" /* faLayerGroup */,
   },
   {
     id: "medical-imaging",
@@ -242,7 +242,7 @@ const sortByDate = (projects) => {
 };
 
 export default function Portfolio() {
-  const [activeFilter, setActiveFilter] = useState("all");
+  const [activeFilter, setActiveFilter] = useState("featured");
 
   const filteredProjects = useMemo(() => {
     let filtered;

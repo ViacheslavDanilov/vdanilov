@@ -231,15 +231,15 @@ const REFERENCES_DATA = [
 ];
 
 const FILTER_OPTIONS = [
-  { id: "all", label: "All", icon: faLayerGroup },
   { id: "featured", label: "Featured", icon: faStar },
+  { id: "all", label: "All", icon: faLayerGroup },
   { id: "Research", label: "Research", icon: faFlask },
   { id: "Industry", label: "Industry", icon: faBriefcase },
   { id: "Medicine", label: "Medicine", icon: faHeartPulse },
 ];
 
 export default function References() {
-  const [activeFilter, setActiveFilter] = useState("all");
+  const [activeFilter, setActiveFilter] = useState("featured");
 
   const filteredReferences = useMemo(() => {
     if (activeFilter === "all") {
