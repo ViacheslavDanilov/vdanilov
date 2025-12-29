@@ -1,9 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
-import Image from "next/image";
+import React from "react";
 import { FlipWords } from "@/components/ui/flip-words";
-import { AnimatedGradientButton } from "@/components/ui/animated-gradient-button";
+import { LiquidButtonLink } from "@/components/ui/liquid-button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFileArrowDown } from "@fortawesome/free-solid-svg-icons";
 
@@ -12,12 +11,8 @@ const Hero = () => {
 
   const ButtonContent = () => (
     <>
-      <FontAwesomeIcon
-        icon={faFileArrowDown}
-        className="mr-2 w-5 h-5"
-        style={{ width: "1.25rem", height: "1.25rem", display: "inline-block" }}
-      />
-      Download CV
+      <FontAwesomeIcon icon={faFileArrowDown} className="w-4 h-4" />
+      &nbsp;Download CV
     </>
   );
 
@@ -41,14 +36,15 @@ const Hero = () => {
 
           {/* CTA Button - Desktop only */}
           <div className="hidden md:flex items-center justify-start pt-6">
-            <AnimatedGradientButton
+            <LiquidButtonLink
               href="https://drive.google.com/file/d/1jYs54eFCYc367ZKhWjH1Xfry4_sFI7Ir/view?usp=drive_link"
               target="_blank"
               ariaLabel="Download CV"
-              className="text-base lg:text-lg font-medium"
+              size="xxl"
+              textClassName="text-sm"
             >
               <ButtonContent />
-            </AnimatedGradientButton>
+            </LiquidButtonLink>
           </div>
         </div>
 
@@ -77,14 +73,15 @@ const Hero = () => {
 
         {/* CTA Button - Mobile only (below video) */}
         <div className="flex md:hidden items-center justify-center w-full">
-          <AnimatedGradientButton
+          <LiquidButtonLink
             href="https://drive.google.com/file/d/1jYs54eFCYc367ZKhWjH1Xfry4_sFI7Ir/view?usp=drive_link"
             target="_blank"
             ariaLabel="Download CV"
-            className="text-base lg:text-lg font-medium"
+            size="xxl"
+            textClassName="text-sm"
           >
             <ButtonContent />
-          </AnimatedGradientButton>
+          </LiquidButtonLink>
         </div>
       </div>
     </section>
