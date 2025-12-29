@@ -77,19 +77,23 @@ function Footer() {
             className="inline-flex items-center justify-center gap-2 [@media(hover:hover)]:hover:brightness-125 [@media(hover:hover)]:hover:scale-[1.03] transition-all duration-200 origin-center"
             aria-label="Go to home page"
           >
-            <Image
-              src="/logo.webp"
-              alt="Viacheslav Danilov"
-              width={40}
-              height={40}
-              priority
-              className="object-contain"
+            <div
               style={{
                 width: "40px",
                 height: "40px",
+                overflow: "hidden",
                 display: "block",
               }}
-            />
+            >
+              <Image
+                src="/logo.webp"
+                alt="Viacheslav Danilov"
+                width={40}
+                height={40}
+                priority
+                className="object-contain w-full h-full"
+              />
+            </div>
           </Link>
           <p className="text-sm text-gray-400 mx-auto max-w-sm">
             Bridging scientific research and industrial innovation through
@@ -184,19 +188,23 @@ function Footer() {
             className="inline-flex items-center gap-2 [@media(hover:hover)]:hover:brightness-125 [@media(hover:hover)]:hover:scale-[1.03] transition-all duration-200 origin-center"
             aria-label="Go to home page"
           >
-            <Image
-              src="/logo.webp"
-              alt="Viacheslav Danilov"
-              width={40}
-              height={40}
-              priority
-              className="object-contain"
+            <div
               style={{
                 width: "40px",
                 height: "40px",
+                overflow: "hidden",
                 display: "block",
               }}
-            />
+            >
+              <Image
+                src="/logo.webp"
+                alt="Viacheslav Danilov"
+                width={40}
+                height={40}
+                priority
+                className="object-contain w-full h-full"
+              />
+            </div>
           </Link>
           <p className="text-sm text-gray-400 max-w-xs leading-relaxed">
             Bridging scientific research and industrial innovation through
