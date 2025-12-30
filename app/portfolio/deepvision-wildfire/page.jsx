@@ -22,7 +22,7 @@ import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
 
 export const metadata = {
-  title: "DeepVision Wildfire – Viacheslav Danilov",
+  title: "DeepVision Wildfire",
   description:
     "Deep learning wildfire detection system combining EfficientDet and CNN-RNN for real-time smoke detection in Siberian forests. Achieved 95.6% accuracy and 94% F1-score.",
 };
@@ -113,6 +113,18 @@ const TEAM_MEMBERS = [
       orcid: "https://orcid.org/0000-0002-6242-9502",
       researchgate: "https://www.researchgate.net/profile/Olga-Gerget",
       email: "olgagerget@mail.ru",
+    },
+  },
+  {
+    name: "Dmitriy Sonkin",
+    role: "Director",
+    organization: "Incom Group",
+    location: "Tomsk · Russia 🇷🇺",
+    photo: "/people/dmitriy-sonkin.webp",
+    links: {
+      globe: "https://www.incom.tomsk.ru/",
+      researchgate: "https://www.researchgate.net/profile/Dmitriy-Sonkin",
+      email: "sonkin@tpu.ru",
     },
   },
 ];

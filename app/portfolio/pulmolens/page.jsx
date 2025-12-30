@@ -22,7 +22,7 @@ import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
 
 export const metadata = {
-  title: "PulmoLens – Viacheslav Danilov",
+  title: "PulmoLens",
   description:
     "Attention-guided deep learning for COVID-19 and pneumonia detection in chest X-rays. Achieved 84% test accuracy using Grad-CAM indirect supervision.",
 };

@@ -22,7 +22,7 @@ import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
 
 export const metadata = {
-  title: "Stenosis Spotter – Viacheslav Danilov",
+  title: "Stenosis Spotter",
   description:
     "Real-time coronary stenosis detection using deep learning for intraoperative angiographic image analysis. RFCN ResNet-101 achieved 0.94 mAP at 10 FPS during live surgeries.",
 };

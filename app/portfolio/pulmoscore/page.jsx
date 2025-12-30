@@ -22,7 +22,7 @@ import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
 
 export const metadata = {
-  title: "PulmoScore – Viacheslav Danilov",
+  title: "PulmoScore",
   description:
     "Two-stage ML workflow for COVID-19 severity scoring on chest X-rays. Achieved MAE of 0.30 and 11× faster processing than existing solutions.",
 };

@@ -22,7 +22,7 @@ import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
 
 export const metadata = {
-  title: "Sales Pilot – Viacheslav Danilov",
+  title: "Sales Pilot",
   description:
     "AI-powered lead scoring system that transforms manual lead generation into a streamlined, scalable process using hybrid heuristics and OpenAI embeddings.",
 };

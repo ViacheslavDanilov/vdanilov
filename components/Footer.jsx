@@ -77,18 +77,13 @@ function Footer() {
             className="inline-flex items-center justify-center gap-2 [@media(hover:hover)]:hover:brightness-125 [@media(hover:hover)]:hover:scale-[1.03] transition-all duration-200 origin-center"
             aria-label="Go to home page"
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src="/logo.webp"
               alt="Viacheslav Danilov"
-              width={40}
-              height={40}
-              className="object-contain"
-              style={{
-                width: "40px",
-                height: "40px",
-                display: "block",
-              }}
+              width={42}
+              height={32}
+              priority
+              className="h-8 w-auto"
             />
           </Link>
           <p className="text-sm text-gray-400 mx-auto max-w-sm">
@@ -184,18 +179,13 @@ function Footer() {
             className="inline-flex items-center gap-2 [@media(hover:hover)]:hover:brightness-125 [@media(hover:hover)]:hover:scale-[1.03] transition-all duration-200 origin-center"
             aria-label="Go to home page"
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src="/logo.webp"
               alt="Viacheslav Danilov"
-              width={40}
-              height={40}
-              className="object-contain"
-              style={{
-                width: "40px",
-                height: "40px",
-                display: "block",
-              }}
+              width={42}
+              height={32}
+              priority
+              className="h-8 w-auto"
             />
           </Link>
           <p className="text-sm text-gray-400 max-w-xs leading-relaxed">

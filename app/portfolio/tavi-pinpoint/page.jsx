@@ -22,7 +22,7 @@ import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
 
 export const metadata = {
-  title: "TAVI PinPoint – Viacheslav Danilov",
+  title: "TAVI PinPoint",
   description:
     "Deep learning visual assistance system for real-time landmark tracking during TAVI procedures. Achieved 97% accuracy and ~90 FPS using multi-task learning with ResNet and MobileNet V2.",
 };

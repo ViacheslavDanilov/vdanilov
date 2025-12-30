@@ -21,7 +21,7 @@ import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
 
 export const metadata = {
-  title: "ProValve Design – Viacheslav Danilov",
+  title: "ProValve Design",
   description:
     "ML-driven generative design framework for prosthetic heart valves using optimization algorithms and FEM simulations, achieving 95% design efficacy.",
 };

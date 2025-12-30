@@ -22,7 +22,7 @@ import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
 
 export const metadata = {
-  title: "OncoCell Vision – Viacheslav Danilov",
+  title: "OncoCell Vision",
   description:
     "AI-powered microscopy pipeline for detecting and counting cancer cell biomarkers using EfficientDet, achieving 85% mAP for primary nuclei and 66% for micronuclei.",
 };

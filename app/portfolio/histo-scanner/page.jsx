@@ -22,7 +22,7 @@ import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
 
 export const metadata = {
-  title: "Histo Scanner – Viacheslav Danilov",
+  title: "Histo Scanner",
   description:
     "Deep learning pipeline for segmenting microvascular features in tissue-engineered vascular grafts. Achieved 89% Dice score using an ensemble of optimized neural networks.",
 };
