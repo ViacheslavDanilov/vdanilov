@@ -82,7 +82,7 @@ const PortfolioCard = ({ project }) => {
               />
             </svg>
           </div>
-          <p className="text-sm text-gray-400 line-clamp-2 leading-relaxed">
+          <p className="text-sm text-gray-400 line-clamp-3 leading-relaxed">
             {description}
           </p>
 
