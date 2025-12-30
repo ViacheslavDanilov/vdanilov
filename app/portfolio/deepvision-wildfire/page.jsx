@@ -115,6 +115,18 @@ const TEAM_MEMBERS = [
       email: "olgagerget@mail.ru",
     },
   },
+  {
+    name: "Dmitriy Sonkin",
+    role: "Director",
+    organization: "Incom Group",
+    location: "Tomsk · Russia 🇷🇺",
+    photo: "/people/dmitriy-sonkin.webp",
+    links: {
+      globe: "https://www.incom.tomsk.ru/",
+      researchgate: "https://www.researchgate.net/profile/Dmitriy-Sonkin",
+      email: "sonkin@tpu.ru",
+    },
+  },
 ];
 
 const RESOURCES = [
