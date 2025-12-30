@@ -77,16 +77,14 @@ function Footer() {
             className="inline-flex items-center justify-center gap-2 [@media(hover:hover)]:hover:brightness-125 [@media(hover:hover)]:hover:scale-[1.03] transition-all duration-200 origin-center"
             aria-label="Go to home page"
           >
-            <div className="relative h-10 w-10">
-              <Image
-                src="/logo.webp"
-                alt="Viacheslav Danilov"
-                fill
-                sizes="40px"
-                priority
-                className="object-contain"
-              />
-            </div>
+            <Image
+              src="/logo.webp"
+              alt="Viacheslav Danilov"
+              width={42}
+              height={32}
+              priority
+              className="h-8 w-auto"
+            />
           </Link>
           <p className="text-sm text-gray-400 mx-auto max-w-sm">
             Bridging scientific research and industrial innovation through
@@ -181,16 +179,14 @@ function Footer() {
             className="inline-flex items-center gap-2 [@media(hover:hover)]:hover:brightness-125 [@media(hover:hover)]:hover:scale-[1.03] transition-all duration-200 origin-center"
             aria-label="Go to home page"
           >
-            <div className="relative h-10 w-10">
-              <Image
-                src="/logo.webp"
-                alt="Viacheslav Danilov"
-                fill
-                sizes="40px"
-                priority
-                className="object-contain"
-              />
-            </div>
+            <Image
+              src="/logo.webp"
+              alt="Viacheslav Danilov"
+              width={42}
+              height={32}
+              priority
+              className="h-8 w-auto"
+            />
           </Link>
           <p className="text-sm text-gray-400 max-w-xs leading-relaxed">
             Bridging scientific research and industrial innovation through
