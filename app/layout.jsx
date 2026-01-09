@@ -27,7 +27,7 @@ export const metadata = {
     template: "%s | Viacheslav Danilov",
   },
   description:
-    "Personal website of Viacheslav Danilov, CTO and PhD in Computer Science. Expert in AI, Machine Learning, and R&D leadership, bridging the gap between scientific research and impactful industrial applications.",
+    "PhD in Computer Science combining research depth, engineering skill, and leadership experience. Building ML and AI solutions that solve real problems.",
   icons: {
     icon: "/favicon.webp",
   },
@@ -38,7 +38,7 @@ export const metadata = {
     siteName: "Viacheslav Danilov",
     title: "Viacheslav Danilov",
     description:
-      "CTO and PhD in Computer Science. Expert in AI, Machine Learning, and R&D leadership.",
+      "PhD in Computer Science combining research depth, engineering skill, and leadership experience. Building ML and AI solutions that solve real problems.",
     images: [
       {
         url: "/hero/hero-round.webp",
@@ -52,7 +52,7 @@ export const metadata = {
     card: "summary",
     title: "Viacheslav Danilov",
     description:
-      "CTO and PhD in Computer Science. Expert in AI, Machine Learning, and R&D leadership.",
+      "PhD in Computer Science combining research depth, engineering skill, and leadership experience. Building ML and AI solutions that solve real problems.",
     images: ["/hero/hero-round.webp"],
   },
 };
