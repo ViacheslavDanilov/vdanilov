@@ -21,7 +21,7 @@ Run `git diff --cached` to see the actual content of staged changes.
 
 Create a commit message using conventional commit format:
 
-- Format: `type(scope): description`
+- Format: `type: description` (scope is optional, omit parentheses if not needed)
 - Types: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`, `perf`, `ci`, `build`
 - Keep subject line under 72 characters
 - Use imperative mood ("add feature" not "added feature")
