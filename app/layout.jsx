@@ -41,9 +41,9 @@ export const metadata = {
       "CTO and PhD in Computer Science. Expert in AI, Machine Learning, and R&D leadership.",
     images: [
       {
-        url: "/profile.png",
-        width: 1000,
-        height: 1000,
+        url: "/hero/hero-round.webp",
+        width: 2000,
+        height: 2000,
         alt: "Viacheslav Danilov - AI & ML Expert",
       },
     ],
@@ -53,7 +53,7 @@ export const metadata = {
     title: "Viacheslav Danilov",
     description:
       "CTO and PhD in Computer Science. Expert in AI, Machine Learning, and R&D leadership.",
-    images: ["/profile.png"],
+    images: ["/hero/hero-round.webp"],
   },
 };
 
