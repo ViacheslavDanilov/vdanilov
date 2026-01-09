@@ -118,7 +118,7 @@ const ADDITIONAL_EDUCATION_DATA = [
     field: "Machine Learning for Biomedical Imaging",
     institution: "Technical University of Madrid",
     url: INSTITUTION_URLS["Technical University of Madrid"],
-    period: "Mar 2019 - Jul 2019",
+    period: "Aug 2018 - Jan 2019",
     location: "Madrid • Spain 🇪🇸",
     logo: "/education/universities/upm.webp",
     coreCourses: [

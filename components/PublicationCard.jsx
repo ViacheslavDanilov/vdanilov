@@ -57,37 +57,39 @@ const PublicationCard = ({
 
         <div className="flex flex-col gap-3">
           {/* Title */}
-          {url ? (
-            <a
-              href={url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group/link pr-28"
-            >
-              <h3 className="text-base font-semibold text-light leading-snug group-hover/link:text-accent transition-colors inline">
+          <div className="pr-30">
+            {url ? (
+              <a
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group/link inline"
+              >
+                <h3 className="text-base font-semibold text-light leading-snug group-hover:text-accent transition-colors inline">
+                  {title}
+                  <span
+                    className="inline-block ml-1.5 align-baseline transition-transform duration-300 group-hover/link:translate-x-1"
+                    style={{ width: "0.75rem", height: "0.75rem" }}
+                  >
+                    <FontAwesomeIcon
+                      icon={faArrowRight}
+                      className="opacity-60"
+                      style={{
+                        width: "0.75rem",
+                        height: "0.75rem",
+                        display: "block",
+                      }}
+                      aria-hidden="true"
+                    />
+                  </span>
+                </h3>
+              </a>
+            ) : (
+              <h3 className="text-base font-semibold text-light leading-snug">
                 {title}
-                <span
-                  className="inline-block ml-1.5 align-baseline transition-transform duration-300 group-hover/link:translate-x-1"
-                  style={{ width: "0.75rem", height: "0.75rem" }}
-                >
-                  <FontAwesomeIcon
-                    icon={faArrowRight}
-                    className="opacity-60"
-                    style={{
-                      width: "0.75rem",
-                      height: "0.75rem",
-                      display: "block",
-                    }}
-                    aria-hidden="true"
-                  />
-                </span>
               </h3>
-            </a>
-          ) : (
-            <h3 className="text-base font-semibold text-light leading-snug pr-28">
-              {title}
-            </h3>
-          )}
+            )}
+          </div>
 
           {/* Venue, Location, and Year */}
           {venue && (
