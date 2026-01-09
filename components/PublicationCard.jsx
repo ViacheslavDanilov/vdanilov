@@ -65,7 +65,7 @@ const PublicationCard = ({
                 rel="noopener noreferrer"
                 className="group/link inline"
               >
-                <h3 className="text-base font-semibold text-light leading-snug group-hover/link:text-accent transition-colors inline">
+                <h3 className="text-base font-semibold text-light leading-snug group-hover:text-accent transition-colors inline">
                   {title}
                   <span
                     className="inline-block ml-1.5 align-baseline transition-transform duration-300 group-hover/link:translate-x-1"

@@ -18,7 +18,7 @@ const CertificateCard = ({
       <GlowCard
         glowColor={glowColor}
         customSize={true}
-        className="w-full h-full p-5 pb-3"
+        className="w-full h-full p-5 pb-3 group"
         enableSpotlight={enableSpotlight}
         enableBorderGlow={enableBorderGlow}
         spotlightSize={spotlightSize}
@@ -51,13 +51,13 @@ const CertificateCard = ({
               href={certificate.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-2 text-md font-bold text-light hover:text-accent transition-colors w-fit"
+              className="group/title flex items-center gap-2 text-md font-bold text-light group-hover:text-accent transition-colors w-fit"
             >
               <span className="uppercase tracking-wide">
                 {certificate.title}
               </span>
               <span
-                className="inline-block transition-transform duration-300 group-hover:translate-x-1"
+                className="inline-block transition-transform duration-300 group-hover/title:translate-x-1"
                 style={{ width: "0.75rem", height: "0.75rem" }}
               >
                 <FontAwesomeIcon
@@ -116,13 +116,13 @@ const CertificateCard = ({
                 href={certificate.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center gap-2 text-md font-bold text-light hover:text-accent transition-colors w-fit"
+                className="group/title flex items-center gap-2 text-md font-bold text-light group-hover:text-accent transition-colors w-fit"
               >
                 <span className="uppercase tracking-wide truncate">
                   {certificate.title}
                 </span>
                 <span
-                  className="inline-block transition-transform duration-300 group-hover:translate-x-1"
+                  className="inline-block transition-transform duration-300 group-hover/title:translate-x-1"
                   style={{ width: "0.75rem", height: "0.75rem" }}
                 >
                   <FontAwesomeIcon

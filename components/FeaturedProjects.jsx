@@ -110,7 +110,7 @@ const FeaturedProjects = ({
                   </div>
                 </a>
                 <a href={project.link} className="group/title inline-block">
-                  <h3 className="project-title text-sm font-bold text-white group-hover/title:text-accent uppercase leading-tight tracking-wider mb-3 text-center transition-colors flex items-center justify-center gap-2">
+                  <h3 className="project-title text-sm font-bold text-white group-hover:text-accent uppercase leading-tight tracking-wider mb-3 text-center transition-colors flex items-center justify-center gap-2">
                     {project.title}
                     <span
                       className="inline-block transition-transform duration-300 group-hover/title:translate-x-1"
@@ -152,7 +152,7 @@ const FeaturedProjects = ({
 
                 <div className="flex flex-col justify-start">
                   <a href={project.link} className="group/title inline-block">
-                    <h3 className="project-title text-sm font-bold text-white group-hover/title:text-accent uppercase leading-tight tracking-wider mb-3 transition-colors flex items-center gap-2">
+                    <h3 className="project-title text-sm font-bold text-white group-hover:text-accent uppercase leading-tight tracking-wider mb-3 transition-colors flex items-center gap-2">
                       {project.title}
                       <span
                         className="inline-block transition-transform duration-300 group-hover/title:translate-x-1"
