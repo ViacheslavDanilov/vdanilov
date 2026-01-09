@@ -41,9 +41,9 @@ export const metadata = {
       "PhD in Computer Science combining research depth, engineering skill, and leadership experience. Building ML and AI solutions that solve real problems.",
     images: [
       {
-        url: "/hero/hero-round.webp",
-        width: 2000,
-        height: 2000,
+        url: "/og-image.webp",
+        width: 1024,
+        height: 1024,
         alt: "Viacheslav Danilov - AI & ML Expert",
       },
     ],
@@ -53,7 +53,7 @@ export const metadata = {
     title: "Viacheslav Danilov",
     description:
       "PhD in Computer Science combining research depth, engineering skill, and leadership experience. Building ML and AI solutions that solve real problems.",
-    images: ["/hero/hero-round.webp"],
+    images: ["/og-image.webp"],
   },
 };
 
