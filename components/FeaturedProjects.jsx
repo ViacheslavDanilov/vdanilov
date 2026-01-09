@@ -66,7 +66,7 @@ const PROJECTS = [
   },
 ];
 
-const ProjectsSection = ({
+const FeaturedProjects = ({
   enableSpotlight = true,
   enableBorderGlow = true,
   glowColor = "blue",
@@ -109,11 +109,11 @@ const ProjectsSection = ({
                     />
                   </div>
                 </a>
-                <a href={project.link} className="block">
-                  <h3 className="project-title text-sm font-bold text-white uppercase leading-tight tracking-wider mb-3 text-center transition-colors flex items-center justify-center gap-2">
+                <a href={project.link} className="group/title inline-block">
+                  <h3 className="project-title text-sm font-bold text-white group-hover/title:text-accent uppercase leading-tight tracking-wider mb-3 text-center transition-colors flex items-center justify-center gap-2">
                     {project.title}
                     <span
-                      className="inline-block transition-transform duration-300 group-hover:translate-x-1"
+                      className="inline-block transition-transform duration-300 group-hover/title:translate-x-1"
                       style={{ width: "0.75rem", height: "0.75rem" }}
                     >
                       <FontAwesomeIcon
@@ -151,11 +151,11 @@ const ProjectsSection = ({
                 </a>
 
                 <div className="flex flex-col justify-start">
-                  <a href={project.link}>
-                    <h3 className="project-title text-sm font-bold text-white uppercase leading-tight tracking-wider mb-3 transition-colors flex items-center gap-2">
+                  <a href={project.link} className="group/title inline-block">
+                    <h3 className="project-title text-sm font-bold text-white group-hover/title:text-accent uppercase leading-tight tracking-wider mb-3 transition-colors flex items-center gap-2">
                       {project.title}
                       <span
-                        className="inline-block transition-transform duration-300 group-hover:translate-x-1"
+                        className="inline-block transition-transform duration-300 group-hover/title:translate-x-1"
                         style={{ width: "0.75rem", height: "0.75rem" }}
                       >
                         <FontAwesomeIcon
@@ -201,4 +201,4 @@ const ProjectsSection = ({
   );
 };
 
-export default ProjectsSection;
+export default FeaturedProjects;

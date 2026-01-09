@@ -1,6 +1,6 @@
 import Hero from "@/components/Hero";
 import ExpertiseSection from "@/components/ExpertiseSection";
-import ProjectsSection from "@/components/ProjectsSection";
+import FeaturedProjects from "@/components/FeaturedProjects";
 import LogoGrid from "@/components/LogoGrid";
 import About from "@/components/About";
 import Statistics from "@/components/Statistics";
@@ -17,7 +17,7 @@ export default function Home() {
         <Hero />
         <About />
         <Statistics />
-        <ProjectsSection />
+        <FeaturedProjects />
         <ExpertiseSection />
         <LogoGrid />
         <CallToAction />
