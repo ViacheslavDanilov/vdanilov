@@ -29,11 +29,20 @@ export const metadata = {
     title: "OncoCell Vision | Viacheslav Danilov",
     description:
       "AI-powered microscopy pipeline for detecting and counting cancer cell biomarkers using EfficientDet, achieving 85% mAP for nuclei detection.",
+    images: [
+      {
+        url: "https://vdanilov.dev/portfolio/oncocell-vision/opengraph-image.jpg",
+      },
+    ],
   },
   twitter: {
+    card: "summary_large_image",
     title: "OncoCell Vision | Viacheslav Danilov",
     description:
       "AI-powered microscopy pipeline for detecting and counting cancer cell biomarkers using EfficientDet, achieving 85% mAP for nuclei detection.",
+    images: [
+      "https://vdanilov.dev/portfolio/oncocell-vision/opengraph-image.jpg",
+    ],
   },
 };
 

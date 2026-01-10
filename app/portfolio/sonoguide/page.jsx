@@ -29,11 +29,18 @@ export const metadata = {
     title: "SonoGuide | Viacheslav Danilov",
     description:
       "Deep learning solution for surgical tool segmentation in 3D ultrasound, achieving 93.6% Dice score for real-time catheter localization.",
+    images: [
+      {
+        url: "https://vdanilov.dev/portfolio/sonoguide/opengraph-image.jpg",
+      },
+    ],
   },
   twitter: {
+    card: "summary_large_image",
     title: "SonoGuide | Viacheslav Danilov",
     description:
       "Deep learning solution for surgical tool segmentation in 3D ultrasound, achieving 93.6% Dice score for real-time catheter localization.",
+    images: ["https://vdanilov.dev/portfolio/sonoguide/opengraph-image.jpg"],
   },
 };
 

@@ -28,11 +28,20 @@ export const metadata = {
     title: "ProValve Design | Viacheslav Danilov",
     description:
       "ML-driven generative design framework for prosthetic heart valves using optimization algorithms, achieving 95% design efficacy.",
+    images: [
+      {
+        url: "https://vdanilov.dev/portfolio/provalve-design/opengraph-image.jpg",
+      },
+    ],
   },
   twitter: {
+    card: "summary_large_image",
     title: "ProValve Design | Viacheslav Danilov",
     description:
       "ML-driven generative design framework for prosthetic heart valves using optimization algorithms, achieving 95% design efficacy.",
+    images: [
+      "https://vdanilov.dev/portfolio/provalve-design/opengraph-image.jpg",
+    ],
   },
 };
 

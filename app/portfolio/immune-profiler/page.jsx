@@ -29,11 +29,14 @@ export const metadata = {
     title: "Immune Profiler | Viacheslav Danilov",
     description:
       "ML-driven workflow for tumor immune phenotype classification using HoVer-Net and AutoML on histopathology images.",
+    images: ["/portfolio/immune-profiler/opengraph-image.jpg"],
   },
   twitter: {
+    card: "summary_large_image",
     title: "Immune Profiler | Viacheslav Danilov",
     description:
       "ML-driven workflow for tumor immune phenotype classification using HoVer-Net and AutoML on histopathology images.",
+    images: ["/portfolio/immune-profiler/opengraph-image.jpg"],
   },
 };
 

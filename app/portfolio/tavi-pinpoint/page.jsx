@@ -29,11 +29,20 @@ export const metadata = {
     title: "TAVI PinPoint | Viacheslav Danilov",
     description:
       "Real-time landmark tracking for safer valve implantation during TAVI procedures using multi-task deep learning with 97% accuracy.",
+    images: [
+      {
+        url: "https://vdanilov.dev/portfolio/tavi-pinpoint/opengraph-image.jpg",
+      },
+    ],
   },
   twitter: {
+    card: "summary_large_image",
     title: "TAVI PinPoint | Viacheslav Danilov",
     description:
       "Real-time landmark tracking for safer valve implantation during TAVI procedures using multi-task deep learning with 97% accuracy.",
+    images: [
+      "https://vdanilov.dev/portfolio/tavi-pinpoint/opengraph-image.jpg",
+    ],
   },
 };
 
