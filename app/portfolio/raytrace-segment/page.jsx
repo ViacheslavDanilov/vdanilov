@@ -24,7 +24,17 @@ import { GlowCard } from "@/components/ui/glow-card";
 export const metadata = {
   title: "RayTrace Segment",
   description:
-    "Ray-casting segmentation algorithm for convex anatomical structures in MRI, achieving up to 91.8% Dice score with millisecond-level runtime using ensemble learning.",
+    "Ray-casting segmentation algorithm for convex anatomical structures in MRI, achieving up to 91.8% Dice score with millisecond-level runtime.",
+  openGraph: {
+    title: "RayTrace Segment | Viacheslav Danilov",
+    description:
+      "Ray-casting segmentation algorithm for convex anatomical structures in MRI, achieving up to 91.8% Dice score with millisecond-level runtime.",
+  },
+  twitter: {
+    title: "RayTrace Segment | Viacheslav Danilov",
+    description:
+      "Ray-casting segmentation algorithm for convex anatomical structures in MRI, achieving up to 91.8% Dice score with millisecond-level runtime.",
+  },
 };
 
 const HIGHLIGHTS_ITEMS = [

@@ -24,7 +24,17 @@ import { GlowCard } from "@/components/ui/glow-card";
 export const metadata = {
   title: "Stenosis Spotter",
   description:
-    "Real-time coronary stenosis detection using deep learning for intraoperative angiographic image analysis. RFCN ResNet-101 achieved 0.94 mAP at 10 FPS during live surgeries.",
+    "Real-time coronary stenosis detection using deep learning for intraoperative angiographic image analysis with 0.94 mAP.",
+  openGraph: {
+    title: "Stenosis Spotter | Viacheslav Danilov",
+    description:
+      "Real-time coronary stenosis detection using deep learning for intraoperative angiographic image analysis with 0.94 mAP.",
+  },
+  twitter: {
+    title: "Stenosis Spotter | Viacheslav Danilov",
+    description:
+      "Real-time coronary stenosis detection using deep learning for intraoperative angiographic image analysis with 0.94 mAP.",
+  },
 };
 
 const HIGHLIGHTS_ITEMS = [

@@ -24,7 +24,17 @@ import { GlowCard } from "@/components/ui/glow-card";
 export const metadata = {
   title: "TAVI PinPoint",
   description:
-    "Deep learning visual assistance system for real-time landmark tracking during TAVI procedures. Achieved 97% accuracy and ~90 FPS using multi-task learning with ResNet and MobileNet V2.",
+    "Real-time landmark tracking for safer valve implantation during TAVI procedures using multi-task deep learning with 97% accuracy.",
+  openGraph: {
+    title: "TAVI PinPoint | Viacheslav Danilov",
+    description:
+      "Real-time landmark tracking for safer valve implantation during TAVI procedures using multi-task deep learning with 97% accuracy.",
+  },
+  twitter: {
+    title: "TAVI PinPoint | Viacheslav Danilov",
+    description:
+      "Real-time landmark tracking for safer valve implantation during TAVI procedures using multi-task deep learning with 97% accuracy.",
+  },
 };
 
 const HIGHLIGHTS_ITEMS = [

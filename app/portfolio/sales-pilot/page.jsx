@@ -24,7 +24,17 @@ import { GlowCard } from "@/components/ui/glow-card";
 export const metadata = {
   title: "Sales Pilot",
   description:
-    "AI-powered lead scoring system that transforms manual lead generation into a streamlined, scalable process using hybrid heuristics and OpenAI embeddings.",
+    "AI-powered lead scoring system using hybrid heuristics and OpenAI embeddings to automate and prioritize high-fit leads at scale.",
+  openGraph: {
+    title: "Sales Pilot | Viacheslav Danilov",
+    description:
+      "AI-powered lead scoring system using hybrid heuristics and OpenAI embeddings to automate and prioritize high-fit leads at scale.",
+  },
+  twitter: {
+    title: "Sales Pilot | Viacheslav Danilov",
+    description:
+      "AI-powered lead scoring system using hybrid heuristics and OpenAI embeddings to automate and prioritize high-fit leads at scale.",
+  },
 };
 
 const HIGHLIGHTS_ITEMS = [

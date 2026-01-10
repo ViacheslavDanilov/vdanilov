@@ -24,7 +24,17 @@ import { GlowCard } from "@/components/ui/glow-card";
 export const metadata = {
   title: "PulmoScore",
   description:
-    "Two-stage ML workflow for COVID-19 severity scoring on chest X-rays. Achieved MAE of 0.30 and 11× faster processing than existing solutions.",
+    "Two-stage ML workflow for COVID-19 severity scoring on chest X-rays, achieving MAE of 0.30 and 11× faster processing.",
+  openGraph: {
+    title: "PulmoScore | Viacheslav Danilov",
+    description:
+      "Two-stage ML workflow for COVID-19 severity scoring on chest X-rays, achieving MAE of 0.30 and 11× faster processing.",
+  },
+  twitter: {
+    title: "PulmoScore | Viacheslav Danilov",
+    description:
+      "Two-stage ML workflow for COVID-19 severity scoring on chest X-rays, achieving MAE of 0.30 and 11× faster processing.",
+  },
 };
 
 const HIGHLIGHTS_ITEMS = [
