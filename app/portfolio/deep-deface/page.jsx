@@ -25,7 +25,18 @@ import { GlowCard } from "@/components/ui/glow-card";
 export const metadata = {
   title: "Deep Deface",
   description:
-    "GPU-accelerated 3D anonymization pipeline for CT and MRI scans. Detects and blurs facial/ear regions while preserving 100% of brain anatomy for secure multi-site neuroimaging.",
+    "GPU-accelerated 3D anonymization pipeline for CT and MRI scans, detecting and blurring facial/ear regions while preserving 100% of brain anatomy.",
+  openGraph: {
+    title: "Deep Deface | Viacheslav Danilov",
+    description:
+      "GPU-accelerated 3D anonymization pipeline for CT and MRI scans, detecting and blurring facial/ear regions while preserving 100% of brain anatomy.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Deep Deface | Viacheslav Danilov",
+    description:
+      "GPU-accelerated 3D anonymization pipeline for CT and MRI scans, detecting and blurring facial/ear regions while preserving 100% of brain anatomy.",
+  },
 };
 
 const HIGHLIGHTS_ITEMS = [

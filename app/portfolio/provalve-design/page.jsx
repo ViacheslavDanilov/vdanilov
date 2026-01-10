@@ -23,7 +23,18 @@ import { GlowCard } from "@/components/ui/glow-card";
 export const metadata = {
   title: "ProValve Design",
   description:
-    "ML-driven generative design framework for prosthetic heart valves using optimization algorithms and FEM simulations, achieving 95% design efficacy.",
+    "ML-driven generative design framework for prosthetic heart valves using optimization algorithms, achieving 95% design efficacy.",
+  openGraph: {
+    title: "ProValve Design | Viacheslav Danilov",
+    description:
+      "ML-driven generative design framework for prosthetic heart valves using optimization algorithms, achieving 95% design efficacy.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ProValve Design | Viacheslav Danilov",
+    description:
+      "ML-driven generative design framework for prosthetic heart valves using optimization algorithms, achieving 95% design efficacy.",
+  },
 };
 
 const HIGHLIGHTS_ITEMS = [

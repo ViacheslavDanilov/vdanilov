@@ -24,7 +24,18 @@ import { GlowCard } from "@/components/ui/glow-card";
 export const metadata = {
   title: "Deep Anatomy",
   description:
-    "High-precision 3D organ segmentation via V-net architecture with dense skip connections. Achieved up to 96% Dice score, outperforming 11 benchmark models.",
+    "High-precision 3D organ segmentation via V-net architecture with dense skip connections, achieving up to 96% Dice score across 5 anatomical structures.",
+  openGraph: {
+    title: "Deep Anatomy | Viacheslav Danilov",
+    description:
+      "High-precision 3D organ segmentation via V-net architecture with dense skip connections, achieving up to 96% Dice score across 5 anatomical structures.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Deep Anatomy | Viacheslav Danilov",
+    description:
+      "High-precision 3D organ segmentation via V-net architecture with dense skip connections, achieving up to 96% Dice score across 5 anatomical structures.",
+  },
 };
 
 const HIGHLIGHTS_ITEMS = [

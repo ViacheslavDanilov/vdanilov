@@ -24,7 +24,18 @@ import { GlowCard } from "@/components/ui/glow-card";
 export const metadata = {
   title: "OncoCell Vision",
   description:
-    "AI-powered microscopy pipeline for detecting and counting cancer cell biomarkers using EfficientDet, achieving 85% mAP for primary nuclei and 66% for micronuclei.",
+    "AI-powered microscopy pipeline for detecting and counting cancer cell biomarkers using EfficientDet, achieving 85% mAP for nuclei detection.",
+  openGraph: {
+    title: "OncoCell Vision | Viacheslav Danilov",
+    description:
+      "AI-powered microscopy pipeline for detecting and counting cancer cell biomarkers using EfficientDet, achieving 85% mAP for nuclei detection.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "OncoCell Vision | Viacheslav Danilov",
+    description:
+      "AI-powered microscopy pipeline for detecting and counting cancer cell biomarkers using EfficientDet, achieving 85% mAP for nuclei detection.",
+  },
 };
 
 const HIGHLIGHTS_ITEMS = [

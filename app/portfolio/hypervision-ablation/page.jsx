@@ -24,7 +24,18 @@ import { GlowCard } from "@/components/ui/glow-card";
 export const metadata = {
   title: "HyperVision Ablation",
   description:
-    "ML workflow for tissue ablation assessment in hyperspectral imaging. Combines PCA, t-SNE, Faster R-CNN, and Mean Shift clustering for automated segmentation.",
+    "ML workflow for tissue ablation assessment in hyperspectral imaging using PCA, Faster R-CNN, and Mean Shift clustering.",
+  openGraph: {
+    title: "HyperVision Ablation | Viacheslav Danilov",
+    description:
+      "ML workflow for tissue ablation assessment in hyperspectral imaging using PCA, Faster R-CNN, and Mean Shift clustering.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "HyperVision Ablation | Viacheslav Danilov",
+    description:
+      "ML workflow for tissue ablation assessment in hyperspectral imaging using PCA, Faster R-CNN, and Mean Shift clustering.",
+  },
 };
 
 const HIGHLIGHTS_ITEMS = [

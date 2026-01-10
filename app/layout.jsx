@@ -18,12 +18,33 @@ const poppins = Poppins({
   variable: "--font-poppins",
 });
 
+const siteUrl = "https://www.vdanilov.com";
+
 export const metadata = {
-  title: "Viacheslav Danilov",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Viacheslav Danilov",
+    template: "%s | Viacheslav Danilov",
+  },
   description:
-    "Personal website of Viacheslav Danilov, CTO and PhD in Computer Science. Expert in AI, Machine Learning, and R&D leadership, bridging the gap between scientific research and impactful industrial applications.",
+    "PhD in Computer Science combining research depth, engineering skill, and leadership experience. Building ML and AI solutions that solve real problems.",
   icons: {
     icon: "/favicon.webp",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: siteUrl,
+    siteName: "Viacheslav Danilov",
+    title: "Viacheslav Danilov",
+    description:
+      "PhD in Computer Science combining research depth, engineering skill, and leadership experience. Building ML and AI solutions that solve real problems.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Viacheslav Danilov",
+    description:
+      "PhD in Computer Science combining research depth, engineering skill, and leadership experience. Building ML and AI solutions that solve real problems.",
   },
 };
 

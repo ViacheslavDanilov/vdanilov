@@ -24,7 +24,18 @@ import { GlowCard } from "@/components/ui/glow-card";
 export const metadata = {
   title: "DeepVision Wildfire",
   description:
-    "Deep learning wildfire detection system combining EfficientDet and CNN-RNN for real-time smoke detection in Siberian forests. Achieved 95.6% accuracy and 94% F1-score.",
+    "Real-time wildfire detection system for Siberian forests combining EfficientDet and CNN-RNN, achieving 95.6% accuracy at 9 FPS.",
+  openGraph: {
+    title: "DeepVision Wildfire | Viacheslav Danilov",
+    description:
+      "Real-time wildfire detection system for Siberian forests combining EfficientDet and CNN-RNN, achieving 95.6% accuracy at 9 FPS.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "DeepVision Wildfire | Viacheslav Danilov",
+    description:
+      "Real-time wildfire detection system for Siberian forests combining EfficientDet and CNN-RNN, achieving 95.6% accuracy at 9 FPS.",
+  },
 };
 
 const HIGHLIGHTS_ITEMS = [

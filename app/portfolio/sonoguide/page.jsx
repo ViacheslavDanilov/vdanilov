@@ -24,7 +24,18 @@ import { GlowCard } from "@/components/ui/glow-card";
 export const metadata = {
   title: "SonoGuide",
   description:
-    "Deep learning solution for surgical tool segmentation in 3D ultrasound, achieving 93.6% Dice score for real-time catheter localization during minimally invasive cardiac surgery.",
+    "Deep learning solution for surgical tool segmentation in 3D ultrasound, achieving 93.6% Dice score for real-time catheter localization.",
+  openGraph: {
+    title: "SonoGuide | Viacheslav Danilov",
+    description:
+      "Deep learning solution for surgical tool segmentation in 3D ultrasound, achieving 93.6% Dice score for real-time catheter localization.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SonoGuide | Viacheslav Danilov",
+    description:
+      "Deep learning solution for surgical tool segmentation in 3D ultrasound, achieving 93.6% Dice score for real-time catheter localization.",
+  },
 };
 
 const HIGHLIGHTS_ITEMS = [

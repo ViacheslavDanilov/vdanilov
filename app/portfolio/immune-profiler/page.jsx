@@ -24,7 +24,18 @@ import { GlowCard } from "@/components/ui/glow-card";
 export const metadata = {
   title: "Immune Profiler",
   description:
-    "ML-driven workflow for tumor immune phenotype classification. Achieved 89% F1-score classifying immune inflamed, excluded, and desert phenotypes from histopathology images.",
+    "ML-driven workflow for tumor immune phenotype classification using HoVer-Net and AutoML on histopathology images.",
+  openGraph: {
+    title: "Immune Profiler | Viacheslav Danilov",
+    description:
+      "ML-driven workflow for tumor immune phenotype classification using HoVer-Net and AutoML on histopathology images.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Immune Profiler | Viacheslav Danilov",
+    description:
+      "ML-driven workflow for tumor immune phenotype classification using HoVer-Net and AutoML on histopathology images.",
+  },
 };
 
 const HIGHLIGHTS_ITEMS = [

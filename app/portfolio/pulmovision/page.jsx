@@ -24,7 +24,18 @@ import { GlowCard } from "@/components/ui/glow-card";
 export const metadata = {
   title: "PulmoVision",
   description:
-    "Explainable AI framework for detecting pulmonary edema features in chest X-rays using deep learning segmentation and object detection networks.",
+    "Explainable AI framework for detecting pulmonary edema features in chest X-rays using deep learning segmentation and object detection.",
+  openGraph: {
+    title: "PulmoVision | Viacheslav Danilov",
+    description:
+      "Explainable AI framework for detecting pulmonary edema features in chest X-rays using deep learning segmentation and object detection.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "PulmoVision | Viacheslav Danilov",
+    description:
+      "Explainable AI framework for detecting pulmonary edema features in chest X-rays using deep learning segmentation and object detection.",
+  },
 };
 
 const HIGHLIGHTS_ITEMS = [

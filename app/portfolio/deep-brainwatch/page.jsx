@@ -25,7 +25,18 @@ import { GlowCard } from "@/components/ui/glow-card";
 export const metadata = {
   title: "Deep BrainWatch",
   description:
-    "Non-invasive ICP monitoring using deep learning on cerebral blood flow signals. Achieved 71% predictions within ±6 mmHg in the clinically critical 0–15 mmHg range.",
+    "Non-invasive ICP monitoring using deep learning on cerebral blood flow signals from near-infrared photonic sensors.",
+  openGraph: {
+    title: "Deep BrainWatch | Viacheslav Danilov",
+    description:
+      "Non-invasive ICP monitoring using deep learning on cerebral blood flow signals from near-infrared photonic sensors.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Deep BrainWatch | Viacheslav Danilov",
+    description:
+      "Non-invasive ICP monitoring using deep learning on cerebral blood flow signals from near-infrared photonic sensors.",
+  },
 };
 
 const HIGHLIGHTS_ITEMS = [

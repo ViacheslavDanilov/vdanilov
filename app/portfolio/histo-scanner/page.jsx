@@ -24,7 +24,18 @@ import { GlowCard } from "@/components/ui/glow-card";
 export const metadata = {
   title: "Histo Scanner",
   description:
-    "Deep learning pipeline for segmenting microvascular features in tissue-engineered vascular grafts. Achieved 89% Dice score using an ensemble of optimized neural networks.",
+    "Deep learning pipeline for segmenting microvascular features in tissue-engineered vascular grafts with 89% Dice score.",
+  openGraph: {
+    title: "Histo Scanner | Viacheslav Danilov",
+    description:
+      "Deep learning pipeline for segmenting microvascular features in tissue-engineered vascular grafts with 89% Dice score.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Histo Scanner | Viacheslav Danilov",
+    description:
+      "Deep learning pipeline for segmenting microvascular features in tissue-engineered vascular grafts with 89% Dice score.",
+  },
 };
 
 const HIGHLIGHTS_ITEMS = [
