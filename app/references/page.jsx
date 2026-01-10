@@ -10,6 +10,7 @@ export const metadata = {
       "Recommendations from professors, executives, and collaborators across AI, research, and business.",
   },
   twitter: {
+    card: "summary_large_image",
     title: "References | Viacheslav Danilov",
     description:
       "Recommendations from professors, executives, and collaborators across AI, research, and business.",

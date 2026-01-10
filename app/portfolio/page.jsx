@@ -10,6 +10,7 @@ export const metadata = {
       "A curated collection of projects by Viacheslav Danilov showcasing expertise in machine learning, AI, and data-driven solutions.",
   },
   twitter: {
+    card: "summary_large_image",
     title: "Portfolio | Viacheslav Danilov",
     description:
       "A curated collection of projects by Viacheslav Danilov showcasing expertise in machine learning, AI, and data-driven solutions.",
