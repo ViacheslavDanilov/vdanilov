@@ -18,7 +18,7 @@ const poppins = Poppins({
   variable: "--font-poppins",
 });
 
-const siteUrl = "https://vdanilov.com";
+const siteUrl = "https://www.vdanilov.com";
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
