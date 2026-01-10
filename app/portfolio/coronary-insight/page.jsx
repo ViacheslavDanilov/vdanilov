@@ -24,7 +24,17 @@ import { GlowCard } from "@/components/ui/glow-card";
 export const metadata = {
   title: "Coronary Insight",
   description:
-    "Deep learning pipeline for OCT plaque segmentation and cardiovascular risk assessment. Achieved 88.2% weighted Dice score using hybrid ensemble of neural networks.",
+    "Deep learning pipeline for OCT plaque segmentation, enabling precise arterial risk assessment in cardiovascular imaging.",
+  openGraph: {
+    title: "Coronary Insight | Viacheslav Danilov",
+    description:
+      "Deep learning pipeline for OCT plaque segmentation, enabling precise arterial risk assessment in cardiovascular imaging.",
+  },
+  twitter: {
+    title: "Coronary Insight | Viacheslav Danilov",
+    description:
+      "Deep learning pipeline for OCT plaque segmentation, enabling precise arterial risk assessment in cardiovascular imaging.",
+  },
 };
 
 const HIGHLIGHTS_ITEMS = [
