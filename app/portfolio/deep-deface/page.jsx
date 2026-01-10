@@ -30,18 +30,12 @@ export const metadata = {
     title: "Deep Deface | Viacheslav Danilov",
     description:
       "GPU-accelerated 3D anonymization pipeline for CT and MRI scans, detecting and blurring facial/ear regions while preserving 100% of brain anatomy.",
-    images: [
-      {
-        url: "https://vdanilov.dev/portfolio/deep-deface/opengraph-image.jpg",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Deep Deface | Viacheslav Danilov",
     description:
       "GPU-accelerated 3D anonymization pipeline for CT and MRI scans, detecting and blurring facial/ear regions while preserving 100% of brain anatomy.",
-    images: ["https://vdanilov.dev/portfolio/deep-deface/opengraph-image.jpg"],
   },
 };
 

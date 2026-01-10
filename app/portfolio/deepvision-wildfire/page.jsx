@@ -29,14 +29,12 @@ export const metadata = {
     title: "DeepVision Wildfire | Viacheslav Danilov",
     description:
       "Real-time wildfire detection system for Siberian forests combining EfficientDet and CNN-RNN, achieving 95.6% accuracy at 9 FPS.",
-    images: ["/portfolio/deepvision-wildfire/opengraph-image.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "DeepVision Wildfire | Viacheslav Danilov",
     description:
       "Real-time wildfire detection system for Siberian forests combining EfficientDet and CNN-RNN, achieving 95.6% accuracy at 9 FPS.",
-    images: ["/portfolio/deepvision-wildfire/opengraph-image.jpg"],
   },
 };
 

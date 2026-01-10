@@ -29,14 +29,12 @@ export const metadata = {
     title: "Sales Pilot | Viacheslav Danilov",
     description:
       "AI-powered lead scoring system using hybrid heuristics and OpenAI embeddings to automate and prioritize high-fit leads at scale.",
-    images: ["/portfolio/sales-pilot/opengraph-image.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Sales Pilot | Viacheslav Danilov",
     description:
       "AI-powered lead scoring system using hybrid heuristics and OpenAI embeddings to automate and prioritize high-fit leads at scale.",
-    images: ["/portfolio/sales-pilot/opengraph-image.jpg"],
   },
 };
 

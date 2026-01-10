@@ -29,20 +29,12 @@ export const metadata = {
     title: "HyperVision Ablation | Viacheslav Danilov",
     description:
       "ML workflow for tissue ablation assessment in hyperspectral imaging using PCA, Faster R-CNN, and Mean Shift clustering.",
-    images: [
-      {
-        url: "https://vdanilov.dev/portfolio/hypervision-ablation/opengraph-image.jpg",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "HyperVision Ablation | Viacheslav Danilov",
     description:
       "ML workflow for tissue ablation assessment in hyperspectral imaging using PCA, Faster R-CNN, and Mean Shift clustering.",
-    images: [
-      "https://vdanilov.dev/portfolio/hypervision-ablation/opengraph-image.jpg",
-    ],
   },
 };
 

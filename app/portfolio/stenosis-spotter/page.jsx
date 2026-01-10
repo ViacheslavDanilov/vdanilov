@@ -29,20 +29,12 @@ export const metadata = {
     title: "Stenosis Spotter | Viacheslav Danilov",
     description:
       "Real-time coronary stenosis detection using deep learning for intraoperative angiographic image analysis with 0.94 mAP.",
-    images: [
-      {
-        url: "https://vdanilov.dev/portfolio/stenosis-spotter/opengraph-image.jpg",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Stenosis Spotter | Viacheslav Danilov",
     description:
       "Real-time coronary stenosis detection using deep learning for intraoperative angiographic image analysis with 0.94 mAP.",
-    images: [
-      "https://vdanilov.dev/portfolio/stenosis-spotter/opengraph-image.jpg",
-    ],
   },
 };
 

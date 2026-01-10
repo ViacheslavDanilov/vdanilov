@@ -29,14 +29,12 @@ export const metadata = {
     title: "Histo Scanner | Viacheslav Danilov",
     description:
       "Deep learning pipeline for segmenting microvascular features in tissue-engineered vascular grafts with 89% Dice score.",
-    images: ["/portfolio/histo-scanner/opengraph-image.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Histo Scanner | Viacheslav Danilov",
     description:
       "Deep learning pipeline for segmenting microvascular features in tissue-engineered vascular grafts with 89% Dice score.",
-    images: ["/portfolio/histo-scanner/opengraph-image.jpg"],
   },
 };
 
