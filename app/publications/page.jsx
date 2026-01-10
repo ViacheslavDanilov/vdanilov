@@ -8,11 +8,13 @@ export const metadata = {
     title: "Publications | Viacheslav Danilov",
     description:
       "Peer-reviewed research, conference proceedings, and data sets by Viacheslav Danilov.",
+    images: ["/opengraph-image.png"],
   },
   twitter: {
     title: "Publications | Viacheslav Danilov",
     description:
       "Peer-reviewed research, conference proceedings, and data sets by Viacheslav Danilov.",
+    images: ["/opengraph-image.png"],
   },
 };
 
