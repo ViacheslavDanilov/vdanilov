@@ -3,18 +3,18 @@ import PublicationsClient from "./PublicationsClient";
 export const metadata = {
   title: "Publications",
   description:
-    "Peer-reviewed research, conference proceedings, and data sets by Viacheslav Danilov.",
+    "Peer-reviewed research, conference proceedings, technical articles, and datasets by Viacheslav Danilov.",
   openGraph: {
     title: "Publications | Viacheslav Danilov",
     description:
-      "Peer-reviewed research, conference proceedings, and data sets by Viacheslav Danilov.",
-    images: ["/opengraph-image.png"],
+      "Peer-reviewed research, conference proceedings, technical articles, and datasets by Viacheslav Danilov.",
+    images: ["https://vdanilov.com/opengraph-image.png"],
   },
   twitter: {
     title: "Publications | Viacheslav Danilov",
     description:
-      "Peer-reviewed research, conference proceedings, and data sets by Viacheslav Danilov.",
-    images: ["/opengraph-image.png"],
+      "Peer-reviewed research, conference proceedings, technical articles, and datasets by Viacheslav Danilov.",
+    images: ["https://vdanilov.com/opengraph-image.png"],
   },
 };
 

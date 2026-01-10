@@ -8,13 +8,13 @@ export const metadata = {
     title: "Education | Viacheslav Danilov",
     description:
       "Academic background and certifications of Viacheslav Danilov, including PhD, Master's degrees, and professional courses.",
-    images: ["/opengraph-image.png"],
+    images: ["https://vdanilov.com/opengraph-image.png"],
   },
   twitter: {
     title: "Education | Viacheslav Danilov",
     description:
       "Academic background and certifications of Viacheslav Danilov, including PhD, Master's degrees, and professional courses.",
-    images: ["/opengraph-image.png"],
+    images: ["https://vdanilov.com/opengraph-image.png"],
   },
 };
 
