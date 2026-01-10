@@ -39,12 +39,21 @@ export const metadata = {
     title: "Viacheslav Danilov",
     description:
       "PhD in Computer Science combining research depth, engineering skill, and leadership experience. Building ML and AI solutions that solve real problems.",
+    images: [
+      {
+        url: "/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Viacheslav Danilov",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Viacheslav Danilov",
     description:
       "PhD in Computer Science combining research depth, engineering skill, and leadership experience. Building ML and AI solutions that solve real problems.",
+    images: ["/opengraph-image.png"],
   },
 };
 

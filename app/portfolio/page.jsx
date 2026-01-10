@@ -8,13 +8,13 @@ export const metadata = {
     title: "Portfolio | Viacheslav Danilov",
     description:
       "A curated collection of projects by Viacheslav Danilov showcasing expertise in machine learning, AI, and data-driven solutions.",
-    images: ["https://vdanilov.com/opengraph-image.png"],
+    images: ["/opengraph-image.png"],
   },
   twitter: {
     title: "Portfolio | Viacheslav Danilov",
     description:
       "A curated collection of projects by Viacheslav Danilov showcasing expertise in machine learning, AI, and data-driven solutions.",
-    images: ["https://vdanilov.com/opengraph-image.png"],
+    images: ["/opengraph-image.png"],
   },
 };
 
