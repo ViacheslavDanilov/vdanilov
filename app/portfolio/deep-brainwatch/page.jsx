@@ -30,12 +30,21 @@ export const metadata = {
     title: "Deep BrainWatch | Viacheslav Danilov",
     description:
       "Non-invasive ICP monitoring using deep learning on cerebral blood flow signals from near-infrared photonic sensors.",
+    images: [
+      {
+        url: "/portfolio/previews/deep-brainwatch.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Deep BrainWatch - Non-invasive ICP monitoring",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Deep BrainWatch | Viacheslav Danilov",
     description:
       "Non-invasive ICP monitoring using deep learning on cerebral blood flow signals from near-infrared photonic sensors.",
+    images: ["/portfolio/previews/deep-brainwatch.jpg"],
   },
 };
 
