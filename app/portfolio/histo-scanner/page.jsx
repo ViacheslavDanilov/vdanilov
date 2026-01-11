@@ -20,6 +20,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
+import ProjectBanner from "@/components/ProjectBanner";
 
 export const metadata = {
   title: "Histo Scanner",
@@ -240,6 +241,12 @@ export default function ProjectPage() {
           />
           <span>Back to Portfolio</span>
         </Link>
+
+        {/* Project Banner */}
+        <ProjectBanner
+          image="/portfolio/previews/histo-scanner.jpg"
+          alt="Histo Scanner - Microvascular feature segmentation in TEVG"
+        />
 
         {/* Project Header */}
         <header className="mb-16 p-6 rounded-2xl bg-light/[0.03]">

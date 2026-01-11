@@ -20,6 +20,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
+import ProjectBanner from "@/components/ProjectBanner";
 
 export const metadata = {
   title: "PulmoLens",
@@ -242,6 +243,12 @@ export default function ProjectPage() {
           />
           <span>Back to Portfolio</span>
         </Link>
+
+        {/* Project Banner */}
+        <ProjectBanner
+          image="/portfolio/previews/pulmolens.jpg"
+          alt="PulmoLens - Lung X-ray segmentation for intubation detection"
+        />
 
         {/* Project Header */}
         <header className="mb-16 p-6 rounded-2xl bg-light/[0.03]">
