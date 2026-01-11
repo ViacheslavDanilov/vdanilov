@@ -18,15 +18,16 @@ const poppins = Poppins({
   variable: "--font-poppins",
 });
 
+// Canonical production URL (used for SEO)
+const SITE_URL = "https://www.vdanilov.com";
+
 // Dynamic metadataBase for Vercel preview deployments
 const getBaseUrl = () => {
   if (process.env.VERCEL_URL) {
     return `https://${process.env.VERCEL_URL}`;
   }
-  return "https://www.vdanilov.com";
+  return SITE_URL;
 };
-
-const siteUrl = "https://www.vdanilov.com";
 
 export const metadata = {
   metadataBase: new URL(getBaseUrl()),
@@ -42,7 +43,7 @@ export const metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: siteUrl,
+    url: SITE_URL,
     siteName: "Viacheslav Danilov",
     title: "Viacheslav Danilov",
     description:
