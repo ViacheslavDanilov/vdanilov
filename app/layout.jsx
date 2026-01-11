@@ -18,10 +18,18 @@ const poppins = Poppins({
   variable: "--font-poppins",
 });
 
+// Dynamic metadataBase for Vercel preview deployments
+const getBaseUrl = () => {
+  if (process.env.VERCEL_URL) {
+    return `https://${process.env.VERCEL_URL}`;
+  }
+  return "https://www.vdanilov.com";
+};
+
 const siteUrl = "https://www.vdanilov.com";
 
 export const metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(getBaseUrl()),
   title: {
     default: "Viacheslav Danilov",
     template: "%s | Viacheslav Danilov",
