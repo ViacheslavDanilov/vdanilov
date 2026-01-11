@@ -29,12 +29,21 @@ export const metadata = {
     title: "PulmoLens | Viacheslav Danilov",
     description:
       "Attention-guided deep learning for COVID-19 and pneumonia detection in chest X-rays, achieving 84% accuracy with Grad-CAM supervision.",
+    images: [
+      {
+        url: "/portfolio/previews/pulmolens.jpg",
+        width: 1200,
+        height: 630,
+        alt: "PulmoLens - COVID-19 and pneumonia detection",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "PulmoLens | Viacheslav Danilov",
     description:
       "Attention-guided deep learning for COVID-19 and pneumonia detection in chest X-rays, achieving 84% accuracy with Grad-CAM supervision.",
+    images: ["/portfolio/previews/pulmolens.jpg"],
   },
 };
 

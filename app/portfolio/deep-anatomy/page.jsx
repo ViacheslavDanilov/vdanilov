@@ -29,12 +29,21 @@ export const metadata = {
     title: "Deep Anatomy | Viacheslav Danilov",
     description:
       "High-precision 3D organ segmentation via V-net architecture with dense skip connections, achieving up to 96% Dice score across 5 anatomical structures.",
+    images: [
+      {
+        url: "/portfolio/previews/deep-anatomy.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Deep Anatomy - 3D organ segmentation",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Deep Anatomy | Viacheslav Danilov",
     description:
       "High-precision 3D organ segmentation via V-net architecture with dense skip connections, achieving up to 96% Dice score across 5 anatomical structures.",
+    images: ["/portfolio/previews/deep-anatomy.jpg"],
   },
 };
 

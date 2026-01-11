@@ -29,12 +29,21 @@ export const metadata = {
     title: "Coronary Insight | Viacheslav Danilov",
     description:
       "Deep learning pipeline for OCT plaque segmentation, enabling precise arterial risk assessment in cardiovascular imaging.",
+    images: [
+      {
+        url: "/portfolio/previews/coronary-insight.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Coronary Insight - OCT plaque segmentation",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Coronary Insight | Viacheslav Danilov",
     description:
       "Deep learning pipeline for OCT plaque segmentation, enabling precise arterial risk assessment in cardiovascular imaging.",
+    images: ["/portfolio/previews/coronary-insight.jpg"],
   },
 };
 

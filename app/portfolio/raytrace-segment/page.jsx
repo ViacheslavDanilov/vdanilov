@@ -29,12 +29,21 @@ export const metadata = {
     title: "RayTrace Segment | Viacheslav Danilov",
     description:
       "Ray-casting segmentation algorithm for convex anatomical structures in MRI, achieving up to 91.8% Dice score with millisecond-level runtime.",
+    images: [
+      {
+        url: "/portfolio/previews/raytrace-segment.jpg",
+        width: 1200,
+        height: 630,
+        alt: "RayTrace Segment - MRI anatomical segmentation",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "RayTrace Segment | Viacheslav Danilov",
     description:
       "Ray-casting segmentation algorithm for convex anatomical structures in MRI, achieving up to 91.8% Dice score with millisecond-level runtime.",
+    images: ["/portfolio/previews/raytrace-segment.jpg"],
   },
 };
 

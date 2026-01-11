@@ -29,12 +29,21 @@ export const metadata = {
     title: "PulmoVision | Viacheslav Danilov",
     description:
       "Explainable AI framework for detecting pulmonary edema features in chest X-rays using deep learning segmentation and object detection.",
+    images: [
+      {
+        url: "/portfolio/previews/pulmovision.jpg",
+        width: 1200,
+        height: 630,
+        alt: "PulmoVision - AI for pulmonary edema detection",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "PulmoVision | Viacheslav Danilov",
     description:
       "Explainable AI framework for detecting pulmonary edema features in chest X-rays using deep learning segmentation and object detection.",
+    images: ["/portfolio/previews/pulmovision.jpg"],
   },
 };
 

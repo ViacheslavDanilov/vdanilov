@@ -29,12 +29,21 @@ export const metadata = {
     title: "PulmoScore | Viacheslav Danilov",
     description:
       "Two-stage ML workflow for COVID-19 severity scoring on chest X-rays, achieving MAE of 0.30 and 11× faster processing.",
+    images: [
+      {
+        url: "/portfolio/previews/pulmoscore.jpg",
+        width: 1200,
+        height: 630,
+        alt: "PulmoScore - COVID-19 severity scoring",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "PulmoScore | Viacheslav Danilov",
     description:
       "Two-stage ML workflow for COVID-19 severity scoring on chest X-rays, achieving MAE of 0.30 and 11× faster processing.",
+    images: ["/portfolio/previews/pulmoscore.jpg"],
   },
 };
 
