@@ -204,7 +204,7 @@ const REFERENCES_DATA = [
     location: "Cambridge · United States 🇺🇸",
     category: "Industry",
     image: "/people/yuriy-gankin.webp",
-    featured: true,
+    featured: false,
     socials: {
       website: "https://quantori.com/about/yuriy-gankin",
       linkedin: "https://www.linkedin.com/in/yuriygankin/",
@@ -226,6 +226,22 @@ const REFERENCES_DATA = [
       facebook: "https://www.facebook.com/efim.furman",
       linkedin: "https://www.linkedin.com/in/fima-furman-74133a",
       email: "efimfurman@gmail.com",
+    },
+  },
+  {
+    id: "alex-proutski",
+    name: "Alex Proutski, PhD",
+    role: "Head of Data Science",
+    organization: "Quantori",
+    location: "The Hague · Netherlands 🇳🇱",
+    category: "Industry",
+    image: "/people/alex-proutski.webp",
+    featured: true,
+    socials: {
+      linkedin: "https://www.linkedin.com/in/alexanderproutski",
+      researchgate:
+        "https://www.researchgate.net/scientific-contributions/Alex-Proutski-2210898853",
+      email: "alexander.proutski@quantori.com",
     },
   },
 ];
