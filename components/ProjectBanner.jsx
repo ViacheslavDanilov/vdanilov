@@ -10,7 +10,7 @@ import Image from "next/image";
  * @param {Object} props
  * @param {string} props.image - Path to the preview image
  * @param {string} props.alt - Alt text for the image
- * @param {string} [props.aspectRatio="16/9"] - Aspect ratio for the banner
+ * @param {string} [props.aspectRatio="40/21"] - Aspect ratio for the banner
  */
 const ProjectBanner = ({ image, alt, aspectRatio = "40/21" }) => {
   return (
