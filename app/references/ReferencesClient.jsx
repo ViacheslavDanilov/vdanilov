@@ -140,24 +140,24 @@ const REFERENCES_DATA = [
     },
   },
   // Medicine
-  {
-    id: "evgeny-ovcharenko",
-    name: "Evgeny Ovcharenko, PhD",
-    role: "Head of Biomaterials Lab",
-    organization: "Kemerovo Cardiology Center",
-    location: "Kemerovo · Russia 🇷🇺",
-    category: "Medicine",
-    image: "/people/evgeny-ovcharenko.webp",
-    featured: false,
-    socials: {
-      website: "https://loop.frontiersin.org/people/355364",
-      linkedin: "https://www.linkedin.com/in/evgeny-ovcharenko-89098722",
-      researchgate: "https://www.researchgate.net/profile/Evgeny-Ovcharenko",
-      googleScholar:
-        "https://scholar.google.ru/citations?user=taoklzsAAAAJ&hl=en",
-      email: "ov.eugene@gmail.com",
-    },
-  },
+  // {
+  //   id: "evgeny-ovcharenko",
+  //   name: "Evgeny Ovcharenko, PhD",
+  //   role: "Head of Biomaterials Lab",
+  //   organization: "Kemerovo Cardiology Center",
+  //   location: "Kemerovo · Russia 🇷🇺",
+  //   category: "Medicine",
+  //   image: "/people/evgeny-ovcharenko.webp",
+  //   featured: false,
+  //   socials: {
+  //     website: "https://loop.frontiersin.org/people/355364",
+  //     linkedin: "https://www.linkedin.com/in/evgeny-ovcharenko-89098722",
+  //     researchgate: "https://www.researchgate.net/profile/Evgeny-Ovcharenko",
+  //     googleScholar:
+  //       "https://scholar.google.ru/citations?user=taoklzsAAAAJ&hl=en",
+  //     email: "ov.eugene@gmail.com",
+  //   },
+  // },
   {
     id: "diana-litmanovich",
     name: "Diana Litmanovich, MD",
@@ -193,6 +193,23 @@ const REFERENCES_DATA = [
       googleScholar:
         "https://scholar.google.com/citations?user=HnEl5nYAAAAJ&hl=en",
       email: "nikolay.v.vasilyev.md@gmail.com",
+    },
+  },
+  {
+    id: "maria-poca",
+    name: "Maria Poca, MD",
+    role: "Head of Neurosurgery",
+    organization: "Vall d'Hebron University Hospital",
+    location: "Barcelona · Spain 🇪🇸",
+    category: "Medicine",
+    image: "/people/maria-poca.webp",
+    featured: false,
+    socials: {
+      website:
+        "https://hospital.vallhebron.com/en/professionals/maria-antonia-poca-pastor",
+      researchgate: "https://www.researchgate.net/profile/Maria-Poca",
+      orcid: "https://orcid.org/0000-0002-3831-0536",
+      email: "pocama@neurotrauma.net",
     },
   },
   // Industry
