@@ -113,8 +113,8 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Diana Litmanovich",
-    role: "Radiologist",
-    organization: "BID Medical Center",
+    role: "Chief of Cardiothoracic Imaging",
+    organization: "Beth Israel Deaconess Medical Center",
     location: "Boston · United States 🇺🇸",
     photo: "/people/diana-litmanovich.webp",
     links: {

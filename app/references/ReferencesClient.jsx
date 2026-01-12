@@ -24,7 +24,7 @@ const REFERENCES_DATA = [
     location: "Manchester · United Kingdom 🇬🇧",
     category: "Research",
     image: "/people/alex-frangi.webp",
-    featured: true,
+    featured: false,
     socials: {
       website: "https://research.manchester.ac.uk/en/persons/alejandro-frangi",
       linkedin: "https://www.linkedin.com/in/alejandro-frangi/",
@@ -162,8 +162,8 @@ const REFERENCES_DATA = [
   {
     id: "diana-litmanovich",
     name: "Diana Litmanovich, MD",
-    role: "Professor",
-    organization: "Harvard University",
+    role: "Chief of Cardiothoracic Imaging",
+    organization: "Beth Israel Deaconess Medical Center",
     location: "Boston · United States 🇺🇸",
     category: "Medicine",
     image: "/people/diana-litmanovich.webp",
@@ -198,7 +198,7 @@ const REFERENCES_DATA = [
   },
   {
     id: "maria-poca",
-    name: "Maria Poca, MD",
+    name: "Maria Poca, MD, PhD",
     role: "Head of Neurosurgery",
     organization: "Vall d'Hebron Hospital",
     location: "Barcelona · Spain 🇪🇸",
@@ -265,16 +265,33 @@ const REFERENCES_DATA = [
   // Pharma
   {
     id: "yuriy-popov",
-    name: "Yuriy Popov, PhD",
+    name: "Yuriy Popov, MD, PhD",
     role: "Associate Director",
     organization: "AstraZeneca",
     location: "Munich · Germany 🇩🇪",
     category: "Pharma",
     image: "/people/yuriy-popov.webp",
-    featured: false,
+    featured: true,
     socials: {
       linkedin: "https://www.linkedin.com/in/yury-popov-170298222/",
       email: "popow.yu.a@gmail.com",
+    },
+  },
+  {
+    id: "anton-kutikhin",
+    name: "Anton Kutikhin, MD, PhD",
+    role: "Head of Experimental Medicine",
+    organization: "Kemerovo Cardiology Center",
+    location: "Kemerovo · Russia 🇷🇺",
+    category: "Pharma",
+    image: "/people/anton-kutikhin.webp",
+    featured: false,
+    socials: {
+      website: "https://loop.frontiersin.org/people/98953/overview",
+      researchgate: "https://www.researchgate.net/profile/Anton-Kutikhin",
+      googleScholar:
+        "https://scholar.google.com/citations?user=Ni7zoiYAAAAJ&hl=en",
+      email: "antonkutikhin@gmail.com",
     },
   },
 ];
