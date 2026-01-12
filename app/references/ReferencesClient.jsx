@@ -10,6 +10,7 @@ import {
   faHeartPulse,
   faLayerGroup,
   faStar,
+  faCapsules,
 } from "@fortawesome/free-solid-svg-icons";
 
 // Reference data
@@ -166,7 +167,7 @@ const REFERENCES_DATA = [
     location: "Boston · United States 🇺🇸",
     category: "Medicine",
     image: "/people/diana-litmanovich.webp",
-    featured: true,
+    featured: false,
     socials: {
       website:
         "https://findadoc.bidmc.org/details/929/diana-litmanovich-diagnostic_radiology-boston-needham",
@@ -199,11 +200,11 @@ const REFERENCES_DATA = [
     id: "maria-poca",
     name: "Maria Poca, MD",
     role: "Head of Neurosurgery",
-    organization: "Vall d'Hebron University Hospital",
+    organization: "Vall d'Hebron Hospital",
     location: "Barcelona · Spain 🇪🇸",
     category: "Medicine",
     image: "/people/maria-poca.webp",
-    featured: false,
+    featured: true,
     socials: {
       website:
         "https://hospital.vallhebron.com/en/professionals/maria-antonia-poca-pastor",
@@ -261,6 +262,21 @@ const REFERENCES_DATA = [
       email: "alexander.proutski@quantori.com",
     },
   },
+  // Pharma
+  {
+    id: "yuriy-popov",
+    name: "Yuriy Popov, PhD",
+    role: "Associate Director",
+    organization: "AstraZeneca",
+    location: "Munich · Germany 🇩🇪",
+    category: "Pharma",
+    image: "/people/yuriy-popov.webp",
+    featured: false,
+    socials: {
+      linkedin: "https://www.linkedin.com/in/yury-popov-170298222/",
+      email: "popow.yu.a@gmail.com",
+    },
+  },
 ];
 
 const FILTER_OPTIONS = [
@@ -269,6 +285,7 @@ const FILTER_OPTIONS = [
   { id: "Research", label: "Research", icon: faFlask },
   { id: "Industry", label: "Industry", icon: faBriefcase },
   { id: "Medicine", label: "Medicine", icon: faHeartPulse },
+  { id: "Pharma", label: "Pharma", icon: faCapsules },
 ];
 
 export default function References() {
