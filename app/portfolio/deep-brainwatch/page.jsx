@@ -21,6 +21,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
+import ProjectBanner from "@/components/ProjectBanner";
 
 export const metadata = {
   title: "Deep BrainWatch",
@@ -30,12 +31,21 @@ export const metadata = {
     title: "Deep BrainWatch | Viacheslav Danilov",
     description:
       "Non-invasive ICP monitoring using deep learning on cerebral blood flow signals from near-infrared photonic sensors.",
+    images: [
+      {
+        url: "/portfolio/previews/deep-brainwatch.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Deep BrainWatch - Non-invasive ICP monitoring",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Deep BrainWatch | Viacheslav Danilov",
     description:
       "Non-invasive ICP monitoring using deep learning on cerebral blood flow signals from near-infrared photonic sensors.",
+    images: ["/portfolio/previews/deep-brainwatch.jpg"],
   },
 };
 
@@ -261,6 +271,12 @@ export default function ProjectPage() {
           />
           <span>Back to Portfolio</span>
         </Link>
+
+        {/* Project Banner */}
+        <ProjectBanner
+          image="/portfolio/previews/deep-brainwatch.jpg"
+          alt="Deep BrainWatch - Non-invasive ICP monitoring using deep learning"
+        />
 
         {/* Project Header */}
         <header className="mb-16 p-6 rounded-2xl bg-light/[0.03]">

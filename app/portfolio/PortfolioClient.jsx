@@ -13,7 +13,7 @@ const PROJECTS_DATA = [
     description:
       "ML workflow for tissue ablation assessment in hyperspectral imaging using PCA, Faster R-CNN, and Mean Shift clustering.",
     category: "biomedical-research",
-    image: "/portfolio/previews/hypervision-ablation.webp",
+    image: "/portfolio/previews/hypervision-ablation.jpg",
     date: "2024-07",
     featured: true,
   },
@@ -23,7 +23,7 @@ const PROJECTS_DATA = [
     description:
       "AI-powered lead scoring system using hybrid heuristics and OpenAI embeddings to automate and prioritize high-fit leads at scale.",
     category: "business-applications",
-    image: "/portfolio/previews/sales-pilot.webp",
+    image: "/portfolio/previews/sales-pilot.jpg",
     date: "2025-05",
     featured: true,
   },
@@ -33,7 +33,7 @@ const PROJECTS_DATA = [
     description:
       "Deep learning pipeline for OCT plaque segmentation, enabling precise arterial risk assessment in cardiovascular imaging.",
     category: "medical-imaging",
-    image: "/portfolio/previews/coronary-insight.webp",
+    image: "/portfolio/previews/coronary-insight.jpg",
     date: "2025-06",
     featured: true,
   },
@@ -43,7 +43,7 @@ const PROJECTS_DATA = [
     description:
       "Non-invasive ICP monitoring using deep learning on cerebral blood flow signals from near-infrared photonic sensors.",
     category: "medical-devices",
-    image: "/portfolio/previews/deep-brainwatch.webp",
+    image: "/portfolio/previews/deep-brainwatch.jpg",
     date: "2025-12",
     featured: true,
   },
@@ -53,7 +53,7 @@ const PROJECTS_DATA = [
     description:
       "ML-driven workflow for tumor immune phenotype classification using HoVer-Net and AutoML on histopathology images.",
     category: "biomedical-research",
-    image: "/portfolio/previews/immune-profiler.webp",
+    image: "/portfolio/previews/immune-profiler.jpg",
     date: "2024-06",
     featured: false,
   },
@@ -63,7 +63,7 @@ const PROJECTS_DATA = [
     description:
       "Deep learning pipeline for segmenting microvascular features in tissue-engineered vascular grafts with 89% Dice score.",
     category: "biomedical-research",
-    image: "/portfolio/previews/histo-scanner.webp",
+    image: "/portfolio/previews/histo-scanner.jpg",
     date: "2024-05",
     featured: false,
   },
@@ -73,7 +73,7 @@ const PROJECTS_DATA = [
     description:
       "Explainable AI framework for detecting pulmonary edema features in chest X-rays using deep learning segmentation and object detection.",
     category: "medical-imaging",
-    image: "/portfolio/previews/pulmovision.webp",
+    image: "/portfolio/previews/pulmovision.jpg",
     date: "2024-03",
     featured: true,
   },
@@ -83,7 +83,7 @@ const PROJECTS_DATA = [
     description:
       "ML-driven generative design framework for prosthetic heart valves using optimization algorithms, achieving 95% design efficacy.",
     category: "medical-devices",
-    image: "/portfolio/previews/provalve-design.webp",
+    image: "/portfolio/previews/provalve-design.jpg",
     date: "2023-09",
     featured: false,
   },
@@ -93,7 +93,7 @@ const PROJECTS_DATA = [
     description:
       "Deep learning solution for surgical tool segmentation in 3D ultrasound, achieving 93.6% Dice score for real-time catheter localization.",
     category: "clinical-decision-support",
-    image: "/portfolio/previews/sonoguide.webp",
+    image: "/portfolio/previews/sonoguide.jpg",
     date: "2023-02",
     featured: true,
   },
@@ -103,7 +103,7 @@ const PROJECTS_DATA = [
     description:
       "Two-stage ML workflow for COVID-19 severity scoring on chest X-rays, achieving MAE of 0.30 and 11× faster processing.",
     category: "medical-imaging",
-    image: "/portfolio/previews/pulmoscore.webp",
+    image: "/portfolio/previews/pulmoscore.jpg",
     date: "2022-07",
     featured: false,
   },
@@ -113,7 +113,7 @@ const PROJECTS_DATA = [
     description:
       "Attention-guided deep learning for COVID-19 and pneumonia detection in chest X-rays, achieving 84% accuracy with Grad-CAM supervision.",
     category: "medical-imaging",
-    image: "/portfolio/previews/pulmolens.webp",
+    image: "/portfolio/previews/pulmolens.jpg",
     date: "2022-01",
     featured: false,
   },
@@ -123,7 +123,7 @@ const PROJECTS_DATA = [
     description:
       "GPU-accelerated 3D anonymization pipeline for CT and MRI scans, detecting and blurring facial/ear regions while preserving 100% of brain anatomy.",
     category: "medical-imaging",
-    image: "/portfolio/previews/deep-deface.webp",
+    image: "/portfolio/previews/deep-deface.jpg",
     date: "2021-09",
     featured: false,
   },
@@ -133,7 +133,7 @@ const PROJECTS_DATA = [
     description:
       "Real-time landmark tracking for safer valve implantation during TAVI procedures using multi-task deep learning with 97% accuracy.",
     category: "clinical-decision-support",
-    image: "/portfolio/previews/tavi-pinpoint.webp",
+    image: "/portfolio/previews/tavi-pinpoint.jpg",
     date: "2021-07",
     featured: false,
   },
@@ -143,7 +143,7 @@ const PROJECTS_DATA = [
     description:
       "Real-time coronary stenosis detection using deep learning for intraoperative angiographic image analysis with 0.94 mAP.",
     category: "clinical-decision-support",
-    image: "/portfolio/previews/stenosis-spotter.webp",
+    image: "/portfolio/previews/stenosis-spotter.jpg",
     date: "2021-04",
     featured: false,
   },
@@ -153,7 +153,7 @@ const PROJECTS_DATA = [
     description:
       "AI-powered microscopy pipeline for detecting and counting cancer cell biomarkers using EfficientDet, achieving 85% mAP for nuclei detection.",
     category: "biomedical-research",
-    image: "/portfolio/previews/oncocell-vision.webp",
+    image: "/portfolio/previews/oncocell-vision.jpg",
     date: "2021-01",
     featured: false,
   },
@@ -163,7 +163,7 @@ const PROJECTS_DATA = [
     description:
       "High-precision 3D organ segmentation via V-net architecture with dense skip connections, achieving up to 96% Dice score across 5 anatomical structures.",
     category: "medical-imaging",
-    image: "/portfolio/previews/deep-anatomy.webp",
+    image: "/portfolio/previews/deep-anatomy.jpg",
     date: "2020-07",
     featured: false,
   },
@@ -173,7 +173,7 @@ const PROJECTS_DATA = [
     description:
       "Real-time wildfire detection system for Siberian forests combining EfficientDet and CNN-RNN, achieving 95.6% accuracy at 9 FPS.",
     category: "business-applications",
-    image: "/portfolio/previews/deepvision-wildfire.webp",
+    image: "/portfolio/previews/deepvision-wildfire.jpg",
     date: "2019-07",
     featured: false,
   },
@@ -183,7 +183,7 @@ const PROJECTS_DATA = [
     description:
       "Ray-casting segmentation algorithm for convex anatomical structures in MRI, achieving up to 91.8% Dice score with millisecond-level runtime.",
     category: "medical-imaging",
-    image: "/portfolio/previews/raytrace-segment.webp",
+    image: "/portfolio/previews/raytrace-segment.jpg",
     date: "2019-05",
     featured: false,
   },

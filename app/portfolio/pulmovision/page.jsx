@@ -20,6 +20,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
+import ProjectBanner from "@/components/ProjectBanner";
 
 export const metadata = {
   title: "PulmoVision",
@@ -29,12 +30,21 @@ export const metadata = {
     title: "PulmoVision | Viacheslav Danilov",
     description:
       "Explainable AI framework for detecting pulmonary edema features in chest X-rays using deep learning segmentation and object detection.",
+    images: [
+      {
+        url: "/portfolio/previews/pulmovision.jpg",
+        width: 1200,
+        height: 630,
+        alt: "PulmoVision - AI for pulmonary edema detection",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "PulmoVision | Viacheslav Danilov",
     description:
       "Explainable AI framework for detecting pulmonary edema features in chest X-rays using deep learning segmentation and object detection.",
+    images: ["/portfolio/previews/pulmovision.jpg"],
   },
 };
 
@@ -103,8 +113,8 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Diana Litmanovich",
-    role: "Radiologist",
-    organization: "BID Medical Center",
+    role: "Chief of Cardiothoracic Imaging",
+    organization: "Beth Israel Deaconess Medical Center",
     location: "Boston · United States 🇺🇸",
     photo: "/people/diana-litmanovich.webp",
     links: {
@@ -235,6 +245,12 @@ export default function ProjectPage() {
           />
           <span>Back to Portfolio</span>
         </Link>
+
+        {/* Project Banner */}
+        <ProjectBanner
+          image="/portfolio/previews/pulmovision.jpg"
+          alt="PulmoVision - CT lung classification for COVID-19 detection"
+        />
 
         {/* Project Header */}
         <header className="mb-16 p-6 rounded-2xl bg-light/[0.03]">

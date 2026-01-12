@@ -20,6 +20,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
+import ProjectBanner from "@/components/ProjectBanner";
 
 export const metadata = {
   title: "Histo Scanner",
@@ -29,12 +30,21 @@ export const metadata = {
     title: "Histo Scanner | Viacheslav Danilov",
     description:
       "Deep learning pipeline for segmenting microvascular features in tissue-engineered vascular grafts with 89% Dice score.",
+    images: [
+      {
+        url: "/portfolio/previews/histo-scanner.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Histo Scanner - Microvascular feature segmentation",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Histo Scanner | Viacheslav Danilov",
     description:
       "Deep learning pipeline for segmenting microvascular features in tissue-engineered vascular grafts with 89% Dice score.",
+    images: ["/portfolio/previews/histo-scanner.jpg"],
   },
 };
 
@@ -231,6 +241,12 @@ export default function ProjectPage() {
           />
           <span>Back to Portfolio</span>
         </Link>
+
+        {/* Project Banner */}
+        <ProjectBanner
+          image="/portfolio/previews/histo-scanner.jpg"
+          alt="Histo Scanner - Microvascular feature segmentation in TEVG"
+        />
 
         {/* Project Header */}
         <header className="mb-16 p-6 rounded-2xl bg-light/[0.03]">

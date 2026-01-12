@@ -20,6 +20,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
+import ProjectBanner from "@/components/ProjectBanner";
 
 export const metadata = {
   title: "SonoGuide",
@@ -29,12 +30,21 @@ export const metadata = {
     title: "SonoGuide | Viacheslav Danilov",
     description:
       "Deep learning solution for surgical tool segmentation in 3D ultrasound, achieving 93.6% Dice score for real-time catheter localization.",
+    images: [
+      {
+        url: "/portfolio/previews/sonoguide.jpg",
+        width: 1200,
+        height: 630,
+        alt: "SonoGuide - Surgical tool segmentation in 3D ultrasound",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "SonoGuide | Viacheslav Danilov",
     description:
       "Deep learning solution for surgical tool segmentation in 3D ultrasound, achieving 93.6% Dice score for real-time catheter localization.",
+    images: ["/portfolio/previews/sonoguide.jpg"],
   },
 };
 
@@ -213,6 +223,12 @@ export default function ProjectPage() {
           />
           <span>Back to Portfolio</span>
         </Link>
+
+        {/* Project Banner */}
+        <ProjectBanner
+          image="/portfolio/previews/sonoguide.jpg"
+          alt="SonoGuide - AI-guided ultrasound imaging assistant"
+        />
 
         {/* Project Header */}
         <header className="mb-16 p-6 rounded-2xl bg-light/[0.03]">

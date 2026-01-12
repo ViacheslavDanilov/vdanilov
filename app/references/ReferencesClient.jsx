@@ -10,6 +10,7 @@ import {
   faHeartPulse,
   faLayerGroup,
   faStar,
+  faCapsules,
 } from "@fortawesome/free-solid-svg-icons";
 
 // Reference data
@@ -23,7 +24,7 @@ const REFERENCES_DATA = [
     location: "Manchester · United Kingdom 🇬🇧",
     category: "Research",
     image: "/people/alex-frangi.webp",
-    featured: true,
+    featured: false,
     socials: {
       website: "https://research.manchester.ac.uk/en/persons/alejandro-frangi",
       linkedin: "https://www.linkedin.com/in/alejandro-frangi/",
@@ -140,33 +141,33 @@ const REFERENCES_DATA = [
     },
   },
   // Medicine
-  {
-    id: "evgeny-ovcharenko",
-    name: "Evgeny Ovcharenko, PhD",
-    role: "Head of Biomaterials Lab",
-    organization: "Kemerovo Cardiology Center",
-    location: "Kemerovo · Russia 🇷🇺",
-    category: "Medicine",
-    image: "/people/evgeny-ovcharenko.webp",
-    featured: false,
-    socials: {
-      website: "https://loop.frontiersin.org/people/355364",
-      linkedin: "https://www.linkedin.com/in/evgeny-ovcharenko-89098722",
-      researchgate: "https://www.researchgate.net/profile/Evgeny-Ovcharenko",
-      googleScholar:
-        "https://scholar.google.ru/citations?user=taoklzsAAAAJ&hl=en",
-      email: "ov.eugene@gmail.com",
-    },
-  },
+  // {
+  //   id: "evgeny-ovcharenko",
+  //   name: "Evgeny Ovcharenko, PhD",
+  //   role: "Head of Biomaterials Lab",
+  //   organization: "Kemerovo Cardiology Center",
+  //   location: "Kemerovo · Russia 🇷🇺",
+  //   category: "Medicine",
+  //   image: "/people/evgeny-ovcharenko.webp",
+  //   featured: false,
+  //   socials: {
+  //     website: "https://loop.frontiersin.org/people/355364",
+  //     linkedin: "https://www.linkedin.com/in/evgeny-ovcharenko-89098722",
+  //     researchgate: "https://www.researchgate.net/profile/Evgeny-Ovcharenko",
+  //     googleScholar:
+  //       "https://scholar.google.ru/citations?user=taoklzsAAAAJ&hl=en",
+  //     email: "ov.eugene@gmail.com",
+  //   },
+  // },
   {
     id: "diana-litmanovich",
     name: "Diana Litmanovich, MD",
-    role: "Professor",
-    organization: "Harvard University",
+    role: "Chief of Cardiothoracic Imaging",
+    organization: "Beth Israel Deaconess Medical Center",
     location: "Boston · United States 🇺🇸",
     category: "Medicine",
     image: "/people/diana-litmanovich.webp",
-    featured: true,
+    featured: false,
     socials: {
       website:
         "https://findadoc.bidmc.org/details/929/diana-litmanovich-diagnostic_radiology-boston-needham",
@@ -195,6 +196,23 @@ const REFERENCES_DATA = [
       email: "nikolay.v.vasilyev.md@gmail.com",
     },
   },
+  {
+    id: "maria-poca",
+    name: "Maria Poca, MD, PhD",
+    role: "Head of Neurosurgery",
+    organization: "Vall d'Hebron Hospital",
+    location: "Barcelona · Spain 🇪🇸",
+    category: "Medicine",
+    image: "/people/maria-poca.webp",
+    featured: true,
+    socials: {
+      website:
+        "https://hospital.vallhebron.com/en/professionals/maria-antonia-poca-pastor",
+      researchgate: "https://www.researchgate.net/profile/Maria-Poca",
+      orcid: "https://orcid.org/0000-0002-3831-0536",
+      email: "pocama@neurotrauma.net",
+    },
+  },
   // Industry
   {
     id: "yuriy-gankin",
@@ -204,7 +222,7 @@ const REFERENCES_DATA = [
     location: "Cambridge · United States 🇺🇸",
     category: "Industry",
     image: "/people/yuriy-gankin.webp",
-    featured: true,
+    featured: false,
     socials: {
       website: "https://quantori.com/about/yuriy-gankin",
       linkedin: "https://www.linkedin.com/in/yuriygankin/",
@@ -228,6 +246,54 @@ const REFERENCES_DATA = [
       email: "efimfurman@gmail.com",
     },
   },
+  {
+    id: "alex-proutski",
+    name: "Alex Proutski, PhD",
+    role: "Head of Data Science",
+    organization: "Quantori",
+    location: "The Hague · Netherlands 🇳🇱",
+    category: "Industry",
+    image: "/people/alex-proutski.webp",
+    featured: true,
+    socials: {
+      linkedin: "https://www.linkedin.com/in/alexanderproutski",
+      researchgate:
+        "https://www.researchgate.net/scientific-contributions/Alex-Proutski-2210898853",
+      email: "alexander.proutski@quantori.com",
+    },
+  },
+  // Pharma
+  {
+    id: "yuriy-popov",
+    name: "Yuriy Popov, MD, PhD",
+    role: "Associate Director",
+    organization: "AstraZeneca",
+    location: "Munich · Germany 🇩🇪",
+    category: "Pharma",
+    image: "/people/yuriy-popov.webp",
+    featured: true,
+    socials: {
+      linkedin: "https://www.linkedin.com/in/yury-popov-170298222/",
+      email: "popow.yu.a@gmail.com",
+    },
+  },
+  {
+    id: "anton-kutikhin",
+    name: "Anton Kutikhin, MD, PhD",
+    role: "Head of Experimental Medicine",
+    organization: "Kemerovo Cardiology Center",
+    location: "Kemerovo · Russia 🇷🇺",
+    category: "Pharma",
+    image: "/people/anton-kutikhin.webp",
+    featured: false,
+    socials: {
+      website: "https://loop.frontiersin.org/people/98953/overview",
+      researchgate: "https://www.researchgate.net/profile/Anton-Kutikhin",
+      googleScholar:
+        "https://scholar.google.com/citations?user=Ni7zoiYAAAAJ&hl=en",
+      email: "antonkutikhin@gmail.com",
+    },
+  },
 ];
 
 const FILTER_OPTIONS = [
@@ -236,6 +302,7 @@ const FILTER_OPTIONS = [
   { id: "Research", label: "Research", icon: faFlask },
   { id: "Industry", label: "Industry", icon: faBriefcase },
   { id: "Medicine", label: "Medicine", icon: faHeartPulse },
+  { id: "Pharma", label: "Pharma", icon: faCapsules },
 ];
 
 export default function References() {

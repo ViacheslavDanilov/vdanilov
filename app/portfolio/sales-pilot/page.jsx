@@ -20,6 +20,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
+import ProjectBanner from "@/components/ProjectBanner";
 
 export const metadata = {
   title: "Sales Pilot",
@@ -29,12 +30,21 @@ export const metadata = {
     title: "Sales Pilot | Viacheslav Danilov",
     description:
       "AI-powered lead scoring system using hybrid heuristics and OpenAI embeddings to automate and prioritize high-fit leads at scale.",
+    images: [
+      {
+        url: "/portfolio/previews/sales-pilot.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Sales Pilot - AI-powered lead scoring",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Sales Pilot | Viacheslav Danilov",
     description:
       "AI-powered lead scoring system using hybrid heuristics and OpenAI embeddings to automate and prioritize high-fit leads at scale.",
+    images: ["/portfolio/previews/sales-pilot.jpg"],
   },
 };
 
@@ -228,6 +238,12 @@ export default function ProjectPage() {
           />
           <span>Back to Portfolio</span>
         </Link>
+
+        {/* Project Banner */}
+        <ProjectBanner
+          image="/portfolio/previews/sales-pilot.jpg"
+          alt="Sales Pilot - AI-powered sales assistant platform"
+        />
 
         {/* Project Header */}
         <header className="mb-16 p-6 rounded-2xl bg-light/[0.03]">

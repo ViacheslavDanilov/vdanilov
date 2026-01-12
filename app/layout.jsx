@@ -18,10 +18,19 @@ const poppins = Poppins({
   variable: "--font-poppins",
 });
 
-const siteUrl = "https://www.vdanilov.com";
+// Canonical production URL (used for SEO)
+const SITE_URL = "https://www.vdanilov.com";
+
+// Dynamic metadataBase for Vercel preview deployments
+const getBaseUrl = () => {
+  if (process.env.VERCEL_URL) {
+    return `https://${process.env.VERCEL_URL}`;
+  }
+  return SITE_URL;
+};
 
 export const metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(getBaseUrl()),
   title: {
     default: "Viacheslav Danilov",
     template: "%s | Viacheslav Danilov",
@@ -34,17 +43,26 @@ export const metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: siteUrl,
+    url: SITE_URL,
     siteName: "Viacheslav Danilov",
     title: "Viacheslav Danilov",
     description:
       "PhD in Computer Science combining research depth, engineering skill, and leadership experience. Building ML and AI solutions that solve real problems.",
+    images: [
+      {
+        url: "/opengraph-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Viacheslav Danilov - ML/AI Solutions Engineer",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Viacheslav Danilov",
     description:
       "PhD in Computer Science combining research depth, engineering skill, and leadership experience. Building ML and AI solutions that solve real problems.",
+    images: ["/opengraph-image.jpg"],
   },
 };
 

@@ -20,6 +20,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
+import ProjectBanner from "@/components/ProjectBanner";
 
 export const metadata = {
   title: "DeepVision Wildfire",
@@ -29,12 +30,21 @@ export const metadata = {
     title: "DeepVision Wildfire | Viacheslav Danilov",
     description:
       "Real-time wildfire detection system for Siberian forests combining EfficientDet and CNN-RNN, achieving 95.6% accuracy at 9 FPS.",
+    images: [
+      {
+        url: "/portfolio/previews/deepvision-wildfire.jpg",
+        width: 1200,
+        height: 630,
+        alt: "DeepVision Wildfire - Real-time wildfire detection",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "DeepVision Wildfire | Viacheslav Danilov",
     description:
       "Real-time wildfire detection system for Siberian forests combining EfficientDet and CNN-RNN, achieving 95.6% accuracy at 9 FPS.",
+    images: ["/portfolio/previews/deepvision-wildfire.jpg"],
   },
 };
 
@@ -241,6 +251,12 @@ export default function ProjectPage() {
           />
           <span>Back to Portfolio</span>
         </Link>
+
+        {/* Project Banner */}
+        <ProjectBanner
+          image="/portfolio/previews/deepvision-wildfire.jpg"
+          alt="DeepVision Wildfire - Real-time wildfire detection system"
+        />
 
         {/* Project Header */}
         <header className="mb-16 p-6 rounded-2xl bg-light/[0.03]">

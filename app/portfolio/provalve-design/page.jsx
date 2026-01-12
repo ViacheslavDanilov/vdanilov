@@ -19,6 +19,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
+import ProjectBanner from "@/components/ProjectBanner";
 
 export const metadata = {
   title: "ProValve Design",
@@ -28,12 +29,21 @@ export const metadata = {
     title: "ProValve Design | Viacheslav Danilov",
     description:
       "ML-driven generative design framework for prosthetic heart valves using optimization algorithms, achieving 95% design efficacy.",
+    images: [
+      {
+        url: "/portfolio/previews/provalve-design.jpg",
+        width: 1200,
+        height: 630,
+        alt: "ProValve Design - Prosthetic heart valve design",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "ProValve Design | Viacheslav Danilov",
     description:
       "ML-driven generative design framework for prosthetic heart valves using optimization algorithms, achieving 95% design efficacy.",
+    images: ["/portfolio/previews/provalve-design.jpg"],
   },
 };
 
@@ -232,6 +242,12 @@ export default function ProjectPage() {
           />
           <span>Back to Portfolio</span>
         </Link>
+
+        {/* Project Banner */}
+        <ProjectBanner
+          image="/portfolio/previews/provalve-design.jpg"
+          alt="ProValve Design - Biomechanical prosthetic heart valve simulation"
+        />
 
         {/* Project Header */}
         <header className="mb-16 p-6 rounded-2xl bg-light/[0.03]">

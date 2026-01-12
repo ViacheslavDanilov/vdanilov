@@ -20,6 +20,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
+import ProjectBanner from "@/components/ProjectBanner";
 
 export const metadata = {
   title: "Deep Anatomy",
@@ -29,12 +30,21 @@ export const metadata = {
     title: "Deep Anatomy | Viacheslav Danilov",
     description:
       "High-precision 3D organ segmentation via V-net architecture with dense skip connections, achieving up to 96% Dice score across 5 anatomical structures.",
+    images: [
+      {
+        url: "/portfolio/previews/deep-anatomy.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Deep Anatomy - 3D organ segmentation",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Deep Anatomy | Viacheslav Danilov",
     description:
       "High-precision 3D organ segmentation via V-net architecture with dense skip connections, achieving up to 96% Dice score across 5 anatomical structures.",
+    images: ["/portfolio/previews/deep-anatomy.jpg"],
   },
 };
 
@@ -213,6 +223,12 @@ export default function ProjectPage() {
           />
           <span>Back to Portfolio</span>
         </Link>
+
+        {/* Project Banner */}
+        <ProjectBanner
+          image="/portfolio/previews/deep-anatomy.jpg"
+          alt="Deep Anatomy - High-precision 3D organ segmentation"
+        />
 
         {/* Project Header */}
         <header className="mb-16 p-6 rounded-2xl bg-light/[0.03]">

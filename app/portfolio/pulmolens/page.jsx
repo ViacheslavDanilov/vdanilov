@@ -20,6 +20,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
+import ProjectBanner from "@/components/ProjectBanner";
 
 export const metadata = {
   title: "PulmoLens",
@@ -29,12 +30,21 @@ export const metadata = {
     title: "PulmoLens | Viacheslav Danilov",
     description:
       "Attention-guided deep learning for COVID-19 and pneumonia detection in chest X-rays, achieving 84% accuracy with Grad-CAM supervision.",
+    images: [
+      {
+        url: "/portfolio/previews/pulmolens.jpg",
+        width: 1200,
+        height: 630,
+        alt: "PulmoLens - COVID-19 and pneumonia detection",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "PulmoLens | Viacheslav Danilov",
     description:
       "Attention-guided deep learning for COVID-19 and pneumonia detection in chest X-rays, achieving 84% accuracy with Grad-CAM supervision.",
+    images: ["/portfolio/previews/pulmolens.jpg"],
   },
 };
 
@@ -103,8 +113,8 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Diana Litmanovich",
-    role: "Radiologist",
-    organization: "BID Medical Center",
+    role: "Chief of Cardiothoracic Imaging",
+    organization: "Beth Israel Deaconess Medical Center",
     location: "Boston · United States 🇺🇸",
     photo: "/people/diana-litmanovich.webp",
     links: {
@@ -233,6 +243,12 @@ export default function ProjectPage() {
           />
           <span>Back to Portfolio</span>
         </Link>
+
+        {/* Project Banner */}
+        <ProjectBanner
+          image="/portfolio/previews/pulmolens.jpg"
+          alt="PulmoLens - Lung X-ray segmentation for intubation detection"
+        />
 
         {/* Project Header */}
         <header className="mb-16 p-6 rounded-2xl bg-light/[0.03]">

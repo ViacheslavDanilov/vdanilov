@@ -20,6 +20,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
+import ProjectBanner from "@/components/ProjectBanner";
 
 export const metadata = {
   title: "HyperVision Ablation",
@@ -29,12 +30,21 @@ export const metadata = {
     title: "HyperVision Ablation | Viacheslav Danilov",
     description:
       "ML workflow for tissue ablation assessment in hyperspectral imaging using PCA, Faster R-CNN, and Mean Shift clustering.",
+    images: [
+      {
+        url: "/portfolio/previews/hypervision-ablation.jpg",
+        width: 1200,
+        height: 630,
+        alt: "HyperVision Ablation - Hyperspectral tissue analysis",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "HyperVision Ablation | Viacheslav Danilov",
     description:
       "ML workflow for tissue ablation assessment in hyperspectral imaging using PCA, Faster R-CNN, and Mean Shift clustering.",
+    images: ["/portfolio/previews/hypervision-ablation.jpg"],
   },
 };
 
@@ -245,6 +255,12 @@ export default function ProjectPage() {
           />
           <span>Back to Portfolio</span>
         </Link>
+
+        {/* Project Banner */}
+        <ProjectBanner
+          image="/portfolio/previews/hypervision-ablation.jpg"
+          alt="HyperVision Ablation - Hyperspectral imaging for tissue ablation"
+        />
 
         {/* Project Header */}
         <header className="mb-16 p-6 rounded-2xl bg-light/[0.03]">

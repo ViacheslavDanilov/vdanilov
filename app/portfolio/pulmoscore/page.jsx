@@ -20,6 +20,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
+import ProjectBanner from "@/components/ProjectBanner";
 
 export const metadata = {
   title: "PulmoScore",
@@ -29,12 +30,21 @@ export const metadata = {
     title: "PulmoScore | Viacheslav Danilov",
     description:
       "Two-stage ML workflow for COVID-19 severity scoring on chest X-rays, achieving MAE of 0.30 and 11× faster processing.",
+    images: [
+      {
+        url: "/portfolio/previews/pulmoscore.jpg",
+        width: 1200,
+        height: 630,
+        alt: "PulmoScore - COVID-19 severity scoring",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "PulmoScore | Viacheslav Danilov",
     description:
       "Two-stage ML workflow for COVID-19 severity scoring on chest X-rays, achieving MAE of 0.30 and 11× faster processing.",
+    images: ["/portfolio/previews/pulmoscore.jpg"],
   },
 };
 
@@ -101,8 +111,8 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Diana Litmanovich",
-    role: "Radiologist",
-    organization: "BID Medical Center",
+    role: "Chief of Cardiothoracic Imaging",
+    organization: "Beth Israel Deaconess Medical Center",
     location: "Boston · United States 🇺🇸",
     photo: "/people/diana-litmanovich.webp",
     links: {
@@ -264,6 +274,12 @@ export default function ProjectPage() {
           />
           <span>Back to Portfolio</span>
         </Link>
+
+        {/* Project Banner */}
+        <ProjectBanner
+          image="/portfolio/previews/pulmoscore.jpg"
+          alt="PulmoScore - COVID-19 severity scoring on chest X-rays"
+        />
 
         {/* Project Header */}
         <header className="mb-16 p-6 rounded-2xl bg-light/[0.03]">

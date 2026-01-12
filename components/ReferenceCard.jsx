@@ -16,6 +16,7 @@ import {
   faFlask,
   faBriefcase,
   faHeartPulse,
+  faCapsules,
 } from "@fortawesome/free-solid-svg-icons";
 import { GlowCard } from "@/components/ui/glow-card";
 import { Badge } from "@/components/ui/badge";
@@ -25,6 +26,7 @@ const CATEGORY_CONFIG = {
   Research: { variant: "blue", icon: faFlask },
   Industry: { variant: "violet", icon: faBriefcase },
   Medicine: { variant: "teal", icon: faHeartPulse },
+  Pharma: { variant: "sky", icon: faCapsules },
 };
 
 const SOCIAL_ICONS = {

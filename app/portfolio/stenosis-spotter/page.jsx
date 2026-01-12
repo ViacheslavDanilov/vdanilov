@@ -20,6 +20,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
+import ProjectBanner from "@/components/ProjectBanner";
 
 export const metadata = {
   title: "Stenosis Spotter",
@@ -29,12 +30,21 @@ export const metadata = {
     title: "Stenosis Spotter | Viacheslav Danilov",
     description:
       "Real-time coronary stenosis detection using deep learning for intraoperative angiographic image analysis with 0.94 mAP.",
+    images: [
+      {
+        url: "/portfolio/previews/stenosis-spotter.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Stenosis Spotter - Coronary stenosis detection",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Stenosis Spotter | Viacheslav Danilov",
     description:
       "Real-time coronary stenosis detection using deep learning for intraoperative angiographic image analysis with 0.94 mAP.",
+    images: ["/portfolio/previews/stenosis-spotter.jpg"],
   },
 };
 
@@ -250,6 +260,12 @@ export default function ProjectPage() {
           />
           <span>Back to Portfolio</span>
         </Link>
+
+        {/* Project Banner */}
+        <ProjectBanner
+          image="/portfolio/previews/stenosis-spotter.jpg"
+          alt="Stenosis Spotter - Automated coronary artery stenosis detection"
+        />
 
         {/* Project Header */}
         <header className="mb-16 p-6 rounded-2xl bg-light/[0.03]">

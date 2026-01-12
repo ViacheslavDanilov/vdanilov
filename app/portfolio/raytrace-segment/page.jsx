@@ -20,6 +20,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
+import ProjectBanner from "@/components/ProjectBanner";
 
 export const metadata = {
   title: "RayTrace Segment",
@@ -29,12 +30,21 @@ export const metadata = {
     title: "RayTrace Segment | Viacheslav Danilov",
     description:
       "Ray-casting segmentation algorithm for convex anatomical structures in MRI, achieving up to 91.8% Dice score with millisecond-level runtime.",
+    images: [
+      {
+        url: "/portfolio/previews/raytrace-segment.jpg",
+        width: 1200,
+        height: 630,
+        alt: "RayTrace Segment - MRI anatomical segmentation",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "RayTrace Segment | Viacheslav Danilov",
     description:
       "Ray-casting segmentation algorithm for convex anatomical structures in MRI, achieving up to 91.8% Dice score with millisecond-level runtime.",
+    images: ["/portfolio/previews/raytrace-segment.jpg"],
   },
 };
 
@@ -195,6 +205,12 @@ export default function ProjectPage() {
           />
           <span>Back to Portfolio</span>
         </Link>
+
+        {/* Project Banner */}
+        <ProjectBanner
+          image="/portfolio/previews/raytrace-segment.jpg"
+          alt="RayTrace Segment - CT aorta segmentation for ray tracing visualization"
+        />
 
         {/* Project Header */}
         <header className="mb-16 p-6 rounded-2xl bg-light/[0.03]">

@@ -14,6 +14,7 @@ const VARIANTS = {
   violet: "bg-violet-600/20 text-violet-400 border-violet-600/40",
   teal: "bg-teal-600/20 text-teal-400 border-teal-600/40",
   cyan: "bg-cyan-600/20 text-cyan-400 border-cyan-600/40",
+  sky: "bg-sky-500/20 text-sky-400 border-sky-500/40",
 
   // High contrast variants for image overlays
   glass: "bg-dark/90 border-white/20 text-white",
