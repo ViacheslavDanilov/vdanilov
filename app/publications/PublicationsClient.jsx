@@ -428,12 +428,12 @@ const PUBLICATIONS_DATA = [
 ];
 
 const FILTER_OPTIONS = [
-  { id: "featured", label: "Featured", icon: faStar },
-  { id: "all", label: "All", icon: faLayerGroup },
-  { id: "Journal", label: "Journal", icon: faBook },
-  { id: "Conference", label: "Conference", icon: faUsers },
-  { id: "Blog Post", label: "Blog Post", icon: faPenNib },
-  { id: "Dataset", label: "Dataset", icon: faDatabase },
+  { id: "featured", label: "Featured", icon: faStar /* faStar */ },
+  { id: "all", label: "All", icon: "" /* faLayerGroup */ },
+  { id: "Journal", label: "Journal", icon: "" /* faBook */ },
+  { id: "Conference", label: "Conference", icon: "" /* faUsers */ },
+  { id: "Blog Post", label: "Blog Post", icon: "" /* faPenNib */ },
+  { id: "Dataset", label: "Dataset", icon: "" /* faDatabase */ },
 ];
 
 export default function Publications() {

@@ -298,11 +298,11 @@ const REFERENCES_DATA = [
 
 const FILTER_OPTIONS = [
   { id: "featured", label: "Featured", icon: faStar },
-  { id: "all", label: "All", icon: faLayerGroup },
-  { id: "Research", label: "Research", icon: faFlask },
-  { id: "Industry", label: "Industry", icon: faBriefcase },
-  { id: "Medicine", label: "Medicine", icon: faHeartPulse },
-  { id: "Pharma", label: "Pharma", icon: faCapsules },
+  { id: "all", label: "All", icon: "" /* faLayerGroup */ },
+  { id: "Research", label: "Research", icon: "" /* faFlask */ },
+  { id: "Industry", label: "Industry", icon: "" /* faBriefcase */ },
+  { id: "Medicine", label: "Medicine", icon: "" /* faHeartPulse */ },
+  { id: "Pharma", label: "Pharma", icon: "" /* faCapsules */ },
 ];
 
 export default function References() {
