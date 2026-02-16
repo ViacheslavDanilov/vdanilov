@@ -168,7 +168,7 @@ const CERTIFICATES_DATA = [
     organization: "Meta",
     date: "Feb 2026",
     logo: "/education/certificates/meta.png",
-    url: "#", // Placeholder
+    url: "https://coursera.org/verify/professional-cert/0SEK6U9A20N3",
     organizationUrl:
       "https://certifications.facebookblueprint.com/student/catalog",
     logoBrightness: 1.0,
