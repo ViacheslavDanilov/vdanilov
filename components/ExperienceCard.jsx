@@ -171,6 +171,7 @@ export const CompanyLogo = ({
   url,
   className = "",
   brightness = 1,
+  priority = false,
 }) => (
   <a
     href={url}
@@ -186,9 +187,9 @@ export const CompanyLogo = ({
       height={512}
       className="object-contain p-1 rounded-2xl w-full h-full"
       style={{ filter: `brightness(${brightness})` }}
-      sizes="512px"
+      sizes="128px"
       quality={100}
-      priority
+      priority={priority}
     />
   </a>
 );
@@ -320,6 +321,7 @@ const ExperienceCard = ({
               company={experience.company}
               url={COMPANY_URLS[experience.company]}
               brightness={experience.logoBrightness}
+              priority={experience.logoPriority}
             />
           </div>
           <JobInfo
@@ -341,6 +343,7 @@ const ExperienceCard = ({
             company={experience.company}
             url={COMPANY_URLS[experience.company]}
             brightness={experience.logoBrightness}
+            priority={experience.logoPriority}
           />
           <div className="flex-1 flex items-start justify-between gap-4">
             <JobInfo

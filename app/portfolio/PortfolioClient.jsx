@@ -315,7 +315,7 @@ export default function Portfolio() {
             role="list"
           >
             <AnimatePresence mode="popLayout">
-              {filteredProjects.map((project) => (
+              {filteredProjects.map((project, index) => (
                 <motion.div
                   key={project.id}
                   layout
@@ -325,7 +325,7 @@ export default function Portfolio() {
                   transition={{ duration: 0.3 }}
                   role="listitem"
                 >
-                  <PortfolioCard project={project} />
+                  <PortfolioCard project={project} priority={index < 6} />
                 </motion.div>
               ))}
             </AnimatePresence>

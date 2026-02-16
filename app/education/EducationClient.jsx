@@ -256,8 +256,22 @@ const CERTIFICATES_DATA = [
 ];
 
 export default function Education() {
-  const coreEducation = useMemo(() => CORE_EDUCATION_DATA, []);
-  const additionalEducation = useMemo(() => ADDITIONAL_EDUCATION_DATA, []);
+  const coreEducation = useMemo(
+    () =>
+      CORE_EDUCATION_DATA.map((edu, index) => ({
+        ...edu,
+        logoPriority: index < 4,
+      })),
+    [],
+  );
+  const additionalEducation = useMemo(
+    () =>
+      ADDITIONAL_EDUCATION_DATA.map((edu) => ({
+        ...edu,
+        logoPriority: false,
+      })),
+    [],
+  );
   const certifications = useMemo(() => CERTIFICATES_DATA, []);
 
   return (

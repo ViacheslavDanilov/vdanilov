@@ -23,7 +23,7 @@ const CATEGORY_LABELS = {
   "business-applications": "Business Applications",
 };
 
-const PortfolioCard = ({ project }) => {
+const PortfolioCard = ({ project, priority = false }) => {
   const { id, title, description, image, date, category } = project;
   const formattedDate = formatDate(date);
   const categoryLabel = CATEGORY_LABELS[category] || category;
@@ -44,7 +44,9 @@ const PortfolioCard = ({ project }) => {
           src={image}
           alt={title}
           fill
+          priority={priority}
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          quality={100}
           className="object-cover transition-transform duration-500 group-hover:scale-102"
         />
         {/* Gradient Overlay */}
