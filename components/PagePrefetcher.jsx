@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 
-const ROUTES_TO_PREFETCH = ["/experience", "/portfolio"];
+const ROUTES_TO_PREFETCH = ["/experience", "/portfolio", "/references"];
 
 // Small, high-impact set of above-the-fold assets for post-home navigation.
 const IMAGES_TO_PREFETCH = [
@@ -15,6 +15,12 @@ const IMAGES_TO_PREFETCH = [
   "/portfolio/previews/coronary-insight.jpg",
   "/portfolio/previews/sales-pilot.jpg",
   "/portfolio/previews/hypervision-ablation.jpg",
+  "/education/universities/tpu.webp",
+  "/education/universities/tsu.webp",
+  "/people/farid-melgani.webp",
+  "/people/gemma-piella.webp",
+  "/people/maria-poca.webp",
+  "/people/efim-furman.webp",
 ];
 
 export default function PagePrefetcher() {

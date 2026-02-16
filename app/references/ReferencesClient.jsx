@@ -369,7 +369,7 @@ export default function References() {
             role="list"
           >
             <AnimatePresence mode="popLayout">
-              {filteredReferences.map((reference) => (
+              {filteredReferences.map((reference, index) => (
                 <motion.div
                   key={reference.id}
                   layout
@@ -379,7 +379,7 @@ export default function References() {
                   transition={{ duration: 0.3 }}
                   role="listitem"
                 >
-                  <ReferenceCard reference={reference} />
+                  <ReferenceCard reference={reference} priority={index < 6} />
                 </motion.div>
               ))}
             </AnimatePresence>

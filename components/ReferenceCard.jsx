@@ -39,7 +39,7 @@ const SOCIAL_ICONS = {
   email: { icon: faEnvelope, label: "Email" },
 };
 
-const ReferenceCard = ({ reference }) => {
+const ReferenceCard = ({ reference, priority = false }) => {
   const {
     name,
     role,
@@ -92,7 +92,9 @@ const ReferenceCard = ({ reference }) => {
             src={image}
             alt={name}
             fill
-            sizes="(max-width: 768px) 96px, 112px"
+            sizes="256px"
+            quality={100}
+            priority={priority}
             className="object-cover"
           />
         </div>
