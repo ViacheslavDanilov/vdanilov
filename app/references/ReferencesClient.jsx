@@ -4,14 +4,7 @@ import React, { useState, useMemo } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import ReferenceCard from "@/components/ReferenceCard";
 import { Tab } from "@/components/ui/tab";
-import {
-  faFlask,
-  faBriefcase,
-  faHeartPulse,
-  faLayerGroup,
-  faStar,
-  faCapsules,
-} from "@fortawesome/free-solid-svg-icons";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 // Reference data
 const REFERENCES_DATA = [
@@ -379,7 +372,7 @@ export default function References() {
                   transition={{ duration: 0.3 }}
                   role="listitem"
                 >
-                  <ReferenceCard reference={reference} priority={index < 6} />
+                  <ReferenceCard reference={reference} priority={index < 3} />
                 </motion.div>
               ))}
             </AnimatePresence>

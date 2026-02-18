@@ -37,8 +37,8 @@ export default function PagePrefetcher() {
     };
 
     if ("requestIdleCallback" in window) {
-      window.requestIdleCallback(warmImages, { timeout: 2500 });
-      return;
+      const id = window.requestIdleCallback(warmImages, { timeout: 2500 });
+      return () => window.cancelIdleCallback(id);
     }
 
     const timer = window.setTimeout(warmImages, 400);

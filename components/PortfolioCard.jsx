@@ -46,7 +46,7 @@ const PortfolioCard = ({ project, priority = false }) => {
           fill
           priority={priority}
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          quality={100}
+          quality={90}
           className="object-cover transition-transform duration-500 group-hover:scale-102"
         />
         {/* Gradient Overlay */}

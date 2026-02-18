@@ -93,7 +93,7 @@ const ReferenceCard = ({ reference, priority = false }) => {
             alt={name}
             fill
             sizes="256px"
-            quality={100}
+            quality={90}
             priority={priority}
             className="object-cover"
           />

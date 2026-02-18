@@ -4,14 +4,7 @@ import React, { useState, useMemo } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import PublicationCard from "@/components/PublicationCard";
 import { Tab } from "@/components/ui/tab";
-import {
-  faLayerGroup,
-  faStar,
-  faBook,
-  faUsers,
-  faPenNib,
-  faDatabase,
-} from "@fortawesome/free-solid-svg-icons";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 // All publications data with category and featured fields
 const PUBLICATIONS_DATA = [

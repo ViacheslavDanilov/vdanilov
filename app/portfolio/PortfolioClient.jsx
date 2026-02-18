@@ -326,7 +326,7 @@ export default function Portfolio() {
                   transition={{ duration: 0.3 }}
                   role="listitem"
                 >
-                  <PortfolioCard project={project} priority={index < 6} />
+                  <PortfolioCard project={project} priority={index < 3} />
                 </motion.div>
               ))}
             </AnimatePresence>
