@@ -45,7 +45,7 @@ const PortfolioCard = ({ project, priority = false }) => {
           alt={title}
           fill
           priority={priority}
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          sizes="(max-width: 640px) calc(100vw - 3rem), (max-width: 1024px) calc(50vw - 2rem), (max-width: 1360px) calc(33vw - 2rem), 395px"
           quality={90}
           className="object-cover transition-transform duration-500 group-hover:scale-102"
         />
