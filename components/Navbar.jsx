@@ -116,6 +116,7 @@ function Navbar() {
             alt="Viacheslav Danilov"
             width={42}
             height={32}
+            quality={100}
             priority
             className="h-8 w-auto"
           />

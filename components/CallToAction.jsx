@@ -33,6 +33,7 @@ const CallToAction = ({
                 alt="Viacheslav Danilov"
                 fill
                 sizes="512px"
+                quality={90}
                 className="object-cover brightness-150"
                 priority
               />
@@ -45,6 +46,7 @@ const CallToAction = ({
                 alt="Viacheslav Danilov Signature"
                 fill
                 sizes="512px"
+                quality={90}
                 className="object-contain"
               />
             </div>
