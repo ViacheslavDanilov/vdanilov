@@ -435,10 +435,11 @@ export default function Experience() {
   // Memoize processed experiences to prevent recalculation on every render
   const experiences = useMemo(
     () =>
-      EXPERIENCES_DATA.map((exp) => ({
+      EXPERIENCES_DATA.map((exp, index) => ({
         ...exp,
         duration: calculateDuration(exp.startDate, exp.endDate),
         period: formatPeriod(exp.startDate, exp.endDate),
+        logoPriority: index < 4,
       })),
     [],
   );
@@ -450,6 +451,7 @@ export default function Experience() {
         ...role,
         duration: calculateDuration(role.startDate, role.endDate),
         period: formatPeriod(role.startDate, role.endDate),
+        logoPriority: false,
       })),
     [],
   );

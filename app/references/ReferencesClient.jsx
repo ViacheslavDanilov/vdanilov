@@ -4,14 +4,7 @@ import React, { useState, useMemo } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import ReferenceCard from "@/components/ReferenceCard";
 import { Tab } from "@/components/ui/tab";
-import {
-  faFlask,
-  faBriefcase,
-  faHeartPulse,
-  faLayerGroup,
-  faStar,
-  faCapsules,
-} from "@fortawesome/free-solid-svg-icons";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 // Reference data
 const REFERENCES_DATA = [
@@ -298,11 +291,11 @@ const REFERENCES_DATA = [
 
 const FILTER_OPTIONS = [
   { id: "featured", label: "Featured", icon: faStar },
-  { id: "all", label: "All", icon: faLayerGroup },
-  { id: "Research", label: "Research", icon: faFlask },
-  { id: "Industry", label: "Industry", icon: faBriefcase },
-  { id: "Medicine", label: "Medicine", icon: faHeartPulse },
-  { id: "Pharma", label: "Pharma", icon: faCapsules },
+  { id: "all", label: "All", icon: "" /* faLayerGroup */ },
+  { id: "Research", label: "Research", icon: "" /* faFlask */ },
+  { id: "Industry", label: "Industry", icon: "" /* faBriefcase */ },
+  { id: "Medicine", label: "Medicine", icon: "" /* faHeartPulse */ },
+  { id: "Pharma", label: "Pharma", icon: "" /* faCapsules */ },
 ];
 
 export default function References() {
@@ -369,7 +362,7 @@ export default function References() {
             role="list"
           >
             <AnimatePresence mode="popLayout">
-              {filteredReferences.map((reference) => (
+              {filteredReferences.map((reference, index) => (
                 <motion.div
                   key={reference.id}
                   layout
@@ -379,7 +372,7 @@ export default function References() {
                   transition={{ duration: 0.3 }}
                   role="listitem"
                 >
-                  <ReferenceCard reference={reference} />
+                  <ReferenceCard reference={reference} priority={index < 3} />
                 </motion.div>
               ))}
             </AnimatePresence>

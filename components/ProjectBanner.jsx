@@ -25,6 +25,7 @@ const ProjectBanner = ({ image, alt, aspectRatio = "40/21" }) => {
           alt={alt}
           fill
           sizes="(max-width: 1024px) 100vw, 896px"
+          quality={90}
           className="object-cover"
           priority
         />

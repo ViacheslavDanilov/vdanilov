@@ -4,15 +4,26 @@ import React from "react";
 import { FlipWords } from "@/components/ui/flip-words";
 import { LiquidButtonLink } from "@/components/ui/liquid-button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFileArrowDown } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBriefcase,
+  faFileArrowDown,
+} from "@fortawesome/free-solid-svg-icons";
 
 const Hero = () => {
   const roles = ["Tech Lead", "Engineering Manager", "Research Scientist"];
+  const ctaButtonClassName = "justify-center";
 
   const ButtonContent = () => (
     <>
       <FontAwesomeIcon icon={faFileArrowDown} className="w-4 h-4" />
       &nbsp;Download CV
+    </>
+  );
+
+  const PortfolioButtonContent = () => (
+    <>
+      <FontAwesomeIcon icon={faBriefcase} className="w-4 h-4" />
+      &nbsp;Portfolio
     </>
   );
 
@@ -35,15 +46,25 @@ const Hero = () => {
           </p>
 
           {/* CTA Button - Desktop only */}
-          <div className="hidden md:flex items-center justify-start pt-6">
+          <div className="hidden md:flex items-center justify-start gap-3 pt-6">
             <LiquidButtonLink
               href="https://drive.google.com/file/d/1jYs54eFCYc367ZKhWjH1Xfry4_sFI7Ir/view?usp=drive_link"
               target="_blank"
               ariaLabel="Download CV"
+              className={ctaButtonClassName}
               size="xxl"
               textClassName="text-sm"
             >
               <ButtonContent />
+            </LiquidButtonLink>
+            <LiquidButtonLink
+              href="/portfolio"
+              ariaLabel="Portfolio"
+              className={ctaButtonClassName}
+              size="xxl"
+              textClassName="text-sm"
+            >
+              <PortfolioButtonContent />
             </LiquidButtonLink>
           </div>
         </div>
@@ -72,15 +93,25 @@ const Hero = () => {
         </div>
 
         {/* CTA Button - Mobile only (below video) */}
-        <div className="flex md:hidden items-center justify-center w-full">
+        <div className="flex md:hidden flex-col items-center justify-center gap-3 w-full">
           <LiquidButtonLink
             href="https://drive.google.com/file/d/1jYs54eFCYc367ZKhWjH1Xfry4_sFI7Ir/view?usp=drive_link"
             target="_blank"
             ariaLabel="Download CV"
+            className={ctaButtonClassName}
             size="xxl"
             textClassName="text-sm"
           >
             <ButtonContent />
+          </LiquidButtonLink>
+          <LiquidButtonLink
+            href="/portfolio"
+            ariaLabel="Portfolio"
+            className={ctaButtonClassName}
+            size="xxl"
+            textClassName="text-sm"
+          >
+            <PortfolioButtonContent />
           </LiquidButtonLink>
         </div>
       </div>

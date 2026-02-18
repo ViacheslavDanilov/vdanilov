@@ -6,10 +6,12 @@ import About from "@/components/About";
 import Statistics from "@/components/Statistics";
 import CallToAction from "@/components/CallToAction";
 import LightRays from "@/components/ui/light-rays";
+import PagePrefetcher from "@/components/PagePrefetcher";
 
 export default function Home() {
   return (
     <div className="relative min-h-screen pt-24">
+      <PagePrefetcher />
       <div className="absolute top-0 left-0 right-0 h-[60vh] pointer-events-none -z-10">
         <LightRays />
       </div>

@@ -83,6 +83,7 @@ export default function ImageLightbox({
           alt={alt}
           width={width}
           height={height}
+          quality={90}
           className="w-full h-auto"
           style={{ display: "block" }}
         />
@@ -146,6 +147,7 @@ export default function ImageLightbox({
                 alt={alt}
                 width={1920}
                 height={1080}
+                quality={90}
                 className="max-w-full max-h-[90vh] w-auto h-auto rounded-lg shadow-2xl"
                 style={{ objectFit: "contain" }}
                 priority

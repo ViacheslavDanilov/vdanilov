@@ -4,6 +4,7 @@ import React, { useState, useMemo } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import PortfolioCard from "@/components/PortfolioCard";
 import { Tab } from "@/components/ui/tab";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 // Project data with date and featured fields
 const PROJECTS_DATA = [
@@ -193,7 +194,7 @@ const FILTER_OPTIONS = [
   {
     id: "featured",
     label: "Featured",
-    icon: "" /* faStar */,
+    icon: faStar /* faStar */,
   },
   {
     id: "all",
@@ -315,7 +316,7 @@ export default function Portfolio() {
             role="list"
           >
             <AnimatePresence mode="popLayout">
-              {filteredProjects.map((project) => (
+              {filteredProjects.map((project, index) => (
                 <motion.div
                   key={project.id}
                   layout
@@ -325,7 +326,7 @@ export default function Portfolio() {
                   transition={{ duration: 0.3 }}
                   role="listitem"
                 >
-                  <PortfolioCard project={project} />
+                  <PortfolioCard project={project} priority={index < 3} />
                 </motion.div>
               ))}
             </AnimatePresence>

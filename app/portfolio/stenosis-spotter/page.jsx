@@ -208,6 +208,7 @@ function TeamMemberCard({ member }) {
             alt={member.name}
             fill
             sizes="(max-width: 768px) 80px, 96px"
+            quality={90}
             className="object-cover"
           />
         </div>

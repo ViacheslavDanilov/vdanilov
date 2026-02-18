@@ -96,6 +96,7 @@ const LogoGrid = () => {
                 alt={logo.name}
                 width={320}
                 height={160}
+                quality={100}
                 style={{
                   width: "auto",
                   height: "auto",

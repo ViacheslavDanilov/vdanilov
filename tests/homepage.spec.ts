@@ -247,6 +247,18 @@ test.describe("Homepage - Hero Section", () => {
       /^https?:\/\/drive\.google\.com\//,
     );
   });
+
+  test("portfolio button is visible and links to portfolio page", async ({
+    page,
+  }) => {
+    await page.goto("/");
+
+    const portfolioButton = page
+      .locator("#hero")
+      .getByRole("link", { name: /Portfolio/i });
+    await expect(portfolioButton).toBeVisible();
+    await expect(portfolioButton).toHaveAttribute("href", /\/portfolio\/?$/);
+  });
 });
 
 test.describe("Homepage - About Section", () => {

@@ -36,12 +36,14 @@ const CertificateCard = ({
             <Image
               src={certificate.logo}
               alt={`${certificate.organization} logo`}
-              width={128}
-              height={128}
-              className="w-full h-full object-contain rounded-xl"
+              width={512}
+              height={512}
+              className="object-contain p-1 rounded-2xl w-full h-full"
               style={{
                 filter: `brightness(${certificate.logoBrightness || 1})`,
               }}
+              sizes="128px"
+              quality={100}
             />
           </a>
 
@@ -101,12 +103,14 @@ const CertificateCard = ({
               <Image
                 src={certificate.logo}
                 alt={`${certificate.organization} logo`}
-                width={128}
-                height={128}
-                className="w-full h-full object-contain rounded-xl"
+                width={512}
+                height={512}
+                className="object-contain p-1 rounded-2xl w-full h-full"
                 style={{
                   filter: `brightness(${certificate.logoBrightness || 1})`,
                 }}
+                sizes="128px"
+                quality={100}
               />
             </a>
 

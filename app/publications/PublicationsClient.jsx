@@ -4,14 +4,7 @@ import React, { useState, useMemo } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import PublicationCard from "@/components/PublicationCard";
 import { Tab } from "@/components/ui/tab";
-import {
-  faLayerGroup,
-  faStar,
-  faBook,
-  faUsers,
-  faPenNib,
-  faDatabase,
-} from "@fortawesome/free-solid-svg-icons";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 // All publications data with category and featured fields
 const PUBLICATIONS_DATA = [
@@ -428,12 +421,12 @@ const PUBLICATIONS_DATA = [
 ];
 
 const FILTER_OPTIONS = [
-  { id: "featured", label: "Featured", icon: faStar },
-  { id: "all", label: "All", icon: faLayerGroup },
-  { id: "Journal", label: "Journal", icon: faBook },
-  { id: "Conference", label: "Conference", icon: faUsers },
-  { id: "Blog Post", label: "Blog Post", icon: faPenNib },
-  { id: "Dataset", label: "Dataset", icon: faDatabase },
+  { id: "featured", label: "Featured", icon: faStar /* faStar */ },
+  { id: "all", label: "All", icon: "" /* faLayerGroup */ },
+  { id: "Journal", label: "Journal", icon: "" /* faBook */ },
+  { id: "Conference", label: "Conference", icon: "" /* faUsers */ },
+  { id: "Blog Post", label: "Blog Post", icon: "" /* faPenNib */ },
+  { id: "Dataset", label: "Dataset", icon: "" /* faDatabase */ },
 ];
 
 export default function Publications() {

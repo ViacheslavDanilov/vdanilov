@@ -105,6 +105,7 @@ const FeaturedProjects = ({
                       alt={project.title}
                       fill
                       sizes="192px"
+                      quality={90}
                       className="object-cover"
                     />
                   </div>
@@ -145,6 +146,7 @@ const FeaturedProjects = ({
                       alt={project.title}
                       fill
                       sizes="(max-width: 640px) 192px, 160px"
+                      quality={90}
                       className="object-cover"
                     />
                   </div>
