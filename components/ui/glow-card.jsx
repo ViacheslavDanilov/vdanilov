@@ -72,6 +72,8 @@ const GlowCard = ({
       "--spread": spread,
       "--radius": "14",
       "--border": "1.5",
+      "--x": "-9999",
+      "--y": "-9999",
       "--backdrop": "hsl(0 0% 60% / 0.06)",
       "--backup-border": "var(--backdrop)",
       "--size": spotlightSize.toString(),
