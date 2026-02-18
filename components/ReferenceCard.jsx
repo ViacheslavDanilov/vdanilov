@@ -91,11 +91,11 @@ const ReferenceCard = ({ reference, priority = false }) => {
           <Image
             src={image}
             alt={name}
-            fill
-            sizes="256px"
-            quality={90}
+            width={112}
+            height={112}
+            quality={100}
             priority={priority}
-            className="object-cover"
+            className="object-cover w-full h-full"
           />
         </div>
 
