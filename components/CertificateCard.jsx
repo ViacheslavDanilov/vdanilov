@@ -1,10 +1,10 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import { GlowCard } from "@/components/ui/glow-card";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { CompanyLogo } from "@/components/ExperienceCard";
 
 const CertificateCard = ({
   certificate,
@@ -26,26 +26,12 @@ const CertificateCard = ({
         {/* Mobile Layout */}
         <div className="flex flex-col md:hidden items-center gap-4 h-full justify-center">
           {/* Logo */}
-          <a
-            href={certificate.organizationUrl || certificate.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="relative w-16 h-16 flex-shrink-0 rounded-2xl overflow-hidden border border-light/10 bg-card/50 p-1 flex items-center justify-center transition-all duration-300 md:hover:scale-[1.03] md:hover:border-accent/30"
-            aria-label={`${certificate.organization} website`}
-          >
-            <Image
-              src={certificate.logo}
-              alt={`${certificate.organization} logo`}
-              width={512}
-              height={512}
-              className="object-contain p-1 rounded-2xl w-full h-full"
-              style={{
-                filter: `brightness(${certificate.logoBrightness || 1})`,
-              }}
-              sizes="128px"
-              quality={100}
-            />
-          </a>
+          <CompanyLogo
+            logo={certificate.logo}
+            company={certificate.organization}
+            url={certificate.organizationUrl || certificate.url}
+            brightness={certificate.logoBrightness || 1}
+          />
 
           {/* Content */}
           <div className="flex flex-col gap-2 items-center text-center">
@@ -93,26 +79,12 @@ const CertificateCard = ({
         <div className="hidden md:flex h-full items-center">
           <div className="flex flex-row items-start gap-5 w-full">
             {/* Logo */}
-            <a
-              href={certificate.organizationUrl || certificate.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="relative w-16 h-16 flex-shrink-0 rounded-2xl overflow-hidden border border-light/10 bg-card/50 p-1 flex items-center justify-center transition-all duration-300 md:hover:scale-[1.03] md:hover:border-accent/30"
-              aria-label={`${certificate.organization} website`}
-            >
-              <Image
-                src={certificate.logo}
-                alt={`${certificate.organization} logo`}
-                width={512}
-                height={512}
-                className="object-contain p-1 rounded-2xl w-full h-full"
-                style={{
-                  filter: `brightness(${certificate.logoBrightness || 1})`,
-                }}
-                sizes="128px"
-                quality={100}
-              />
-            </a>
+            <CompanyLogo
+              logo={certificate.logo}
+              company={certificate.organization}
+              url={certificate.organizationUrl || certificate.url}
+              brightness={certificate.logoBrightness || 1}
+            />
 
             {/* Content */}
             <div className="flex-1 min-w-0 flex flex-col gap-2">
