@@ -328,7 +328,7 @@ const VISITING_ROLES_DATA = [
       },
       {
         title: "SafeICP",
-        url: "https://safeicp.es/",
+        url: "https://safe-icp.vercel.app/",
         type: "Project Website",
       },
     ],
@@ -358,7 +358,7 @@ const VISITING_ROLES_DATA = [
       },
       {
         title: "SafeICP",
-        url: "https://safeicp.es/",
+        url: "https://safe-icp.vercel.app/",
         type: "Project Website",
       },
     ],
@@ -385,6 +385,11 @@ const VISITING_ROLES_DATA = [
         title: "Certificate of attendance",
         url: "https://drive.google.com/file/d/1HsBKzfXy9qrggTqh20Q4CQPxlxVy_dWe/view?usp=drive_link",
         type: "Certificate",
+      },
+      {
+        title: "SafeICP",
+        url: "https://safe-icp.vercel.app/",
+        type: "Project Website",
       },
     ],
     logoBrightness: 1.1,
