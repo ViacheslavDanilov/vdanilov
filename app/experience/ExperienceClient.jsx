@@ -355,6 +355,11 @@ const VISITING_ROLES_DATA = [
         type: "Certificate",
       },
       {
+        title: "A Safe Window Into Brain Pressure",
+        url: "https://www.rug.nl/jantina-tammes-school/calendar/2026/safe-window-into-brain-pressure",
+        type: "Seminar",
+      },
+      {
         title: "SafeICP",
         url: "https://safe-icp.vercel.app/",
         type: "Project Website",

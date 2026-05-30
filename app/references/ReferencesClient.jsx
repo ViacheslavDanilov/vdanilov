@@ -144,6 +144,7 @@ const REFERENCES_DATA = [
     featured: false,
     socials: {
       website: "https://www.diag.uniroma1.it/users/irene_amerini",
+      linkedin: "https://www.linkedin.com/in/ireneamerini/",
       researchgate: "https://www.researchgate.net/profile/Irene-Amerini",
       googleScholar:
         "https://scholar.google.com/citations?user=4ZDhr6UAAAAJ&hl=en",
