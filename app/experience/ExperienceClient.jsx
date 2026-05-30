@@ -316,7 +316,7 @@ const VISITING_ROLES_DATA = [
     publications: [
       {
         title: "Certificate of attendance",
-        url: "#",
+        url: "https://drive.google.com/file/d/1DCdTskDWc8SZQsTeuAj5ZgY-bmzDWTPv/view?usp=sharing",
         type: "Certificate",
       },
       {
@@ -351,7 +351,7 @@ const VISITING_ROLES_DATA = [
     publications: [
       {
         title: "Certificate of attendance",
-        url: "#",
+        url: "https://drive.google.com/file/d/1mRKyvJlvpyqskWf4KUEqf6SJ3KIz8erP/view?usp=sharing",
         type: "Certificate",
       },
       {
