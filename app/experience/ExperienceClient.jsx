@@ -310,9 +310,8 @@ const VISITING_ROLES_DATA = [
     logo: "/experience/visiting-roles/sapienza.webp",
     responsibilities: [
       "Collaborated with Prof. Irene Amerini and the ALCOR Lab on computer vision, pattern recognition, machine learning, and multimodal AI applied to perceptual inference and sensor data analysis",
-      'Delivered a seminar entitled "Illuminating the black box: Non-invasive intracranial pressure estimation via near-infrared photonics and deep learning" at the Department of Computer, Control and Management Engineering "Antonio Ruberti", presenting work developed within the SafeICP project',
+      'Delivered a seminar entitled "Illuminating the black box: Non-invasive intracranial pressure estimation via near-infrared photonics and deep learning" at the Department of Computer, Control and Management Engineering, presenting work developed within the SafeICP project',
       "Explored shared methodological ground between the ALCOR Lab's computer vision and multimodal AI and the BCN MedTech team's biomedical signal processing for non-invasive clinical monitoring",
-      "Defined joint research directions, co-authored publications, and potential European research initiatives between Pompeu Fabra University and Sapienza University of Rome",
     ],
     publications: [
       {
@@ -348,7 +347,6 @@ const VISITING_ROLES_DATA = [
       "Collaborated with Prof. George Azzopardi at the Bernoulli Institute on machine learning, computer vision, and predictive modelling, exchanging methods on model design and evaluation strategies",
       'Delivered a seminar entitled "A Safe Window Into Brain Pressure" at the House of Connections, presenting non-invasive intracranial pressure estimation using optical sensing and machine learning developed within the SafeICP project',
       "Engaged in knowledge-exchange sessions with University of Groningen researchers on shared priorities in AI/ML for biomedical and applied domains",
-      "Defined joint research directions and publication opportunities for follow-up collaboration between Pompeu Fabra University and the University of Groningen",
     ],
     publications: [
       {
