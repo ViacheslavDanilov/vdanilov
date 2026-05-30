@@ -299,6 +299,75 @@ const EXPERIENCES_DATA = [
 // Visiting roles data configuration
 const VISITING_ROLES_DATA = [
   {
+    id: "sapienza-visiting-prof",
+    title: "Visiting Professor",
+    company: "Sapienza University of Rome",
+    type: "Visiting",
+    category: "research",
+    startDate: "2026-05-11",
+    endDate: "2026-05-15",
+    location: "Rome • Italy 🇮🇹",
+    logo: "/experience/visiting-roles/sapienza.webp",
+    responsibilities: [
+      "Collaborated with Prof. Irene Amerini and the ALCOR Lab on computer vision, pattern recognition, machine learning, and multimodal AI applied to perceptual inference and sensor data analysis",
+      'Delivered a seminar entitled "Illuminating the black box: Non-invasive intracranial pressure estimation via near-infrared photonics and deep learning" at the Department of Computer, Control and Management Engineering, presenting work developed within the SafeICP project',
+      "Explored shared methodological ground between the ALCOR Lab's computer vision and multimodal AI and the BCN MedTech team's biomedical signal processing for non-invasive clinical monitoring",
+    ],
+    publications: [
+      {
+        title: "Certificate of attendance",
+        url: "https://drive.google.com/file/d/1DCdTskDWc8SZQsTeuAj5ZgY-bmzDWTPv/view?usp=sharing",
+        type: "Certificate",
+      },
+      {
+        title:
+          "Illuminating the black box: Non-invasive intracranial pressure estimation via near-infrared photonics and deep learning",
+        url: "https://www.diag.uniroma1.it/node/30655",
+        type: "Seminar",
+      },
+      {
+        title: "SafeICP",
+        url: "https://safe-icp.vercel.app/",
+        type: "Project Website",
+      },
+    ],
+    logoBrightness: 1.0,
+  },
+  {
+    id: "groningen-visiting-prof",
+    title: "Visiting Professor",
+    company: "University of Groningen",
+    type: "Visiting",
+    category: "research",
+    startDate: "2026-04-13",
+    endDate: "2026-04-17",
+    location: "Groningen • Netherlands 🇳🇱",
+    logo: "/experience/visiting-roles/uog.webp",
+    responsibilities: [
+      "Collaborated with Prof. George Azzopardi at the Bernoulli Institute on machine learning, computer vision, and predictive modelling, exchanging methods on model design and evaluation strategies",
+      'Delivered a seminar entitled "A Safe Window Into Brain Pressure" at the House of Connections, presenting non-invasive intracranial pressure estimation using optical sensing and machine learning developed within the SafeICP project',
+      "Engaged in knowledge-exchange sessions with University of Groningen researchers on shared priorities in AI/ML for biomedical and applied domains",
+    ],
+    publications: [
+      {
+        title: "Certificate of attendance",
+        url: "https://drive.google.com/file/d/1mRKyvJlvpyqskWf4KUEqf6SJ3KIz8erP/view?usp=sharing",
+        type: "Certificate",
+      },
+      {
+        title: "A Safe Window Into Brain Pressure",
+        url: "https://www.rug.nl/jantina-tammes-school/calendar/2026/safe-window-into-brain-pressure",
+        type: "Seminar",
+      },
+      {
+        title: "SafeICP",
+        url: "https://safe-icp.vercel.app/",
+        type: "Project Website",
+      },
+    ],
+    logoBrightness: 1.0,
+  },
+  {
     id: "sorbonne-visiting-prof",
     title: "Visiting Professor",
     company: "Sorbonne University",
@@ -319,6 +388,11 @@ const VISITING_ROLES_DATA = [
         title: "Certificate of attendance",
         url: "https://drive.google.com/file/d/1HsBKzfXy9qrggTqh20Q4CQPxlxVy_dWe/view?usp=drive_link",
         type: "Certificate",
+      },
+      {
+        title: "SafeICP",
+        url: "https://safe-icp.vercel.app/",
+        type: "Project Website",
       },
     ],
     logoBrightness: 1.1,

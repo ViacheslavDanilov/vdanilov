@@ -33,6 +33,8 @@ const COMPANY_URLS = {
   "University of Leeds": "https://www.leeds.ac.uk/",
   "Technical University of Madrid": "https://www.upm.es/",
   "University of Trento": "https://www.unitn.it/en",
+  "University of Groningen": "https://www.rug.nl/",
+  "Sapienza University of Rome": "https://www.uniroma1.it/en",
 };
 
 // --- COMPONENTS ---
@@ -89,6 +91,14 @@ const HIGHLIGHT_KEYWORDS = [
   "Prof. Maria J. Ledesma-Carbayo",
   "University of Trento",
   "Prof. Farid Melgani",
+  "University of Groningen",
+  "Prof. George Azzopardi",
+  "Bernoulli Institute",
+  "House of Connections",
+  "Sapienza University of Rome",
+  "Prof. Irene Amerini",
+  "ALCOR Lab",
+  "BCN MedTech",
 ];
 
 const HIGHLIGHT_CLASS =

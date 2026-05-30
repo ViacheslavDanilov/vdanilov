@@ -133,6 +133,42 @@ const REFERENCES_DATA = [
       email: "mj.ledesma@upm.es",
     },
   },
+  {
+    id: "irene-amerini",
+    name: "Irene Amerini, PhD",
+    role: "Professor",
+    organization: "Sapienza University of Rome",
+    location: "Rome · Italy 🇮🇹",
+    category: "Research",
+    image: "/people/irene-amerini.webp",
+    featured: false,
+    socials: {
+      website: "https://www.diag.uniroma1.it/users/irene_amerini",
+      linkedin: "https://www.linkedin.com/in/ireneamerini/",
+      researchgate: "https://www.researchgate.net/profile/Irene-Amerini",
+      googleScholar:
+        "https://scholar.google.com/citations?user=4ZDhr6UAAAAJ&hl=en",
+      email: "irene.amerini@uniroma1.it",
+    },
+  },
+  {
+    id: "george-azzopardi",
+    name: "George Azzopardi, PhD",
+    role: "Professor",
+    organization: "University of Groningen",
+    location: "Groningen · Netherlands 🇳🇱",
+    category: "Research",
+    image: "/people/george-azzopardi.webp",
+    featured: false,
+    socials: {
+      website: "https://www.rug.nl/staff/g.azzopardi",
+      linkedin: "https://www.linkedin.com/in/georgeazzopardi/",
+      researchgate: "https://www.researchgate.net/profile/George-Azzopardi",
+      googleScholar:
+        "https://scholar.google.com/citations?user=6QnooDkAAAAJ&hl=en",
+      email: "g.azzopardi@rug.nl",
+    },
+  },
   // Medicine
   // {
   //   id: "evgeny-ovcharenko",
