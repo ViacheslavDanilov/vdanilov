@@ -52,7 +52,7 @@ const HIGHLIGHTS_ITEMS = [
   {
     icon: faSearch,
     label: "Situation",
-    text: "Insurance pricing leans on actuarial models that work well but are opaque — hard for non-technical stakeholders to interpret and assessed with metrics that aren't translated into business impact.",
+    text: "Insurance pricing leans on actuarial models that work well but are opaque — hard for non-technical stakeholders to interpret — and assessed with metrics that aren't translated into business impact.",
   },
   {
     icon: faBullseye,

@@ -17,7 +17,7 @@ const PROJECTS = [
       "PyTorch",
       "Python",
       "fast.ai",
-      "Gradio",
+      "Streamlit",
       "DVC",
       "Weights & Biases",
     ],
