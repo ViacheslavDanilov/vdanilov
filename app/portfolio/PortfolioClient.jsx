@@ -9,6 +9,16 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 // Project data with date and featured fields
 const PROJECTS_DATA = [
   {
+    id: "claim-assistant",
+    title: "Claim Assistant",
+    description:
+      "AI-powered insurance claim intake automation using Azure Document Intelligence and GPT-5 for extraction, policy matching, and confidence-scored coverage analysis.",
+    category: "business-applications",
+    image: "/portfolio/previews/claim-assistant.jpg",
+    date: "2026-03",
+    featured: true,
+  },
+  {
     id: "hypervision-ablation",
     title: "HyperVision Ablation",
     description:
