@@ -534,10 +534,9 @@ export default function ProjectPage() {
               <a href="#figure-2" className="text-accent hover:underline">
                 Figure 2
               </a>
-              ). The primary model used was the multilevel Wavelet Decomposition
-              Network (mWDN), selected for its ability to capture
-              multi-resolution temporal dynamics inherent in pulsatile CBF
-              signals.
+              ). The primary model used was mWDN, selected for its ability to
+              capture multi-resolution temporal dynamics inherent in pulsatile
+              CBF signals.
             </p>
 
             <ul className="space-y-4 text-gray-300 mb-6 text-justify">

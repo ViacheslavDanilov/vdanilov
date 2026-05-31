@@ -617,8 +617,8 @@ export default function ProjectPage() {
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
                 <span className="text-gray-300">Figure 2.</span> Training
-                metrics showing loss convergence and Dice Similarity Coefficient
-                evolution across epochs.
+                metrics showing loss convergence and DSC evolution across
+                epochs.
               </figcaption>
             </figure>
           </section>
