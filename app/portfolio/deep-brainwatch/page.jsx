@@ -63,12 +63,12 @@ const HIGHLIGHTS_ITEMS = [
   {
     icon: faCogs,
     label: "Action",
-    text: "Designed and validated a wavelet-based deep learning model (mWDN), benchmarking it against 9 time-series models and deploying an ensemble strategy with rigorous preprocessing and cross-validation.",
+    text: "Designed and validated a wavelet-based deep learning model (mWDN), benchmarking it against 9 other state-of-the-art time-series models with rigorous preprocessing and cross-validation.",
   },
   {
     icon: faChartLine,
     label: "Result",
-    text: "Achieved 71% of predictions within ±6 mmHg in the clinically critical 0–15 mmHg range, enabling accurate, bedside-compatible ICP tracking without surgical intervention.",
+    text: "Achieved a 5.3 mmHg test MAE with 52% of predictions within 4 mmHg of the invasive ground truth, enabling accurate, bedside-compatible ICP tracking without surgical intervention.",
   },
 ];
 
@@ -159,6 +159,10 @@ const TEAM_MEMBERS = [
 
 const RESOURCES = [
   {
+    label: "Project Website",
+    url: "https://safe-icp.vercel.app/",
+  },
+  {
     label: "Conference Paper 1",
     url: "https://doi.org/10.1364/ECBO.2025.W5B.5",
   },
@@ -184,7 +188,7 @@ const TECH_STACK = [
   "Python",
   "PyTorch",
   "fast.ai",
-  "Gradio",
+  "Streamlit",
   "DVC",
   "Weights & Biases",
 ];
@@ -426,11 +430,11 @@ export default function ProjectPage() {
                 </a>{" "}
                 (DCS) and developed a deep learning pipeline to predict ICP from
                 these signals. After benchmarking 10 state-of-the-art
-                architectures, a wavelet-based model (mWDN) was selected and
-                further enhanced via ensemble techniques. This work was
-                validated on one of the largest existing datasets of patients
-                with idiopathic normal pressure hydrocephalus (iNPH), totaling
-                over 200 hours of data across 44 patients.
+                architectures, a wavelet-based model (mWDN) was selected as the
+                top performer. This work was validated on one of the largest
+                existing datasets of its kind, spanning 79 subjects across two
+                clinical cohorts — 60 with idiopathic normal pressure
+                hydrocephalus (iNPH) and 19 from the Katzman cohort.
               </p>
             </div>
           </section>
@@ -444,11 +448,11 @@ export default function ProjectPage() {
 
             <p className="text-gray-300 leading-relaxed mb-4 text-justify">
               This study utilized synchronized, high-resolution recordings of
-              CBF and ground-truth ICP from 44 patients diagnosed with iNPH at
-              Vall d&apos;Hebron University Hospital. The CBF signals were
-              measured non-invasively using a near-infrared DCS probe placed on
-              the frontal lobes, while ICP ground truth was recorded via an
-              invasive subdural catheter (
+              CBF and ground-truth ICP from 79 subjects across two clinical
+              cohorts — 60 with iNPH and 19 from the Katzman cohort. The CBF
+              signals were measured non-invasively using a near-infrared DCS
+              probe placed on the frontal lobes, while ICP ground truth was
+              recorded via an invasive subdural catheter (
               <a href="#figure-1" className="text-accent hover:underline">
                 Figure 1
               </a>
@@ -488,9 +492,9 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Dataset Size:</strong> 22
-                  subjects (90 hours) for training/validation, 22 subjects (110
-                  hours) for testing
+                  <strong className="text-gray-200">Dataset Size:</strong> 64
+                  subjects for training/validation (5-fold, 80/20 split) and 15
+                  subjects held out for testing
                 </span>
               </li>
             </ul>
@@ -562,11 +566,6 @@ export default function ProjectPage() {
                 inter-subject hold-out evaluation – to prevent data leakage and
                 test generalization.
               </li>
-              <li>
-                <strong className="text-gray-200">Ensembling:</strong>{" "}
-                Top-performing models (mWDN, InceptionTime, and XCM) were
-                combined to enhance stability and reduce variance.
-              </li>
             </ul>
 
             {/* Figure 2 */}
@@ -606,28 +605,19 @@ export default function ProjectPage() {
               </li>
               <li>
                 <strong className="text-gray-200">Test MAE:</strong>{" "}
-                <span className="font-semibold">5.8 mmHg</span> on unseen
-                subjects.
+                <span className="font-semibold">5.3 mmHg</span> with the mWDN
+                model on unseen subjects.
               </li>
               <li>
-                <strong className="text-gray-200">Test RMSE:</strong>{" "}
-                <span className="font-semibold">6.7 mmHg</span>.
-              </li>
-              <li>
-                <strong className="text-gray-200">Ensemble Performance:</strong>{" "}
-                MAE of{" "}
-                <span className="text-light font-semibold">4.4 mmHg</span>, RMSE
-                of <span className="font-semibold">5.7 mmHg</span>.
+                <strong className="text-gray-200">Hemisphere Breakdown:</strong>{" "}
+                <span className="font-semibold">5.3 mmHg</span> on the right
+                hemisphere and <span className="font-semibold">6.3 mmHg</span>{" "}
+                on the left.
               </li>
               <li>
                 <strong className="text-gray-200">Clinical Accuracy:</strong>{" "}
-                <span className="text-light font-semibold">70%</span> of
-                predictions within ±6 mmHg in the 0–15 mmHg range.
-              </li>
-              <li>
-                <strong className="text-gray-200">ROC Analysis:</strong> AUC ≈{" "}
-                <span className="font-semibold">0.82</span>, indicating high
-                discriminative power.
+                <span className="text-light font-semibold">52%</span> of
+                predictions within 4 mmHg of the invasive ground truth.
               </li>
             </ul>
 
@@ -758,16 +748,18 @@ export default function ProjectPage() {
               ICP estimation using deep learning on CBF signals acquired via
               diffuse correlation spectroscopy. By training a wavelet-based
               neural network on synchronized invasive and non-invasive
-              recordings from 44 iNPH patients at Vall d&apos;Hebron University
-              Hospital, we demonstrated that ICP can be accurately predicted
-              from CBF dynamics without the need for surgical monitoring.
+              recordings from 79 subjects across two clinical cohorts (60 iNPH
+              and 19 from the Katzman cohort), we demonstrated that ICP can be
+              accurately predicted from CBF dynamics without the need for
+              surgical monitoring.
             </p>
             <p className="text-gray-300 leading-relaxed text-justify">
               The model achieved a mean absolute error of 2.6 mmHg on validation
               data, aligning with the ±2 mmHg accuracy target. On a held-out
-              test set, performance remained robust (MAE: 5.8 mmHg), with 70% of
-              predictions within ±6 mmHg in the 0–15 mmHg interval, where
-              clinical intervention is often most critical.
+              test set, performance remained robust (MAE: 5.3 mmHg), with 52% of
+              predictions falling within 4 mmHg of the invasive ground truth, in
+              the 0–15 mmHg range where clinical intervention is often most
+              critical.
             </p>
           </section>
         </div>

@@ -146,6 +146,10 @@ const TEAM_MEMBERS = [
 
 const RESOURCES = [
   {
+    label: "Live Demo",
+    url: "https://plaque-risk-explorer.vercel.app/",
+  },
+  {
     label: "Journal Paper",
     url: "https://doi.org/10.1016/j.compbiomed.2025.111061",
   },
@@ -157,7 +161,17 @@ const RESOURCES = [
   { label: "Dataset", url: "https://doi.org/10.5281/zenodo.14478209" },
 ];
 
-const TECH_STACK = ["Python", "PyTorch", "DVC", "Streamlit", "Docker", "CI/CD"];
+const TECH_STACK = [
+  "Python",
+  "PyTorch",
+  "DVC",
+  "Next.js",
+  "React",
+  "TypeScript",
+  "Tailwind CSS",
+  "Docker",
+  "CI/CD",
+];
 
 function TeamMemberCard({ member }) {
   const iconMap = {
