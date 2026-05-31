@@ -13,7 +13,7 @@ const PROJECTS_DATA = [
     title: "InsureCast",
     description:
       "Time-series forecasting dashboard for monthly insurance claims and costs using SARIMAX seasonal models, scenario stress-testing, and AI-generated summaries.",
-    category: "business-applications",
+    category: "insurtech",
     image: "/portfolio/previews/insurecast.jpg",
     date: "2026-04",
     featured: false,
@@ -23,7 +23,7 @@ const PROJECTS_DATA = [
     title: "Insurance Pricing",
     description:
       "End-to-end ML app for predicting annual insurance charges with SHAP explainability and LLM-powered interpretation for business and technical users.",
-    category: "business-applications",
+    category: "insurtech",
     image: "/portfolio/previews/insurance-pricing.jpg",
     date: "2026-03",
     featured: false,
@@ -33,7 +33,7 @@ const PROJECTS_DATA = [
     title: "Risk Profiler",
     description:
       "ML prototype for insurance claim fraud risk profiling using AutoGluon ensembles, SHAP explainability, and LLM-generated assessment summaries.",
-    category: "business-applications",
+    category: "insurtech",
     image: "/portfolio/previews/risk-profiler.jpg",
     date: "2026-03",
     featured: false,
@@ -53,7 +53,7 @@ const PROJECTS_DATA = [
     title: "Claim Assistant",
     description:
       "AI-powered insurance claim intake automation using Azure Document Intelligence and GPT-5 for extraction, policy matching, and confidence-scored coverage analysis.",
-    category: "business-applications",
+    category: "insurtech",
     image: "/portfolio/previews/claim-assistant.jpg",
     date: "2025-12",
     featured: true,
@@ -73,7 +73,7 @@ const PROJECTS_DATA = [
     title: "Sales Pilot",
     description:
       "AI-powered lead scoring system using hybrid heuristics and OpenAI embeddings to automate and prioritize high-fit leads at scale.",
-    category: "business-applications",
+    category: "industry-ai-ml",
     image: "/portfolio/previews/sales-pilot.jpg",
     date: "2025-05",
     featured: false,
@@ -213,7 +213,7 @@ const PROJECTS_DATA = [
     title: "DeepVision Wildfire",
     description:
       "Real-time wildfire detection system for Siberian forests combining EfficientDet and CNN-RNN, achieving 95.6% accuracy at 9 FPS.",
-    category: "business-applications",
+    category: "industry-ai-ml",
     image: "/portfolio/previews/deepvision-wildfire.jpg",
     date: "2019-07",
     featured: false,
@@ -262,9 +262,14 @@ const FILTER_OPTIONS = [
     icon: "" /* faGears */,
   },
   {
-    id: "business-applications",
-    label: "Business Applications",
+    id: "industry-ai-ml",
+    label: "Industry AI/ML",
     icon: "" /* faChartLine */,
+  },
+  {
+    id: "insurtech",
+    label: "InsurTech",
+    icon: "" /* faShieldHalved */,
   },
 ];
 

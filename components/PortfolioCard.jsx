@@ -20,7 +20,8 @@ const CATEGORY_LABELS = {
   "clinical-decision-support": "Clinical Decision Support",
   "biomedical-research": "Biomedical Research",
   "medical-devices": "Medical Devices",
-  "business-applications": "Business Applications",
+  insurtech: "InsurTech",
+  "industry-ai-ml": "Industry AI/ML",
 };
 
 const PortfolioCard = ({ project, priority = false }) => {
