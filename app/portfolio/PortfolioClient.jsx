@@ -39,13 +39,23 @@ const PROJECTS_DATA = [
     featured: false,
   },
   {
+    id: "deep-brainwatch",
+    title: "Deep BrainWatch",
+    description:
+      "Non-invasive ICP monitoring using deep learning on cerebral blood flow signals from near-infrared photonic sensors.",
+    category: "medical-devices",
+    image: "/portfolio/previews/deep-brainwatch.jpg",
+    date: "2025-12",
+    featured: true,
+  },
+  {
     id: "claim-assistant",
     title: "Claim Assistant",
     description:
       "AI-powered insurance claim intake automation using Azure Document Intelligence and GPT-5 for extraction, policy matching, and confidence-scored coverage analysis.",
     category: "business-applications",
     image: "/portfolio/previews/claim-assistant.jpg",
-    date: "2026-03",
+    date: "2025-12",
     featured: true,
   },
   {
@@ -76,16 +86,6 @@ const PROJECTS_DATA = [
     category: "medical-imaging",
     image: "/portfolio/previews/coronary-insight.jpg",
     date: "2025-06",
-    featured: true,
-  },
-  {
-    id: "deep-brainwatch",
-    title: "Deep BrainWatch",
-    description:
-      "Non-invasive ICP monitoring using deep learning on cerebral blood flow signals from near-infrared photonic sensors.",
-    category: "medical-devices",
-    image: "/portfolio/previews/deep-brainwatch.jpg",
-    date: "2025-12",
     featured: true,
   },
   {
