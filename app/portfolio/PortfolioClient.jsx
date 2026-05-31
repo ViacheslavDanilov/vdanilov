@@ -76,7 +76,7 @@ const PROJECTS_DATA = [
     category: "business-applications",
     image: "/portfolio/previews/sales-pilot.jpg",
     date: "2025-05",
-    featured: true,
+    featured: false,
   },
   {
     id: "coronary-insight",
