@@ -515,9 +515,8 @@ export default function ProjectPage() {
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
                 <span className="text-gray-300">Figure 1.</span> EfficientDet
-                architecture with EfficientNet backbone and Bi-directional
-                Feature Pyramid Network (BiFPN) for multi-scale feature
-                extraction.
+                architecture with EfficientNet backbone and BiFPN for
+                multi-scale feature extraction.
               </figcaption>
             </figure>
 
@@ -626,9 +625,8 @@ export default function ProjectPage() {
               included annotations for primary nuclei, micronuclei, mitotic
               cells, and apoptotic bodies, allowing the model to learn to
               discriminate among these biologically significant substructures.
-              To evaluate the model, we calculated mean Average Precision (mAP)
-              across object classes using the standard intersection-over-union
-              (IoU) metric.
+              To evaluate the model, we calculated mAP across object classes
+              using the standard intersection-over-union (IoU) metric.
             </p>
           </section>
 

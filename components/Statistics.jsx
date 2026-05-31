@@ -18,7 +18,7 @@ const Statistics = ({
       delay: 0,
     },
     {
-      value: 15,
+      value: 20,
       suffix: "+",
       label: "ML and AI Projects",
       duration: 2,

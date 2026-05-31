@@ -442,8 +442,8 @@ export default function ProjectPage() {
             </div>
 
             <p className="text-gray-300 leading-relaxed mb-4 text-justify">
-              The dataset comprised 76 whole slide images (WSIs) of human solid
-              tumors, including rectal, colorectal, and lung adenocarcinomas:
+              The dataset comprised 76 WSIs of human solid tumors, including
+              rectal, colorectal, and lung adenocarcinomas:
             </p>
 
             <ul className="space-y-2 text-gray-300 mb-6 text-justify">

@@ -12,12 +12,12 @@ const PROJECTS = [
     client: "Vall d'Hebron Hospital",
     location: "Barcelona · Spain 🇪🇸",
     description:
-      "A wavelet-based deep learning system that non-invasively estimates intracranial pressure from cerebral blood-flow signals, enabling accurate bedside ICP monitoring without surgical risk. Validated on 200+ hours of clinical data, the model achieves clinically actionable accuracy and demonstrates a scalable alternative to invasive neuro-monitoring.",
+      "A wavelet-based deep learning system that non-invasively estimates intracranial pressure from cerebral blood-flow signals, enabling accurate bedside ICP monitoring without surgical risk. Validated on 79 subjects across two clinical cohorts, the model achieves clinically actionable accuracy and demonstrates a scalable alternative to invasive neuro-monitoring.",
     stack: [
       "PyTorch",
       "Python",
       "fast.ai",
-      "Gradio",
+      "Streamlit",
       "DVC",
       "Weights & Biases",
     ],

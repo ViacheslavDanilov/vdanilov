@@ -635,7 +635,7 @@ export default function ProjectPage() {
                   Your browser does not support the video tag.
                 </video>
                 <figcaption className="text-center text-sm text-gray-400 mt-2">
-                  Random Search (RS)
+                  Random Search
                 </figcaption>
               </figure>
 
@@ -656,7 +656,7 @@ export default function ProjectPage() {
                   Your browser does not support the video tag.
                 </video>
                 <figcaption className="text-center text-sm text-gray-400 mt-2">
-                  Tree-structured Parzen Estimator (TPE)
+                  Tree-structured Parzen Estimator
                 </figcaption>
               </figure>
 
