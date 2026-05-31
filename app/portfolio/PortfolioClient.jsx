@@ -9,6 +9,16 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 // Project data with date and featured fields
 const PROJECTS_DATA = [
   {
+    id: "insurecast",
+    title: "InsureCast",
+    description:
+      "Time-series forecasting dashboard for monthly insurance claims and costs using SARIMAX seasonal models, scenario stress-testing, and AI-generated summaries.",
+    category: "business-applications",
+    image: "/portfolio/previews/insurecast.jpg",
+    date: "2026-04",
+    featured: false,
+  },
+  {
     id: "insurance-pricing",
     title: "Insurance Pricing",
     description:
