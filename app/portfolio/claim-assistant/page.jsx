@@ -123,6 +123,10 @@ const RESOURCES = [
     label: "GitHub",
     url: "https://github.com/Symfa-Inc/claim-assistant",
   },
+  {
+    label: "Solution",
+    url: "https://insurtech-intelligence.symfa.ai/solutions/claim-assistant",
+  },
 ];
 
 const TECH_STACK = [
