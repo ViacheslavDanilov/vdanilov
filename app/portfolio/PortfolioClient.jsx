@@ -9,6 +9,16 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 // Project data with date and featured fields
 const PROJECTS_DATA = [
   {
+    id: "insurance-pricing",
+    title: "Insurance Pricing",
+    description:
+      "End-to-end ML app for predicting annual insurance charges with SHAP explainability and LLM-powered interpretation for business and technical users.",
+    category: "business-applications",
+    image: "/portfolio/previews/insurance-pricing.jpg",
+    date: "2026-03",
+    featured: false,
+  },
+  {
     id: "risk-profiler",
     title: "Risk Profiler",
     description:
