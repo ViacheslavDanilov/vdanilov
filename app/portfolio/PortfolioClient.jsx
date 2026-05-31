@@ -9,6 +9,16 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 // Project data with date and featured fields
 const PROJECTS_DATA = [
   {
+    id: "risk-profiler",
+    title: "Risk Profiler",
+    description:
+      "ML prototype for insurance claim fraud risk profiling using AutoGluon ensembles, SHAP explainability, and LLM-generated assessment summaries.",
+    category: "business-applications",
+    image: "/portfolio/previews/risk-profiler.jpg",
+    date: "2026-03",
+    featured: false,
+  },
+  {
     id: "claim-assistant",
     title: "Claim Assistant",
     description:
