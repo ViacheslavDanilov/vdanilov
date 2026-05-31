@@ -501,22 +501,6 @@ export default function ProjectPage() {
                 all fields are approved.
               </li>
             </ul>
-
-            {/* Figure 1: UI */}
-            <figure id="figure-1" className="scroll-mt-24">
-              <ImageLightbox
-                src="/portfolio/claim-assistant/claim-assistant-ui.webp"
-                alt="Claim Assistant review interface"
-                width={4118}
-                height={2146}
-                maxWidth="2xl"
-              />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 1.</span> Claim Assistant
-                review interface — side-by-side PDF preview with extracted key
-                fields, confidence scores, and per-field approval.
-              </figcaption>
-            </figure>
           </section>
 
           {/* Results */}
@@ -567,6 +551,62 @@ export default function ProjectPage() {
                 </span>
               </li>
             </ul>
+
+            <p className="text-gray-300 leading-relaxed mb-6 text-justify">
+              Being form-agnostic, the pipeline generalizes across layouts and
+              input quality — from clean digital PDFs to noisy handwritten
+              submissions — without per-form training:
+            </p>
+
+            {/* Figure 1: Wisconsin (digital) */}
+            <figure id="figure-1" className="scroll-mt-24 mb-8">
+              <ImageLightbox
+                src="/portfolio/claim-assistant/wisconsin_digital.webp"
+                alt="Claim Assistant review interface processing a digital Wisconsin claim form"
+                width={4118}
+                height={2146}
+                maxWidth="2xl"
+              />
+              <figcaption className="text-center text-sm text-gray-400 mt-3">
+                <span className="text-gray-300">Figure 1.</span> Claim Assistant
+                review interface on a digital Wisconsin form — side-by-side PDF
+                preview with extracted key fields, confidence scores, and
+                per-field approval.
+              </figcaption>
+            </figure>
+
+            {/* Figure 2: New Hampshire (handwritten) */}
+            <figure id="figure-2" className="scroll-mt-24 mb-8">
+              <ImageLightbox
+                src="/portfolio/claim-assistant/new-hampshire_handwritten.webp"
+                alt="Claim Assistant processing a handwritten New Hampshire claim form"
+                width={4118}
+                height={2146}
+                maxWidth="2xl"
+              />
+              <figcaption className="text-center text-sm text-gray-400 mt-3">
+                <span className="text-gray-300">Figure 2.</span> Handwritten New
+                Hampshire form — fields extracted and validated despite
+                free-form handwriting, with low-confidence values surfaced for
+                review.
+              </figcaption>
+            </figure>
+
+            {/* Figure 3: New Hampshire (digital) */}
+            <figure id="figure-3" className="scroll-mt-24">
+              <ImageLightbox
+                src="/portfolio/claim-assistant/new-hampshire_digital.webp"
+                alt="Claim Assistant processing a digital New Hampshire claim form"
+                width={4118}
+                height={2146}
+                maxWidth="2xl"
+              />
+              <figcaption className="text-center text-sm text-gray-400 mt-3">
+                <span className="text-gray-300">Figure 3.</span> Digital New
+                Hampshire form — high-confidence extraction across key fields
+                with an auto-generated coverage summary.
+              </figcaption>
+            </figure>
           </section>
 
           {/* Conclusion */}
