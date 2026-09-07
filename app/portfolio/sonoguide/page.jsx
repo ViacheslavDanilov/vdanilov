@@ -67,7 +67,7 @@ const HIGHLIGHTS_ITEMS = [
   {
     icon: faChartLine,
     label: "Result",
-    text: "Achieved 93.6% Dice score – 10% higher than U-net – and enabled precise, automated catheter detection in clinical ultrasound workflows.",
+    text: "Achieved 93.6% Dice score, 10% higher than U-net, and enabled precise, automated catheter detection in clinical ultrasound workflows.",
   },
 ];
 
@@ -369,9 +369,8 @@ export default function ProjectPage() {
                 >
                   echocardiography
                 </a>{" "}
-                – despite being a cost-effective modality – suffers from speckle
-                noise and low resolution, making device localization
-                challenging.
+                is a cost-effective modality, but it suffers from speckle noise
+                and low resolution, making device localization challenging.
               </p>
               <p className="text-gray-300 leading-relaxed text-justify">
                 This project addressed this limitation by designing a custom

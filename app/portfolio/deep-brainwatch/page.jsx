@@ -433,7 +433,7 @@ export default function ProjectPage() {
                 architectures, a wavelet-based model (mWDN) was selected as the
                 top performer. This work was validated on one of the largest
                 existing datasets of its kind, spanning 79 subjects across two
-                clinical cohorts — 60 with idiopathic normal pressure
+                clinical cohorts: 60 with idiopathic normal pressure
                 hydrocephalus (iNPH) and 19 from the Katzman cohort.
               </p>
             </div>
@@ -449,7 +449,7 @@ export default function ProjectPage() {
             <p className="text-gray-300 leading-relaxed mb-4 text-justify">
               This study utilized synchronized, high-resolution recordings of
               CBF and ground-truth ICP from 79 subjects across two clinical
-              cohorts — 60 with iNPH and 19 from the Katzman cohort. The CBF
+              cohorts: 60 with iNPH and 19 from the Katzman cohort. The CBF
               signals were measured non-invasively using a near-infrared DCS
               probe placed on the frontal lobes, while ICP ground truth was
               recorded via an invasive subdural catheter (
@@ -561,8 +561,8 @@ export default function ProjectPage() {
               </li>
               <li>
                 <strong className="text-gray-200">Cross-Validation:</strong> A
-                two-level scheme was used – 5-fold intra-subject validation and
-                inter-subject hold-out evaluation – to prevent data leakage and
+                two-level scheme was used (5-fold intra-subject validation and
+                inter-subject hold-out evaluation) to prevent data leakage and
                 test generalization.
               </li>
             </ul>
@@ -599,7 +599,7 @@ export default function ProjectPage() {
             <ul className="space-y-2 text-gray-300 mb-4">
               <li>
                 <strong className="text-gray-200">Validation MAE:</strong>{" "}
-                <span className="text-light font-semibold">2.6 mmHg</span> –
+                <span className="text-light font-semibold">2.6 mmHg</span>,
                 aligning with international clinical accuracy standards.
               </li>
               <li>

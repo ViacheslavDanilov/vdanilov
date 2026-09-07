@@ -52,7 +52,7 @@ const HIGHLIGHTS_ITEMS = [
   {
     icon: faSearch,
     label: "Situation",
-    text: "A large insurer processed ~107K claims per year across phone, email, fax, and portal — with 30 staff manually re-keying data into ASC, limited to 12h/day on weekdays.",
+    text: "A large insurer processed ~107K claims per year across phone, email, fax, and portal, with 30 staff manually re-keying data into ASC, limited to 12h/day on weekdays.",
   },
   {
     icon: faBullseye,
@@ -364,9 +364,9 @@ export default function ProjectPage() {
                 Claim Assistant is an AI-powered solution that automates
                 insurance claim intake and processing, transforming a slow,
                 manual workflow into a fast, scalable, and accurate one. It
-                converts filled insurance claim forms — including scanned and
-                handwritten documents — into structured, validated data ready
-                for downstream systems.
+                converts filled insurance claim forms, including scanned and
+                handwritten documents, into structured, validated data ready for
+                downstream systems.
               </p>
               <p className="text-gray-300 leading-relaxed text-justify">
                 The platform pairs specialized document intelligence with
@@ -375,7 +375,7 @@ export default function ProjectPage() {
                 GPT-5 maps the results to the target schema, resolves field
                 aliases, and generates a coverage summary. A review interface
                 with side-by-side PDF previews and bounding-box highlights lets
-                adjusters verify, edit, and approve fields — with a
+                adjusters verify, edit, and approve fields, with a
                 confidence-driven queue that focuses attention only on the
                 exceptions that need a human.
               </p>
@@ -416,8 +416,8 @@ export default function ProjectPage() {
             </ul>
 
             <p className="text-gray-300 leading-relaxed mb-6 text-justify">
-              Inputs span PDFs, faxes, and emails — both digital and handwritten
-              — across claim forms from eight US states (Florida, New Hampshire,
+              Inputs span PDFs, faxes, and emails, both digital and handwritten,
+              across claim forms from eight US states (Florida, New Hampshire,
               Minnesota, Iowa, Kansas, New York, Ohio, and Wisconsin). The
               pipeline is form-agnostic, handling arbitrary layouts without
               per-form training, and flags any field extracted below 80%
@@ -441,7 +441,7 @@ export default function ProjectPage() {
             <ul className="space-y-4 text-gray-300 mb-6 text-justify">
               <li>
                 <strong className="text-gray-200">
-                  Stage 1 — Document Intelligence:
+                  Stage 1 (Document Intelligence):
                 </strong>{" "}
                 Azure Document Intelligence (Form Recognizer v3.x) extracts
                 key-value pairs, bounding boxes, layout structure, and per-field
@@ -449,7 +449,7 @@ export default function ProjectPage() {
               </li>
               <li>
                 <strong className="text-gray-200">
-                  Stage 2 — LLM Mapping &amp; Validation:
+                  Stage 2 (LLM Mapping &amp; Validation):
                 </strong>
                 <ul className="mt-2 ml-4 space-y-1">
                   <li className="flex items-start gap-2">
@@ -554,8 +554,8 @@ export default function ProjectPage() {
 
             <p className="text-gray-300 leading-relaxed mb-6 text-justify">
               Being form-agnostic, the pipeline generalizes across layouts and
-              input quality — from clean digital PDFs to noisy handwritten
-              submissions — without per-form training:
+              input quality, from clean digital PDFs to noisy handwritten
+              submissions, without per-form training:
             </p>
 
             {/* Figure 1: Wisconsin (digital) */}
@@ -569,7 +569,7 @@ export default function ProjectPage() {
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
                 <span className="text-gray-300">Figure 1.</span> Claim Assistant
-                review interface on a digital Wisconsin form — side-by-side PDF
+                review interface on a digital Wisconsin form: side-by-side PDF
                 preview with extracted key fields, confidence scores, and
                 per-field approval.
               </figcaption>
@@ -586,9 +586,8 @@ export default function ProjectPage() {
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
                 <span className="text-gray-300">Figure 2.</span> Handwritten New
-                Hampshire form — fields extracted and validated despite
-                free-form handwriting, with low-confidence values surfaced for
-                review.
+                Hampshire form: fields extracted and validated despite free-form
+                handwriting, with low-confidence values surfaced for review.
               </figcaption>
             </figure>
 
@@ -603,7 +602,7 @@ export default function ProjectPage() {
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
                 <span className="text-gray-300">Figure 3.</span> Digital New
-                Hampshire form — high-confidence extraction across key fields
+                Hampshire form: high-confidence extraction across key fields
                 with an auto-generated coverage summary.
               </figcaption>
             </figure>
@@ -618,8 +617,8 @@ export default function ProjectPage() {
             <p className="text-gray-300 leading-relaxed mb-4 text-justify">
               Claim Assistant shows how pairing document intelligence with LLM
               reasoning can turn a manual, bottlenecked claims operation into a
-              scalable, 24/7 pipeline. Its hybrid approach — Azure for accurate
-              extraction, GPT-5 for mapping and validation — combined with a
+              scalable, 24/7 pipeline. Its hybrid approach (Azure for accurate
+              extraction, GPT-5 for mapping and validation) combined with a
               confidence-driven, evidence-linked review workflow, keeps humans
               in the loop exactly where it matters while automating the rest.
             </p>
