@@ -676,7 +676,7 @@ export default function ProjectPage() {
             {/* Figure 3: Cluster Number Comparison */}
             <figure id="figure-3" className="scroll-mt-24">
               <ImageLightbox
-                src="/portfolio/hypervision-ablation/сluster-number-comparison.webp"
+                src="/portfolio/hypervision-ablation/cluster-number-comparison.webp"
                 alt="Cluster Number Comparison"
                 width={1920}
                 height={1080}

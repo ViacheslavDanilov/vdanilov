@@ -635,7 +635,7 @@ export default function ProjectPage() {
             {/* Figure 7: Network Comparison */}
             <figure id="figure-7" className="mb-8 scroll-mt-24">
               <ImageLightbox
-                src="/portfolio/sonoguide/comparison–with-other-networks.webp"
+                src="/portfolio/sonoguide/comparison-with-other-networks.webp"
                 alt="Comparison with Other Networks"
                 width={1200}
                 height={800}

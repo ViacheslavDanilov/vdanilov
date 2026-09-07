@@ -456,7 +456,7 @@ export default function ProjectPage() {
             {/* Figure 1: Annotation Methodology */}
             <figure id="figure-1" className="scroll-mt-24">
               <ImageLightbox
-                src="/portfolio/histo-scanner/annotation_methodology.webp"
+                src="/portfolio/histo-scanner/annotation-methodology.webp"
                 alt="Annotation Methodology"
                 width={1920}
                 height={1080}
@@ -568,7 +568,7 @@ export default function ProjectPage() {
             {/* Figure 2: Model Comparison */}
             <figure id="figure-2" className="mb-6 scroll-mt-24">
               <ImageLightbox
-                src="/portfolio/histo-scanner/model_comparison.webp"
+                src="/portfolio/histo-scanner/model-comparison.webp"
                 alt="Model Comparison"
                 width={1200}
                 height={800}
@@ -593,7 +593,7 @@ export default function ProjectPage() {
             {/* Figure 3: Ensemble Prediction */}
             <figure id="figure-3" className="scroll-mt-24">
               <ImageLightbox
-                src="/portfolio/histo-scanner/ensemble_prediction.webp"
+                src="/portfolio/histo-scanner/ensemble-prediction.webp"
                 alt="Ensemble Prediction Examples"
                 width={1920}
                 height={1080}
