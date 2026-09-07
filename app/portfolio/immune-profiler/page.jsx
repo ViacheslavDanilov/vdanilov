@@ -118,7 +118,7 @@ const TEAM_MEMBERS = [
     location: "Munich · Germany 🇩🇪",
     photo: "/people/yuriy-popov.webp",
     links: {
-      linkedin: "https://www.linkedin.com/in/yury-popov-170298222/",
+      linkedin: "https://www.linkedin.com/in/yury-popov/",
       email: "popow.yu.a@gmail.com",
     },
   },

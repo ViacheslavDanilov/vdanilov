@@ -302,7 +302,7 @@ const REFERENCES_DATA = [
     image: "/people/yuriy-popov.webp",
     featured: true,
     socials: {
-      linkedin: "https://www.linkedin.com/in/yury-popov-170298222/",
+      linkedin: "https://www.linkedin.com/in/yury-popov/",
       email: "popow.yu.a@gmail.com",
     },
   },
