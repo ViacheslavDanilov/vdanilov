@@ -7,16 +7,16 @@ const ROUTES_TO_PREFETCH = ["/experience", "/portfolio", "/references"];
 
 // Small, high-impact set of above-the-fold assets for post-home navigation.
 const IMAGES_TO_PREFETCH = [
-  "/experience/core-roles/symfa.webp",
-  "/experience/core-roles/upf.webp",
-  "/experience/core-roles/quantori.webp",
-  "/experience/core-roles/polimi.webp",
+  "/experience/core-roles/symfa.svg",
+  "/experience/core-roles/upf.svg",
+  "/experience/core-roles/quantori.svg",
+  "/experience/core-roles/polimi.svg",
   "/portfolio/previews/deep-brainwatch.jpg",
   "/portfolio/previews/coronary-insight.jpg",
   "/portfolio/previews/sales-pilot.jpg",
   "/portfolio/previews/hypervision-ablation.jpg",
-  "/education/universities/tpu.webp",
-  "/education/universities/tsu.webp",
+  "/education/universities/tpu.svg",
+  "/education/universities/tsu.svg",
   "/people/farid-melgani.webp",
   "/people/gemma-piella.webp",
   "/people/maria-poca.webp",
