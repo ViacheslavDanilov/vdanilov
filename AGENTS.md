@@ -27,9 +27,11 @@ tool adds one automatically, strip it with `git commit --amend` before pushing.
 
 Applies to commit messages, pull request text, and copy on the site.
 
-- No em dashes (`—`). No en dashes (`–`) used as punctuation. Use a comma, a
-  colon, parentheses, or a new sentence instead. En dashes stay only inside
-  numeric and date ranges, such as `0–4` or `Sep 2015 – Sep 2020`
+- Never use an em dash (`—`). Reach for a comma, a colon, parentheses, or a
+  new sentence
+- An en dash (`–`) is allowed as an aside, but sparingly. Roughly one per page
+  at most, and never for a repeated pattern such as a list of headings. Inside
+  numeric and date ranges (`0–4`, `Sep 2015 – Sep 2020`) it is always fine
 - Plain English: short sentences, ordinary words, active voice
 - Say what the code does. Do not write as if a component wanted, asked for, or
   decided something
