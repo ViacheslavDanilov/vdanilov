@@ -758,10 +758,10 @@ export default function ProjectPage() {
             </figure>
 
             <p className="text-gray-300 leading-relaxed text-justify">
-              Even in anatomically challenging cases – such as the pancreas,
-              known for its irregular shape and low-contrast boundaries – the
-              model achieved strong performance, particularly benefiting from
-              TTA, which improved both accuracy and stability.
+              Even in anatomically challenging cases, such as the pancreas with
+              its irregular shape and low-contrast boundaries, the model
+              achieved strong performance, particularly benefiting from TTA,
+              which improved both accuracy and stability.
             </p>
           </section>
 
@@ -775,11 +775,11 @@ export default function ProjectPage() {
               This project showcases the successful deployment of a robust,
               scalable, and highly accurate deep learning system for 3D
               anatomical segmentation. By leveraging architectural and
-              algorithmic innovations – including dense skip connections, custom
-              loss functions, and augmentation techniques – the model
-              consistently outperformed industry and academic benchmarks. Its
-              adaptability across imaging modalities and organ systems suggests
-              broad utility in clinical diagnostics and surgical planning.
+              algorithmic innovations (dense skip connections, custom loss
+              functions, and augmentation techniques), the model consistently
+              outperformed industry and academic benchmarks. Its adaptability
+              across imaging modalities and organ systems suggests broad utility
+              in clinical diagnostics and surgical planning.
             </p>
             <p className="text-gray-300 leading-relaxed text-justify">
               Future work could include real-time inference capabilities,

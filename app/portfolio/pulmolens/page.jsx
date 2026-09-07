@@ -62,7 +62,7 @@ const HIGHLIGHTS_ITEMS = [
   {
     icon: faCogs,
     label: "Action",
-    text: "Integrated Grad-CAM–based attention into CNN training, combining multi-source labeled data with indirect supervision to guide model focus on clinically relevant lung regions.",
+    text: "Integrated Grad-CAM-based attention into CNN training, combining multi-source labeled data with indirect supervision to guide model focus on clinically relevant lung regions.",
   },
   {
     icon: faChartLine,
@@ -529,7 +529,7 @@ export default function ProjectPage() {
             <ul className="space-y-4 text-gray-300 mb-6 text-justify">
               <li>
                 <strong className="text-gray-200">
-                  Stage I – Transfer Learning:
+                  Stage I (Transfer Learning):
                 </strong>{" "}
                 We initialized ten convolutional neural networks (CNNs) such as
                 VGG-16, MobileNet V2, and EfficientNet variants using ImageNet
@@ -541,7 +541,7 @@ export default function ProjectPage() {
               </li>
               <li>
                 <strong className="text-gray-200">
-                  Stage II – Full Fine-Tuning:
+                  Stage II (Full Fine-Tuning):
                 </strong>{" "}
                 The top-performing models from the first stage (VGG-16,
                 MobileNet V2, EfficientNet B1, B3) were fully unfrozen and
@@ -550,7 +550,7 @@ export default function ProjectPage() {
               </li>
               <li>
                 <strong className="text-gray-200">
-                  Stage III – Indirect Supervision:
+                  Stage III (Indirect Supervision):
                 </strong>{" "}
                 This stage introduced the key novelty: an indirect supervision
                 mechanism guided by Grad-CAM (Gradient-weighted Class Activation
@@ -600,7 +600,7 @@ export default function ProjectPage() {
             <ul className="space-y-4 text-gray-300 mb-6 text-justify">
               <li>
                 <strong className="text-gray-200">
-                  Stage I – Transfer Learning:
+                  Stage I (Transfer Learning):
                 </strong>{" "}
                 MobileNet V2, VGG-16, and the EfficientNet B1/B3 models emerged
                 as the top performers, achieving validation accuracies of 79–80%
@@ -608,7 +608,7 @@ export default function ProjectPage() {
               </li>
               <li>
                 <strong className="text-gray-200">
-                  Stage II – Full Fine-Tuning:
+                  Stage II (Full Fine-Tuning):
                 </strong>{" "}
                 VGG-16 and MobileNet V2 showed the most significant
                 improvements, with validation accuracy increasing by +9% and
@@ -617,7 +617,7 @@ export default function ProjectPage() {
               </li>
               <li>
                 <strong className="text-gray-200">
-                  Stage III – Indirect Supervision:
+                  Stage III (Indirect Supervision):
                 </strong>{" "}
                 Networks trained with attention masks demonstrated more
                 anatomically accurate focus on lung regions. VGG-16 achieved the

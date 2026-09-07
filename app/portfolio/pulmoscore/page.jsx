@@ -512,14 +512,14 @@ export default function ProjectPage() {
             <ul className="space-y-4 text-gray-300 mb-6 text-justify">
               <li>
                 <strong className="text-gray-200">
-                  Stage I – Lung Segmentation:
+                  Stage I (Lung Segmentation):
                 </strong>{" "}
                 Pixel-level localization of the lungs and removal of irrelevant
                 areas using DeepLabV3+ architecture.
               </li>
               <li>
                 <strong className="text-gray-200">
-                  Stage II – Disease Segmentation:
+                  Stage II (Disease Segmentation):
                 </strong>{" "}
                 Identification of infected lung regions with nine tested neural
                 networks: U-Net, U-Net++, DeepLabV3, DeepLabV3+, FPN, LinkNet,
@@ -527,7 +527,7 @@ export default function ProjectPage() {
               </li>
               <li>
                 <strong className="text-gray-200">
-                  Stage III – Severity Scoring:
+                  Stage III (Severity Scoring):
                 </strong>{" "}
                 Quantification and qualification of infected regions to compute
                 an overall severity score per patient, aligned with radiological

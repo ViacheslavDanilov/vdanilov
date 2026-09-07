@@ -197,8 +197,6 @@ export const CompanyLogo = ({
       height={512}
       className="object-contain p-1 rounded-2xl w-full h-full"
       style={{ filter: `brightness(${brightness})` }}
-      sizes="128px"
-      quality={100}
       priority={priority}
     />
   </a>
