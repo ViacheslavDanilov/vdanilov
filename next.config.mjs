@@ -13,11 +13,13 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
 
-  // Browser caching for static assets (filenames are unhashed, so not immutable)
+  // Browser caching for static assets (filenames are unhashed, so not immutable).
+  // Skips /_next, whose filenames are hashed and already served as immutable.
   async headers() {
     return [
       {
-        source: "/:path*.:ext(svg|webp|png|jpg|jpeg|gif|mp4|ico)",
+        source:
+          "/:path((?!_next/).*)\\.:ext(svg|webp|png|jpg|jpeg|gif|mp4|ico)",
         headers: [
           {
             key: "Cache-Control",
