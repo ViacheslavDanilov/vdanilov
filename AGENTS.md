@@ -50,14 +50,17 @@ Optional body explaining why the change was needed, wrapped at ~72 columns.
 - Scope is optional; omit the parentheses when there is no scope
 - Subject: imperative mood ("add", not "added"), lower case after the colon,
   no trailing period, 72 characters or fewer
-- One logical change per commit; do not bundle unrelated edits
+- One logical change per commit; do not bundle unrelated edits. Merging squashes
+  the branch, and GitHub lists these subjects in the squash body, so they are
+  what a reader sees when unpacking a merged pull request
 - Body explains _why_, not _what_. The diff already shows what changed
 - No trailers at all, other than a genuine `Co-Authored-By` for a human collaborator
 
 ## Pull requests
 
-Title: the same Conventional Commits line as a commit subject, `type: short
-imperative description`. Body: three sections, in this order, and nothing else.
+Title: `Short imperative description`. No `type:` prefix, capitalised, no
+trailing period. It summarises the whole pull request, so it need not repeat any
+single commit subject. Body: three sections, in this order, and nothing else.
 
 ```markdown
 ## What
@@ -75,6 +78,9 @@ The problem this solves, in one or two sentences. Not a restatement of What.
 - measurements, screenshots, or manual checks, with actual numbers
 ```
 
+- Merging squashes, and GitHub appends `(#NN)` to the title, so the title becomes
+  the commit subject in `main`. Keep it to about 65 characters so the result
+  still fits 72
 - `What` lists changes, not files. The diff already shows the files
 - `Why` explains the problem, not the solution
 - `Verified` records what was actually run and what it printed. Numbers are

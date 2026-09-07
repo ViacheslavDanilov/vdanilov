@@ -1,4 +1,4 @@
-<!-- Title: type: short imperative description (same form as a commit subject) -->
+<!-- Title: Short imperative description (no type: prefix; ~65 chars) -->
 
 ## What
 
