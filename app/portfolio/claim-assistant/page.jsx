@@ -561,7 +561,7 @@ export default function ProjectPage() {
             {/* Figure 1: Wisconsin (digital) */}
             <figure id="figure-1" className="scroll-mt-24 mb-8">
               <ImageLightbox
-                src="/portfolio/claim-assistant/wisconsin_digital.webp"
+                src="/portfolio/claim-assistant/wisconsin-digital.webp"
                 alt="Claim Assistant review interface processing a digital Wisconsin claim form"
                 width={4118}
                 height={2146}
@@ -578,7 +578,7 @@ export default function ProjectPage() {
             {/* Figure 2: New Hampshire (handwritten) */}
             <figure id="figure-2" className="scroll-mt-24 mb-8">
               <ImageLightbox
-                src="/portfolio/claim-assistant/new-hampshire_handwritten.webp"
+                src="/portfolio/claim-assistant/new-hampshire-handwritten.webp"
                 alt="Claim Assistant processing a handwritten New Hampshire claim form"
                 width={4118}
                 height={2146}
@@ -595,7 +595,7 @@ export default function ProjectPage() {
             {/* Figure 3: New Hampshire (digital) */}
             <figure id="figure-3" className="scroll-mt-24">
               <ImageLightbox
-                src="/portfolio/claim-assistant/new-hampshire_digital.webp"
+                src="/portfolio/claim-assistant/new-hampshire-digital.webp"
                 alt="Claim Assistant processing a digital New Hampshire claim form"
                 width={4118}
                 height={2146}

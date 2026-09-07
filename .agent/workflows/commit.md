@@ -25,6 +25,9 @@ Create a commit message using conventional commit format:
 - Types: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`, `perf`, `ci`, `build`
 - Keep subject line under 72 characters
 - Use imperative mood ("add feature" not "added feature")
+- **Never add AI attribution**: no `Co-Authored-By: Claude ...` trailer, no
+  "Generated with Claude Code" footer, no mention of any AI tool. Every commit is
+  authored by Viacheslav Danilov alone. See `AGENTS.md` for the full rule.
 
 ## 4. Present to User
 

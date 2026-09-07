@@ -490,7 +490,7 @@ export default function ProjectPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
               <figure>
                 <video
-                  src="/portfolio/hypervision-ablation/input_data_abs.mp4"
+                  src="/portfolio/hypervision-ablation/input-data-abs.mp4"
                   autoPlay
                   loop
                   muted
@@ -504,7 +504,7 @@ export default function ProjectPage() {
               </figure>
               <figure>
                 <video
-                  src="/portfolio/hypervision-ablation/input_data_hsv.mp4"
+                  src="/portfolio/hypervision-ablation/input-data-hsv.mp4"
                   autoPlay
                   loop
                   muted
@@ -518,7 +518,7 @@ export default function ProjectPage() {
               </figure>
               <figure>
                 <video
-                  src="/portfolio/hypervision-ablation/input_data_ref.mp4"
+                  src="/portfolio/hypervision-ablation/input-data-ref.mp4"
                   autoPlay
                   loop
                   muted
@@ -676,7 +676,7 @@ export default function ProjectPage() {
             {/* Figure 3: Cluster Number Comparison */}
             <figure id="figure-3" className="scroll-mt-24">
               <ImageLightbox
-                src="/portfolio/hypervision-ablation/сluster-number-comparison.webp"
+                src="/portfolio/hypervision-ablation/cluster-number-comparison.webp"
                 alt="Cluster Number Comparison"
                 width={1920}
                 height={1080}
