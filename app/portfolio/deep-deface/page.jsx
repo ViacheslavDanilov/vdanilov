@@ -343,8 +343,8 @@ export default function ProjectPage() {
               <p className="text-gray-300 leading-relaxed mb-4 text-justify">
                 Modern rendering pipelines let anyone reconstruct a
                 patient&apos;s full head from standard CT or MRI data, making it
-                possible to re-identify individuals – even when metadata are
-                stripped – via consumer-grade facial recognition software.
+                possible to re-identify individuals, even when metadata are
+                stripped, via consumer-grade facial recognition software.
                 Conventional DICOM de-identification focuses on tags, leaving
                 pixel data exposed.
               </p>
@@ -427,8 +427,8 @@ export default function ProjectPage() {
                 <span className="text-accent mt-1">•</span>
                 <span>
                   <strong className="text-gray-200">Dataset Split:</strong> A
-                  hold-out set of 83 CT and 84 MRI series – never seen during
-                  development – was reserved for final evaluation.
+                  hold-out set of 83 CT and 84 MRI series, never seen during
+                  development, was reserved for final evaluation.
                 </span>
               </li>
             </ul>
@@ -545,7 +545,7 @@ export default function ProjectPage() {
             <ul className="space-y-4 text-gray-300 mb-6 text-justify">
               <li>
                 <strong className="text-gray-200">
-                  Stage 1 – 3D Object Detector:
+                  Stage 1 (3D Object Detector):
                 </strong>{" "}
                 EfficientDet-style backbone with depth-wise separable
                 convolutions (~33M parameters). Training used focal loss with
@@ -555,7 +555,7 @@ export default function ProjectPage() {
               </li>
               <li>
                 <strong className="text-gray-200">
-                  Stage 2 – Region-selective Anonymizer:
+                  Stage 2 (Region-selective Anonymizer):
                 </strong>{" "}
                 For every detected box, CUDA kernels apply either block-wise
                 mosaicing or Gaussian blur with σ = 8. A 2 mm padding rule
@@ -624,7 +624,7 @@ export default function ProjectPage() {
                   <strong className="text-gray-200">Throughput:</strong> On an
                   NVIDIA RTX 3090, the end-to-end pipeline processes a slice in
                   37 milliseconds, implying a typical 300-slice head volume is
-                  anonymized in &lt;11 seconds – fast enough for real-time PACS
+                  anonymized in &lt;11 seconds, fast enough for real-time PACS
                   workflows.
                 </span>
               </li>
@@ -752,10 +752,10 @@ export default function ProjectPage() {
             </h2>
             <p className="text-gray-300 leading-relaxed mb-4 text-justify">
               Deep Deface proves privacy and data fidelity can coexist: it
-              neutralizes biometric risk while preserving 100% of brain voxels –
-              key for downstream AI diagnostics. The solution enables secure
-              data sharing across institutions while maintaining full compliance
-              with privacy regulations.
+              neutralizes biometric risk while preserving 100% of brain voxels,
+              which is key for downstream AI diagnostics. The solution enables
+              secure data sharing across institutions while maintaining full
+              compliance with privacy regulations.
             </p>
             <p className="text-gray-300 leading-relaxed text-justify">
               Next steps include PET/SPECT support, on-device inference for edge

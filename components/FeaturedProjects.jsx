@@ -30,7 +30,7 @@ const PROJECTS = [
     client: "Symfa",
     location: "Miami · United States 🇺🇸",
     description:
-      "An end-to-end AI system that automates outbound lead generation by scoring jobs, contacts, and companies using hybrid heuristic–embedding models. It transforms slow manual sourcing into a scalable, data-driven workflow that dramatically cuts time-to-lead from days to minutes while boosting targeting accuracy and conversion potential.",
+      "An end-to-end AI system that automates outbound lead generation by scoring jobs, contacts, and companies using hybrid heuristic-embedding models. It transforms slow manual sourcing into a scalable, data-driven workflow that dramatically cuts time-to-lead from days to minutes while boosting targeting accuracy and conversion potential.",
     stack: ["Python", "OpenAI API", "scikit-learn", "DVC", "CI/CD", "LLM"],
     link: "/portfolio/sales-pilot",
     image: "/portfolio/previews/sales-pilot.jpg",

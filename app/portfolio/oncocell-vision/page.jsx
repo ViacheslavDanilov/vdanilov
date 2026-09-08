@@ -52,7 +52,7 @@ const HIGHLIGHTS_ITEMS = [
   {
     icon: faSearch,
     label: "Situation",
-    text: "Cancer biologists at Volastra Therapeutics needed a scalable, accurate solution to detect and count cellular biomarkers—such as micronuclei and mitotic bodies—in microscopy images to evaluate early cancer progression and treatment response.",
+    text: "Cancer biologists at Volastra Therapeutics needed a scalable, accurate solution to detect and count cellular biomarkers (such as micronuclei and mitotic bodies) in microscopy images to evaluate early cancer progression and treatment response.",
   },
   {
     icon: faBullseye,
@@ -388,8 +388,8 @@ export default function ProjectPage() {
                   Volastra Therapeutics
                 </a>
                 , this project aimed to prevent cancer progression by accurately
-                detecting and quantifying key cellular structures – primary
-                nuclei, micronuclei, mitosis, and apoptosis – in microscopy
+                detecting and quantifying key cellular structures (primary
+                nuclei, micronuclei, mitosis, and apoptosis) in microscopy
                 images. These structures serve as biomarkers for cancer
                 diagnosis and treatment efficacy.
               </p>
@@ -672,9 +672,9 @@ export default function ProjectPage() {
             </p>
 
             <p className="text-gray-300 leading-relaxed mb-6 text-justify">
-              Visual inspections of predictions across cell lines – MB-231
-              (63X), HeLa, and CAL51 – demonstrated that the model generalizes
-              well to different imaging resolutions and biological conditions (
+              Visual inspections of predictions across cell lines (MB-231 at
+              63X, HeLa, and CAL51) demonstrated that the model generalizes well
+              to different imaging resolutions and biological conditions (
               <a href="#figure-3" className="text-accent hover:underline">
                 Figures 3-5
               </a>
@@ -750,8 +750,8 @@ export default function ProjectPage() {
               Future work may involve expanding the dataset to include more
               diverse cell lines and further refining the model to improve
               detection of less prevalent structures like micronuclei. The
-              results validate the use of deep learning – particularly
-              EfficientDet with BiFPN – for high-resolution biomedical image
+              results validate the use of deep learning, and of EfficientDet
+              with BiFPN in particular, for high-resolution biomedical image
               analysis, holding promise for scalable implementation in clinical
               research settings.
             </p>

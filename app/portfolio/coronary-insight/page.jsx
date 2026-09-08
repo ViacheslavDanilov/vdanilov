@@ -640,32 +640,32 @@ export default function ProjectPage() {
               <li>
                 <strong className="text-gray-200">Lumen</strong> (
                 <span style={{ color: "#ff17cd" }}>magenta</span>): DSC of{" "}
-                <span className="font-semibold">0.987</span> – indicating nearly
+                <span className="font-semibold">0.987</span>, indicating nearly
                 perfect agreement with expert annotations.
               </li>
               <li>
                 <strong className="text-gray-200">Fibrous Cap</strong> (
                 <span style={{ color: "#5eade6" }}>blue</span>): DSC of{" "}
-                <span className="font-semibold">0.736</span> – strong
-                performance despite thin, complex structure.
+                <span className="font-semibold">0.736</span>, strong performance
+                despite thin, complex structure.
               </li>
               <li>
                 <strong className="text-gray-200">Lipid Core</strong> (
                 <span style={{ color: "#00e379" }}>green</span>): DSC of{" "}
-                <span className="font-semibold">0.751</span> – reliable
-                detection despite challenging textures.
+                <span className="font-semibold">0.751</span>, reliable detection
+                despite challenging textures.
               </li>
               <li>
                 <strong className="text-gray-200">Vasa Vasorum</strong> (
                 <span style={{ color: "#f20515" }}>red</span>): DSC of{" "}
-                <span className="font-semibold">0.610</span> – moderate
+                <span className="font-semibold">0.610</span>, moderate
                 performance for a rare, fine-grained feature.
               </li>
               <li>
                 <strong className="text-gray-200">
                   Ensemble Weighted DSC:
                 </strong>{" "}
-                <span className="text-light font-semibold">0.882</span> –
+                <span className="text-light font-semibold">0.882</span>,
                 demonstrating the synergy of combined models.
               </li>
             </ul>

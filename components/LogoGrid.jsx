@@ -5,62 +5,62 @@ import Link from "next/link";
 const logos = [
   {
     name: "BCH",
-    src: "/clients/bch.webp",
+    src: "/clients/bch.svg",
     href: "https://www.childrenshospital.org/",
   },
   {
     name: "Boehringer Ingelheim",
-    src: "/clients/boehringer-ingelheim.webp",
+    src: "/clients/boehringer-ingelheim.svg",
     href: "https://www.boehringer-ingelheim.com/",
   },
   {
     name: "Biospective",
-    src: "/clients/biospective.webp",
+    src: "/clients/biospective.svg",
     href: "https://www.biospective.com/",
   },
   {
     name: "BIDMC",
-    src: "/clients/bidmc.webp",
+    src: "/clients/bidmc.svg",
     href: "https://www.bidmc.org/",
   },
   {
     name: "IHU",
-    src: "/clients/ihu.webp",
+    src: "/clients/ihu.svg",
     href: "https://www.ihu-strasbourg.eu/",
   },
   {
     name: "BMS",
-    src: "/clients/bms.webp",
+    src: "/clients/bms.svg",
     href: "https://www.bms.com/",
   },
   {
     name: "VHIR",
-    src: "/clients/vhir.webp",
+    src: "/clients/vhir.svg",
     href: "https://www.vhir.org/",
   },
   {
     name: "Volastra",
-    src: "/clients/volastra.webp",
+    src: "/clients/volastra.svg",
     href: "https://www.volastratx.com/",
   },
   {
     name: "AmTrust",
-    src: "/clients/amtrust.webp",
+    src: "/clients/amtrust.svg",
     href: "https://amtrustfinancial.com/",
   },
   {
     name: "Plateau",
-    src: "/clients/plateau.webp",
+    src: "/clients/plateau.svg",
     href: "https://www.plateaugroup.com/",
   },
   {
     name: "CNA",
-    src: "/clients/cna.webp",
+    src: "/clients/cna.svg",
     href: "https://www.cna.com/",
   },
   {
     name: "Huawei",
-    src: "/clients/huawei.webp",
+    src: "/clients/huawei.svg",
     href: "https://www.huawei.com/",
   },
 ];
@@ -96,7 +96,6 @@ const LogoGrid = () => {
                 alt={logo.name}
                 width={320}
                 height={160}
-                quality={100}
                 style={{
                   width: "auto",
                   height: "auto",

@@ -52,7 +52,7 @@ const HIGHLIGHTS_ITEMS = [
   {
     icon: faSearch,
     label: "Situation",
-    text: "Insurance pricing leans on actuarial models that work well but are opaque — hard for non-technical stakeholders to interpret — and assessed with metrics that aren't translated into business impact.",
+    text: "Insurance pricing leans on actuarial models that work well but are opaque (hard for non-technical stakeholders to interpret) and assessed with metrics that aren't translated into business impact.",
   },
   {
     icon: faBullseye,
@@ -67,7 +67,7 @@ const HIGHLIGHTS_ITEMS = [
   {
     icon: faChartLine,
     label: "Result",
-    text: "Turned a black-box estimate into a transparent quote — every prediction ships with ranked cost drivers and a readable explanation, closing the gap between model performance and stakeholder trust.",
+    text: "Turned a black-box estimate into a transparent quote. Every prediction ships with ranked cost drivers and a readable explanation, closing the gap between model performance and stakeholder trust.",
   },
 ];
 
@@ -356,7 +356,7 @@ export default function ProjectPage() {
                 Under the hood, an AutoGluon tabular regressor produces the
                 estimate, SHAP computes the per-prediction feature
                 contributions, and an OpenAI model turns those contributions
-                into a plain-language explanation — a headline, the key cost
+                into a plain-language explanation: a headline, the key cost
                 drivers, and caveats about model limitations. Built-in
                 extrapolation warnings flag inputs outside the training
                 distribution, and automated EDA and evaluation reports are
@@ -373,7 +373,7 @@ export default function ProjectPage() {
             </h2>
 
             <p className="text-gray-300 leading-relaxed mb-4 text-justify">
-              The model is trained on the public US Health Insurance Dataset —
+              The model is trained on the public US Health Insurance Dataset,
               1,300 records of individual policy attributes paired with annual
               charges:
             </p>
@@ -404,7 +404,7 @@ export default function ProjectPage() {
             </ul>
 
             <p className="text-gray-300 leading-relaxed mb-6 text-justify">
-              The deployment is databaseless — predictions are served entirely
+              The deployment is databaseless: predictions are served entirely
               from the trained model artifact, with no external data store
               dependency.
             </p>
@@ -446,7 +446,7 @@ export default function ProjectPage() {
               <li>
                 <strong className="text-gray-200">LLM Interpretation:</strong>{" "}
                 GPT-4o-mini translates the SHAP output into a structured,
-                plain-language explanation — headline, key drivers, and caveats.
+                plain-language explanation: headline, key drivers, and caveats.
               </li>
               <li>
                 <strong className="text-gray-200">Evaluation Reporting:</strong>{" "}
@@ -520,7 +520,7 @@ export default function ProjectPage() {
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
                 <span className="text-gray-300">Figure 1.</span> Insurance
-                Pricing dashboard — input panel, estimated annual charge, a
+                Pricing dashboard: input panel, estimated annual charge, a
                 plain-language interpretation of the main drivers, and the SHAP
                 feature-impact chart.
               </figcaption>

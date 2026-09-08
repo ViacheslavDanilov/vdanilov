@@ -386,8 +386,8 @@ export default function ProjectPage() {
               </p>
               <p className="text-gray-300 leading-relaxed text-justify">
                 The innovation lies in its component-based scoring architecture.
-                It evaluates each lead across three pillars – job description,
-                contact profile, and company fit – using both deterministic
+                It evaluates each lead across three pillars (job description,
+                contact profile, and company fit) using both deterministic
                 heuristics and embedding-based semantic models. The final result
                 is a dynamic lead scoring engine that automates decision-making,
                 allowing sales and growth teams to focus on outreach with the
@@ -595,7 +595,7 @@ export default function ProjectPage() {
               generation from a time-intensive, manual task into a strategic and
               scalable advantage. By integrating heuristic scoring with
               embedding-powered NLP, the system identifies the most promising
-              opportunities for outreach — tailored to different operational
+              opportunities for outreach, tailored to different operational
               strategies.
             </p>
             <p className="text-gray-300 leading-relaxed text-justify">

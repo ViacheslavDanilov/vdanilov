@@ -582,8 +582,8 @@ export default function ProjectPage() {
             </figure>
 
             <p className="text-gray-300 leading-relaxed mb-6 text-justify">
-              The ensemble of three models — MA-Net, DeepLabV3, and FPN —
-              provided the optimal solution (
+              The ensemble of three models (MA-Net, DeepLabV3, and FPN) provided
+              the optimal solution (
               <a href="#figure-3" className="text-accent hover:underline">
                 Figure 3
               </a>

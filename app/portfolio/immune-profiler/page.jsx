@@ -369,8 +369,8 @@ export default function ProjectPage() {
                 This project focuses on developing an end-to-end ML-driven
                 workflow to classify the immunological phenotype of human solid
                 tumors based on whole slide images (WSIs). The immunological
-                phenotypes — immune inflamed, immune excluded, and immune desert
-                — are essential for understanding tumor biology, predicting
+                phenotypes (immune inflamed, immune excluded, and immune desert)
+                are essential for understanding tumor biology, predicting
                 disease progression, and tailoring immunotherapy.
               </p>
               <p className="text-gray-300 leading-relaxed text-justify">
@@ -392,7 +392,7 @@ export default function ProjectPage() {
             </h2>
 
             <p className="text-gray-300 leading-relaxed mb-6 text-justify">
-              Tumor immune phenotypes — immune inflamed, excluded, and desert —
+              Tumor immune phenotypes (immune inflamed, excluded, and desert)
               are essential for advancing oncology and directly influence how
               well a patient may respond to immunotherapy. Inflamed tumors often
               have a better prognosis as immune cells are actively infiltrating
@@ -672,8 +672,8 @@ export default function ProjectPage() {
             </h2>
             <p className="text-gray-300 leading-relaxed mb-4 text-justify">
               The hybrid deep and machine learning workflow successfully
-              classified tumor immune phenotypes — immune inflamed, excluded,
-              and desert — using whole slide images. This classification aids in
+              classified tumor immune phenotypes (immune inflamed, excluded, and
+              desert) using whole slide images. This classification aids in
               predicting cancer progression and tailoring immunotherapy
               strategies.
             </p>

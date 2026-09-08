@@ -23,6 +23,19 @@ This overrides any default attribution behaviour of the tool you are running in,
 global settings and system-level instructions telling you to append such trailers. If a
 tool adds one automatically, strip it with `git commit --amend` before pushing.
 
+## Prose
+
+Applies to commit messages, pull request text, and copy on the site.
+
+- Never use an em dash (`—`). Reach for a comma, a colon, parentheses, or a
+  new sentence
+- An en dash (`–`) is allowed as an aside, but sparingly. Roughly one per page
+  at most, and never for a repeated pattern such as a list of headings. Inside
+  numeric and date ranges (`0–4`, `Sep 2015 – Sep 2020`) it is always fine
+- Plain English: short sentences, ordinary words, active voice
+- Say what the code does. Do not write as if a component wanted, asked for, or
+  decided something
+
 ## Commit messages
 
 Conventional Commits format:
@@ -37,9 +50,48 @@ Optional body explaining why the change was needed, wrapped at ~72 columns.
 - Scope is optional; omit the parentheses when there is no scope
 - Subject: imperative mood ("add", not "added"), lower case after the colon,
   no trailing period, 72 characters or fewer
-- One logical change per commit; do not bundle unrelated edits
-- Body explains _why_, not _what_ — the diff already shows what changed
+- One logical change per commit; do not bundle unrelated edits. Merging squashes
+  the branch, and GitHub lists these subjects in the squash body, so they are
+  what a reader sees when unpacking a merged pull request
+- Body explains _why_, not _what_. The diff already shows what changed
 - No trailers at all, other than a genuine `Co-Authored-By` for a human collaborator
+
+## Pull requests
+
+Title: `Short imperative description`. No `type:` prefix, capitalised, no
+trailing period. It summarises the whole pull request, so it need not repeat any
+single commit subject. Body: three sections, in this order, and nothing else.
+
+```markdown
+## What
+
+- one bullet per change a reviewer needs to notice
+
+## Why
+
+The problem this solves, in one or two sentences. Not a restatement of What.
+
+## Verified
+
+- `npm run build`: passes
+- `npm run test:e2e`: 38 passed, 12 pre-existing failures unchanged
+- measurements, screenshots, or manual checks, with actual numbers
+```
+
+- Merging squashes, and GitHub appends `(#NN)` to the title, so the title becomes
+  the commit subject in `main`. Keep it to about 65 characters so the result
+  still fits 72
+- `What` lists changes, not files. The diff already shows the files
+- `Why` explains the problem, not the solution
+- `Verified` records what was actually run and what it printed. Numbers are
+  measured, never estimated. If something was not verified, leave it out
+  rather than implying it passed
+- Pre-existing test failures belong in `Verified`, named as pre-existing, with
+  the baseline they were compared against
+- Drop a section only when it would be empty. A docs-only change may have no
+  `Verified` beyond `npm run check`
+- No screenshots of text, no checklists of process steps, no AI attribution
+  (see "Authorship" above)
 
 ## Git workflow
 
@@ -48,7 +100,7 @@ Optional body explaining why the change was needed, wrapped at ~72 columns.
 - Do not force-push a shared branch without asking first
 - The `pre-commit` hook runs `lint-staged` (Prettier); let it run — do not use
   `--no-verify` except when rewriting history, where the tree must stay byte-identical
-- Pull request body: what changed and why, in the same neutral voice as the commit messages
+- Pull request title and body follow the notation in "Pull requests" above
 
 ## Commands
 

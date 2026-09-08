@@ -57,7 +57,7 @@ const HIGHLIGHTS_ITEMS = [
   {
     icon: faBullseye,
     label: "Task",
-    text: "Develop a deep learning–powered wildfire detection system leveraging object detection and temporal modeling across multi-source video datasets.",
+    text: "Develop a deep learning-powered wildfire detection system leveraging object detection and temporal modeling across multi-source video datasets.",
   },
   {
     icon: faCogs,
@@ -724,8 +724,8 @@ export default function ProjectPage() {
             <p className="text-gray-300 leading-relaxed mb-4 text-justify">
               This project showcases a scalable and robust wildfire detection
               system, outperforming current methods in both accuracy and speed.
-              Its modular pipeline – spanning image pre-processing, real-time
-              object detection, and temporal classification – can be adapted to
+              Its modular pipeline, spanning image pre-processing, real-time
+              object detection, and temporal classification, can be adapted to
               various dynamic-object detection tasks, from medical diagnostics
               to robotics.
             </p>

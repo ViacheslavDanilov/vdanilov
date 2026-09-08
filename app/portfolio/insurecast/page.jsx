@@ -52,7 +52,7 @@ const HIGHLIGHTS_ITEMS = [
   {
     icon: faSearch,
     label: "Situation",
-    text: "Teams planning reserves and operations need consistent forward views of claim frequency and cost — but spreadsheets and one-off models are hard to reproduce, segment, and stress-test.",
+    text: "Teams planning reserves and operations need consistent forward views of claim frequency and cost, but spreadsheets and one-off models are hard to reproduce, segment, and stress-test.",
   },
   {
     icon: faBullseye,
@@ -67,7 +67,7 @@ const HIGHLIGHTS_ITEMS = [
   {
     icon: faChartLine,
     label: "Result",
-    text: "Replaced ad-hoc spreadsheets with one API and a single definition of “forecast” — refresh by segment and horizon, apply shocks, and read a chart-aligned narrative, all in one dashboard.",
+    text: "Replaced ad-hoc spreadsheets with one API and a single definition of “forecast”: refresh by segment and horizon, apply shocks, and read a chart-aligned narrative, all in one dashboard.",
   },
 ];
 
@@ -361,7 +361,7 @@ export default function ProjectPage() {
                 fallbacks, and exposes a scenario API for stress-testing. A
                 what-if panel lets analysts apply severity-inflation and
                 frequency-shock adjustments and immediately see the forecast
-                charts and table update — turning ad-hoc spreadsheet work into a
+                charts and table update, turning ad-hoc spreadsheet work into a
                 single, API-first definition of "forecast."
               </p>
             </div>
@@ -392,9 +392,9 @@ export default function ProjectPage() {
                 <span className="text-accent mt-1">•</span>
                 <span>
                   <strong className="text-gray-200">Merged demo table:</strong>{" "}
-                  A single CSV of all segments × months — month, state,
-                  industry, claim type, counts, and baseline average cost —
-                  loaded by the API at startup.
+                  A single CSV of all segments × months (month, state, industry,
+                  claim type, counts, and baseline average cost), loaded by the
+                  API at startup.
                 </span>
               </li>
               <li className="flex items-start gap-2">
@@ -521,10 +521,9 @@ export default function ProjectPage() {
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
                 <span className="text-gray-300">Figure 1.</span> InsureCast
-                dashboard — segment and scenario controls,
-                historical-vs-forecast charts with prediction bands for claims
-                and average cost, an aligned AI summary, and the monthly values
-                table.
+                dashboard: segment and scenario controls, historical-vs-forecast
+                charts with prediction bands for claims and average cost, an
+                aligned AI summary, and the monthly values table.
               </figcaption>
             </figure>
           </section>
@@ -539,8 +538,8 @@ export default function ProjectPage() {
               InsureCast shows how classical time-series modeling, an
               interactive scenario loop, and an aligned AI narrative can come
               together into a single, reproducible forecasting tool. Its
-              time-series-first design — monthly frequency and seasonality with
-              robust fallbacks — and API-first architecture make claims and cost
+              time-series-first design (monthly frequency and seasonality with
+              robust fallbacks) and API-first architecture make claims and cost
               projections consistent, segmentable, and easy to stress-test.
             </p>
             <p className="text-gray-300 leading-relaxed text-justify">

@@ -52,7 +52,7 @@ const HIGHLIGHTS_ITEMS = [
   {
     icon: faSearch,
     label: "Situation",
-    text: "Insurers face heavy financial exposure from fraudulent claims — manually reviewing every claim is costly and impractical, while blanket approvals risk paying out fraud.",
+    text: "Insurers face heavy financial exposure from fraudulent claims. Manually reviewing every claim is costly and impractical, while blanket approvals risk paying out fraud.",
   },
   {
     icon: faBullseye,
@@ -67,7 +67,7 @@ const HIGHLIGHTS_ITEMS = [
   {
     icon: faChartLine,
     label: "Result",
-    text: "Instant fraud probability with auditable, additive reasoning — letting analysts focus on high-risk and edge cases instead of scoring every claim by hand.",
+    text: "Instant fraud probability with auditable, additive reasoning, letting analysts focus on high-risk and edge cases instead of scoring every claim by hand.",
   },
 ];
 
@@ -358,7 +358,7 @@ export default function ProjectPage() {
                 explainability and optional LLM-generated summaries. Every
                 prediction is fully transparent: SHAP contributions show exactly
                 how each feature pushed the risk score up or down, following a
-                simple additive form — baseline plus feature impacts equals the
+                simple additive form: baseline plus feature impacts equals the
                 final risk score. An interactive dashboard lets analysts adjust
                 claim signals and explore &quot;what-if&quot; scenarios in real
                 time.
@@ -375,7 +375,7 @@ export default function ProjectPage() {
 
             <p className="text-gray-300 leading-relaxed mb-4 text-justify">
               The model is trained on the 2023 Travelers NESS Statathon dataset
-              — synthetic insurance claim records with fraud labels, covering
+              of synthetic insurance claim records with fraud labels, covering
               driver demographics, claim details, and vehicle information:
             </p>
             <ul className="space-y-2 text-gray-300 mb-6 text-justify">
@@ -394,7 +394,7 @@ export default function ProjectPage() {
                 <span className="text-accent mt-1">•</span>
                 <span>
                   <strong className="text-gray-200">Claim Features:</strong> The
-                  10 most impactful signals by SHAP — annual income, age of
+                  10 most impactful signals by SHAP: annual income, age of
                   driver, claim day of week, higher education, past number of
                   claims, safety rating, witness present, gender, estimated
                   payout, and living status.
@@ -424,14 +424,14 @@ export default function ProjectPage() {
 
             <ul className="space-y-4 text-gray-300 mb-6 text-justify">
               <li>
-                <strong className="text-gray-200">Stage 1 — Prediction:</strong>{" "}
+                <strong className="text-gray-200">Stage 1 (Prediction):</strong>{" "}
                 An AutoGluon TabularPredictor (NeuralNetTorch ensemble) outputs
                 a fraud probability and a binary decision against the
                 configurable threshold.
               </li>
               <li>
                 <strong className="text-gray-200">
-                  Stage 2 — Explainability:
+                  Stage 2 (Explainability):
                 </strong>
                 <ul className="mt-2 ml-4 space-y-1">
                   <li className="flex items-start gap-2">
@@ -459,12 +459,12 @@ export default function ProjectPage() {
               </li>
               <li>
                 <strong className="text-gray-200">
-                  Stage 3 — Summary &amp; UI:
+                  Stage 3 (Summary &amp; UI):
                 </strong>{" "}
                 An OpenAI model (GPT-4o-mini, configurable) generates a natural
-                language assessment — with a template fallback when no API key
-                is set — and the dashboard renders the risk score, summary, and
-                an explainability panel with the additive contributions.
+                language assessment, with a template fallback when no API key is
+                set, and the dashboard renders the risk score, summary, and an
+                explainability panel with the additive contributions.
               </li>
             </ul>
           </section>
@@ -528,7 +528,7 @@ export default function ProjectPage() {
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
                 <span className="text-gray-300">Figure 1.</span> Risk Profiler
-                dashboard — adjustable claim features, a risk-score gauge with
+                dashboard: adjustable claim features, a risk-score gauge with
                 threshold, and a SHAP explainability panel showing each
                 feature&apos;s additive impact alongside an AI-generated
                 summary.
@@ -543,8 +543,8 @@ export default function ProjectPage() {
               Conclusion
             </h2>
             <p className="text-gray-300 leading-relaxed mb-4 text-justify">
-              Risk Profiler shows how explainable machine learning can support —
-              rather than replace — human fraud analysts. By pairing accurate
+              Risk Profiler shows how explainable machine learning can support,
+              rather than replace, human fraud analysts. By pairing accurate
               AutoGluon predictions with transparent SHAP contributions and
               concise LLM summaries, it turns opaque risk scores into auditable,
               defensible decisions while keeping a human firmly in the loop.

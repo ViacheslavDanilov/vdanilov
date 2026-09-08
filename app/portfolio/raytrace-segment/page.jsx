@@ -52,7 +52,7 @@ const HIGHLIGHTS_ITEMS = [
   {
     icon: faSearch,
     label: "Situation",
-    text: "Clinicians and researchers needed a fast, reliable method to segment anatomical structures – such as brain tumors and cardiac ventricles – from MRI scans for diagnostic support and surgical planning.",
+    text: "Clinicians and researchers needed a fast, reliable method to segment anatomical structures such as brain tumors and cardiac ventricles from MRI scans for diagnostic support and surgical planning.",
   },
   {
     icon: faBullseye,
@@ -351,8 +351,8 @@ export default function ProjectPage() {
                 ventricle and brain tumors.
               </p>
               <p className="text-gray-300 leading-relaxed text-justify">
-                To overcome data imbalance – a common issue in pixel-based
-                classification – the approach incorporates ensemble learning
+                To overcome data imbalance, a common issue in pixel-based
+                classification, the approach incorporates ensemble learning
                 methods like AdaBoost.M2, SMOTEBoost, and UnderBagging. The
                 algorithm was tested on two major datasets: a cardiac MRI
                 dataset from the University of York and a brain tumor MRI
@@ -562,8 +562,8 @@ export default function ProjectPage() {
               This project introduced a ray-casting segmentation algorithm that
               efficiently and accurately detects anatomical structures in MRI
               images. By reducing the task to one-dimensional boundary
-              detection, the method achieved high Dice scores – up to 91.8% for
-              the heart and 89.5% for brain tumors – with millisecond-level
+              detection, the method achieved high Dice scores (up to 91.8% for
+              the heart and 89.5% for brain tumors) with millisecond-level
               processing times.
             </p>
             <p className="text-gray-300 leading-relaxed text-justify">

@@ -424,7 +424,7 @@ export default function ProjectPage() {
                 keypoints on both the aortic valve and the delivery system. This
                 system was trained on real intraoperative aortography data and
                 evaluated across several neural network architectures. The most
-                efficient models – ResNet and MobileNet V2 – achieved impressive
+                efficient models (ResNet and MobileNet V2) achieved impressive
                 accuracy and responsiveness, demonstrating real-time prediction
                 capabilities that could enhance clinical outcomes and serve as
                 the basis for future robotic surgical systems.
@@ -488,7 +488,7 @@ export default function ProjectPage() {
                 <span className="text-accent mt-1">•</span>
                 <span>
                   <strong className="text-gray-200">Coverage:</strong> Three
-                  critical surgical stages – delivery system positioning,
+                  critical surgical stages: delivery system positioning,
                   prosthesis deployment initiation, and partial valve release
                 </span>
               </li>
