@@ -368,9 +368,9 @@ export default function ProjectPage() {
                   className="text-accent hover:underline"
                 >
                   echocardiography
-                </a>{" "}
-                is a cost-effective modality, but it suffers from speckle noise
-                and low resolution, making device localization challenging.
+                </a>
+                , a cost-effective modality, suffers from speckle noise and low
+                resolution, making device localization challenging.
               </p>
               <p className="text-gray-300 leading-relaxed text-justify">
                 This project addressed this limitation by designing a custom
