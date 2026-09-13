@@ -104,7 +104,7 @@ const About = () => {
           <p>
             Experienced{" "}
             <span className="inline-block bg-accent/10 text-accent font-semibold px-4 py-0.5 rounded-3xl">
-              Lead ML Engineer
+              Lead AI/ML Engineer
             </span>{" "}
             and{" "}
             <span className="inline-block bg-accent/10 text-accent font-semibold px-4 py-0.5 rounded-3xl">
