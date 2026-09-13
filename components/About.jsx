@@ -110,8 +110,8 @@ const About = () => {
             <span className="inline-block bg-accent/10 text-accent font-semibold px-4 py-0.5 rounded-3xl">
               Research Scientist
             </span>{" "}
-            based in Barcelona, with a PhD in Computer Science and 10 years of
-            experience in AI and data science. Having worked in both academia
+            based in Barcelona, with a PhD in Computer Science and over 10 years
+            of experience in AI and data science. Having worked in both academia
             and industry, I have sharpened skills in data analysis, AI/ML
             development, and scientific experimentation. I cover the full
             spectrum from designing predictive models to engineering scalable
