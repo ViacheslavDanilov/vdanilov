@@ -205,7 +205,7 @@ const PUBLICATIONS_DATA = [
   {
     id: "conference-3",
     title:
-      "Hybrid convolutional and recurrent neural network for non-invasive ICP estimation from CBF",
+      "Hybrid convolutional and recurrent neural network for non-invasive intracranial pressure estimation from cerebral blood flow",
     venue: "Optica Biophotonics Congress",
     location: "Miami, United States 🇺🇸",
     year: "2024",
@@ -231,7 +231,7 @@ const PUBLICATIONS_DATA = [
   {
     id: "conference-5",
     title:
-      "Comparative study of deep learning models for automatic coronary stenosis detection",
+      "Comparative study of deep learning models for automatic coronary stenosis detection in X-ray angiography",
     venue: "GraphiCon",
     location: "Saint Petersburg, Russia 🇷🇺",
     year: "2020",
