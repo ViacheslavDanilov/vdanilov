@@ -57,7 +57,7 @@ const EXPERIENCES_DATA = [
     location: "Miami • United States 🇺🇸",
     logo: "/experience/core-roles/symfa.svg",
     summary:
-      "Leading a cross-functional AI and ML R&D department, and acting as solution architect and lead engineer on InsurTech products for AmTrust, CNA, Lumos Insurance, GNP.",
+      "Leading a cross-functional R&D department for AI, ML and autonomous agents, and acting as solution architect and lead engineer on InsurTech products for AmTrust, CNA, Lumos Insurance, GNP.",
     responsibilities: [
       "Defining and executing the company's long-term technical vision across technological units",
       "Leading and scaling a cross-functional R&D department focused on AI, machine learning, autonomous agents, and automation",
@@ -99,7 +99,7 @@ const EXPERIENCES_DATA = [
     location: "Barcelona • Spain 🇪🇸",
     logo: "/experience/core-roles/upf.svg",
     summary:
-      "Building ML for non-invasive intracranial pressure with ICFO and Vall d'Hebron, depth-aware video bokeh solution for Huawei, and mentoring PhD students and post-docs.",
+      "Building real-time ML for non-invasive intracranial pressure with ICFO and surgeons at Vall d'Hebron, depth-aware video bokeh solution for Huawei, and mentoring PhD students and post-docs.",
     responsibilities: [
       "Collaborated with the Institute of Photonic Sciences to develop ML solutions for a photonics platform enabling non-invasive ICP estimation via cerebral blood flow monitoring",
       "Applied biophotonics insights to guide model design, optimization, and validation",
@@ -145,7 +145,7 @@ const EXPERIENCES_DATA = [
     location: "Cambridge • United States 🇺🇸",
     logo: "/experience/core-roles/quantori.svg",
     summary:
-      "Led a team of 6 on tumor immune phenotyping for Boehringer Ingelheim, cell-level analysis for Volastra, and explainable chest radiography for Beth Israel.",
+      "Led a team of 6 in ML and computer vision on tumor immune phenotyping for Boehringer Ingelheim, cell-level analysis for Volastra, and explainable chest radiography for Beth Israel.",
     responsibilities: [
       "Leading a team of 6 developers in the areas of ML, DS, and CV",
       "Developing an ML/DL pipeline for tumor immune phenotype classification from histopathology images for Boehringer Ingelheim",
@@ -191,9 +191,9 @@ const EXPERIENCES_DATA = [
     location: "Milan • Italy 🇮🇹",
     logo: "/experience/core-roles/polimi.svg",
     summary:
-      "Built machine learning on hyperspectral imaging at the Institute for Image-Guided Surgery, identifying tumor margins and assessing laser ablation in cancer surgery.",
+      "Collected hyperspectral data and built detection and clustering models with the Institute for Image-Guided Surgery, identifying tumor margins and assessing laser ablation in cancer surgery.",
     responsibilities: [
-      "Collected, processed, and analyzed hyperspectral data at the Institute for Image-Guided Surgery, supporting experimental surgery projects in cancer ablation and treatment",
+      "Collected, processed, and analyzed hyperspectral data with the Institute for Image-Guided Surgery, supporting experimental surgery projects in cancer ablation and treatment",
       "Developed advanced machine learning models for hyperspectral detection and clustering, enabling more precise identification of tumor margins and evaluation of treatment effectiveness",
     ],
     publications: [
@@ -227,7 +227,7 @@ const EXPERIENCES_DATA = [
     location: "Montreal • Canada 🇨🇦",
     logo: "/experience/core-roles/intelerad.svg",
     summary:
-      "Built ML on 3D MRI and CT for Bristol Myers Squibb and Biospective: contrast classification, body part recognition, de-identification and medical text OCR.",
+      "Built ML on 3D MRI and CT for Bristol Myers Squibb and Biospective: contrast classification, body part recognition, de-identification by obscuring faces and ears, and medical text OCR.",
     responsibilities: [
       "Developing a model for obscuring faces and ears on 3D MRI/CT data for Biospective",
       "Creation of a contrast classification model using CT data for Bristol Myers Squibb",
@@ -249,7 +249,7 @@ const EXPERIENCES_DATA = [
     location: "Tomsk • Russia 🇷🇺",
     logo: "/experience/core-roles/tpu.svg",
     summary:
-      "Supervised 5 developers on stenosis detection, TAVI tracking and valve design for Kemerovo Cardiology Center, and ultrasound segmentation for Boston Children's.",
+      "Supervised 5 developers on stenosis detection, TAVI tracking and valve design for Kemerovo Cardiology Center, and medical device segmentation in ultrasound for Boston Children's.",
     responsibilities: [
       "Supervising a group of 5 developers in the creation of CV algorithms and ML models",
       "Designing a specialized deep learning model for segmenting medical devices in ultrasound for Boston Children's Hospital",
@@ -300,7 +300,7 @@ const EXPERIENCES_DATA = [
     location: "Tomsk • Russia 🇷🇺",
     logo: "/experience/core-roles/sibur.svg",
     summary:
-      "Implemented and maintained process control systems on petrochemical pipelines, down to repairing measurement instruments, on Siemens PLC and Yokogawa DCS platforms.",
+      "Implemented, maintained and repaired process control systems and field instrumentation across petrochemical pipelines on Siemens PLC and Yokogawa DCS platforms.",
     responsibilities: [
       "Implementation of process control systems within petrochemical pipelines",
       "Maintenance and repair of measurement devices, as well as automated process control systems such as Siemens S300/400, Yokogawa Centum, Numerik PS2000 and Remicont",
@@ -323,7 +323,7 @@ const VISITING_ROLES_DATA = [
     location: "Rome • Italy 🇮🇹",
     logo: "/experience/visiting-roles/sapienza.svg",
     summary:
-      "Worked with Prof. Irene Amerini's ALCOR Lab on computer vision and multimodal AI, and presented non-invasive intracranial pressure from near-infrared photonics.",
+      "Worked with Prof. Irene Amerini's ALCOR Lab on computer vision, pattern recognition and multimodal AI, and presented non-invasive intracranial pressure from near-infrared photonics.",
     responsibilities: [
       "Collaborated with Prof. Irene Amerini and the ALCOR Lab on computer vision, pattern recognition, machine learning, and multimodal AI applied to perceptual inference and sensor data analysis",
       'Delivered a seminar entitled "Illuminating the black box: Non-invasive intracranial pressure estimation via near-infrared photonics and deep learning" at the Department of Computer, Control and Management Engineering, presenting work developed within the SafeICP project',
@@ -360,7 +360,7 @@ const VISITING_ROLES_DATA = [
     location: "Groningen • Netherlands 🇳🇱",
     logo: "/experience/visiting-roles/uog.svg",
     summary:
-      "Worked with Prof. George Azzopardi at the Bernoulli Institute on machine learning and computer vision, and lectured on non-invasive brain pressure monitoring.",
+      "Worked with Prof. George Azzopardi at the Bernoulli Institute on machine learning, computer vision and predictive modelling, and lectured on non-invasive brain pressure monitoring.",
     responsibilities: [
       "Collaborated with Prof. George Azzopardi at the Bernoulli Institute on machine learning, computer vision, and predictive modelling, exchanging methods on model design and evaluation strategies",
       'Delivered a seminar entitled "A Safe Window Into Brain Pressure" at the House of Connections, presenting non-invasive intracranial pressure estimation using optical sensing and machine learning developed within the SafeICP project',
@@ -396,7 +396,7 @@ const VISITING_ROLES_DATA = [
     location: "Paris • France 🇫🇷",
     logo: "/experience/visiting-roles/sorbonne.svg",
     summary:
-      "Joined the Laboratory of Biomedical Imaging on combining fMRI, PET and electrophysiology with ML, and presented SafeICP work on non-invasive brain pressure.",
+      "Joined the Laboratory of Biomedical Imaging on combining fMRI, PET and electrophysiology with ML for hydrocephalus and brain trauma, and presented SafeICP work on non-invasive brain pressure.",
     responsibilities: [
       "Collaborated with the Neural Connectivity and Plasticity group on integrating neuroimaging (fMRI, PET, electrophysiology) with machine learning",
       "Presented research on non-invasive intracranial pressure prediction using photonics and AI as part of the SafeICP project",
@@ -428,7 +428,7 @@ const VISITING_ROLES_DATA = [
     location: "Leeds • United Kingdom 🇬🇧",
     logo: "/experience/visiting-roles/uol.svg",
     summary:
-      "Built automated coronary stenosis detection and scoring with Prof. Alejandro Frangi, and used VAEs and GANs to synthesize training data for vascular imaging.",
+      "Built automated coronary stenosis detection and scoring with Prof. Alejandro Frangi, and used VAEs and GANs to synthesize training data and overcome dataset scarcity in vascular imaging.",
     responsibilities: [
       "Designed and implemented an ML-driven system for automated stenosis detection and scoring, enhancing diagnostic precision and reproducibility in vascular imaging",
       "Advanced medical data synthesis using VAEs and GANs to overcome dataset scarcity and improve model generalization",
@@ -465,7 +465,7 @@ const VISITING_ROLES_DATA = [
     location: "Madrid • Spain 🇪🇸",
     logo: "/experience/visiting-roles/upm.svg",
     summary:
-      "Generated semi-synthetic ultrasound data to improve segmentation, and built models for pulmonary emphysema detection with Prof. Maria Ledesma-Carbayo.",
+      "Generated semi-synthetic ultrasound data to improve segmentation robustness, and built models for pulmonary emphysema detection and unsupervised segmentation with Prof. Maria Ledesma-Carbayo.",
     responsibilities: [
       "Developed an approach for semi-synthetic ultrasound data generation to enhance segmentation accuracy and robustness in medical imaging",
       "Implemented ML models for pulmonary emphysema detection and unsupervised biomedical image segmentation, improving interpretability and diagnostic automation",
@@ -503,7 +503,7 @@ const VISITING_ROLES_DATA = [
     location: "Trento • Italy 🇮🇹",
     logo: "/experience/visiting-roles/uot.svg",
     summary:
-      "Built catheter segmentation in 3D ultrasound using support vector machines and texture features, and designed a feature selection method with Prof. Farid Melgani.",
+      "Built catheter detection and segmentation in 3D ultrasound using support vector machines and texture features, and benchmarked a new feature selection method with Prof. Farid Melgani.",
     responsibilities: [
       "Developed a volumetric ultrasound catheter detection and segmentation algorithm using SVM and texture-based features",
       "Designed and evaluated a feature selection method based on PDF/PMF area difference, benchmarked against established techniques",
