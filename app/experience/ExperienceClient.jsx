@@ -444,7 +444,7 @@ const VISITING_ROLES_DATA = [
     company: "University of Leeds",
     type: "Visiting",
     category: "research",
-    startDate: "2019-02-01",
+    startDate: "2019-01-01",
     endDate: "2019-08-01",
     location: "Leeds • United Kingdom 🇬🇧",
     logo: "/experience/visiting-roles/uol.svg",
