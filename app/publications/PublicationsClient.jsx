@@ -10,6 +10,18 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 const PUBLICATIONS_DATA = [
   // Journal Articles
   {
+    id: "journal-15",
+    title:
+      "Joint aortic root segmentation and landmark localization on intraoperative fluoroscopy for TAVI guidance",
+    venue: "Frontiers in Cardiovascular Medicine",
+    year: "2026",
+    url: "https://doi.org/10.3389/fcvm.2026.1886469",
+    type: "Journal",
+    category: "Journal",
+    featured: false,
+    tags: ["TAVI", "Medical Imaging", "Segmentation"],
+  },
+  {
     id: "journal-1",
     title:
       "Segmentation and quantification of atherosclerotic plaques in optical coherence tomography",
