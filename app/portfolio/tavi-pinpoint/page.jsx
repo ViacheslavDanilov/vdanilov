@@ -153,7 +153,7 @@ const RESOURCES = [
     label: "Interactive Report",
     url: "https://wandb.ai/viacheslav_danilov/tavr_keypoint_tracking/reports/Keypoint-tracking-and-classification--Vmlldzo3ODIyNQ",
   },
-  { label: "Dataset", url: "https://doi.org/10.17632/pgynfy766g.2" },
+  { label: "Dataset", url: "https://data.mendeley.com/datasets/pgynfy766g" },
   {
     label: "News (RSF)",
     url: "https://www.rscf.ru/news/medicine/neyroset-nauchilas-pomogat-v-ustanovke-iskusstvennogo-klapana-v-serdtse/",
