@@ -313,6 +313,27 @@ const EXPERIENCES_DATA = [
 // Visiting roles data configuration
 const VISITING_ROLES_DATA = [
   {
+    id: "pretoria-visiting-prof",
+    title: "Visiting Professor",
+    company: "University of Pretoria",
+    type: "Visiting",
+    category: "research",
+    startDate: "2026-09-01",
+    endDate: "2026-10-01",
+    location: "Pretoria • South Africa 🇿🇦",
+    logo: "/experience/visiting-roles/uop.svg",
+    summary:
+      "Hosted by Prof. Olawande Daramola on an A4U Erasmus+ staff mobility grant, covering machine learning, applied AI and translational research, and presenting non-invasive intracranial pressure monitoring.",
+    responsibilities: [
+      "Awarded an A4U Erasmus+ staff mobility grant for a research visit hosted by Prof. Olawande Daramola, covering machine learning, applied artificial intelligence, and translational research",
+      "Delivering research on non-invasive brain pressure monitoring using photonic sensors and neural networks",
+      "Invited to serve on the judging panel of International Students’ Day 2026, held on the theme “Connecting Minds: Inspiring Global Citizenship”",
+      "Invited to present ongoing research and European collaboration opportunities at the Embassy of Spain in Pretoria",
+    ],
+    publications: [],
+    logoBrightness: 1.0,
+  },
+  {
     id: "sapienza-visiting-prof",
     title: "Visiting Professor",
     company: "Sapienza University of Rome",
