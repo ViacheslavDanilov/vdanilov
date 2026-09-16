@@ -166,7 +166,7 @@ const RESOURCES = [
   },
   {
     label: "Dataset",
-    url: "https://doi.org/10.17632/ydrm75xywg.2",
+    url: "https://data.mendeley.com/datasets/ydrm75xywg",
   },
 ];
 

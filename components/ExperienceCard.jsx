@@ -32,7 +32,7 @@ const COMPANY_URLS = {
   "Sorbonne University": "https://www.sorbonne-universite.fr/en",
   "University of Leeds": "https://www.leeds.ac.uk/",
   "Technical University of Madrid": "https://www.upm.es/",
-  "University of Trento": "https://www.unitn.it/en",
+  "University of Trento": "https://www.unitn.it/",
   "University of Groningen": "https://www.rug.nl/",
   "Sapienza University of Rome": "https://www.uniroma1.it/en",
 };

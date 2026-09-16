@@ -52,7 +52,7 @@ const CORE_EDUCATION_DATA = [
       "Automated control in engineering systems",
     ],
     thesis:
-      "Development of a stabilisation system for a tethered underwater vehicle",
+      "Development of a stabilization system for a tethered underwater vehicle",
     logoBrightness: 1.1,
   },
   {
@@ -72,8 +72,7 @@ const CORE_EDUCATION_DATA = [
       "Research methods in management",
       "Corporate finance",
     ],
-    thesis:
-      "Development of the optimal financial strategy for the organization",
+    thesis: "Development of an optimal corporate financial strategy",
     logoBrightness: 1.3,
   },
   {

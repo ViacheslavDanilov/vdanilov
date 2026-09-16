@@ -10,6 +10,18 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 const PUBLICATIONS_DATA = [
   // Journal Articles
   {
+    id: "journal-15",
+    title:
+      "Joint aortic root segmentation and landmark localization on intraoperative fluoroscopy for TAVI guidance",
+    venue: "Frontiers in Cardiovascular Medicine",
+    year: "2026",
+    url: "https://doi.org/10.3389/fcvm.2026.1886469",
+    type: "Journal",
+    category: "Journal",
+    featured: false,
+    tags: ["TAVI", "Medical Imaging", "Segmentation"],
+  },
+  {
     id: "journal-1",
     title:
       "Segmentation and quantification of atherosclerotic plaques in optical coherence tomography",
@@ -205,7 +217,7 @@ const PUBLICATIONS_DATA = [
   {
     id: "conference-3",
     title:
-      "Hybrid convolutional and recurrent neural network for non-invasive ICP estimation from CBF",
+      "Hybrid convolutional and recurrent neural network for non-invasive intracranial pressure estimation from cerebral blood flow",
     venue: "Optica Biophotonics Congress",
     location: "Miami, United States 🇺🇸",
     year: "2024",
@@ -231,7 +243,7 @@ const PUBLICATIONS_DATA = [
   {
     id: "conference-5",
     title:
-      "Comparative study of deep learning models for automatic coronary stenosis detection",
+      "Comparative study of deep learning models for automatic coronary stenosis detection in X-ray angiography",
     venue: "GraphiCon",
     location: "Saint Petersburg, Russia 🇷🇺",
     year: "2020",
@@ -379,7 +391,7 @@ const PUBLICATIONS_DATA = [
     title: "COVID-19 segmentation and severity scoring",
     venue: "Mendeley Data",
     year: "2022",
-    url: "http://doi.org/10.17632/36fjrg9s69.1",
+    url: "https://data.mendeley.com/datasets/36fjrg9s69",
     type: "Dataset",
     category: "Dataset",
     featured: false,
@@ -390,7 +402,7 @@ const PUBLICATIONS_DATA = [
     title: "Chest X-ray dataset for lung segmentation",
     venue: "Mendeley Data",
     year: "2022",
-    url: "http://doi.org/10.17632/8gf9vpkhgy.1",
+    url: "https://data.mendeley.com/datasets/8gf9vpkhgy",
     type: "Dataset",
     category: "Dataset",
     featured: true,
@@ -401,7 +413,7 @@ const PUBLICATIONS_DATA = [
     title: "Angiographic dataset for stenosis detection",
     venue: "Mendeley Data",
     year: "2021",
-    url: "https://doi.org/10.17632/ydrm75xywg.2",
+    url: "https://data.mendeley.com/datasets/ydrm75xywg",
     type: "Dataset",
     category: "Dataset",
     featured: true,
@@ -412,7 +424,7 @@ const PUBLICATIONS_DATA = [
     title: "Aortography keypoint tracking for TAVI",
     venue: "Mendeley Data",
     year: "2021",
-    url: "https://doi.org/10.17632/pgynfy766g.2",
+    url: "https://data.mendeley.com/datasets/pgynfy766g",
     type: "Dataset",
     category: "Dataset",
     featured: false,
