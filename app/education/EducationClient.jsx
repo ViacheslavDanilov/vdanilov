@@ -72,8 +72,7 @@ const CORE_EDUCATION_DATA = [
       "Research methods in management",
       "Corporate finance",
     ],
-    thesis:
-      "Development of the optimal financial strategy for the organization",
+    thesis: "Development of an optimal corporate financial strategy",
     logoBrightness: 1.3,
   },
   {
