@@ -323,7 +323,7 @@ const VISITING_ROLES_DATA = [
     location: "Pretoria • South Africa 🇿🇦",
     logo: "/experience/visiting-roles/uop.svg",
     summary:
-      "Hosted by Prof. Olawande Daramola on an A4U Erasmus+ staff mobility grant, covering machine learning, applied AI and translational research, and presenting non-invasive intracranial pressure monitoring.",
+      "Hosted by Prof. Olawande Daramola on an A4U Erasmus+ mobility grant, covering machine learning, applied AI and translational research, and presenting non-invasive intracranial pressure monitoring.",
     responsibilities: [
       "Awarded an A4U Erasmus+ staff mobility grant for a research visit hosted by Prof. Olawande Daramola, covering machine learning, applied artificial intelligence, and translational research",
       "Delivered research on non-invasive brain pressure monitoring using photonic sensors and neural networks",
