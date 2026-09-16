@@ -118,8 +118,9 @@ const About = () => {
             solutions with modern frameworks and cloud platforms. My projects
             often leverage cloud infrastructure to maximize efficiency. Over my
             career, I have collaborated on a variety of initiatives, and my work
-            has been published in scientific venues like Springer, Frontiers,
-            and Nature.
+            has been published in journals including Computers in Biology and
+            Medicine, Frontiers in Cardiovascular Medicine, and Scientific
+            Reports.
           </p>
         </div>
 
