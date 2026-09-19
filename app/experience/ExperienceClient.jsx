@@ -206,7 +206,7 @@ const EXPERIENCES_DATA = [
       {
         title: "LASER OPTIMAL",
         url: "https://cordis.europa.eu/project/id/759159",
-        type: "ERC Grant",
+        type: "ERC project",
       },
     ],
     logoBrightness: 1.1,
