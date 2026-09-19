@@ -47,47 +47,6 @@ const formatPeriod = (startDate, endDate = null) => {
 // Experience data configuration
 const EXPERIENCES_DATA = [
   {
-    id: "symfa-cto",
-    title: "Chief Technology Officer",
-    company: "Symfa",
-    type: "Full-time",
-    category: "industry",
-    startDate: "2024-11-01",
-    endDate: "2026-11-01",
-    location: "Miami • United States 🇺🇸",
-    logo: "/experience/core-roles/symfa.svg",
-    summary:
-      "Led an R&D group of 5 developers and researchers in AI, ML and agents, and designed the InsurTech systems for AmTrust, CNA, Lumos Insurance and GNP.",
-    responsibilities: [
-      "Led an R&D group of 5 developers and researchers in AI, ML and agents, and acted as architect and lead engineer on the InsurTech systems it built for AmTrust, CNA, Lumos Insurance and GNP",
-      "Shipped a multi-tenant compliance platform for construction insurance: 4 web apps, a FastAPI backend, and an OCR worker that grades coverage",
-      "Built 6 InsurTech prototypes for claim intake, fraud scoring, pricing and forecasting; about half were taken into client work",
-      "Cut claim intake to about a minute per form in testing, from a carrier baseline of 107,000 claims a year keyed by 30 staff, using OCR and LLM mapping with confidence checks",
-      "Made every model explain itself with AutoGluon and SHAP, so a fraud score or a premium comes with its ranked drivers",
-    ],
-    publications: [
-      {
-        title:
-          "Testing AI low-code platforms: What actually worked (and what didn't)",
-        url: "https://symfa.com/blog/ai-low-code-tools",
-        type: "Blog Post",
-      },
-      {
-        title:
-          "Freelance Tech Trends: Top IT Skills, Pay Rates, & Regional Demand",
-        url: "https://symfa.com/blog/top-skills-in-demand-in-gig-economy",
-        type: "Blog Post",
-      },
-      {
-        title:
-          "Freelance Pricing Trends 2025: Industry, Location & Expertise Insights",
-        url: "https://symfa.com/blog/insights-and-trends-in-the-gig-economy",
-        type: "Blog Post",
-      },
-    ],
-    logoBrightness: 1.1,
-  },
-  {
     id: "upf-professor",
     title: "Research Professor",
     company: "Pompeu Fabra University",
@@ -127,6 +86,47 @@ const EXPERIENCES_DATA = [
       },
     ],
     logoBrightness: 1.0,
+  },
+  {
+    id: "symfa-cto",
+    title: "Chief Technology Officer",
+    company: "Symfa",
+    type: "Full-time",
+    category: "industry",
+    startDate: "2024-11-01",
+    endDate: "2026-11-01",
+    location: "Miami • United States 🇺🇸",
+    logo: "/experience/core-roles/symfa.svg",
+    summary:
+      "Led an R&D group of 5 developers and researchers in AI, ML and agents, and designed the InsurTech systems for AmTrust, CNA, Lumos Insurance and GNP.",
+    responsibilities: [
+      "Led an R&D group of 5 developers and researchers in AI, ML and agents, and acted as architect and lead engineer on the InsurTech systems it built for AmTrust, CNA, Lumos Insurance and GNP",
+      "Shipped a multi-tenant compliance platform for construction insurance: 4 web apps, a FastAPI backend, and an OCR worker that grades coverage",
+      "Built 6 InsurTech prototypes for claim intake, fraud scoring, pricing and forecasting; about half were taken into client work",
+      "Cut claim intake to about a minute per form in testing, from a carrier baseline of 107,000 claims a year keyed by 30 staff, using OCR and LLM mapping with confidence checks",
+      "Made every model explain itself with AutoGluon and SHAP, so a fraud score or a premium comes with its ranked drivers",
+    ],
+    publications: [
+      {
+        title:
+          "Testing AI low-code platforms: What actually worked (and what didn't)",
+        url: "https://symfa.com/blog/ai-low-code-tools",
+        type: "Blog Post",
+      },
+      {
+        title:
+          "Freelance Tech Trends: Top IT Skills, Pay Rates, & Regional Demand",
+        url: "https://symfa.com/blog/top-skills-in-demand-in-gig-economy",
+        type: "Blog Post",
+      },
+      {
+        title:
+          "Freelance Pricing Trends 2025: Industry, Location & Expertise Insights",
+        url: "https://symfa.com/blog/insights-and-trends-in-the-gig-economy",
+        type: "Blog Post",
+      },
+    ],
+    logoBrightness: 1.1,
   },
   {
     id: "quantori-lead-ml",
