@@ -32,7 +32,7 @@ const Statistics = ({
       delay: 0.2,
     },
     {
-      value: 40,
+      value: 48,
       suffix: "",
       label: "Research Publications",
       duration: 2,
