@@ -65,7 +65,7 @@ const EXPERIENCES_DATA = [
       "Led time-series analysis and built advanced ML models for real-time, accurate ICP prediction",
       "Mentored PhD students and post-docs in ML algorithm development for time-series analysis and medical data applications",
     ],
-    publications: [
+    links: [
       {
         title:
           "Non-invasive intracranial pressure estimation from cerebral blood flow dynamics using wavelet-based deep learning",
@@ -106,7 +106,27 @@ const EXPERIENCES_DATA = [
       "Cut claim intake to about a minute per form in testing, from a carrier baseline of 107,000 claims a year keyed by 30 staff, using OCR and LLM mapping with confidence checks",
       "Made every model explain itself with AutoGluon and SHAP, so a fraud score or a premium comes with its ranked drivers",
     ],
-    publications: [
+    links: [
+      {
+        title: "Claim Assistant",
+        url: "https://insurtech-intelligence.symfa.ai/solutions/claim-assistant",
+        type: "Prototype",
+      },
+      {
+        title: "Risk Profiler",
+        url: "https://insurtech-intelligence.symfa.ai/solutions/risk-profiler",
+        type: "Prototype",
+      },
+      {
+        title: "Insurance Pricing",
+        url: "https://insurtech-intelligence.symfa.ai/solutions/insurance-pricing",
+        type: "Prototype",
+      },
+      {
+        title: "InsureCast",
+        url: "https://insurtech-intelligence.symfa.ai/solutions/insurecast",
+        type: "Prototype",
+      },
       {
         title:
           "Testing AI low-code platforms: What actually worked (and what didn't)",
@@ -146,7 +166,7 @@ const EXPERIENCES_DATA = [
       "Designing and implementing a specialized image processing system for Volastra Therapeutics, utilized for cell counting, classification, and detection",
       "Building a COVID-19/pneumonia classification and scoring model that utilizes guided attention for the Beth Israel Deaconess Medical Center",
     ],
-    publications: [
+    links: [
       {
         title:
           "Harnessing AI for Histopathology: A Leap Towards Precision Medicine",
@@ -190,7 +210,7 @@ const EXPERIENCES_DATA = [
       "Collected, processed, and analyzed hyperspectral data with the Institute for Image-Guided Surgery, supporting experimental surgery projects in cancer ablation and treatment",
       "Developed advanced machine learning models for hyperspectral detection and clustering, enabling more precise identification of tumor margins and evaluation of treatment effectiveness",
     ],
-    publications: [
+    links: [
       {
         title:
           "Advancing laser ablation assessment in hyperspectral imaging through machine learning",
@@ -229,7 +249,7 @@ const EXPERIENCES_DATA = [
       "Developing ML models for recognizing body parts, utilizing both MRI and CT data for Bristol Myers Squibb",
       "Implementing the CRAFT (Character-Region Awareness) text detector",
     ],
-    publications: [],
+    links: [],
     logoBrightness: 1.0,
   },
   {
@@ -250,7 +270,7 @@ const EXPERIENCES_DATA = [
       "Building an automatic fire detection system utilizing machine learning techniques for the Incom Group",
       "Developing a multi-task learning based system for tracking aorta and catheter key points for Kemerovo Cardiology Center",
     ],
-    publications: [
+    links: [
       {
         title: "Solution for minimally invasive heart valve replacement",
         url: "https://minzdrav.gov.ru/regional_news/13932-sovmestnaya-razrabotka-uchenyh-kemerova-i-tomska-pozvolit-provodit-maloinvazivnye-operatsii-po-zamene-klapana-serdtsa-bez-ispolzovaniya-importnyh-izdeliy",
@@ -299,7 +319,7 @@ const EXPERIENCES_DATA = [
       "Implementation of process control systems within petrochemical pipelines",
       "Maintenance and repair of measurement devices, as well as automated process control systems such as Siemens S300/400, Yokogawa Centum, Numerik PS2000 and Remicont",
     ],
-    publications: [],
+    links: [],
     logoBrightness: 1.0,
   },
 ];
@@ -324,7 +344,7 @@ const VISITING_ROLES_DATA = [
       "Invited to serve on the judging panel of International Students’ Day 2026, held on the theme “Connecting Minds: Inspiring Global Citizenship”",
       "Invited to present ongoing research and European collaboration opportunities at the Embassy of Spain in Pretoria",
     ],
-    publications: [],
+    links: [],
     logoBrightness: 1.0,
   },
   {
@@ -344,7 +364,7 @@ const VISITING_ROLES_DATA = [
       'Delivered a seminar entitled "Illuminating the black box: Non-invasive intracranial pressure estimation via near-infrared photonics and deep learning" at the Department of Computer, Control and Management Engineering, presenting work developed within the SafeICP project',
       "Explored shared methodological ground between the ALCOR Lab's computer vision and multimodal AI and the BCN MedTech team's biomedical signal processing for non-invasive clinical monitoring",
     ],
-    publications: [
+    links: [
       {
         title: "Certificate of attendance",
         url: "https://drive.google.com/file/d/1DCdTskDWc8SZQsTeuAj5ZgY-bmzDWTPv/view?usp=sharing",
@@ -381,7 +401,7 @@ const VISITING_ROLES_DATA = [
       'Delivered a seminar entitled "A Safe Window Into Brain Pressure" at the House of Connections, presenting non-invasive intracranial pressure estimation using optical sensing and machine learning developed within the SafeICP project',
       "Engaged in knowledge-exchange sessions with University of Groningen researchers on shared priorities in AI/ML for biomedical and applied domains",
     ],
-    publications: [
+    links: [
       {
         title: "Certificate of attendance",
         url: "https://drive.google.com/file/d/1mRKyvJlvpyqskWf4KUEqf6SJ3KIz8erP/view?usp=sharing",
@@ -418,7 +438,7 @@ const VISITING_ROLES_DATA = [
       "Participated in hands-on training and interdisciplinary work on ML-based diagnostics for hydrocephalus and brain trauma",
       "Engaged with faculty including Prof. Dmitrii Todorov, Prof. Olivier Couture, and Prof. Lori Bridal to initiate future joint research and publications",
     ],
-    publications: [
+    links: [
       {
         title: "Certificate of attendance",
         url: "https://drive.google.com/file/d/1HsBKzfXy9qrggTqh20Q4CQPxlxVy_dWe/view?usp=drive_link",
@@ -449,7 +469,7 @@ const VISITING_ROLES_DATA = [
       "Advanced medical data synthesis using VAEs and GANs to overcome dataset scarcity and improve model generalization",
       "Collaborated with Prof. Alejandro F. Frangi on applied DL for cardiovascular imaging, contributing to publications in Scientific Reports and ISPRS Archives",
     ],
-    publications: [
+    links: [
       {
         title: "Reference letter by prof. Alejandro F. Frangi",
         url: "https://drive.google.com/file/d/1JG56_Z3b_l810wcrfjgwe_Jq6QUIQr1I/view",
@@ -486,7 +506,7 @@ const VISITING_ROLES_DATA = [
       "Implemented ML models for pulmonary emphysema detection and unsupervised biomedical image segmentation, improving interpretability and diagnostic automation",
       "Collaborated with Prof. Maria J. Ledesma-Carbayo on image reconstruction and data augmentation, contributing to publications in Computerized Medical Imaging and Graphics and ISPRS Archives",
     ],
-    publications: [
+    links: [
       {
         title: "Reference letter by prof. Maria J. Ledesma-Carbayo",
         url: "https://drive.google.com/file/d/1RBCxGWQOzUe_7MWqtZRYgyylUgbRr3nK/view",
@@ -524,7 +544,7 @@ const VISITING_ROLES_DATA = [
       "Designed and evaluated a feature selection method based on PDF/PMF area difference, benchmarked against established techniques",
       "Collaborated with Prof. Farid Melgani on biomedical signal processing research published in Biomedical Signal Processing and Control and Scientific Visualization",
     ],
-    publications: [
+    links: [
       {
         title: "Reference letter by prof. Farid Melgani",
         url: "https://drive.google.com/file/d/1L_8GD3Lu-G7tRf4QXjimTENsSkiFzt76/view",
