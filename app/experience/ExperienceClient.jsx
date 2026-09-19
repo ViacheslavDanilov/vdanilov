@@ -53,18 +53,17 @@ const EXPERIENCES_DATA = [
     type: "Full-time",
     category: "industry",
     startDate: "2024-11-01",
-    endDate: null,
+    endDate: "2026-11-01",
     location: "Miami • United States 🇺🇸",
     logo: "/experience/core-roles/symfa.svg",
     summary:
-      "Leading a cross-functional R&D department for AI, ML and autonomous agents, and acting as solution architect and lead engineer on InsurTech products for AmTrust, CNA, Lumos Insurance, GNP.",
+      "Led an R&D group of 5 developers and researchers in AI, ML and agents, and designed the InsurTech systems for AmTrust, CNA, Lumos Insurance and GNP.",
     responsibilities: [
-      "Defining and executing the company's long-term technical vision across technological units",
-      "Leading and scaling a cross-functional R&D department focused on AI, machine learning, autonomous agents, and automation",
-      "Driving applied research in the InsurTech domain with partners such as AmTrust, CNA, and Plateau Group to deliver innovative, market-aligned solutions",
-      "Acting as the company's AI thought leader, guiding strategy and implementation across client and internal projects",
-      "Publishing business and technical articles to position Symfa at the forefront of AI-driven innovation",
-      "Representing the company at key industry events and conferences",
+      "Led an R&D group of 5 developers and researchers in AI, ML and agents, and acted as architect and lead engineer on the InsurTech systems it built for AmTrust, CNA, Lumos Insurance and GNP",
+      "Shipped a multi-tenant compliance platform for construction insurance: 4 web apps, a FastAPI backend, and an OCR worker that grades coverage",
+      "Built 6 InsurTech prototypes for claim intake, fraud scoring, pricing and forecasting; about half were taken into client work",
+      "Cut claim intake to about a minute per form in testing, from a carrier baseline of 107,000 claims a year keyed by 30 staff, using OCR and LLM mapping with confidence checks",
+      "Made every model explain itself with AutoGluon and SHAP, so a fraud score or a premium comes with its ranked drivers",
     ],
     publications: [
       {
