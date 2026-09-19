@@ -57,13 +57,11 @@ const EXPERIENCES_DATA = [
     location: "Barcelona • Spain 🇪🇸",
     logo: "/experience/core-roles/upf.svg",
     summary:
-      "Building real-time ML for non-invasive intracranial pressure with ICFO and surgeons at Vall d'Hebron, depth-aware video bokeh solution for Huawei, and mentoring PhD students and post-docs.",
+      "Leading the ML on SafeICP, which reads intracranial pressure from blood flow without surgery, and on Huawei's depth-aware video bokeh, which runs on a phone; mentoring 2 PhD students and a post-doc.",
     responsibilities: [
-      "Collaborated with the Institute of Photonic Sciences to develop ML solutions for a photonics platform enabling non-invasive ICP estimation via cerebral blood flow monitoring",
-      "Applied biophotonics insights to guide model design, optimization, and validation",
-      "Collected patient data at Vall d'Hebron Hospital, working directly with clinicians and surgeons",
-      "Led time-series analysis and built advanced ML models for real-time, accurate ICP prediction",
-      "Mentored PhD students and post-docs in ML algorithm development for time-series analysis and medical data applications",
+      "Lead the ML on SafeICP with the Institute of Photonic Sciences and surgeons at Vall d'Hebron: intracranial pressure from blood flow, no surgery, at 5.3 mmHg mean error against the invasive probe",
+      "Build the training data and the depth baseline for Huawei's depth-aware video bokeh, a model that has to run on the phone inside a 100 GFLOP budget",
+      "Mentor 2 PhD students and a post-doc on time-series and medical ML",
     ],
     links: [
       {

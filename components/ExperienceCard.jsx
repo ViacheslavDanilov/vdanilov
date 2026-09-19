@@ -49,7 +49,9 @@ export const BulletPoint = () => (
 // Centralized highlight config (simplified)
 const HIGHLIGHT_KEYWORDS = [
   "Institute of Photonic Sciences",
-  "Vall d'Hebron Hospital",
+  "Vall d'Hebron",
+  "Huawei's",
+  "Huawei",
   "AmTrust",
   "CNA",
   "Lumos Insurance",
