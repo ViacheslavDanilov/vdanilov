@@ -48,7 +48,7 @@ const About = () => {
     {
       name: "Email",
       icon: faEnvelope,
-      href: "mailto:viacheslav.danilov@gmail.com",
+      href: "mailto:viacheslav.v.danilov@gmail.com",
       color: "hover:text-light",
     },
   ];

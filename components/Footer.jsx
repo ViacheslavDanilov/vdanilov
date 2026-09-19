@@ -49,7 +49,7 @@ const socialLinks = [
   },
   {
     title: "Email",
-    href: "mailto:viacheslav.danilov@gmail.com",
+    href: "mailto:viacheslav.v.danilov@gmail.com",
     icon: faEnvelope,
   },
 ];
