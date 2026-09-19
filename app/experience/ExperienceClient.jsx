@@ -126,11 +126,6 @@ const EXPERIENCES_DATA = [
         url: "https://doi.org/10.1364/BRAIN.2024.BTu3C.7",
         type: "Conference Paper",
       },
-      {
-        title: "SafeICP",
-        url: "https://safeicp.es/",
-        type: "Project Website",
-      },
     ],
     logoBrightness: 1.0,
   },
