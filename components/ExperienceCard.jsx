@@ -16,7 +16,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faExternalLink,
   faBriefcase,
-  faBook,
+  faLink,
   faFlask,
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -55,6 +55,9 @@ const HIGHLIGHT_KEYWORDS = [
   "Lumos Insurance",
   "GNP",
   "Symfa",
+  "AutoGluon",
+  "SHAP",
+  "FastAPI",
   "SafeICP",
   "Pompeu Fabra University",
   "Quantori",
@@ -142,10 +145,10 @@ const ResponsibilitiesList = ({ items }) => (
   </ul>
 );
 
-// Publications list component
-const PublicationsList = ({ publications }) => (
+// Links list component
+const LinksList = ({ links }) => (
   <ul className="space-y-3" role="list">
-    {publications.map((pub) => (
+    {links.map((pub) => (
       <li key={pub.url} className="flex items-start gap-3">
         <BulletPoint />
         <div className="flex-1">
@@ -266,7 +269,7 @@ const ExperienceCard = ({
   const tabs = useMemo(
     () => [
       { id: "responsibilities", label: "Responsibilities", icon: faBriefcase },
-      { id: "publications", label: "Publications", icon: faBook },
+      { id: "links", label: "Links", icon: faLink },
     ],
     [],
   );
@@ -283,12 +286,12 @@ const ExperienceCard = ({
     switch (activeTab) {
       case "responsibilities":
         return <ResponsibilitiesList items={experience.responsibilities} />;
-      case "publications":
-        return <PublicationsList publications={experience.publications} />;
+      case "links":
+        return <LinksList links={experience.links} />;
       default:
         return null;
     }
-  }, [activeTab, experience.responsibilities, experience.publications]);
+  }, [activeTab, experience.responsibilities, experience.links]);
 
   // Category badge configuration
   const getCategoryConfig = (category) => {
