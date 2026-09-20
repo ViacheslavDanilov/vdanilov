@@ -176,7 +176,7 @@ const RESOURCES = [
   },
   {
     label: "ECBO Presentation",
-    url: "https://drive.google.com/file/d/1IC40WYQNwFS8-loEpr2xpsERPapCBeHu/view?usp=sharing",
+    url: "/portfolio/deep-brainwatch/ecbo-presentation.pdf",
   },
   {
     label: "GitLab",
