@@ -52,7 +52,7 @@ const HIGHLIGHTS_ITEMS = [
   {
     icon: faSearch,
     label: "Situation",
-    text: "Cancer biologists at Volastra Therapeutics needed a scalable, accurate solution to detect and count cellular biomarkers (such as micronuclei and mitotic bodies) in microscopy images to evaluate early cancer progression and treatment response.",
+    text: "Cancer biologists at Volastra Therapeutics needed a scalable, accurate solution to detect and count cellular biomarkers (such as micronuclei and mitotic bodies) in microscopy images to measure chromosomal instability, the mechanism behind early cancer progression and treatment response.",
   },
   {
     icon: faBullseye,

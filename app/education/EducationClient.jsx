@@ -162,6 +162,16 @@ const ADDITIONAL_EDUCATION_DATA = [
 ];
 const CERTIFICATES_DATA = [
   {
+    id: "meta-backend-engineer",
+    title: "Backend Engineer",
+    organization: "Meta",
+    date: "TBD",
+    logo: "/education/certificates/meta.svg",
+    organizationUrl:
+      "https://certifications.facebookblueprint.com/student/catalog",
+    logoBrightness: 1.0,
+  },
+  {
     id: "meta-db-engineer",
     title: "Database Engineer",
     organization: "Meta",
