@@ -154,7 +154,7 @@ const RESOURCES = [
   },
   {
     label: "Surgery Videos",
-    url: "https://drive.google.com/drive/folders/16rJOh5w34fM2mamHH2GgePNB-vBTDXyx?usp=sharing",
+    url: "https://drive.google.com/drive/folders/1NWt7ND-3LgvINV6Cnshz1pFLHaqQSL8R",
   },
   {
     label: "News 1 (RSF)",

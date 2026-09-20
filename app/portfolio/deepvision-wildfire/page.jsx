@@ -157,7 +157,7 @@ const RESOURCES = [
   },
   {
     label: "Model Testing",
-    url: "https://drive.google.com/drive/folders/1iZTxyE_3H1HkqPAMkTQD6Fz81zGKVsef?usp=sharing",
+    url: "https://drive.google.com/drive/folders/1pubDUlPZFTmmmBmY0PppnzeVJhhLWGVI",
   },
 ];
 

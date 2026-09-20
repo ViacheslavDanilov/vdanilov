@@ -143,7 +143,7 @@ const TEAM_MEMBERS = [
 const RESOURCES = [
   {
     label: "Model testing on different cell lines",
-    url: "https://drive.google.com/drive/folders/1a6YKjSlpJ6TDZT-z-9KfcGL_EFMxEjQz",
+    url: "https://drive.google.com/drive/folders/1d4SFxukyvoC7Nvi5Q4CNM84QZSCaxFb_",
   },
 ];
 
