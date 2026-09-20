@@ -65,7 +65,7 @@ const HIGHLIGHT_KEYWORDS = [
   "Quantori",
   "Boehringer Ingelheim",
   "Volastra Therapeutics",
-  "Beth Israel Deaconess Medical Center",
+  "Beth Israel",
   "Politecnico di Milano",
   "Institute for Image-Guided Surgery",
   "HyperSIGHT",

@@ -157,12 +157,13 @@ const EXPERIENCES_DATA = [
     location: "Cambridge • United States 🇺🇸",
     logo: "/experience/core-roles/quantori.svg",
     summary:
-      "Led a team of 6 in ML and computer vision on tumor immune phenotyping for Boehringer Ingelheim, cell-level analysis for Volastra, and explainable chest radiography for Beth Israel.",
+      "Led 6 developers in ML and computer vision: tumor immune phenotyping for Boehringer Ingelheim, chromosomal instability for Volastra, and explainable chest radiography for Beth Israel.",
     responsibilities: [
-      "Leading a team of 6 developers in the areas of ML, DS, and CV",
-      "Developing an ML/DL pipeline for tumor immune phenotype classification from histopathology images for Boehringer Ingelheim",
-      "Designing and implementing a specialized image processing system for Volastra Therapeutics, utilized for cell counting, classification, and detection",
-      "Building a COVID-19/pneumonia classification and scoring model that utilizes guided attention for the Beth Israel Deaconess Medical Center",
+      "Led 6 developers across ML, data science and computer vision for pharma and hospital clients",
+      "Turned histopathology slides into tumor immune phenotypes for Boehringer Ingelheim at 89% F1, replacing a pathologist's manual read",
+      "Built the microscopy readout Volastra Therapeutics used to track chromosomal instability and drug response: nuclei, micronuclei, mitosis and apoptosis at 85% and 66% mAP",
+      "Delivered three chest X-ray models for Beth Israel Deaconess: 84% accuracy on COVID and pneumonia, severity at 0.30 MAE out of 6, and the lung regions behind each call",
+      "Ran data collection and label review with the radiologists, pathologists and cardiologists at each client, so the labels came from the people who read the images",
     ],
     links: [
       {
