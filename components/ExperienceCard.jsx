@@ -385,6 +385,13 @@ const ExperienceCard = ({
           </div>
         </div>
 
+        {/* Summary */}
+        {experience.summary && (
+          <p className="mb-4 border-l-2 border-accent/40 pl-3 text-sm leading-relaxed text-gray-300">
+            {experience.summary}
+          </p>
+        )}
+
         {/* Tabs */}
         <nav
           className="flex items-center justify-center gap-1 mb-4 bg-card/30 rounded-full p-1 border border-light/10"
