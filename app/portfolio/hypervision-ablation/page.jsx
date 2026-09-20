@@ -52,7 +52,7 @@ const HIGHLIGHTS_ITEMS = [
   {
     icon: faSearch,
     label: "Situation",
-    text: "The Institute for Image Guided Surgery in Strasbourg needed to automate evaluation of laser-induced tissue damage from hyperspectral imaging during surgical procedures.",
+    text: "The Institute for Image-Guided Surgery in Strasbourg needed to automate evaluation of laser-induced tissue damage from hyperspectral imaging during surgical procedures.",
   },
   {
     icon: faBullseye,
@@ -284,7 +284,7 @@ export default function ProjectPage() {
               rel="noopener noreferrer"
               className="text-accent hover:underline"
             >
-              Institute for Image Guided Surgery
+              Institute for Image-Guided Surgery
             </a>
             <span className="text-gray-400"> · Strasbourg · France 🇫🇷</span>
           </div>
