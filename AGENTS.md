@@ -142,6 +142,19 @@ main prose body are separate scopes, so each may expand an abbreviation once. Th
 not apply to non-abbreviation parentheticals — legend labels `(blue)`, cross-references
 `(Figure 1)`, value annotations `(MAE: 2.52)`, plain-word clarifications `(digital)`.
 
+### Affiliations
+
+A team card on a project page names the role and organisation a person held **at the time
+of the project**, not the one they hold now. The card explains why that person was on the
+team, and the prose around it names the institutions the work ran through, so a current
+employer contradicts the page it sits on.
+
+`app/references/ReferencesClient.jsx` is the opposite. That page answers who can vouch for
+the work today, so every entry carries the person's **current** role and organisation.
+
+The same person may appear on both with different titles, and that is correct, not a
+divergence to reconcile.
+
 ## Working principles
 
 Adapted from [Andrej Karpathy's observations on LLM coding pitfalls](https://github.com/multica-ai/andrej-karpathy-skills)
