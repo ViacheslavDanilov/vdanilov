@@ -20,6 +20,12 @@ const TYPE_CONFIG = {
   Dataset: { variant: "cyan", icon: faDatabase },
 };
 
+// City and flag only; the country sits in the data but will not fit the line
+const cityAndFlag = (location) => {
+  const flag = (location.match(/\p{Regional_Indicator}{2}/u) || [""])[0];
+  return `${location.split(",")[0].trim()} ${flag}`.trim();
+};
+
 // Author position, worded the way the CV prints it
 const AUTHOR_POSITION_LABELS = {
   first: "First author",
@@ -105,7 +111,7 @@ const PublicationCard = ({
               {publication.location && (
                 <>
                   <span className="text-gray-500 mx-2">•</span>
-                  <span>{publication.location}</span>
+                  <span>{cityAndFlag(publication.location)}</span>
                 </>
               )}
               {year && (
@@ -114,21 +120,14 @@ const PublicationCard = ({
                   <span>{year}</span>
                 </>
               )}
-              {AUTHOR_POSITION_LABELS[publication.authorPosition] && (
-                <>
-                  <span className="text-gray-500 mx-2">•</span>
-                  <span className="text-accent">
-                    {AUTHOR_POSITION_LABELS[publication.authorPosition]}
-                  </span>
-                </>
-              )}
             </p>
           )}
 
           {/* Tags */}
-          {tags && tags.length > 0 && (
+          {((tags && tags.length > 0) ||
+            AUTHOR_POSITION_LABELS[publication.authorPosition]) && (
             <div className="flex flex-wrap gap-2 mt-2">
-              {tags.map((tag) => (
+              {tags?.map((tag) => (
                 <span
                   key={tag}
                   className="px-2.5 py-0.5 text-xs font-medium rounded-full bg-white/5 text-neutral-300 border border-white/10"
@@ -136,6 +135,11 @@ const PublicationCard = ({
                   {tag}
                 </span>
               ))}
+              {AUTHOR_POSITION_LABELS[publication.authorPosition] && (
+                <span className="px-2.5 py-0.5 text-xs font-medium rounded-full bg-accent/10 text-accent/80 border border-accent/20">
+                  {AUTHOR_POSITION_LABELS[publication.authorPosition]}
+                </span>
+              )}
             </div>
           )}
         </div>
