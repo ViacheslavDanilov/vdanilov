@@ -152,7 +152,7 @@ const About = () => {
         {/* Contact Button */}
         <div className="pt-2">
           <LiquidButtonLink
-            href="https://wa.me/+34634810041"
+            href="https://wa.me/34634810041"
             target="_blank"
             ariaLabel="Contact me"
             size="xxl"
