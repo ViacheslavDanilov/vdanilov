@@ -258,12 +258,13 @@ const EXPERIENCES_DATA = [
     location: "Tomsk • Russia 🇷🇺",
     logo: "/experience/core-roles/tpu.svg",
     summary:
-      "Supervised 5 developers on stenosis detection, TAVI tracking and valve design for Kemerovo Cardiology Center, and medical device segmentation in ultrasound for Boston Children's.",
+      "Supervised 5 developers on stenosis detection running in live surgery and TAVI tracking for the Kemerovo Cardiology Center, and catheter segmentation in ultrasound for Boston Children's Hospital.",
     responsibilities: [
-      "Supervising a group of 5 developers in the creation of CV algorithms and ML models",
-      "Designing a specialized deep learning model for segmenting medical devices in ultrasound for Boston Children's Hospital",
-      "Building an automatic fire detection system utilizing machine learning techniques for the Incom Group",
-      "Developing a multi-task learning based system for tracking aorta and catheter key points for Kemerovo Cardiology Center",
+      "Supervised 5 developers on computer vision and ML across cardiology, pediatric surgery and industry",
+      "Developed real-time coronary stenosis detection that runs in live surgery at the Kemerovo Cardiology Center, at 94% mAP and 10 FPS",
+      "Tracked aorta and catheter keypoints for TAVI at 97% accuracy and about 90 FPS, guiding valve placement during surgery",
+      "Segmented catheters in 3D ultrasound for Boston Children's Hospital at about 94% Dice, 13 points above U-Net, despite speckle and low resolution",
+      "Built wildfire detection from video at about 96% accuracy and 9 FPS, over remote Siberian forest",
     ],
     links: [
       {
