@@ -50,7 +50,7 @@ const cardData = [
   {
     title: "Applied ML & AI Across Industries",
     description:
-      "Developing applied ML & AI systems for <highlight>insurance, diagnostics, and pharma</highlight> with deployments involving AmTrust, CNA, Plateau Group, leading medical centers, and pharmaceutical companies like Bristol Myers Squibb, Boehringer Ingelheim, and Volastra Therapeutics.",
+      "Developing applied ML & AI systems for <highlight>insurance, diagnostics, and pharma</highlight> with deployments involving AmTrust, CNA, Lumos Insurance, leading medical centers, and pharmaceutical companies like Bristol Myers Squibb, Boehringer Ingelheim, and Volastra Therapeutics.",
     label: "Industry Applications",
     icon: faIndustry,
   },
