@@ -421,7 +421,7 @@ export default function ProjectPage() {
               <p className="text-gray-300 leading-relaxed text-justify">
                 We used cerebral blood flow (CBF) measurements acquired via{" "}
                 <a
-                  href="https://en.wikipedia.org/wiki/Diffuse_correlation_spectroscopy"
+                  href="https://en.wikipedia.org/wiki/Diffuse_correlation_spectrometry"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-accent hover:underline"
