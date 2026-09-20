@@ -362,7 +362,7 @@ const VISITING_ROLES_DATA = [
     links: [
       {
         title: "Certificate of attendance",
-        url: "https://drive.google.com/file/d/1DCdTskDWc8SZQsTeuAj5ZgY-bmzDWTPv/view?usp=sharing",
+        url: "/documents/certificate-of-attendance-sapienza.pdf",
         type: "Certificate",
       },
       {
@@ -399,7 +399,7 @@ const VISITING_ROLES_DATA = [
     links: [
       {
         title: "Certificate of attendance",
-        url: "https://drive.google.com/file/d/1mRKyvJlvpyqskWf4KUEqf6SJ3KIz8erP/view?usp=sharing",
+        url: "/documents/certificate-of-attendance-groningen.pdf",
         type: "Certificate",
       },
       {
@@ -435,7 +435,7 @@ const VISITING_ROLES_DATA = [
     links: [
       {
         title: "Certificate of attendance",
-        url: "https://drive.google.com/file/d/1HsBKzfXy9qrggTqh20Q4CQPxlxVy_dWe/view?usp=drive_link",
+        url: "/documents/certificate-of-attendance-sorbonne.pdf",
         type: "Certificate",
       },
       {
@@ -466,7 +466,7 @@ const VISITING_ROLES_DATA = [
     links: [
       {
         title: "Reference letter by prof. Alejandro F. Frangi",
-        url: "https://drive.google.com/file/d/1JG56_Z3b_l810wcrfjgwe_Jq6QUIQr1I/view",
+        url: "/documents/reference-letter-alejandro-frangi.pdf",
         type: "Reference Letter",
       },
       {
@@ -503,7 +503,7 @@ const VISITING_ROLES_DATA = [
     links: [
       {
         title: "Reference letter by prof. Maria J. Ledesma-Carbayo",
-        url: "https://drive.google.com/file/d/1RBCxGWQOzUe_7MWqtZRYgyylUgbRr3nK/view",
+        url: "/documents/reference-letter-maria-ledesma-carbayo.pdf",
         type: "Reference Letter",
       },
       {
@@ -541,7 +541,7 @@ const VISITING_ROLES_DATA = [
     links: [
       {
         title: "Reference letter by prof. Farid Melgani",
-        url: "https://drive.google.com/file/d/1L_8GD3Lu-G7tRf4QXjimTENsSkiFzt76/view",
+        url: "/documents/reference-letter-farid-melgani.pdf",
         type: "Reference Letter",
       },
       {
