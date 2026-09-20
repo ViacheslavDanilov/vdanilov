@@ -106,24 +106,9 @@ const EXPERIENCES_DATA = [
     ],
     links: [
       {
-        title: "Claim Assistant",
-        url: "https://insurtech-intelligence.symfa.ai/solutions/claim-assistant",
-        type: "Prototype",
-      },
-      {
-        title: "Risk Profiler",
-        url: "https://insurtech-intelligence.symfa.ai/solutions/risk-profiler",
-        type: "Prototype",
-      },
-      {
-        title: "Insurance Pricing",
-        url: "https://insurtech-intelligence.symfa.ai/solutions/insurance-pricing",
-        type: "Prototype",
-      },
-      {
-        title: "InsureCast",
-        url: "https://insurtech-intelligence.symfa.ai/solutions/insurecast",
-        type: "Prototype",
+        title: "InsurTech Intelligence",
+        url: "https://insurtech-intelligence.symfa.ai/",
+        type: "Prototypes",
       },
       {
         title:
