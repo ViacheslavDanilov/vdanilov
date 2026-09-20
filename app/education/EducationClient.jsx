@@ -165,7 +165,7 @@ const CERTIFICATES_DATA = [
     id: "meta-backend-engineer",
     title: "Backend Engineer",
     organization: "Meta",
-    date: "TBD",
+    date: "Oct 2026",
     logo: "/education/certificates/meta.svg",
     organizationUrl:
       "https://certifications.facebookblueprint.com/student/catalog",
