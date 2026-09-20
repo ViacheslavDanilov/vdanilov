@@ -57,7 +57,7 @@ const EXPERIENCES_DATA = [
     location: "Barcelona • Spain 🇪🇸",
     logo: "/experience/core-roles/upf.svg",
     summary:
-      "Leading the ML on SafeICP, which reads intracranial pressure from blood flow without surgery, and on Huawei's depth-aware video bokeh, which runs on a phone; mentoring 2 PhD students and a post-doc.",
+      "Leading the ML on SafeICP, which reads intracranial pressure from blood flow without surgery, and on Huawei's depth-aware video bokeh, which runs on a phone; mentoring 2 PhD students and a post-doc",
     responsibilities: [
       "Lead the ML on SafeICP with the Institute of Photonic Sciences and surgeons at Vall d'Hebron: intracranial pressure from blood flow, no surgery, at 5.3 mmHg mean error against the invasive probe",
       "Build the training data and the depth baseline for Huawei's depth-aware video bokeh, a model that has to run on the phone inside a 100 GFLOP budget",
@@ -96,7 +96,7 @@ const EXPERIENCES_DATA = [
     location: "Miami • United States 🇺🇸",
     logo: "/experience/core-roles/symfa.svg",
     summary:
-      "Led an R&D group of 5 developers and researchers in AI, ML and agents, and designed the InsurTech systems for AmTrust, CNA, Lumos Insurance and GNP.",
+      "Led an R&D group of 5 developers and researchers in AI, ML and agents, and served as the architect and lead engineer on the InsurTech systems it built for AmTrust, CNA, Lumos Insurance and GNP",
     responsibilities: [
       "Led an R&D group of 5 developers and researchers in AI, ML and agents, and acted as architect and lead engineer on the InsurTech systems it built for AmTrust, CNA, Lumos Insurance and GNP",
       "Shipped a multi-tenant compliance platform for construction insurance: 4 web apps, a FastAPI backend, and an OCR worker that grades coverage",
@@ -142,7 +142,7 @@ const EXPERIENCES_DATA = [
     location: "Cambridge • United States 🇺🇸",
     logo: "/experience/core-roles/quantori.svg",
     summary:
-      "Led 6 developers in ML and computer vision: tumor immune phenotyping for Boehringer Ingelheim, chromosomal instability for Volastra, and explainable chest radiography for Beth Israel.",
+      "Led 6 developers in ML and computer vision: tumor immune phenotyping for Boehringer Ingelheim, chromosomal instability for Volastra, and explainable chest radiography for Beth Israel",
     responsibilities: [
       "Led 6 developers across ML, data science and computer vision for pharma and hospital clients",
       "Turned histopathology slides into tumor immune phenotypes for Boehringer Ingelheim at 89% F1, replacing a pathologist's manual read",
@@ -189,7 +189,7 @@ const EXPERIENCES_DATA = [
     location: "Milan • Italy 🇮🇹",
     logo: "/experience/core-roles/polimi.svg",
     summary:
-      "Built hyperspectral ML that finds tumor margins and grades laser ablation for the ERC project LASER OPTIMAL, and turned prosthetic heart valve design into an optimization search.",
+      "Built hyperspectral ML that finds tumor margins and grades laser ablation for the ERC project LASER OPTIMAL, and turned prosthetic heart valve design into an optimization search",
     responsibilities: [
       "Built the hyperspectral pipeline that finds tumor margins and grades laser ablation on 100-band images, with Faster R-CNN at 74.4% mAP on PCA-transformed reflectance data",
       "Ran the data collection in experimental surgery at the Institute for Image-Guided Surgery and Cardinale Panico Hospital, training the models on tissue imaged during the procedure",
@@ -232,7 +232,7 @@ const EXPERIENCES_DATA = [
     location: "Montreal • Canada 🇨🇦",
     logo: "/experience/core-roles/intelerad.svg",
     summary:
-      "Built ML on MRI and CT: de-identification running in Biospective's PACS, contrast classification and body part recognition for Bristol Myers Squibb, and medical text OCR.",
+      "Built ML on MRI and CT: de-identification running in Biospective's PACS, contrast classification and body part recognition for Bristol Myers Squibb, and medical text OCR",
     responsibilities: [
       "Built the de-identification model Biospective runs in PACS: faces and ears gone from CT and MRI at 96% and 94% accuracy, keeping every intracranial voxel behind a 2 mm margin",
       "Added contrast classification and body part recognition on CT and MRI for Bristol Myers Squibb, sorting trial scans before anyone opened them",
@@ -258,7 +258,7 @@ const EXPERIENCES_DATA = [
     location: "Tomsk • Russia 🇷🇺",
     logo: "/experience/core-roles/tpu.svg",
     summary:
-      "Supervised 5 developers on stenosis detection running in live surgery and TAVI tracking for the Kemerovo Cardiology Center, and catheter segmentation in ultrasound for Boston Children's Hospital.",
+      "Supervised 5 developers on stenosis detection running in live surgery and TAVI tracking for the Kemerovo Cardiology Center, and catheter segmentation in ultrasound for Boston Children's Hospital",
     responsibilities: [
       "Supervised 5 developers on computer vision and ML across cardiology, pediatric surgery and industry",
       "Developed real-time coronary stenosis detection that runs in live surgery at the Kemerovo Cardiology Center, at 94% mAP and 10 FPS",
@@ -310,7 +310,7 @@ const EXPERIENCES_DATA = [
     location: "Tomsk • Russia 🇷🇺",
     logo: "/experience/core-roles/sibur.svg",
     summary:
-      "Implemented, maintained and repaired process control systems and field instrumentation across petrochemical pipelines on Siemens PLC and Yokogawa DCS platforms.",
+      "Implemented, maintained and repaired process control systems and field instrumentation across petrochemical pipelines on Siemens PLC and Yokogawa DCS platforms",
     responsibilities: [
       "Implementation of process control systems within petrochemical pipelines",
       "Maintenance and repair of measurement devices, as well as automated process control systems such as Siemens S300/400, Yokogawa Centum, Numerik PS2000 and Remicont",
@@ -333,7 +333,7 @@ const VISITING_ROLES_DATA = [
     location: "Pretoria • South Africa 🇿🇦",
     logo: "/experience/visiting-roles/uop.svg",
     summary:
-      "Hosted by Prof. Olawande Daramola on an A4U Erasmus+ mobility grant, covering machine learning, applied AI and translational research, and presenting non-invasive intracranial pressure monitoring.",
+      "Hosted by Prof. Olawande Daramola on an A4U Erasmus+ mobility grant, covering machine learning, applied AI and translational research, and presenting non-invasive intracranial pressure monitoring",
     responsibilities: [
       "Visited Prof. Olawande Daramola's group on an A4U Erasmus+ staff mobility grant, on machine learning, applied AI and translational research",
       "Presented the SafeICP work on non-invasive brain pressure from photonic sensors",
@@ -353,7 +353,7 @@ const VISITING_ROLES_DATA = [
     location: "Rome • Italy 🇮🇹",
     logo: "/experience/visiting-roles/sapienza.svg",
     summary:
-      "Worked with Prof. Irene Amerini's ALCOR Lab on computer vision, pattern recognition and multimodal AI, and presented non-invasive intracranial pressure from near-infrared photonics.",
+      "Worked with Prof. Irene Amerini's ALCOR Lab on computer vision, pattern recognition and multimodal AI, and presented non-invasive intracranial pressure from near-infrared photonics",
     responsibilities: [
       "Visited Prof. Irene Amerini's ALCOR Lab on computer vision, pattern recognition and multimodal AI",
       "Presented “Illuminating the black box”, on non-invasive intracranial pressure from near-infrared photonics and deep learning",
@@ -390,7 +390,7 @@ const VISITING_ROLES_DATA = [
     location: "Groningen • Netherlands 🇳🇱",
     logo: "/experience/visiting-roles/uog.svg",
     summary:
-      "Worked with Prof. George Azzopardi at the Bernoulli Institute on machine learning, computer vision and predictive modelling, and lectured on non-invasive brain pressure monitoring.",
+      "Worked with Prof. George Azzopardi at the Bernoulli Institute on machine learning, computer vision and predictive modelling, and lectured on non-invasive brain pressure monitoring",
     responsibilities: [
       "Visited Prof. George Azzopardi at the Bernoulli Institute on machine learning, computer vision and predictive modeling",
       "Presented “A Safe Window Into Brain Pressure”, on reading intracranial pressure without surgery",
@@ -426,7 +426,7 @@ const VISITING_ROLES_DATA = [
     location: "Paris • France 🇫🇷",
     logo: "/experience/visiting-roles/sorbonne.svg",
     summary:
-      "Joined the Laboratory of Biomedical Imaging on combining fMRI, PET and electrophysiology with ML for hydrocephalus and brain trauma, and presented SafeICP work on non-invasive brain pressure.",
+      "Joined the Laboratory of Biomedical Imaging on combining fMRI, PET and electrophysiology with ML for hydrocephalus and brain trauma, and presented SafeICP work on non-invasive brain pressure",
     responsibilities: [
       "Visited the Laboratory of Biomedical Imaging on joining neuroimaging, fMRI, PET and electrophysiology, with machine learning",
       "Presented the SafeICP work on non-invasive intracranial pressure from photonics and AI",
@@ -457,7 +457,7 @@ const VISITING_ROLES_DATA = [
     location: "Leeds • United Kingdom 🇬🇧",
     logo: "/experience/visiting-roles/uol.svg",
     summary:
-      "Built automated coronary stenosis detection and scoring with Prof. Alejandro Frangi, and used VAEs and GANs to synthesize training data and overcome dataset scarcity in vascular imaging.",
+      "Built automated coronary stenosis detection and scoring with Prof. Alejandro Frangi, and used VAEs and GANs to synthesize training data and overcome dataset scarcity in vascular imaging",
     responsibilities: [
       "Built automated stenosis detection and scoring for vascular imaging with Prof. Alejandro Frangi",
       "Synthesized medical data with VAEs and GANs to get past dataset scarcity and make models generalize",
@@ -494,7 +494,7 @@ const VISITING_ROLES_DATA = [
     location: "Madrid • Spain 🇪🇸",
     logo: "/experience/visiting-roles/upm.svg",
     summary:
-      "Generated semi-synthetic ultrasound data to improve segmentation robustness, and built models for pulmonary emphysema detection and unsupervised segmentation with Prof. Maria Ledesma-Carbayo.",
+      "Generated semi-synthetic ultrasound data to improve segmentation robustness, and built models for pulmonary emphysema detection and unsupervised segmentation with Prof. Maria Ledesma-Carbayo",
     responsibilities: [
       "Designed a pipeline that turns real ultrasound scans into semi-synthetic training data, making segmentation more accurate and more robust",
       "Built models for pulmonary emphysema detection and unsupervised biomedical image segmentation",
@@ -532,7 +532,7 @@ const VISITING_ROLES_DATA = [
     location: "Trento • Italy 🇮🇹",
     logo: "/experience/visiting-roles/uot.svg",
     summary:
-      "Built catheter detection and segmentation in 3D ultrasound using support vector machines and texture features, and benchmarked a new feature selection method with Prof. Farid Melgani.",
+      "Built catheter detection and segmentation in 3D ultrasound using support vector machines and texture features, and benchmarked a new feature selection method with Prof. Farid Melgani",
     responsibilities: [
       "Built volumetric ultrasound catheter detection and segmentation on SVM and texture features",
       "Designed a feature selection method on the area between distributions, benchmarked against the established ones",
