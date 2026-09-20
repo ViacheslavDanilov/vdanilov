@@ -26,11 +26,20 @@ const cityAndFlag = (location) => {
   return `${location.split(",")[0].trim()} ${flag}`.trim();
 };
 
-// Author position, worded the way the CV prints it
-const AUTHOR_POSITION_LABELS = {
-  first: "First author",
-  senior: "Senior author",
-  middle: "Co-author",
+// Author position, worded the way the CV prints it; one muted hue each
+const AUTHOR_POSITION = {
+  first: {
+    label: "First author",
+    className: "bg-emerald-400/12 text-emerald-400/85 border-emerald-400/30",
+  },
+  senior: {
+    label: "Senior author",
+    className: "bg-red-300/12 text-red-300/85 border-red-300/30",
+  },
+  middle: {
+    label: "Co-author",
+    className: "bg-violet-300/12 text-violet-300/85 border-violet-300/30",
+  },
 };
 
 /**
@@ -125,7 +134,7 @@ const PublicationCard = ({
 
           {/* Tags */}
           {((tags && tags.length > 0) ||
-            AUTHOR_POSITION_LABELS[publication.authorPosition]) && (
+            AUTHOR_POSITION[publication.authorPosition]) && (
             <div className="flex flex-wrap gap-2 mt-2">
               {tags?.map((tag) => (
                 <span
@@ -135,9 +144,11 @@ const PublicationCard = ({
                   {tag}
                 </span>
               ))}
-              {AUTHOR_POSITION_LABELS[publication.authorPosition] && (
-                <span className="px-2.5 py-0.5 text-xs font-medium rounded-full bg-accent/10 text-accent/80 border border-accent/20">
-                  {AUTHOR_POSITION_LABELS[publication.authorPosition]}
+              {AUTHOR_POSITION[publication.authorPosition] && (
+                <span
+                  className={`px-2.5 py-0.5 text-xs font-medium rounded-full border ${AUTHOR_POSITION[publication.authorPosition].className}`}
+                >
+                  {AUTHOR_POSITION[publication.authorPosition].label}
                 </span>
               )}
             </div>
