@@ -191,7 +191,7 @@ const EXPERIENCES_DATA = [
     summary:
       "Built hyperspectral ML that finds tumor margins and grades laser ablation for the ERC project LASER OPTIMAL, and turned prosthetic heart valve design into an optimization search.",
     responsibilities: [
-      "Built the hyperspectral pipeline that finds tumor margins and grades laser ablation for the ERC project LASER OPTIMAL, on 100-band hyperspectral images",
+      "Built the hyperspectral pipeline that finds tumor margins and grades laser ablation on 100-band images, with Faster R-CNN at about 74% mAP on PCA-transformed reflectance data",
       "Ran the data collection in experimental surgery at the Institute for Image-Guided Surgery and Cardinale Panico Hospital, training the models on tissue imaged during the procedure",
       "Turned prosthetic heart valve design from hand iteration into an optimization search for the Kemerovo Cardiology Center, across 11,500+ FEM-evaluated geometries at 95% design efficacy",
     ],
