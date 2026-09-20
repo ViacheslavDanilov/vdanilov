@@ -591,7 +591,7 @@ export default function Experience() {
         <section className="w-full max-w-7xl mx-auto px-6">
           <header className="mb-12 text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-light mb-4">
-              Core Roles
+              Core Positions
             </h1>
             <p className="text-gray-400 mt-3 max-w-3xl mx-auto leading-relaxed">
               Leadership and engineering roles spanning AI, machine learning,
@@ -610,11 +610,11 @@ export default function Experience() {
           </div>
         </section>
 
-        {/* Visiting Roles Section */}
+        {/* Visiting Positions Section */}
         <section className="w-full max-w-7xl mx-auto px-6">
           <header className="mb-12 text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-light mb-4">
-              Visiting Roles
+              Visiting Positions
             </h1>
             <p className="text-gray-400 mt-3 max-w-3xl mx-auto leading-relaxed">
               Collaborative research contributions in machine learning, AI, and
