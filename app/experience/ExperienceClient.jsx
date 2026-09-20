@@ -191,7 +191,7 @@ const EXPERIENCES_DATA = [
     summary:
       "Built hyperspectral ML that finds tumor margins and grades laser ablation for the ERC project LASER OPTIMAL, and turned prosthetic heart valve design into an optimization search.",
     responsibilities: [
-      "Built the hyperspectral pipeline that finds tumor margins and grades laser ablation on 100-band images, with Faster R-CNN at about 74% mAP on PCA-transformed reflectance data",
+      "Built the hyperspectral pipeline that finds tumor margins and grades laser ablation on 100-band images, with Faster R-CNN at 74.4% mAP on PCA-transformed reflectance data",
       "Ran the data collection in experimental surgery at the Institute for Image-Guided Surgery and Cardinale Panico Hospital, training the models on tissue imaged during the procedure",
       "Turned prosthetic heart valve design from hand iteration into an optimization search for the Kemerovo Cardiology Center, across 11,500+ FEM-evaluated geometries at 95% design efficacy",
     ],
@@ -262,9 +262,9 @@ const EXPERIENCES_DATA = [
     responsibilities: [
       "Supervised 5 developers on computer vision and ML across cardiology, pediatric surgery and industry",
       "Developed real-time coronary stenosis detection that runs in live surgery at the Kemerovo Cardiology Center, at 94% mAP and 10 FPS",
-      "Tracked aorta and catheter keypoints for TAVI at 97% accuracy and about 90 FPS, guiding valve placement during surgery",
-      "Segmented catheters in 3D ultrasound for Boston Children's Hospital at about 94% Dice, 13 points above U-Net, despite speckle and low resolution",
-      "Built wildfire detection from video at about 96% accuracy and 9 FPS, over remote Siberian forest",
+      "Tracked aorta and catheter keypoints for TAVI at 97% accuracy and 90 FPS, guiding valve placement during surgery",
+      "Segmented catheters in 3D ultrasound for Boston Children's Hospital at 93.6% Dice, 13 points above U-Net, despite speckle and low resolution",
+      "Built wildfire detection from video at 95.6% accuracy and 9 FPS, over remote Siberian forest",
     ],
     links: [
       {
