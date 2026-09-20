@@ -93,8 +93,7 @@ const TEAM_MEMBERS = [
     location: "Milan · Italy 🇮🇹",
     photo: "/people/martina-de-landro.webp",
     links: {
-      globe:
-        "https://www.mecc.polimi.it/dottorato/i-nostri-dottorandi/xxxiv-ciclo/martina-de-landro",
+      globe: "https://sciprofiles.com/profile/1293523",
       linkedin: "https://www.linkedin.com/in/martina-de-landro-9144b184/",
       researchgate: "https://www.researchgate.net/profile/Martina-De-Landro",
       google: "https://scholar.google.com/citations?user=5cbbF1UAAAAJ",

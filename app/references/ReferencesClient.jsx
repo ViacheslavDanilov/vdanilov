@@ -217,7 +217,6 @@ const REFERENCES_DATA = [
     image: "/people/nikolay-vasilyev.webp",
     featured: false,
     socials: {
-      website: "https://www.ctsnet.org/home/nvasiliev",
       linkedin: "https://www.linkedin.com/in/nikolayvasilyev/",
       researchgate: "https://www.researchgate.net/profile/Nikolay-Vasilyev-2",
       googleScholar:

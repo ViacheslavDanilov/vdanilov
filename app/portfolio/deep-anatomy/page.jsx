@@ -106,7 +106,6 @@ const TEAM_MEMBERS = [
     location: "Boston · United States 🇺🇸",
     photo: "/people/nikolay-vasilyev.webp",
     links: {
-      globe: "https://www.ctsnet.org/home/nvasiliev",
       linkedin: "https://www.linkedin.com/in/nikolayvasilyev/",
       researchgate: "https://www.researchgate.net/profile/Nikolay-Vasilyev-2",
       google: "https://scholar.google.com/citations?user=HnEl5nYAAAAJ&hl=en",
