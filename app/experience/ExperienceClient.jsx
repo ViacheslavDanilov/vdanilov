@@ -335,10 +335,9 @@ const VISITING_ROLES_DATA = [
     summary:
       "Hosted by Prof. Olawande Daramola on an A4U Erasmus+ mobility grant, covering machine learning, applied AI and translational research, and presenting non-invasive intracranial pressure monitoring.",
     responsibilities: [
-      "Awarded an A4U Erasmus+ staff mobility grant for a research visit hosted by Prof. Olawande Daramola, covering machine learning, applied artificial intelligence, and translational research",
-      "Delivered research on non-invasive brain pressure monitoring using photonic sensors and neural networks",
-      "Invited to serve on the judging panel of International Students’ Day 2026, held on the theme “Connecting Minds: Inspiring Global Citizenship”",
-      "Invited to present ongoing research and European collaboration opportunities at the Embassy of Spain in Pretoria",
+      "Visited Prof. Olawande Daramola's group on an A4U Erasmus+ staff mobility grant, on machine learning, applied AI and translational research",
+      "Presented the SafeICP work on non-invasive brain pressure from photonic sensors",
+      "Invited to judge International Students’ Day 2026 and to speak at the Embassy of Spain in Pretoria",
     ],
     links: [],
     logoBrightness: 1.0,
@@ -356,9 +355,9 @@ const VISITING_ROLES_DATA = [
     summary:
       "Worked with Prof. Irene Amerini's ALCOR Lab on computer vision, pattern recognition and multimodal AI, and presented non-invasive intracranial pressure from near-infrared photonics.",
     responsibilities: [
-      "Collaborated with Prof. Irene Amerini and the ALCOR Lab on computer vision, pattern recognition, machine learning, and multimodal AI applied to perceptual inference and sensor data analysis",
-      'Delivered a seminar entitled "Illuminating the black box: Non-invasive intracranial pressure estimation via near-infrared photonics and deep learning" at the Department of Computer, Control and Management Engineering, presenting work developed within the SafeICP project',
-      "Explored shared methodological ground between the ALCOR Lab's computer vision and multimodal AI and the BCN MedTech team's biomedical signal processing for non-invasive clinical monitoring",
+      "Visited Prof. Irene Amerini's ALCOR Lab on computer vision, pattern recognition and multimodal AI",
+      "Presented “Illuminating the black box”, on non-invasive intracranial pressure from near-infrared photonics and deep learning",
+      "Mapped where the ALCOR Lab's computer vision meets BCN MedTech's biomedical signal processing, for non-invasive clinical monitoring",
     ],
     links: [
       {
@@ -393,9 +392,9 @@ const VISITING_ROLES_DATA = [
     summary:
       "Worked with Prof. George Azzopardi at the Bernoulli Institute on machine learning, computer vision and predictive modelling, and lectured on non-invasive brain pressure monitoring.",
     responsibilities: [
-      "Collaborated with Prof. George Azzopardi at the Bernoulli Institute on machine learning, computer vision, and predictive modelling, exchanging methods on model design and evaluation strategies",
-      'Delivered a seminar entitled "A Safe Window Into Brain Pressure" at the House of Connections, presenting non-invasive intracranial pressure estimation using optical sensing and machine learning developed within the SafeICP project',
-      "Engaged in knowledge-exchange sessions with University of Groningen researchers on shared priorities in AI/ML for biomedical and applied domains",
+      "Visited Prof. George Azzopardi at the Bernoulli Institute on machine learning, computer vision and predictive modeling",
+      "Presented “A Safe Window Into Brain Pressure”, on reading intracranial pressure without surgery",
+      "Ran knowledge-exchange sessions with the institute's researchers on AI and ML for biomedical work",
     ],
     links: [
       {
@@ -429,10 +428,9 @@ const VISITING_ROLES_DATA = [
     summary:
       "Joined the Laboratory of Biomedical Imaging on combining fMRI, PET and electrophysiology with ML for hydrocephalus and brain trauma, and presented SafeICP work on non-invasive brain pressure.",
     responsibilities: [
-      "Collaborated with the Neural Connectivity and Plasticity group on integrating neuroimaging (fMRI, PET, electrophysiology) with machine learning",
-      "Presented research on non-invasive intracranial pressure prediction using photonics and AI as part of the SafeICP project",
-      "Participated in hands-on training and interdisciplinary work on ML-based diagnostics for hydrocephalus and brain trauma",
-      "Engaged with faculty including Prof. Dmitrii Todorov, Prof. Olivier Couture, and Prof. Lori Bridal to initiate future joint research and publications",
+      "Visited the Laboratory of Biomedical Imaging on joining neuroimaging, fMRI, PET and electrophysiology, with machine learning",
+      "Presented the SafeICP work on non-invasive intracranial pressure from photonics and AI",
+      "Worked on ML diagnostics for hydrocephalus and brain trauma with Prof. Dmitrii Todorov and Prof. Lori Bridal",
     ],
     links: [
       {
@@ -461,9 +459,9 @@ const VISITING_ROLES_DATA = [
     summary:
       "Built automated coronary stenosis detection and scoring with Prof. Alejandro Frangi, and used VAEs and GANs to synthesize training data and overcome dataset scarcity in vascular imaging.",
     responsibilities: [
-      "Designed and implemented an ML-driven system for automated stenosis detection and scoring, enhancing diagnostic precision and reproducibility in vascular imaging",
-      "Advanced medical data synthesis using VAEs and GANs to overcome dataset scarcity and improve model generalization",
-      "Collaborated with Prof. Alejandro F. Frangi on applied DL for cardiovascular imaging, contributing to publications in Scientific Reports and ISPRS Archives",
+      "Built automated stenosis detection and scoring for vascular imaging with Prof. Alejandro Frangi",
+      "Synthesized medical data with VAEs and GANs to get past dataset scarcity and make models generalize",
+      "Designed a ray-based segmentation method for MRI, reaching up to 91.8% Dice on cardiac ventricles and 89.5% on brain tumors in milliseconds",
     ],
     links: [
       {
@@ -498,9 +496,9 @@ const VISITING_ROLES_DATA = [
     summary:
       "Generated semi-synthetic ultrasound data to improve segmentation robustness, and built models for pulmonary emphysema detection and unsupervised segmentation with Prof. Maria Ledesma-Carbayo.",
     responsibilities: [
-      "Developed an approach for semi-synthetic ultrasound data generation to enhance segmentation accuracy and robustness in medical imaging",
-      "Implemented ML models for pulmonary emphysema detection and unsupervised biomedical image segmentation, improving interpretability and diagnostic automation",
-      "Collaborated with Prof. Maria J. Ledesma-Carbayo on image reconstruction and data augmentation, contributing to publications in Computerized Medical Imaging and Graphics and ISPRS Archives",
+      "Designed a pipeline that turns real ultrasound scans into semi-synthetic training data, making segmentation more accurate and more robust",
+      "Built models for pulmonary emphysema detection and unsupervised biomedical image segmentation",
+      "Worked with Prof. Maria J. Ledesma-Carbayo on image reconstruction and data augmentation",
     ],
     links: [
       {
@@ -536,9 +534,9 @@ const VISITING_ROLES_DATA = [
     summary:
       "Built catheter detection and segmentation in 3D ultrasound using support vector machines and texture features, and benchmarked a new feature selection method with Prof. Farid Melgani.",
     responsibilities: [
-      "Developed a volumetric ultrasound catheter detection and segmentation algorithm using SVM and texture-based features",
-      "Designed and evaluated a feature selection method based on PDF/PMF area difference, benchmarked against established techniques",
-      "Collaborated with Prof. Farid Melgani on biomedical signal processing research published in Biomedical Signal Processing and Control and Scientific Visualization",
+      "Built volumetric ultrasound catheter detection and segmentation on SVM and texture features",
+      "Designed a feature selection method on the area between distributions, benchmarked against the established ones",
+      "Worked with Prof. Farid Melgani on biomedical signal processing",
     ],
     links: [
       {
