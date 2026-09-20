@@ -20,6 +20,13 @@ const TYPE_CONFIG = {
   Dataset: { variant: "cyan", icon: faDatabase },
 };
 
+// Author position, worded the way the CV prints it
+const AUTHOR_POSITION_LABELS = {
+  first: "First author",
+  senior: "Senior author",
+  middle: "Co-author",
+};
+
 /**
  * Minimalistic publication card component
  * Displays publication title, authors, venue, year, and optional link
@@ -105,6 +112,14 @@ const PublicationCard = ({
                 <>
                   <span className="text-gray-500 mx-2">•</span>
                   <span>{year}</span>
+                </>
+              )}
+              {AUTHOR_POSITION_LABELS[publication.authorPosition] && (
+                <>
+                  <span className="text-gray-500 mx-2">•</span>
+                  <span className="text-accent">
+                    {AUTHOR_POSITION_LABELS[publication.authorPosition]}
+                  </span>
                 </>
               )}
             </p>
