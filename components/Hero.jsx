@@ -48,7 +48,7 @@ const Hero = () => {
           {/* CTA Button - Desktop only */}
           <div className="hidden md:flex items-center justify-start gap-3 pt-6">
             <LiquidButtonLink
-              href="https://drive.google.com/file/d/1jYs54eFCYc367ZKhWjH1Xfry4_sFI7Ir/view?usp=drive_link"
+              href="https://drive.google.com/file/d/1viI3o1RBDoreQcbCwe5zc2NTWpxU7ouk/view"
               target="_blank"
               ariaLabel="Download CV"
               className={ctaButtonClassName}
@@ -95,7 +95,7 @@ const Hero = () => {
         {/* CTA Button - Mobile only (below video) */}
         <div className="flex md:hidden flex-col items-center justify-center gap-3 w-full">
           <LiquidButtonLink
-            href="https://drive.google.com/file/d/1jYs54eFCYc367ZKhWjH1Xfry4_sFI7Ir/view?usp=drive_link"
+            href="https://drive.google.com/file/d/1viI3o1RBDoreQcbCwe5zc2NTWpxU7ouk/view"
             target="_blank"
             ariaLabel="Download CV"
             className={ctaButtonClassName}
