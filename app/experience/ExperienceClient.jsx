@@ -102,7 +102,7 @@ const EXPERIENCES_DATA = [
       "Shipped a multi-tenant compliance platform for construction insurance: 4 web apps, a FastAPI backend, and an OCR worker that grades coverage",
       "Built 6 InsurTech prototypes for claim intake, fraud scoring, pricing and forecasting; about half were taken into client work",
       "Cut claim intake to about a minute per form in testing, from a carrier baseline of 107,000 claims a year keyed by 30 staff, using OCR and LLM mapping with confidence checks",
-      "Made every model explain itself with AutoGluon and SHAP, so a fraud score or a premium comes with its ranked drivers",
+      "Built explainability into every model with AutoGluon and SHAP, ranking the drivers behind each fraud score and premium",
     ],
     links: [
       {
@@ -163,7 +163,7 @@ const EXPERIENCES_DATA = [
       "Turned histopathology slides into tumor immune phenotypes for Boehringer Ingelheim at 89% F1, replacing a pathologist's manual read",
       "Built the microscopy readout Volastra Therapeutics used to track chromosomal instability and drug response: nuclei, micronuclei, mitosis and apoptosis at 85% and 66% mAP",
       "Delivered three chest X-ray models for Beth Israel Deaconess: 84% accuracy on COVID and pneumonia, severity at 0.30 MAE out of 6, and the lung regions behind each call",
-      "Ran data collection and label review with the radiologists, pathologists and cardiologists at each client, so the labels came from the people who read the images",
+      "Ran data collection and label review with practicing radiologists, pathologists and cardiologists, giving every model clinical-grade ground truth",
     ],
     links: [
       {
