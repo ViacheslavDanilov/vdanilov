@@ -132,6 +132,21 @@ Files under `public/` use lower-case ASCII kebab-case: `cluster-number-compariso
 - ASCII only — no Cyrillic look-alikes (`с` U+0441 vs `c`), no en dashes (`–` U+2013)
 - Renaming an asset means updating every reference in `app/`; verify none are left behind
 
+## Experience summaries
+
+Every entry in `app/experience/ExperienceClient.jsx` carries a `summary`: one sentence that
+renders above the card's tabs on `/experience` and prints in the CV's `Duty` node. Keep it
+between **165 and 190 characters**, and end it without a full stop, the way the duty lines
+under it end.
+
+The band is measured, not a preference. Below about 159 characters the paragraph wraps to two
+lines instead of three, and its card stands shorter than the one beside it in the two-column
+grid. Above 196 the CV's `Duty` node runs to a third line and the card grows. The band leaves
+room at both ends.
+
+The site and the CV hold the same string. Changing one means changing the other, and the
+`Duty` node lives on the `Experience / *` components, not on the instances.
+
 ## Portfolio project pages
 
 Project pages live in `app/portfolio/<project-name>/page.jsx`.

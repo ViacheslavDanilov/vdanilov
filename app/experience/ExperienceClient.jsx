@@ -390,7 +390,7 @@ const VISITING_ROLES_DATA = [
     location: "Groningen • Netherlands 🇳🇱",
     logo: "/experience/visiting-roles/uog.svg",
     summary:
-      "Worked with Prof. George Azzopardi at the Bernoulli Institute on machine learning, computer vision and predictive modelling, and lectured on non-invasive brain pressure monitoring",
+      "Worked with Prof. George Azzopardi at the Bernoulli Institute on machine learning, computer vision and predictive modeling, and lectured on non-invasive brain pressure monitoring",
     responsibilities: [
       "Visited Prof. George Azzopardi at the Bernoulli Institute on machine learning, computer vision and predictive modeling",
       "Presented “A Safe Window Into Brain Pressure”, on reading intracranial pressure without surgery",
@@ -448,7 +448,7 @@ const VISITING_ROLES_DATA = [
   },
   {
     id: "leeds-research-fellow",
-    title: "Data Scientist · Research Fellow",
+    title: "Visiting Research Scientist",
     company: "University of Leeds",
     type: "Visiting",
     category: "research",
@@ -485,7 +485,7 @@ const VISITING_ROLES_DATA = [
   },
   {
     id: "upm-research-fellow",
-    title: "Data Scientist · Research Fellow",
+    title: "Visiting Research Scientist",
     company: "Technical University of Madrid",
     type: "Visiting",
     category: "research",
@@ -523,7 +523,7 @@ const VISITING_ROLES_DATA = [
   },
   {
     id: "trento-research-fellow",
-    title: "Data Scientist · Research Fellow",
+    title: "Visiting Research Scientist",
     company: "University of Trento",
     type: "Visiting",
     category: "research",
