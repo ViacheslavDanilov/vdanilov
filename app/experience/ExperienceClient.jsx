@@ -203,6 +203,12 @@ const EXPERIENCES_DATA = [
         type: "Journal Article",
       },
       {
+        title:
+          "Perfect prosthetic heart valve: Generative design with machine learning, modeling, and optimization",
+        url: "https://doi.org/10.3389/fbioe.2023.1238130",
+        type: "Journal Article",
+      },
+      {
         title: "HyperSIGHT",
         url: "https://www.laseroptimal.polimi.it/hypersight/",
         type: "Project Website",
