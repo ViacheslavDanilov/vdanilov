@@ -68,6 +68,7 @@ const HIGHLIGHT_KEYWORDS = [
   "Beth Israel",
   "Politecnico di Milano",
   "Institute for Image-Guided Surgery",
+  "Cardinale Panico Hospital",
   "HyperSIGHT",
   "LASER OPTIMAL",
   "Intelerad Medical Systems",

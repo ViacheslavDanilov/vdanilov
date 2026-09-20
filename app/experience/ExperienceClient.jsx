@@ -189,10 +189,11 @@ const EXPERIENCES_DATA = [
     location: "Milan • Italy 🇮🇹",
     logo: "/experience/core-roles/polimi.svg",
     summary:
-      "Collected hyperspectral data and built detection and clustering models with the Institute for Image-Guided Surgery, identifying tumor margins and assessing laser ablation in cancer surgery.",
+      "Built hyperspectral ML that finds tumor margins and grades laser ablation for the ERC project LASER OPTIMAL, and turned prosthetic heart valve design into an optimization search.",
     responsibilities: [
-      "Collected, processed, and analyzed hyperspectral data with the Institute for Image-Guided Surgery, supporting experimental surgery projects in cancer ablation and treatment",
-      "Developed advanced machine learning models for hyperspectral detection and clustering, enabling more precise identification of tumor margins and evaluation of treatment effectiveness",
+      "Built the hyperspectral pipeline that finds tumor margins and grades laser ablation for the ERC project LASER OPTIMAL, on 100-band hyperspectral images",
+      "Ran the data collection in experimental surgery at the Institute for Image-Guided Surgery and Cardinale Panico Hospital, training the models on tissue imaged during the procedure",
+      "Turned prosthetic heart valve design from hand iteration into an optimization search for the Kemerovo Cardiology Center, across 11,500+ FEM-evaluated geometries at 95% design efficacy",
     ],
     links: [
       {
