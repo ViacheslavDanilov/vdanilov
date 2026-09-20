@@ -238,7 +238,13 @@ const EXPERIENCES_DATA = [
       "Added contrast classification and body part recognition on CT and MRI for Bristol Myers Squibb, sorting trial scans before anyone opened them",
       "Brought medical text recognition into the product, retraining CLOVA OCR and adding the CRAFT detector for text regions",
     ],
-    links: [],
+    links: [
+      {
+        title: "Deep Deface",
+        url: "https://vdanilov.com/portfolio/deep-deface",
+        type: "Project Overview",
+      },
+    ],
     logoBrightness: 1.0,
   },
   {
