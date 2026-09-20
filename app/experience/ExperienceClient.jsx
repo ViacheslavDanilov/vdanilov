@@ -232,13 +232,11 @@ const EXPERIENCES_DATA = [
     location: "Montreal • Canada 🇨🇦",
     logo: "/experience/core-roles/intelerad.svg",
     summary:
-      "Built ML on 3D MRI and CT for Bristol Myers Squibb and Biospective: contrast classification, body part recognition, de-identification by obscuring faces and ears, and medical text OCR.",
+      "Built ML on MRI and CT: de-identification running in Biospective's PACS, contrast classification and body part recognition for Bristol Myers Squibb, and medical text OCR.",
     responsibilities: [
-      "Developing a model for obscuring faces and ears on 3D MRI/CT data for Biospective",
-      "Creation of a contrast classification model using CT data for Bristol Myers Squibb",
-      "Retraining and implementing the CLOVA OCR for medical text recognition",
-      "Developing ML models for recognizing body parts, utilizing both MRI and CT data for Bristol Myers Squibb",
-      "Implementing the CRAFT (Character-Region Awareness) text detector",
+      "Built the de-identification model Biospective runs in PACS: faces and ears gone from CT and MRI at 96% and 94% accuracy, keeping every intracranial voxel behind a 2 mm margin",
+      "Added contrast classification and body part recognition on CT and MRI for Bristol Myers Squibb, sorting trial scans before anyone opened them",
+      "Brought medical text recognition into the product, retraining CLOVA OCR and adding the CRAFT detector for text regions",
     ],
     links: [],
     logoBrightness: 1.0,
