@@ -210,8 +210,8 @@ const REFERENCES_DATA = [
   {
     id: "nikolay-vasilyev",
     name: "Nikolay Vasilyev, MD",
-    role: "Senior Medical Director",
-    organization: "Pfizer",
+    role: "Head of Medical Affairs",
+    organization: "Johnson & Johnson",
     location: "Denver · United States 🇺🇸",
     category: "Medicine",
     image: "/people/nikolay-vasilyev.webp",

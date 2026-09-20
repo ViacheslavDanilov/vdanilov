@@ -101,9 +101,9 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Nikolay Vasilyev",
-    role: "Cardiac Surgeon",
-    organization: "Boston Children's Hospital",
-    location: "Boston · United States 🇺🇸",
+    role: "Head of Medical Affairs",
+    organization: "Johnson & Johnson",
+    location: "Denver · United States 🇺🇸",
     photo: "/people/nikolay-vasilyev.webp",
     links: {
       linkedin: "https://www.linkedin.com/in/nikolayvasilyev/",
