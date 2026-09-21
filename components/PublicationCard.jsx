@@ -23,7 +23,11 @@ const TYPE_CONFIG = {
 // City and flag only; the country sits in the data but will not fit the line
 const cityAndFlag = (location) => {
   const flag = (location.match(/\p{Regional_Indicator}{2}/u) || [""])[0];
-  return `${location.split(",")[0].trim()} ${flag}`.trim();
+  const city = location
+    .split(",")[0]
+    .replace(/\p{Regional_Indicator}{2}/gu, "")
+    .trim();
+  return `${city} ${flag}`.trim();
 };
 
 // Author position, worded the way the CV prints it; one muted hue each
