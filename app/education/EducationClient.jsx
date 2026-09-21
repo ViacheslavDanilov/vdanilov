@@ -52,7 +52,7 @@ const CORE_EDUCATION_DATA = [
       "Automated control in engineering systems",
     ],
     thesis:
-      "Development of a stabilisation system for a tethered underwater vehicle",
+      "Development of a stabilization system for a tethered underwater vehicle",
     logoBrightness: 1.1,
   },
   {
@@ -72,8 +72,7 @@ const CORE_EDUCATION_DATA = [
       "Research methods in management",
       "Corporate finance",
     ],
-    thesis:
-      "Development of the optimal financial strategy for the organization",
+    thesis: "Development of an optimal corporate financial strategy",
     logoBrightness: 1.3,
   },
   {
@@ -94,7 +93,7 @@ const CORE_EDUCATION_DATA = [
       "Computer numerical control machines and flexible manufacturing systems",
     ],
     thesis:
-      "Development of emergency protection for the catalyst dosing unit in propylene polymerization reactors",
+      "Emergency protection for the catalyst dosing unit in propylene polymerization reactors",
     logoBrightness: 1.1,
   },
 ];
@@ -163,6 +162,17 @@ const ADDITIONAL_EDUCATION_DATA = [
 ];
 const CERTIFICATES_DATA = [
   {
+    id: "meta-backend-engineer",
+    title: "Backend Engineer",
+    organization: "Meta",
+    date: "Oct 2026",
+    logo: "/education/certificates/meta.svg",
+    url: "https://www.vdanilov.com/",
+    organizationUrl:
+      "https://certifications.facebookblueprint.com/student/catalog",
+    logoBrightness: 1.0,
+  },
+  {
     id: "meta-db-engineer",
     title: "Database Engineer",
     organization: "Meta",
@@ -219,7 +229,7 @@ const CERTIFICATES_DATA = [
     organization: "Tomsk Polytechnic University",
     date: "Sep 2019",
     logo: "/education/certificates/tpu.svg",
-    url: "https://drive.google.com/open?id=17gZz3O2m8MVzWcSLr_c537VRYAEMkOhu",
+    url: "/documents/certificate-training-tpu.pdf",
     organizationUrl: "https://tpu.ru/en/",
     logoBrightness: 1.1,
   },
@@ -229,7 +239,7 @@ const CERTIFICATES_DATA = [
     organization: "MDA College",
     date: "Jul 2019",
     logo: "/education/certificates/mda.svg",
-    url: "https://drive.google.com/file/d/1xgvnBmdxNRfj9ZeLHjnaOk5z4FLs_177/view?usp=sharing",
+    url: "/documents/certificate-mda-language.pdf",
     organizationUrl: "https://takeielts.britishcouncil.org/mda-college/",
     logoBrightness: 1.1,
   },
@@ -239,7 +249,7 @@ const CERTIFICATES_DATA = [
     organization: "Google",
     date: "Sep 2018",
     logo: "/education/certificates/google.svg",
-    url: "https://drive.google.com/open?id=10O0Mt0r_lGgbyAYJyM64H84hHweFpRmH",
+    url: "/documents/certificate-google-digital-marketing.pdf",
     organizationUrl: "https://developers.google.com/",
     logoBrightness: 1.1,
   },
@@ -249,7 +259,7 @@ const CERTIFICATES_DATA = [
     organization: "Google",
     date: "Aug 2018",
     logo: "/education/certificates/google.svg",
-    url: "https://drive.google.com/open?id=1_2BI1VgwfsmzPtYTeqCrIANK3SUvDiFe",
+    url: "/documents/certificate-google-machine-learning.pdf",
     organizationUrl: "https://developers.google.com/",
     logoBrightness: 1.1,
   },

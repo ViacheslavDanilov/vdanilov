@@ -16,7 +16,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faExternalLink,
   faBriefcase,
-  faBook,
+  faLink,
   faFlask,
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -32,9 +32,10 @@ const COMPANY_URLS = {
   "Sorbonne University": "https://www.sorbonne-universite.fr/en",
   "University of Leeds": "https://www.leeds.ac.uk/",
   "Technical University of Madrid": "https://www.upm.es/",
-  "University of Trento": "https://www.unitn.it/en",
+  "University of Trento": "https://www.unitn.it/",
   "University of Groningen": "https://www.rug.nl/",
   "Sapienza University of Rome": "https://www.uniroma1.it/en",
+  "University of Pretoria": "https://www.up.ac.za/",
 };
 
 // --- COMPONENTS ---
@@ -49,19 +50,26 @@ export const BulletPoint = () => (
 // Centralized highlight config (simplified)
 const HIGHLIGHT_KEYWORDS = [
   "Institute of Photonic Sciences",
-  "Vall d'Hebron Hospital",
+  "Vall d'Hebron",
+  "Huawei's",
+  "Huawei",
   "AmTrust",
   "CNA",
-  "Plateau Group",
-  "Symfa",
+  "Lumos Insurance",
+  "GNP",
+  "AutoGluon",
+  "SHAP",
+  "FastAPI",
   "SafeICP",
   "Pompeu Fabra University",
   "Quantori",
   "Boehringer Ingelheim",
   "Volastra Therapeutics",
-  "Beth Israel Deaconess Medical Center",
+  "Beth Israel Deaconess",
+  "Beth Israel",
   "Politecnico di Milano",
   "Institute for Image-Guided Surgery",
+  "Cardinale Panico Hospital",
   "HyperSIGHT",
   "LASER OPTIMAL",
   "Intelerad Medical Systems",
@@ -71,7 +79,6 @@ const HIGHLIGHT_KEYWORDS = [
   "CRAFT",
   "Tomsk Polytechnic University",
   "Boston Children's Hospital",
-  "Incom Group",
   "Kemerovo Cardiology Center",
   "SIBUR",
   "Siemens S300/400",
@@ -79,19 +86,18 @@ const HIGHLIGHT_KEYWORDS = [
   "Numerik PS2000",
   "Remicont",
   "Sorbonne University",
-  "Neural Connectivity and Plasticity",
+  "Laboratory of Biomedical Imaging",
   "Prof. Dmitrii Todorov",
-  "Prof. Olivier Couture",
   "Prof. Lori Bridal",
   "University of Leeds",
-  "Prof. Alejandro F. Frangi",
+  "Prof. Alejandro Frangi",
   "VAEs",
   "GANs",
   "Technical University of Madrid",
   "Prof. Maria J. Ledesma-Carbayo",
   "University of Trento",
   "Prof. Farid Melgani",
-  "University of Groningen",
+  "Prof. Olawande Daramola",
   "Prof. George Azzopardi",
   "Bernoulli Institute",
   "House of Connections",
@@ -141,10 +147,10 @@ const ResponsibilitiesList = ({ items }) => (
   </ul>
 );
 
-// Publications list component
-const PublicationsList = ({ publications }) => (
+// Links list component
+const LinksList = ({ links }) => (
   <ul className="space-y-3" role="list">
-    {publications.map((pub) => (
+    {links.map((pub) => (
       <li key={pub.url} className="flex items-start gap-3">
         <BulletPoint />
         <div className="flex-1">
@@ -265,7 +271,7 @@ const ExperienceCard = ({
   const tabs = useMemo(
     () => [
       { id: "responsibilities", label: "Responsibilities", icon: faBriefcase },
-      { id: "publications", label: "Publications", icon: faBook },
+      { id: "links", label: "Links", icon: faLink },
     ],
     [],
   );
@@ -282,12 +288,12 @@ const ExperienceCard = ({
     switch (activeTab) {
       case "responsibilities":
         return <ResponsibilitiesList items={experience.responsibilities} />;
-      case "publications":
-        return <PublicationsList publications={experience.publications} />;
+      case "links":
+        return <LinksList links={experience.links} />;
       default:
         return null;
     }
-  }, [activeTab, experience.responsibilities, experience.publications]);
+  }, [activeTab, experience.responsibilities, experience.links]);
 
   // Category badge configuration
   const getCategoryConfig = (category) => {
@@ -375,6 +381,13 @@ const ExperienceCard = ({
             )}
           </div>
         </div>
+
+        {/* Summary */}
+        {experience.summary && (
+          <p className="mb-4 border-l-2 border-accent/40 pl-3 text-sm leading-relaxed text-gray-300">
+            {experience.summary}
+          </p>
+        )}
 
         {/* Tabs */}
         <nav

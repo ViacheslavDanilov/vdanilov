@@ -132,6 +132,26 @@ Files under `public/` use lower-case ASCII kebab-case: `cluster-number-compariso
 - ASCII only — no Cyrillic look-alikes (`с` U+0441 vs `c`), no en dashes (`–` U+2013)
 - Renaming an asset means updating every reference in `app/`; verify none are left behind
 
+## Experience summaries
+
+Every entry in `app/experience/ExperienceClient.jsx` carries a `summary`: one sentence that
+renders above the card's tabs on `/experience` and prints in the CV's `Duty` node. Keep it
+between **165 and 190 characters**, and end it without a full stop, the way the duty lines
+under it end.
+
+The band is measured, not a preference. Below about 159 characters the paragraph wraps to two
+lines instead of three, and its card stands shorter than the one beside it in the two-column
+grid. Somewhere above 197 the CV's `Duty` node runs to a third line and the card grows. The
+band leaves room at both ends.
+
+**The count is a proxy; the real limit is rendered width**, so a string of wide characters
+breaks earlier than a narrow one. Five entries sit above the band today, 192 to 197 characters,
+and were left alone because both sides were measured and render correctly. Check the rendered
+node, not the character count, before deciding a long one is too long.
+
+The site and the CV hold the same string. Changing one means changing the other, and the
+`Duty` node lives on the `Experience / *` components, not on the instances.
+
 ## Portfolio project pages
 
 Project pages live in `app/portfolio/<project-name>/page.jsx`.
@@ -141,6 +161,19 @@ scope**; later mentions use the bare abbreviation. The `HIGHLIGHTS_ITEMS` summar
 main prose body are separate scopes, so each may expand an abbreviation once. This does
 not apply to non-abbreviation parentheticals — legend labels `(blue)`, cross-references
 `(Figure 1)`, value annotations `(MAE: 2.52)`, plain-word clarifications `(digital)`.
+
+### Affiliations
+
+A team card on a project page names the role and organisation a person held **at the time
+of the project**, not the one they hold now. The card explains why that person was on the
+team, and the prose around it names the institutions the work ran through, so a current
+employer contradicts the page it sits on.
+
+`app/references/ReferencesClient.jsx` is the opposite. That page answers who can vouch for
+the work today, so every entry carries the person's **current** role and organisation.
+
+The same person may appear on both with different titles, and that is correct, not a
+divergence to reconcile.
 
 ## Working principles
 

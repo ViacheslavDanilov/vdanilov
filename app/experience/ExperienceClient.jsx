@@ -47,24 +47,69 @@ const formatPeriod = (startDate, endDate = null) => {
 // Experience data configuration
 const EXPERIENCES_DATA = [
   {
+    id: "upf-professor",
+    title: "Research Professor",
+    company: "Pompeu Fabra University",
+    type: "Full-time",
+    category: "research",
+    startDate: "2023-06-01",
+    endDate: null,
+    location: "Barcelona • Spain 🇪🇸",
+    logo: "/experience/core-roles/upf.svg",
+    summary:
+      "Leading the ML on SafeICP, which reads intracranial pressure from blood flow without surgery, and on Huawei's depth-aware video bokeh, which runs on a phone; mentoring 2 PhD students and a post-doc",
+    responsibilities: [
+      "Lead the ML on SafeICP with the Institute of Photonic Sciences and surgeons at Vall d'Hebron: intracranial pressure from blood flow, no surgery, at 5.3 mmHg mean error against the invasive probe",
+      "Build the training data and the depth baseline for Huawei's depth-aware video bokeh, a model that has to run on the phone inside a 100 GFLOP budget",
+      "Mentor 2 PhD students and a post-doc on time-series and medical ML",
+    ],
+    links: [
+      {
+        title:
+          "Non-invasive intracranial pressure estimation from cerebral blood flow dynamics using wavelet-based deep learning",
+        url: "https://doi.org/10.1364/ECBO.2025.W5B.5",
+        type: "Conference Paper",
+      },
+      {
+        title:
+          "Intracranial pressure and cerebral blood flow pulse dynamics in patients with idiopathic normal pressure hydrocephalus during Katzman infusion test: a pilot optical monitoring study",
+        url: "https://doi.org/10.1364/ECBO.2025.S4F.2",
+        type: "Conference Paper",
+      },
+      {
+        title:
+          "Hybrid convolutional and recurrent neural network for non-invasive intracranial pressure estimation from cerebral blood flow",
+        url: "https://doi.org/10.1364/BRAIN.2024.BTu3C.7",
+        type: "Conference Paper",
+      },
+    ],
+    logoBrightness: 1.0,
+  },
+  {
     id: "symfa-cto",
     title: "Chief Technology Officer",
     company: "Symfa",
     type: "Full-time",
     category: "industry",
     startDate: "2024-11-01",
-    endDate: null,
+    endDate: "2026-11-01",
     location: "Miami • United States 🇺🇸",
     logo: "/experience/core-roles/symfa.svg",
+    summary:
+      "Led an R&D group of 5 developers and researchers in AI, ML and agents, and served as the architect and lead engineer on the InsurTech systems it built for AmTrust, CNA, Lumos Insurance and GNP",
     responsibilities: [
-      "Defining and executing the company's long-term technical vision across technological units",
-      "Leading and scaling a cross-functional R&D department focused on AI, machine learning, autonomous agents, and automation",
-      "Driving applied research in the InsurTech domain with partners such as AmTrust, CNA, and Plateau Group to deliver innovative, market-aligned solutions",
-      "Acting as the company's AI thought leader, guiding strategy and implementation across client and internal projects",
-      "Publishing business and technical articles to position Symfa at the forefront of AI-driven innovation",
-      "Representing the company at key industry events and conferences",
+      "Led an R&D group of 5 developers and researchers in AI, ML and agents, and acted as architect and lead engineer on the InsurTech systems it built for AmTrust, CNA, Lumos Insurance and GNP",
+      "Shipped a multi-tenant compliance platform for construction insurance: 4 web apps, a FastAPI backend, and an OCR worker that grades coverage",
+      "Built 6 InsurTech prototypes for claim intake, fraud scoring, pricing and forecasting; about half were taken into client work",
+      "Cut claim intake to about a minute per form in testing, from a carrier baseline of 107,000 claims a year keyed by 30 staff, using OCR and LLM mapping with confidence checks",
+      "Built explainability into every model with AutoGluon and SHAP, ranking the drivers behind each fraud score and premium",
     ],
-    publications: [
+    links: [
+      {
+        title: "InsurTech Intelligence",
+        url: "https://insurtech-intelligence.symfa.ai/",
+        type: "Prototypes",
+      },
       {
         title:
           "Testing AI low-code platforms: What actually worked (and what didn't)",
@@ -87,50 +132,6 @@ const EXPERIENCES_DATA = [
     logoBrightness: 1.1,
   },
   {
-    id: "upf-professor",
-    title: "Research Professor",
-    company: "Pompeu Fabra University",
-    type: "Full-time",
-    category: "research",
-    startDate: "2023-06-01",
-    endDate: null,
-    location: "Barcelona • Spain 🇪🇸",
-    logo: "/experience/core-roles/upf.svg",
-    responsibilities: [
-      "Collaborated with the Institute of Photonic Sciences to develop ML solutions for a photonics platform enabling non-invasive ICP estimation via cerebral blood flow monitoring",
-      "Applied biophotonics insights to guide model design, optimization, and validation",
-      "Collected patient data at Vall d'Hebron Hospital, working directly with clinicians and surgeons",
-      "Led time-series analysis and built advanced ML models for real-time, accurate ICP prediction",
-      "Mentored PhD students and post-docs in ML algorithm development for time-series analysis and medical data applications",
-    ],
-    publications: [
-      {
-        title:
-          "Non-invasive intracranial pressure estimation from cerebral blood flow dynamics using wavelet-based deep learning",
-        url: "https://doi.org/10.1364/ECBO.2025.W5B.5",
-        type: "Conference Paper",
-      },
-      {
-        title:
-          "Intracranial pressure and cerebral blood flow pulse dynamics in patients with idiopathic normal pressure hydrocephalus during Katzman infusion test: a pilot optical monitoring study",
-        url: "https://doi.org/10.1364/ECBO.2025.S4F.2",
-        type: "Conference Paper",
-      },
-      {
-        title:
-          "Hybrid convolutional and recurrent neural network for non-invasive intracranial pressure estimation from cerebral blood flow",
-        url: "https://doi.org/10.1364/BRAIN.2024.BTu3C.7",
-        type: "Conference Paper",
-      },
-      {
-        title: "SafeICP",
-        url: "https://safeicp.es/",
-        type: "Project Website",
-      },
-    ],
-    logoBrightness: 1.0,
-  },
-  {
     id: "quantori-lead-ml",
     title: "Lead Machine Learning Engineer",
     company: "Quantori",
@@ -140,13 +141,16 @@ const EXPERIENCES_DATA = [
     endDate: "2025-11-01",
     location: "Cambridge • United States 🇺🇸",
     logo: "/experience/core-roles/quantori.svg",
+    summary:
+      "Led 6 developers in ML and computer vision: tumor immune phenotyping for Boehringer Ingelheim, chromosomal instability for Volastra, and explainable chest radiography for Beth Israel",
     responsibilities: [
-      "Leading a team of 6 developers in the areas of ML, DS, and CV",
-      "Developing an ML/DL pipeline for tumor immune phenotype classification from histopathology images for Boehringer Ingelheim",
-      "Designing and implementing a specialized image processing system for Volastra Therapeutics, utilized for cell counting, classification, and detection",
-      "Building a COVID-19/pneumonia classification and scoring model that utilizes guided attention for the Beth Israel Deaconess Medical Center",
+      "Led 6 developers across ML, data science and computer vision for pharma and hospital clients",
+      "Turned histopathology slides into tumor immune phenotypes for Boehringer Ingelheim at 89% F1, replacing a pathologist's manual read",
+      "Built the microscopy readout Volastra Therapeutics used to track chromosomal instability and drug response: nuclei, micronuclei, mitosis and apoptosis at 85% and 66% mAP",
+      "Delivered three chest X-ray models for Beth Israel Deaconess: 84% accuracy on COVID and pneumonia, severity at 0.30 MAE out of 6, and the lung regions behind each call",
+      "Ran data collection and label review with practicing radiologists, pathologists and cardiologists, giving every model clinical-grade ground truth",
     ],
-    publications: [
+    links: [
       {
         title:
           "Harnessing AI for Histopathology: A Leap Towards Precision Medicine",
@@ -184,15 +188,24 @@ const EXPERIENCES_DATA = [
     endDate: "2024-09-01",
     location: "Milan • Italy 🇮🇹",
     logo: "/experience/core-roles/polimi.svg",
+    summary:
+      "Built hyperspectral ML that finds tumor margins and grades laser ablation for the ERC project LASER OPTIMAL, and turned prosthetic heart valve design into an optimization search",
     responsibilities: [
-      "Collected, processed, and analyzed hyperspectral data at the Institute for Image-Guided Surgery, supporting experimental surgery projects in cancer ablation and treatment",
-      "Developed advanced machine learning models for hyperspectral detection and clustering, enabling more precise identification of tumor margins and evaluation of treatment effectiveness",
+      "Built the hyperspectral pipeline that finds tumor margins and grades laser ablation on 100-band images, with Faster R-CNN at 74.4% mAP on PCA-transformed reflectance data",
+      "Ran the data collection in experimental surgery at the Institute for Image-Guided Surgery and Cardinale Panico Hospital, training the models on tissue imaged during the procedure",
+      "Turned prosthetic heart valve design from hand iteration into an optimization search for the Kemerovo Cardiology Center, across 11,500+ FEM-evaluated geometries at 95% design efficacy",
     ],
-    publications: [
+    links: [
       {
         title:
           "Advancing laser ablation assessment in hyperspectral imaging through machine learning",
         url: "https://doi.org/10.1016/j.compbiomed.2024.108849",
+        type: "Journal Article",
+      },
+      {
+        title:
+          "Perfect prosthetic heart valve: Generative design with machine learning, modeling, and optimization",
+        url: "https://doi.org/10.3389/fbioe.2023.1238130",
         type: "Journal Article",
       },
       {
@@ -203,7 +216,7 @@ const EXPERIENCES_DATA = [
       {
         title: "LASER OPTIMAL",
         url: "https://cordis.europa.eu/project/id/759159",
-        type: "ERC Grant",
+        type: "ERC Project",
       },
     ],
     logoBrightness: 1.1,
@@ -218,14 +231,20 @@ const EXPERIENCES_DATA = [
     endDate: "2022-09-01",
     location: "Montreal • Canada 🇨🇦",
     logo: "/experience/core-roles/intelerad.svg",
+    summary:
+      "Built ML on MRI and CT: de-identification running in Biospective's PACS, contrast classification and body part recognition for Bristol Myers Squibb, and medical text OCR",
     responsibilities: [
-      "Developing a model for obscuring faces and ears on 3D MRI/CT data for Biospective",
-      "Creation of a contrast classification model using CT data for Bristol Myers Squibb",
-      "Retraining and implementing the CLOVA OCR for medical text recognition",
-      "Developing ML models for recognizing body parts, utilizing both MRI and CT data for Bristol Myers Squibb",
-      "Implementing the CRAFT (Character-Region Awareness) text detector",
+      "Built the de-identification model Biospective runs in PACS: faces and ears gone from CT and MRI at 96% and 94% accuracy, keeping every intracranial voxel behind a 2 mm margin",
+      "Added contrast classification and body part recognition on CT and MRI for Bristol Myers Squibb, sorting trial scans before anyone opened them",
+      "Brought medical text recognition into the product, retraining CLOVA OCR and adding the CRAFT detector for text regions",
     ],
-    publications: [],
+    links: [
+      {
+        title: "Deep Deface",
+        url: "/portfolio/deep-deface",
+        type: "Project Overview",
+      },
+    ],
     logoBrightness: 1.0,
   },
   {
@@ -238,13 +257,16 @@ const EXPERIENCES_DATA = [
     endDate: "2022-08-01",
     location: "Tomsk • Russia 🇷🇺",
     logo: "/experience/core-roles/tpu.svg",
+    summary:
+      "Supervised 5 developers on stenosis detection running in live surgery and TAVI tracking for the Kemerovo Cardiology Center, and catheter segmentation in ultrasound for Boston Children's Hospital",
     responsibilities: [
-      "Supervising a group of 5 developers in the creation of CV algorithms and ML models",
-      "Designing a specialized deep learning model for segmenting medical devices in ultrasound for Boston Children's Hospital",
-      "Building an automatic fire detection system utilizing machine learning techniques for the Incom Group",
-      "Developing a multi-task learning based system for tracking aorta and catheter key points for Kemerovo Cardiology Center",
+      "Supervised 5 developers on computer vision and ML across cardiology, pediatric surgery and industry",
+      "Developed real-time coronary stenosis detection that runs in live surgery at the Kemerovo Cardiology Center, at 94% mAP and 10 FPS",
+      "Tracked aorta and catheter keypoints for TAVI at 97% accuracy and 90 FPS, guiding valve placement during surgery",
+      "Segmented catheters in 3D ultrasound for Boston Children's Hospital at 93.6% Dice, 13 points above U-Net, despite speckle and low resolution",
+      "Built wildfire detection from video at 95.6% accuracy and 9 FPS, over remote Siberian forest",
     ],
-    publications: [
+    links: [
       {
         title: "Solution for minimally invasive heart valve replacement",
         url: "https://minzdrav.gov.ru/regional_news/13932-sovmestnaya-razrabotka-uchenyh-kemerova-i-tomska-pozvolit-provodit-maloinvazivnye-operatsii-po-zamene-klapana-serdtsa-bez-ispolzovaniya-importnyh-izdeliy",
@@ -287,17 +309,39 @@ const EXPERIENCES_DATA = [
     endDate: "2017-05-01",
     location: "Tomsk • Russia 🇷🇺",
     logo: "/experience/core-roles/sibur.svg",
+    summary:
+      "Implemented, maintained and repaired process control systems and field instrumentation across petrochemical pipelines on Siemens PLC and Yokogawa DCS platforms",
     responsibilities: [
       "Implementation of process control systems within petrochemical pipelines",
       "Maintenance and repair of measurement devices, as well as automated process control systems such as Siemens S300/400, Yokogawa Centum, Numerik PS2000 and Remicont",
     ],
-    publications: [],
+    links: [],
     logoBrightness: 1.0,
   },
 ];
 
 // Visiting roles data configuration
 const VISITING_ROLES_DATA = [
+  {
+    id: "pretoria-visiting-prof",
+    title: "Visiting Professor",
+    company: "University of Pretoria",
+    type: "Visiting",
+    category: "research",
+    startDate: "2026-09-01",
+    endDate: "2026-10-01",
+    location: "Pretoria • South Africa 🇿🇦",
+    logo: "/experience/visiting-roles/uop.svg",
+    summary:
+      "Hosted by Prof. Olawande Daramola on an A4U Erasmus+ mobility grant, covering machine learning, applied AI and translational research, and presenting non-invasive intracranial pressure monitoring",
+    responsibilities: [
+      "Visited Prof. Olawande Daramola's group on an A4U Erasmus+ staff mobility grant, on machine learning, applied AI and translational research",
+      "Presented the SafeICP work on non-invasive brain pressure from photonic sensors",
+      "Invited to judge International Students’ Day 2026 and to speak at the Embassy of Spain in Pretoria",
+    ],
+    links: [],
+    logoBrightness: 1.0,
+  },
   {
     id: "sapienza-visiting-prof",
     title: "Visiting Professor",
@@ -308,15 +352,17 @@ const VISITING_ROLES_DATA = [
     endDate: "2026-05-15",
     location: "Rome • Italy 🇮🇹",
     logo: "/experience/visiting-roles/sapienza.svg",
+    summary:
+      "Worked with Prof. Irene Amerini's ALCOR Lab on computer vision, pattern recognition and multimodal AI, and presented non-invasive intracranial pressure from near-infrared photonics",
     responsibilities: [
-      "Collaborated with Prof. Irene Amerini and the ALCOR Lab on computer vision, pattern recognition, machine learning, and multimodal AI applied to perceptual inference and sensor data analysis",
-      'Delivered a seminar entitled "Illuminating the black box: Non-invasive intracranial pressure estimation via near-infrared photonics and deep learning" at the Department of Computer, Control and Management Engineering, presenting work developed within the SafeICP project',
-      "Explored shared methodological ground between the ALCOR Lab's computer vision and multimodal AI and the BCN MedTech team's biomedical signal processing for non-invasive clinical monitoring",
+      "Visited Prof. Irene Amerini's ALCOR Lab on computer vision, pattern recognition and multimodal AI",
+      "Presented “Illuminating the black box”, on non-invasive intracranial pressure from near-infrared photonics and deep learning",
+      "Mapped where the ALCOR Lab's computer vision meets BCN MedTech's biomedical signal processing, for non-invasive clinical monitoring",
     ],
-    publications: [
+    links: [
       {
         title: "Certificate of attendance",
-        url: "https://drive.google.com/file/d/1DCdTskDWc8SZQsTeuAj5ZgY-bmzDWTPv/view?usp=sharing",
+        url: "/documents/certificate-of-attendance-sapienza.pdf",
         type: "Certificate",
       },
       {
@@ -343,15 +389,17 @@ const VISITING_ROLES_DATA = [
     endDate: "2026-04-17",
     location: "Groningen • Netherlands 🇳🇱",
     logo: "/experience/visiting-roles/uog.svg",
+    summary:
+      "Worked with Prof. George Azzopardi at the Bernoulli Institute on machine learning, computer vision and predictive modeling, and lectured on non-invasive brain pressure monitoring",
     responsibilities: [
-      "Collaborated with Prof. George Azzopardi at the Bernoulli Institute on machine learning, computer vision, and predictive modelling, exchanging methods on model design and evaluation strategies",
-      'Delivered a seminar entitled "A Safe Window Into Brain Pressure" at the House of Connections, presenting non-invasive intracranial pressure estimation using optical sensing and machine learning developed within the SafeICP project',
-      "Engaged in knowledge-exchange sessions with University of Groningen researchers on shared priorities in AI/ML for biomedical and applied domains",
+      "Visited Prof. George Azzopardi at the Bernoulli Institute on machine learning, computer vision and predictive modeling",
+      "Presented “A Safe Window Into Brain Pressure”, on reading intracranial pressure without surgery",
+      "Ran knowledge-exchange sessions with the institute's researchers on AI and ML for biomedical work",
     ],
-    publications: [
+    links: [
       {
         title: "Certificate of attendance",
-        url: "https://drive.google.com/file/d/1mRKyvJlvpyqskWf4KUEqf6SJ3KIz8erP/view?usp=sharing",
+        url: "/documents/certificate-of-attendance-groningen.pdf",
         type: "Certificate",
       },
       {
@@ -377,16 +425,17 @@ const VISITING_ROLES_DATA = [
     endDate: "2025-04-01",
     location: "Paris • France 🇫🇷",
     logo: "/experience/visiting-roles/sorbonne.svg",
+    summary:
+      "Joined the Laboratory of Biomedical Imaging on combining fMRI, PET and electrophysiology with ML for hydrocephalus and brain trauma, and presented SafeICP work on non-invasive brain pressure",
     responsibilities: [
-      "Collaborated with the Neural Connectivity and Plasticity group on integrating neuroimaging (fMRI, PET, electrophysiology) with machine learning",
-      "Presented research on non-invasive intracranial pressure prediction using photonics and AI as part of the SafeICP project",
-      "Participated in hands-on training and interdisciplinary work on ML-based diagnostics for hydrocephalus and brain trauma",
-      "Engaged with faculty including Prof. Dmitrii Todorov, Prof. Olivier Couture, and Prof. Lori Bridal to initiate future joint research and publications",
+      "Visited the Laboratory of Biomedical Imaging on joining neuroimaging, fMRI, PET and electrophysiology, with machine learning",
+      "Presented the SafeICP work on non-invasive intracranial pressure from photonics and AI",
+      "Worked on ML diagnostics for hydrocephalus and brain trauma with Prof. Dmitrii Todorov and Prof. Lori Bridal",
     ],
-    publications: [
+    links: [
       {
         title: "Certificate of attendance",
-        url: "https://drive.google.com/file/d/1HsBKzfXy9qrggTqh20Q4CQPxlxVy_dWe/view?usp=drive_link",
+        url: "/documents/certificate-of-attendance-sorbonne.pdf",
         type: "Certificate",
       },
       {
@@ -399,23 +448,25 @@ const VISITING_ROLES_DATA = [
   },
   {
     id: "leeds-research-fellow",
-    title: "Data Scientist · Research Fellow",
+    title: "Visiting Research Scientist",
     company: "University of Leeds",
     type: "Visiting",
     category: "research",
-    startDate: "2019-02-01",
+    startDate: "2019-01-01",
     endDate: "2019-08-01",
     location: "Leeds • United Kingdom 🇬🇧",
     logo: "/experience/visiting-roles/uol.svg",
+    summary:
+      "Built automated coronary stenosis detection and scoring with Prof. Alejandro Frangi, and used VAEs and GANs to synthesize training data and overcome dataset scarcity in vascular imaging",
     responsibilities: [
-      "Designed and implemented an ML-driven system for automated stenosis detection and scoring, enhancing diagnostic precision and reproducibility in vascular imaging",
-      "Advanced medical data synthesis using VAEs and GANs to overcome dataset scarcity and improve model generalization",
-      "Collaborated with Prof. Alejandro F. Frangi on applied DL for cardiovascular imaging, contributing to publications in Scientific Reports and ISPRS Archives",
+      "Built automated stenosis detection and scoring for vascular imaging with Prof. Alejandro Frangi",
+      "Synthesized medical data with VAEs and GANs to get past dataset scarcity and make models generalize",
+      "Designed a ray-based segmentation method for MRI, reaching up to 91.8% Dice on cardiac ventricles and 89.5% on brain tumors in milliseconds",
     ],
-    publications: [
+    links: [
       {
         title: "Reference letter by prof. Alejandro F. Frangi",
-        url: "https://drive.google.com/file/d/1JG56_Z3b_l810wcrfjgwe_Jq6QUIQr1I/view",
+        url: "/documents/reference-letter-alejandro-frangi.pdf",
         type: "Reference Letter",
       },
       {
@@ -434,7 +485,7 @@ const VISITING_ROLES_DATA = [
   },
   {
     id: "upm-research-fellow",
-    title: "Data Scientist · Research Fellow",
+    title: "Visiting Research Scientist",
     company: "Technical University of Madrid",
     type: "Visiting",
     category: "research",
@@ -442,15 +493,17 @@ const VISITING_ROLES_DATA = [
     endDate: "2019-01-01",
     location: "Madrid • Spain 🇪🇸",
     logo: "/experience/visiting-roles/upm.svg",
+    summary:
+      "Generated semi-synthetic ultrasound data to improve segmentation robustness, and built models for pulmonary emphysema detection and unsupervised segmentation with Prof. Maria Ledesma-Carbayo",
     responsibilities: [
-      "Developed an approach for semi-synthetic ultrasound data generation to enhance segmentation accuracy and robustness in medical imaging",
-      "Implemented ML models for pulmonary emphysema detection and unsupervised biomedical image segmentation, improving interpretability and diagnostic automation",
-      "Collaborated with Prof. Maria J. Ledesma-Carbayo on image reconstruction and data augmentation, contributing to publications in Computerized Medical Imaging and Graphics and ISPRS Archives",
+      "Designed a pipeline that turns real ultrasound scans into semi-synthetic training data, making segmentation more accurate and more robust",
+      "Built models for pulmonary emphysema detection and unsupervised biomedical image segmentation",
+      "Worked with Prof. Maria J. Ledesma-Carbayo on image reconstruction and data augmentation",
     ],
-    publications: [
+    links: [
       {
         title: "Reference letter by prof. Maria J. Ledesma-Carbayo",
-        url: "https://drive.google.com/file/d/1RBCxGWQOzUe_7MWqtZRYgyylUgbRr3nK/view",
+        url: "/documents/reference-letter-maria-ledesma-carbayo.pdf",
         type: "Reference Letter",
       },
       {
@@ -470,7 +523,7 @@ const VISITING_ROLES_DATA = [
   },
   {
     id: "trento-research-fellow",
-    title: "Data Scientist · Research Fellow",
+    title: "Visiting Research Scientist",
     company: "University of Trento",
     type: "Visiting",
     category: "research",
@@ -478,15 +531,17 @@ const VISITING_ROLES_DATA = [
     endDate: "2017-08-01",
     location: "Trento • Italy 🇮🇹",
     logo: "/experience/visiting-roles/uot.svg",
+    summary:
+      "Built catheter detection and segmentation in 3D ultrasound using support vector machines and texture features, and benchmarked a new feature selection method with Prof. Farid Melgani",
     responsibilities: [
-      "Developed a volumetric ultrasound catheter detection and segmentation algorithm using SVM and texture-based features",
-      "Designed and evaluated a feature selection method based on PDF/PMF area difference, benchmarked against established techniques",
-      "Collaborated with Prof. Farid Melgani on biomedical signal processing research published in Biomedical Signal Processing and Control and Scientific Visualization",
+      "Built volumetric ultrasound catheter detection and segmentation on SVM and texture features",
+      "Designed a feature selection method on the area between distributions, benchmarked against the established ones",
+      "Worked with Prof. Farid Melgani on biomedical signal processing",
     ],
-    publications: [
+    links: [
       {
         title: "Reference letter by prof. Farid Melgani",
-        url: "https://drive.google.com/file/d/1L_8GD3Lu-G7tRf4QXjimTENsSkiFzt76/view",
+        url: "/documents/reference-letter-farid-melgani.pdf",
         type: "Reference Letter",
       },
       {
@@ -536,7 +591,7 @@ export default function Experience() {
         <section className="w-full max-w-7xl mx-auto px-6">
           <header className="mb-12 text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-light mb-4">
-              Core Roles
+              Core Positions
             </h1>
             <p className="text-gray-400 mt-3 max-w-3xl mx-auto leading-relaxed">
               Leadership and engineering roles spanning AI, machine learning,
@@ -555,11 +610,11 @@ export default function Experience() {
           </div>
         </section>
 
-        {/* Visiting Roles Section */}
+        {/* Visiting Positions Section */}
         <section className="w-full max-w-7xl mx-auto px-6">
           <header className="mb-12 text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-light mb-4">
-              Visiting Roles
+              Visiting Positions
             </h1>
             <p className="text-gray-400 mt-3 max-w-3xl mx-auto leading-relaxed">
               Collaborative research contributions in machine learning, AI, and

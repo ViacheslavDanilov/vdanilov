@@ -68,7 +68,7 @@ const CallToAction = ({
             {/* Contact Buttons */}
             <div className="flex flex-col sm:flex-row items-center gap-4 pt-2">
               <LiquidButtonLink
-                href="mailto:viacheslav.danilov@gmail.com"
+                href="mailto:viacheslav.v.danilov@gmail.com"
                 target="_blank"
                 ariaLabel="Send email"
                 size="xxl"

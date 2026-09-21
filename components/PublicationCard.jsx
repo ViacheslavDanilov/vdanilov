@@ -20,9 +20,35 @@ const TYPE_CONFIG = {
   Dataset: { variant: "cyan", icon: faDatabase },
 };
 
+// City and flag only; the country sits in the data but will not fit the line
+const cityAndFlag = (location) => {
+  const flag = (location.match(/\p{Regional_Indicator}{2}/u) || [""])[0];
+  const city = location
+    .split(",")[0]
+    .replace(/\p{Regional_Indicator}{2}/gu, "")
+    .trim();
+  return `${city} ${flag}`.trim();
+};
+
+// Author position, worded the way the CV prints it; one muted hue each
+const AUTHOR_POSITION = {
+  first: {
+    label: "First author",
+    className: "bg-emerald-400/12 text-emerald-400/85 border-emerald-400/30",
+  },
+  senior: {
+    label: "Senior author",
+    className: "bg-red-300/12 text-red-300/85 border-red-300/30",
+  },
+  middle: {
+    label: "Co-author",
+    className: "bg-violet-300/12 text-violet-300/85 border-violet-300/30",
+  },
+};
+
 /**
  * Minimalistic publication card component
- * Displays publication title, authors, venue, year, and optional link
+ * Displays publication title, venue, year, and optional link
  */
 const PublicationCard = ({
   publication,
@@ -31,7 +57,7 @@ const PublicationCard = ({
   glowColor = "blue",
   spotlightSize = 240,
 }) => {
-  const { title, authors, venue, year, url, type, tags } = publication;
+  const { title, venue, year, url, type, tags } = publication;
   const config = TYPE_CONFIG[type] || TYPE_CONFIG.Journal;
 
   return (
@@ -98,7 +124,7 @@ const PublicationCard = ({
               {publication.location && (
                 <>
                   <span className="text-gray-500 mx-2">•</span>
-                  <span>{publication.location}</span>
+                  <span>{cityAndFlag(publication.location)}</span>
                 </>
               )}
               {year && (
@@ -111,9 +137,10 @@ const PublicationCard = ({
           )}
 
           {/* Tags */}
-          {tags && tags.length > 0 && (
+          {((tags && tags.length > 0) ||
+            AUTHOR_POSITION[publication.authorPosition]) && (
             <div className="flex flex-wrap gap-2 mt-2">
-              {tags.map((tag) => (
+              {tags?.map((tag) => (
                 <span
                   key={tag}
                   className="px-2.5 py-0.5 text-xs font-medium rounded-full bg-white/5 text-neutral-300 border border-white/10"
@@ -121,6 +148,13 @@ const PublicationCard = ({
                   {tag}
                 </span>
               ))}
+              {AUTHOR_POSITION[publication.authorPosition] && (
+                <span
+                  className={`px-2.5 py-0.5 text-xs font-medium rounded-full border ${AUTHOR_POSITION[publication.authorPosition].className}`}
+                >
+                  {AUTHOR_POSITION[publication.authorPosition].label}
+                </span>
+              )}
             </div>
           )}
         </div>

@@ -100,7 +100,7 @@ const TEAM_MEMBERS = [
     },
   },
   {
-    name: "Alex Frangi",
+    name: "Alejandro Frangi",
     role: "Professor",
     organization: "University of Leeds",
     location: "Leeds · United Kingdom 🇬🇧",

@@ -116,11 +116,11 @@ const TEAM_MEMBERS = [
 const RESOURCES = [
   {
     label: "Tests on CT",
-    url: "https://drive.google.com/drive/folders/12YENTfHdBlqxt0QCkPUcFor7zm_N5quH?usp=sharing",
+    url: "https://drive.google.com/drive/folders/1bWEE2quPNKTIp6L_SxCC4zrjkDcjdtuL",
   },
   {
     label: "Tests on MRI",
-    url: "https://drive.google.com/drive/folders/12LqWyCmFmvg2x8WVpT7BmUDrFT_yaLGN?usp=sharing",
+    url: "https://drive.google.com/drive/folders/1HOTZ6ybV1E_vlAqeeTjhMTC0qv4KQnof",
   },
 ];
 

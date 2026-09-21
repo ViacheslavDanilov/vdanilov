@@ -52,7 +52,7 @@ const HIGHLIGHTS_ITEMS = [
   {
     icon: faSearch,
     label: "Situation",
-    text: "The Institute for Image Guided Surgery in Strasbourg needed to automate evaluation of laser-induced tissue damage from hyperspectral imaging during surgical procedures.",
+    text: "The Institute for Image-Guided Surgery in Strasbourg needed to automate evaluation of laser-induced tissue damage from hyperspectral imaging during surgical procedures.",
   },
   {
     icon: faBullseye,
@@ -93,8 +93,7 @@ const TEAM_MEMBERS = [
     location: "Milan · Italy 🇮🇹",
     photo: "/people/martina-de-landro.webp",
     links: {
-      globe:
-        "https://www.mecc.polimi.it/dottorato/i-nostri-dottorandi/xxxiv-ciclo/martina-de-landro",
+      globe: "https://sciprofiles.com/profile/1293523",
       linkedin: "https://www.linkedin.com/in/martina-de-landro-9144b184/",
       researchgate: "https://www.researchgate.net/profile/Martina-De-Landro",
       google: "https://scholar.google.com/citations?user=5cbbF1UAAAAJ",
@@ -284,7 +283,7 @@ export default function ProjectPage() {
               rel="noopener noreferrer"
               className="text-accent hover:underline"
             >
-              Institute for Image Guided Surgery
+              Institute for Image-Guided Surgery
             </a>
             <span className="text-gray-400"> · Strasbourg · France 🇫🇷</span>
           </div>

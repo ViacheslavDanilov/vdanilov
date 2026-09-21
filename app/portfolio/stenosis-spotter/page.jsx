@@ -128,7 +128,7 @@ const TEAM_MEMBERS = [
     },
   },
   {
-    name: "Alex Frangi",
+    name: "Alejandro Frangi",
     role: "Professor",
     organization: "University of Leeds",
     location: "Leeds · United Kingdom 🇬🇧",
@@ -154,7 +154,7 @@ const RESOURCES = [
   },
   {
     label: "Surgery Videos",
-    url: "https://drive.google.com/drive/folders/16rJOh5w34fM2mamHH2GgePNB-vBTDXyx?usp=sharing",
+    url: "https://drive.google.com/drive/folders/1NWt7ND-3LgvINV6Cnshz1pFLHaqQSL8R",
   },
   {
     label: "News 1 (RSF)",
@@ -166,7 +166,7 @@ const RESOURCES = [
   },
   {
     label: "Dataset",
-    url: "https://doi.org/10.17632/ydrm75xywg.2",
+    url: "https://data.mendeley.com/datasets/ydrm75xywg",
   },
 ];
 

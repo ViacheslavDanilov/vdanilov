@@ -176,7 +176,7 @@ const RESOURCES = [
   },
   {
     label: "ECBO Presentation",
-    url: "https://drive.google.com/file/d/1IC40WYQNwFS8-loEpr2xpsERPapCBeHu/view?usp=sharing",
+    url: "/portfolio/deep-brainwatch/ecbo-presentation.pdf",
   },
   {
     label: "GitLab",
@@ -421,7 +421,7 @@ export default function ProjectPage() {
               <p className="text-gray-300 leading-relaxed text-justify">
                 We used cerebral blood flow (CBF) measurements acquired via{" "}
                 <a
-                  href="https://en.wikipedia.org/wiki/Diffuse_correlation_spectroscopy"
+                  href="https://en.wikipedia.org/wiki/Diffuse_correlation_spectrometry"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-accent hover:underline"
@@ -656,7 +656,7 @@ export default function ProjectPage() {
             {/* Figure 3 */}
             <figure id="figure-3" className="scroll-mt-24 mb-8">
               <ImageLightbox
-                src="/portfolio/deep-brainwatch/error-distribution-mWDN.webp"
+                src="/portfolio/deep-brainwatch/error-distribution-mwdn.webp"
                 alt="Error Distribution of mWDN Model"
                 width={1920}
                 height={1080}
@@ -694,10 +694,10 @@ export default function ProjectPage() {
                   muted
                   playsInline
                   controls
-                  poster="/portfolio/deep-brainwatch/predictions-mWDN-train-val-poster.webp"
+                  poster="/portfolio/deep-brainwatch/predictions-mwdn-train-val-poster.webp"
                 >
                   <source
-                    src="/portfolio/deep-brainwatch/predictions-mWDN-train-val.mp4"
+                    src="/portfolio/deep-brainwatch/predictions-mwdn-train-val.mp4"
                     type="video/mp4"
                   />
                   Your browser does not support the video tag.
@@ -720,10 +720,10 @@ export default function ProjectPage() {
                   muted
                   playsInline
                   controls
-                  poster="/portfolio/deep-brainwatch/predictions-mWDN-test-poster.webp"
+                  poster="/portfolio/deep-brainwatch/predictions-mwdn-test-poster.webp"
                 >
                   <source
-                    src="/portfolio/deep-brainwatch/predictions-mWDN-test.mp4"
+                    src="/portfolio/deep-brainwatch/predictions-mwdn-test.mp4"
                     type="video/mp4"
                   />
                   Your browser does not support the video tag.

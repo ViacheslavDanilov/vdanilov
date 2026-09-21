@@ -152,12 +152,12 @@ const TEAM_MEMBERS = [
 
 const RESOURCES = [
   {
-    label: "Patent",
+    label: "Software Registration",
     url: "https://www1.fips.ru/fips_servl/fips_servlet?DB=EVM&DocNumber=2022619805&TypeFile=html",
   },
   {
     label: "Model Testing",
-    url: "https://drive.google.com/drive/folders/1iZTxyE_3H1HkqPAMkTQD6Fz81zGKVsef?usp=sharing",
+    url: "https://drive.google.com/drive/folders/1pubDUlPZFTmmmBmY0PppnzeVJhhLWGVI",
   },
 ];
 

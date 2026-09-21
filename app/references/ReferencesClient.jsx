@@ -11,7 +11,7 @@ const REFERENCES_DATA = [
   // Research
   {
     id: "alex-frangi",
-    name: "Alex Frangi, PhD",
+    name: "Alejandro Frangi, PhD",
     role: "Director",
     organization: "Christabel Pankhurst Institute",
     location: "Manchester · United Kingdom 🇬🇧",
@@ -210,14 +210,13 @@ const REFERENCES_DATA = [
   {
     id: "nikolay-vasilyev",
     name: "Nikolay Vasilyev, MD",
-    role: "Senior Medical Director",
-    organization: "Pfizer",
+    role: "Head of Medical Affairs",
+    organization: "Johnson & Johnson",
     location: "Denver · United States 🇺🇸",
     category: "Medicine",
     image: "/people/nikolay-vasilyev.webp",
     featured: false,
     socials: {
-      website: "https://www.ctsnet.org/home/nvasiliev",
       linkedin: "https://www.linkedin.com/in/nikolayvasilyev/",
       researchgate: "https://www.researchgate.net/profile/Nikolay-Vasilyev-2",
       googleScholar:

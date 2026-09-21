@@ -48,7 +48,7 @@ const About = () => {
     {
       name: "Email",
       icon: faEnvelope,
-      href: "mailto:viacheslav.danilov@gmail.com",
+      href: "mailto:viacheslav.v.danilov@gmail.com",
       color: "hover:text-light",
     },
   ];
@@ -104,22 +104,23 @@ const About = () => {
           <p>
             Experienced{" "}
             <span className="inline-block bg-accent/10 text-accent font-semibold px-4 py-0.5 rounded-3xl">
-              Lead ML Engineer
+              Lead AI/ML Engineer
             </span>{" "}
             and{" "}
             <span className="inline-block bg-accent/10 text-accent font-semibold px-4 py-0.5 rounded-3xl">
               Research Scientist
             </span>{" "}
-            based in Barcelona, with a PhD in Computer Science and 10 years of
-            experience in AI and data science. Having worked in both academia
+            based in Barcelona, with a PhD in Computer Science and over 10 years
+            of experience in AI and data science. Having worked in both academia
             and industry, I have sharpened skills in data analysis, AI/ML
             development, and scientific experimentation. I cover the full
             spectrum from designing predictive models to engineering scalable
             solutions with modern frameworks and cloud platforms. My projects
             often leverage cloud infrastructure to maximize efficiency. Over my
             career, I have collaborated on a variety of initiatives, and my work
-            has been published in scientific venues like Springer, Frontiers,
-            and Nature.
+            has been published in journals including Computers in Biology and
+            Medicine, Frontiers in Cardiovascular Medicine, and Scientific
+            Reports.
           </p>
         </div>
 
@@ -151,7 +152,7 @@ const About = () => {
         {/* Contact Button */}
         <div className="pt-2">
           <LiquidButtonLink
-            href="https://wa.me/+34634810041"
+            href="https://wa.me/34634810041"
             target="_blank"
             ariaLabel="Contact me"
             size="xxl"

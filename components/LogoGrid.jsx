@@ -49,9 +49,9 @@ const logos = [
     href: "https://amtrustfinancial.com/",
   },
   {
-    name: "Plateau",
-    src: "/clients/plateau.svg",
-    href: "https://www.plateaugroup.com/",
+    name: "Lumos Insurance",
+    src: "/clients/lumos.svg",
+    href: "https://www.lumosinsurance.com/",
   },
   {
     name: "CNA",
