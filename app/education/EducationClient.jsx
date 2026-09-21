@@ -167,7 +167,7 @@ const CERTIFICATES_DATA = [
     organization: "Meta",
     date: "Oct 2026",
     logo: "/education/certificates/meta.svg",
-    url: "https://www.coursera.org/professional-certificates/meta-back-end-developer",
+    url: "https://www.vdanilov.com/",
     organizationUrl:
       "https://certifications.facebookblueprint.com/student/catalog",
     logoBrightness: 1.0,

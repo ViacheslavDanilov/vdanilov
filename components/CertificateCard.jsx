@@ -39,7 +39,7 @@ const CertificateCard = ({
               href={certificate.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group/title flex items-center gap-2 text-md font-bold text-light group-hover:text-accent transition-colors max-w-full min-w-0"
+              className="group/title flex items-center gap-2 text-md font-bold text-light group-hover:text-accent transition-colors w-fit"
             >
               <span className="uppercase tracking-wide">
                 {certificate.title}
@@ -64,7 +64,7 @@ const CertificateCard = ({
               href={certificate.organizationUrl || certificate.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-medium text-light md:hover:text-accent uppercase tracking-wider transition-colors cursor-pointer max-w-full"
+              className="text-sm font-medium text-light md:hover:text-accent uppercase tracking-wider transition-colors cursor-pointer w-fit"
             >
               {certificate.organization}
             </a>
@@ -76,8 +76,8 @@ const CertificateCard = ({
         </div>
 
         {/* Desktop Layout */}
-        <div className="hidden md:flex h-full items-center min-w-0">
-          <div className="flex flex-row items-start gap-5 w-full min-w-0">
+        <div className="hidden md:flex h-full items-center">
+          <div className="flex flex-row items-start gap-5 w-full">
             {/* Logo */}
             <CompanyLogo
               logo={certificate.logo}
@@ -92,9 +92,9 @@ const CertificateCard = ({
                 href={certificate.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group/title flex items-center gap-2 text-md font-bold text-light group-hover:text-accent transition-colors max-w-full min-w-0"
+                className="group/title flex items-center gap-2 text-md font-bold text-light group-hover:text-accent transition-colors w-fit"
               >
-                <span className="uppercase tracking-wide truncate min-w-0">
+                <span className="uppercase tracking-wide truncate">
                   {certificate.title}
                 </span>
                 <span
@@ -117,7 +117,7 @@ const CertificateCard = ({
                 href={certificate.organizationUrl || certificate.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-medium text-light md:hover:text-accent uppercase tracking-wider transition-colors cursor-pointer truncate max-w-full"
+                className="text-sm font-medium text-light md:hover:text-accent uppercase tracking-wider transition-colors cursor-pointer truncate w-fit"
               >
                 {certificate.organization}
               </a>
