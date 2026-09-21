@@ -664,7 +664,7 @@ export default function ProjectPage() {
                   className="w-full rounded-lg border border-white/10"
                 >
                   <source
-                    src="/portfolio/sonoguide/segmentation-of-a-static-3D-series.mp4"
+                    src="/portfolio/sonoguide/segmentation-of-a-static-3d-series.mp4"
                     type="video/mp4"
                   />
                   Your browser does not support the video tag.
@@ -685,7 +685,7 @@ export default function ProjectPage() {
                   className="w-full rounded-lg border border-white/10"
                 >
                   <source
-                    src="/portfolio/sonoguide/segmentation-of-a-dynamic-3D-series.mp4"
+                    src="/portfolio/sonoguide/segmentation-of-a-dynamic-3d-series.mp4"
                     type="video/mp4"
                   />
                   Your browser does not support the video tag.
