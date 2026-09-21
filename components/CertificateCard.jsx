@@ -47,22 +47,20 @@ const CertificateCard = ({
               <span className="uppercase tracking-wide">
                 {certificate.title}
               </span>
-              {certificate.url && (
-                <span
-                  className="inline-block transition-transform duration-300 group-hover/title:translate-x-1"
-                  style={{ width: "0.75rem", height: "0.75rem" }}
-                >
-                  <FontAwesomeIcon
-                    icon={faArrowRight}
-                    className="opacity-60"
-                    style={{
-                      width: "0.75rem",
-                      height: "0.75rem",
-                      display: "block",
-                    }}
-                  />
-                </span>
-              )}
+              <span
+                className="inline-block transition-transform duration-300 group-hover/title:translate-x-1"
+                style={{ width: "0.75rem", height: "0.75rem" }}
+              >
+                <FontAwesomeIcon
+                  icon={faArrowRight}
+                  className="opacity-60"
+                  style={{
+                    width: "0.75rem",
+                    height: "0.75rem",
+                    display: "block",
+                  }}
+                />
+              </span>
             </TitleTag>
 
             <a
@@ -100,22 +98,20 @@ const CertificateCard = ({
                 <span className="uppercase tracking-wide">
                   {certificate.title}
                 </span>
-                {certificate.url && (
-                  <span
-                    className="inline-block transition-transform duration-300 group-hover/title:translate-x-1"
-                    style={{ width: "0.75rem", height: "0.75rem" }}
-                  >
-                    <FontAwesomeIcon
-                      icon={faArrowRight}
-                      className="opacity-60"
-                      style={{
-                        width: "0.75rem",
-                        height: "0.75rem",
-                        display: "block",
-                      }}
-                    />
-                  </span>
-                )}
+                <span
+                  className="inline-block transition-transform duration-300 group-hover/title:translate-x-1"
+                  style={{ width: "0.75rem", height: "0.75rem" }}
+                >
+                  <FontAwesomeIcon
+                    icon={faArrowRight}
+                    className="opacity-60"
+                    style={{
+                      width: "0.75rem",
+                      height: "0.75rem",
+                      display: "block",
+                    }}
+                  />
+                </span>
               </TitleTag>
 
               <a
