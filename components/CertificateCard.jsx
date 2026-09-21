@@ -42,7 +42,7 @@ const CertificateCard = ({
           <div className="flex flex-col gap-2 items-center text-center">
             <TitleTag
               {...titleLinkProps}
-              className="group/title flex items-center gap-2 text-md font-bold text-light group-hover:text-accent transition-colors w-fit"
+              className="group/title flex items-center gap-2 text-md font-bold text-light group-hover:text-accent transition-colors max-w-full"
             >
               <span className="uppercase tracking-wide">
                 {certificate.title}
@@ -69,7 +69,7 @@ const CertificateCard = ({
               href={certificate.organizationUrl || certificate.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-medium text-light md:hover:text-accent uppercase tracking-wider transition-colors cursor-pointer w-fit"
+              className="text-sm font-medium text-light md:hover:text-accent uppercase tracking-wider transition-colors cursor-pointer max-w-full"
             >
               {certificate.organization}
             </a>
@@ -95,9 +95,9 @@ const CertificateCard = ({
             <div className="flex-1 min-w-0 flex flex-col gap-2">
               <TitleTag
                 {...titleLinkProps}
-                className="group/title flex items-center gap-2 text-md font-bold text-light group-hover:text-accent transition-colors w-fit"
+                className="group/title flex items-center gap-2 text-md font-bold text-light group-hover:text-accent transition-colors max-w-full"
               >
-                <span className="uppercase tracking-wide truncate">
+                <span className="uppercase tracking-wide">
                   {certificate.title}
                 </span>
                 {certificate.url && (
@@ -122,7 +122,7 @@ const CertificateCard = ({
                 href={certificate.organizationUrl || certificate.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-medium text-light md:hover:text-accent uppercase tracking-wider transition-colors cursor-pointer truncate w-fit"
+                className="text-sm font-medium text-light md:hover:text-accent uppercase tracking-wider transition-colors cursor-pointer max-w-full"
               >
                 {certificate.organization}
               </a>
