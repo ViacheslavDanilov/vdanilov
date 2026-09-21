@@ -439,6 +439,12 @@ const VISITING_ROLES_DATA = [
         type: "Certificate",
       },
       {
+        title:
+          "Non-invasive intracranial pressure prediction using machine learning",
+        url: "https://www.lib.upmc.fr/evenement/seminaire-lib-viacheslav-danilov-pompeu-fabra-university-barcelona/",
+        type: "Seminar",
+      },
+      {
         title: "SafeICP",
         url: "https://safe-icp.vercel.app/",
         type: "Project Website",
