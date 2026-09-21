@@ -11,7 +11,7 @@ const REFERENCES_DATA = [
   // Research
   {
     id: "alex-frangi",
-    name: "Alex Frangi, PhD",
+    name: "Alejandro Frangi, PhD",
     role: "Director",
     organization: "Christabel Pankhurst Institute",
     location: "Manchester · United Kingdom 🇬🇧",
