@@ -13,6 +13,11 @@ const CertificateCard = ({
   glowColor = "blue",
   spotlightSize = 180,
 }) => {
+  const TitleTag = certificate.url ? "a" : "span";
+  const titleLinkProps = certificate.url
+    ? { href: certificate.url, target: "_blank", rel: "noopener noreferrer" }
+    : {};
+
   return (
     <article className="h-full w-full">
       <GlowCard
@@ -35,30 +40,30 @@ const CertificateCard = ({
 
           {/* Content */}
           <div className="flex flex-col gap-2 items-center text-center">
-            <a
-              href={certificate.url}
-              target="_blank"
-              rel="noopener noreferrer"
+            <TitleTag
+              {...titleLinkProps}
               className="group/title flex items-center gap-2 text-md font-bold text-light group-hover:text-accent transition-colors w-fit"
             >
               <span className="uppercase tracking-wide">
                 {certificate.title}
               </span>
-              <span
-                className="inline-block transition-transform duration-300 group-hover/title:translate-x-1"
-                style={{ width: "0.75rem", height: "0.75rem" }}
-              >
-                <FontAwesomeIcon
-                  icon={faArrowRight}
-                  className="opacity-60"
-                  style={{
-                    width: "0.75rem",
-                    height: "0.75rem",
-                    display: "block",
-                  }}
-                />
-              </span>
-            </a>
+              {certificate.url && (
+                <span
+                  className="inline-block transition-transform duration-300 group-hover/title:translate-x-1"
+                  style={{ width: "0.75rem", height: "0.75rem" }}
+                >
+                  <FontAwesomeIcon
+                    icon={faArrowRight}
+                    className="opacity-60"
+                    style={{
+                      width: "0.75rem",
+                      height: "0.75rem",
+                      display: "block",
+                    }}
+                  />
+                </span>
+              )}
+            </TitleTag>
 
             <a
               href={certificate.organizationUrl || certificate.url}
@@ -88,30 +93,30 @@ const CertificateCard = ({
 
             {/* Content */}
             <div className="flex-1 min-w-0 flex flex-col gap-2">
-              <a
-                href={certificate.url}
-                target="_blank"
-                rel="noopener noreferrer"
+              <TitleTag
+                {...titleLinkProps}
                 className="group/title flex items-center gap-2 text-md font-bold text-light group-hover:text-accent transition-colors w-fit"
               >
                 <span className="uppercase tracking-wide truncate">
                   {certificate.title}
                 </span>
-                <span
-                  className="inline-block transition-transform duration-300 group-hover/title:translate-x-1"
-                  style={{ width: "0.75rem", height: "0.75rem" }}
-                >
-                  <FontAwesomeIcon
-                    icon={faArrowRight}
-                    className="opacity-60"
-                    style={{
-                      width: "0.75rem",
-                      height: "0.75rem",
-                      display: "block",
-                    }}
-                  />
-                </span>
-              </a>
+                {certificate.url && (
+                  <span
+                    className="inline-block transition-transform duration-300 group-hover/title:translate-x-1"
+                    style={{ width: "0.75rem", height: "0.75rem" }}
+                  >
+                    <FontAwesomeIcon
+                      icon={faArrowRight}
+                      className="opacity-60"
+                      style={{
+                        width: "0.75rem",
+                        height: "0.75rem",
+                        display: "block",
+                      }}
+                    />
+                  </span>
+                )}
+              </TitleTag>
 
               <a
                 href={certificate.organizationUrl || certificate.url}
