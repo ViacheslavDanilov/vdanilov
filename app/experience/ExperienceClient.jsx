@@ -241,7 +241,7 @@ const EXPERIENCES_DATA = [
     links: [
       {
         title: "Deep Deface",
-        url: "https://vdanilov.com/portfolio/deep-deface",
+        url: "/portfolio/deep-deface",
         type: "Project Overview",
       },
     ],
