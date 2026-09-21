@@ -35,6 +35,7 @@ const COMPANY_URLS = {
   "University of Trento": "https://www.unitn.it/",
   "University of Groningen": "https://www.rug.nl/",
   "Sapienza University of Rome": "https://www.uniroma1.it/en",
+  "University of Pretoria": "https://www.up.ac.za/",
 };
 
 // --- COMPONENTS ---
