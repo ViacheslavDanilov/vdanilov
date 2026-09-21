@@ -152,6 +152,22 @@ node, not the character count, before deciding a long one is too long.
 The site and the CV hold the same string. Changing one means changing the other, and the
 `Duty` node lives on the `Experience / *` components, not on the instances.
 
+## Experience link order
+
+The `links` array on each entry is ordered, and the order is the reading order on the card and in
+the CV. **Someone else's live page first, a document hosted here second, my own project last.**
+
+- Visiting cards with a talk: `Seminar`, `Certificate`, `Project Website`
+- Visiting cards with papers: the papers in their own order, then `Reference Letter`
+
+The first and last chips are the ones a reader opens, so a PDF that has to be downloaded does not
+belong in either. A certificate sits in the middle for that reason; a reference letter goes last
+because moving it into the middle would split a run of papers, which reads worse than either.
+
+The CV holds the same order in the chip slots on the `Experience / *` components. Reordering there
+means rewriting each slot's label and hyperlink in place, never moving the nodes: the row is auto
+layout and moving children has broken a separator before.
+
 ## Portfolio project pages
 
 Project pages live in `app/portfolio/<project-name>/page.jsx`.
