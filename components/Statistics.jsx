@@ -39,7 +39,7 @@ const Statistics = ({
       delay: 0.3,
     },
     {
-      value: 11,
+      value: 12,
       suffix: "",
       label: "Universities Worked At",
       duration: 2,
