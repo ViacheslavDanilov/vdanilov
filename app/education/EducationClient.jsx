@@ -93,7 +93,7 @@ const CORE_EDUCATION_DATA = [
       "Computer numerical control machines and flexible manufacturing systems",
     ],
     thesis:
-      "Development of emergency protection for the catalyst dosing unit in propylene polymerization reactors",
+      "Emergency protection for the catalyst dosing unit in propylene polymerization reactors",
     logoBrightness: 1.1,
   },
 ];
