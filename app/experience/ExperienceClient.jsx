@@ -361,15 +361,15 @@ const VISITING_ROLES_DATA = [
     ],
     links: [
       {
-        title: "Certificate of attendance",
-        url: "/documents/certificate-of-attendance-sapienza.pdf",
-        type: "Certificate",
-      },
-      {
         title:
           "Illuminating the black box: Non-invasive intracranial pressure estimation via near-infrared photonics and deep learning",
         url: "https://www.diag.uniroma1.it/node/30655",
         type: "Seminar",
+      },
+      {
+        title: "Certificate of attendance",
+        url: "/documents/certificate-of-attendance-sapienza.pdf",
+        type: "Certificate",
       },
       {
         title: "SafeICP",
@@ -398,14 +398,14 @@ const VISITING_ROLES_DATA = [
     ],
     links: [
       {
-        title: "Certificate of attendance",
-        url: "/documents/certificate-of-attendance-groningen.pdf",
-        type: "Certificate",
-      },
-      {
         title: "A Safe Window Into Brain Pressure",
         url: "https://www.rug.nl/jantina-tammes-school/calendar/2026/safe-window-into-brain-pressure",
         type: "Seminar",
+      },
+      {
+        title: "Certificate of attendance",
+        url: "/documents/certificate-of-attendance-groningen.pdf",
+        type: "Certificate",
       },
       {
         title: "SafeICP",
@@ -434,15 +434,15 @@ const VISITING_ROLES_DATA = [
     ],
     links: [
       {
-        title: "Certificate of attendance",
-        url: "/documents/certificate-of-attendance-sorbonne.pdf",
-        type: "Certificate",
-      },
-      {
         title:
           "Non-invasive intracranial pressure prediction using machine learning",
         url: "https://www.lib.upmc.fr/evenement/seminaire-lib-viacheslav-danilov-pompeu-fabra-university-barcelona/",
         type: "Seminar",
+      },
+      {
+        title: "Certificate of attendance",
+        url: "/documents/certificate-of-attendance-sorbonne.pdf",
+        type: "Certificate",
       },
       {
         title: "SafeICP",
@@ -471,11 +471,6 @@ const VISITING_ROLES_DATA = [
     ],
     links: [
       {
-        title: "Reference letter by prof. Alejandro F. Frangi",
-        url: "/documents/reference-letter-alejandro-frangi.pdf",
-        type: "Reference Letter",
-      },
-      {
         title:
           "Real-time coronary artery stenosis detection based on modern neural networks",
         url: "https://doi.org/10.1038/s41598-021-87174-2",
@@ -485,6 +480,11 @@ const VISITING_ROLES_DATA = [
         title: "Ray-based segmentation algorithm for medical imaging",
         url: "https://doi.org/10.5194/isprs-archives-XLII-2-W12-37-2019",
         type: "Conference Paper",
+      },
+      {
+        title: "Reference letter by prof. Alejandro F. Frangi",
+        url: "/documents/reference-letter-alejandro-frangi.pdf",
+        type: "Reference Letter",
       },
     ],
     logoBrightness: 1.1,
@@ -508,11 +508,6 @@ const VISITING_ROLES_DATA = [
     ],
     links: [
       {
-        title: "Reference letter by prof. Maria J. Ledesma-Carbayo",
-        url: "/documents/reference-letter-maria-ledesma-carbayo.pdf",
-        type: "Reference Letter",
-      },
-      {
         title:
           "Use of semi-synthetic data for catheter segmentation improvement",
         url: "https://doi.org/10.1016/j.compmedimag.2023.102188",
@@ -523,6 +518,11 @@ const VISITING_ROLES_DATA = [
           "Boosting segmentation accuracy of the deep learning models based on the synthetic data generation",
         url: "https://doi.org/10.5194/isprs-archives-XLIV-2-W1-2021-33-2021",
         type: "Conference Paper",
+      },
+      {
+        title: "Reference letter by prof. Maria J. Ledesma-Carbayo",
+        url: "/documents/reference-letter-maria-ledesma-carbayo.pdf",
+        type: "Reference Letter",
       },
     ],
     logoBrightness: 1.0,
@@ -546,11 +546,6 @@ const VISITING_ROLES_DATA = [
     ],
     links: [
       {
-        title: "Reference letter by prof. Farid Melgani",
-        url: "/documents/reference-letter-farid-melgani.pdf",
-        type: "Reference Letter",
-      },
-      {
         title: "Feature selection algorithm based on PDF/PMF area difference",
         url: "https://doi.org/10.1016/j.bspc.2019.101681",
         type: "Journal Article",
@@ -560,6 +555,11 @@ const VISITING_ROLES_DATA = [
           "Catheter detection and segmentation in volumetric ultrasound using SVM and GLCM",
         url: "https://doi.org/10.26583/sv.10.4.03",
         type: "Journal Article",
+      },
+      {
+        title: "Reference letter by prof. Farid Melgani",
+        url: "/documents/reference-letter-farid-melgani.pdf",
+        type: "Reference Letter",
       },
     ],
     logoBrightness: 1.1,
