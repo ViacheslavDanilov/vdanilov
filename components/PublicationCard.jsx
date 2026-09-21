@@ -48,7 +48,7 @@ const AUTHOR_POSITION = {
 
 /**
  * Minimalistic publication card component
- * Displays publication title, authors, venue, year, and optional link
+ * Displays publication title, venue, year, and optional link
  */
 const PublicationCard = ({
   publication,
@@ -57,7 +57,7 @@ const PublicationCard = ({
   glowColor = "blue",
   spotlightSize = 240,
 }) => {
-  const { title, authors, venue, year, url, type, tags } = publication;
+  const { title, venue, year, url, type, tags } = publication;
   const config = TYPE_CONFIG[type] || TYPE_CONFIG.Journal;
 
   return (
