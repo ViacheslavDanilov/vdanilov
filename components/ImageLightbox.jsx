@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -40,6 +40,9 @@ export default function ImageLightbox({
   className = "",
 }) {
   const [isOpen, setIsOpen] = useState(false);
+  const thumbnailRef = useRef(null);
+  const closeRef = useRef(null);
+  const wasOpen = useRef(false);
 
   // Map maxWidth prop to Tailwind classes or custom styles
   const maxWidthClasses = {
@@ -57,15 +60,29 @@ export default function ImageLightbox({
   const widthClass = maxWidthClasses[maxWidth] || "";
   const customStyle = !maxWidthClasses[maxWidth] ? { maxWidth } : {};
 
-  // Handle keyboard events
+  // Handle keyboard events; the close button is the only focusable element
   const handleKeyDown = useCallback(
     (e) => {
       if (e.key === "Escape" && isOpen) {
         setIsOpen(false);
+      } else if (e.key === "Tab" && isOpen) {
+        e.preventDefault();
+        closeRef.current?.focus();
       }
     },
     [isOpen],
   );
+
+  // Move focus into the dialog on open and back to the thumbnail on close
+  useEffect(() => {
+    if (isOpen) {
+      closeRef.current?.focus();
+      wasOpen.current = true;
+    } else if (wasOpen.current) {
+      thumbnailRef.current?.focus({ preventScroll: true });
+      wasOpen.current = false;
+    }
+  }, [isOpen]);
 
   // Add/remove keyboard listener
   useEffect(() => {
@@ -83,13 +100,12 @@ export default function ImageLightbox({
   return (
     <>
       {/* Thumbnail - centered, clean background */}
-      <div
-        className={`relative rounded-xl overflow-hidden border border-white/10 cursor-zoom-in group mx-auto ${widthClass} ${className}`}
+      <button
+        ref={thumbnailRef}
+        type="button"
+        className={`relative block w-full rounded-xl overflow-hidden border border-white/10 cursor-zoom-in group mx-auto ${widthClass} ${className}`}
         style={customStyle}
         onClick={() => setIsOpen(true)}
-        role="button"
-        tabIndex={0}
-        onKeyDown={(e) => e.key === "Enter" && setIsOpen(true)}
         aria-label={`View ${alt} in full size`}
       >
         {/* Image with specified dimensions for layout stability */}
@@ -111,7 +127,7 @@ export default function ImageLightbox({
             </div>
           </div>
         </div>
-      </div>
+      </button>
 
       {/* Lightbox Modal */}
       <AnimatePresence>
@@ -123,12 +139,16 @@ export default function ImageLightbox({
             transition={{ duration: 0.2 }}
             className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 cursor-zoom-out"
             onClick={() => setIsOpen(false)}
+            role="dialog"
+            aria-modal="true"
+            aria-label={alt}
           >
             {/* Backdrop */}
             <div className="absolute inset-0 bg-black/95 backdrop-blur-sm" />
 
             {/* Close button */}
             <button
+              ref={closeRef}
               className="absolute top-4 right-4 z-10 w-12 h-12 rounded-full bg-white/10 
                          hover:bg-white/20 transition-colors flex items-center justify-center
                          border border-white/20 cursor-pointer"
