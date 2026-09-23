@@ -259,13 +259,7 @@ export const JobInfo = ({
   </div>
 );
 
-const ExperienceCard = ({
-  experience,
-  enableSpotlight = true,
-  enableBorderGlow = true,
-  glowColor = "blue",
-  spotlightSize = 300,
-}) => {
+const ExperienceCard = ({ experience }) => {
   const [activeTab, setActiveTab] = useState(null);
   const cardRef = useRef(null);
 
@@ -317,14 +311,7 @@ const ExperienceCard = ({
 
   return (
     <article ref={cardRef} className="self-start w-full">
-      <GlowCard
-        glowColor={glowColor}
-        customSize={true}
-        className="w-full h-full p-5"
-        enableSpotlight={enableSpotlight}
-        enableBorderGlow={enableBorderGlow}
-        spotlightSize={spotlightSize}
-      >
+      <GlowCard className="w-full h-full p-5" spotlightSize={300}>
         {/* Mobile Layout */}
         <div className="flex flex-col md:hidden mb-4 space-y-3 relative">
           {/* Category Badge - Mobile (absolute positioning) */}

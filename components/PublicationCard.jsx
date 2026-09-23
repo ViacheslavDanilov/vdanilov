@@ -50,25 +50,15 @@ const AUTHOR_POSITION = {
  * Minimalistic publication card component
  * Displays publication title, venue, year, and optional link
  */
-const PublicationCard = ({
-  publication,
-  enableSpotlight = true,
-  enableBorderGlow = true,
-  glowColor = "blue",
-  spotlightSize = 240,
-}) => {
+const PublicationCard = ({ publication }) => {
   const { title, venue, year, url, type, tags } = publication;
   const config = TYPE_CONFIG[type] || TYPE_CONFIG.Journal;
 
   return (
     <article className="self-start w-full">
       <GlowCard
-        glowColor={glowColor}
-        customSize={true}
         className="w-full h-full p-5 group relative"
-        enableSpotlight={enableSpotlight}
-        enableBorderGlow={enableBorderGlow}
-        spotlightSize={spotlightSize}
+        spotlightSize={240}
       >
         {/* Type Badge - Top Right Corner */}
         {type && (

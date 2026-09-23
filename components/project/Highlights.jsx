@@ -10,11 +10,7 @@ export default function Highlights({ items }) {
         {items.map((item) => (
           <GlowCard
             key={item.label}
-            glowColor="blue"
-            customSize={true}
             className="group w-full h-full p-5"
-            enableSpotlight={true}
-            enableBorderGlow={true}
             spotlightSize={240}
           >
             <div className="flex flex-col gap-3">

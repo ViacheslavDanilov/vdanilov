@@ -8,22 +8,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
-const CallToAction = ({
-  enableSpotlight = true,
-  enableBorderGlow = true,
-  glowColor = "blue",
-  spotlightSize = 400,
-}) => {
+const CallToAction = () => {
   return (
     <section className="w-full max-w-7xl mx-auto px-6 lg:px-8 py-12 lg:py-24">
-      <GlowCard
-        glowColor={glowColor}
-        customSize={true}
-        className="w-full h-full"
-        enableSpotlight={enableSpotlight}
-        enableBorderGlow={enableBorderGlow}
-        spotlightSize={spotlightSize}
-      >
+      <GlowCard className="w-full h-full" spotlightSize={400}>
         <div className="flex flex-col lg:flex-row items-center gap-4 lg:gap-10 p-8 lg:py-12 lg:px-16">
           {/* Image Section */}
           <div className="flex-shrink-0 flex flex-col items-center gap-4">

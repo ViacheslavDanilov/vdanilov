@@ -29,14 +29,7 @@ const SOCIAL_LINKS = {
 
 function TeamMemberCard({ member }) {
   return (
-    <GlowCard
-      glowColor="blue"
-      customSize={true}
-      className="w-full h-full p-5"
-      enableSpotlight={true}
-      enableBorderGlow={true}
-      spotlightSize={240}
-    >
+    <GlowCard className="w-full h-full p-5" spotlightSize={240}>
       <div className="flex flex-col items-center text-center h-full">
         <div className="relative w-24 h-24 md:w-24 md:h-24 rounded-full overflow-hidden border-2 border-accent/20 shadow-lg bg-dark mb-4">
           <Image

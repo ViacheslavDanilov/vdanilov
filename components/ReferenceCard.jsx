@@ -68,14 +68,7 @@ const ReferenceCard = ({ reference, priority = false }) => {
     socialLinks.push({ type: "email", url: `mailto:${socials.email}` });
 
   return (
-    <GlowCard
-      glowColor="blue"
-      customSize={true}
-      className="group w-full h-full p-5 relative"
-      enableSpotlight={true}
-      enableBorderGlow={true}
-      spotlightSize={250}
-    >
+    <GlowCard className="group w-full h-full p-5 relative" spotlightSize={250}>
       {/* Category Badge */}
       <Badge
         variant={config.variant}

@@ -67,12 +67,7 @@ const PROJECTS = [
   },
 ];
 
-const FeaturedProjects = ({
-  enableSpotlight = true,
-  enableBorderGlow = true,
-  glowColor = "blue",
-  spotlightSize = 300,
-}) => {
+const FeaturedProjects = () => {
   return (
     <section className="py-12 px-6 max-w-7xl mx-auto">
       <div className="mb-12 text-center">
@@ -89,12 +84,8 @@ const FeaturedProjects = ({
         {PROJECTS.map((project) => (
           <GlowCard
             key={project.id}
-            glowColor={glowColor}
-            customSize={true}
             className="group w-full h-full p-6"
-            enableSpotlight={enableSpotlight}
-            enableBorderGlow={enableBorderGlow}
-            spotlightSize={spotlightSize}
+            spotlightSize={300}
           >
             <div className="flex flex-col h-full">
               {/* Mobile layout: centered image */}

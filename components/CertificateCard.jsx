@@ -6,23 +6,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { CompanyLogo } from "@/components/ExperienceCard";
 
-const CertificateCard = ({
-  certificate,
-  enableSpotlight = true,
-  enableBorderGlow = true,
-  glowColor = "blue",
-  spotlightSize = 180,
-}) => {
+const CertificateCard = ({ certificate }) => {
   return (
     <article className="h-full w-full">
-      <GlowCard
-        glowColor={glowColor}
-        customSize={true}
-        className="w-full h-full p-5 pb-3 group"
-        enableSpotlight={enableSpotlight}
-        enableBorderGlow={enableBorderGlow}
-        spotlightSize={spotlightSize}
-      >
+      <GlowCard className="w-full h-full p-5 pb-3 group" spotlightSize={180}>
         {/* Mobile Layout */}
         <div className="flex flex-col md:hidden items-center gap-4 h-full justify-center">
           {/* Logo */}

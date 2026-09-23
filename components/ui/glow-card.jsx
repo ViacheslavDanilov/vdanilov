@@ -1,21 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-
-const glowColorMap = {
-  blue: { base: 220, spread: 0 },
-  cyan: { base: 200, spread: 0 },
-  purple: { base: 280, spread: 0 },
-  green: { base: 120, spread: 0 },
-  red: { base: 0, spread: 0 },
-  orange: { base: 30, spread: 0 },
-};
-
-const sizeMap = {
-  sm: "w-48 h-64",
-  md: "w-64 h-80",
-  lg: "w-80 h-96",
-};
+import { cn } from "@/lib/utils";
 
 // One pointer listener for every card; only cards on screen are updated
 const visibleCards = new Set();
@@ -66,105 +52,53 @@ const trackCard = (card) => {
   };
 };
 
-const GlowCard = ({
-  children,
-  className = "",
-  glowColor = "blue",
-  size = "md",
-  width,
-  height,
-  customSize = false,
-  enableSpotlight = true,
-  enableBorderGlow = true,
-  spotlightSize = 180,
-}) => {
+const GlowCard = ({ children, className = "", spotlightSize = 180 }) => {
   const cardRef = useRef(null);
-  const innerRef = useRef(null);
 
-  useEffect(() => {
-    if (!enableSpotlight && !enableBorderGlow) return;
-    return trackCard(cardRef.current);
-  }, [enableSpotlight, enableBorderGlow]);
-
-  const { base, spread } = glowColorMap[glowColor];
-
-  // Determine sizing
-  const getSizeClasses = () => {
-    if (customSize) {
-      return ""; // Let className or inline styles handle sizing
-    }
-    return sizeMap[size];
-  };
-
-  const getInlineStyles = () => {
-    const baseStyles = {
-      "--base": base,
-      "--spread": spread,
-      "--radius": "14",
-      "--border": "1.5",
-      "--x": "-9999",
-      "--y": "-9999",
-      "--backdrop": "hsl(0 0% 60% / 0.06)",
-      "--backup-border": "var(--backdrop)",
-      "--size": spotlightSize.toString(),
-      "--outer": enableBorderGlow ? "1" : "0",
-      "--border-size": "calc(var(--border, 2) * 1px)",
-      "--spotlight-size": "calc(var(--size, 150) * 1px)",
-      "--hue": "calc(var(--base) + (var(--xp, 0) * var(--spread, 0)))",
-      "--bg-spot-opacity": enableSpotlight ? "0.03" : "0",
-      "--border-spot-opacity": enableBorderGlow ? "0.3" : "0",
-      "--border-light-opacity": enableBorderGlow ? "0.2" : "0",
-      backgroundImage: `radial-gradient(
-        var(--spotlight-size) var(--spotlight-size) at
-        calc(var(--x, 0) * 1px)
-        calc(var(--y, 0) * 1px),
-        hsl(var(--hue, 210) calc(var(--saturation, 100) * 1%) calc(var(--lightness, 70) * 1%) / var(--bg-spot-opacity, 0.03)), transparent
-      )`,
-      backgroundColor: "var(--backdrop, transparent)",
-      backgroundSize:
-        "calc(100% + (2 * var(--border-size))) calc(100% + (2 * var(--border-size)))",
-      backgroundPosition: "50% 50%",
-      backgroundAttachment: "fixed",
-      border: "var(--border-size) solid var(--backup-border)",
-      position: "relative",
-      touchAction: "pan-y",
-    };
-
-    // Add width and height if provided
-    if (width !== undefined) {
-      baseStyles.width = typeof width === "number" ? `${width}px` : width;
-    }
-    if (height !== undefined) {
-      baseStyles.height = typeof height === "number" ? `${height}px` : height;
-    }
-
-    return baseStyles;
-  };
+  useEffect(() => trackCard(cardRef.current), []);
 
   return (
-    <>
-      <div
-        ref={cardRef}
-        data-glow
-        style={getInlineStyles()}
-        className={`
-          ${getSizeClasses()}
-          ${!customSize ? "aspect-[3/4]" : ""}
-          rounded-2xl 
-          relative 
-          grid 
-          grid-rows-[1fr_auto] 
-          shadow-[0_0.5rem_1rem_-0.5rem_rgba(0,0,0,0.3)] 
-          p-4 
-          gap-4 
-          backdrop-blur-[2px]
-          ${className}
-        `}
-      >
-        <div ref={innerRef} data-glow></div>
-        {children}
-      </div>
-    </>
+    <div
+      ref={cardRef}
+      data-glow
+      style={{
+        "--hue": "220",
+        "--radius": "14",
+        "--border": "1.5",
+        "--x": "-9999",
+        "--y": "-9999",
+        "--backdrop": "hsl(0 0% 60% / 0.06)",
+        "--backup-border": "var(--backdrop)",
+        "--size": spotlightSize.toString(),
+        "--outer": "1",
+        "--border-size": "calc(var(--border, 2) * 1px)",
+        "--spotlight-size": "calc(var(--size, 150) * 1px)",
+        "--bg-spot-opacity": "0.03",
+        "--border-spot-opacity": "0.3",
+        "--border-light-opacity": "0.2",
+        backgroundImage: `radial-gradient(
+          var(--spotlight-size) var(--spotlight-size) at
+          calc(var(--x, 0) * 1px)
+          calc(var(--y, 0) * 1px),
+          hsl(var(--hue, 210) calc(var(--saturation, 100) * 1%) calc(var(--lightness, 70) * 1%) / var(--bg-spot-opacity, 0.03)), transparent
+        )`,
+        backgroundColor: "var(--backdrop, transparent)",
+        backgroundSize:
+          "calc(100% + (2 * var(--border-size))) calc(100% + (2 * var(--border-size)))",
+        backgroundPosition: "50% 50%",
+        backgroundAttachment: "fixed",
+        border: "var(--border-size) solid var(--backup-border)",
+        position: "relative",
+        touchAction: "pan-y",
+      }}
+      className={cn(
+        "rounded-2xl relative grid grid-rows-[1fr_auto] shadow-[0_0.5rem_1rem_-0.5rem_rgba(0,0,0,0.3)] p-4 gap-4 backdrop-blur-[2px]",
+        className,
+      )}
+    >
+      <div data-glow></div>
+      {children}
+    </div>
   );
 };
 
