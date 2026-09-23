@@ -613,6 +613,7 @@ export default function ProjectPage() {
                       width={2958}
                       height={2539}
                       maxWidth="full"
+                      sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 320px"
                       className="rounded-lg"
                     />
                     <p className="text-center text-sm text-gray-300 mt-2">

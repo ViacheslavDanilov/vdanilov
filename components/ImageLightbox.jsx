@@ -14,14 +14,29 @@ import { faXmark, faExpand } from "@fortawesome/free-solid-svg-icons";
  * @param {number} [props.width] - Image width for aspect ratio (default: 1920)
  * @param {number} [props.height] - Image height for aspect ratio (default: 1080)
  * @param {string} [props.maxWidth] - Max width: 'sm'|'md'|'lg'|'xl'|'2xl'|'3xl'|'4xl'|'full' or custom CSS value
+ * @param {string} [props.sizes] - Rendered width for srcset; defaults to one derived from maxWidth
  * @param {string} [props.className] - Additional container classes
  */
+// Thumbnail widths inside the project page's 976px content column
+const THUMBNAIL_SIZES = {
+  sm: "(max-width: 432px) 100vw, 384px",
+  md: "(max-width: 496px) 100vw, 448px",
+  lg: "(max-width: 560px) 100vw, 512px",
+  xl: "(max-width: 624px) 100vw, 576px",
+  "2xl": "(max-width: 720px) 100vw, 672px",
+  "3xl": "(max-width: 816px) 100vw, 768px",
+  "4xl": "(max-width: 944px) 100vw, 896px",
+  "5xl": "(max-width: 1024px) 100vw, 976px",
+  full: "(max-width: 1024px) 100vw, 976px",
+};
+
 export default function ImageLightbox({
   src,
   alt,
   width = 1920,
   height = 1080,
   maxWidth = "full",
+  sizes = THUMBNAIL_SIZES[maxWidth] ?? THUMBNAIL_SIZES.full,
   className = "",
 }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -83,6 +98,7 @@ export default function ImageLightbox({
           alt={alt}
           width={width}
           height={height}
+          sizes={sizes}
           quality={90}
           className="w-full h-auto"
           style={{ display: "block" }}
@@ -145,8 +161,9 @@ export default function ImageLightbox({
               <Image
                 src={src}
                 alt={alt}
-                width={1920}
-                height={1080}
+                width={width}
+                height={height}
+                sizes="95vw"
                 quality={90}
                 className="max-w-full max-h-[90vh] w-auto h-auto rounded-lg shadow-2xl"
                 style={{ objectFit: "contain" }}

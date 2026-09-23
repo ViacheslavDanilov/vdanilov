@@ -494,6 +494,7 @@ export default function ProjectPage() {
                   width={1920}
                   height={1080}
                   maxWidth="full"
+                  sizes="(max-width: 768px) 100vw, 480px"
                 />
                 <ImageLightbox
                   src="/portfolio/deepvision-wildfire/nevada-seismological-lab-wildfire-2.webp"
@@ -501,6 +502,7 @@ export default function ProjectPage() {
                   width={1920}
                   height={1080}
                   maxWidth="full"
+                  sizes="(max-width: 768px) 100vw, 480px"
                 />
               </div>
               <figcaption className="text-center text-sm text-gray-400 mt-3">
@@ -573,6 +575,7 @@ export default function ProjectPage() {
                   width={1920}
                   height={1080}
                   maxWidth="full"
+                  sizes="(max-width: 768px) 100vw, 480px"
                 />
                 <ImageLightbox
                   src="/portfolio/deepvision-wildfire/siberian-forest-protection-service-wildfire-2.webp"
@@ -580,6 +583,7 @@ export default function ProjectPage() {
                   width={1920}
                   height={1080}
                   maxWidth="full"
+                  sizes="(max-width: 768px) 100vw, 480px"
                 />
               </div>
               <figcaption className="text-center text-sm text-gray-400 mt-3">

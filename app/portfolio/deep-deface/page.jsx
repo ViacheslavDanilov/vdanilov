@@ -428,6 +428,7 @@ export default function ProjectPage() {
                   width={2896}
                   height={1896}
                   maxWidth="full"
+                  sizes="(max-width: 768px) 100vw, 320px"
                 />
                 <ImageLightbox
                   src="/portfolio/deep-deface/ct-patient-2.webp"
@@ -435,6 +436,7 @@ export default function ProjectPage() {
                   width={2896}
                   height={1896}
                   maxWidth="full"
+                  sizes="(max-width: 768px) 100vw, 320px"
                 />
                 <ImageLightbox
                   src="/portfolio/deep-deface/ct-patient-3.webp"
@@ -442,6 +444,7 @@ export default function ProjectPage() {
                   width={2896}
                   height={1896}
                   maxWidth="full"
+                  sizes="(max-width: 768px) 100vw, 320px"
                 />
               </div>
               <figcaption className="text-center text-sm text-gray-400 mt-3">
@@ -460,6 +463,7 @@ export default function ProjectPage() {
                   width={2988}
                   height={1896}
                   maxWidth="full"
+                  sizes="(max-width: 768px) 100vw, 320px"
                 />
                 <ImageLightbox
                   src="/portfolio/deep-deface/mri-t2.webp"
@@ -467,6 +471,7 @@ export default function ProjectPage() {
                   width={2974}
                   height={1896}
                   maxWidth="full"
+                  sizes="(max-width: 768px) 100vw, 320px"
                 />
                 <ImageLightbox
                   src="/portfolio/deep-deface/mri-flair.webp"
@@ -474,6 +479,7 @@ export default function ProjectPage() {
                   width={2974}
                   height={1896}
                   maxWidth="full"
+                  sizes="(max-width: 768px) 100vw, 320px"
                 />
               </div>
               <figcaption className="text-center text-sm text-gray-400 mt-3">
@@ -492,6 +498,7 @@ export default function ProjectPage() {
                   width={2886}
                   height={1842}
                   maxWidth="full"
+                  sizes="(max-width: 768px) 100vw, 320px"
                 />
                 <ImageLightbox
                   src="/portfolio/deep-deface/labeling-face.webp"
@@ -499,6 +506,7 @@ export default function ProjectPage() {
                   width={2886}
                   height={1842}
                   maxWidth="full"
+                  sizes="(max-width: 768px) 100vw, 320px"
                 />
                 <ImageLightbox
                   src="/portfolio/deep-deface/labeling-left-ear.webp"
@@ -506,6 +514,7 @@ export default function ProjectPage() {
                   width={2886}
                   height={1842}
                   maxWidth="full"
+                  sizes="(max-width: 768px) 100vw, 320px"
                 />
               </div>
               <figcaption className="text-center text-sm text-gray-400 mt-3">
