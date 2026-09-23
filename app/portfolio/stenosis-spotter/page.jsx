@@ -97,7 +97,7 @@ const TEAM_MEMBERS = [
       linkedin: "https://ru.linkedin.com/in/evgeny-ovcharenko-89098722",
       researchgate: "https://www.researchgate.net/profile/Evgeny-Ovcharenko",
       google: "https://scholar.google.ru/citations?user=taoklzsAAAAJ&hl=en",
-      email: "popow.yu.a@gmail.com",
+      email: "ov.eugene@gmail.com",
     },
   },
   {
