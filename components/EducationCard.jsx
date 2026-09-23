@@ -108,11 +108,7 @@ const EducationCard = ({
   }, [activeTab, education.coreCourses, education.thesis]);
 
   return (
-    <article
-      ref={cardRef}
-      className="self-start w-full"
-      aria-labelledby={`edu-title-${education.id}`}
-    >
+    <article ref={cardRef} className="self-start w-full">
       <GlowCard
         glowColor={glowColor}
         customSize={true}
@@ -169,9 +165,7 @@ const EducationCard = ({
 
             {/* Metadata */}
             <div className="flex flex-wrap gap-2 text-sm text-gray-400 justify-center">
-              <time dateTime={education.period.split(" - ")[0]}>
-                {education.period}
-              </time>
+              <span>{education.period}</span>
             </div>
             <p className="text-sm text-gray-400 mb-0">{education.location}</p>
           </div>
@@ -222,9 +216,7 @@ const EducationCard = ({
 
             {/* Row 4: Metadata */}
             <div className="flex flex-wrap gap-2 text-sm text-gray-400">
-              <time dateTime={education.period.split(" - ")[0]}>
-                {education.period}
-              </time>
+              <span>{education.period}</span>
             </div>
             <p className="text-sm text-gray-400 mb-0">{education.location}</p>
           </div>
@@ -233,10 +225,10 @@ const EducationCard = ({
         {/* Tabs - Only show if there are tabs */}
         {tabs.length > 0 && (
           <>
-            <nav
+            <div
               className="flex items-center justify-center gap-1 mb-4 bg-card/30 rounded-full p-1 border border-light/10"
-              role="tablist"
-              aria-label="Education information tabs"
+              role="group"
+              aria-label="Education information"
             >
               {tabs.map((tab) => (
                 <Tab
@@ -244,11 +236,13 @@ const EducationCard = ({
                   text={tab.label}
                   icon={tab.icon}
                   selected={activeTab === tab.id}
+                  aria-expanded={activeTab === tab.id}
+                  aria-controls={`${education.id}-panel`}
                   setSelected={() => handleTabClick(tab.id)}
                   layoutId={`tab-${education.id}`}
                 />
               ))}
-            </nav>
+            </div>
 
             {/* Tab Content with Accordion Animation */}
             <AnimatePresence initial={false}>
@@ -260,8 +254,7 @@ const EducationCard = ({
                   exit={{ opacity: 0, height: 0 }}
                   transition={{ duration: 0.3, ease: "easeInOut" }}
                   className="overflow-hidden"
-                  role="tabpanel"
-                  aria-labelledby={`tab-${activeTab}`}
+                  id={`${education.id}-panel`}
                 >
                   <div className="py-2">{tabContent}</div>
                 </motion.div>

@@ -251,7 +251,7 @@ export const JobInfo = ({
     <div
       className={`flex flex-wrap gap-2 text-sm text-gray-400 ${centered ? "justify-center" : ""}`}
     >
-      <time dateTime={period.split(" - ")[0]}>{period}</time>
+      <span>{period}</span>
       <span aria-hidden="true">•</span>
       <span>{duration}</span>
     </div>
@@ -316,11 +316,7 @@ const ExperienceCard = ({
   };
 
   return (
-    <article
-      ref={cardRef}
-      className="self-start w-full"
-      aria-labelledby={`job-title-${experience.id}`}
-    >
+    <article ref={cardRef} className="self-start w-full">
       <GlowCard
         glowColor={glowColor}
         customSize={true}
@@ -402,10 +398,10 @@ const ExperienceCard = ({
         )}
 
         {/* Tabs */}
-        <nav
+        <div
           className="flex items-center justify-center gap-1 mb-4 bg-card/30 rounded-full p-1 border border-light/10"
-          role="tablist"
-          aria-label="Job information tabs"
+          role="group"
+          aria-label="Job information"
         >
           {tabs.map((tab) => (
             <Tab
@@ -413,11 +409,13 @@ const ExperienceCard = ({
               text={tab.label}
               icon={tab.icon}
               selected={activeTab === tab.id}
+              aria-expanded={activeTab === tab.id}
+              aria-controls={`${experience.id}-panel`}
               setSelected={() => handleTabClick(tab.id)}
               layoutId={`tab-${experience.id}`}
             />
           ))}
-        </nav>
+        </div>
 
         {/* Tab Content with Accordion Animation */}
         <AnimatePresence initial={false}>
@@ -429,8 +427,7 @@ const ExperienceCard = ({
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
               className="overflow-hidden"
-              role="tabpanel"
-              aria-labelledby={`tab-${activeTab}`}
+              id={`${experience.id}-panel`}
             >
               <div className="py-2">{tabContent}</div>
             </motion.div>

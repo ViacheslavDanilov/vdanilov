@@ -326,7 +326,11 @@ export default function Portfolio() {
           </header>
 
           {/* Filter Tabs - Two rows: 4 on top, 3 centered below */}
-          <div className="flex flex-col items-center gap-2 mb-12">
+          <div
+            className="flex flex-col items-center gap-2 mb-12"
+            role="group"
+            aria-label="Filter projects"
+          >
             {/* First row - 4 tabs */}
             <div className="flex flex-wrap justify-center gap-2">
               {FILTER_OPTIONS.slice(0, 4).map((option) => (
@@ -335,6 +339,7 @@ export default function Portfolio() {
                   text={`${option.label} (${getCounts[option.id]})`}
                   icon={option.icon}
                   selected={activeFilter === option.id}
+                  aria-pressed={activeFilter === option.id}
                   setSelected={() => setActiveFilter(option.id)}
                   layoutId="portfolio-filter"
                 />
@@ -348,6 +353,7 @@ export default function Portfolio() {
                   text={`${option.label} (${getCounts[option.id]})`}
                   icon={option.icon}
                   selected={activeFilter === option.id}
+                  aria-pressed={activeFilter === option.id}
                   setSelected={() => setActiveFilter(option.id)}
                   layoutId="portfolio-filter"
                 />

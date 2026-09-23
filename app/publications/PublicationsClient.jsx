@@ -515,13 +515,18 @@ export default function Publications() {
           </header>
 
           {/* Filter Buttons */}
-          <div className="flex flex-wrap justify-center gap-2 mb-12">
+          <div
+            className="flex flex-wrap justify-center gap-2 mb-12"
+            role="group"
+            aria-label="Filter publications"
+          >
             {FILTER_OPTIONS.map((option) => (
               <Tab
                 key={option.id}
                 text={`${option.label} (${getCounts[option.id]})`}
                 icon={option.icon}
                 selected={activeFilter === option.id}
+                aria-pressed={activeFilter === option.id}
                 setSelected={() => setActiveFilter(option.id)}
                 layoutId="publications-filter"
               />

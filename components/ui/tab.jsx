@@ -6,15 +6,24 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { cn } from "@/lib/utils";
 
-export function Tab({ text, icon, selected, setSelected, layoutId = "tab" }) {
+export function Tab({
+  text,
+  icon,
+  selected,
+  setSelected,
+  layoutId = "tab",
+  ...props
+}) {
   return (
     <button
+      type="button"
       onClick={() => setSelected(text)}
       className={cn(
         "relative w-fit px-4 py-2 text-sm font-semibold capitalize",
         "text-foreground transition-colors flex items-center gap-2 cursor-pointer",
         !selected && "hover:text-light hover:bg-white/5 rounded-full",
       )}
+      {...props}
     >
       {icon && (
         <span className="w-4 h-4 relative z-10 flex items-center justify-center">
