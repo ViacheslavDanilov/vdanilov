@@ -267,14 +267,12 @@ const ExperienceCard = ({
     return () => document.removeEventListener("mousedown", handleClick);
   }, [activeTab]);
 
-  // Memoize tabs configuration
-  const tabs = useMemo(
-    () => [
-      { id: "responsibilities", label: "Responsibilities", icon: faBriefcase },
-      { id: "links", label: "Links", icon: faLink },
-    ],
-    [],
-  );
+  const tabs = [
+    { id: "responsibilities", label: "Responsibilities", icon: faBriefcase },
+    ...(experience.links.length > 0
+      ? [{ id: "links", label: "Links", icon: faLink }]
+      : []),
+  ];
 
   // Optimized tab click handler with useCallback
   const handleTabClick = useCallback((tabId) => {
