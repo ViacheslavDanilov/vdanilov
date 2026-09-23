@@ -1,6 +1,11 @@
 "use client";
 
-import { useInView, useMotionValue, useSpring } from "motion/react";
+import {
+  useInView,
+  useMotionValue,
+  useReducedMotion,
+  useSpring,
+} from "motion/react";
 import { useCallback, useEffect, useRef } from "react";
 
 /**
@@ -41,6 +46,7 @@ export default function CountUp({
   });
 
   const isInView = useInView(ref, { once: true, margin: "0px" });
+  const prefersReducedMotion = useReducedMotion();
 
   const getDecimalPlaces = (num) => {
     const str = num.toString();
@@ -80,13 +86,13 @@ export default function CountUp({
   );
 
   useEffect(() => {
-    if (ref.current) {
+    if (ref.current && !prefersReducedMotion) {
       ref.current.textContent = formatValue(direction === "down" ? to : from);
     }
-  }, [from, to, direction, formatValue]);
+  }, [from, to, direction, formatValue, prefersReducedMotion]);
 
   useEffect(() => {
-    if (isInView && startWhen) {
+    if (isInView && startWhen && !prefersReducedMotion) {
       if (typeof onStart === "function") onStart();
 
       const timeoutId = setTimeout(() => {
@@ -116,6 +122,7 @@ export default function CountUp({
     onStart,
     onEnd,
     duration,
+    prefersReducedMotion,
   ]);
 
   useEffect(() => {
@@ -128,7 +135,7 @@ export default function CountUp({
     return () => unsubscribe();
   }, [springValue, formatValue]);
 
-  // Server HTML shows the final number; the effect above resets it before counting
+  // Server HTML shows the final number; the effect above resets it before counting unless motion is reduced
   return (
     <span className={className} ref={ref}>
       {formatValue(direction === "down" ? from : to)}
