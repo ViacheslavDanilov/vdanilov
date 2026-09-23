@@ -6,6 +6,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { MenuToggleIcon } from "@/components/ui/menu-toggle-icon";
 import { AnimatePresence, motion } from "motion/react";
+import { config } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHouse,
@@ -15,6 +16,9 @@ import {
   faBook,
   faUsers,
 } from "@fortawesome/free-solid-svg-icons";
+
+// The layout already imports FontAwesome's CSS
+config.autoAddCss = false;
 
 // Navigation Items Array
 const navItems = [

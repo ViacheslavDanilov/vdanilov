@@ -7,10 +7,8 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/metadata";
 
-// FontAwesome SSR fix - prevents hydration mismatch by loading CSS upfront
-import { config } from "@fortawesome/fontawesome-svg-core";
+// FontAwesome CSS loads here; Navbar stops the client from injecting it again
 import "@fortawesome/fontawesome-svg-core/styles.css";
-config.autoAddCss = false;
 
 const poppins = Poppins({
   weight: ["300", "400", "500", "600", "700"],
