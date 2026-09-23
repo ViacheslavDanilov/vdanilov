@@ -13,29 +13,19 @@ import { useCallback, useEffect, useRef } from "react";
  * @param {Object} props - Component props
  * @param {number} props.to - Target number to count to
  * @param {number} [props.from=0] - Starting number
- * @param {"up"|"down"} [props.direction="up"] - Count direction
  * @param {number} [props.delay=0] - Delay before animation starts (seconds)
  * @param {number} [props.duration=2] - Animation duration (seconds)
  * @param {string} [props.className=""] - Additional CSS classes
- * @param {boolean} [props.startWhen=true] - Whether to start animation
- * @param {string} [props.separator=""] - Thousands separator character
- * @param {Function} [props.onStart] - Callback when animation starts
- * @param {Function} [props.onEnd] - Callback when animation ends
  */
 export default function CountUp({
   to,
   from = 0,
-  direction = "up",
   delay = 0,
   duration = 2,
   className = "",
-  startWhen = true,
-  separator = "",
-  onStart,
-  onEnd,
 }) {
   const ref = useRef(null);
-  const motionValue = useMotionValue(direction === "down" ? to : from);
+  const motionValue = useMotionValue(from);
 
   const damping = 20 + 40 * (1 / duration);
   const stiffness = 100 * (1 / duration);
@@ -69,61 +59,28 @@ export default function CountUp({
       const hasDecimals = maxDecimals > 0;
 
       const options = {
-        useGrouping: !!separator,
+        useGrouping: false,
         minimumFractionDigits: hasDecimals ? maxDecimals : 0,
         maximumFractionDigits: hasDecimals ? maxDecimals : 0,
       };
 
-      const formattedNumber = Intl.NumberFormat("en-US", options).format(
-        latest,
-      );
-
-      return separator
-        ? formattedNumber.replace(/,/g, separator)
-        : formattedNumber;
+      return Intl.NumberFormat("en-US", options).format(latest);
     },
-    [maxDecimals, separator],
+    [maxDecimals],
   );
 
   useEffect(() => {
     if (ref.current && !prefersReducedMotion) {
-      ref.current.textContent = formatValue(direction === "down" ? to : from);
+      ref.current.textContent = formatValue(from);
     }
-  }, [from, to, direction, formatValue, prefersReducedMotion]);
+  }, [from, formatValue, prefersReducedMotion]);
 
   useEffect(() => {
-    if (isInView && startWhen && !prefersReducedMotion) {
-      if (typeof onStart === "function") onStart();
-
-      const timeoutId = setTimeout(() => {
-        motionValue.set(direction === "down" ? from : to);
-      }, delay * 1000);
-
-      const durationTimeoutId = setTimeout(
-        () => {
-          if (typeof onEnd === "function") onEnd();
-        },
-        delay * 1000 + duration * 1000,
-      );
-
-      return () => {
-        clearTimeout(timeoutId);
-        clearTimeout(durationTimeoutId);
-      };
+    if (isInView && !prefersReducedMotion) {
+      const timeoutId = setTimeout(() => motionValue.set(to), delay * 1000);
+      return () => clearTimeout(timeoutId);
     }
-  }, [
-    isInView,
-    startWhen,
-    motionValue,
-    direction,
-    from,
-    to,
-    delay,
-    onStart,
-    onEnd,
-    duration,
-    prefersReducedMotion,
-  ]);
+  }, [isInView, motionValue, to, delay, prefersReducedMotion]);
 
   useEffect(() => {
     const unsubscribe = springValue.on("change", (latest) => {
@@ -138,7 +95,7 @@ export default function CountUp({
   // Server HTML shows the final number; the effect above resets it before counting unless motion is reduced
   return (
     <span className={className} ref={ref}>
-      {formatValue(direction === "down" ? from : to)}
+      {formatValue(to)}
     </span>
   );
 }

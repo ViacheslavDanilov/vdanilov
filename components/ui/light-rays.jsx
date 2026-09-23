@@ -2,54 +2,7 @@
 
 import { useRef, useEffect } from "react";
 
-const hexToRgb = (hex) => {
-  const m = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-  return m
-    ? [
-        parseInt(m[1], 16) / 255,
-        parseInt(m[2], 16) / 255,
-        parseInt(m[3], 16) / 255,
-      ]
-    : [1, 1, 1];
-};
-
-const getAnchorAndDir = (origin, w, h) => {
-  const outside = 0.2;
-  switch (origin) {
-    case "top-left":
-      return { anchor: [0, -outside * h], dir: [0, 1] };
-    case "top-right":
-      return { anchor: [w, -outside * h], dir: [0, 1] };
-    case "left":
-      return { anchor: [-outside * w, 0.5 * h], dir: [1, 0] };
-    case "right":
-      return { anchor: [(1 + outside) * w, 0.5 * h], dir: [-1, 0] };
-    case "bottom-left":
-      return { anchor: [0, (1 + outside) * h], dir: [0, -1] };
-    case "bottom-center":
-      return { anchor: [0.5 * w, (1 + outside) * h], dir: [0, -1] };
-    case "bottom-right":
-      return { anchor: [w, (1 + outside) * h], dir: [0, -1] };
-    default: // "top-center"
-      return { anchor: [0.5 * w, -outside * h], dir: [0, 1] };
-  }
-};
-
-const LightRays = ({
-  raysOrigin = "top-center",
-  raysColor = "#e0e0e0",
-  raysSpeed = 1.0,
-  lightSpread = 0.7,
-  rayLength = 3.0,
-  pulsating = false,
-  fadeDistance = 2.0,
-  saturation = 1.0,
-  followMouse = true,
-  mouseInfluence = 0.025,
-  noiseAmount = 0.05,
-  distortion = 0.0,
-  className = "",
-}) => {
+const LightRays = () => {
   const containerRef = useRef(null);
 
   useEffect(() => {
@@ -180,17 +133,17 @@ void main() {
         rayPos: { value: [0, 0] },
         rayDir: { value: [0, 1] },
 
-        raysColor: { value: hexToRgb(raysColor) },
-        raysSpeed: { value: raysSpeed },
-        lightSpread: { value: lightSpread },
-        rayLength: { value: rayLength },
-        pulsating: { value: pulsating ? 1.0 : 0.0 },
-        fadeDistance: { value: fadeDistance },
-        saturation: { value: saturation },
+        raysColor: { value: [224 / 255, 224 / 255, 224 / 255] },
+        raysSpeed: { value: 1.0 },
+        lightSpread: { value: 0.7 },
+        rayLength: { value: 3.0 },
+        pulsating: { value: 0.0 },
+        fadeDistance: { value: 2.0 },
+        saturation: { value: 1.0 },
         mousePos: { value: [0.5, 0.5] },
-        mouseInfluence: { value: mouseInfluence },
-        noiseAmount: { value: noiseAmount },
-        distortion: { value: distortion },
+        mouseInfluence: { value: 0.025 },
+        noiseAmount: { value: 0.05 },
+        distortion: { value: 0.0 },
       };
 
       const geometry = new Triangle(gl);
@@ -211,12 +164,10 @@ void main() {
       const render = (t) => {
         uniforms.iTime.value = t * 0.001;
 
-        if (followMouse && mouseInfluence > 0.0) {
-          const smoothing = 0.92;
-          smoothMouse.x = smoothMouse.x * smoothing + mouse.x * (1 - smoothing);
-          smoothMouse.y = smoothMouse.y * smoothing + mouse.y * (1 - smoothing);
-          uniforms.mousePos.value = [smoothMouse.x, smoothMouse.y];
-        }
+        const smoothing = 0.92;
+        smoothMouse.x = smoothMouse.x * smoothing + mouse.x * (1 - smoothing);
+        smoothMouse.y = smoothMouse.y * smoothing + mouse.y * (1 - smoothing);
+        uniforms.mousePos.value = [smoothMouse.x, smoothMouse.y];
 
         renderer.render({ scene: mesh });
       };
@@ -238,9 +189,7 @@ void main() {
 
         uniforms.iResolution.value = [w, h];
 
-        const { anchor, dir } = getAnchorAndDir(raysOrigin, w, h);
-        uniforms.rayPos.value = anchor;
-        uniforms.rayDir.value = dir;
+        uniforms.rayPos.value = [0.5 * w, -0.2 * h];
 
         if (reducedMotion) render(0);
       };
@@ -268,7 +217,7 @@ void main() {
       updatePlacement();
       if (!reducedMotion) {
         observer.observe(container);
-        if (followMouse) window.addEventListener("mousemove", handleMouseMove);
+        window.addEventListener("mousemove", handleMouseMove);
       }
 
       cleanup = () => {
@@ -287,25 +236,12 @@ void main() {
       cancelled = true;
       cleanup();
     };
-  }, [
-    raysOrigin,
-    raysColor,
-    raysSpeed,
-    lightSpread,
-    rayLength,
-    pulsating,
-    fadeDistance,
-    saturation,
-    followMouse,
-    mouseInfluence,
-    noiseAmount,
-    distortion,
-  ]);
+  }, []);
 
   return (
     <div
       ref={containerRef}
-      className={`w-full h-full pointer-events-none overflow-hidden relative ${className}`.trim()}
+      className="w-full h-full pointer-events-none overflow-hidden relative"
       style={{
         maskImage:
           "linear-gradient(to bottom, black 0%, black 70%, transparent 100%)",
