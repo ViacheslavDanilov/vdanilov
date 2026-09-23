@@ -48,7 +48,7 @@ function TeamMemberCard({ member }) {
             className="object-cover"
           />
         </div>
-        <h4 className="text-base font-bold text-light mb-1.5">{member.name}</h4>
+        <h3 className="text-base font-bold text-light mb-1.5">{member.name}</h3>
         <p className="text-sm font-medium text-accent mb-2">{member.role}</p>
         <p className="text-sm text-gray-300 mb-2">{member.organization}</p>
         <p className="text-sm text-gray-500 mb-4">{member.location}</p>
@@ -59,8 +59,8 @@ function TeamMemberCard({ member }) {
               href={key === "email" ? `mailto:${url}` : url}
               target={key === "email" ? undefined : "_blank"}
               rel={key === "email" ? undefined : "noopener noreferrer"}
-              className="text-gray-400 hover:text-light transition-all duration-300 transform hover:scale-110"
-              aria-label={key}
+              className="p-2 -m-2 text-gray-400 hover:text-light transition-all duration-300 transform hover:scale-110"
+              aria-label={`${member.name}'s ${SOCIAL_LINKS[key].label}`}
             >
               <FontAwesomeIcon
                 icon={SOCIAL_LINKS[key].icon}
