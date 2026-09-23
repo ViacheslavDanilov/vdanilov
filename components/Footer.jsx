@@ -137,8 +137,14 @@ function Footer() {
                     <li key={link.title}>
                       <a
                         href={link.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        target={
+                          link.href.startsWith("mailto:") ? undefined : "_blank"
+                        }
+                        rel={
+                          link.href.startsWith("mailto:")
+                            ? undefined
+                            : "noopener noreferrer"
+                        }
                         className="text-gray-400 hover:text-accent inline-flex items-center transition-colors duration-300 h-6"
                       >
                         <FontAwesomeIcon
@@ -241,8 +247,14 @@ function Footer() {
                 <li key={link.title}>
                   <a
                     href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    target={
+                      link.href.startsWith("mailto:") ? undefined : "_blank"
+                    }
+                    rel={
+                      link.href.startsWith("mailto:")
+                        ? undefined
+                        : "noopener noreferrer"
+                    }
                     className="text-gray-400 hover:text-accent inline-flex items-center transition-colors duration-300 h-6"
                   >
                     <FontAwesomeIcon

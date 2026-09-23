@@ -120,8 +120,12 @@ const About = () => {
             <a
               key={social.name}
               href={social.href}
-              target="_blank"
-              rel="noopener noreferrer"
+              target={social.href.startsWith("mailto:") ? undefined : "_blank"}
+              rel={
+                social.href.startsWith("mailto:")
+                  ? undefined
+                  : "noopener noreferrer"
+              }
               aria-label={social.name}
               className={`text-gray-400 transition-all duration-300 transform hover:scale-110 ${social.color}`}
               style={{ display: "inline-block" }}

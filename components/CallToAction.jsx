@@ -68,8 +68,6 @@ const CallToAction = ({
             <div className="w-full sm:w-auto flex flex-col sm:flex-row items-center gap-4 pt-2">
               <LiquidButtonLink
                 href="mailto:viacheslav.v.danilov@gmail.com"
-                target="_blank"
-                ariaLabel="Send email"
                 size="xxl"
                 textClassName="text-sm"
                 className="w-full sm:w-auto px-4 sm:px-10"
