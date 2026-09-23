@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { LiquidButtonLink } from "@/components/ui/liquid-button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -70,10 +71,12 @@ const About = () => {
       <div className="flex flex-col items-center justify-center gap-8 max-w-4xl mx-auto">
         {/* Video */}
         <div className="relative w-64 h-64 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-accent/20 shadow-2xl bg-dark">
-          <img
+          <Image
             src="/hero/about-poster.webp"
             alt="Viacheslav Danilov in professional setting"
-            className="absolute inset-0 w-full h-full object-cover brightness-150"
+            fill
+            sizes="256px"
+            className="object-cover brightness-150"
           />
           <video
             autoPlay

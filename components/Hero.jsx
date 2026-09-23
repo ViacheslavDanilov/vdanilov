@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { FlipWords } from "@/components/ui/flip-words";
 import { LiquidButtonLink } from "@/components/ui/liquid-button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -72,10 +73,13 @@ const Hero = () => {
         {/* Video Content */}
         <div className="w-full md:w-1/2 flex justify-center md:justify-end">
           <div className="relative w-64 h-64 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-accent/20 shadow-2xl bg-dark">
-            <img
+            <Image
               src="/hero/hero-poster.webp"
               alt="Viacheslav Danilov portrait"
-              className="absolute inset-0 w-full h-full object-cover brightness-175"
+              fill
+              sizes="(min-width: 768px) 384px, 256px"
+              priority
+              className="object-cover brightness-175"
             />
             <video
               autoPlay

@@ -32,10 +32,9 @@ const CallToAction = ({
                 src="/hero/about-poster.webp"
                 alt="Viacheslav Danilov"
                 fill
-                sizes="512px"
+                sizes="(min-width: 1024px) 224px, 192px"
                 quality={90}
                 className="object-cover brightness-150"
-                priority
               />
             </div>
 
@@ -45,7 +44,7 @@ const CallToAction = ({
                 src="/hero/signature.webp"
                 alt="Viacheslav Danilov Signature"
                 fill
-                sizes="512px"
+                sizes="192px"
                 quality={90}
                 className="object-contain"
               />
