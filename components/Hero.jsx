@@ -29,7 +29,7 @@ const Hero = () => {
 
   return (
     <section id="hero" className="w-full max-w-7xl mx-auto px-6 py-12 md:py-24">
-      <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-10">
+      <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-6 lg:gap-10">
         {/* Text Content */}
         <div className="w-full md:w-1/2 space-y-4 text-center md:text-left">
           <h1 className="text-4xl md:text-5xl font-semibold text-light tracking-tight">
