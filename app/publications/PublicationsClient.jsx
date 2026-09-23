@@ -499,7 +499,7 @@ export default function Publications() {
   }, []);
 
   return (
-    <main className="min-h-screen pt-24">
+    <div className="min-h-screen pt-24">
       <div className="flex flex-col items-center pt-12 md:pt-24 gap-36 pb-48">
         {/* Header Section */}
         <section className="w-full max-w-7xl mx-auto px-6">
@@ -558,6 +558,6 @@ export default function Publications() {
           )}
         </section>
       </div>
-    </main>
+    </div>
   );
 }

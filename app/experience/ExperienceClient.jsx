@@ -599,7 +599,7 @@ export default function Experience() {
   }));
 
   return (
-    <main className="min-h-screen pt-24">
+    <div className="min-h-screen pt-24">
       <div className="flex flex-col items-center pt-12 md:pt-24 gap-36 pb-48">
         <section className="w-full max-w-7xl mx-auto px-6">
           <header className="mb-12 text-center">
@@ -646,6 +646,6 @@ export default function Experience() {
           </div>
         </section>
       </div>
-    </main>
+    </div>
   );
 }

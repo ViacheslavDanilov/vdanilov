@@ -179,7 +179,7 @@ function TeamMemberCard({ member }) {
 
 export default function ProjectPage() {
   return (
-    <main className="min-h-screen pt-24">
+    <div className="min-h-screen pt-24">
       <div className="w-full max-w-5xl mx-auto px-6 py-12 md:py-24">
         {/* Back Navigation */}
         <Link
@@ -753,6 +753,6 @@ export default function ProjectPage() {
       </div>
       {/* Bottom spacing before footer */}
       <div className="pb-24" />
-    </main>
+    </div>
   );
 }
