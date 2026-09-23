@@ -19,6 +19,7 @@ import {
   faKaggle,
   faFacebookSquare,
 } from "@fortawesome/free-brands-svg-icons";
+import AutoplayVideo from "@/components/AutoplayVideo";
 import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
 import ProjectBanner from "@/components/ProjectBanner";
@@ -641,45 +642,24 @@ export default function ProjectPage() {
             {/* Figure 4: CT Detection Results */}
             <figure id="figure-4" className="mb-6 scroll-mt-24">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  controls
-                  className="w-full rounded-lg"
-                >
+                <AutoplayVideo controls className="w-full rounded-lg">
                   <source
                     src="/portfolio/deep-deface/detection-ct-axial.mp4"
                     type="video/mp4"
                   />
-                </video>
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  controls
-                  className="w-full rounded-lg"
-                >
+                </AutoplayVideo>
+                <AutoplayVideo controls className="w-full rounded-lg">
                   <source
                     src="/portfolio/deep-deface/detection-ct-coronal.mp4"
                     type="video/mp4"
                   />
-                </video>
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  controls
-                  className="w-full rounded-lg"
-                >
+                </AutoplayVideo>
+                <AutoplayVideo controls className="w-full rounded-lg">
                   <source
                     src="/portfolio/deep-deface/detection-ct-sagittal.mp4"
                     type="video/mp4"
                   />
-                </video>
+                </AutoplayVideo>
               </div>
               <figcaption className="text-center text-sm text-gray-400 mt-3">
                 <span className="text-gray-300">Figure 4.</span> Detection
@@ -691,45 +671,24 @@ export default function ProjectPage() {
             {/* Figure 5: MRI Detection Results */}
             <figure id="figure-5" className="scroll-mt-24">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  controls
-                  className="w-full rounded-lg"
-                >
+                <AutoplayVideo controls className="w-full rounded-lg">
                   <source
                     src="/portfolio/deep-deface/detection-mri-axial.mp4"
                     type="video/mp4"
                   />
-                </video>
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  controls
-                  className="w-full rounded-lg"
-                >
+                </AutoplayVideo>
+                <AutoplayVideo controls className="w-full rounded-lg">
                   <source
                     src="/portfolio/deep-deface/detection-mri-coronal.mp4"
                     type="video/mp4"
                   />
-                </video>
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  controls
-                  className="w-full rounded-lg"
-                >
+                </AutoplayVideo>
+                <AutoplayVideo controls className="w-full rounded-lg">
                   <source
                     src="/portfolio/deep-deface/detection-mri-sagittal.mp4"
                     type="video/mp4"
                   />
-                </video>
+                </AutoplayVideo>
               </div>
               <figcaption className="text-center text-sm text-gray-400 mt-3">
                 <span className="text-gray-300">Figure 5.</span> Detection

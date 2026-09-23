@@ -18,6 +18,7 @@ import {
   faGoogleScholar,
   faOrcid,
 } from "@fortawesome/free-brands-svg-icons";
+import AutoplayVideo from "@/components/AutoplayVideo";
 import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
 import ProjectBanner from "@/components/ProjectBanner";
@@ -639,46 +640,31 @@ export default function ProjectPage() {
             <figure id="figure-2" className="scroll-mt-24">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="rounded-xl overflow-hidden border border-white/10">
-                  <video
+                  <AutoplayVideo
                     src="/portfolio/stenosis-spotter/surgery-1-rfcn-resnet-101.mp4"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
                     controls
                     className="w-full h-auto"
-                    preload="metadata"
                   >
                     Your browser does not support the video tag.
-                  </video>
+                  </AutoplayVideo>
                 </div>
                 <div className="rounded-xl overflow-hidden border border-white/10">
-                  <video
+                  <AutoplayVideo
                     src="/portfolio/stenosis-spotter/surgery-2-rfcn-resnet-101.mp4"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
                     controls
                     className="w-full h-auto"
-                    preload="metadata"
                   >
                     Your browser does not support the video tag.
-                  </video>
+                  </AutoplayVideo>
                 </div>
                 <div className="rounded-xl overflow-hidden border border-white/10">
-                  <video
+                  <AutoplayVideo
                     src="/portfolio/stenosis-spotter/surgery-3-rfcn-resnet-101.mp4"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
                     controls
                     className="w-full h-auto"
-                    preload="metadata"
                   >
                     Your browser does not support the video tag.
-                  </video>
+                  </AutoplayVideo>
                 </div>
               </div>
               <figcaption className="text-center text-sm text-gray-400 mt-3">

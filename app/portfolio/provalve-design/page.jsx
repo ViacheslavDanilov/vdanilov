@@ -17,6 +17,7 @@ import {
   faResearchgate,
   faGoogleScholar,
 } from "@fortawesome/free-brands-svg-icons";
+import AutoplayVideo from "@/components/AutoplayVideo";
 import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
 import ProjectBanner from "@/components/ProjectBanner";
@@ -606,12 +607,8 @@ export default function ProjectPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Video 1: Random Search */}
               <figure className="scroll-mt-24">
-                <video
+                <AutoplayVideo
                   controls
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
                   className="w-full rounded-lg border border-white/10"
                 >
                   <source
@@ -619,7 +616,7 @@ export default function ProjectPage() {
                     type="video/mp4"
                   />
                   Your browser does not support the video tag.
-                </video>
+                </AutoplayVideo>
                 <figcaption className="text-center text-sm text-gray-400 mt-2">
                   Random Search
                 </figcaption>
@@ -627,12 +624,8 @@ export default function ProjectPage() {
 
               {/* Video 2: Tree-structured Parzen Estimator */}
               <figure className="scroll-mt-24">
-                <video
+                <AutoplayVideo
                   controls
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
                   className="w-full rounded-lg border border-white/10"
                 >
                   <source
@@ -640,7 +633,7 @@ export default function ProjectPage() {
                     type="video/mp4"
                   />
                   Your browser does not support the video tag.
-                </video>
+                </AutoplayVideo>
                 <figcaption className="text-center text-sm text-gray-400 mt-2">
                   Tree-structured Parzen Estimator
                 </figcaption>
@@ -648,7 +641,7 @@ export default function ProjectPage() {
 
               {/* Video 3: CMA-ES */}
               {/* <figure className="scroll-mt-24">
-                <video
+                <AutoplayVideo
                   controls
                   className="w-full rounded-lg border border-white/10"
                 >
@@ -657,7 +650,7 @@ export default function ProjectPage() {
                     type="video/mp4"
                   />
                   Your browser does not support the video tag.
-                </video>
+                </AutoplayVideo>
                 <figcaption className="text-center text-sm text-gray-400 mt-2">
                   CMA-ES Algorithm (CMA)
                 </figcaption>
@@ -665,7 +658,7 @@ export default function ProjectPage() {
 
               {/* Video 4: NSGA-II */}
               {/* <figure className="scroll-mt-24">
-                <video
+                <AutoplayVideo
                   controls
                   className="w-full rounded-lg border border-white/10"
                 >
@@ -674,7 +667,7 @@ export default function ProjectPage() {
                     type="video/mp4"
                   />
                   Your browser does not support the video tag.
-                </video>
+                </AutoplayVideo>
                 <figcaption className="text-center text-sm text-gray-400 mt-2">
                   NSGA-II Algorithm (NSGA)
                 </figcaption>
@@ -682,7 +675,7 @@ export default function ProjectPage() {
 
               {/* Video 5: MOTPE */}
               {/* <figure className="scroll-mt-24">
-                <video
+                <AutoplayVideo
                   controls
                   className="w-full rounded-lg border border-white/10"
                 >
@@ -691,7 +684,7 @@ export default function ProjectPage() {
                     type="video/mp4"
                   />
                   Your browser does not support the video tag.
-                </video>
+                </AutoplayVideo>
                 <figcaption className="text-center text-sm text-gray-400 mt-2">
                   Multiobjective TPE (MOTPE)
                 </figcaption>
@@ -699,7 +692,7 @@ export default function ProjectPage() {
 
               {/* Video 6: QMC */}
               {/* <figure className="scroll-mt-24">
-                <video
+                <AutoplayVideo
                   controls
                   className="w-full rounded-lg border border-white/10"
                 >
@@ -708,7 +701,7 @@ export default function ProjectPage() {
                     type="video/mp4"
                   />
                   Your browser does not support the video tag.
-                </video>
+                </AutoplayVideo>
                 <figcaption className="text-center text-sm text-gray-400 mt-2">
                   Quasi-Monte Carlo (QMC)
                 </figcaption>

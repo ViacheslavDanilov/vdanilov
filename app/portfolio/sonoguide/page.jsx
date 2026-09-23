@@ -18,6 +18,7 @@ import {
   faGoogleScholar,
   faOrcid,
 } from "@fortawesome/free-brands-svg-icons";
+import AutoplayVideo from "@/components/AutoplayVideo";
 import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
 import ProjectBanner from "@/components/ProjectBanner";
@@ -641,12 +642,8 @@ export default function ProjectPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Video 1: Static 3D */}
               <figure className="scroll-mt-24">
-                <video
+                <AutoplayVideo
                   controls
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
                   className="w-full rounded-lg border border-white/10"
                 >
                   <source
@@ -654,7 +651,7 @@ export default function ProjectPage() {
                     type="video/mp4"
                   />
                   Your browser does not support the video tag.
-                </video>
+                </AutoplayVideo>
                 <figcaption className="text-center text-sm text-gray-400 mt-2">
                   Segmentation of a static 3D series
                 </figcaption>
@@ -662,12 +659,8 @@ export default function ProjectPage() {
 
               {/* Video 2: Dynamic 3D */}
               <figure className="scroll-mt-24">
-                <video
+                <AutoplayVideo
                   controls
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
                   className="w-full rounded-lg border border-white/10"
                 >
                   <source
@@ -675,7 +668,7 @@ export default function ProjectPage() {
                     type="video/mp4"
                   />
                   Your browser does not support the video tag.
-                </video>
+                </AutoplayVideo>
                 <figcaption className="text-center text-sm text-gray-400 mt-2">
                   Segmentation of a dynamic 3D series
                 </figcaption>

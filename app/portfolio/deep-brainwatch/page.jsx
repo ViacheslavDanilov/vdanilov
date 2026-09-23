@@ -19,6 +19,7 @@ import {
   faGoogleScholar,
   faOrcid,
 } from "@fortawesome/free-brands-svg-icons";
+import AutoplayVideo from "@/components/AutoplayVideo";
 import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
 import ProjectBanner from "@/components/ProjectBanner";
@@ -673,12 +674,8 @@ export default function ProjectPage() {
             {/* Figure 4 - Validation Video */}
             <figure id="figure-4" className="scroll-mt-24 mb-8">
               <div className="relative rounded-xl overflow-hidden border border-white/10">
-                <video
+                <AutoplayVideo
                   className="w-full"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
                   controls
                   poster="/portfolio/deep-brainwatch/predictions-mwdn-train-val-poster.webp"
                 >
@@ -687,7 +684,7 @@ export default function ProjectPage() {
                     type="video/mp4"
                   />
                   Your browser does not support the video tag.
-                </video>
+                </AutoplayVideo>
               </div>
               <figcaption className="text-center text-sm text-gray-400 mt-3">
                 <span className="text-gray-300">Figure 4.</span> Predicted vs.
@@ -699,12 +696,8 @@ export default function ProjectPage() {
             {/* Figure 5 - Test Video */}
             <figure id="figure-5" className="scroll-mt-24">
               <div className="relative rounded-xl overflow-hidden border border-white/10">
-                <video
+                <AutoplayVideo
                   className="w-full"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
                   controls
                   poster="/portfolio/deep-brainwatch/predictions-mwdn-test-poster.webp"
                 >
@@ -713,7 +706,7 @@ export default function ProjectPage() {
                     type="video/mp4"
                   />
                   Your browser does not support the video tag.
-                </video>
+                </AutoplayVideo>
               </div>
               <figcaption className="text-center text-sm text-gray-400 mt-3">
                 <span className="text-gray-300">Figure 5.</span> Predicted vs.

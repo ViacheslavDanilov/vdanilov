@@ -18,6 +18,7 @@ import {
   faGoogleScholar,
   faOrcid,
 } from "@fortawesome/free-brands-svg-icons";
+import AutoplayVideo from "@/components/AutoplayVideo";
 import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
 import ProjectBanner from "@/components/ProjectBanner";
@@ -546,52 +547,37 @@ export default function ProjectPage() {
             <figure id="figure-2" className="mb-6 scroll-mt-24">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="rounded-xl overflow-hidden border border-white/10">
-                  <video
+                  <AutoplayVideo
                     src="/portfolio/oncocell-vision/tiling-with-regular-window-shift.mp4"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
                     controls
                     className="w-full h-auto"
-                    preload="metadata"
                   >
                     Your browser does not support the video tag.
-                  </video>
+                  </AutoplayVideo>
                   <p className="text-center text-xs text-gray-400 py-2 bg-dark/50">
                     (a) Regular window shift
                   </p>
                 </div>
                 <div className="rounded-xl overflow-hidden border border-white/10">
-                  <video
+                  <AutoplayVideo
                     src="/portfolio/oncocell-vision/tiling-with-padding.mp4"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
                     controls
                     className="w-full h-auto"
-                    preload="metadata"
                   >
                     Your browser does not support the video tag.
-                  </video>
+                  </AutoplayVideo>
                   <p className="text-center text-xs text-gray-400 py-2 bg-dark/50">
                     (b) Window padding
                   </p>
                 </div>
                 <div className="rounded-xl overflow-hidden border border-white/10">
-                  <video
+                  <AutoplayVideo
                     src="/portfolio/oncocell-vision/tiling-with-unfixed-size-window.mp4"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
                     controls
                     className="w-full h-auto"
-                    preload="metadata"
                   >
                     Your browser does not support the video tag.
-                  </video>
+                  </AutoplayVideo>
                   <p className="text-center text-xs text-gray-400 py-2 bg-dark/50">
                     (c) Unfixed-size windows
                   </p>

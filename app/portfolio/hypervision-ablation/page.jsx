@@ -18,6 +18,7 @@ import {
   faGoogleScholar,
   faOrcid,
 } from "@fortawesome/free-brands-svg-icons";
+import AutoplayVideo from "@/components/AutoplayVideo";
 import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
 import ProjectBanner from "@/components/ProjectBanner";
@@ -474,12 +475,8 @@ export default function ProjectPage() {
             {/* Video demonstrations */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
               <figure>
-                <video
+                <AutoplayVideo
                   src="/portfolio/hypervision-ablation/input-data-abs.mp4"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
                   controls
                   className="w-full rounded-lg"
                 />
@@ -488,12 +485,8 @@ export default function ProjectPage() {
                 </figcaption>
               </figure>
               <figure>
-                <video
+                <AutoplayVideo
                   src="/portfolio/hypervision-ablation/input-data-hsv.mp4"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
                   controls
                   className="w-full rounded-lg"
                 />
@@ -502,12 +495,8 @@ export default function ProjectPage() {
                 </figcaption>
               </figure>
               <figure>
-                <video
+                <AutoplayVideo
                   src="/portfolio/hypervision-ablation/input-data-ref.mp4"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
                   controls
                   className="w-full rounded-lg"
                 />

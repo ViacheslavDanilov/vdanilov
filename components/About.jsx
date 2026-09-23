@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import AutoplayVideo from "@/components/AutoplayVideo";
 import { LiquidButtonLink } from "@/components/ui/liquid-button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -78,18 +79,10 @@ const About = () => {
             sizes="256px"
             className="object-cover brightness-150"
           />
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            webkit-playsinline="true"
-            preload="auto"
-            className="relative w-full h-full object-cover brightness-125"
-          >
+          <AutoplayVideo className="relative w-full h-full object-cover brightness-125">
             <source src="/hero/about-video.mp4" type="video/mp4" />
             Your browser does not support the video tag.
-          </video>
+          </AutoplayVideo>
         </div>
 
         {/* Signature (Commented out) */}

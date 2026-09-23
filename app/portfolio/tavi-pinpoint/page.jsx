@@ -18,6 +18,7 @@ import {
   faGoogleScholar,
   faOrcid,
 } from "@fortawesome/free-brands-svg-icons";
+import AutoplayVideo from "@/components/AutoplayVideo";
 import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
 import ProjectBanner from "@/components/ProjectBanner";
@@ -640,13 +641,9 @@ export default function ProjectPage() {
             <figure id="figure-3" className="mb-6 scroll-mt-24">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="rounded-lg overflow-hidden">
-                  <video
+                  <AutoplayVideo
                     src="/portfolio/tavi-pinpoint/convergence-mobilenet.mp4"
-                    autoPlay
-                    loop
-                    muted
                     controls
-                    playsInline
                     className="w-full h-auto"
                   />
                   <p className="text-center text-xs text-gray-500 mt-2">
@@ -654,13 +651,9 @@ export default function ProjectPage() {
                   </p>
                 </div>
                 <div className="rounded-lg overflow-hidden">
-                  <video
+                  <AutoplayVideo
                     src="/portfolio/tavi-pinpoint/convergence-resnet.mp4"
-                    autoPlay
-                    loop
-                    muted
                     controls
-                    playsInline
                     className="w-full h-auto"
                   />
                   <p className="text-center text-xs text-gray-500 mt-2">
@@ -668,13 +661,9 @@ export default function ProjectPage() {
                   </p>
                 </div>
                 <div className="rounded-lg overflow-hidden">
-                  <video
+                  <AutoplayVideo
                     src="/portfolio/tavi-pinpoint/convergence-inception.mp4"
-                    autoPlay
-                    loop
-                    muted
                     controls
-                    playsInline
                     className="w-full h-auto"
                   />
                   <p className="text-center text-xs text-gray-500 mt-2">
