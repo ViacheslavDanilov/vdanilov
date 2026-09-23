@@ -533,8 +533,8 @@ export default function ProjectPage() {
               <ImageLightbox
                 src="/portfolio/immune-profiler/histopathology-workflow.webp"
                 alt="Histopathology Classification Workflow"
-                width={1920}
-                height={1080}
+                width={2560}
+                height={410}
                 maxWidth="full"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
@@ -549,8 +549,8 @@ export default function ProjectPage() {
               <ImageLightbox
                 src="/portfolio/immune-profiler/slicing-workflow.webp"
                 alt="WSI Slicing Workflow"
-                width={1920}
-                height={1080}
+                width={2560}
+                height={750}
                 maxWidth="full"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
@@ -628,8 +628,8 @@ export default function ProjectPage() {
               <ImageLightbox
                 src="/portfolio/immune-profiler/histopathology-workflow-output.webp"
                 alt="Workflow Output Visualization"
-                width={1920}
-                height={1080}
+                width={2560}
+                height={1240}
                 maxWidth="full"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">

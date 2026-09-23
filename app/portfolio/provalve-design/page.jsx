@@ -456,8 +456,8 @@ export default function ProjectPage() {
               <ImageLightbox
                 src="/portfolio/provalve-design/valve-structure.webp"
                 alt="Prosthetic Heart Valve Structure"
-                width={2400}
-                height={1200}
+                width={4040}
+                height={3545}
                 maxWidth="xl"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
@@ -527,8 +527,8 @@ export default function ProjectPage() {
               <ImageLightbox
                 src="/portfolio/provalve-design/generative-design-workflow.webp"
                 alt="Generative Design Workflow"
-                width={2400}
-                height={1200}
+                width={3536}
+                height={2096}
                 maxWidth="3xl"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
@@ -585,8 +585,8 @@ export default function ProjectPage() {
               <ImageLightbox
                 src="/portfolio/provalve-design/generated-valves.webp"
                 alt="Optimized Valve Designs"
-                width={2400}
-                height={1600}
+                width={3811}
+                height={4518}
                 maxWidth="xl"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">

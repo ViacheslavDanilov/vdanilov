@@ -425,22 +425,22 @@ export default function ProjectPage() {
                 <ImageLightbox
                   src="/portfolio/deep-deface/ct-patient-1.webp"
                   alt="CT Patient Sample 1"
-                  width={800}
-                  height={800}
+                  width={2896}
+                  height={1896}
                   maxWidth="full"
                 />
                 <ImageLightbox
                   src="/portfolio/deep-deface/ct-patient-2.webp"
                   alt="CT Patient Sample 2"
-                  width={800}
-                  height={800}
+                  width={2896}
+                  height={1896}
                   maxWidth="full"
                 />
                 <ImageLightbox
                   src="/portfolio/deep-deface/ct-patient-3.webp"
                   alt="CT Patient Sample 2"
-                  width={800}
-                  height={800}
+                  width={2896}
+                  height={1896}
                   maxWidth="full"
                 />
               </div>
@@ -457,22 +457,22 @@ export default function ProjectPage() {
                 <ImageLightbox
                   src="/portfolio/deep-deface/mri-t1.webp"
                   alt="MRI T1-weighted sample"
-                  width={800}
-                  height={800}
+                  width={2988}
+                  height={1896}
                   maxWidth="full"
                 />
                 <ImageLightbox
                   src="/portfolio/deep-deface/mri-t2.webp"
                   alt="MRI T2-weighted sample"
-                  width={800}
-                  height={800}
+                  width={2974}
+                  height={1896}
                   maxWidth="full"
                 />
                 <ImageLightbox
                   src="/portfolio/deep-deface/mri-flair.webp"
                   alt="MRI FLAIR sample"
-                  width={800}
-                  height={800}
+                  width={2974}
+                  height={1896}
                   maxWidth="full"
                 />
               </div>
@@ -489,22 +489,22 @@ export default function ProjectPage() {
                 <ImageLightbox
                   src="/portfolio/deep-deface/labeling-right-ear.webp"
                   alt="Right ear annotation in 3D Slicer"
-                  width={800}
-                  height={600}
+                  width={2886}
+                  height={1842}
                   maxWidth="full"
                 />
                 <ImageLightbox
                   src="/portfolio/deep-deface/labeling-face.webp"
                   alt="Face annotation in 3D Slicer"
-                  width={800}
-                  height={600}
+                  width={2886}
+                  height={1842}
                   maxWidth="full"
                 />
                 <ImageLightbox
                   src="/portfolio/deep-deface/labeling-left-ear.webp"
                   alt="Left ear annotation in 3D Slicer"
-                  width={800}
-                  height={600}
+                  width={2886}
+                  height={1842}
                   maxWidth="full"
                 />
               </div>

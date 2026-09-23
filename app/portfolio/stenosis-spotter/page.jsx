@@ -557,57 +557,57 @@ export default function ProjectPage() {
                 <ImageLightbox
                   src="/portfolio/stenosis-spotter/ssd-mobilenet-v1.webp"
                   alt="SSD MobileNet V1 Performance"
-                  width={800}
-                  height={600}
+                  width={650}
+                  height={650}
                   maxWidth="full"
                 />
                 <ImageLightbox
                   src="/portfolio/stenosis-spotter/ssd-mobilenet-v2.webp"
                   alt="SSD MobileNet V2 Performance"
-                  width={800}
-                  height={600}
+                  width={650}
+                  height={650}
                   maxWidth="full"
                 />
                 <ImageLightbox
                   src="/portfolio/stenosis-spotter/ssd-resnet-50.webp"
                   alt="SSD ResNet-50 Performance"
-                  width={800}
-                  height={600}
+                  width={650}
+                  height={650}
                   maxWidth="full"
                 />
                 <ImageLightbox
                   src="/portfolio/stenosis-spotter/faster-rcnn-resnet-50.webp"
                   alt="Faster-RCNN ResNet-50 Performance"
-                  width={800}
-                  height={600}
+                  width={650}
+                  height={650}
                   maxWidth="full"
                 />
                 <ImageLightbox
                   src="/portfolio/stenosis-spotter/faster-rcnn-resnet-101.webp"
                   alt="Faster-RCNN ResNet-101 Performance"
-                  width={800}
-                  height={600}
+                  width={650}
+                  height={650}
                   maxWidth="full"
                 />
                 <ImageLightbox
                   src="/portfolio/stenosis-spotter/rfcn-resnet-101.webp"
                   alt="RFCN ResNet-101 Performance"
-                  width={800}
-                  height={600}
+                  width={650}
+                  height={650}
                   maxWidth="full"
                 />
                 <ImageLightbox
                   src="/portfolio/stenosis-spotter/faster-rcnn-inception-resnet.webp"
                   alt="Faster-RCNN Inception ResNet Performance"
-                  width={800}
-                  height={600}
+                  width={650}
+                  height={650}
                   maxWidth="full"
                 />
                 <ImageLightbox
                   src="/portfolio/stenosis-spotter/faster-rcnn-nasnet.webp"
                   alt="Faster-RCNN NASNet Performance"
-                  width={800}
-                  height={600}
+                  width={650}
+                  height={650}
                   maxWidth="full"
                 />
               </div>

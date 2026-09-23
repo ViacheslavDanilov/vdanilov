@@ -556,8 +556,8 @@ export default function ProjectPage() {
               <ImageLightbox
                 src="/portfolio/pulmolens/indirect-supervision-workflow.webp"
                 alt="Indirect Supervision Workflow"
-                width={2400}
-                height={1200}
+                width={5244}
+                height={1520}
                 maxWidth="full"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
@@ -667,8 +667,8 @@ export default function ProjectPage() {
               <ImageLightbox
                 src="/portfolio/pulmolens/indirect-supervision-covid-finding.webp"
                 alt="COVID-19 Detection Attention Maps"
-                width={2400}
-                height={1200}
+                width={3060}
+                height={3442}
                 maxWidth="2xl"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
@@ -683,8 +683,8 @@ export default function ProjectPage() {
               <ImageLightbox
                 src="/portfolio/pulmolens/indirect-supervision-pneumonia-finding.webp"
                 alt="Pneumonia Detection Attention Maps"
-                width={2400}
-                height={1200}
+                width={3059}
+                height={3439}
                 maxWidth="2xl"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">

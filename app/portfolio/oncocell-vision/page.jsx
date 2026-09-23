@@ -495,8 +495,8 @@ export default function ProjectPage() {
               <ImageLightbox
                 src="/portfolio/oncocell-vision/efficientdet-architecture.webp"
                 alt="EfficientDet Architecture"
-                width={1200}
-                height={600}
+                width={1088}
+                height={428}
                 maxWidth="2xl"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
@@ -676,8 +676,8 @@ export default function ProjectPage() {
               <ImageLightbox
                 src="/portfolio/oncocell-vision/detection-comparison-mb-231-63x.webp"
                 alt="Detection comparison MB-231 63X"
-                width={800}
-                height={600}
+                width={3000}
+                height={1500}
                 maxWidth="3xl"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
@@ -692,8 +692,8 @@ export default function ProjectPage() {
               <ImageLightbox
                 src="/portfolio/oncocell-vision/detection-comparison-hela.webp"
                 alt="Detection comparison HeLa"
-                width={800}
-                height={600}
+                width={4000}
+                height={1500}
                 maxWidth="3xl"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
@@ -708,8 +708,8 @@ export default function ProjectPage() {
               <ImageLightbox
                 src="/portfolio/oncocell-vision/detection-comparison-cal51.webp"
                 alt="Detection comparison CAL51"
-                width={800}
-                height={600}
+                width={4014}
+                height={1500}
                 maxWidth="3xl"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">

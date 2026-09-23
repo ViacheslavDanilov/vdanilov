@@ -444,8 +444,8 @@ export default function ProjectPage() {
               <ImageLightbox
                 src="/portfolio/histo-scanner/annotation-methodology.webp"
                 alt="Annotation Methodology"
-                width={1920}
-                height={1080}
+                width={2560}
+                height={1700}
                 maxWidth="3xl"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
@@ -556,8 +556,8 @@ export default function ProjectPage() {
               <ImageLightbox
                 src="/portfolio/histo-scanner/model-comparison.webp"
                 alt="Model Comparison"
-                width={1200}
-                height={800}
+                width={2560}
+                height={850}
                 maxWidth="3xl"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
@@ -581,8 +581,8 @@ export default function ProjectPage() {
               <ImageLightbox
                 src="/portfolio/histo-scanner/ensemble-prediction.webp"
                 alt="Ensemble Prediction Examples"
-                width={1920}
-                height={1080}
+                width={2560}
+                height={1630}
                 maxWidth="3xl"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">

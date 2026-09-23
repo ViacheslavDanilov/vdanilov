@@ -495,8 +495,8 @@ export default function ProjectPage() {
               <ImageLightbox
                 src="/portfolio/tavi-pinpoint/visual-workflow-for-intraoperative-labeling.webp"
                 alt="Visual workflow for intraoperative landmark labeling"
-                width={2520}
-                height={1600}
+                width={2268}
+                height={2418}
                 maxWidth="2xl"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
@@ -555,8 +555,8 @@ export default function ProjectPage() {
               <ImageLightbox
                 src="/portfolio/tavi-pinpoint/multi-task-learning-workflow.webp"
                 alt="Multi-task learning workflow"
-                width={2400}
-                height={1200}
+                width={2500}
+                height={1952}
                 maxWidth="2xl"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
@@ -694,8 +694,8 @@ export default function ProjectPage() {
               <ImageLightbox
                 src="/portfolio/tavi-pinpoint/prediction-beginning-vs-end.webp"
                 alt="Prediction quality at the beginning vs end of training"
-                width={2400}
-                height={1200}
+                width={2250}
+                height={1750}
                 maxWidth="2xl"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">

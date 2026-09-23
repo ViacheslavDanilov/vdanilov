@@ -512,8 +512,8 @@ export default function ProjectPage() {
               <ImageLightbox
                 src="/portfolio/sales-pilot/sales-pilot-workflow.webp"
                 alt="Sales Pilot Workflow"
-                width={1920}
-                height={1080}
+                width={2500}
+                height={2443}
                 maxWidth="2xl"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">

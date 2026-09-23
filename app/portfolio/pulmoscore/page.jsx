@@ -526,8 +526,8 @@ export default function ProjectPage() {
               <ImageLightbox
                 src="/portfolio/pulmoscore/covid-scoring-workflow.webp"
                 alt="COVID Scoring Workflow"
-                width={2520}
-                height={900}
+                width={4124}
+                height={916}
                 maxWidth="full"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
@@ -591,8 +591,8 @@ export default function ProjectPage() {
               <ImageLightbox
                 src="/portfolio/pulmoscore/model-comparison.webp"
                 alt="Model Performance Comparison"
-                width={1200}
-                height={800}
+                width={2999}
+                height={1499}
                 maxWidth="2xl"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
@@ -610,8 +610,8 @@ export default function ProjectPage() {
                     <ImageLightbox
                       src={item.src}
                       alt={`${item.model} Segmentation Results`}
-                      width={1024}
-                      height={1024}
+                      width={2958}
+                      height={2539}
                       maxWidth="full"
                       className="rounded-lg"
                     />

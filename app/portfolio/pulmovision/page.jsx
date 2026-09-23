@@ -485,8 +485,8 @@ export default function ProjectPage() {
               <ImageLightbox
                 src="/portfolio/pulmovision/chest-xray-annotation-methodology.webp"
                 alt="Chest X-ray Annotation Methodology"
-                width={2520}
-                height={900}
+                width={5120}
+                height={2124}
                 maxWidth="full"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
@@ -552,8 +552,8 @@ export default function ProjectPage() {
               <ImageLightbox
                 src="/portfolio/pulmovision/feature-detection-workflow.webp"
                 alt="Feature Detection Workflow"
-                width={1800}
-                height={600}
+                width={4640}
+                height={1156}
                 maxWidth="full"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
@@ -619,8 +619,8 @@ export default function ProjectPage() {
               <ImageLightbox
                 src="/portfolio/pulmovision/comparison-of-detection-networks.webp"
                 alt="Comparison of Detection Networks"
-                width={1600}
-                height={800}
+                width={8160}
+                height={4000}
                 maxWidth="2xl"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
@@ -648,8 +648,8 @@ export default function ProjectPage() {
               <ImageLightbox
                 src="/portfolio/pulmovision/comparison-of-bat-wing-predictions.webp"
                 alt="Comparison of Bat Wing Predictions"
-                width={2200}
-                height={1600}
+                width={2720}
+                height={5440}
                 maxWidth="md"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
@@ -665,8 +665,8 @@ export default function ProjectPage() {
               <ImageLightbox
                 src="/portfolio/pulmovision/comparison-of-effusion-predictions.webp"
                 alt="Comparison of Pleural Effusion Predictions"
-                width={2200}
-                height={1600}
+                width={2720}
+                height={5440}
                 maxWidth="md"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">

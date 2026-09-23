@@ -566,8 +566,8 @@ export default function ProjectPage() {
               <ImageLightbox
                 src="/portfolio/hypervision-ablation/hsi-analysis-workflow.webp"
                 alt="HSI Analysis Workflow"
-                width={1920}
-                height={1080}
+                width={2500}
+                height={568}
                 maxWidth="full"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
@@ -648,8 +648,8 @@ export default function ProjectPage() {
               <ImageLightbox
                 src="/portfolio/hypervision-ablation/clustering.webp"
                 alt="Clustering Comparison"
-                width={1920}
-                height={1080}
+                width={1626}
+                height={2500}
                 maxWidth="lg"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
@@ -663,8 +663,8 @@ export default function ProjectPage() {
               <ImageLightbox
                 src="/portfolio/hypervision-ablation/cluster-number-comparison.webp"
                 alt="Cluster Number Comparison"
-                width={1920}
-                height={1080}
+                width={2500}
+                height={1250}
                 maxWidth="2xl"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">

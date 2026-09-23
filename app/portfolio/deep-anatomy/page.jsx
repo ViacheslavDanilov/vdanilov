@@ -511,8 +511,8 @@ export default function ProjectPage() {
               <ImageLightbox
                 src="/portfolio/deep-anatomy/v-net-architecture.webp"
                 alt="V-net Architecture"
-                width={1920}
-                height={820}
+                width={2036}
+                height={1266}
                 maxWidth="2xl"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
@@ -539,8 +539,8 @@ export default function ProjectPage() {
               <ImageLightbox
                 src="/portfolio/deep-anatomy/v-net-feature-transfer.gif"
                 alt="V-net Feature Transfer"
-                width={2560}
-                height={770}
+                width={552}
+                height={281}
                 maxWidth="2xl"
                 unoptimized={true}
               />
@@ -662,8 +662,8 @@ export default function ProjectPage() {
               <ImageLightbox
                 src="/portfolio/deep-anatomy/segmentation-of-liver.webp"
                 alt="Liver Segmentation Results"
-                width={2560}
-                height={1220}
+                width={1650}
+                height={1100}
                 maxWidth="2xl"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
@@ -679,8 +679,8 @@ export default function ProjectPage() {
               <ImageLightbox
                 src="/portfolio/deep-anatomy/segmentation-of-hippocampus.webp"
                 alt="Hippocampus Segmentation Results"
-                width={2560}
-                height={1220}
+                width={1650}
+                height={1100}
                 maxWidth="2xl"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
@@ -696,8 +696,8 @@ export default function ProjectPage() {
               <ImageLightbox
                 src="/portfolio/deep-anatomy/segmentation-of-spleen.webp"
                 alt="Spleen Segmentation Results"
-                width={2560}
-                height={1220}
+                width={1650}
+                height={1100}
                 maxWidth="2xl"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
@@ -713,8 +713,8 @@ export default function ProjectPage() {
               <ImageLightbox
                 src="/portfolio/deep-anatomy/segmentation-of-left-atrium.webp"
                 alt="Left Atrium Segmentation Results"
-                width={2560}
-                height={1220}
+                width={1650}
+                height={1100}
                 maxWidth="2xl"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
@@ -730,8 +730,8 @@ export default function ProjectPage() {
               <ImageLightbox
                 src="/portfolio/deep-anatomy/segmentation-of-pancreas.webp"
                 alt="Pancreas Segmentation Results"
-                width={2560}
-                height={1220}
+                width={1650}
+                height={1100}
                 maxWidth="2xl"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">

@@ -495,8 +495,8 @@ export default function ProjectPage() {
               <ImageLightbox
                 src="/portfolio/deep-brainwatch/cbf-and-icp-acquisition.webp"
                 alt="CBF and ICP Acquisition Setup"
-                width={1920}
-                height={1080}
+                width={2500}
+                height={1129}
                 maxWidth="2xl"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
@@ -558,8 +558,8 @@ export default function ProjectPage() {
               <ImageLightbox
                 src="/portfolio/deep-brainwatch/cbf-to-icp-workflow.webp"
                 alt="CBF to ICP Prediction Workflow"
-                width={1920}
-                height={1080}
+                width={2500}
+                height={959}
                 maxWidth="full"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
@@ -644,8 +644,8 @@ export default function ProjectPage() {
               <ImageLightbox
                 src="/portfolio/deep-brainwatch/error-distribution-mwdn.webp"
                 alt="Error Distribution of mWDN Model"
-                width={1920}
-                height={1080}
+                width={2500}
+                height={2500}
                 maxWidth="lg"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">

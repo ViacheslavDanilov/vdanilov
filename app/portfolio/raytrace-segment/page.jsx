@@ -447,8 +447,8 @@ export default function ProjectPage() {
               <ImageLightbox
                 src="/portfolio/raytrace-segment/ray-emission-workflow.webp"
                 alt="Ray Emission Workflow"
-                width={2520}
-                height={900}
+                width={2550}
+                height={650}
                 maxWidth="full"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
@@ -510,8 +510,8 @@ export default function ProjectPage() {
               <ImageLightbox
                 src="/portfolio/raytrace-segment/heart-segmentation-via-ray-emission.webp"
                 alt="Heart Segmentation via Ray Emission"
-                width={2256}
-                height={1600}
+                width={2550}
+                height={650}
                 maxWidth="full"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
@@ -526,8 +526,8 @@ export default function ProjectPage() {
               <ImageLightbox
                 src="/portfolio/raytrace-segment/brain-segmentation-via-ray-emission.webp"
                 alt="Brain Tumor Segmentation via Ray Emission"
-                width={2256}
-                height={1600}
+                width={2550}
+                height={650}
                 maxWidth="full"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">

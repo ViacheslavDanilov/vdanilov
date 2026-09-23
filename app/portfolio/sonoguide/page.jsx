@@ -426,8 +426,8 @@ export default function ProjectPage() {
               <ImageLightbox
                 src="/portfolio/sonoguide/catheter-and-pigtail.webp"
                 alt="Catheter and Pigtail"
-                width={1200}
-                height={600}
+                width={929}
+                height={319}
                 maxWidth="2xl"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
@@ -442,8 +442,8 @@ export default function ProjectPage() {
               <ImageLightbox
                 src="/portfolio/sonoguide/example-of-catheter-source-data.webp"
                 alt="Catheter Source Data"
-                width={2000}
-                height={800}
+                width={1600}
+                height={550}
                 maxWidth="3xl"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
@@ -510,8 +510,8 @@ export default function ProjectPage() {
               <ImageLightbox
                 src="/portfolio/sonoguide/v-net-architecture.webp"
                 alt="V-net Architecture"
-                width={2000}
-                height={1000}
+                width={2036}
+                height={1266}
                 maxWidth="2xl"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
@@ -526,8 +526,8 @@ export default function ProjectPage() {
               <ImageLightbox
                 src="/portfolio/sonoguide/v-net-feature-transfer.gif"
                 alt="V-net Feature Transfer"
-                width={1000}
-                height={600}
+                width={552}
+                height={281}
                 maxWidth="2xl"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
@@ -589,8 +589,8 @@ export default function ProjectPage() {
               <ImageLightbox
                 src="/portfolio/sonoguide/segmentation-of-synthetic-sample.webp"
                 alt="Segmentation of Synthetic Sample"
-                width={1800}
-                height={900}
+                width={1650}
+                height={1100}
                 maxWidth="2xl"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
@@ -605,8 +605,8 @@ export default function ProjectPage() {
               <ImageLightbox
                 src="/portfolio/sonoguide/segmentation-of-real-sample.webp"
                 alt="Segmentation of Real Sample"
-                width={1800}
-                height={900}
+                width={1650}
+                height={1100}
                 maxWidth="2xl"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
@@ -621,8 +621,8 @@ export default function ProjectPage() {
               <ImageLightbox
                 src="/portfolio/sonoguide/comparison-with-other-networks.webp"
                 alt="Comparison with Other Networks"
-                width={1200}
-                height={800}
+                width={3400}
+                height={1500}
                 maxWidth="2xl"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
