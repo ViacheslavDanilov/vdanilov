@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Link from "next/link";
 import { Slot } from "@radix-ui/react-slot";
 import { cva } from "class-variance-authority";
 
@@ -132,8 +133,10 @@ export function LiquidButtonLink({
   children,
   ...props
 }) {
+  const Comp = href.startsWith("/") ? Link : "a";
+
   return (
-    <a
+    <Comp
       href={href}
       target={target}
       rel={target === "_blank" ? "noopener noreferrer" : undefined}
@@ -165,7 +168,7 @@ export function LiquidButtonLink({
       <div className={cn("pointer-events-none z-10", textClassName)}>
         {children}
       </div>
-    </a>
+    </Comp>
   );
 }
 

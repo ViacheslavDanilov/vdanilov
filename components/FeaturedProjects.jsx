@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { GlowCard } from "@/components/ui/glow-card";
@@ -98,7 +99,7 @@ const FeaturedProjects = ({
             <div className="flex flex-col h-full">
               {/* Mobile layout: centered image */}
               <div className="flex flex-col sm:hidden items-center mb-6">
-                <a href={project.link} className="block mb-4">
+                <Link href={project.link} className="block mb-4">
                   <div className="relative w-48 h-48 rounded-lg overflow-hidden bg-neutral-800 border border-white/10">
                     <Image
                       src={project.image}
@@ -109,8 +110,8 @@ const FeaturedProjects = ({
                       className="object-cover"
                     />
                   </div>
-                </a>
-                <a href={project.link} className="group/title inline-block">
+                </Link>
+                <Link href={project.link} className="group/title inline-block">
                   <h3 className="project-title text-sm font-bold text-white group-hover:text-accent uppercase leading-tight tracking-wider mb-3 text-center transition-colors flex items-center justify-center gap-2">
                     {project.title}
                     <span
@@ -128,7 +129,7 @@ const FeaturedProjects = ({
                       />
                     </span>
                   </h3>
-                </a>
+                </Link>
                 <div className="text-sm font-light text-white uppercase tracking-wide text-center mb-2">
                   {project.client}
                 </div>
@@ -139,7 +140,7 @@ const FeaturedProjects = ({
 
               {/* Desktop/Tablet layout: horizontal */}
               <div className="hidden sm:flex flex-row gap-6 mb-4">
-                <a href={project.link} className="flex-shrink-0">
+                <Link href={project.link} className="flex-shrink-0">
                   <div className="relative w-40 h-40 rounded-lg overflow-hidden bg-neutral-800 border border-white/10">
                     <Image
                       src={project.image}
@@ -150,10 +151,13 @@ const FeaturedProjects = ({
                       className="object-cover"
                     />
                   </div>
-                </a>
+                </Link>
 
                 <div className="flex flex-col justify-start">
-                  <a href={project.link} className="group/title inline-block">
+                  <Link
+                    href={project.link}
+                    className="group/title inline-block"
+                  >
                     <h3 className="project-title text-sm font-bold text-white group-hover:text-accent uppercase leading-tight tracking-wider mb-3 transition-colors flex items-center gap-2">
                       {project.title}
                       <span
@@ -171,7 +175,7 @@ const FeaturedProjects = ({
                         />
                       </span>
                     </h3>
-                  </a>
+                  </Link>
                   <div className="text-sm font-light text-white uppercase tracking-wide mb-2">
                     {project.client}
                   </div>
