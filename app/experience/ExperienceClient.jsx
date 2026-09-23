@@ -600,12 +600,13 @@ export default function Experience() {
 
   return (
     <div className="min-h-screen pt-24">
+      <h1 className="sr-only">Experience</h1>
       <div className="flex flex-col items-center pt-12 md:pt-24 gap-36 pb-48">
         <section className="w-full max-w-7xl mx-auto px-6">
           <header className="mb-12 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-light mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-light mb-4">
               Core Positions
-            </h1>
+            </h2>
             <p className="text-gray-400 mt-3 max-w-3xl mx-auto leading-relaxed">
               Leadership and engineering roles spanning AI, machine learning,
               data science, computer vision, and biomedical imaging across
@@ -613,10 +614,7 @@ export default function Experience() {
             </p>
           </header>
 
-          <div
-            className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:items-start"
-            role="list"
-          >
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:items-start">
             {experiences.map((experience) => (
               <ExperienceCard key={experience.id} experience={experience} />
             ))}
@@ -626,9 +624,9 @@ export default function Experience() {
         {/* Visiting Positions Section */}
         <section className="w-full max-w-7xl mx-auto px-6">
           <header className="mb-12 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-light mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-light mb-4">
               Visiting Positions
-            </h1>
+            </h2>
             <p className="text-gray-400 mt-3 max-w-3xl mx-auto leading-relaxed">
               Collaborative research contributions in machine learning, AI, and
               biomedical imaging through short- and mid-term academic
@@ -636,10 +634,7 @@ export default function Experience() {
             </p>
           </header>
 
-          <div
-            className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:items-start"
-            role="list"
-          >
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:items-start">
             {visitingRoles.map((role) => (
               <ExperienceCard key={role.id} experience={role} />
             ))}
