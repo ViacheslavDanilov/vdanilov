@@ -21,32 +21,18 @@ import {
 import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
 import ProjectBanner from "@/components/ProjectBanner";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "Claim Assistant",
   description:
     "AI-powered insurance claim intake automation using Azure Document Intelligence and GPT-5 to extract, validate, and map claim data with per-field confidence scoring.",
-  openGraph: {
-    title: "Claim Assistant | Viacheslav Danilov",
-    description:
-      "AI-powered insurance claim intake automation using Azure Document Intelligence and GPT-5 to extract, validate, and map claim data with per-field confidence scoring.",
-    images: [
-      {
-        url: "/portfolio/previews/claim-assistant.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Claim Assistant - AI-powered insurance claim automation",
-      },
-    ],
+  path: "/portfolio/claim-assistant/",
+  image: {
+    url: "/portfolio/previews/claim-assistant.jpg",
+    alt: "Claim Assistant - AI-powered insurance claim automation",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Claim Assistant | Viacheslav Danilov",
-    description:
-      "AI-powered insurance claim intake automation using Azure Document Intelligence and GPT-5 to extract, validate, and map claim data with per-field confidence scoring.",
-    images: ["/portfolio/previews/claim-assistant.jpg"],
-  },
-};
+});
 
 const HIGHLIGHTS_ITEMS = [
   {

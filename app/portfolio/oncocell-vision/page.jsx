@@ -21,32 +21,18 @@ import {
 import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
 import ProjectBanner from "@/components/ProjectBanner";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "OncoCell Vision",
   description:
     "AI-powered microscopy pipeline for detecting and counting cancer cell biomarkers using EfficientDet, achieving 85% mAP for nuclei detection.",
-  openGraph: {
-    title: "OncoCell Vision | Viacheslav Danilov",
-    description:
-      "AI-powered microscopy pipeline for detecting and counting cancer cell biomarkers using EfficientDet, achieving 85% mAP for nuclei detection.",
-    images: [
-      {
-        url: "/portfolio/previews/oncocell-vision.jpg",
-        width: 1200,
-        height: 630,
-        alt: "OncoCell Vision - Cancer cell biomarker detection",
-      },
-    ],
+  path: "/portfolio/oncocell-vision/",
+  image: {
+    url: "/portfolio/previews/oncocell-vision.jpg",
+    alt: "OncoCell Vision - Cancer cell biomarker detection",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "OncoCell Vision | Viacheslav Danilov",
-    description:
-      "AI-powered microscopy pipeline for detecting and counting cancer cell biomarkers using EfficientDet, achieving 85% mAP for nuclei detection.",
-    images: ["/portfolio/previews/oncocell-vision.jpg"],
-  },
-};
+});
 
 const HIGHLIGHTS_ITEMS = [
   {

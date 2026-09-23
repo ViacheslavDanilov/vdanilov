@@ -21,32 +21,18 @@ import {
 import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
 import ProjectBanner from "@/components/ProjectBanner";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "PulmoScore",
   description:
     "Two-stage ML workflow for COVID-19 severity scoring on chest X-rays, achieving MAE of 0.30 and 11× faster processing.",
-  openGraph: {
-    title: "PulmoScore | Viacheslav Danilov",
-    description:
-      "Two-stage ML workflow for COVID-19 severity scoring on chest X-rays, achieving MAE of 0.30 and 11× faster processing.",
-    images: [
-      {
-        url: "/portfolio/previews/pulmoscore.jpg",
-        width: 1200,
-        height: 630,
-        alt: "PulmoScore - COVID-19 severity scoring",
-      },
-    ],
+  path: "/portfolio/pulmoscore/",
+  image: {
+    url: "/portfolio/previews/pulmoscore.jpg",
+    alt: "PulmoScore - COVID-19 severity scoring",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "PulmoScore | Viacheslav Danilov",
-    description:
-      "Two-stage ML workflow for COVID-19 severity scoring on chest X-rays, achieving MAE of 0.30 and 11× faster processing.",
-    images: ["/portfolio/previews/pulmoscore.jpg"],
-  },
-};
+});
 
 const HIGHLIGHTS_ITEMS = [
   {

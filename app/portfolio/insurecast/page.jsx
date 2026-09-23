@@ -21,32 +21,18 @@ import {
 import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
 import ProjectBanner from "@/components/ProjectBanner";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "InsureCast",
   description:
     "Time-series forecasting dashboard for monthly insurance claims and costs using SARIMAX seasonal models, scenario stress-testing, and AI-generated summaries.",
-  openGraph: {
-    title: "InsureCast | Viacheslav Danilov",
-    description:
-      "Time-series forecasting dashboard for monthly insurance claims and costs using SARIMAX seasonal models, scenario stress-testing, and AI-generated summaries.",
-    images: [
-      {
-        url: "/portfolio/previews/insurecast.jpg",
-        width: 1200,
-        height: 630,
-        alt: "InsureCast - time-series forecasting for insurance claims and costs",
-      },
-    ],
+  path: "/portfolio/insurecast/",
+  image: {
+    url: "/portfolio/previews/insurecast.jpg",
+    alt: "InsureCast - time-series forecasting for insurance claims and costs",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "InsureCast | Viacheslav Danilov",
-    description:
-      "Time-series forecasting dashboard for monthly insurance claims and costs using SARIMAX seasonal models, scenario stress-testing, and AI-generated summaries.",
-    images: ["/portfolio/previews/insurecast.jpg"],
-  },
-};
+});
 
 const HIGHLIGHTS_ITEMS = [
   {

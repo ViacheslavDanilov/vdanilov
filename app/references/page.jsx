@@ -1,23 +1,12 @@
 import ReferencesClient from "./ReferencesClient";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "References",
   description:
     "Recommendations from professors, executives, and collaborators across AI, research, and business.",
-  openGraph: {
-    title: "References | Viacheslav Danilov",
-    description:
-      "Recommendations from professors, executives, and collaborators across AI, research, and business.",
-    images: ["/opengraph-image.jpg"],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "References | Viacheslav Danilov",
-    description:
-      "Recommendations from professors, executives, and collaborators across AI, research, and business.",
-    images: ["/opengraph-image.jpg"],
-  },
-};
+  path: "/references/",
+});
 
 export default function ReferencesPage() {
   return <ReferencesClient />;

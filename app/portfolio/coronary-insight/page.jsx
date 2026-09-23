@@ -21,32 +21,18 @@ import {
 import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
 import ProjectBanner from "@/components/ProjectBanner";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "Coronary Insight",
   description:
     "Deep learning pipeline for OCT plaque segmentation, enabling precise arterial risk assessment in cardiovascular imaging.",
-  openGraph: {
-    title: "Coronary Insight | Viacheslav Danilov",
-    description:
-      "Deep learning pipeline for OCT plaque segmentation, enabling precise arterial risk assessment in cardiovascular imaging.",
-    images: [
-      {
-        url: "/portfolio/previews/coronary-insight.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Coronary Insight - OCT plaque segmentation",
-      },
-    ],
+  path: "/portfolio/coronary-insight/",
+  image: {
+    url: "/portfolio/previews/coronary-insight.jpg",
+    alt: "Coronary Insight - OCT plaque segmentation",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Coronary Insight | Viacheslav Danilov",
-    description:
-      "Deep learning pipeline for OCT plaque segmentation, enabling precise arterial risk assessment in cardiovascular imaging.",
-    images: ["/portfolio/previews/coronary-insight.jpg"],
-  },
-};
+});
 
 const HIGHLIGHTS_ITEMS = [
   {

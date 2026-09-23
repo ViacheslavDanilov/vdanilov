@@ -21,32 +21,18 @@ import {
 import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
 import ProjectBanner from "@/components/ProjectBanner";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "Deep Anatomy",
   description:
     "High-precision 3D organ segmentation via V-net architecture with dense skip connections, achieving up to 96% Dice score across 5 anatomical structures.",
-  openGraph: {
-    title: "Deep Anatomy | Viacheslav Danilov",
-    description:
-      "High-precision 3D organ segmentation via V-net architecture with dense skip connections, achieving up to 96% Dice score across 5 anatomical structures.",
-    images: [
-      {
-        url: "/portfolio/previews/deep-anatomy.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Deep Anatomy - 3D organ segmentation",
-      },
-    ],
+  path: "/portfolio/deep-anatomy/",
+  image: {
+    url: "/portfolio/previews/deep-anatomy.jpg",
+    alt: "Deep Anatomy - 3D organ segmentation",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Deep Anatomy | Viacheslav Danilov",
-    description:
-      "High-precision 3D organ segmentation via V-net architecture with dense skip connections, achieving up to 96% Dice score across 5 anatomical structures.",
-    images: ["/portfolio/previews/deep-anatomy.jpg"],
-  },
-};
+});
 
 const HIGHLIGHTS_ITEMS = [
   {

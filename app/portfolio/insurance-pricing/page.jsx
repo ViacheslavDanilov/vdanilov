@@ -21,32 +21,18 @@ import {
 import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
 import ProjectBanner from "@/components/ProjectBanner";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "Insurance Pricing",
   description:
     "End-to-end ML application for predicting annual insurance charges with SHAP-based explainability and LLM-powered interpretation for business and technical users.",
-  openGraph: {
-    title: "Insurance Pricing | Viacheslav Danilov",
-    description:
-      "End-to-end ML application for predicting annual insurance charges with SHAP-based explainability and LLM-powered interpretation for business and technical users.",
-    images: [
-      {
-        url: "/portfolio/previews/insurance-pricing.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Insurance Pricing - explainable ML for insurance charge prediction",
-      },
-    ],
+  path: "/portfolio/insurance-pricing/",
+  image: {
+    url: "/portfolio/previews/insurance-pricing.jpg",
+    alt: "Insurance Pricing - explainable ML for insurance charge prediction",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Insurance Pricing | Viacheslav Danilov",
-    description:
-      "End-to-end ML application for predicting annual insurance charges with SHAP-based explainability and LLM-powered interpretation for business and technical users.",
-    images: ["/portfolio/previews/insurance-pricing.jpg"],
-  },
-};
+});
 
 const HIGHLIGHTS_ITEMS = [
   {

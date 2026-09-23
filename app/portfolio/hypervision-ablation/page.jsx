@@ -21,32 +21,18 @@ import {
 import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
 import ProjectBanner from "@/components/ProjectBanner";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "HyperVision Ablation",
   description:
     "ML workflow for tissue ablation assessment in hyperspectral imaging using PCA, Faster R-CNN, and Mean Shift clustering.",
-  openGraph: {
-    title: "HyperVision Ablation | Viacheslav Danilov",
-    description:
-      "ML workflow for tissue ablation assessment in hyperspectral imaging using PCA, Faster R-CNN, and Mean Shift clustering.",
-    images: [
-      {
-        url: "/portfolio/previews/hypervision-ablation.jpg",
-        width: 1200,
-        height: 630,
-        alt: "HyperVision Ablation - Hyperspectral tissue analysis",
-      },
-    ],
+  path: "/portfolio/hypervision-ablation/",
+  image: {
+    url: "/portfolio/previews/hypervision-ablation.jpg",
+    alt: "HyperVision Ablation - Hyperspectral tissue analysis",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "HyperVision Ablation | Viacheslav Danilov",
-    description:
-      "ML workflow for tissue ablation assessment in hyperspectral imaging using PCA, Faster R-CNN, and Mean Shift clustering.",
-    images: ["/portfolio/previews/hypervision-ablation.jpg"],
-  },
-};
+});
 
 const HIGHLIGHTS_ITEMS = [
   {

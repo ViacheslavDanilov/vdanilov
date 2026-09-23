@@ -21,32 +21,18 @@ import {
 import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
 import ProjectBanner from "@/components/ProjectBanner";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "PulmoVision",
   description:
     "Explainable AI framework for detecting pulmonary edema features in chest X-rays using deep learning segmentation and object detection.",
-  openGraph: {
-    title: "PulmoVision | Viacheslav Danilov",
-    description:
-      "Explainable AI framework for detecting pulmonary edema features in chest X-rays using deep learning segmentation and object detection.",
-    images: [
-      {
-        url: "/portfolio/previews/pulmovision.jpg",
-        width: 1200,
-        height: 630,
-        alt: "PulmoVision - AI for pulmonary edema detection",
-      },
-    ],
+  path: "/portfolio/pulmovision/",
+  image: {
+    url: "/portfolio/previews/pulmovision.jpg",
+    alt: "PulmoVision - AI for pulmonary edema detection",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "PulmoVision | Viacheslav Danilov",
-    description:
-      "Explainable AI framework for detecting pulmonary edema features in chest X-rays using deep learning segmentation and object detection.",
-    images: ["/portfolio/previews/pulmovision.jpg"],
-  },
-};
+});
 
 const HIGHLIGHTS_ITEMS = [
   {

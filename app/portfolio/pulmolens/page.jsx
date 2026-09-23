@@ -21,32 +21,18 @@ import {
 import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
 import ProjectBanner from "@/components/ProjectBanner";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "PulmoLens",
   description:
     "Attention-guided deep learning for COVID-19 and pneumonia detection in chest X-rays, achieving 84% accuracy with Grad-CAM supervision.",
-  openGraph: {
-    title: "PulmoLens | Viacheslav Danilov",
-    description:
-      "Attention-guided deep learning for COVID-19 and pneumonia detection in chest X-rays, achieving 84% accuracy with Grad-CAM supervision.",
-    images: [
-      {
-        url: "/portfolio/previews/pulmolens.jpg",
-        width: 1200,
-        height: 630,
-        alt: "PulmoLens - COVID-19 and pneumonia detection",
-      },
-    ],
+  path: "/portfolio/pulmolens/",
+  image: {
+    url: "/portfolio/previews/pulmolens.jpg",
+    alt: "PulmoLens - COVID-19 and pneumonia detection",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "PulmoLens | Viacheslav Danilov",
-    description:
-      "Attention-guided deep learning for COVID-19 and pneumonia detection in chest X-rays, achieving 84% accuracy with Grad-CAM supervision.",
-    images: ["/portfolio/previews/pulmolens.jpg"],
-  },
-};
+});
 
 const HIGHLIGHTS_ITEMS = [
   {

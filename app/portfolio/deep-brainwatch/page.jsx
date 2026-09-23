@@ -22,32 +22,18 @@ import {
 import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
 import ProjectBanner from "@/components/ProjectBanner";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "Deep BrainWatch",
   description:
     "Non-invasive ICP monitoring using deep learning on cerebral blood flow signals from near-infrared photonic sensors.",
-  openGraph: {
-    title: "Deep BrainWatch | Viacheslav Danilov",
-    description:
-      "Non-invasive ICP monitoring using deep learning on cerebral blood flow signals from near-infrared photonic sensors.",
-    images: [
-      {
-        url: "/portfolio/previews/deep-brainwatch.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Deep BrainWatch - Non-invasive ICP monitoring",
-      },
-    ],
+  path: "/portfolio/deep-brainwatch/",
+  image: {
+    url: "/portfolio/previews/deep-brainwatch.jpg",
+    alt: "Deep BrainWatch - Non-invasive ICP monitoring",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Deep BrainWatch | Viacheslav Danilov",
-    description:
-      "Non-invasive ICP monitoring using deep learning on cerebral blood flow signals from near-infrared photonic sensors.",
-    images: ["/portfolio/previews/deep-brainwatch.jpg"],
-  },
-};
+});
 
 const HIGHLIGHTS_ITEMS = [
   {

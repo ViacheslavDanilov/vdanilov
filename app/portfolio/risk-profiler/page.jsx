@@ -21,32 +21,18 @@ import {
 import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
 import ProjectBanner from "@/components/ProjectBanner";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "Risk Profiler",
   description:
     "Machine learning prototype for insurance claim fraud risk profiling using AutoGluon ensembles, SHAP explainability, and LLM-generated assessment summaries.",
-  openGraph: {
-    title: "Risk Profiler | Viacheslav Danilov",
-    description:
-      "Machine learning prototype for insurance claim fraud risk profiling using AutoGluon ensembles, SHAP explainability, and LLM-generated assessment summaries.",
-    images: [
-      {
-        url: "/portfolio/previews/risk-profiler.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Risk Profiler - AI-powered insurance claim fraud detection",
-      },
-    ],
+  path: "/portfolio/risk-profiler/",
+  image: {
+    url: "/portfolio/previews/risk-profiler.jpg",
+    alt: "Risk Profiler - AI-powered insurance claim fraud detection",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Risk Profiler | Viacheslav Danilov",
-    description:
-      "Machine learning prototype for insurance claim fraud risk profiling using AutoGluon ensembles, SHAP explainability, and LLM-generated assessment summaries.",
-    images: ["/portfolio/previews/risk-profiler.jpg"],
-  },
-};
+});
 
 const HIGHLIGHTS_ITEMS = [
   {

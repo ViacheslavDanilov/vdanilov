@@ -21,32 +21,18 @@ import {
 import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
 import ProjectBanner from "@/components/ProjectBanner";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "Sales Pilot",
   description:
     "AI-powered lead scoring system using hybrid heuristics and OpenAI embeddings to automate and prioritize high-fit leads at scale.",
-  openGraph: {
-    title: "Sales Pilot | Viacheslav Danilov",
-    description:
-      "AI-powered lead scoring system using hybrid heuristics and OpenAI embeddings to automate and prioritize high-fit leads at scale.",
-    images: [
-      {
-        url: "/portfolio/previews/sales-pilot.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Sales Pilot - AI-powered lead scoring",
-      },
-    ],
+  path: "/portfolio/sales-pilot/",
+  image: {
+    url: "/portfolio/previews/sales-pilot.jpg",
+    alt: "Sales Pilot - AI-powered lead scoring",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Sales Pilot | Viacheslav Danilov",
-    description:
-      "AI-powered lead scoring system using hybrid heuristics and OpenAI embeddings to automate and prioritize high-fit leads at scale.",
-    images: ["/portfolio/previews/sales-pilot.jpg"],
-  },
-};
+});
 
 const HIGHLIGHTS_ITEMS = [
   {

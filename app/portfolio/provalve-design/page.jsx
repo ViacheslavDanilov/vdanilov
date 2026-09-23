@@ -20,32 +20,18 @@ import {
 import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
 import ProjectBanner from "@/components/ProjectBanner";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "ProValve Design",
   description:
     "ML-driven generative design framework for prosthetic heart valves using optimization algorithms, achieving 95% design efficacy.",
-  openGraph: {
-    title: "ProValve Design | Viacheslav Danilov",
-    description:
-      "ML-driven generative design framework for prosthetic heart valves using optimization algorithms, achieving 95% design efficacy.",
-    images: [
-      {
-        url: "/portfolio/previews/provalve-design.jpg",
-        width: 1200,
-        height: 630,
-        alt: "ProValve Design - Prosthetic heart valve design",
-      },
-    ],
+  path: "/portfolio/provalve-design/",
+  image: {
+    url: "/portfolio/previews/provalve-design.jpg",
+    alt: "ProValve Design - Prosthetic heart valve design",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "ProValve Design | Viacheslav Danilov",
-    description:
-      "ML-driven generative design framework for prosthetic heart valves using optimization algorithms, achieving 95% design efficacy.",
-    images: ["/portfolio/previews/provalve-design.jpg"],
-  },
-};
+});
 
 const HIGHLIGHTS_ITEMS = [
   {

@@ -21,32 +21,18 @@ import {
 import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
 import ProjectBanner from "@/components/ProjectBanner";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "Stenosis Spotter",
   description:
     "Real-time coronary stenosis detection using deep learning for intraoperative angiographic image analysis with 0.94 mAP.",
-  openGraph: {
-    title: "Stenosis Spotter | Viacheslav Danilov",
-    description:
-      "Real-time coronary stenosis detection using deep learning for intraoperative angiographic image analysis with 0.94 mAP.",
-    images: [
-      {
-        url: "/portfolio/previews/stenosis-spotter.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Stenosis Spotter - Coronary stenosis detection",
-      },
-    ],
+  path: "/portfolio/stenosis-spotter/",
+  image: {
+    url: "/portfolio/previews/stenosis-spotter.jpg",
+    alt: "Stenosis Spotter - Coronary stenosis detection",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Stenosis Spotter | Viacheslav Danilov",
-    description:
-      "Real-time coronary stenosis detection using deep learning for intraoperative angiographic image analysis with 0.94 mAP.",
-    images: ["/portfolio/previews/stenosis-spotter.jpg"],
-  },
-};
+});
 
 const HIGHLIGHTS_ITEMS = [
   {

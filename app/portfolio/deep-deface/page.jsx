@@ -22,32 +22,18 @@ import {
 import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
 import ProjectBanner from "@/components/ProjectBanner";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "Deep Deface",
   description:
     "GPU-accelerated 3D anonymization pipeline for CT and MRI scans, detecting and blurring facial/ear regions while preserving 100% of brain anatomy.",
-  openGraph: {
-    title: "Deep Deface | Viacheslav Danilov",
-    description:
-      "GPU-accelerated 3D anonymization pipeline for CT and MRI scans, detecting and blurring facial/ear regions while preserving 100% of brain anatomy.",
-    images: [
-      {
-        url: "/portfolio/previews/deep-deface.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Deep Deface - 3D face anonymization",
-      },
-    ],
+  path: "/portfolio/deep-deface/",
+  image: {
+    url: "/portfolio/previews/deep-deface.jpg",
+    alt: "Deep Deface - 3D face anonymization",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Deep Deface | Viacheslav Danilov",
-    description:
-      "GPU-accelerated 3D anonymization pipeline for CT and MRI scans, detecting and blurring facial/ear regions while preserving 100% of brain anatomy.",
-    images: ["/portfolio/previews/deep-deface.jpg"],
-  },
-};
+});
 
 const HIGHLIGHTS_ITEMS = [
   {

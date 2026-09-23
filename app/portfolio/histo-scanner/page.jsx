@@ -21,32 +21,18 @@ import {
 import ImageLightbox from "@/components/ImageLightbox";
 import { GlowCard } from "@/components/ui/glow-card";
 import ProjectBanner from "@/components/ProjectBanner";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "Histo Scanner",
   description:
     "Deep learning pipeline for segmenting microvascular features in tissue-engineered vascular grafts with 89% Dice score.",
-  openGraph: {
-    title: "Histo Scanner | Viacheslav Danilov",
-    description:
-      "Deep learning pipeline for segmenting microvascular features in tissue-engineered vascular grafts with 89% Dice score.",
-    images: [
-      {
-        url: "/portfolio/previews/histo-scanner.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Histo Scanner - Microvascular feature segmentation",
-      },
-    ],
+  path: "/portfolio/histo-scanner/",
+  image: {
+    url: "/portfolio/previews/histo-scanner.jpg",
+    alt: "Histo Scanner - Microvascular feature segmentation",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Histo Scanner | Viacheslav Danilov",
-    description:
-      "Deep learning pipeline for segmenting microvascular features in tissue-engineered vascular grafts with 89% Dice score.",
-    images: ["/portfolio/previews/histo-scanner.jpg"],
-  },
-};
+});
 
 const HIGHLIGHTS_ITEMS = [
   {
