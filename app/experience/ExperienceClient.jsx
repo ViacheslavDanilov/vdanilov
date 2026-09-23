@@ -57,11 +57,11 @@ const EXPERIENCES_DATA = [
     location: "Barcelona • Spain 🇪🇸",
     logo: "/experience/core-roles/upf.svg",
     summary:
-      "Leading the ML on SafeICP, which reads intracranial pressure from blood flow without surgery, and on Huawei's depth-aware video bokeh, which runs on a phone; supervising 2 PhD students and a post-doc",
+      "Leading the ML on SafeICP, which reads intracranial pressure from blood flow without surgery, and on Huawei's depth-aware video bokeh, which runs on a phone; supervising 2 PhD students and a postdoc",
     responsibilities: [
       "Lead the ML on SafeICP with the Institute of Photonic Sciences and surgeons at Vall d'Hebron: intracranial pressure from blood flow, no surgery, at 5.3 mmHg mean error against the invasive probe",
       "Build the training data and the depth baseline for Huawei's depth-aware video bokeh, a model that has to run on the phone inside a 100 GFLOP budget",
-      "Mentor 2 PhD students and a post-doc on time-series and medical ML",
+      "Supervise 2 PhD students and a postdoc on time-series and medical ML",
     ],
     links: [
       {
