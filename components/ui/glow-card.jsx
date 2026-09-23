@@ -17,6 +17,55 @@ const sizeMap = {
   lg: "w-80 h-96",
 };
 
+// One pointer listener for every card; only cards on screen are updated
+const visibleCards = new Set();
+const pointer = { x: -9999, y: -9999 };
+let trackedCount = 0;
+let observer = null;
+let frame = 0;
+
+const syncCard = (card) => {
+  card.style.setProperty("--x", pointer.x.toFixed(2));
+  card.style.setProperty("--y", pointer.y.toFixed(2));
+};
+
+const syncVisibleCards = () => {
+  frame = 0;
+  visibleCards.forEach(syncCard);
+};
+
+const handlePointerMove = (e) => {
+  pointer.x = e.clientX;
+  pointer.y = e.clientY;
+  if (!frame) frame = requestAnimationFrame(syncVisibleCards);
+};
+
+const trackCard = (card) => {
+  if (trackedCount++ === 0) {
+    observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          visibleCards.add(entry.target);
+          syncCard(entry.target);
+        } else {
+          visibleCards.delete(entry.target);
+        }
+      });
+    });
+    document.addEventListener("pointermove", handlePointerMove);
+  }
+  observer.observe(card);
+
+  return () => {
+    observer.unobserve(card);
+    visibleCards.delete(card);
+    if (--trackedCount === 0) {
+      observer.disconnect();
+      document.removeEventListener("pointermove", handlePointerMove);
+    }
+  };
+};
+
 const GlowCard = ({
   children,
   className = "",
@@ -34,26 +83,7 @@ const GlowCard = ({
 
   useEffect(() => {
     if (!enableSpotlight && !enableBorderGlow) return;
-
-    const syncPointer = (e) => {
-      const { clientX: x, clientY: y } = e;
-
-      if (cardRef.current) {
-        cardRef.current.style.setProperty("--x", x.toFixed(2));
-        cardRef.current.style.setProperty(
-          "--xp",
-          (x / window.innerWidth).toFixed(2),
-        );
-        cardRef.current.style.setProperty("--y", y.toFixed(2));
-        cardRef.current.style.setProperty(
-          "--yp",
-          (y / window.innerHeight).toFixed(2),
-        );
-      }
-    };
-
-    document.addEventListener("pointermove", syncPointer);
-    return () => document.removeEventListener("pointermove", syncPointer);
+    return trackCard(cardRef.current);
   }, [enableSpotlight, enableBorderGlow]);
 
   const { base, spread } = glowColorMap[glowColor];
@@ -111,80 +141,8 @@ const GlowCard = ({
     return baseStyles;
   };
 
-  const beforeAfterStyles = `
-    /* Default state for mobile - simplified to avoid heavy rendering */
-    [data-glow]::before,
-    [data-glow]::after {
-      display: none;
-    }
-
-    [data-glow] [data-glow] {
-      display: none;
-    }
-
-    /* Enable complex effects only on desktop */
-    @media (min-width: 768px) {
-      [data-glow]::before,
-      [data-glow]::after {
-        display: block;
-        pointer-events: none;
-        content: "";
-        position: absolute;
-        inset: calc(var(--border-size) * -1);
-        border: var(--border-size) solid transparent;
-        border-radius: calc(var(--radius) * 1px);
-        background-attachment: fixed;
-        background-size: calc(100% + (2 * var(--border-size))) calc(100% + (2 * var(--border-size)));
-        background-repeat: no-repeat;
-        background-position: 50% 50%;
-        mask: linear-gradient(transparent, transparent), linear-gradient(white, white);
-        mask-clip: padding-box, border-box;
-        mask-composite: intersect;
-      }
-      
-      [data-glow]::before {
-        background-image: radial-gradient(
-          calc(var(--spotlight-size) * 0.75) calc(var(--spotlight-size) * 0.75) at
-          calc(var(--x, 0) * 1px)
-          calc(var(--y, 0) * 1px),
-          hsl(var(--hue, 210) calc(var(--saturation, 100) * 1%) calc(var(--lightness, 50) * 1%) / var(--border-spot-opacity, 1)), transparent 100%
-        );
-        filter: brightness(1.3);
-      }
-      
-      [data-glow]::after {
-        background-image: radial-gradient(
-          calc(var(--spotlight-size) * 0.5) calc(var(--spotlight-size) * 0.5) at
-          calc(var(--x, 0) * 1px)
-          calc(var(--y, 0) * 1px),
-          hsl(0 100% 100% / var(--border-light-opacity, 1)), transparent 100%
-        );
-      }
-      
-      [data-glow] [data-glow] {
-        display: block;
-        position: absolute;
-        inset: 0;
-        will-change: filter;
-        opacity: var(--outer, 1);
-        border-radius: calc(var(--radius) * 1px);
-        border-width: calc(var(--border-size) * 20);
-        filter: blur(calc(var(--border-size) * 5));
-        background: none;
-        pointer-events: none;
-        border: none;
-      }
-      
-      [data-glow] > [data-glow]::before {
-        inset: -10px;
-        border-width: 10px;
-      }
-    }
-  `;
-
   return (
     <>
-      <style dangerouslySetInnerHTML={{ __html: beforeAfterStyles }} />
       <div
         ref={cardRef}
         data-glow
