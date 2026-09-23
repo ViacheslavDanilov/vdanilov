@@ -43,7 +43,6 @@ const Hero = () => {
 
           {/* Tagline */}
           <p className="text-base md:text-lg text-gray-300 max-w-md mx-auto md:mx-0 pt-2">
-            {/* Science-driven AI. Engineering-led execution. Technically inspired leadership. */}
             Fusing Science with Engineering Precision
           </p>
 

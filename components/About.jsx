@@ -85,16 +85,6 @@ const About = () => {
           </AutoplayVideo>
         </div>
 
-        {/* Signature (Commented out) */}
-        {/* <div className="relative w-48 h-24">
-          <Image
-            src="/hero/signature.webp"
-            alt="Viacheslav Danilov Signature"
-            fill
-            className="object-contain"
-          />
-        </div> */}
-
         {/* Description */}
         <div className="space-y-6 text-light leading-loose text-justify max-w-5xl">
           <p>
