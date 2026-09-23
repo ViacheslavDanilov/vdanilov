@@ -102,7 +102,6 @@ const About = () => {
         {/* Description */}
         <div className="space-y-6 text-light leading-loose text-justify max-w-5xl">
           <p>
-            Experienced{" "}
             <span className="inline-block bg-accent/10 text-accent font-semibold px-4 py-0.5 rounded-3xl">
               Lead AI/ML Engineer
             </span>{" "}
@@ -110,17 +109,12 @@ const About = () => {
             <span className="inline-block bg-accent/10 text-accent font-semibold px-4 py-0.5 rounded-3xl">
               Research Scientist
             </span>{" "}
-            based in Barcelona, with a PhD in Computer Science and over 10 years
-            of experience in AI and data science. Having worked in both academia
-            and industry, I have sharpened skills in data analysis, AI/ML
-            development, and scientific experimentation. I cover the full
-            spectrum from designing predictive models to engineering scalable
-            solutions with modern frameworks and cloud platforms. My projects
-            often leverage cloud infrastructure to maximize efficiency. Over my
-            career, I have collaborated on a variety of initiatives, and my work
-            has been published in journals including Computers in Biology and
-            Medicine, Frontiers in Cardiovascular Medicine, and Scientific
-            Reports.
+            with a PhD in Computer Science and over 10 years across academia and
+            industry. I take machine learning from first experiment to
+            production: medical signal and image analysis, computer vision, time
+            series, and LLM and RAG systems. I have led teams of developers and
+            researchers, supervised PhD students and postdocs, and published
+            nearly 50 peer-reviewed papers.
           </p>
         </div>
 
