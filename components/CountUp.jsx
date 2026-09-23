@@ -128,5 +128,10 @@ export default function CountUp({
     return () => unsubscribe();
   }, [springValue, formatValue]);
 
-  return <span className={className} ref={ref} />;
+  // Server HTML shows the final number; the effect above resets it before counting
+  return (
+    <span className={className} ref={ref}>
+      {formatValue(direction === "down" ? from : to)}
+    </span>
+  );
 }
