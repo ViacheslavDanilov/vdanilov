@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useMemo } from "react";
+import { useFilterParam } from "@/lib/useFilterParam";
 import { AnimatePresence, motion } from "motion/react";
 import PortfolioCard from "@/components/PortfolioCard";
 import { Tab } from "@/components/ui/tab";
@@ -279,7 +280,10 @@ const sortByDate = (projects) => {
 };
 
 export default function Portfolio() {
-  const [activeFilter, setActiveFilter] = useState("featured");
+  const [activeFilter, setActiveFilter] = useFilterParam(
+    "featured",
+    FILTER_OPTIONS,
+  );
 
   const filteredProjects = useMemo(() => {
     let filtered;

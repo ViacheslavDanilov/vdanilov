@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useMemo } from "react";
+import { useFilterParam } from "@/lib/useFilterParam";
 import { AnimatePresence, motion } from "motion/react";
 import ReferenceCard from "@/components/ReferenceCard";
 import { Tab } from "@/components/ui/tab";
@@ -334,7 +335,10 @@ const FILTER_OPTIONS = [
 ];
 
 export default function References() {
-  const [activeFilter, setActiveFilter] = useState("featured");
+  const [activeFilter, setActiveFilter] = useFilterParam(
+    "featured",
+    FILTER_OPTIONS,
+  );
 
   const filteredReferences = useMemo(() => {
     if (activeFilter === "all") {
