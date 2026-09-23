@@ -8,6 +8,7 @@ import React, {
   useEffect,
 } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { AnimatePresence, motion } from "motion/react";
 import { GlowCard } from "@/components/ui/glow-card";
 import { Tab } from "@/components/ui/tab";
@@ -147,6 +148,9 @@ const ResponsibilitiesList = ({ items }) => (
   </ul>
 );
 
+// Pages of this site open in place; documents and other sites open in a new tab
+const isSitePage = (url) => url.startsWith("/") && !url.endsWith(".pdf");
+
 // Links list component
 const LinksList = ({ links }) => (
   <ul className="space-y-3" role="list">
@@ -159,21 +163,31 @@ const LinksList = ({ links }) => (
               {pub.type}
             </span>
           )}
-          <a
-            href={pub.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm text-accent hover:text-light transition-colors inline gap-2 group align-top"
-            aria-label={`${pub.type}: ${pub.title}`}
-          >
-            <span className="leading-relaxed break-words">{pub.title}</span>
-            <FontAwesomeIcon
-              icon={faExternalLink}
-              className="w-3 h-3 ml-1 opacity-70 group-hover:opacity-100 transition-opacity inline"
-              style={{ width: "0.75rem", height: "0.75rem" }}
-              aria-hidden="true"
-            />
-          </a>
+          {isSitePage(pub.url) ? (
+            <Link
+              href={pub.url}
+              className="text-sm text-accent hover:text-light transition-colors inline gap-2 group align-top"
+              aria-label={`${pub.type}: ${pub.title}`}
+            >
+              <span className="leading-relaxed break-words">{pub.title}</span>
+            </Link>
+          ) : (
+            <a
+              href={pub.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-accent hover:text-light transition-colors inline gap-2 group align-top"
+              aria-label={`${pub.type}: ${pub.title}`}
+            >
+              <span className="leading-relaxed break-words">{pub.title}</span>
+              <FontAwesomeIcon
+                icon={faExternalLink}
+                className="w-3 h-3 ml-1 opacity-70 group-hover:opacity-100 transition-opacity inline"
+                style={{ width: "0.75rem", height: "0.75rem" }}
+                aria-hidden="true"
+              />
+            </a>
+          )}
         </div>
       </li>
     ))}
