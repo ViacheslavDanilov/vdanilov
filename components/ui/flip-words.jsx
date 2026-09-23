@@ -15,14 +15,14 @@ export const FlipWords = ({ words, duration = 3000, className }) => {
   }, [currentWord, words]);
 
   useEffect(() => {
-    if (!isAnimating)
-      setTimeout(() => {
-        startAnimation();
-      }, duration);
+    if (isAnimating) return;
+    const timeoutId = setTimeout(startAnimation, duration);
+    return () => clearTimeout(timeoutId);
   }, [isAnimating, duration, startAnimation]);
 
   return (
     <AnimatePresence
+      initial={false}
       onExitComplete={() => {
         setIsAnimating(false);
       }}
