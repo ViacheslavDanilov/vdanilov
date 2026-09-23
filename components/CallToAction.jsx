@@ -66,14 +66,14 @@ const CallToAction = ({
             </div>
 
             {/* Contact Buttons */}
-            <div className="flex flex-col sm:flex-row items-center gap-4 pt-2">
+            <div className="w-full sm:w-auto flex flex-col sm:flex-row items-center gap-4 pt-2">
               <LiquidButtonLink
                 href="mailto:viacheslav.v.danilov@gmail.com"
                 target="_blank"
                 ariaLabel="Send email"
                 size="xxl"
                 textClassName="text-sm"
-                className="w-full sm:w-auto"
+                className="w-full sm:w-auto px-4 sm:px-10"
               >
                 <FontAwesomeIcon icon={faEnvelope} className="w-4 h-4" />
                 &nbsp;Email Me
@@ -85,7 +85,7 @@ const CallToAction = ({
                 ariaLabel="Connect on LinkedIn"
                 size="xxl"
                 textClassName="text-sm"
-                className="w-full sm:w-auto"
+                className="w-full sm:w-auto px-4 sm:px-10"
               >
                 <FontAwesomeIcon icon={faLinkedin} className="w-4 h-4" />
                 &nbsp;Connect on LinkedIn
