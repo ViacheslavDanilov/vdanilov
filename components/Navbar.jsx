@@ -56,7 +56,7 @@ function Navbar() {
   const toggleRef = useRef(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const lastScrollY = useRef(0);
 
   // Close mobile menu after navigation
   const handleNavClick = () => {
@@ -69,21 +69,21 @@ function Navbar() {
       const currentScrollY = window.scrollY;
 
       // Show navbar when scrolling up, hide when scrolling down
-      if (currentScrollY < lastScrollY || currentScrollY < 10) {
+      if (currentScrollY < lastScrollY.current || currentScrollY < 10) {
         // Scrolling up or near the top
         setIsVisible(true);
-      } else if (currentScrollY > lastScrollY && currentScrollY > 10) {
+      } else if (currentScrollY > lastScrollY.current && currentScrollY > 10) {
         // Scrolling down and past threshold
         setIsVisible(false);
         setIsMenuOpen(false); // Close mobile menu when hiding navbar
       }
 
-      setLastScrollY(currentScrollY);
+      lastScrollY.current = currentScrollY;
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
+  }, []);
 
   // Close menu on a click outside the navbar or on Escape
   useEffect(() => {
