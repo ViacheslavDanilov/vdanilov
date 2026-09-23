@@ -1,5 +1,8 @@
 import ExperienceClient from "./ExperienceClient";
 
+// Rebuild daily so the ongoing role's duration stays current
+export const revalidate = 86400;
+
 export const metadata = {
   title: "Experience",
   description:
