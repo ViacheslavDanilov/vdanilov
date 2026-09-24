@@ -173,7 +173,7 @@ function Navbar() {
           className="lg:hidden text-light hover:text-accent transition-colors flex-shrink-0"
           aria-label="Toggle menu"
           aria-expanded={isMenuOpen}
-          aria-controls="mobile-menu"
+          aria-controls={isMenuOpen ? "mobile-menu" : undefined}
         >
           <MenuToggleIcon
             open={isMenuOpen}

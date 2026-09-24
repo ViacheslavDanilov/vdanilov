@@ -397,7 +397,9 @@ const ExperienceCard = ({ experience }) => {
               icon={tab.icon}
               selected={activeTab === tab.id}
               aria-expanded={activeTab === tab.id}
-              aria-controls={`${experience.id}-panel`}
+              aria-controls={
+                activeTab === tab.id ? `${experience.id}-panel` : undefined
+              }
               setSelected={() => handleTabClick(tab.id)}
               layoutId={`tab-${experience.id}`}
             />

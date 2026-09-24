@@ -223,7 +223,9 @@ const EducationCard = ({ education }) => {
                   icon={tab.icon}
                   selected={activeTab === tab.id}
                   aria-expanded={activeTab === tab.id}
-                  aria-controls={`${education.id}-panel`}
+                  aria-controls={
+                    activeTab === tab.id ? `${education.id}-panel` : undefined
+                  }
                   setSelected={() => handleTabClick(tab.id)}
                   layoutId={`tab-${education.id}`}
                 />
