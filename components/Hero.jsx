@@ -11,66 +11,54 @@ import {
   faFileArrowDown,
 } from "@fortawesome/free-solid-svg-icons";
 
-const Hero = () => {
-  const roles = ["Tech Lead", "Engineering Manager", "Research Scientist"];
-  const ctaButtonClassName = "justify-center";
-
-  const ButtonContent = () => (
-    <>
+// Rendered twice: in the text column from md, below the portrait on phones
+const HeroButtons = ({ className }) => (
+  <div className={className}>
+    <LiquidButtonLink
+      href="https://drive.google.com/file/d/1viI3o1RBDoreQcbCwe5zc2NTWpxU7ouk/view"
+      target="_blank"
+      ariaLabel="Download CV"
+      className="justify-center"
+      size="xxl"
+      textClassName="text-sm"
+    >
       <FontAwesomeIcon icon={faFileArrowDown} className="w-4 h-4" />
       &nbsp;Download CV
-    </>
-  );
-
-  const PortfolioButtonContent = () => (
-    <>
+    </LiquidButtonLink>
+    <LiquidButtonLink
+      href="/portfolio"
+      ariaLabel="Portfolio"
+      className="justify-center"
+      size="xxl"
+      textClassName="text-sm"
+    >
       <FontAwesomeIcon icon={faBriefcase} className="w-4 h-4" />
       &nbsp;Portfolio
-    </>
-  );
+    </LiquidButtonLink>
+  </div>
+);
+
+const Hero = () => {
+  const roles = ["Tech Lead", "Engineering Manager", "Research Scientist"];
 
   return (
     <section id="hero" className="w-full max-w-7xl mx-auto px-6 py-12 md:py-24">
       <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-6 lg:gap-10">
-        {/* Text column; on phones its children join the stack so the buttons sit below the portrait */}
-        <div className="contents md:block md:w-1/2 md:space-y-4">
-          {/* max-md:mb-4 keeps the phone gap above the portrait */}
-          <div className="w-full space-y-4 text-center md:text-left max-md:mb-4">
-            <h1 className="text-4xl md:text-5xl font-semibold text-light tracking-tight">
-              Viacheslav Danilov, PhD
-            </h1>
-            <h2 className="text-2xl md:text-3xl text-gray-400 min-h-[2.0em] flex items-center justify-center md:justify-start">
-              <FlipWords words={roles} className="text-light" />
-            </h2>
+        {/* Text Content */}
+        <div className="w-full md:w-1/2 space-y-4 text-center md:text-left">
+          <h1 className="text-4xl md:text-5xl font-semibold text-light tracking-tight">
+            Viacheslav Danilov, PhD
+          </h1>
+          <h2 className="text-2xl md:text-3xl text-gray-400 min-h-[2.0em] flex items-center justify-center md:justify-start">
+            <FlipWords words={roles} className="text-light" />
+          </h2>
 
-            {/* Tagline */}
-            <p className="text-base md:text-lg text-gray-300 max-w-md mx-auto md:mx-0 pt-2">
-              Fusing Science with Engineering Precision
-            </p>
-          </div>
+          {/* Tagline */}
+          <p className="text-base md:text-lg text-gray-300 max-w-md mx-auto md:mx-0 pt-2">
+            Fusing Science with Engineering Precision
+          </p>
 
-          {/* CTA buttons: a centred column after the portrait on phones, a row under the tagline from md */}
-          <div className="order-last flex flex-col items-center justify-center gap-3 w-full md:order-none md:flex-row md:justify-start md:pt-6">
-            <LiquidButtonLink
-              href="https://drive.google.com/file/d/1viI3o1RBDoreQcbCwe5zc2NTWpxU7ouk/view"
-              target="_blank"
-              ariaLabel="Download CV"
-              className={ctaButtonClassName}
-              size="xxl"
-              textClassName="text-sm"
-            >
-              <ButtonContent />
-            </LiquidButtonLink>
-            <LiquidButtonLink
-              href="/portfolio"
-              ariaLabel="Portfolio"
-              className={ctaButtonClassName}
-              size="xxl"
-              textClassName="text-sm"
-            >
-              <PortfolioButtonContent />
-            </LiquidButtonLink>
-          </div>
+          <HeroButtons className="hidden md:flex items-center justify-start gap-3 pt-6" />
         </div>
 
         {/* Video Content */}
@@ -90,6 +78,8 @@ const Hero = () => {
             </AutoplayVideo>
           </div>
         </div>
+
+        <HeroButtons className="flex md:hidden flex-col items-center justify-center gap-3 w-full" />
       </div>
     </section>
   );
