@@ -305,7 +305,7 @@ export default function ProjectPage() {
                 <span style={{ color: "#ff17cd" }}>lumen</span>,{" "}
                 <span style={{ color: "#5eade6" }}>fibrous cap</span>,{" "}
                 <span style={{ color: "#00e379" }}>lipid core</span>,{" "}
-                <span style={{ color: "#f20515" }}>vasa vasorum</span>.
+                <span style={{ color: "#f30f1e" }}>vasa vasorum</span>.
               </figcaption>
             </figure>
           </Section>
@@ -427,7 +427,7 @@ export default function ProjectPage() {
               </li>
               <li>
                 <strong className="text-gray-200">Vasa Vasorum</strong> (
-                <span style={{ color: "#f20515" }}>red</span>): DSC of{" "}
+                <span style={{ color: "#f30f1e" }}>red</span>): DSC of{" "}
                 <span className="font-semibold">0.610</span>, moderate
                 performance for a rare, fine-grained feature.
               </li>
