@@ -15,11 +15,25 @@ export default function AutoplayVideo({ aspectRatio, style, ...props }) {
       return;
     }
 
+    // Resume on scroll only if the viewer did not pause it
+    let pausedByViewer = false;
+    let pausingOffscreen = false;
+    const handlePause = () => {
+      if (!pausingOffscreen) pausedByViewer = true;
+      pausingOffscreen = false;
+    };
+    const handlePlay = () => {
+      pausedByViewer = false;
+    };
+    video.addEventListener("pause", handlePause);
+    video.addEventListener("play", handlePlay);
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          video.play().catch(() => {});
-        } else {
+          if (!pausedByViewer) video.play().catch(() => {});
+        } else if (!video.paused) {
+          pausingOffscreen = true;
           video.pause();
         }
       },
@@ -27,7 +41,11 @@ export default function AutoplayVideo({ aspectRatio, style, ...props }) {
     );
     observer.observe(video);
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      video.removeEventListener("pause", handlePause);
+      video.removeEventListener("play", handlePlay);
+    };
   }, []);
 
   return (
