@@ -10,12 +10,12 @@ Creates a new portfolio project page following the established structure.
 
 1. **Project URL**: `https://vdanilov.com/portfolio/[project-name]`
 2. **Media files** placed in:
-   - `public/portfolio/previews/[slug].webp` - Hero/preview image
-   - `public/portfolio/[slug]/` - Project-specific images
-   - `public/portfolio/team/` - New team member photos (if any)
+   - `public/portfolio/previews/[slug].jpg` - Hero/preview image (2400x1260, also the social preview)
+   - `public/portfolio/[slug]/` - Project-specific images and videos
+   - `public/people/` - New team member photos (if any)
    - **Note**: If a team member photo is not available, use placeholder photos:
-     - `/portfolio/team/jane-doe.webp` for female team members
-     - `/portfolio/team/john-doe.webp` for male team members
+     - `/people/jane-doe.webp` for female team members
+     - `/people/john-doe.webp` for male team members
 
 ---
 
@@ -45,15 +45,14 @@ Creates a new portfolio project page following the established structure.
    - List images from `public/portfolio/[slug]/` directory
    - Add figures with proper captions in relevant sections (Data, Methods, Results)
    - Add in-text figure references linking to the figures
-   - Use ImageLightbox component for all images
-4. Include all standard sections in order:
-   - Metadata export
+   - Use ImageLightbox component for all images, with the file's real `width` and `height`
+4. Include all standard parts in order:
+   - Metadata export built with `pageMetadata` from `@/lib/metadata`
    - Data constants (HIGHLIGHTS_ITEMS, TEAM_MEMBERS, RESOURCES, TECH_STACK)
-   - TeamMemberCard component
-   - ProjectPage component
+   - `ProjectPage` component that renders `ProjectHeader`, `Highlights`, `CoreTeam` and one `Section` per content section
 5. **CRITICAL - Section names must be EXACTLY:**
-   - "Highlights" (not "Quick Look" or other variations)
-   - "Core Team" (if applicable)
+   - "Highlights" (rendered by `Highlights`)
+   - "Core Team" (rendered by `CoreTeam`, if applicable)
    - "Overview" (NOT "Summary" - this is the project context section)
    - "Data" (if applicable)
    - "Methods" (if applicable)
@@ -62,7 +61,7 @@ Creates a new portfolio project page following the established structure.
 
 ### Step 4: Add to Portfolio Listing
 
-1. Edit `app/portfolio/page.jsx`
+1. Edit `app/portfolio/PortfolioClient.jsx`
 2. Add entry to `PROJECTS_DATA` array
 
 ### Step 5: Verify
@@ -92,175 +91,69 @@ Creates a new portfolio project page following the established structure.
 
 ## Styling Reference
 
-### Main Container
+The shared parts of a project page live in `components/project/`. Pages pass data to them and keep only the prose and figures inline.
 
-**Opening:**
-
-```jsx
-<main className="min-h-screen pt-24">
-  <div className="w-full max-w-5xl mx-auto px-6 py-12 md:py-24">
-```
-
-**Closing (with bottom spacing before footer):**
+### Page Skeleton
 
 ```jsx
+export const metadata = pageMetadata({
+  title: "Project Title",
+  description: "One-sentence description.",
+  path: "/portfolio/[slug]/",
+  image: {
+    url: "/portfolio/previews/[slug].jpg",
+    alt: "Project Title - short description",
+  },
+});
+
+export default function ProjectPage() {
+  return (
+    <div className="min-h-screen pt-24">
+      <div className="w-full max-w-5xl mx-auto px-6 py-12 md:py-24">
+        <ProjectHeader
+          title="Project Title"
+          subtitle="Subtitle shown under the title"
+          banner={{
+            image: "/portfolio/previews/[slug].jpg",
+            alt: "Project Title - longer banner description",
+          }}
+          client={{
+            name: "Client Name",
+            url: "https://client.example/",
+            location: "City · Country 🏳️",
+          }}
+          techStack={TECH_STACK}
+          resources={RESOURCES}
+        />
+
+        {/* Content Sections */}
+        <div className="space-y-16">
+          <Highlights items={HIGHLIGHTS_ITEMS} />
+          <CoreTeam members={TEAM_MEMBERS} />
+
+          {/* Overview */}
+          <Section title="Overview">
+            <div className="prose prose-invert max-w-none">
+              <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+                ...
+              </p>
+            </div>
+          </Section>
         </div>
       </div>
       {/* Bottom spacing before footer */}
       <div className="pb-24" />
-    </main>
-```
-
-### Header Card
-
-```jsx
-className = "mb-16 p-6 rounded-2xl bg-light/[0.03]";
-```
-
-### Client Info
-
-```jsx
-<div className="text-sm text-gray-400">
-  <span className="text-gray-400 font-medium">Client: </span>
-  <a href="..." className="text-accent hover:underline">
-    Client Name
-  </a>
-  <span className="text-gray-400"> · City · Country 🏳️</span>
-</div>
-```
-
-### Section Headings
-
-**Highlights & Core Team sections use `mb-6`:**
-
-```jsx
-<h2 className="text-xl font-semibold text-light mb-6 flex items-center gap-3">
-  <span className="w-1 h-6 bg-accent rounded-full"></span>
-  Highlights / Core Team
-</h2>
-```
-
-**Content sections (Overview, Data, Methods, Results, Conclusion) use `mb-4`:**
-
-```jsx
-<h2 className="text-xl font-semibold text-light mb-4 flex items-center gap-3">
-  <span className="w-1 h-6 bg-accent rounded-full"></span>
-  Section Title
-</h2>
-```
-
-### Highlights Section (Individual GlowCards)
-
-**CRITICAL: Each highlight item must be a separate GlowCard, NOT wrapped in a single card.**
-
-```jsx
-<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-  {HIGHLIGHTS_ITEMS.map((item, index) => (
-    <GlowCard
-      key={item.label}
-      glowColor="blue"
-      customSize={true}
-      className="group w-full h-full p-5"
-      enableSpotlight={true}
-      enableBorderGlow={true}
-      spotlightSize={240}
-    >
-      <div className="flex flex-col gap-3">
-        <div className="flex items-center gap-2">
-          <FontAwesomeIcon
-            icon={item.icon}
-            className="w-3.5 h-3.5 text-white/70 transition-colors duration-300 group-hover:text-accent"
-            style={{
-              width: "0.875rem",
-              height: "0.875rem",
-              display: "inline-block",
-            }}
-          />
-          <span className="text-xs uppercase tracking-wider text-light transition-colors duration-300 group-hover:text-accent font-semibold">
-            {item.label}
-          </span>
-        </div>
-        <p className="text-sm text-light/80 leading-relaxed text-justify">
-          {item.text}
-        </p>
-      </div>
-    </GlowCard>
-  ))}
-</div>
-```
-
-### TeamMemberCard Component
-
-**CRITICAL: Must use GlowCard with centered vertical layout.**
-
-```jsx
-function TeamMemberCard({ member }) {
-  const iconMap = {
-    linkedin: faLinkedin,
-    github: faGithub,
-    gitlab: faGitlab,
-    researchgate: faResearchgate,
-    google: faGoogleScholar,
-    orcid: faOrcid,
-    globe: faGlobe,
-    email: faEnvelope,
-  };
-
-  return (
-    <GlowCard
-      glowColor="blue"
-      customSize={true}
-      className="w-full h-full p-5"
-      enableSpotlight={true}
-      enableBorderGlow={true}
-      spotlightSize={240}
-    >
-      <div className="flex flex-col items-center text-center h-full">
-        <div className="relative w-24 h-24 rounded-full overflow-hidden border-2 border-accent/20 shadow-lg bg-dark mb-4">
-          <Image
-            src={member.photo}
-            alt={member.name}
-            fill
-            sizes="96px"
-            className="object-cover"
-          />
-        </div>
-        <h4 className="text-base font-bold text-light mb-1.5">{member.name}</h4>
-        <p className="text-sm font-medium text-accent mb-2">{member.role}</p>
-        <p className="text-sm text-gray-300 mb-2">{member.organization}</p>
-        <p className="text-sm text-gray-500 mb-4">{member.location}</p>
-        <div className="flex flex-wrap items-center justify-center gap-4 mt-auto">
-          {Object.entries(member.links).map(([key, url]) => (
-            <a
-              key={key}
-              href={key === "email" ? `mailto:${url}` : url}
-              target={key === "email" ? undefined : "_blank"}
-              className="text-gray-400 hover:text-light transition-all duration-300 transform hover:scale-110"
-            >
-              <FontAwesomeIcon
-                icon={iconMap[key]}
-                style={{ width: "1rem", height: "1rem", display: "block" }}
-              />
-            </a>
-          ))}
-        </div>
-      </div>
-    </GlowCard>
+    </div>
   );
 }
 ```
 
-### Core Team Grid
+### Data Shapes
 
-**Use 3-column layout on medium screens:**
-
-```jsx
-<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-  {TEAM_MEMBERS.map((member) => (
-    <TeamMemberCard key={member.name} member={member} />
-  ))}
-</div>
-```
+- `HIGHLIGHTS_ITEMS`: `[{ icon, label, text }]`, four STAR items with `faSearch`, `faBullseye`, `faCogs`, `faChartLine`
+- `TEAM_MEMBERS`: `[{ name, role, organization, location, photo, links }]`; `links` keys are `linkedin`, `github`, `gitlab`, `researchgate`, `google`, `orcid`, `kaggle`, `facebook`, `globe`, `email` (the email value is the bare address)
+- `RESOURCES`: `[{ label, url }]`
+- `TECH_STACK`: `["Python", "PyTorch", ...]`
 
 ### Figure with Caption
 
@@ -272,6 +165,8 @@ function TeamMemberCard({ member }) {
   </figcaption>
 </figure>
 ```
+
+`maxWidth` is one of `md`, `lg`, `xl`, `2xl`, `3xl`, `full`. Figures inside a multi-column grid also pass `sizes`.
 
 ### In-text Figure Reference
 
@@ -302,22 +197,17 @@ function TeamMemberCard({ member }) {
 
 ### Video with Caption
 
+`AutoplayVideo` is a muted, looping video that plays only near the viewport and respects reduced motion.
+
 ```jsx
 <figure id="figure-N" className="scroll-mt-24">
   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
     <div className="rounded-xl overflow-hidden border border-white/10">
-      <video
+      <AutoplayVideo
         src="/portfolio/[slug]/video-file.mp4"
-        autoPlay
-        loop
-        muted
-        playsInline
         controls
         className="w-full h-auto"
-        preload="metadata"
-      >
-        Your browser does not support the video tag.
-      </video>
+      />
     </div>
   </div>
   <figcaption className="text-center text-sm text-gray-400 mt-3">
@@ -326,8 +216,10 @@ function TeamMemberCard({ member }) {
 </figure>
 ```
 
+Encode videos as H.264 at about twice their displayed width, without an audio track, with `-movflags +faststart`.
+
 ---
 
 ## Reference Implementation
 
-See: `app/portfolio/ai-dissects-arterial-risk/page.jsx`
+See: `app/portfolio/coronary-insight/page.jsx`

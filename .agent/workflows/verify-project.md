@@ -36,7 +36,7 @@ Compares content between the old website (reference) and the new website to ensu
 
 1. Read the project page from `app/portfolio/[slug]/page.jsx`
 2. Extract: metadata, HIGHLIGHTS_ITEMS, TEAM_MEMBERS, RESOURCES, TECH_STACK, and all content sections
-3. Check for `ImageLightbox` and `<video>` components - these are the media elements
+3. Check for `ImageLightbox` and `AutoplayVideo` components - these are the media elements
 4. List all `<figure>` elements with their IDs, image sources, and captions
 
 ### Step 3: Compare Content
@@ -67,7 +67,7 @@ For each figure/video mentioned in the old website:
 1. **Identify media references** in the old content (e.g., "Figure 1", "Figure 2", video embeds)
 2. **Check for corresponding media** in the new project page:
    - `ImageLightbox` components for images
-   - `<video>` elements for videos
+   - `AutoplayVideo` elements for videos
    - `<figure>` elements with proper `id` attributes
 3. **Verify captions** match or are improved
 4. **Check file paths** exist in `/public/portfolio/[slug]/`
