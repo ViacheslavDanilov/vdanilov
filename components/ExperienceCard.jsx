@@ -222,8 +222,8 @@ export const CompanyLogo = ({
   </a>
 );
 
-// Job info component
-export const JobInfo = ({
+// Job info component: centred on phones, left-aligned from md
+const JobInfo = ({
   title,
   company,
   url,
@@ -231,10 +231,9 @@ export const JobInfo = ({
   duration,
   location,
   className = "",
-  centered = false,
 }) => (
   <div
-    className={`flex flex-col ${centered ? "items-center text-center" : "items-start text-left"} gap-2 ${className}`}
+    className={`flex flex-col items-center text-center md:items-start md:text-left gap-2 ${className}`}
   >
     <h3 className="text-md font-bold uppercase tracking-wider text-light">
       {title}
@@ -248,9 +247,7 @@ export const JobInfo = ({
     >
       {company}
     </a>
-    <div
-      className={`flex flex-wrap gap-2 text-sm text-gray-400 ${centered ? "justify-center" : ""}`}
-    >
+    <div className="flex flex-wrap gap-2 text-sm text-gray-400 justify-center md:justify-start">
       <span>{period}</span>
       <span aria-hidden="true">•</span>
       <span>{duration}</span>
@@ -302,59 +299,25 @@ const ExperienceCard = ({ experience }) => {
   }, [activeTab, experience.responsibilities, experience.links]);
 
   // Category badge configuration
-  const getCategoryConfig = (category) => {
-    if (category === "research") {
-      return { variant: "blue", icon: faFlask, label: "Research" };
-    }
-    return { variant: "teal", icon: faBriefcase, label: "Industry" };
-  };
+  const category =
+    experience.category === "research"
+      ? { variant: "blue", icon: faFlask, label: "Research" }
+      : { variant: "teal", icon: faBriefcase, label: "Industry" };
 
   return (
     <article ref={cardRef} className="self-start w-full">
       <GlowCard className="w-full h-full p-5" spotlightSize={300}>
-        {/* Mobile Layout */}
-        <div className="flex flex-col md:hidden mb-4 space-y-3 relative">
-          {/* Category Badge - Mobile (absolute positioning) */}
-          {experience.category && (
-            <Badge
-              variant={getCategoryConfig(experience.category).variant}
-              icon={getCategoryConfig(experience.category).icon}
-              className="absolute top-0 right-0"
-            >
-              {getCategoryConfig(experience.category).label}
-            </Badge>
-          )}
-          <div className="flex justify-center">
-            <CompanyLogo
-              logo={experience.logo}
-              company={experience.company}
-              url={COMPANY_URLS[experience.company]}
-              brightness={experience.logoBrightness}
-              priority={experience.logoPriority}
-            />
-          </div>
-          <JobInfo
-            title={experience.title}
-            company={experience.company}
-            url={COMPANY_URLS[experience.company]}
-            period={experience.period}
-            duration={experience.duration}
-            location={experience.location}
-            className="text-center space-y-2"
-            centered={true}
-          />
-        </div>
-
-        {/* Desktop Layout */}
-        <div className="hidden md:flex flex-row gap-6 mb-4 items-start">
+        {/* Header: stacked and centred on phones, a row from md */}
+        <div className="relative mb-4 flex flex-col gap-3 md:flex-row md:items-start md:gap-6">
           <CompanyLogo
             logo={experience.logo}
             company={experience.company}
             url={COMPANY_URLS[experience.company]}
             brightness={experience.logoBrightness}
             priority={experience.logoPriority}
+            className="z-10 self-center md:self-auto"
           />
-          <div className="flex-1 flex items-start justify-between gap-4">
+          <div className="md:flex-1 md:flex md:items-start md:justify-between md:gap-4">
             <JobInfo
               title={experience.title}
               company={experience.company}
@@ -364,14 +327,14 @@ const ExperienceCard = ({ experience }) => {
               location={experience.location}
               className="space-y-2"
             />
-            {/* Category Badge - Desktop */}
+            {/* Category badge: top-right corner on phones, beside the job info from md */}
             {experience.category && (
               <Badge
-                variant={getCategoryConfig(experience.category).variant}
-                icon={getCategoryConfig(experience.category).icon}
-                className="flex-shrink-0"
+                variant={category.variant}
+                icon={category.icon}
+                className="absolute top-0 right-0 md:static md:flex-shrink-0"
               >
-                {getCategoryConfig(experience.category).label}
+                {category.label}
               </Badge>
             )}
           </div>
