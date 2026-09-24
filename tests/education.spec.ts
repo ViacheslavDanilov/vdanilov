@@ -88,9 +88,9 @@ test.describe("Education - Certificates Section", () => {
   });
 
   test("education page does not scroll sideways", async ({ page }) => {
+    await page.goto("/education/");
     for (const width of [1440, 1280, 1024, 768, 390]) {
       await page.setViewportSize({ width, height: 900 });
-      await page.goto("/education/");
       const overflows = await page.evaluate(
         () => document.documentElement.scrollWidth > window.innerWidth + 1,
       );
