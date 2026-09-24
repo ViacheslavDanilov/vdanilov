@@ -285,14 +285,15 @@ export default function Education() {
   const certifications = useMemo(() => CERTIFICATES_DATA, []);
 
   return (
-    <main className="min-h-screen pt-24">
+    <div className="min-h-screen pt-24">
+      <h1 className="sr-only">Education</h1>
       <div className="flex flex-col items-center pt-12 md:pt-24 gap-36 pb-48">
         {/* Section 1: Core Education */}
         <section className="w-full max-w-7xl mx-auto px-6">
           <header className="mb-12 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-light mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-light mb-4">
               Core Education
-            </h1>
+            </h2>
             <p className="text-gray-400 mt-3 max-w-3xl mx-auto leading-relaxed">
               Academic foundation combining a PhD in Computer Science, technical
               Master's in engineering, and business Master's in management,
@@ -300,10 +301,7 @@ export default function Education() {
             </p>
           </header>
 
-          <div
-            className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:items-start"
-            role="list"
-          >
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:items-start">
             {coreEducation.map((edu) => (
               <EducationCard key={edu.id} education={edu} />
             ))}
@@ -313,9 +311,9 @@ export default function Education() {
         {/* Section 2: Additional Education */}
         <section className="w-full max-w-7xl mx-auto px-6">
           <header className="mb-12 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-light mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-light mb-4">
               Additional Education
-            </h1>
+            </h2>
             <p className="text-gray-400 mt-3 max-w-3xl mx-auto leading-relaxed">
               International research experience through visiting PhD positions
               in the UK, Spain, Italy, and Portugal, deepening expertise in
@@ -323,10 +321,7 @@ export default function Education() {
             </p>
           </header>
 
-          <div
-            className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:items-start"
-            role="list"
-          >
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:items-start">
             {additionalEducation.length > 0 ? (
               additionalEducation.map((edu) => (
                 <EducationCard key={edu.id} education={edu} />
@@ -342,9 +337,9 @@ export default function Education() {
         {/* Section 3: Certifications */}
         <section className="w-full max-w-7xl mx-auto px-6">
           <header className="mb-12 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-light mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-light mb-4">
               Certifications
-            </h1>
+            </h2>
             <p className="text-gray-400 mt-3 max-w-3xl mx-auto leading-relaxed">
               Professional certifications in computer science, advanced data
               science, and machine learning, reinforcing a commitment to
@@ -352,10 +347,7 @@ export default function Education() {
             </p>
           </header>
 
-          <div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-            role="list"
-          >
+          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
             {certifications.length > 0 ? (
               certifications.map((cert) => (
                 <CertificateCard key={cert.id} certificate={cert} />
@@ -368,6 +360,6 @@ export default function Education() {
           </div>
         </section>
       </div>
-    </main>
+    </div>
   );
 }

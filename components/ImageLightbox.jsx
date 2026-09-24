@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -13,44 +13,69 @@ import { faXmark, faExpand } from "@fortawesome/free-solid-svg-icons";
  * @param {string} props.alt - Alt text for the image
  * @param {number} [props.width] - Image width for aspect ratio (default: 1920)
  * @param {number} [props.height] - Image height for aspect ratio (default: 1080)
- * @param {string} [props.maxWidth] - Max width: 'sm'|'md'|'lg'|'xl'|'2xl'|'3xl'|'4xl'|'full' or custom CSS value
+ * @param {string} [props.maxWidth] - Max width: 'md'|'lg'|'xl'|'2xl'|'3xl'|'full'
+ * @param {string} [props.sizes] - Rendered width for srcset; defaults to one derived from maxWidth
  * @param {string} [props.className] - Additional container classes
  */
+// Thumbnail widths inside the project page's 976px content column
+const THUMBNAIL_SIZES = {
+  md: "(max-width: 496px) 100vw, 448px",
+  lg: "(max-width: 560px) 100vw, 512px",
+  xl: "(max-width: 624px) 100vw, 576px",
+  "2xl": "(max-width: 720px) 100vw, 672px",
+  "3xl": "(max-width: 816px) 100vw, 768px",
+  full: "(max-width: 1024px) 100vw, 976px",
+};
+
 export default function ImageLightbox({
   src,
   alt,
   width = 1920,
   height = 1080,
   maxWidth = "full",
+  sizes = THUMBNAIL_SIZES[maxWidth],
   className = "",
 }) {
   const [isOpen, setIsOpen] = useState(false);
+  const thumbnailRef = useRef(null);
+  const closeRef = useRef(null);
+  const wasOpen = useRef(false);
 
   // Map maxWidth prop to Tailwind classes or custom styles
   const maxWidthClasses = {
-    sm: "max-w-sm", // 384px
     md: "max-w-md", // 448px
     lg: "max-w-lg", // 512px
     xl: "max-w-xl", // 576px
     "2xl": "max-w-2xl", // 672px
     "3xl": "max-w-3xl", // 768px
-    "4xl": "max-w-4xl", // 896px
-    "5xl": "max-w-5xl", // 1024px
     full: "w-full", // 100%
   };
 
-  const widthClass = maxWidthClasses[maxWidth] || "";
-  const customStyle = !maxWidthClasses[maxWidth] ? { maxWidth } : {};
+  const widthClass = maxWidthClasses[maxWidth];
 
-  // Handle keyboard events
+  // Handle keyboard events; the close button is the only focusable element
   const handleKeyDown = useCallback(
     (e) => {
       if (e.key === "Escape" && isOpen) {
         setIsOpen(false);
+      } else if (e.key === "Tab" && isOpen) {
+        e.preventDefault();
+        closeRef.current?.focus();
       }
     },
     [isOpen],
   );
+
+  // Move focus into the dialog on open and back to the thumbnail on close
+  useEffect(() => {
+    if (isOpen) {
+      closeRef.current?.focus();
+      wasOpen.current = true;
+    } else if (wasOpen.current) {
+      thumbnailRef.current?.focus({ preventScroll: true });
+      wasOpen.current = false;
+    }
+  }, [isOpen]);
 
   // Add/remove keyboard listener
   useEffect(() => {
@@ -68,13 +93,11 @@ export default function ImageLightbox({
   return (
     <>
       {/* Thumbnail - centered, clean background */}
-      <div
-        className={`relative rounded-xl overflow-hidden border border-white/10 cursor-zoom-in group mx-auto ${widthClass} ${className}`}
-        style={customStyle}
+      <button
+        ref={thumbnailRef}
+        type="button"
+        className={`relative block w-full rounded-xl overflow-hidden border border-white/10 cursor-zoom-in group mx-auto ${widthClass} ${className}`}
         onClick={() => setIsOpen(true)}
-        role="button"
-        tabIndex={0}
-        onKeyDown={(e) => e.key === "Enter" && setIsOpen(true)}
         aria-label={`View ${alt} in full size`}
       >
         {/* Image with specified dimensions for layout stability */}
@@ -83,6 +106,7 @@ export default function ImageLightbox({
           alt={alt}
           width={width}
           height={height}
+          sizes={sizes}
           quality={90}
           className="w-full h-auto"
           style={{ display: "block" }}
@@ -95,7 +119,7 @@ export default function ImageLightbox({
             </div>
           </div>
         </div>
-      </div>
+      </button>
 
       {/* Lightbox Modal */}
       <AnimatePresence>
@@ -107,12 +131,16 @@ export default function ImageLightbox({
             transition={{ duration: 0.2 }}
             className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 cursor-zoom-out"
             onClick={() => setIsOpen(false)}
+            role="dialog"
+            aria-modal="true"
+            aria-label={alt}
           >
             {/* Backdrop */}
             <div className="absolute inset-0 bg-black/95 backdrop-blur-sm" />
 
             {/* Close button */}
             <button
+              ref={closeRef}
               className="absolute top-4 right-4 z-10 w-12 h-12 rounded-full bg-white/10 
                          hover:bg-white/20 transition-colors flex items-center justify-center
                          border border-white/20 cursor-pointer"
@@ -145,8 +173,9 @@ export default function ImageLightbox({
               <Image
                 src={src}
                 alt={alt}
-                width={1920}
-                height={1080}
+                width={width}
+                height={height}
+                sizes="95vw"
                 quality={90}
                 className="max-w-full max-h-[90vh] w-auto h-auto rounded-lg shadow-2xl"
                 style={{ objectFit: "contain" }}

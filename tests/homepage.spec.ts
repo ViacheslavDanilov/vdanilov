@@ -1,4 +1,4 @@
-import { test, expect, type Page } from "@playwright/test";
+import { test, expect } from "@playwright/test";
 
 test.describe("Homepage - Basic Page Tests", () => {
   test("has correct title", async ({ page }) => {
@@ -50,7 +50,7 @@ test.describe("Homepage - Statistics Section", () => {
       "Lines of Code Written",
       "Research Publications",
       "Universities Worked At",
-      "Countries of Long-Term Living",
+      "Countries of Long-term Living",
     ];
 
     for (const label of statLabels) {
@@ -59,28 +59,24 @@ test.describe("Homepage - Statistics Section", () => {
   });
 
   test("statistic numbers are displayed", async ({ page }) => {
+    // Reduced motion shows the final numbers without the count-up animation
+    await page.emulateMedia({ reducedMotion: "reduce" });
     await page.goto("/");
 
-    // Wait for statistics section to be visible
-    await expect(page.locator("#statistics")).toBeVisible();
-
-    // Check that numeric values are rendered (they start animating from CountUp component)
     const statsSection = page.locator("#statistics");
-    await expect(statsSection).toContainText("10");
-    await expect(statsSection).toContainText("15");
-    await expect(statsSection).toContainText("50k");
-    await expect(statsSection).toContainText("40");
-    await expect(statsSection).toContainText("9");
-    await expect(statsSection).toContainText("6");
+    await expect(statsSection).toBeVisible();
+    for (const value of ["10+", "20+", "50k", "48", "12", "6"]) {
+      await expect(statsSection).toContainText(value);
+    }
   });
 
   test("statistics cards have proper styling", async ({ page }) => {
     await page.goto("/");
 
     const statCards = page.locator("#statistics > div:nth-child(2) > div");
-    await expect(statCards.first()).toHaveClass(/bg-card/);
-    await expect(statCards.first()).toHaveClass(/border/);
-    await expect(statCards.first()).toHaveClass(/rounded-xl/);
+    await expect(statCards).toHaveCount(6);
+    await expect(statCards.first()).toHaveAttribute("data-glow");
+    await expect(statCards.first()).toHaveClass(/rounded-2xl/);
   });
 });
 
@@ -109,7 +105,7 @@ test.describe("Homepage - Navigation Tests", () => {
       ];
 
       for (const link of navLinks) {
-        const navLink = page.getByRole("link", {
+        const navLink = page.locator("nav").first().getByRole("link", {
           name: link.text,
           exact: true,
         });
@@ -186,7 +182,9 @@ test.describe("Homepage - Navigation Tests", () => {
       await menuToggle.click();
 
       // Wait for menu to open and check that navigation links are visible
-      const experienceLink = page.getByRole("link", { name: "Experience" });
+      const experienceLink = page
+        .locator("#mobile-menu")
+        .getByRole("link", { name: "Experience" });
       await expect(experienceLink).toBeVisible();
 
       // Verify link is clickable
@@ -228,11 +226,13 @@ test.describe("Homepage - Hero Section", () => {
   test("hero video element is present", async ({ page }) => {
     await page.goto("/");
 
-    const video = page.locator("video").first();
+    const video = page.locator("#hero video");
     await expect(video).toBeVisible();
-
-    // Check video has autoplay attribute
-    await expect(video).toHaveAttribute("autoplay");
+    await expect(video).toHaveAttribute("loop");
+    await expect(video.locator("source")).toHaveAttribute(
+      "src",
+      "/hero/hero-video.mp4",
+    );
   });
 
   test("CV download button is visible and has correct link", async ({
@@ -332,10 +332,10 @@ test.describe("Homepage - Featured Projects Section", () => {
     await page.waitForLoadState("networkidle");
 
     const projects = [
-      "Wavelets in the brain",
-      "AI-driven lead scoring at scale",
-      "Tumor immune phenotype classification",
-      "ML for laser ablation assessment",
+      "Deep BrainWatch",
+      "Sales Pilot",
+      "Immune Profiler",
+      "HyperVision Ablation",
     ];
 
     // Scroll way down to ensure projects section is in view
@@ -345,9 +345,7 @@ test.describe("Homepage - Featured Projects Section", () => {
     await page.waitForTimeout(1000);
 
     for (const projectTitle of projects) {
-      const projectElement = page
-        .getByText(projectTitle, { exact: true })
-        .first();
+      const projectElement = page.getByText(projectTitle, { exact: true });
       await expect(projectElement).toBeVisible({ timeout: 15000 });
     }
   });
@@ -355,11 +353,15 @@ test.describe("Homepage - Featured Projects Section", () => {
   test("project cards contain images", async ({ page }) => {
     await page.goto("/");
 
-    // Check for project images - look for images with src containing project paths
-    const projectImages = page.locator('img[src*="projects/"]');
-    const imageCount = await projectImages.count();
-
-    expect(imageCount).toBeGreaterThanOrEqual(4);
+    // Preview images go through next/image, so match them by alt text
+    for (const title of [
+      "Deep BrainWatch",
+      "Sales Pilot",
+      "Immune Profiler",
+      "HyperVision Ablation",
+    ]) {
+      await expect(page.locator(`img[alt="${title}"]`)).toBeVisible();
+    }
   });
 
   test("project cards display client information", async ({ page }) => {
@@ -398,7 +400,7 @@ test.describe("Homepage - Featured Projects Section", () => {
   });
 });
 
-test.describe("Homepage - Expertise Section (BentoGrid)", () => {
+test.describe("Homepage - Expertise Section", () => {
   test("expertise section has correct heading", async ({ page }) => {
     await page.goto("/");
 
@@ -413,7 +415,7 @@ test.describe("Homepage - Expertise Section (BentoGrid)", () => {
     const expertiseAreas = [
       "10+ Years of Advanced R&D",
       "Medical Imaging AI",
-      "Scalable Systems",
+      "Scalable ML Systems",
       "Technology Leadership",
       "Cross-Functional Management",
       "Applied ML & AI Across Industries",
@@ -660,6 +662,9 @@ test.describe("Homepage - Accessibility Tests", () => {
 });
 
 test.describe("Homepage - Performance Tests", () => {
+  // Timing depends on dev-server load from parallel workers
+  test.describe.configure({ retries: 2 });
+
   test("page loads within acceptable time", async ({ page }) => {
     const startTime = Date.now();
     await page.goto("/");

@@ -3,12 +3,7 @@
 import CountUp from "@/components/CountUp";
 import { GlowCard } from "@/components/ui/glow-card";
 
-const Statistics = ({
-  enableSpotlight = true,
-  enableBorderGlow = true,
-  glowColor = "blue",
-  spotlightSize = 240,
-}) => {
+const Statistics = () => {
   const stats = [
     {
       value: 10,
@@ -73,12 +68,8 @@ const Statistics = ({
         {stats.map((stat) => (
           <GlowCard
             key={stat.label.toLowerCase().replace(/\s+/g, "-")}
-            glowColor={glowColor}
-            customSize={true}
             className="w-full h-full p-6 md:p-10"
-            enableSpotlight={enableSpotlight}
-            enableBorderGlow={enableBorderGlow}
-            spotlightSize={spotlightSize}
+            spotlightSize={240}
           >
             <div className="flex flex-col items-center justify-center h-full text-center">
               <div className="text-4xl md:text-5xl font-semibold text-accent mb-3">

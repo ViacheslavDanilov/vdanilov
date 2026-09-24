@@ -8,34 +8,21 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
-const CallToAction = ({
-  enableSpotlight = true,
-  enableBorderGlow = true,
-  glowColor = "blue",
-  spotlightSize = 400,
-}) => {
+const CallToAction = () => {
   return (
     <section className="w-full max-w-7xl mx-auto px-6 lg:px-8 py-12 lg:py-24">
-      <GlowCard
-        glowColor={glowColor}
-        customSize={true}
-        className="w-full h-full"
-        enableSpotlight={enableSpotlight}
-        enableBorderGlow={enableBorderGlow}
-        spotlightSize={spotlightSize}
-      >
+      <GlowCard className="w-full h-full" spotlightSize={400}>
         <div className="flex flex-col lg:flex-row items-center gap-4 lg:gap-10 p-8 lg:py-12 lg:px-16">
           {/* Image Section */}
           <div className="flex-shrink-0 flex flex-col items-center gap-4">
             <div className="relative w-48 h-48 lg:w-56 lg:h-56 rounded-full overflow-hidden border-2 border-accent/20 shadow-2xl">
               <Image
-                src="/hero/about-poster.webp"
+                src="/hero/portrait-navy.webp"
                 alt="Viacheslav Danilov"
                 fill
-                sizes="512px"
+                sizes="(min-width: 1024px) 224px, 192px"
                 quality={90}
-                className="object-cover brightness-150"
-                priority
+                className="object-cover"
               />
             </div>
 
@@ -45,7 +32,7 @@ const CallToAction = ({
                 src="/hero/signature.webp"
                 alt="Viacheslav Danilov Signature"
                 fill
-                sizes="512px"
+                sizes="192px"
                 quality={90}
                 className="object-contain"
               />
@@ -66,14 +53,12 @@ const CallToAction = ({
             </div>
 
             {/* Contact Buttons */}
-            <div className="flex flex-col sm:flex-row items-center gap-4 pt-2">
+            <div className="w-full sm:w-auto flex flex-col sm:flex-row items-center gap-4 pt-2">
               <LiquidButtonLink
                 href="mailto:viacheslav.v.danilov@gmail.com"
-                target="_blank"
-                ariaLabel="Send email"
                 size="xxl"
                 textClassName="text-sm"
-                className="w-full sm:w-auto"
+                className="w-full sm:w-auto px-4 sm:px-10"
               >
                 <FontAwesomeIcon icon={faEnvelope} className="w-4 h-4" />
                 &nbsp;Email Me
@@ -85,7 +70,7 @@ const CallToAction = ({
                 ariaLabel="Connect on LinkedIn"
                 size="xxl"
                 textClassName="text-sm"
-                className="w-full sm:w-auto"
+                className="w-full sm:w-auto px-4 sm:px-10"
               >
                 <FontAwesomeIcon icon={faLinkedin} className="w-4 h-4" />
                 &nbsp;Connect on LinkedIn

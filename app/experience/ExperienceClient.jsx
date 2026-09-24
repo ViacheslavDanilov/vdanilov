@@ -1,7 +1,27 @@
-"use client";
-
-import React, { useMemo } from "react";
 import ExperienceCard from "@/components/ExperienceCard";
+
+const MONTHS = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];
+
+// "YYYY-MM-DD" to [year, month], without time zones
+const parseYearMonth = (date) => date.split("-").slice(0, 2).map(Number);
+
+const currentYearMonth = () => {
+  const now = new Date();
+  return [now.getUTCFullYear(), now.getUTCMonth() + 1];
+};
 
 /**
  * Calculate duration between two dates in LinkedIn-style format
@@ -10,16 +30,14 @@ import ExperienceCard from "@/components/ExperienceCard";
  * @returns {string} Formatted duration (e.g., "2 yrs 3 mos")
  */
 const calculateDuration = (startDate, endDate = null) => {
-  const start = new Date(startDate);
-  const end = endDate ? new Date(endDate) : new Date();
+  const [startYear, startMonth] = parseYearMonth(startDate);
+  const [endYear, endMonth] = endDate
+    ? parseYearMonth(endDate)
+    : currentYearMonth();
 
-  let years = end.getFullYear() - start.getFullYear();
-  let months = end.getMonth() - start.getMonth() + 1;
-
-  if (months < 0) {
-    years--;
-    months += 12;
-  }
+  const totalMonths = (endYear - startYear) * 12 + endMonth - startMonth + 1;
+  const years = Math.floor(totalMonths / 12);
+  const months = totalMonths % 12;
 
   const parts = [];
   if (years > 0) parts.push(`${years} yr${years > 1 ? "s" : ""}`);
@@ -35,11 +53,10 @@ const calculateDuration = (startDate, endDate = null) => {
  * @returns {string} Formatted period (e.g., "Nov 2024 - Present")
  */
 const formatPeriod = (startDate, endDate = null) => {
-  const formatDate = (date) =>
-    new Date(date).toLocaleDateString("en-US", {
-      month: "short",
-      year: "numeric",
-    });
+  const formatDate = (date) => {
+    const [year, month] = parseYearMonth(date);
+    return `${MONTHS[month - 1]} ${year}`;
+  };
 
   return `${formatDate(startDate)} - ${endDate ? formatDate(endDate) : "Present"}`;
 };
@@ -339,7 +356,13 @@ const VISITING_ROLES_DATA = [
       "Presented the SafeICP work on non-invasive brain pressure from photonic sensors",
       "Invited to judge International Students’ Day 2026 and to speak at the Embassy of Spain in Pretoria",
     ],
-    links: [],
+    links: [
+      {
+        title: "SafeICP",
+        url: "https://safe-icp.vercel.app/",
+        type: "Project Website",
+      },
+    ],
     logoBrightness: 1.0,
   },
   {
@@ -567,38 +590,29 @@ const VISITING_ROLES_DATA = [
 ];
 
 export default function Experience() {
-  // Memoize processed experiences to prevent recalculation on every render
-  const experiences = useMemo(
-    () =>
-      EXPERIENCES_DATA.map((exp, index) => ({
-        ...exp,
-        duration: calculateDuration(exp.startDate, exp.endDate),
-        period: formatPeriod(exp.startDate, exp.endDate),
-        logoPriority: index < 4,
-      })),
-    [],
-  );
+  const experiences = EXPERIENCES_DATA.map((exp, index) => ({
+    ...exp,
+    duration: calculateDuration(exp.startDate, exp.endDate),
+    period: formatPeriod(exp.startDate, exp.endDate),
+    logoPriority: index < 4,
+  }));
 
-  // Memoize processed visiting roles to prevent recalculation on every render
-  const visitingRoles = useMemo(
-    () =>
-      VISITING_ROLES_DATA.map((role) => ({
-        ...role,
-        duration: calculateDuration(role.startDate, role.endDate),
-        period: formatPeriod(role.startDate, role.endDate),
-        logoPriority: false,
-      })),
-    [],
-  );
+  const visitingRoles = VISITING_ROLES_DATA.map((role) => ({
+    ...role,
+    duration: calculateDuration(role.startDate, role.endDate),
+    period: formatPeriod(role.startDate, role.endDate),
+    logoPriority: false,
+  }));
 
   return (
-    <main className="min-h-screen pt-24">
+    <div className="min-h-screen pt-24">
+      <h1 className="sr-only">Experience</h1>
       <div className="flex flex-col items-center pt-12 md:pt-24 gap-36 pb-48">
         <section className="w-full max-w-7xl mx-auto px-6">
           <header className="mb-12 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-light mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-light mb-4">
               Core Positions
-            </h1>
+            </h2>
             <p className="text-gray-400 mt-3 max-w-3xl mx-auto leading-relaxed">
               Leadership and engineering roles spanning AI, machine learning,
               data science, computer vision, and biomedical imaging across
@@ -606,10 +620,7 @@ export default function Experience() {
             </p>
           </header>
 
-          <div
-            className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:items-start"
-            role="list"
-          >
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:items-start">
             {experiences.map((experience) => (
               <ExperienceCard key={experience.id} experience={experience} />
             ))}
@@ -619,9 +630,9 @@ export default function Experience() {
         {/* Visiting Positions Section */}
         <section className="w-full max-w-7xl mx-auto px-6">
           <header className="mb-12 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-light mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-light mb-4">
               Visiting Positions
-            </h1>
+            </h2>
             <p className="text-gray-400 mt-3 max-w-3xl mx-auto leading-relaxed">
               Collaborative research contributions in machine learning, AI, and
               biomedical imaging through short- and mid-term academic
@@ -629,16 +640,13 @@ export default function Experience() {
             </p>
           </header>
 
-          <div
-            className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:items-start"
-            role="list"
-          >
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:items-start">
             {visitingRoles.map((role) => (
               <ExperienceCard key={role.id} experience={role} />
             ))}
           </div>
         </section>
       </div>
-    </main>
+    </div>
   );
 }

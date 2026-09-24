@@ -1,51 +1,27 @@
-import Image from "next/image";
-import Link from "next/link";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faArrowLeft,
   faSearch,
   faBullseye,
   faCogs,
   faChartLine,
-  faExternalLinkAlt,
-  faGlobe,
-  faEnvelope,
 } from "@fortawesome/free-solid-svg-icons";
-import {
-  faGithub,
-  faLinkedin,
-  faResearchgate,
-  faGoogleScholar,
-} from "@fortawesome/free-brands-svg-icons";
+import AutoplayVideo from "@/components/AutoplayVideo";
 import ImageLightbox from "@/components/ImageLightbox";
-import { GlowCard } from "@/components/ui/glow-card";
-import ProjectBanner from "@/components/ProjectBanner";
+import { pageMetadata } from "@/lib/metadata";
+import ProjectHeader from "@/components/project/ProjectHeader";
+import Highlights from "@/components/project/Highlights";
+import CoreTeam from "@/components/project/CoreTeam";
+import Section from "@/components/project/Section";
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "ProValve Design",
   description:
     "ML-driven generative design framework for prosthetic heart valves using optimization algorithms, achieving 95% design efficacy.",
-  openGraph: {
-    title: "ProValve Design | Viacheslav Danilov",
-    description:
-      "ML-driven generative design framework for prosthetic heart valves using optimization algorithms, achieving 95% design efficacy.",
-    images: [
-      {
-        url: "/portfolio/previews/provalve-design.jpg",
-        width: 1200,
-        height: 630,
-        alt: "ProValve Design - Prosthetic heart valve design",
-      },
-    ],
+  path: "/portfolio/provalve-design/",
+  image: {
+    url: "/portfolio/previews/provalve-design.jpg",
+    alt: "ProValve Design - Prosthetic heart valve design",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "ProValve Design | Viacheslav Danilov",
-    description:
-      "ML-driven generative design framework for prosthetic heart valves using optimization algorithms, achieving 95% design efficacy.",
-    images: ["/portfolio/previews/provalve-design.jpg"],
-  },
-};
+});
 
 const HIGHLIGHTS_ITEMS = [
   {
@@ -136,7 +112,7 @@ const TEAM_MEMBERS = [
       linkedin: "https://ru.linkedin.com/in/evgeny-ovcharenko-89098722",
       researchgate: "https://www.researchgate.net/profile/Evgeny-Ovcharenko",
       google: "https://scholar.google.ru/citations?user=taoklzsAAAAJ&hl=en",
-      email: "popow.yu.a@gmail.com",
+      email: "ov.eugene@gmail.com",
     },
   },
 ];
@@ -166,215 +142,34 @@ const TECH_STACK = [
   "Abaqus",
 ];
 
-function TeamMemberCard({ member }) {
-  const iconMap = {
-    linkedin: faLinkedin,
-    github: faGithub,
-    researchgate: faResearchgate,
-    google: faGoogleScholar,
-    globe: faGlobe,
-    email: faEnvelope,
-  };
-
-  return (
-    <GlowCard
-      glowColor="blue"
-      customSize={true}
-      className="w-full h-full p-5"
-      enableSpotlight={true}
-      enableBorderGlow={true}
-      spotlightSize={240}
-    >
-      <div className="flex flex-col items-center text-center h-full">
-        <div className="relative w-24 h-24 md:w-24 md:h-24 rounded-full overflow-hidden border-2 border-accent/20 shadow-lg bg-dark mb-4">
-          <Image
-            src={member.photo}
-            alt={member.name}
-            fill
-            sizes="(max-width: 768px) 80px, 96px"
-            quality={90}
-            className="object-cover"
-          />
-        </div>
-        <h4 className="text-base font-bold text-light mb-1.5">{member.name}</h4>
-        <p className="text-sm font-medium text-accent mb-2">{member.role}</p>
-        <p className="text-sm text-gray-300 mb-2">{member.organization}</p>
-        <p className="text-sm text-gray-500 mb-4">{member.location}</p>
-        <div className="flex flex-wrap items-center justify-center gap-4 mt-auto">
-          {Object.entries(member.links).map(([key, url]) => (
-            <a
-              key={key}
-              href={key === "email" ? `mailto:${url}` : url}
-              target={key === "email" ? undefined : "_blank"}
-              rel={key === "email" ? undefined : "noopener noreferrer"}
-              className="text-gray-400 hover:text-light transition-all duration-300 transform hover:scale-110"
-              aria-label={key}
-            >
-              <FontAwesomeIcon
-                icon={iconMap[key]}
-                className="w-4 h-4"
-                style={{
-                  width: "1rem",
-                  height: "1rem",
-                  display: "block",
-                }}
-              />
-            </a>
-          ))}
-        </div>
-      </div>
-    </GlowCard>
-  );
-}
-
 export default function ProjectPage() {
   return (
-    <main className="min-h-screen pt-24">
+    <div className="min-h-screen pt-24">
       <div className="w-full max-w-5xl mx-auto px-6 py-12 md:py-24">
-        {/* Back Navigation */}
-        <Link
-          href="/portfolio"
-          className="inline-flex items-center gap-2 text-gray-400 hover:text-accent 
-                     transition-colors mb-8 group"
-        >
-          <FontAwesomeIcon
-            icon={faArrowLeft}
-            className="w-4 h-4 transition-transform group-hover:-translate-x-1"
-          />
-          <span>Back to Portfolio</span>
-        </Link>
-
-        {/* Project Banner */}
-        <ProjectBanner
-          image="/portfolio/previews/provalve-design.jpg"
-          alt="ProValve Design - Biomechanical prosthetic heart valve simulation"
+        <ProjectHeader
+          title="ProValve Design"
+          subtitle="ML-driven generative design framework for prosthetic heart valves"
+          banner={{
+            image: "/portfolio/previews/provalve-design.jpg",
+            alt: "ProValve Design - Biomechanical prosthetic heart valve simulation",
+          }}
+          client={{
+            name: "Kemerovo Cardiology Center",
+            url: "https://eng.kemcardio.ru/",
+            location: "Kemerovo · Russia 🇷🇺",
+          }}
+          techStack={TECH_STACK}
+          resources={RESOURCES}
         />
-
-        {/* Project Header */}
-        <header className="mb-16 p-6 rounded-2xl bg-light/[0.03]">
-          <h1 className="text-3xl md:text-4xl font-bold text-light mb-3">
-            ProValve Design
-          </h1>
-          <p className="text-lg text-gray-400 leading-relaxed">
-            ML-driven generative design framework for prosthetic heart valves
-          </p>
-
-          {/* Divider */}
-          <div className="h-px bg-light/10 my-8" />
-
-          {/* Client */}
-          <div className="text-sm text-gray-400">
-            <span className="text-gray-400 font-medium">Client: </span>
-            <a
-              href="https://eng.kemcardio.ru/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-accent hover:underline"
-            >
-              Kemerovo Cardiology Center
-            </a>
-            <span className="text-gray-400"> · Kemerovo · Russia 🇷🇺</span>
-          </div>
-
-          {/* Tech Stack Pills */}
-          <div className="flex flex-wrap gap-1.5 mt-4">
-            {TECH_STACK.map((tech) => (
-              <span
-                key={tech}
-                className="px-2.5 py-0.5 text-[11px] rounded-full bg-white/5 border border-white/10 text-gray-400"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-
-          {/* Divider */}
-          <div className="h-px bg-light/10 my-8" />
-
-          {/* Resources */}
-          <div className="flex flex-wrap gap-2">
-            {RESOURCES.map((resource) => (
-              <a
-                key={resource.label}
-                href={resource.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium 
-                           rounded-lg bg-accent/10 text-accent border border-accent/30 
-                           hover:bg-accent/20 transition-colors"
-              >
-                {resource.label}
-                <FontAwesomeIcon
-                  icon={faExternalLinkAlt}
-                  className="w-2.5 h-2.5"
-                />
-              </a>
-            ))}
-          </div>
-        </header>
 
         {/* Content Sections */}
         <div className="space-y-16">
-          {/* Highlights - STAR Section */}
-          <section>
-            <h2 className="text-xl font-semibold text-light mb-6 flex items-center gap-3">
-              <span className="w-1 h-6 bg-accent rounded-full"></span>
-              Highlights
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {HIGHLIGHTS_ITEMS.map((item, index) => (
-                <GlowCard
-                  key={item.label}
-                  glowColor="blue"
-                  customSize={true}
-                  className="group w-full h-full p-5"
-                  enableSpotlight={true}
-                  enableBorderGlow={true}
-                  spotlightSize={240}
-                >
-                  <div className="flex flex-col gap-3">
-                    <div className="flex items-center gap-2">
-                      <FontAwesomeIcon
-                        icon={item.icon}
-                        className="w-3.5 h-3.5 text-white/70 transition-colors duration-300 group-hover:text-accent"
-                        style={{
-                          width: "0.875rem",
-                          height: "0.875rem",
-                          display: "inline-block",
-                        }}
-                      />
-                      <span className="text-xs uppercase tracking-wider text-light transition-colors duration-300 group-hover:text-accent font-semibold">
-                        {item.label}
-                      </span>
-                    </div>
-                    <p className="text-sm text-light/80 leading-relaxed text-justify">
-                      {item.text}
-                    </p>
-                  </div>
-                </GlowCard>
-              ))}
-            </div>
-          </section>
+          <Highlights items={HIGHLIGHTS_ITEMS} />
 
-          {/* Core Team */}
-          <section>
-            <h2 className="text-xl font-semibold text-light mb-6 flex items-center gap-3">
-              <span className="w-1 h-6 bg-accent rounded-full"></span>
-              Core Team
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-              {TEAM_MEMBERS.map((member) => (
-                <TeamMemberCard key={member.name} member={member} />
-              ))}
-            </div>
-          </section>
+          <CoreTeam members={TEAM_MEMBERS} />
 
           {/* Overview */}
-          <section>
-            <h2 className="text-xl font-semibold text-light mb-4 flex items-center gap-3">
-              <span className="w-1 h-6 bg-accent rounded-full"></span>
-              Overview
-            </h2>
+          <Section title="Overview">
             <div className="prose prose-invert max-w-none">
               <p className="text-gray-300 leading-relaxed mb-4 text-justify">
                 Valvular heart disease affects millions globally, and{" "}
@@ -417,15 +212,10 @@ export default function ProjectPage() {
                 manufacturing constraints.
               </p>
             </div>
-          </section>
+          </Section>
 
           {/* Data */}
-          <section>
-            <h2 className="text-xl font-semibold text-light mb-4 flex items-center gap-3">
-              <span className="w-1 h-6 bg-accent rounded-full"></span>
-              Data
-            </h2>
-
+          <Section title="Data">
             <p className="text-gray-300 leading-relaxed mb-4 text-justify">
               The dataset comprised 11,565 prosthetic heart valve designs, each
               generated using a parametric model with six critical parameters:
@@ -470,8 +260,8 @@ export default function ProjectPage() {
               <ImageLightbox
                 src="/portfolio/provalve-design/valve-structure.webp"
                 alt="Prosthetic Heart Valve Structure"
-                width={2400}
-                height={1200}
+                width={4040}
+                height={3545}
                 maxWidth="xl"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
@@ -480,15 +270,10 @@ export default function ProjectPage() {
                 critical design parameters.
               </figcaption>
             </figure>
-          </section>
+          </Section>
 
           {/* Methods */}
-          <section>
-            <h2 className="text-xl font-semibold text-light mb-4 flex items-center gap-3">
-              <span className="w-1 h-6 bg-accent rounded-full"></span>
-              Methods
-            </h2>
-
+          <Section title="Methods">
             <p className="text-gray-300 leading-relaxed mb-4 text-justify">
               The methodology integrates machine learning and optimization
               algorithms to enable efficient exploration of the design space:
@@ -541,8 +326,8 @@ export default function ProjectPage() {
               <ImageLightbox
                 src="/portfolio/provalve-design/generative-design-workflow.webp"
                 alt="Generative Design Workflow"
-                width={2400}
-                height={1200}
+                width={3536}
+                height={2096}
                 maxWidth="3xl"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
@@ -551,15 +336,10 @@ export default function ProjectPage() {
                 machine learning, and optimization algorithms.
               </figcaption>
             </figure>
-          </section>
+          </Section>
 
           {/* Results */}
-          <section>
-            <h2 className="text-xl font-semibold text-light mb-4 flex items-center gap-3">
-              <span className="w-1 h-6 bg-accent rounded-full"></span>
-              Results
-            </h2>
-
+          <Section title="Results">
             <p className="text-gray-300 leading-relaxed mb-4 text-justify">
               The proposed framework demonstrated significant improvements in
               PHV design efficiency:
@@ -599,8 +379,8 @@ export default function ProjectPage() {
               <ImageLightbox
                 src="/portfolio/provalve-design/generated-valves.webp"
                 alt="Optimized Valve Designs"
-                width={2400}
-                height={1600}
+                width={3811}
+                height={4518}
                 maxWidth="xl"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
@@ -620,12 +400,9 @@ export default function ProjectPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Video 1: Random Search */}
               <figure className="scroll-mt-24">
-                <video
+                <AutoplayVideo
+                  aspectRatio="16 / 9"
                   controls
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
                   className="w-full rounded-lg border border-white/10"
                 >
                   <source
@@ -633,7 +410,7 @@ export default function ProjectPage() {
                     type="video/mp4"
                   />
                   Your browser does not support the video tag.
-                </video>
+                </AutoplayVideo>
                 <figcaption className="text-center text-sm text-gray-400 mt-2">
                   Random Search
                 </figcaption>
@@ -641,12 +418,9 @@ export default function ProjectPage() {
 
               {/* Video 2: Tree-structured Parzen Estimator */}
               <figure className="scroll-mt-24">
-                <video
+                <AutoplayVideo
+                  aspectRatio="16 / 9"
                   controls
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
                   className="w-full rounded-lg border border-white/10"
                 >
                   <source
@@ -654,88 +428,16 @@ export default function ProjectPage() {
                     type="video/mp4"
                   />
                   Your browser does not support the video tag.
-                </video>
+                </AutoplayVideo>
                 <figcaption className="text-center text-sm text-gray-400 mt-2">
                   Tree-structured Parzen Estimator
                 </figcaption>
               </figure>
-
-              {/* Video 3: CMA-ES */}
-              {/* <figure className="scroll-mt-24">
-                <video
-                  controls
-                  className="w-full rounded-lg border border-white/10"
-                >
-                  <source
-                    src="/portfolio/provalve-design/valve-opening-cma.mp4"
-                    type="video/mp4"
-                  />
-                  Your browser does not support the video tag.
-                </video>
-                <figcaption className="text-center text-sm text-gray-400 mt-2">
-                  CMA-ES Algorithm (CMA)
-                </figcaption>
-              </figure> */}
-
-              {/* Video 4: NSGA-II */}
-              {/* <figure className="scroll-mt-24">
-                <video
-                  controls
-                  className="w-full rounded-lg border border-white/10"
-                >
-                  <source
-                    src="/portfolio/provalve-design/valve-opening-nsga.mp4"
-                    type="video/mp4"
-                  />
-                  Your browser does not support the video tag.
-                </video>
-                <figcaption className="text-center text-sm text-gray-400 mt-2">
-                  NSGA-II Algorithm (NSGA)
-                </figcaption>
-              </figure> */}
-
-              {/* Video 5: MOTPE */}
-              {/* <figure className="scroll-mt-24">
-                <video
-                  controls
-                  className="w-full rounded-lg border border-white/10"
-                >
-                  <source
-                    src="/portfolio/provalve-design/valve-opening-motpe.mp4"
-                    type="video/mp4"
-                  />
-                  Your browser does not support the video tag.
-                </video>
-                <figcaption className="text-center text-sm text-gray-400 mt-2">
-                  Multiobjective TPE (MOTPE)
-                </figcaption>
-              </figure> */}
-
-              {/* Video 6: QMC */}
-              {/* <figure className="scroll-mt-24">
-                <video
-                  controls
-                  className="w-full rounded-lg border border-white/10"
-                >
-                  <source
-                    src="/portfolio/provalve-design/valve-opening-qmc.mp4"
-                    type="video/mp4"
-                  />
-                  Your browser does not support the video tag.
-                </video>
-                <figcaption className="text-center text-sm text-gray-400 mt-2">
-                  Quasi-Monte Carlo (QMC)
-                </figcaption>
-              </figure> */}
             </div>
-          </section>
+          </Section>
 
           {/* Conclusion */}
-          <section>
-            <h2 className="text-xl font-semibold text-light mb-4 flex items-center gap-3">
-              <span className="w-1 h-6 bg-accent rounded-full"></span>
-              Conclusion
-            </h2>
+          <Section title="Conclusion">
             <p className="text-gray-300 leading-relaxed mb-4 text-justify">
               This generative design framework demonstrates the transformative
               potential of combining machine learning and optimization for
@@ -749,11 +451,11 @@ export default function ProjectPage() {
               refining prosthetic heart valve designs for improved patient
               outcomes.
             </p>
-          </section>
+          </Section>
         </div>
       </div>
       {/* Bottom spacing before footer */}
       <div className="pb-24" />
-    </main>
+    </div>
   );
 }

@@ -109,7 +109,7 @@ npm run dev        # dev server
 npm run build      # production build
 npm run check      # prettier --check .  (run before committing)
 npm run format     # prettier --write .
-npm run test:e2e   # Playwright end-to-end tests
+npm run test:e2e   # Playwright end-to-end tests (PORT=3100 npm run test:e2e if 3000 is taken)
 ```
 
 ## Code conventions
@@ -141,13 +141,14 @@ under it end.
 
 The band is measured, not a preference. Below about 159 characters the paragraph wraps to two
 lines instead of three, and its card stands shorter than the one beside it in the two-column
-grid. Somewhere above 197 the CV's `Duty` node runs to a third line and the card grows. The
+grid. Somewhere above 198 the CV's `Duty` node runs to a third line and the card grows. The
 band leaves room at both ends.
 
 **The count is a proxy; the real limit is rendered width**, so a string of wide characters
-breaks earlier than a narrow one. Five entries sit above the band today, 192 to 197 characters,
-and were left alone because both sides were measured and render correctly. Check the rendered
-node, not the character count, before deciding a long one is too long.
+breaks earlier than a narrow one. Four entries sit above the band today, 192 to 198 characters,
+and one sits below it at 159; all were left alone because both sides were measured and render
+correctly. Check the rendered node, not the character count, before deciding a long one is too
+long.
 
 The site and the CV hold the same string. Changing one means changing the other, and the
 `Duty` node lives on the `Experience / *` components, not on the instances.
@@ -170,7 +171,9 @@ layout and moving children has broken a separator before.
 
 ## Portfolio project pages
 
-Project pages live in `app/portfolio/<project-name>/page.jsx`.
+Project pages live in `app/portfolio/<project-name>/page.jsx`. Each page keeps its own data
+and prose, and renders the shared header, highlights, team and section headings from
+`components/project/`.
 
 An abbreviation's full expansion (the `Full Phrase (ABBR)` form) appears only **once per
 scope**; later mentions use the bare abbreviation. The `HIGHLIGHTS_ITEMS` summary and the

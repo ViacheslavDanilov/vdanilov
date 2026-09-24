@@ -7,6 +7,12 @@ import Statistics from "@/components/Statistics";
 import CallToAction from "@/components/CallToAction";
 import LightRays from "@/components/ui/light-rays";
 import PagePrefetcher from "@/components/PagePrefetcher";
+import { pageMetadata, SITE_DESCRIPTION } from "@/lib/metadata";
+
+export const metadata = pageMetadata({
+  description: SITE_DESCRIPTION,
+  path: "/",
+});
 
 export default function Home() {
   return (

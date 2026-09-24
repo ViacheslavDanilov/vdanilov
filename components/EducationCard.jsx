@@ -16,7 +16,6 @@ import {
   faGraduationCap,
   faAward,
 } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   CompanyLogo,
   highlightKeywords,
@@ -37,13 +36,7 @@ const ContentList = ({ items }) => (
   </ul>
 );
 
-const EducationCard = ({
-  education,
-  enableSpotlight = true,
-  enableBorderGlow = true,
-  glowColor = "blue",
-  spotlightSize = 300,
-}) => {
+const EducationCard = ({ education }) => {
   const [activeTab, setActiveTab] = useState(null);
   const cardRef = useRef(null);
 
@@ -108,78 +101,10 @@ const EducationCard = ({
   }, [activeTab, education.coreCourses, education.thesis]);
 
   return (
-    <article
-      ref={cardRef}
-      className="self-start w-full"
-      aria-labelledby={`edu-title-${education.id}`}
-    >
-      <GlowCard
-        glowColor={glowColor}
-        customSize={true}
-        className="w-full h-full p-5"
-        enableSpotlight={enableSpotlight}
-        enableBorderGlow={enableBorderGlow}
-        spotlightSize={spotlightSize}
-      >
-        {/* Mobile Layout */}
-        <div className="flex flex-col md:hidden mb-4 space-y-3 relative">
-          {/* Honors Badge - Mobile (absolute positioning) */}
-          {education.honors && (
-            <Badge
-              variant="teal"
-              icon={faAward}
-              className="absolute top-0 right-0"
-            >
-              {education.honors}
-            </Badge>
-          )}
-          <div className="flex justify-center">
-            <CompanyLogo
-              logo={education.logo}
-              company={education.institution}
-              url={education.url}
-              brightness={education.logoBrightness}
-              priority={education.logoPriority}
-            />
-          </div>
-
-          <div className="text-center flex flex-col items-center gap-2">
-            {/* Degree Only (Badge is absolute) */}
-            <h3 className="text-md font-bold uppercase tracking-wider text-light">
-              {education.degree}
-            </h3>
-
-            {/* University */}
-            <a
-              href={education.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm font-medium text-light md:hover:text-accent uppercase cursor-pointer transition-colors max-w-full"
-              aria-label={`${education.institution} website`}
-            >
-              {education.institution}
-            </a>
-
-            {/* Field */}
-            {education.field && (
-              <div className="text-sm text-gray-400 font-medium normal-case">
-                {education.field}
-              </div>
-            )}
-
-            {/* Metadata */}
-            <div className="flex flex-wrap gap-2 text-sm text-gray-400 justify-center">
-              <time dateTime={education.period.split(" - ")[0]}>
-                {education.period}
-              </time>
-            </div>
-            <p className="text-sm text-gray-400 mb-0">{education.location}</p>
-          </div>
-        </div>
-
-        {/* Desktop Layout */}
-        <div className="hidden md:flex flex-row gap-6 mb-4 items-start relative">
-          {/* Honors Badge - Desktop (absolute positioning) */}
+    <article ref={cardRef} className="self-start w-full">
+      <GlowCard className="w-full h-full p-5" spotlightSize={300}>
+        {/* Header: stacked and centred on phones, a row from md */}
+        <div className="relative mb-4 flex flex-col gap-3 md:flex-row md:items-start md:gap-6">
           {education.honors && (
             <Badge
               variant="teal"
@@ -195,14 +120,13 @@ const EducationCard = ({
             url={education.url}
             brightness={education.logoBrightness}
             priority={education.logoPriority}
+            className="self-center md:self-auto"
           />
-          <div className="flex-1 flex flex-col gap-2">
-            {/* Row 1: Degree */}
+          <div className="flex flex-col items-center text-center gap-2 md:flex-1 md:items-stretch md:text-left">
             <h3 className="text-md font-bold uppercase tracking-wider text-light">
               {education.degree}
             </h3>
 
-            {/* Row 2: University */}
             <a
               href={education.url}
               target="_blank"
@@ -213,18 +137,14 @@ const EducationCard = ({
               {education.institution}
             </a>
 
-            {/* Row 3: Field */}
             {education.field && (
               <div className="text-sm text-gray-400 font-medium normal-case">
                 {education.field}
               </div>
             )}
 
-            {/* Row 4: Metadata */}
-            <div className="flex flex-wrap gap-2 text-sm text-gray-400">
-              <time dateTime={education.period.split(" - ")[0]}>
-                {education.period}
-              </time>
+            <div className="flex flex-wrap gap-2 text-sm text-gray-400 justify-center md:justify-start">
+              <span>{education.period}</span>
             </div>
             <p className="text-sm text-gray-400 mb-0">{education.location}</p>
           </div>
@@ -233,10 +153,10 @@ const EducationCard = ({
         {/* Tabs - Only show if there are tabs */}
         {tabs.length > 0 && (
           <>
-            <nav
+            <div
               className="flex items-center justify-center gap-1 mb-4 bg-card/30 rounded-full p-1 border border-light/10"
-              role="tablist"
-              aria-label="Education information tabs"
+              role="group"
+              aria-label="Education information"
             >
               {tabs.map((tab) => (
                 <Tab
@@ -244,11 +164,15 @@ const EducationCard = ({
                   text={tab.label}
                   icon={tab.icon}
                   selected={activeTab === tab.id}
+                  aria-expanded={activeTab === tab.id}
+                  aria-controls={
+                    activeTab === tab.id ? `${education.id}-panel` : undefined
+                  }
                   setSelected={() => handleTabClick(tab.id)}
                   layoutId={`tab-${education.id}`}
                 />
               ))}
-            </nav>
+            </div>
 
             {/* Tab Content with Accordion Animation */}
             <AnimatePresence initial={false}>
@@ -260,8 +184,7 @@ const EducationCard = ({
                   exit={{ opacity: 0, height: 0 }}
                   transition={{ duration: 0.3, ease: "easeInOut" }}
                   className="overflow-hidden"
-                  role="tabpanel"
-                  aria-labelledby={`tab-${activeTab}`}
+                  id={`${education.id}-panel`}
                 >
                   <div className="py-2">{tabContent}</div>
                 </motion.div>

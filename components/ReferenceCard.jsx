@@ -68,14 +68,7 @@ const ReferenceCard = ({ reference, priority = false }) => {
     socialLinks.push({ type: "email", url: `mailto:${socials.email}` });
 
   return (
-    <GlowCard
-      glowColor="blue"
-      customSize={true}
-      className="group w-full h-full p-5 relative"
-      enableSpotlight={true}
-      enableBorderGlow={true}
-      spotlightSize={250}
-    >
+    <GlowCard className="group w-full h-full p-5 relative" spotlightSize={250}>
       {/* Category Badge */}
       <Badge
         variant={config.variant}
@@ -125,7 +118,7 @@ const ReferenceCard = ({ reference, priority = false }) => {
                   social.type === "email" ? undefined : "noopener noreferrer"
                 }
                 aria-label={`${name}'s ${iconConfig.label}`}
-                className="text-gray-400 hover:text-light transition-all duration-300 transform hover:scale-110"
+                className="p-2 -m-2 text-gray-400 hover:text-light transition-all duration-300 transform hover:scale-110"
               >
                 <FontAwesomeIcon
                   icon={iconConfig.icon}

@@ -1,9 +1,8 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
-import { AnimatePresence, motion } from "motion/react";
+import React from "react";
+import FilteredGrid from "@/components/FilteredGrid";
 import ReferenceCard from "@/components/ReferenceCard";
-import { Tab } from "@/components/ui/tab";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 // Reference data
@@ -334,35 +333,8 @@ const FILTER_OPTIONS = [
 ];
 
 export default function References() {
-  const [activeFilter, setActiveFilter] = useState("featured");
-
-  const filteredReferences = useMemo(() => {
-    if (activeFilter === "all") {
-      return REFERENCES_DATA;
-    }
-    if (activeFilter === "featured") {
-      return REFERENCES_DATA.filter((ref) => ref.featured);
-    }
-    return REFERENCES_DATA.filter((ref) => ref.category === activeFilter);
-  }, [activeFilter]);
-
-  const getCounts = useMemo(() => {
-    const counts = {
-      all: REFERENCES_DATA.length,
-      featured: REFERENCES_DATA.filter((ref) => ref.featured).length,
-    };
-    FILTER_OPTIONS.forEach((option) => {
-      if (option.id !== "all" && option.id !== "featured") {
-        counts[option.id] = REFERENCES_DATA.filter(
-          (ref) => ref.category === option.id,
-        ).length;
-      }
-    });
-    return counts;
-  }, []);
-
   return (
-    <main className="min-h-screen pt-24">
+    <div className="min-h-screen pt-24">
       <div className="flex flex-col items-center pt-12 md:pt-24 gap-36 pb-48">
         {/* Header Section */}
         <section className="w-full max-w-7xl mx-auto px-6">
@@ -377,50 +349,23 @@ export default function References() {
             </p>
           </header>
 
-          {/* Filter Buttons */}
-          <div className="flex flex-wrap justify-center gap-2 mb-12">
-            {FILTER_OPTIONS.map((option) => (
-              <Tab
-                key={option.id}
-                text={`${option.label} (${getCounts[option.id]})`}
-                icon={option.icon}
-                selected={activeFilter === option.id}
-                setSelected={() => setActiveFilter(option.id)}
-                layoutId="references-filter"
-              />
-            ))}
-          </div>
-
-          {/* References Grid */}
-          <div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-            role="list"
-          >
-            <AnimatePresence mode="popLayout">
-              {filteredReferences.map((reference, index) => (
-                <motion.div
-                  key={reference.id}
-                  layout
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.3 }}
-                  role="listitem"
-                >
-                  <ReferenceCard reference={reference} priority={index < 3} />
-                </motion.div>
-              ))}
-            </AnimatePresence>
-          </div>
-
-          {/* Empty State */}
-          {filteredReferences.length === 0 && (
-            <p className="text-center text-gray-500 italic py-12">
-              No references found for this category.
-            </p>
-          )}
+          <FilteredGrid
+            items={REFERENCES_DATA}
+            options={FILTER_OPTIONS}
+            label="Filter references"
+            layoutId="references-filter"
+            gridClassName="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            renderItem={(reference, index) => (
+              <ReferenceCard reference={reference} priority={index < 3} />
+            )}
+            empty={
+              <p className="text-center text-gray-500 italic py-12">
+                No references found for this category.
+              </p>
+            }
+          />
         </section>
       </div>
-    </main>
+    </div>
   );
 }

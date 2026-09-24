@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
-import { AnimatePresence, motion } from "motion/react";
+import React from "react";
+import FilteredGrid from "@/components/FilteredGrid";
+import { motion } from "motion/react";
 import PortfolioCard from "@/components/PortfolioCard";
-import { Tab } from "@/components/ui/tab";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 // Project data with date and featured fields
@@ -273,45 +273,14 @@ const FILTER_OPTIONS = [
   },
 ];
 
-// Sort projects by date (newest first)
-const sortByDate = (projects) => {
-  return [...projects].sort((a, b) => new Date(b.date) - new Date(a.date));
-};
+// Newest first; filtering keeps this order
+const SORTED_PROJECTS = [...PROJECTS_DATA].sort(
+  (a, b) => new Date(b.date) - new Date(a.date),
+);
 
 export default function Portfolio() {
-  const [activeFilter, setActiveFilter] = useState("featured");
-
-  const filteredProjects = useMemo(() => {
-    let filtered;
-    if (activeFilter === "all") {
-      filtered = PROJECTS_DATA;
-    } else if (activeFilter === "featured") {
-      filtered = PROJECTS_DATA.filter((project) => project.featured);
-    } else {
-      filtered = PROJECTS_DATA.filter(
-        (project) => project.category === activeFilter,
-      );
-    }
-    return sortByDate(filtered);
-  }, [activeFilter]);
-
-  const getCounts = useMemo(() => {
-    const counts = {
-      all: PROJECTS_DATA.length,
-      featured: PROJECTS_DATA.filter((p) => p.featured).length,
-    };
-    FILTER_OPTIONS.forEach((option) => {
-      if (option.id !== "all" && option.id !== "featured") {
-        counts[option.id] = PROJECTS_DATA.filter(
-          (project) => project.category === option.id,
-        ).length;
-      }
-    });
-    return counts;
-  }, []);
-
   return (
-    <main className="min-h-screen pt-24">
+    <div className="min-h-screen pt-24">
       <div className="flex flex-col items-center pt-12 md:pt-24 gap-16 pb-48">
         {/* Header Section */}
         <section className="w-full max-w-7xl mx-auto px-6">
@@ -325,90 +294,48 @@ export default function Portfolio() {
             </p>
           </header>
 
-          {/* Filter Tabs - Two rows: 4 on top, 3 centered below */}
-          <div className="flex flex-col items-center gap-2 mb-12">
-            {/* First row - 4 tabs */}
-            <div className="flex flex-wrap justify-center gap-2">
-              {FILTER_OPTIONS.slice(0, 4).map((option) => (
-                <Tab
-                  key={option.id}
-                  text={`${option.label} (${getCounts[option.id]})`}
-                  icon={option.icon}
-                  selected={activeFilter === option.id}
-                  setSelected={() => setActiveFilter(option.id)}
-                  layoutId="portfolio-filter"
-                />
-              ))}
-            </div>
-            {/* Second row - 3 tabs centered */}
-            <div className="flex flex-wrap justify-center gap-2">
-              {FILTER_OPTIONS.slice(4).map((option) => (
-                <Tab
-                  key={option.id}
-                  text={`${option.label} (${getCounts[option.id]})`}
-                  icon={option.icon}
-                  selected={activeFilter === option.id}
-                  setSelected={() => setActiveFilter(option.id)}
-                  layoutId="portfolio-filter"
-                />
-              ))}
-            </div>
-          </div>
-
-          {/* Projects Grid */}
-          <div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-            role="list"
-          >
-            <AnimatePresence mode="popLayout">
-              {filteredProjects.map((project, index) => (
-                <motion.div
-                  key={project.id}
-                  layout
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.3 }}
-                  role="listitem"
-                >
-                  <PortfolioCard project={project} priority={index < 3} />
-                </motion.div>
-              ))}
-            </AnimatePresence>
-          </div>
-
-          {/* Empty State */}
-          {filteredProjects.length === 0 && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-center py-16"
-            >
-              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-card border border-white/10 flex items-center justify-center">
-                <svg
-                  className="w-8 h-8 text-gray-500"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={1.5}
-                    d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
-                  />
-                </svg>
-              </div>
-              <p className="text-gray-400 text-lg">
-                No projects in this category yet.
-              </p>
-              <p className="text-gray-500 text-sm mt-2">
-                Check back soon for updates!
-              </p>
-            </motion.div>
-          )}
+          <FilteredGrid
+            items={SORTED_PROJECTS}
+            options={FILTER_OPTIONS}
+            label="Filter projects"
+            layoutId="portfolio-filter"
+            splitAt={4}
+            gridClassName="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            renderItem={(project, index) => (
+              <PortfolioCard project={project} priority={index < 3} />
+            )}
+            empty={
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="text-center py-16"
+              >
+                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-card border border-white/10 flex items-center justify-center">
+                  <svg
+                    className="w-8 h-8 text-gray-500"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1.5}
+                      d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                    />
+                  </svg>
+                </div>
+                <p className="text-gray-400 text-lg">
+                  No projects in this category yet.
+                </p>
+                <p className="text-gray-500 text-sm mt-2">
+                  Check back soon for updates!
+                </p>
+              </motion.div>
+            }
+          />
         </section>
       </div>
-    </main>
+    </div>
   );
 }

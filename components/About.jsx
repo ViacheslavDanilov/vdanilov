@@ -1,6 +1,8 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
+import AutoplayVideo from "@/components/AutoplayVideo";
 import { LiquidButtonLink } from "@/components/ui/liquid-button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -12,6 +14,35 @@ import {
   faWhatsapp,
 } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { cn } from "@/lib/utils";
+
+// Wraps between words without justify stretching the phrase; "before" stays on its first word's line
+const Highlight = ({ before, children }) => {
+  const [first, ...rest] = children.split(" ").map((word, i, words) => (
+    <span
+      key={word}
+      className={cn(
+        "inline-block whitespace-pre bg-accent/10 text-accent font-semibold",
+        i === 0 && "pl-4 rounded-l-3xl",
+        i === words.length - 1 && "pr-4 rounded-r-3xl",
+      )}
+    >
+      {i === 0 ? word : ` ${word}`}
+    </span>
+  ));
+  return (
+    <>
+      {before ? (
+        <span className="whitespace-nowrap">
+          {before} {first}
+        </span>
+      ) : (
+        first
+      )}
+      {rest}
+    </>
+  );
+};
 
 const About = () => {
   const socialLinks = [
@@ -70,51 +101,30 @@ const About = () => {
       <div className="flex flex-col items-center justify-center gap-8 max-w-4xl mx-auto">
         {/* Video */}
         <div className="relative w-64 h-64 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-accent/20 shadow-2xl bg-dark">
-          <img
+          <Image
             src="/hero/about-poster.webp"
             alt="Viacheslav Danilov in professional setting"
-            className="absolute inset-0 w-full h-full object-cover brightness-150"
+            fill
+            sizes="256px"
+            className="object-cover brightness-150"
           />
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            webkit-playsinline="true"
-            preload="auto"
-            className="relative w-full h-full object-cover brightness-125"
-          >
+          <AutoplayVideo className="relative w-full h-full object-cover brightness-125">
             <source src="/hero/about-video.mp4" type="video/mp4" />
             Your browser does not support the video tag.
-          </video>
+          </AutoplayVideo>
         </div>
-
-        {/* Signature (Commented out) */}
-        {/* <div className="relative w-48 h-24">
-          <Image
-            src="/hero/signature.webp"
-            alt="Viacheslav Danilov Signature"
-            fill
-            className="object-contain"
-          />
-        </div> */}
 
         {/* Description */}
         <div className="space-y-6 text-light leading-loose text-justify max-w-5xl">
           <p>
-            <span className="inline-block bg-accent/10 text-accent font-semibold px-4 py-0.5 rounded-3xl">
-              Lead AI/ML Engineer
-            </span>{" "}
-            and{" "}
-            <span className="inline-block bg-accent/10 text-accent font-semibold px-4 py-0.5 rounded-3xl">
-              Research Scientist
-            </span>{" "}
-            with a PhD in Computer Science and over 10 years across academia and
-            industry. I take machine learning from first experiment to
-            production: medical signal and image analysis, computer vision, time
-            series, and LLM and RAG systems. I have led teams of developers and
-            researchers, supervised PhD students and postdocs, and published
-            nearly 50 peer-reviewed papers.
+            <Highlight>Lead AI/ML Engineer</Highlight>{" "}
+            <Highlight before="and">Research Scientist</Highlight> with a PhD in
+            Computer Science and over 10 years across academia and industry. I
+            take machine learning from first experiment to production: medical
+            signal and image analysis, computer vision, time series, and LLM and
+            RAG systems. I have led teams of developers and researchers,
+            supervised PhD students and postdocs, and published nearly 50
+            peer-reviewed papers.
           </p>
         </div>
 
@@ -124,8 +134,12 @@ const About = () => {
             <a
               key={social.name}
               href={social.href}
-              target="_blank"
-              rel="noopener noreferrer"
+              target={social.href.startsWith("mailto:") ? undefined : "_blank"}
+              rel={
+                social.href.startsWith("mailto:")
+                  ? undefined
+                  : "noopener noreferrer"
+              }
               aria-label={social.name}
               className={`text-gray-400 transition-all duration-300 transform hover:scale-110 ${social.color}`}
               style={{ display: "inline-block" }}

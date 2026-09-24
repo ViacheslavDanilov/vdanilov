@@ -8,6 +8,7 @@ import React, {
   useEffect,
 } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { AnimatePresence, motion } from "motion/react";
 import { GlowCard } from "@/components/ui/glow-card";
 import { Tab } from "@/components/ui/tab";
@@ -147,6 +148,9 @@ const ResponsibilitiesList = ({ items }) => (
   </ul>
 );
 
+// Pages of this site open in place; documents and other sites open in a new tab
+const isSitePage = (url) => url.startsWith("/") && !url.endsWith(".pdf");
+
 // Links list component
 const LinksList = ({ links }) => (
   <ul className="space-y-3" role="list">
@@ -159,21 +163,31 @@ const LinksList = ({ links }) => (
               {pub.type}
             </span>
           )}
-          <a
-            href={pub.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm text-accent hover:text-light transition-colors inline gap-2 group align-top"
-            aria-label={`${pub.type}: ${pub.title}`}
-          >
-            <span className="leading-relaxed break-words">{pub.title}</span>
-            <FontAwesomeIcon
-              icon={faExternalLink}
-              className="w-3 h-3 ml-1 opacity-70 group-hover:opacity-100 transition-opacity inline"
-              style={{ width: "0.75rem", height: "0.75rem" }}
-              aria-hidden="true"
-            />
-          </a>
+          {isSitePage(pub.url) ? (
+            <Link
+              href={pub.url}
+              className="text-sm text-accent hover:text-light transition-colors inline gap-2 group align-top"
+              aria-label={`${pub.type}: ${pub.title}`}
+            >
+              <span className="leading-relaxed break-words">{pub.title}</span>
+            </Link>
+          ) : (
+            <a
+              href={pub.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-accent hover:text-light transition-colors inline gap-2 group align-top"
+              aria-label={`${pub.type}: ${pub.title}`}
+            >
+              <span className="leading-relaxed break-words">{pub.title}</span>
+              <FontAwesomeIcon
+                icon={faExternalLink}
+                className="w-3 h-3 ml-1 opacity-70 group-hover:opacity-100 transition-opacity inline"
+                style={{ width: "0.75rem", height: "0.75rem" }}
+                aria-hidden="true"
+              />
+            </a>
+          )}
         </div>
       </li>
     ))}
@@ -208,8 +222,8 @@ export const CompanyLogo = ({
   </a>
 );
 
-// Job info component
-export const JobInfo = ({
+// Job info component: centred on phones, left-aligned from md
+const JobInfo = ({
   title,
   company,
   url,
@@ -217,10 +231,9 @@ export const JobInfo = ({
   duration,
   location,
   className = "",
-  centered = false,
 }) => (
   <div
-    className={`flex flex-col ${centered ? "items-center text-center" : "items-start text-left"} gap-2 ${className}`}
+    className={`flex flex-col items-center text-center md:items-start md:text-left gap-2 ${className}`}
   >
     <h3 className="text-md font-bold uppercase tracking-wider text-light">
       {title}
@@ -234,10 +247,8 @@ export const JobInfo = ({
     >
       {company}
     </a>
-    <div
-      className={`flex flex-wrap gap-2 text-sm text-gray-400 ${centered ? "justify-center" : ""}`}
-    >
-      <time dateTime={period.split(" - ")[0]}>{period}</time>
+    <div className="flex flex-wrap gap-2 text-sm text-gray-400 justify-center md:justify-start">
+      <span>{period}</span>
       <span aria-hidden="true">•</span>
       <span>{duration}</span>
     </div>
@@ -245,13 +256,7 @@ export const JobInfo = ({
   </div>
 );
 
-const ExperienceCard = ({
-  experience,
-  enableSpotlight = true,
-  enableBorderGlow = true,
-  glowColor = "blue",
-  spotlightSize = 300,
-}) => {
+const ExperienceCard = ({ experience }) => {
   const [activeTab, setActiveTab] = useState(null);
   const cardRef = useRef(null);
 
@@ -267,14 +272,12 @@ const ExperienceCard = ({
     return () => document.removeEventListener("mousedown", handleClick);
   }, [activeTab]);
 
-  // Memoize tabs configuration
-  const tabs = useMemo(
-    () => [
-      { id: "responsibilities", label: "Responsibilities", icon: faBriefcase },
-      { id: "links", label: "Links", icon: faLink },
-    ],
-    [],
-  );
+  const tabs = [
+    { id: "responsibilities", label: "Responsibilities", icon: faBriefcase },
+    ...(experience.links.length > 0
+      ? [{ id: "links", label: "Links", icon: faLink }]
+      : []),
+  ];
 
   // Optimized tab click handler with useCallback
   const handleTabClick = useCallback((tabId) => {
@@ -296,70 +299,25 @@ const ExperienceCard = ({
   }, [activeTab, experience.responsibilities, experience.links]);
 
   // Category badge configuration
-  const getCategoryConfig = (category) => {
-    if (category === "research") {
-      return { variant: "blue", icon: faFlask, label: "Research" };
-    }
-    return { variant: "teal", icon: faBriefcase, label: "Industry" };
-  };
+  const category =
+    experience.category === "research"
+      ? { variant: "blue", icon: faFlask, label: "Research" }
+      : { variant: "teal", icon: faBriefcase, label: "Industry" };
 
   return (
-    <article
-      ref={cardRef}
-      className="self-start w-full"
-      aria-labelledby={`job-title-${experience.id}`}
-    >
-      <GlowCard
-        glowColor={glowColor}
-        customSize={true}
-        className="w-full h-full p-5"
-        enableSpotlight={enableSpotlight}
-        enableBorderGlow={enableBorderGlow}
-        spotlightSize={spotlightSize}
-      >
-        {/* Mobile Layout */}
-        <div className="flex flex-col md:hidden mb-4 space-y-3 relative">
-          {/* Category Badge - Mobile (absolute positioning) */}
-          {experience.category && (
-            <Badge
-              variant={getCategoryConfig(experience.category).variant}
-              icon={getCategoryConfig(experience.category).icon}
-              className="absolute top-0 right-0"
-            >
-              {getCategoryConfig(experience.category).label}
-            </Badge>
-          )}
-          <div className="flex justify-center">
-            <CompanyLogo
-              logo={experience.logo}
-              company={experience.company}
-              url={COMPANY_URLS[experience.company]}
-              brightness={experience.logoBrightness}
-              priority={experience.logoPriority}
-            />
-          </div>
-          <JobInfo
-            title={experience.title}
-            company={experience.company}
-            url={COMPANY_URLS[experience.company]}
-            period={experience.period}
-            duration={experience.duration}
-            location={experience.location}
-            className="text-center space-y-2"
-            centered={true}
-          />
-        </div>
-
-        {/* Desktop Layout */}
-        <div className="hidden md:flex flex-row gap-6 mb-4 items-start">
+    <article ref={cardRef} className="self-start w-full">
+      <GlowCard className="w-full h-full p-5" spotlightSize={300}>
+        {/* Header: stacked and centred on phones, a row from md */}
+        <div className="max-md:relative mb-4 flex flex-col gap-3 md:flex-row md:items-start md:gap-6">
           <CompanyLogo
             logo={experience.logo}
             company={experience.company}
             url={COMPANY_URLS[experience.company]}
             brightness={experience.logoBrightness}
             priority={experience.logoPriority}
+            className="max-md:z-10 self-center md:self-auto"
           />
-          <div className="flex-1 flex items-start justify-between gap-4">
+          <div className="md:flex-1 md:flex md:items-start md:justify-between md:gap-4">
             <JobInfo
               title={experience.title}
               company={experience.company}
@@ -369,14 +327,14 @@ const ExperienceCard = ({
               location={experience.location}
               className="space-y-2"
             />
-            {/* Category Badge - Desktop */}
+            {/* Category badge: top-right corner on phones, beside the job info from md */}
             {experience.category && (
               <Badge
-                variant={getCategoryConfig(experience.category).variant}
-                icon={getCategoryConfig(experience.category).icon}
-                className="flex-shrink-0"
+                variant={category.variant}
+                icon={category.icon}
+                className="absolute top-0 right-0 md:static md:flex-shrink-0"
               >
-                {getCategoryConfig(experience.category).label}
+                {category.label}
               </Badge>
             )}
           </div>
@@ -390,10 +348,10 @@ const ExperienceCard = ({
         )}
 
         {/* Tabs */}
-        <nav
+        <div
           className="flex items-center justify-center gap-1 mb-4 bg-card/30 rounded-full p-1 border border-light/10"
-          role="tablist"
-          aria-label="Job information tabs"
+          role="group"
+          aria-label="Job information"
         >
           {tabs.map((tab) => (
             <Tab
@@ -401,11 +359,15 @@ const ExperienceCard = ({
               text={tab.label}
               icon={tab.icon}
               selected={activeTab === tab.id}
+              aria-expanded={activeTab === tab.id}
+              aria-controls={
+                activeTab === tab.id ? `${experience.id}-panel` : undefined
+              }
               setSelected={() => handleTabClick(tab.id)}
               layoutId={`tab-${experience.id}`}
             />
           ))}
-        </nav>
+        </div>
 
         {/* Tab Content with Accordion Animation */}
         <AnimatePresence initial={false}>
@@ -417,8 +379,7 @@ const ExperienceCard = ({
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
               className="overflow-hidden"
-              role="tabpanel"
-              aria-labelledby={`tab-${activeTab}`}
+              id={`${experience.id}-panel`}
             >
               <div className="py-2">{tabContent}</div>
             </motion.div>

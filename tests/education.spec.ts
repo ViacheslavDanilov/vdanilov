@@ -29,7 +29,7 @@ test.describe("Education - Certificates Section", () => {
     await page.goto("/education/");
     for (const title of CERTIFICATE_TITLES) {
       await expect(
-        page.getByText(title, { exact: true }).locator("visible=true").first(),
+        page.getByText(title, { exact: true }).first(),
       ).toBeVisible();
     }
   });
@@ -88,37 +88,15 @@ test.describe("Education - Certificates Section", () => {
   });
 
   test("education page does not scroll sideways", async ({ page }) => {
-    // The two-column range is left out on purpose, see the fixme below.
-    for (const width of [1440, 1280, 390]) {
+    await page.goto("/education/");
+    for (const width of [1440, 1280, 1024, 768, 390]) {
       await page.setViewportSize({ width, height: 900 });
-      await page.goto("/education/");
       const overflows = await page.evaluate(
         () => document.documentElement.scrollWidth > window.innerWidth + 1,
       );
       expect(overflows, `horizontal scroll at ${width}px`).toBe(false);
     }
   });
-
-  // Known defect, older than this suite and present on main. Between the md and
-  // lg breakpoints the certificates grid is two columns and "Machine Learning
-  // Specialty" is wider than the column it sits in, so the card pushes the
-  // document past the viewport and the whole page scrolls sideways: 3 px at
-  // 768, 39 px at 1024. Measured with nine certificates and with ten, so the
-  // tenth card is not the cause. Every fix changes how the card looks, by
-  // truncating the title, wrapping it, or moving the breakpoint, so the choice
-  // belongs to the owner.
-  for (const width of [768, 1024]) {
-    test.fixme(`education page does not scroll sideways at ${width}`, async ({
-      page,
-    }) => {
-      await page.setViewportSize({ width, height: 900 });
-      await page.goto("/education/");
-      const overflows = await page.evaluate(
-        () => document.documentElement.scrollWidth > window.innerWidth + 1,
-      );
-      expect(overflows).toBe(false);
-    });
-  }
 });
 
 test.describe("Education - Degrees", () => {

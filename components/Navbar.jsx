@@ -1,11 +1,12 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { MenuToggleIcon } from "@/components/ui/menu-toggle-icon";
 import { AnimatePresence, motion } from "motion/react";
+import { config } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHouse,
@@ -15,6 +16,9 @@ import {
   faBook,
   faUsers,
 } from "@fortawesome/free-solid-svg-icons";
+
+// The layout already imports FontAwesome's CSS
+config.autoAddCss = false;
 
 // Navigation Items Array
 const navItems = [
@@ -52,9 +56,11 @@ const navItems = [
 
 function Navbar() {
   const pathname = usePathname();
+  const navRef = useRef(null);
+  const toggleRef = useRef(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const lastScrollY = useRef(0);
 
   // Close mobile menu after navigation
   const handleNavClick = () => {
@@ -67,36 +73,50 @@ function Navbar() {
       const currentScrollY = window.scrollY;
 
       // Show navbar when scrolling up, hide when scrolling down
-      if (currentScrollY < lastScrollY || currentScrollY < 10) {
+      if (currentScrollY < lastScrollY.current || currentScrollY < 10) {
         // Scrolling up or near the top
         setIsVisible(true);
-      } else if (currentScrollY > lastScrollY && currentScrollY > 10) {
+      } else if (currentScrollY > lastScrollY.current && currentScrollY > 10) {
         // Scrolling down and past threshold
         setIsVisible(false);
         setIsMenuOpen(false); // Close mobile menu when hiding navbar
       }
 
-      setLastScrollY(currentScrollY);
+      lastScrollY.current = currentScrollY;
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
+  }, []);
 
-  // Close menu when clicking outside
+  // Close menu on a click outside the navbar or on Escape
   useEffect(() => {
+    if (!isMenuOpen) return;
+
     const handleClickOutside = (event) => {
-      if (isMenuOpen && !event.target.closest("nav")) {
+      if (!navRef.current.contains(event.target)) {
         setIsMenuOpen(false);
+      }
+    };
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        setIsMenuOpen(false);
+        toggleRef.current.focus();
       }
     };
 
     document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
   }, [isMenuOpen]);
 
   return (
     <nav
+      ref={navRef}
+      onFocus={() => setIsVisible(true)}
       className="fixed top-4 left-0 right-0 z-50 flex justify-center px-6"
       style={{
         transform: isVisible ? "translateY(0)" : "translateY(-130%)",
@@ -148,9 +168,12 @@ function Navbar() {
 
         {/* Mobile Menu Button */}
         <button
+          ref={toggleRef}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           className="lg:hidden text-light hover:text-accent transition-colors flex-shrink-0"
           aria-label="Toggle menu"
+          aria-expanded={isMenuOpen}
+          aria-controls={isMenuOpen ? "mobile-menu" : undefined}
         >
           <MenuToggleIcon
             open={isMenuOpen}
@@ -164,6 +187,7 @@ function Navbar() {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
+            id="mobile-menu"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}

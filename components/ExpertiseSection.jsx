@@ -79,12 +79,7 @@ const renderHighlightedText = (text) => {
   return elements;
 };
 
-const ExpertiseSection = ({
-  enableSpotlight = true,
-  enableBorderGlow = true,
-  glowColor = "blue",
-  spotlightSize = 240,
-}) => {
+const ExpertiseSection = () => {
   return (
     <section className="py-12 px-6 max-w-7xl mx-auto">
       <div className="mb-12 text-center">
@@ -101,12 +96,8 @@ const ExpertiseSection = ({
         {cardData.map((card, index) => (
           <GlowCard
             key={index}
-            glowColor={glowColor}
-            customSize={true}
             className="group w-full h-full p-6"
-            enableSpotlight={enableSpotlight}
-            enableBorderGlow={enableBorderGlow}
-            spotlightSize={spotlightSize}
+            spotlightSize={240}
           >
             <div className="flex flex-col gap-4">
               <div className="flex items-center gap-2">
