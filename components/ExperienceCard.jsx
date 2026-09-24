@@ -308,14 +308,14 @@ const ExperienceCard = ({ experience }) => {
     <article ref={cardRef} className="self-start w-full">
       <GlowCard className="w-full h-full p-5" spotlightSize={300}>
         {/* Header: stacked and centred on phones, a row from md */}
-        <div className="relative mb-4 flex flex-col gap-3 md:flex-row md:items-start md:gap-6">
+        <div className="max-md:relative mb-4 flex flex-col gap-3 md:flex-row md:items-start md:gap-6">
           <CompanyLogo
             logo={experience.logo}
             company={experience.company}
             url={COMPANY_URLS[experience.company]}
             brightness={experience.logoBrightness}
             priority={experience.logoPriority}
-            className="z-10 self-center md:self-auto"
+            className="max-md:z-10 self-center md:self-auto"
           />
           <div className="md:flex-1 md:flex md:items-start md:justify-between md:gap-4">
             <JobInfo
