@@ -2,6 +2,7 @@
 
 import React, { useMemo } from "react";
 import { useFilterParam } from "@/lib/useFilterParam";
+import FilterParamSync from "@/components/FilterParamSync";
 import { AnimatePresence, motion } from "motion/react";
 import ReferenceCard from "@/components/ReferenceCard";
 import { Tab } from "@/components/ui/tab";
@@ -367,6 +368,7 @@ export default function References() {
 
   return (
     <div className="min-h-screen pt-24">
+      <FilterParamSync />
       <div className="flex flex-col items-center pt-12 md:pt-24 gap-36 pb-48">
         {/* Header Section */}
         <section className="w-full max-w-7xl mx-auto px-6">
