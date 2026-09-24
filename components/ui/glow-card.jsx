@@ -30,7 +30,7 @@ const trackCard = (card) => {
   if (trackedCount++ === 0) {
     observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && entry.target.isConnected) {
           visibleCards.add(entry.target);
           syncCard(entry.target);
         } else {
