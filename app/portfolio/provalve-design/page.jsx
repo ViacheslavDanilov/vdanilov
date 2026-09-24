@@ -401,6 +401,7 @@ export default function ProjectPage() {
               {/* Video 1: Random Search */}
               <figure className="scroll-mt-24">
                 <AutoplayVideo
+                  aspectRatio="16 / 9"
                   controls
                   className="w-full rounded-lg border border-white/10"
                 >
@@ -418,6 +419,7 @@ export default function ProjectPage() {
               {/* Video 2: Tree-structured Parzen Estimator */}
               <figure className="scroll-mt-24">
                 <AutoplayVideo
+                  aspectRatio="16 / 9"
                   controls
                   className="w-full rounded-lg border border-white/10"
                 >

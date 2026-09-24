@@ -425,6 +425,7 @@ export default function ProjectPage() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="rounded-xl overflow-hidden border border-white/10">
                   <AutoplayVideo
+                    aspectRatio="1 / 1"
                     src="/portfolio/stenosis-spotter/surgery-1-rfcn-resnet-101.mp4"
                     controls
                     className="w-full h-auto"
@@ -434,6 +435,7 @@ export default function ProjectPage() {
                 </div>
                 <div className="rounded-xl overflow-hidden border border-white/10">
                   <AutoplayVideo
+                    aspectRatio="1 / 1"
                     src="/portfolio/stenosis-spotter/surgery-2-rfcn-resnet-101.mp4"
                     controls
                     className="w-full h-auto"
@@ -443,6 +445,7 @@ export default function ProjectPage() {
                 </div>
                 <div className="rounded-xl overflow-hidden border border-white/10">
                   <AutoplayVideo
+                    aspectRatio="1 / 1"
                     src="/portfolio/stenosis-spotter/surgery-3-rfcn-resnet-101.mp4"
                     controls
                     className="w-full h-auto"

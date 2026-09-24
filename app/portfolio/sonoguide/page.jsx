@@ -434,6 +434,7 @@ export default function ProjectPage() {
               {/* Video 1: Static 3D */}
               <figure className="scroll-mt-24">
                 <AutoplayVideo
+                  aspectRatio="489 / 428"
                   controls
                   className="w-full rounded-lg border border-white/10"
                 >
@@ -451,6 +452,7 @@ export default function ProjectPage() {
               {/* Video 2: Dynamic 3D */}
               <figure className="scroll-mt-24">
                 <AutoplayVideo
+                  aspectRatio="489 / 428"
                   controls
                   className="w-full rounded-lg border border-white/10"
                 >

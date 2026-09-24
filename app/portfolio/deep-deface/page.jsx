@@ -436,19 +436,31 @@ export default function ProjectPage() {
             {/* Figure 4: CT Detection Results */}
             <figure id="figure-4" className="mb-6 scroll-mt-24">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <AutoplayVideo controls className="w-full rounded-lg">
+                <AutoplayVideo
+                  aspectRatio="1 / 1"
+                  controls
+                  className="w-full rounded-lg"
+                >
                   <source
                     src="/portfolio/deep-deface/detection-ct-axial.mp4"
                     type="video/mp4"
                   />
                 </AutoplayVideo>
-                <AutoplayVideo controls className="w-full rounded-lg">
+                <AutoplayVideo
+                  aspectRatio="1 / 1"
+                  controls
+                  className="w-full rounded-lg"
+                >
                   <source
                     src="/portfolio/deep-deface/detection-ct-coronal.mp4"
                     type="video/mp4"
                   />
                 </AutoplayVideo>
-                <AutoplayVideo controls className="w-full rounded-lg">
+                <AutoplayVideo
+                  aspectRatio="1 / 1"
+                  controls
+                  className="w-full rounded-lg"
+                >
                   <source
                     src="/portfolio/deep-deface/detection-ct-sagittal.mp4"
                     type="video/mp4"
@@ -465,19 +477,31 @@ export default function ProjectPage() {
             {/* Figure 5: MRI Detection Results */}
             <figure id="figure-5" className="scroll-mt-24">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <AutoplayVideo controls className="w-full rounded-lg">
+                <AutoplayVideo
+                  aspectRatio="1 / 1"
+                  controls
+                  className="w-full rounded-lg"
+                >
                   <source
                     src="/portfolio/deep-deface/detection-mri-axial.mp4"
                     type="video/mp4"
                   />
                 </AutoplayVideo>
-                <AutoplayVideo controls className="w-full rounded-lg">
+                <AutoplayVideo
+                  aspectRatio="1 / 1"
+                  controls
+                  className="w-full rounded-lg"
+                >
                   <source
                     src="/portfolio/deep-deface/detection-mri-coronal.mp4"
                     type="video/mp4"
                   />
                 </AutoplayVideo>
-                <AutoplayVideo controls className="w-full rounded-lg">
+                <AutoplayVideo
+                  aspectRatio="1 / 1"
+                  controls
+                  className="w-full rounded-lg"
+                >
                   <source
                     src="/portfolio/deep-deface/detection-mri-sagittal.mp4"
                     type="video/mp4"

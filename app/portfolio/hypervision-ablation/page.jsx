@@ -271,6 +271,7 @@ export default function ProjectPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
               <figure>
                 <AutoplayVideo
+                  aspectRatio="1 / 1"
                   src="/portfolio/hypervision-ablation/input-data-abs.mp4"
                   controls
                   className="w-full rounded-lg"
@@ -281,6 +282,7 @@ export default function ProjectPage() {
               </figure>
               <figure>
                 <AutoplayVideo
+                  aspectRatio="1 / 1"
                   src="/portfolio/hypervision-ablation/input-data-hsv.mp4"
                   controls
                   className="w-full rounded-lg"
@@ -291,6 +293,7 @@ export default function ProjectPage() {
               </figure>
               <figure>
                 <AutoplayVideo
+                  aspectRatio="1 / 1"
                   src="/portfolio/hypervision-ablation/input-data-ref.mp4"
                   controls
                   className="w-full rounded-lg"

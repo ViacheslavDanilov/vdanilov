@@ -334,6 +334,7 @@ export default function ProjectPage() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="rounded-xl overflow-hidden border border-white/10">
                   <AutoplayVideo
+                    aspectRatio="1 / 1"
                     src="/portfolio/oncocell-vision/tiling-with-regular-window-shift.mp4"
                     controls
                     className="w-full h-auto"
@@ -346,6 +347,7 @@ export default function ProjectPage() {
                 </div>
                 <div className="rounded-xl overflow-hidden border border-white/10">
                   <AutoplayVideo
+                    aspectRatio="1 / 1"
                     src="/portfolio/oncocell-vision/tiling-with-padding.mp4"
                     controls
                     className="w-full h-auto"
@@ -358,6 +360,7 @@ export default function ProjectPage() {
                 </div>
                 <div className="rounded-xl overflow-hidden border border-white/10">
                   <AutoplayVideo
+                    aspectRatio="1 / 1"
                     src="/portfolio/oncocell-vision/tiling-with-unfixed-size-window.mp4"
                     controls
                     className="w-full h-auto"

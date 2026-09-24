@@ -426,6 +426,7 @@ export default function ProjectPage() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="rounded-lg overflow-hidden">
                   <AutoplayVideo
+                    aspectRatio="20 / 23"
                     src="/portfolio/tavi-pinpoint/convergence-mobilenet.mp4"
                     controls
                     className="w-full h-auto"
@@ -436,6 +437,7 @@ export default function ProjectPage() {
                 </div>
                 <div className="rounded-lg overflow-hidden">
                   <AutoplayVideo
+                    aspectRatio="20 / 23"
                     src="/portfolio/tavi-pinpoint/convergence-resnet.mp4"
                     controls
                     className="w-full h-auto"
@@ -446,6 +448,7 @@ export default function ProjectPage() {
                 </div>
                 <div className="rounded-lg overflow-hidden">
                   <AutoplayVideo
+                    aspectRatio="20 / 23"
                     src="/portfolio/tavi-pinpoint/convergence-inception.mp4"
                     controls
                     className="w-full h-auto"

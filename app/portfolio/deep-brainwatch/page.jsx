@@ -458,6 +458,7 @@ export default function ProjectPage() {
             <figure id="figure-4" className="scroll-mt-24 mb-8">
               <div className="relative rounded-xl overflow-hidden border border-white/10">
                 <AutoplayVideo
+                  aspectRatio="324 / 79"
                   className="w-full"
                   controls
                   poster="/portfolio/deep-brainwatch/predictions-mwdn-train-val-poster.webp"
@@ -480,6 +481,7 @@ export default function ProjectPage() {
             <figure id="figure-5" className="scroll-mt-24">
               <div className="relative rounded-xl overflow-hidden border border-white/10">
                 <AutoplayVideo
+                  aspectRatio="324 / 79"
                   className="w-full"
                   controls
                   poster="/portfolio/deep-brainwatch/predictions-mwdn-test-poster.webp"
