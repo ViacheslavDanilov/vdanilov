@@ -356,7 +356,13 @@ const VISITING_ROLES_DATA = [
       "Presented the SafeICP work on non-invasive brain pressure from photonic sensors",
       "Invited to judge International Students’ Day 2026 and to speak at the Embassy of Spain in Pretoria",
     ],
-    links: [],
+    links: [
+      {
+        title: "SafeICP",
+        url: "https://safe-icp.vercel.app/",
+        type: "Project Website",
+      },
+    ],
     logoBrightness: 1.0,
   },
   {
