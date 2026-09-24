@@ -68,36 +68,43 @@ function Footer() {
     <footer className="relative w-full max-w-[1400px] mx-auto flex flex-col items-center justify-center rounded-t-xl border-t border-light/10 bg-[radial-gradient(35%_128px_at_50%_0%,theme(backgroundColor.accent/8%),transparent)] px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
       <div className="bg-accent/20 absolute top-0 right-1/2 left-1/2 h-px w-1/3 -translate-x-1/2 -translate-y-1/2 rounded-full blur" />
 
-      {/* Mobile Layout */}
-      <div className="w-full space-y-8 lg:hidden">
-        {/* Logo and Description */}
-        <Container className="space-y-4 text-center">
-          <Link
-            href="/"
-            className="inline-flex items-center justify-center gap-2 [@media(hover:hover)]:hover:brightness-125 [@media(hover:hover)]:hover:scale-[1.03] transition-all duration-200 origin-center"
-            aria-label="Go to home page"
-          >
-            <Image
-              src="/logo.webp"
-              alt="Viacheslav Danilov"
-              width={42}
-              height={32}
-              quality={100}
-              priority
-              className="h-8 w-auto"
-            />
-          </Link>
-          <p className="text-sm text-gray-400 mx-auto max-w-sm">
-            Bridging scientific research and industrial innovation through
-            advanced AI and machine learning solutions
-          </p>
-        </Container>
+      {/* Stacked below lg, three columns from lg */}
+      <div className="w-full flex flex-col gap-8 lg:grid lg:grid-cols-3 lg:gap-12 xl:gap-16 lg:items-start">
+        {/* Brand column; below lg its children join the stack so the copyright can sit last */}
+        <div className="contents lg:block lg:space-y-4">
+          <div className="space-y-4 text-center lg:text-left">
+            <Link
+              href="/"
+              className="inline-flex items-center justify-center gap-2 [@media(hover:hover)]:hover:brightness-125 [@media(hover:hover)]:hover:scale-[1.03] transition-all duration-200 origin-center"
+              aria-label="Go to home page"
+            >
+              <Image
+                src="/logo.webp"
+                alt="Viacheslav Danilov"
+                width={42}
+                height={32}
+                quality={100}
+                priority
+                className="h-8 w-auto"
+              />
+            </Link>
+            <p className="text-sm text-gray-400 mx-auto max-w-sm lg:mx-0 lg:max-w-xs lg:leading-relaxed">
+              Bridging scientific research and industrial innovation through
+              advanced AI and machine learning solutions
+            </p>
+          </div>
 
-        {/* Quick Links and Social Links Grid */}
-        <div className="flex justify-center">
-          <div className="grid grid-cols-2 gap-x-8 sm:gap-x-12">
-            {/* Quick Links */}
-            <Container>
+          <div className="order-last pt-6 border-t border-light/10 text-center lg:order-none lg:pt-4 lg:border-t-0 lg:text-left">
+            <p className="text-sm text-gray-400">
+              © {year} Viacheslav Danilov • All rights reserved
+            </p>
+          </div>
+        </div>
+
+        {/* Link columns: a centred two-column grid below lg, the second and third columns from lg */}
+        <div className="flex justify-center lg:contents">
+          <div className="grid grid-cols-2 gap-x-8 sm:gap-x-12 lg:contents">
+            <div className="lg:flex lg:justify-center">
               <div>
                 <h3 className="text-xs uppercase tracking-wider text-light font-semibold mb-4">
                   Quick Links
@@ -124,10 +131,9 @@ function Footer() {
                   ))}
                 </ul>
               </div>
-            </Container>
+            </div>
 
-            {/* Social Links */}
-            <Container>
+            <div>
               <div>
                 <h3 className="text-xs uppercase tracking-wider text-light font-semibold mb-4">
                   Connect
@@ -162,124 +168,12 @@ function Footer() {
                   ))}
                 </ul>
               </div>
-            </Container>
+            </div>
           </div>
         </div>
-
-        {/* Copyright */}
-        <Container>
-          <div className="pt-6 border-t border-light/10 text-center">
-            <p className="text-sm text-gray-400">
-              © {year} Viacheslav Danilov • All rights reserved
-            </p>
-          </div>
-        </Container>
-      </div>
-
-      {/* Desktop Layout - 3 Columns */}
-      <div className="hidden lg:grid lg:grid-cols-3 lg:gap-12 xl:gap-16 w-full items-start">
-        {/* Left Column - Logo and Description */}
-        <Container className="space-y-4">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 [@media(hover:hover)]:hover:brightness-125 [@media(hover:hover)]:hover:scale-[1.03] transition-all duration-200 origin-center"
-            aria-label="Go to home page"
-          >
-            <Image
-              src="/logo.webp"
-              alt="Viacheslav Danilov"
-              width={42}
-              height={32}
-              quality={100}
-              priority
-              className="h-8 w-auto"
-            />
-          </Link>
-          <p className="text-sm text-gray-400 max-w-xs leading-relaxed">
-            Bridging scientific research and industrial innovation through
-            advanced AI and machine learning solutions
-          </p>
-          <p className="text-sm text-gray-400 pt-4">
-            © {year} Viacheslav Danilov • All rights reserved
-          </p>
-        </Container>
-
-        {/* Middle Column - Quick Links */}
-        <Container className="flex justify-center">
-          <div>
-            <h3 className="text-xs uppercase tracking-wider text-light font-semibold mb-4">
-              Quick Links
-            </h3>
-            <ul className="space-y-2 text-sm">
-              {quickLinks.map((link) => {
-                return (
-                  <li key={link.title}>
-                    <Link
-                      href={link.href}
-                      className="text-gray-400 hover:text-accent inline-flex items-center transition-colors duration-300 h-6"
-                    >
-                      <FontAwesomeIcon
-                        icon={link.icon}
-                        className="mr-2 w-4 h-4 flex-shrink-0"
-                        style={{
-                          width: "1rem",
-                          height: "1rem",
-                          display: "block",
-                        }}
-                      />
-                      {link.title}
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        </Container>
-
-        {/* Right Column - Social Links */}
-        <Container>
-          <div>
-            <h3 className="text-xs uppercase tracking-wider text-light font-semibold mb-4">
-              Connect
-            </h3>
-            <ul className="space-y-2 text-sm">
-              {socialLinks.map((link) => (
-                <li key={link.title}>
-                  <a
-                    href={link.href}
-                    target={
-                      link.href.startsWith("mailto:") ? undefined : "_blank"
-                    }
-                    rel={
-                      link.href.startsWith("mailto:")
-                        ? undefined
-                        : "noopener noreferrer"
-                    }
-                    className="text-gray-400 hover:text-accent inline-flex items-center transition-colors duration-300 h-6"
-                  >
-                    <FontAwesomeIcon
-                      icon={link.icon}
-                      className="mr-2 w-4 h-4 flex-shrink-0"
-                      style={{
-                        width: "1rem",
-                        height: "1rem",
-                        display: "block",
-                      }}
-                    />
-                    <span>{link.title}</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </Container>
       </div>
     </footer>
   );
-}
-
-function Container({ className, children }) {
-  return <div className={className}>{children}</div>;
 }
 
 export default Footer;
