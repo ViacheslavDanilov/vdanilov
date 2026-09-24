@@ -88,51 +88,13 @@ const FeaturedProjects = () => {
             spotlightSize={300}
           >
             <div className="flex flex-col h-full">
-              {/* Mobile layout: centered image */}
-              <div className="flex flex-col sm:hidden items-center mb-6">
-                <Link href={project.link} className="block mb-4">
-                  <div className="relative w-48 h-48 rounded-lg overflow-hidden bg-neutral-800 border border-white/10">
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      sizes="192px"
-                      quality={90}
-                      className="object-cover"
-                    />
-                  </div>
-                </Link>
-                <Link href={project.link} className="group/title inline-block">
-                  <h3 className="text-sm font-bold text-white group-hover:text-accent uppercase leading-tight tracking-wider mb-3 text-center transition-colors flex items-center justify-center gap-2">
-                    {project.title}
-                    <span
-                      className="inline-block transition-transform duration-300 group-hover/title:translate-x-1"
-                      style={{ width: "0.75rem", height: "0.75rem" }}
-                    >
-                      <FontAwesomeIcon
-                        icon={faArrowRight}
-                        className="opacity-60"
-                        style={{
-                          width: "0.75rem",
-                          height: "0.75rem",
-                          display: "block",
-                        }}
-                      />
-                    </span>
-                  </h3>
-                </Link>
-                <div className="text-sm font-light text-white uppercase tracking-wide text-center mb-2">
-                  {project.client}
-                </div>
-                <div className="text-sm text-neutral-500 mt-1 text-center">
-                  {project.location}
-                </div>
-              </div>
-
-              {/* Desktop/Tablet layout: horizontal */}
-              <div className="hidden sm:flex flex-row gap-6 mb-4">
-                <Link href={project.link} className="flex-shrink-0">
-                  <div className="relative w-40 h-40 rounded-lg overflow-hidden bg-neutral-800 border border-white/10">
+              {/* Image and heading: stacked and centred on phones, a row from sm */}
+              <div className="flex flex-col items-center mb-6 sm:flex-row sm:items-stretch sm:gap-6 sm:mb-4">
+                <Link
+                  href={project.link}
+                  className="block mb-4 sm:mb-0 sm:flex-shrink-0"
+                >
+                  <div className="relative w-48 h-48 sm:w-40 sm:h-40 rounded-lg overflow-hidden bg-neutral-800 border border-white/10">
                     <Image
                       src={project.image}
                       alt={project.title}
@@ -144,12 +106,12 @@ const FeaturedProjects = () => {
                   </div>
                 </Link>
 
-                <div className="flex flex-col justify-start">
+                <div className="self-stretch flex flex-col items-center sm:items-stretch sm:justify-start">
                   <Link
                     href={project.link}
                     className="group/title inline-block"
                   >
-                    <h3 className="text-sm font-bold text-white group-hover:text-accent uppercase leading-tight tracking-wider mb-3 transition-colors flex items-center gap-2">
+                    <h3 className="text-sm font-bold text-white group-hover:text-accent uppercase leading-tight tracking-wider mb-3 text-center sm:text-left transition-colors flex items-center justify-center sm:justify-start gap-2">
                       {project.title}
                       <span
                         className="inline-block transition-transform duration-300 group-hover/title:translate-x-1"
@@ -167,10 +129,10 @@ const FeaturedProjects = () => {
                       </span>
                     </h3>
                   </Link>
-                  <div className="text-sm font-light text-white uppercase tracking-wide mb-2">
+                  <div className="text-sm font-light text-white uppercase tracking-wide text-center sm:text-left mb-2">
                     {project.client}
                   </div>
-                  <div className="text-sm text-neutral-500 mt-1">
+                  <div className="text-sm text-neutral-500 mt-1 text-center sm:text-left">
                     {project.location}
                   </div>
                 </div>
