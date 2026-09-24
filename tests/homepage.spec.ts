@@ -347,7 +347,6 @@ test.describe("Homepage - Featured Projects Section", () => {
     for (const projectTitle of projects) {
       const projectElement = page
         .getByText(projectTitle, { exact: true })
-        .locator("visible=true")
         .first();
       await expect(projectElement).toBeVisible({ timeout: 15000 });
     }
@@ -363,9 +362,7 @@ test.describe("Homepage - Featured Projects Section", () => {
       "Immune Profiler",
       "HyperVision Ablation",
     ]) {
-      await expect(
-        page.locator(`img[alt="${title}"]`).locator("visible=true").first(),
-      ).toBeVisible();
+      await expect(page.locator(`img[alt="${title}"]`)).toBeVisible();
     }
   });
 
@@ -387,10 +384,7 @@ test.describe("Homepage - Featured Projects Section", () => {
     await page.waitForTimeout(1000);
 
     for (const client of clients) {
-      const clientElement = page
-        .getByText(client)
-        .locator("visible=true")
-        .first();
+      const clientElement = page.getByText(client).first();
       await expect(clientElement).toBeVisible({ timeout: 15000 });
     }
   });
@@ -483,9 +477,7 @@ test.describe("Homepage - Footer", () => {
 
     // On desktop (1280x720), footer uses lg:grid layout
     // Check for any link to home in footer
-    const footerHomeLink = page
-      .locator('footer a[href="/"]')
-      .locator("visible=true");
+    const footerHomeLink = page.locator('footer a[href="/"]');
     await expect(footerHomeLink.first()).toBeVisible({ timeout: 15000 });
   });
 
@@ -529,8 +521,7 @@ test.describe("Homepage - Footer", () => {
     for (const service of socialServices) {
       const socialLink = page
         .locator("footer")
-        .getByText(service, { exact: true })
-        .locator("visible=true");
+        .getByText(service, { exact: true });
       await expect(socialLink.first()).toBeVisible({ timeout: 15000 });
     }
   });
@@ -545,10 +536,7 @@ test.describe("Homepage - Footer", () => {
 
     const currentYear = new Date().getFullYear();
     await expect(
-      page
-        .locator("footer")
-        .getByText(`© ${currentYear} Viacheslav Danilov`)
-        .locator("visible=true"),
+      page.locator("footer").getByText(`© ${currentYear} Viacheslav Danilov`),
     ).toBeVisible({ timeout: 15000 });
   });
 });

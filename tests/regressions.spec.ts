@@ -15,9 +15,7 @@ test.describe("Experience dates west of UTC", () => {
     });
 
     await page.goto("/experience/");
-    await expect(
-      page.getByText("Jun 2023 - Present").locator("visible=true").first(),
-    ).toBeVisible();
+    await expect(page.getByText("Jun 2023 - Present")).toBeVisible();
     await expect(page.getByText("May 2023 - Present")).toHaveCount(0);
     expect(errors).toEqual([]);
   });

@@ -29,7 +29,7 @@ test.describe("Education - Certificates Section", () => {
     await page.goto("/education/");
     for (const title of CERTIFICATE_TITLES) {
       await expect(
-        page.getByText(title, { exact: true }).locator("visible=true").first(),
+        page.getByText(title, { exact: true }).first(),
       ).toBeVisible();
     }
   });
