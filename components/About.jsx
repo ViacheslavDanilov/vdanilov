@@ -14,6 +14,35 @@ import {
   faWhatsapp,
 } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { cn } from "@/lib/utils";
+
+// Wraps between words without justify stretching the phrase; "before" stays on its first word's line
+const Highlight = ({ before, children }) => {
+  const [first, ...rest] = children.split(" ").map((word, i, words) => (
+    <span
+      key={word}
+      className={cn(
+        "inline-block whitespace-pre bg-accent/10 text-accent font-semibold",
+        i === 0 && "pl-4 rounded-l-3xl",
+        i === words.length - 1 && "pr-4 rounded-r-3xl",
+      )}
+    >
+      {i === 0 ? word : ` ${word}`}
+    </span>
+  ));
+  return (
+    <>
+      {before ? (
+        <span className="whitespace-nowrap">
+          {before} {first}
+        </span>
+      ) : (
+        first
+      )}
+      {rest}
+    </>
+  );
+};
 
 const About = () => {
   const socialLinks = [
@@ -88,19 +117,14 @@ const About = () => {
         {/* Description */}
         <div className="space-y-6 text-light leading-loose text-justify max-w-5xl">
           <p>
-            <span className="inline-block bg-accent/10 text-accent font-semibold px-4 py-0.5 rounded-3xl">
-              Lead AI/ML Engineer
-            </span>{" "}
-            and{" "}
-            <span className="inline-block bg-accent/10 text-accent font-semibold px-4 py-0.5 rounded-3xl">
-              Research Scientist
-            </span>{" "}
-            with a PhD in Computer Science and over 10 years across academia and
-            industry. I take machine learning from first experiment to
-            production: medical signal and image analysis, computer vision, time
-            series, and LLM and RAG systems. I have led teams of developers and
-            researchers, supervised PhD students and postdocs, and published
-            nearly 50 peer-reviewed papers.
+            <Highlight>Lead AI/ML Engineer</Highlight>{" "}
+            <Highlight before="and">Research Scientist</Highlight> with a PhD in
+            Computer Science and over 10 years across academia and industry. I
+            take machine learning from first experiment to production: medical
+            signal and image analysis, computer vision, time series, and LLM and
+            RAG systems. I have led teams of developers and researchers,
+            supervised PhD students and postdocs, and published nearly 50
+            peer-reviewed papers.
           </p>
         </div>
 
