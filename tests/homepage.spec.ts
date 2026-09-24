@@ -345,9 +345,7 @@ test.describe("Homepage - Featured Projects Section", () => {
     await page.waitForTimeout(1000);
 
     for (const projectTitle of projects) {
-      const projectElement = page
-        .getByText(projectTitle, { exact: true })
-        .first();
+      const projectElement = page.getByText(projectTitle, { exact: true });
       await expect(projectElement).toBeVisible({ timeout: 15000 });
     }
   });
