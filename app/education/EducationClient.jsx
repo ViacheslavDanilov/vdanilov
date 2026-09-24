@@ -347,7 +347,7 @@ export default function Education() {
             </p>
           </header>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
             {certifications.length > 0 ? (
               certifications.map((cert) => (
                 <CertificateCard key={cert.id} certificate={cert} />
