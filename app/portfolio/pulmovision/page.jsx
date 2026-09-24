@@ -147,7 +147,7 @@ export default function ProjectPage() {
           subtitle="Explainable AI for pulmonary edema detection in chest X-rays"
           banner={{
             image: "/portfolio/previews/pulmovision.jpg",
-            alt: "PulmoVision - CT lung classification for COVID-19 detection",
+            alt: "PulmoVision - Pulmonary edema detection in chest X-rays",
           }}
           client={{
             name: "Beth Israel Deaconess Medical Center",

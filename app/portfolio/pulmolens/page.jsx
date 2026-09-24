@@ -145,7 +145,7 @@ export default function ProjectPage() {
           subtitle="Attention-guided deep learning for COVID-19 and pneumonia detection in chest X-rays"
           banner={{
             image: "/portfolio/previews/pulmolens.jpg",
-            alt: "PulmoLens - Lung X-ray segmentation for intubation detection",
+            alt: "PulmoLens - COVID-19 and pneumonia detection in chest X-rays",
           }}
           client={{
             name: "Beth Israel Deaconess Medical Center",

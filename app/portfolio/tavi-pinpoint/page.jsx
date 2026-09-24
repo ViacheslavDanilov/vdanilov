@@ -160,7 +160,7 @@ export default function ProjectPage() {
           subtitle="Real-time landmark tracking for safer valve implantation during TAVI procedures"
           banner={{
             image: "/portfolio/previews/tavi-pinpoint.jpg",
-            alt: "TAVI Pinpoint - Automated valve sizing for transcatheter aortic valve implantation",
+            alt: "TAVI PinPoint - Real-time landmark tracking during transcatheter aortic valve implantation",
           }}
           client={{
             name: "Kemerovo Cardiology Center",

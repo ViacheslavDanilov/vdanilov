@@ -107,7 +107,7 @@ export default function ProjectPage() {
           subtitle="Ray-casting segmentation for convex anatomical structures in MRI"
           banner={{
             image: "/portfolio/previews/raytrace-segment.jpg",
-            alt: "RayTrace Segment - CT aorta segmentation for ray tracing visualization",
+            alt: "RayTrace Segment - Ray-casting segmentation of anatomical structures in MRI",
           }}
           client={{
             name: "Centre for Computational Imaging & Simulation Technologies in Biomedicine",
