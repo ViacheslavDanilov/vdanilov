@@ -103,63 +103,8 @@ const EducationCard = ({ education }) => {
   return (
     <article ref={cardRef} className="self-start w-full">
       <GlowCard className="w-full h-full p-5" spotlightSize={300}>
-        {/* Mobile Layout */}
-        <div className="flex flex-col md:hidden mb-4 space-y-3 relative">
-          {/* Honors Badge - Mobile (absolute positioning) */}
-          {education.honors && (
-            <Badge
-              variant="teal"
-              icon={faAward}
-              className="absolute top-0 right-0"
-            >
-              {education.honors}
-            </Badge>
-          )}
-          <div className="flex justify-center">
-            <CompanyLogo
-              logo={education.logo}
-              company={education.institution}
-              url={education.url}
-              brightness={education.logoBrightness}
-              priority={education.logoPriority}
-            />
-          </div>
-
-          <div className="text-center flex flex-col items-center gap-2">
-            {/* Degree Only (Badge is absolute) */}
-            <h3 className="text-md font-bold uppercase tracking-wider text-light">
-              {education.degree}
-            </h3>
-
-            {/* University */}
-            <a
-              href={education.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm font-medium text-light md:hover:text-accent uppercase cursor-pointer transition-colors max-w-full"
-              aria-label={`${education.institution} website`}
-            >
-              {education.institution}
-            </a>
-
-            {/* Field */}
-            {education.field && (
-              <div className="text-sm text-gray-400 font-medium normal-case">
-                {education.field}
-              </div>
-            )}
-
-            {/* Metadata */}
-            <div className="flex flex-wrap gap-2 text-sm text-gray-400 justify-center">
-              <span>{education.period}</span>
-            </div>
-            <p className="text-sm text-gray-400 mb-0">{education.location}</p>
-          </div>
-        </div>
-
-        {/* Desktop Layout */}
-        <div className="hidden md:flex flex-row gap-6 mb-4 items-start relative">
-          {/* Honors Badge - Desktop (absolute positioning) */}
+        {/* Header: stacked and centred on phones, a row from md */}
+        <div className="relative mb-4 flex flex-col gap-3 md:flex-row md:items-start md:gap-6">
           {education.honors && (
             <Badge
               variant="teal"
@@ -175,14 +120,13 @@ const EducationCard = ({ education }) => {
             url={education.url}
             brightness={education.logoBrightness}
             priority={education.logoPriority}
+            className="self-center md:self-auto"
           />
-          <div className="flex-1 flex flex-col gap-2">
-            {/* Row 1: Degree */}
+          <div className="flex flex-col items-center text-center gap-2 md:flex-1 md:items-stretch md:text-left">
             <h3 className="text-md font-bold uppercase tracking-wider text-light">
               {education.degree}
             </h3>
 
-            {/* Row 2: University */}
             <a
               href={education.url}
               target="_blank"
@@ -193,15 +137,13 @@ const EducationCard = ({ education }) => {
               {education.institution}
             </a>
 
-            {/* Row 3: Field */}
             {education.field && (
               <div className="text-sm text-gray-400 font-medium normal-case">
                 {education.field}
               </div>
             )}
 
-            {/* Row 4: Metadata */}
-            <div className="flex flex-wrap gap-2 text-sm text-gray-400">
+            <div className="flex flex-wrap gap-2 text-sm text-gray-400 justify-center md:justify-start">
               <span>{education.period}</span>
             </div>
             <p className="text-sm text-gray-400 mb-0">{education.location}</p>
