@@ -1,11 +1,8 @@
 "use client";
 
-import React, { useMemo } from "react";
-import { useFilterParam } from "@/lib/useFilterParam";
-import FilterParamSync from "@/components/FilterParamSync";
-import { AnimatePresence, motion } from "motion/react";
+import React from "react";
+import FilteredGrid from "@/components/FilteredGrid";
 import PublicationCard from "@/components/PublicationCard";
-import { Tab } from "@/components/ui/tab";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 // All publications data with category and featured fields
@@ -473,39 +470,8 @@ const FILTER_OPTIONS = [
 ];
 
 export default function Publications() {
-  const [activeFilter, setActiveFilter] = useFilterParam(
-    "featured",
-    FILTER_OPTIONS,
-  );
-
-  const filteredPublications = useMemo(() => {
-    if (activeFilter === "all") {
-      return PUBLICATIONS_DATA;
-    }
-    if (activeFilter === "featured") {
-      return PUBLICATIONS_DATA.filter((pub) => pub.featured);
-    }
-    return PUBLICATIONS_DATA.filter((pub) => pub.category === activeFilter);
-  }, [activeFilter]);
-
-  const getCounts = useMemo(() => {
-    const counts = {
-      all: PUBLICATIONS_DATA.length,
-      featured: PUBLICATIONS_DATA.filter((pub) => pub.featured).length,
-    };
-    FILTER_OPTIONS.forEach((option) => {
-      if (option.id !== "all" && option.id !== "featured") {
-        counts[option.id] = PUBLICATIONS_DATA.filter(
-          (pub) => pub.category === option.id,
-        ).length;
-      }
-    });
-    return counts;
-  }, []);
-
   return (
     <div className="min-h-screen pt-24">
-      <FilterParamSync />
       <div className="flex flex-col items-center pt-12 md:pt-24 gap-36 pb-48">
         {/* Header Section */}
         <section className="w-full max-w-7xl mx-auto px-6">
@@ -520,53 +486,21 @@ export default function Publications() {
             </p>
           </header>
 
-          {/* Filter Buttons */}
-          <div
-            className="flex flex-wrap justify-center gap-2 mb-12"
-            role="group"
-            aria-label="Filter publications"
-          >
-            {FILTER_OPTIONS.map((option) => (
-              <Tab
-                key={option.id}
-                text={`${option.label} (${getCounts[option.id]})`}
-                icon={option.icon}
-                selected={activeFilter === option.id}
-                aria-pressed={activeFilter === option.id}
-                setSelected={() => setActiveFilter(option.id)}
-                layoutId="publications-filter"
-              />
-            ))}
-          </div>
-
-          {/* Publications Grid */}
-          <div
-            className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:items-start"
-            role="list"
-          >
-            <AnimatePresence mode="popLayout">
-              {filteredPublications.map((publication) => (
-                <motion.div
-                  key={publication.id}
-                  layout
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.3 }}
-                  role="listitem"
-                >
-                  <PublicationCard publication={publication} />
-                </motion.div>
-              ))}
-            </AnimatePresence>
-          </div>
-
-          {/* Empty State */}
-          {filteredPublications.length === 0 && (
-            <p className="text-center text-gray-500 italic py-12">
-              No publications found for this category.
-            </p>
-          )}
+          <FilteredGrid
+            items={PUBLICATIONS_DATA}
+            options={FILTER_OPTIONS}
+            label="Filter publications"
+            layoutId="publications-filter"
+            gridClassName="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:items-start"
+            renderItem={(publication) => (
+              <PublicationCard publication={publication} />
+            )}
+            empty={
+              <p className="text-center text-gray-500 italic py-12">
+                No publications found for this category.
+              </p>
+            }
+          />
         </section>
       </div>
     </div>
