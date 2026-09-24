@@ -14,12 +14,17 @@ const LightRays = () => {
       const { Renderer, Program, Triangle, Mesh } = await import("ogl");
       if (cancelled) return;
 
-      const renderer = new Renderer({
-        dpr: Math.min(window.devicePixelRatio, 2),
-        alpha: true,
-      });
+      // ogl throws when the browser cannot create a WebGL context
+      let renderer;
+      try {
+        renderer = new Renderer({
+          dpr: Math.min(window.devicePixelRatio, 2),
+          alpha: true,
+        });
+      } catch {
+        return;
+      }
       const gl = renderer.gl;
-      if (!gl) return;
       gl.canvas.style.width = "100%";
       gl.canvas.style.height = "100%";
       container.appendChild(gl.canvas);
