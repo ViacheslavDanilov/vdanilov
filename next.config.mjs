@@ -3,14 +3,9 @@ const nextConfig = {
   // Add trailing slashes to URLs for clean URLs
   trailingSlash: true,
 
-  // Image optimization configuration
+  // Image qualities used by next/image calls (75 is the default)
   images: {
-    qualities: [100, 90, 75, 60, 50],
-  },
-
-  // Disable TypeScript type checking during build (using JSX)
-  typescript: {
-    ignoreBuildErrors: true,
+    qualities: [100, 90, 75],
   },
 
   // Browser caching for static assets (filenames are unhashed, so not immutable).
