@@ -17,12 +17,12 @@ const CallToAction = () => {
           <div className="flex-shrink-0 flex flex-col items-center gap-4">
             <div className="relative w-48 h-48 lg:w-56 lg:h-56 rounded-full overflow-hidden border-2 border-accent/20 shadow-2xl">
               <Image
-                src="/hero/about-poster.webp"
+                src="/hero/portrait-navy.webp"
                 alt="Viacheslav Danilov"
                 fill
                 sizes="(min-width: 1024px) 224px, 192px"
                 quality={90}
-                className="object-cover brightness-150"
+                className="object-cover"
               />
             </div>
 
