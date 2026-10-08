@@ -358,6 +358,16 @@ const VISITING_ROLES_DATA = [
     ],
     links: [
       {
+        title:
+          "When the ground truth requires surgery: machine learning for brain pressure monitoring",
+        type: "Seminar",
+      },
+      {
+        title: "Certificate of attendance",
+        url: "/documents/certificate-of-attendance-pretoria.pdf",
+        type: "Certificate",
+      },
+      {
         title: "SafeICP",
         url: "https://safe-icp.vercel.app/",
         type: "Project Website",
