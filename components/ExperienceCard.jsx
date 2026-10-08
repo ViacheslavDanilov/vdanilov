@@ -155,7 +155,7 @@ const isSitePage = (url) => url.startsWith("/") && !url.endsWith(".pdf");
 const LinksList = ({ links }) => (
   <ul className="space-y-3" role="list">
     {links.map((pub) => (
-      <li key={pub.url} className="flex items-start gap-3">
+      <li key={pub.url ?? pub.title} className="flex items-start gap-3">
         <BulletPoint />
         <div className="flex-1">
           {pub.type && (
@@ -163,7 +163,12 @@ const LinksList = ({ links }) => (
               {pub.type}
             </span>
           )}
-          {isSitePage(pub.url) ? (
+          {/* An entry without a url prints as plain text */}
+          {!pub.url ? (
+            <span className="text-sm text-gray-300 leading-relaxed break-words align-top">
+              {pub.title}
+            </span>
+          ) : isSitePage(pub.url) ? (
             <Link
               href={pub.url}
               className="text-sm text-accent hover:text-light transition-colors inline gap-2 group align-top"
