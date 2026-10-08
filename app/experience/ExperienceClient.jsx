@@ -279,7 +279,7 @@ const EXPERIENCES_DATA = [
     responsibilities: [
       "Supervised 5 developers on computer vision and ML across cardiology, pediatric surgery and industry",
       "Developed real-time coronary stenosis detection that runs in live surgery at the Kemerovo Cardiology Center, at 94% mAP and 10 FPS",
-      "Tracked aorta and catheter keypoints for TAVI at 97% accuracy and 90 FPS, guiding valve placement during surgery",
+      "Tracked aorta and catheter keypoints for TAVI at 97% accuracy and 90 FPS, guiding valve placement",
       "Segmented catheters in 3D ultrasound for Boston Children's Hospital at 93.6% Dice, 13 points above U-Net, despite speckle and low resolution",
       "Built wildfire detection from video at 95.6% accuracy and 9 FPS, over remote Siberian forest",
     ],
