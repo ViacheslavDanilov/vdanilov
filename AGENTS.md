@@ -81,6 +81,9 @@ The problem this solves, in one or two sentences. Not a restatement of What.
 - Merging squashes, and GitHub appends `(#NN)` to the title, so the title becomes
   the commit subject in `main`. Keep it to about 65 characters so the result
   still fits 72
+- This holds for a single-commit pull request too, because the repository's squash
+  setting is `PR_TITLE`. GitHub's default, `COMMIT_OR_PR_TITLE`, takes the commit
+  subject instead, which is how #47 landed as `chore: rewrite the about me bio`
 - `What` lists changes, not files. The diff already shows the files
 - `Why` explains the problem, not the solution
 - `Verified` records what was actually run and what it printed. Numbers are
