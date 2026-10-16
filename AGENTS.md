@@ -106,8 +106,15 @@ The problem this solves, in one or two sentences. Not a restatement of What.
 ## Git workflow
 
 - Never commit directly to `main`; branch, then open a pull request
-- Push feature branches, open pull requests and edit their title and body without asking.
-  Merging into `main` is Viacheslav's decision
+- Push feature branches, open pull requests and edit their title and body without asking
+- Merge a pull request into `main` yourself, with `gh pr merge --squash`, once all of these hold:
+  the acceptance criteria were confirmed by Viacheslav, CI is green on the current head, and an
+  independent review of every commit says it is ready to merge. An update from `main` that adds
+  nothing of its own needs no new review, and one that resolves a conflict or carries any other
+  edit does. With several pull requests, merge them in dependency order and update each from
+  `main` before it. Stop and ask when the change touches repository settings or secrets, or
+  when the review leaves a must-fix open. After a merge, switch to the updated `main` and delete
+  the local branch
 - Do not force-push a shared branch without asking first
 - The `pre-commit` hook runs `lint-staged` (Prettier); let it run — do not use
   `--no-verify` except when rewriting history, where the tree must stay byte-identical
