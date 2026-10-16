@@ -2,11 +2,15 @@
 // names, and asset references that point at a file. Run by `npm run check`.
 import { execFileSync } from "node:child_process";
 import { existsSync, readFileSync } from "node:fs";
+import { fileURLToPath } from "node:url";
+
+// git resolves paths from the working directory, so start at the repository root
+process.chdir(fileURLToPath(new URL("..", import.meta.url)));
 
 const tracked = (...paths) =>
   execFileSync("git", ["ls-files", "-z", "--", ...paths], { encoding: "utf8" })
     .split("\0")
-    .filter(Boolean);
+    .filter((file) => file && existsSync(file));
 
 const problems = [];
 
