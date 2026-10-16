@@ -104,7 +104,6 @@ reimplement what an installed skill already does. `vendored` means a copy under
 | Judge how the pages look, and catch visual regressions                        | `design-review`                                                   | gstack           |
 | Check UI against web standards and accessibility                              | `web-design-guidelines`                                           | plugin           |
 | Prove a change did not cost load time                                         | `benchmark`                                                       | gstack           |
-| Sync README and AGENTS.md to what a branch shipped                            | `document-release`                                                | gstack           |
 | Auth, secrets, workflows or untrusted input touched                           | `security-review` (built-in), `cso` (gstack)                      | built-in, gstack |
 | Build a UI                                                                    | `frontend-design`, `vercel:nextjs`, `vercel:react-best-practices` | plugin           |
 | Polish site copy                                                              | `editor`, `no-ai-slop`                                            | global           |

@@ -4,8 +4,8 @@ description: >-
   Take a task to an open pull request: a content change, a feature or a bug, described in
   chat. Triage the route, grill out acceptance criteria and get them confirmed, check the
   claims against the repo, implement on a branch, verify, self-review in a fresh context,
-  commit in the repo notation and open the PR. Review, QA and the docs pass run afterwards
-  in /site-review, in its own session. Routes that write no code are first-class endings.
+  commit in the repo notation and open the PR. Review and QA run afterwards in /site-review,
+  in its own session. Routes that write no code are first-class endings.
   Use when the user says "сделай задачу", "добавь на сайт", "исправь баг", names a change
   to the site, or invokes /site-task.
 disable-model-invocation: false
@@ -20,7 +20,7 @@ policy, the skill table and the authorship trap, and this skill does not repeat 
 **The checkpoint is mandatory.** A request arrives as a sentence in chat. A question costs a
 minute; a wrong assumption costs a rebuilt page, or a wrong name published under the owner's.
 
-**This session ends at the pull request.** Review, QA and the docs pass belong to
+**This session ends at the pull request.** Review and QA belong to
 `/site-review`, run in a fresh session. The session that wrote the code knows what it meant,
 so it is the worst-placed to see what it wrote.
 
@@ -121,7 +121,7 @@ they printed. Never claim done without output.
   the dev server and look at the page in a browser, at desktop width and at 320 px.
 - A refactor that must not change how anything looks is verified by comparing what renders
   before and after, with zero tolerance, not by a quick look.
-- The independent browser pass and the docs pass happen in `/site-review`. The PR's
+- The independent browser pass happens in `/site-review`. The PR's
   `## Verified` lists only what this session actually ran.
 
 ## 7. Self-review in fresh context

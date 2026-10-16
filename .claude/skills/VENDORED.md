@@ -17,10 +17,11 @@ Kept to the minimum, so a later upstream copy can be diffed against these files:
 
 - `code-review` is renamed `two-axis-review`, because Claude Code ships a built-in
   `code-review` and the two would share a name.
-- In `two-axis-review`, the pointers to an issue tracker and to `/setup-matt-pocock-skills`
-  now point at the **Specs and tickets** section of `shared/site-conventions.md`. This repo
-  has no issue tracker, and the spec of a change is the pull request body or the criteria
-  the calling skill passes.
+- In `two-axis-review`, three passages change because this repo has no issue tracker and no
+  spec folder. The note about the tracker and `/setup-matt-pocock-skills` becomes a pointer to
+  the **Specs and tickets** section of `shared/site-conventions.md`. The step on issue
+  references says there usually are none. The spec-file item, which named `docs/`, `specs/` and
+  `.scratch/`, becomes the pull request's `## What` and `## Why`.
 - The `agents/openai.yaml` files are dropped. They configure Codex, not Claude Code.
 - The three folders are listed in `.prettierignore`, so Prettier does not reformat them and
   they stay diffable against upstream.

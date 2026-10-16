@@ -116,7 +116,10 @@ request's head, not in the checkout you were started in.
 
    The fix loop pushes from a detached worktree with `git push origin HEAD:<branch>`.
 
-4. In the worktree, run `npm ci`. The checks need the packages even on a docs-only PR.
+4. In the worktree of the owner's own PR, run `npm ci`. The checks need the packages even on a
+   docs-only PR. **On a colleague's PR run nothing from the head** until the owner says it is
+   safe: `npm ci` and the build execute that PR's install scripts and code. Review the diff only,
+   and record step 8 as not run.
 5. Run everything after this from `$WT`. A subagent's shell starts in the checkout you were
    started in, so every delegated prompt names `$WT` by its absolute path, says to run git
    there with `git -C "$WT"`, and names the criteria source by its absolute path or inlines
@@ -226,10 +229,10 @@ already pushed rewrites published history and needs a force-push, so ask the own
 After the lenses, on **delta** and **full**, whenever the PR changes anything that renders.
 Skip for docs-only, test-only or config-only diffs.
 
-| PR author   | Skill                      | Why                                                  |
-| ----------- | -------------------------- | ---------------------------------------------------- |
-| The owner   | **`qa`**: finds and fixes  | their own branch; a small fix now beats a round trip |
-| Anyone else | **`qa-only`**: report only | never commit to a colleague's branch uninvited       |
+| PR author   | Skill                      | Why                                                     |
+| ----------- | -------------------------- | ------------------------------------------------------- |
+| The owner   | **`qa`**: finds and fixes  | their own branch; a small fix now beats a round trip    |
+| Anyone else | **`qa-only`**: report only | only once the owner has cleared running the head's code |
 
 `qa` commits each fix as `fix(qa): ISSUE-NNN: ...`. Let it commit, then reword the subjects in
 step 9, per **Pushing** in the conventions file.
