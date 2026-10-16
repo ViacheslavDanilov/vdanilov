@@ -97,11 +97,17 @@ The problem this solves, in one or two sentences. Not a restatement of What.
   `Verified` beyond `npm run check`
 - No screenshots of text, no checklists of process steps, no AI attribution
   (see "Authorship" above)
+- Assign every pull request to Viacheslav Danilov (`--assignee ViacheslavDanilov`) and label
+  it by type, one label for each Conventional Commit type among its commits. `feat` is
+  `enhancement`, `fix` is `bug`, `docs` is `documentation`, and `refactor`, `perf`, `test`,
+  `ci`, `build` and `chore` carry their own names. `duplicate`, `invalid` and `wontfix` are
+  for a pull request closed without merging
 
 ## Git workflow
 
 - Never commit directly to `main`; branch, then open a pull request
-- Do not commit, push, or open a pull request unless explicitly asked to
+- Push feature branches, open pull requests and edit their title and body without asking.
+  Merging into `main` is Viacheslav's decision
 - Do not force-push a shared branch without asking first
 - The `pre-commit` hook runs `lint-staged` (Prettier); let it run — do not use
   `--no-verify` except when rewriting history, where the tree must stay byte-identical
