@@ -185,6 +185,8 @@ renders, but write them in the same order so the source reads like the page.
 - A new kind of link is added to `PERSON_LINKS` at the place it should read, not to a single card
 - A person has the same links on their reference card and on every project team card. Change one,
   change all
+- My own links in the footer and in About use the same order, without the website, since the reader
+  is already on it
 
 ## Portfolio project pages
 
