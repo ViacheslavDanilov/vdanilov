@@ -158,8 +158,8 @@ as a named follow-up. If CI is red on the pushed head, read the log and fix it b
 
 Reply in Russian: the route taken, the PR URL, branch and head SHA, how many files changed,
 what you verified, whether CI is green, and anything you could not do. When there is a PR, end
-with the next step: **new session, `/site-review <n>`.** **Do not merge.** Merging is the
-owner's.
+with the next step: **new session, `/site-review <n>`.** Do not merge from this session: the
+independent review comes first, and the merge follows it.
 
 ## Red flags, stop and ask
 

@@ -108,7 +108,7 @@ request's head, not in the checkout you were started in.
    it. The branch being open in your own checkout is the normal case after `/site-task`, and
    needs nothing.
 3. Create the worktree in a fresh temporary directory, detached at the pushed head, and keep its
-   path for step 12:
+   path for step 13:
    - the owner's PR: `git worktree add --detach "$WT" origin/<branch>`;
    - a colleague's PR: `git worktree add --detach "$WT" <sha>`, where `<sha>` is the
      `headRefOid` from `gh pr view <n>`. Not `FETCH_HEAD`: the next fetch overwrites it.
@@ -122,7 +122,7 @@ request's head, not in the checkout you were started in.
    there with `git -C "$WT"`, and names the criteria source by its absolute path or inlines
    it.
 
-If the review stops anywhere after this step, remove the worktree first, as step 12 does.
+If the review stops anywhere after this step, remove the worktree first, as step 13 does.
 
 Always: head SHA, title, author, existing threads, and which of them are already addressed.
 Read the `AGENTS.md` sections for the files in scope.
@@ -327,14 +327,30 @@ EOF
 Never leave a pending review unsubmitted. Up to two inline comments for critical line pointers
 only.
 
-## 12. Hand off
+## 12. Merge, when the conditions hold
+
+Only the owner's own pull requests, and only when the verdict is ready to merge. The conditions
+are in the "Git workflow" section of `AGENTS.md`: the acceptance criteria were confirmed, CI is
+green on the current head, and this review covers every commit. Check them in that order.
+
+1. Re-read the head SHA. If the fix loop pushed, wait for CI on the new head:
+   `gh pr checks <n> --watch`. A red check on the head is a must-fix, not a reason to merge.
+2. If the PR depends on another open one, or another open PR depends on this one, merge in
+   dependency order, and update the branch from `main` first with `gh pr update-branch <n>`. An
+   update that adds nothing of its own needs no new review. One that resolves a conflict does.
+3. `gh pr merge <n> --squash`. The title becomes the commit subject, so it is final.
+4. Stop and ask instead of merging when the change touches repository settings or secrets, when
+   a must-fix is open, or when the owner has not confirmed the criteria.
+
+## 13. Hand off
 
 Remove the worktree from step 4: `git worktree remove "$WT"`, run from the checkout you were
 started in. If it refuses because of uncommitted changes, report them rather than force the
-removal. If that checkout has the PR's branch open with a clean tree and the fix loop pushed
-anything, bring it up to date with `git merge --ff-only origin/<branch>`; otherwise tell the
-owner it is behind.
+removal. If the PR was merged, switch that checkout to the updated `main` and delete the local
+branch. If it was not, and that checkout has the PR's branch open with a clean tree and the fix
+loop pushed anything, bring it up to date with `git merge --ff-only origin/<branch>`; otherwise
+tell the owner it is behind.
 
 Then reply in Russian: the verdict (ready to merge or not), the event submitted, the must-fix
 count, every fix committed and pushed, whether the notation gate passed, whether QA ran and what
-it printed, and whether CI is green. **Do not merge.** Merging is the owner's.
+it printed, whether CI is green, and whether you merged, with the merge commit.

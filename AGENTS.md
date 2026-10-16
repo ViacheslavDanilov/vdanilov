@@ -107,8 +107,8 @@ The problem this solves, in one or two sentences. Not a restatement of What.
 
 ## Agent lifecycle
 
-Two slash commands take a change from idea to merge. You answer questions, confirm the
-acceptance criteria and merge. The agent does the rest.
+Two slash commands take a change from idea to merge. You answer questions and confirm the
+acceptance criteria. The agent does the rest, and merges under the rules in "Git workflow".
 
 | Command                      | When                                             | Ends with                                                                 |
 | ---------------------------- | ------------------------------------------------ | ------------------------------------------------------------------------- |

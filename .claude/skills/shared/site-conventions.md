@@ -49,8 +49,9 @@ surviving trailer as a merge blocker.
 ## Pushing
 
 Push feature branches, open the pull request and edit its title and body without asking.
-**Merging into `main` is the owner's decision.** Force-pushing a feature branch and amending
-a pushed commit need an explicit go-ahead.
+Merging into `main` follows the conditions in the "Git workflow" section of `AGENTS.md`, and
+`site-review` is where it happens. Force-pushing a feature branch and amending a pushed commit
+need an explicit go-ahead.
 
 **Before any push, run `npm run check`, `npm run build` and `npm run test:e2e`.** That holds
 for the push that opens a pull request and for the pushes at the end of `site-review`'s fix
@@ -135,8 +136,8 @@ Recorded so nobody re-litigates it:
 - **gstack `ship`** bumps `VERSION` and writes a `CHANGELOG`, which this repo does not keep,
   titles the pull request `v<version> type: ...` and adds an AI co-author trailer. `AGENTS.md`
   forbids the last two. `site-task` opens the pull request instead.
-- **gstack `land-and-deploy` and `canary`**: Vercel deploys on merge, and merging is the
-  owner's.
+- **gstack `land-and-deploy` and `canary`**: Vercel deploys on merge, and `site-review`
+  already merges under the conditions in `AGENTS.md`.
 - **gstack `autoplan` and `spec`**: scope comes from the owner, not from an auto-decided chain
   of reviews.
 - **Pocock `tdd`, `to-spec`, `to-tickets`, `domain-modeling`, `codebase-design`, `triage`,
