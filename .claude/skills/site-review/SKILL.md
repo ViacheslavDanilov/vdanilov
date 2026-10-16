@@ -118,8 +118,9 @@ request's head, not in the checkout you were started in.
 
 4. In the worktree of the owner's own PR, run `npm ci`. The checks need the packages even on a
    docs-only PR. **On a colleague's PR run nothing from the head** until the owner says it is
-   safe: `npm ci` and the build execute that PR's install scripts and code. Review the diff only,
-   and record step 8 as not run.
+   safe: `npm ci` and the build execute that PR's install scripts and code. Review the diff only.
+   Until the owner clears running the head, record lens #6 and step 8 as not run, since both
+   start the app, and run lens #7 on the diff text alone.
 5. Run everything after this from `$WT`. A subagent's shell starts in the checkout you were
    started in, so every delegated prompt names `$WT` by its absolute path, says to run git
    there with `git -C "$WT"`, and names the criteria source by its absolute path or inlines
@@ -181,7 +182,8 @@ already covers em dashes, asset names and asset references, so do not repeat it.
 Run lens #7 as `codex exec -s read-only` from the worktree. The prompt names the diff command,
 `git diff <baseline>...HEAD`, the high-risk files the diff touches, and what to look for
 there. When codex refuses or is not installed, say so and record lens #7 as not run. Never fall
-back silently.
+back silently. On a colleague's PR, pipe the diff in and run it from a neutral directory instead
+of the worktree.
 
 Depth mapping: comment-only: discussion only; trivial: #1 and #2; delta: #1 and #2 on the
 delta, #3 to #6 on delta files; full: #1 to #6. On any depth but comment-only, #7 runs whenever
@@ -336,8 +338,12 @@ Only the owner's own pull requests, and only when the verdict is ready to merge.
 are in the "Git workflow" section of `AGENTS.md`: the acceptance criteria were confirmed, CI is
 green on the current head, and this review covers every commit. Check them in that order.
 
-1. Re-read the head SHA. If the fix loop pushed, wait for CI on the new head:
-   `gh pr checks <n> --watch`. A red check on the head is a must-fix, not a reason to merge.
+1. Re-read the head SHA, then wait for CI on it with `gh pr checks <n> --watch`, whether or not
+   the fix loop pushed. Right after a push no check may be reported yet, so wait until they are.
+   Merge only when every check reports success: pending, skipped, neutral and red are not
+   green, and a red check on the head is a must-fix. The fix loop's own commits count as
+   reviewed when the lenses, re-run on the final head after the last fix, found nothing. A
+   must-fix still open after the third round blocks the merge.
 2. If the PR depends on another open one, or another open PR depends on this one, merge in
    dependency order, and update the branch from `main` first with `gh pr update-branch <n>`. An
    update that adds nothing of its own needs no new review. One that resolves a conflict does.
