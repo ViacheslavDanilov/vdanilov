@@ -168,6 +168,24 @@ const REFERENCES_DATA = [
       email: "g.azzopardi@rug.nl",
     },
   },
+  {
+    id: "olawande-daramola",
+    name: "Olawande Daramola, PhD",
+    role: "Professor",
+    organization: "University of Pretoria",
+    location: "Pretoria · South Africa 🇿🇦",
+    category: "Research",
+    image: "/people/olawande-daramola.webp",
+    featured: false,
+    socials: {
+      website: "https://sites.google.com/site/wandesnet/home",
+      linkedin: "https://www.linkedin.com/in/olawande-daramola-48b98223",
+      researchgate: "https://www.researchgate.net/profile/Olawande-Daramola",
+      googleScholar:
+        "https://scholar.google.com/citations?user=94iu3hgAAAAJ&hl=en",
+      email: "wande.daramola@up.ac.za",
+    },
+  },
   // Medicine
   // {
   //   id: "evgeny-ovcharenko",
