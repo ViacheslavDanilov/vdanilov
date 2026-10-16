@@ -347,7 +347,7 @@ const CATEGORY_ORDER = ["Research", "Medicine", "Industry", "Pharma"];
 const SORTED_REFERENCES = [...REFERENCES_DATA].sort(
   (a, b) =>
     CATEGORY_ORDER.indexOf(a.category) - CATEGORY_ORDER.indexOf(b.category) ||
-    a.name.localeCompare(b.name),
+    a.name.localeCompare(b.name, "en"),
 );
 
 const FILTER_OPTIONS = [

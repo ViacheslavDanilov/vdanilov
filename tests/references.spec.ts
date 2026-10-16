@@ -18,7 +18,7 @@ test.describe("References order", () => {
     for (const category of CATEGORIES) {
       const names = await namesFor(page, category, category);
       expect(names, category).toEqual(
-        [...names].sort((a, b) => a.localeCompare(b)),
+        [...names].sort((a, b) => a.localeCompare(b, "en")),
       );
     }
   });
