@@ -120,6 +120,23 @@ The problem this solves, in one or two sentences. Not a restatement of What.
   `--no-verify` except when rewriting history, where the tree must stay byte-identical
 - Pull request title and body follow the notation in "Pull requests" above
 
+## Agent lifecycle
+
+Two slash commands take a change from idea to merge. You answer questions and confirm the
+acceptance criteria. The agent does the rest, and merges under the rules in "Git workflow".
+
+| Command                      | When                                             | Ends with                                                                 |
+| ---------------------------- | ------------------------------------------------ | ------------------------------------------------------------------------- |
+| `/site-task <what you want>` | to start any piece of work                       | an open pull request, or a written finding when there is nothing to build |
+| `/site-review <PR number>`   | in a **new** session, once a pull request exists | one review on GitHub and a verdict: ready to merge, or what blocks it     |
+
+`/site-review` runs in its own session on purpose. The session that wrote the code knows what
+it meant, so it reads its own diff generously. A fresh session sees only the diff and the pull
+request, the way a human reviewer would.
+
+The skills live in `.claude/skills/`. `shared/site-conventions.md` lists every skill they call
+and the ones left out on purpose, and `VENDORED.md` says where the copied ones came from.
+
 ## Commands
 
 ```bash

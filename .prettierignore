@@ -3,3 +3,6 @@ content/
 node_modules/
 .next/
 out/
+.claude/skills/grilling/
+.claude/skills/two-axis-review/
+.claude/skills/diagnosing-bugs/
