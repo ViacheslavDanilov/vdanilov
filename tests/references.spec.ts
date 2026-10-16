@@ -37,6 +37,26 @@ test.describe("References order", () => {
     expect(featured).toEqual(all.filter((name) => featured.includes(name)));
   });
 
+  test("the order the owner asked for holds", async ({ page }) => {
+    const all = await namesFor(page, "all", "All");
+    const position = (name: string) => {
+      const index = all.findIndex((entry) => entry.startsWith(name));
+      expect(index, name).toBeGreaterThan(-1);
+      return index;
+    };
+    // Pharma, then Medicine, each by name, and one person from each category in order
+    expect(position("Anton Kutikhin")).toBeLessThan(position("Yuriy Popov"));
+    expect(position("Diana Litmanovich")).toBeLessThan(position("Maria Poca"));
+    expect(position("Maria Poca")).toBeLessThan(position("Nikolay Vasilyev"));
+    expect(position("Olawande Daramola")).toBeLessThan(
+      position("Diana Litmanovich"),
+    );
+    expect(position("Diana Litmanovich")).toBeLessThan(
+      position("Alex Proutski"),
+    );
+    expect(position("Alex Proutski")).toBeLessThan(position("Anton Kutikhin"));
+  });
+
   test("the filter tabs follow the category order", async ({ page }) => {
     await page.goto("/references/");
     const tabs = await page
