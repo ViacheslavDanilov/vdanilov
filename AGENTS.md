@@ -35,6 +35,8 @@ Applies to commit messages, pull request text, and copy on the site.
 - Plain English: short sentences, ordinary words, active voice
 - Say what the code does. Do not write as if a component wanted, asked for, or
   decided something
+- `npm run check` fails on an em dash in `app/`, `components/`, `lib/`, `tests/` and
+  `README.md`
 
 ## Commit messages
 
@@ -110,7 +112,7 @@ The problem this solves, in one or two sentences. Not a restatement of What.
 ```bash
 npm run dev        # dev server
 npm run build      # production build
-npm run check      # prettier --check .  (run before committing)
+npm run check      # prettier --check . and scripts/lint-content.mjs  (run before committing)
 npm run format     # prettier --write .
 npm run test:e2e   # Playwright end-to-end tests (PORT=3100 npm run test:e2e if 3000 is taken)
 ```
@@ -133,7 +135,8 @@ Files under `public/` use lower-case ASCII kebab-case: `cluster-number-compariso
 
 - No underscores, spaces, or upper case
 - ASCII only — no Cyrillic look-alikes (`с` U+0441 vs `c`), no en dashes (`–` U+2013)
-- Renaming an asset means updating every reference in `app/`; verify none are left behind
+- Renaming an asset means updating every reference in `app/`; verify none are left behind.
+  `npm run check` fails on a name that breaks these rules and on a reference to a missing file
 
 ## Experience summaries
 
