@@ -99,7 +99,8 @@ const TEAM_MEMBERS = [
     photo: "/people/maria-poca.webp",
     links: {
       website:
-        "https://www.vallhebron.com/es/profesionales/maria-antonia-poca-pastor",
+        "https://hospital.vallhebron.com/en/professionals/maria-antonia-poca-pastor",
+      researchgate: "https://www.researchgate.net/profile/Maria-Poca",
       orcid: "https://orcid.org/0000-0002-3831-0536",
       email: "pocama@neurotrauma.net",
     },

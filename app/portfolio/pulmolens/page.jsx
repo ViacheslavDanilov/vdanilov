@@ -68,8 +68,10 @@ const TEAM_MEMBERS = [
     location: "Hague · Netherlands 🇳🇱",
     photo: "/people/alex-proutski.webp",
     links: {
-      linkedin: "https://www.linkedin.com/in/alexanderproutski/",
-      email: "alex_proutski@hotmail.com",
+      linkedin: "https://www.linkedin.com/in/alexanderproutski",
+      researchgate:
+        "https://www.researchgate.net/scientific-contributions/Alex-Proutski-2210898853",
+      email: "alexander.proutski@quantori.com",
     },
   },
   {

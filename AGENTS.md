@@ -183,6 +183,8 @@ renders, but write them in the same order so the source reads like the page.
   `orcid`, `facebook` and `email`. An unknown key throws at render
 - `email` holds the bare address, not a `mailto:` link
 - A new kind of link is added to `PERSON_LINKS` at the place it should read, not to a single card
+- A person has the same links on their reference card and on every project team card. Change one,
+  change all
 
 ## Portfolio project pages
 
