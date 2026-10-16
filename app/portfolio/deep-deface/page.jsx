@@ -57,7 +57,8 @@ const TEAM_MEMBERS = [
       linkedin: "https://www.linkedin.com/in/viacheslav-danilov/",
       github: "https://github.com/ViacheslavDanilov",
       researchgate: "https://www.researchgate.net/profile/Viacheslav-Danilov-2",
-      google: "https://scholar.google.com/citations?user=SJidGZkAAAAJ&hl=en",
+      googleScholar:
+        "https://scholar.google.com/citations?user=SJidGZkAAAAJ&hl=en",
       email: "viacheslav.v.danilov@gmail.com",
     },
   },
@@ -80,8 +81,8 @@ const TEAM_MEMBERS = [
     location: "Boston · United States 🇺🇸",
     photo: "/people/efim-furman.webp",
     links: {
-      facebook: "https://www.facebook.com/efim.furman",
       linkedin: "https://www.linkedin.com/in/fima-furman-74133a",
+      facebook: "https://www.facebook.com/efim.furman",
       email: "efimfurman@gmail.com",
     },
   },

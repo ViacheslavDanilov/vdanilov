@@ -57,7 +57,8 @@ const TEAM_MEMBERS = [
       linkedin: "https://www.linkedin.com/in/viacheslav-danilov/",
       github: "https://github.com/ViacheslavDanilov",
       researchgate: "https://www.researchgate.net/profile/Viacheslav-Danilov-2",
-      google: "https://scholar.google.com/citations?user=SJidGZkAAAAJ&hl=en",
+      googleScholar:
+        "https://scholar.google.com/citations?user=SJidGZkAAAAJ&hl=en",
       email: "viacheslav.v.danilov@gmail.com",
     },
   },
@@ -68,7 +69,7 @@ const TEAM_MEMBERS = [
     location: "Barcelona · Spain 🇪🇸",
     photo: "/people/monica-torrecilla.webp",
     links: {
-      globe:
+      website:
         "https://becarios.fundacionlacaixa.org/en/monica-torrecilla-vall-llossera-B006214",
       researchgate:
         "https://www.researchgate.net/profile/Monica-Torrecilla-Vall-Llossera",
@@ -82,10 +83,11 @@ const TEAM_MEMBERS = [
     location: "Barcelona · Spain 🇪🇸",
     photo: "/people/turgut-durduran.webp",
     links: {
-      globe: "https://www.icrea.cat/community/icreas/16857/turgut-durduran/",
+      website: "https://www.icrea.cat/community/icreas/16857/turgut-durduran/",
       linkedin: "https://www.linkedin.com/in/turgut-durduran-5a47a294",
       researchgate: "https://www.researchgate.net/profile/Turgut-Durduran",
-      google: "https://scholar.google.com/citations?user=c7reUlAAAAAJ&hl=en",
+      googleScholar:
+        "https://scholar.google.com/citations?user=c7reUlAAAAAJ&hl=en",
       email: "turgut.durduran@icfo.eu",
     },
   },
@@ -96,8 +98,9 @@ const TEAM_MEMBERS = [
     location: "Barcelona · Spain 🇪🇸",
     photo: "/people/maria-poca.webp",
     links: {
-      globe:
-        "https://www.vallhebron.com/es/profesionales/maria-antonia-poca-pastor",
+      website:
+        "https://hospital.vallhebron.com/en/professionals/maria-antonia-poca-pastor",
+      researchgate: "https://www.researchgate.net/profile/Maria-Poca",
       orcid: "https://orcid.org/0000-0002-3831-0536",
       email: "pocama@neurotrauma.net",
     },
@@ -109,9 +112,10 @@ const TEAM_MEMBERS = [
     location: "Barcelona · Spain 🇪🇸",
     photo: "/people/juan-sahuquillo.webp",
     links: {
-      globe: "https://www.neurotrauma.com/equipindex.php?Up=GD",
+      website: "https://www.neurotrauma.com/equipindex.php?Up=GD",
       researchgate: "https://www.researchgate.net/profile/Juan-Sahuquillo",
-      google: "https://scholar.google.com/citations?user=kR8_L9MAAAAJ&hl=en",
+      googleScholar:
+        "https://scholar.google.com/citations?user=kR8_L9MAAAAJ&hl=en",
       email: "sahuquillo@neurotrauma.net",
     },
   },
@@ -122,10 +126,11 @@ const TEAM_MEMBERS = [
     location: "Barcelona · Spain 🇪🇸",
     photo: "/people/gemma-piella.webp",
     links: {
-      globe: "https://memoir.icrea.cat/academia_awardees/piella-gemma/",
+      website: "https://memoir.icrea.cat/academia_awardees/piella-gemma/",
       linkedin: "https://www.linkedin.com/in/gemma-piella-a234b4/",
       researchgate: "https://www.researchgate.net/profile/Gemma-Piella",
-      google: "https://scholar.google.com/citations?user=Q6zjCpsAAAAJ&hl=en",
+      googleScholar:
+        "https://scholar.google.com/citations?user=Q6zjCpsAAAAJ&hl=en",
       email: "gemma.piella@upf.edu",
     },
   },

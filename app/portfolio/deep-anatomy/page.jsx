@@ -56,7 +56,8 @@ const TEAM_MEMBERS = [
       linkedin: "https://www.linkedin.com/in/viacheslav-danilov/",
       github: "https://github.com/ViacheslavDanilov",
       researchgate: "https://www.researchgate.net/profile/Viacheslav-Danilov-2",
-      google: "https://scholar.google.com/citations?user=SJidGZkAAAAJ&hl=en",
+      googleScholar:
+        "https://scholar.google.com/citations?user=SJidGZkAAAAJ&hl=en",
       email: "viacheslav.v.danilov@gmail.com",
     },
   },
@@ -67,9 +68,9 @@ const TEAM_MEMBERS = [
     location: "Tomsk · Russia 🇷🇺",
     photo: "/people/jane-doe.webp",
     links: {
-      globe: "https://ieeexplore.ieee.org/author/37086166435",
-      orcid: "https://orcid.org/0000-0002-6242-9502",
+      website: "https://ieeexplore.ieee.org/author/37086166435",
       researchgate: "https://www.researchgate.net/profile/Olga-Gerget",
+      orcid: "https://orcid.org/0000-0002-6242-9502",
       email: "olgagerget@mail.ru",
     },
   },
@@ -82,7 +83,8 @@ const TEAM_MEMBERS = [
     links: {
       linkedin: "https://www.linkedin.com/in/nikolayvasilyev/",
       researchgate: "https://www.researchgate.net/profile/Nikolay-Vasilyev-2",
-      google: "https://scholar.google.com/citations?user=HnEl5nYAAAAJ&hl=en",
+      googleScholar:
+        "https://scholar.google.com/citations?user=HnEl5nYAAAAJ&hl=en",
       email: "nikolay.v.vasilyev.md@gmail.com",
     },
   },
@@ -93,10 +95,11 @@ const TEAM_MEMBERS = [
     location: "Madrid · Spain 🇪🇸",
     photo: "/people/maria-ledesma.webp",
     links: {
-      globe: "https://ieeexplore.ieee.org/author/37327193600",
+      website: "https://ieeexplore.ieee.org/author/37327193600",
       linkedin: "https://www.linkedin.com/in/maria-j-ledesma-carbayo-440aa8275",
+      googleScholar:
+        "https://scholar.google.es/citations?user=jCcBex0AAAAJ&hl=en",
       orcid: "https://orcid.org/0000-0001-6846-3923",
-      google: "https://scholar.google.es/citations?user=jCcBex0AAAAJ&hl=en",
       email: "mj.ledesma@upm.es",
     },
   },

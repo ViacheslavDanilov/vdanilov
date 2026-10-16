@@ -57,7 +57,8 @@ const TEAM_MEMBERS = [
       linkedin: "https://www.linkedin.com/in/viacheslav-danilov/",
       github: "https://github.com/ViacheslavDanilov",
       researchgate: "https://www.researchgate.net/profile/Viacheslav-Danilov-2",
-      google: "https://scholar.google.com/citations?user=SJidGZkAAAAJ&hl=en",
+      googleScholar:
+        "https://scholar.google.com/citations?user=SJidGZkAAAAJ&hl=en",
       email: "viacheslav.v.danilov@gmail.com",
     },
   },
@@ -68,10 +69,11 @@ const TEAM_MEMBERS = [
     location: "Kemerovo · Russia 🇷🇺",
     photo: "/people/kirill-klyshnikov.webp",
     links: {
-      globe: "https://loop.frontiersin.org/people/1380790/overview",
+      website: "https://loop.frontiersin.org/people/1380790/overview",
       linkedin: "https://www.linkedin.com/in/kirill-klyshnikov-83304b78/",
       researchgate: "https://www.researchgate.net/profile/Kirill-Klyshnikov",
-      google: "https://scholar.google.com/citations?user=K2r_PIQAAAAJ&hl=en",
+      googleScholar:
+        "https://scholar.google.com/citations?user=K2r_PIQAAAAJ&hl=en",
       email: "klyshnikovk@gmail.com",
     },
   },
@@ -82,9 +84,10 @@ const TEAM_MEMBERS = [
     location: "Kemerovo · Russia 🇷🇺",
     photo: "/people/anton-kutikhin.webp",
     links: {
-      globe: "https://loop.frontiersin.org/people/98953/overview",
+      website: "https://loop.frontiersin.org/people/98953/overview",
       researchgate: "https://www.researchgate.net/profile/Anton-Kutikhin",
-      google: "https://scholar.google.com/citations?user=Ni7zoiYAAAAJ&hl=en",
+      googleScholar:
+        "https://scholar.google.com/citations?user=Ni7zoiYAAAAJ&hl=en",
       email: "antonkutikhin@gmail.com",
     },
   },
@@ -95,7 +98,7 @@ const TEAM_MEMBERS = [
     location: "Kemerovo · Russia 🇷🇺",
     photo: "/people/vladimir-ganyukov.webp",
     links: {
-      globe:
+      website:
         "https://kemcardio.ru/nauka/nauchnye-podrazdeleniya/otdel-hirurgii-serdca-i-sosudov/",
       linkedin: "https://www.linkedin.com/in/vladimir-ganyukov-6b656b64",
       researchgate: "https://www.researchgate.net/profile/Vladimir-Ganyukov",
@@ -110,10 +113,11 @@ const TEAM_MEMBERS = [
     location: "Kemerovo · Russia 🇷🇺",
     photo: "/people/evgeny-ovcharenko.webp",
     links: {
-      globe: "https://loop.frontiersin.org/people/355364/overview",
+      website: "https://loop.frontiersin.org/people/355364/overview",
       linkedin: "https://ru.linkedin.com/in/evgeny-ovcharenko-89098722",
       researchgate: "https://www.researchgate.net/profile/Evgeny-Ovcharenko",
-      google: "https://scholar.google.ru/citations?user=taoklzsAAAAJ&hl=en",
+      googleScholar:
+        "https://scholar.google.ru/citations?user=taoklzsAAAAJ&hl=en",
       email: "ov.eugene@gmail.com",
     },
   },

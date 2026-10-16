@@ -57,7 +57,8 @@ const TEAM_MEMBERS = [
       linkedin: "https://www.linkedin.com/in/viacheslav-danilov/",
       github: "https://github.com/ViacheslavDanilov",
       researchgate: "https://www.researchgate.net/profile/Viacheslav-Danilov-2",
-      google: "https://scholar.google.com/citations?user=SJidGZkAAAAJ&hl=en",
+      googleScholar:
+        "https://scholar.google.com/citations?user=SJidGZkAAAAJ&hl=en",
       email: "viacheslav.v.danilov@gmail.com",
     },
   },
@@ -80,7 +81,7 @@ const TEAM_MEMBERS = [
     location: "Cambridge · United States 🇺🇸",
     photo: "/people/vladislav-laptev.webp",
     links: {
-      globe: "https://loop.frontiersin.org/people/2713564/overview",
+      website: "https://loop.frontiersin.org/people/2713564/overview",
       github: "https://github.com/vladislavml",
       orcid: "https://orcid.org/0000-0001-8639-8889",
       email: "lptwlad1@gmail.com",
@@ -93,10 +94,11 @@ const TEAM_MEMBERS = [
     location: "New York · United States 🇺🇸",
     photo: "/people/akanksha-verma.webp",
     links: {
-      globe: "https://www.statnews.com/wunderkinds-2021/akanksha-verma/",
+      website: "https://www.statnews.com/wunderkinds-2021/akanksha-verma/",
       linkedin: "https://www.linkedin.com/in/akanksha-verma-49752160/",
       researchgate: "https://www.researchgate.net/profile/Akanksha-Verma-6",
-      google: "https://scholar.google.com/citations?user=oq68oKAAAAAJ&hl=en",
+      googleScholar:
+        "https://scholar.google.com/citations?user=oq68oKAAAAAJ&hl=en",
       email: "akanksha.verma@volastratx.com",
     },
   },
@@ -107,7 +109,7 @@ const TEAM_MEMBERS = [
     location: "New York · United States 🇺🇸",
     photo: "/people/christina-eng.webp",
     links: {
-      globe: "https://www.volastratx.com/our-team/christina-eng/",
+      website: "https://www.volastratx.com/our-team/christina-eng/",
       linkedin: "https://www.linkedin.com/in/christina-eng-4840546/",
       researchgate: "https://www.researchgate.net/profile/Christina-Eng-2",
       email: "christina.eng@volastratx.com",

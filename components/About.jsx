@@ -59,6 +59,12 @@ const About = () => {
       color: "hover:text-light",
     },
     {
+      name: "ResearchGate",
+      icon: faResearchgate,
+      href: "https://www.researchgate.net/profile/Viacheslav-Danilov-2",
+      color: "hover:text-light",
+    },
+    {
       name: "Google Scholar",
       icon: faGoogleScholar,
       href: "https://scholar.google.com/citations?user=SJidGZkAAAAJ&hl=en",
@@ -68,12 +74,6 @@ const About = () => {
       name: "ORCID",
       icon: faOrcid,
       href: "https://orcid.org/0000-0002-1413-1381",
-      color: "hover:text-light",
-    },
-    {
-      name: "ResearchGate",
-      icon: faResearchgate,
-      href: "https://www.researchgate.net/profile/Viacheslav-Danilov-2",
       color: "hover:text-light",
     },
     {

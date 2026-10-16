@@ -56,7 +56,8 @@ const TEAM_MEMBERS = [
       linkedin: "https://www.linkedin.com/in/viacheslav-danilov/",
       github: "https://github.com/ViacheslavDanilov",
       researchgate: "https://www.researchgate.net/profile/Viacheslav-Danilov-2",
-      google: "https://scholar.google.com/citations?user=SJidGZkAAAAJ&hl=en",
+      googleScholar:
+        "https://scholar.google.com/citations?user=SJidGZkAAAAJ&hl=en",
       email: "viacheslav.v.danilov@gmail.com",
     },
   },
@@ -67,8 +68,10 @@ const TEAM_MEMBERS = [
     location: "Hague · Netherlands 🇳🇱",
     photo: "/people/alex-proutski.webp",
     links: {
-      linkedin: "https://www.linkedin.com/in/alexanderproutski/",
-      email: "alex_proutski@hotmail.com",
+      linkedin: "https://www.linkedin.com/in/alexanderproutski",
+      researchgate:
+        "https://www.researchgate.net/scientific-contributions/Alex-Proutski-2210898853",
+      email: "alexander.proutski@quantori.com",
     },
   },
   {
@@ -78,10 +81,11 @@ const TEAM_MEMBERS = [
     location: "Atlanta · United States 🇺🇸",
     photo: "/people/alexander-kirpich.webp",
     links: {
-      globe: "https://publichealth.gsu.edu/profile/alexander-kirpich/",
+      website: "https://publichealth.gsu.edu/profile/alexander-kirpich/",
       linkedin: "https://www.linkedin.com/in/alexander-kirpich-ph-d-27b8944/",
       researchgate: "https://www.researchgate.net/profile/Alexander-Kirpich",
-      google: "https://scholar.google.com/citations?user=-Tf2QG8AAAAJ&hl=en",
+      googleScholar:
+        "https://scholar.google.com/citations?user=-Tf2QG8AAAAJ&hl=en",
       email: "akirpich@gsu.edu",
     },
   },
@@ -92,11 +96,12 @@ const TEAM_MEMBERS = [
     location: "Boston · United States 🇺🇸",
     photo: "/people/diana-litmanovich.webp",
     links: {
-      globe:
+      website:
         "https://findadoc.bidmc.org/details/929/diana-litmanovich-diagnostic_radiology-boston-needham",
       linkedin: "https://www.linkedin.com/in/diana-litmanovich-55577276",
       researchgate: "https://www.researchgate.net/profile/Diana-Litmanovich",
-      google: "https://scholar.google.com/citations?user=i3JdQAYAAAAJ&hl=en",
+      googleScholar:
+        "https://scholar.google.com/citations?user=i3JdQAYAAAAJ&hl=en",
       email: "dlitmano@bidmc.harvard.edu",
     },
   },
@@ -107,10 +112,10 @@ const TEAM_MEMBERS = [
     location: "Cambridge · United States 🇺🇸",
     photo: "/people/yuriy-gankin.webp",
     links: {
-      globe: "https://quantori.com/about/yuriy-gankin",
+      website: "https://quantori.com/about/yuriy-gankin",
       linkedin: "https://www.linkedin.com/in/yuriygankin/",
+      googleScholar: "https://scholar.google.com/citations?user=0H_Ty8sAAAAJ",
       orcid: "https://orcid.org/0000-0003-0046-1037",
-      google: "https://scholar.google.com/citations?user=0H_Ty8sAAAAJ",
       email: "yuriy.gankin@quantori.com",
     },
   },

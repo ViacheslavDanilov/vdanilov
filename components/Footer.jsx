@@ -31,6 +31,11 @@ const socialLinks = [
     icon: faGithub,
   },
   {
+    title: "ResearchGate",
+    href: "https://www.researchgate.net/profile/Viacheslav-Danilov-2",
+    icon: faResearchgate,
+  },
+  {
     title: "Google Scholar",
     href: "https://scholar.google.com/citations?user=SJidGZkAAAAJ&hl=en",
     icon: faGoogleScholar,
@@ -39,11 +44,6 @@ const socialLinks = [
     title: "ORCID",
     href: "https://orcid.org/0000-0002-1413-1381",
     icon: faOrcid,
-  },
-  {
-    title: "ResearchGate",
-    href: "https://www.researchgate.net/profile/Viacheslav-Danilov-2",
-    icon: faResearchgate,
   },
   {
     title: "Email",

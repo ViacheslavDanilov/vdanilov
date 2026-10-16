@@ -56,7 +56,8 @@ const TEAM_MEMBERS = [
       linkedin: "https://www.linkedin.com/in/viacheslav-danilov/",
       github: "https://github.com/ViacheslavDanilov",
       researchgate: "https://www.researchgate.net/profile/Viacheslav-Danilov-2",
-      google: "https://scholar.google.com/citations?user=SJidGZkAAAAJ&hl=en",
+      googleScholar:
+        "https://scholar.google.com/citations?user=SJidGZkAAAAJ&hl=en",
       email: "viacheslav.v.danilov@gmail.com",
     },
   },
@@ -69,8 +70,8 @@ const TEAM_MEMBERS = [
     links: {
       linkedin: "https://www.linkedin.com/in/anton-makoveev/",
       github: "https://github.com/mak-en",
+      googleScholar: "https://scholar.google.com/citations?user=fOscab0AAAAJ",
       orcid: "https://orcid.org/0000-0002-1819-3942",
-      google: "https://scholar.google.com/citations?user=fOscab0AAAAJ",
       email: "makoveev90@gmail.com",
     },
   },
