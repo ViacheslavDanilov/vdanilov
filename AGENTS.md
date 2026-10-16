@@ -35,6 +35,8 @@ Applies to commit messages, pull request text, and copy on the site.
 - Plain English: short sentences, ordinary words, active voice
 - Say what the code does. Do not write as if a component wanted, asked for, or
   decided something
+- `npm run check` fails on an em dash in `app/`, `components/`, `lib/`, `tests/` and
+  `README.md`
 
 ## Commit messages
 
@@ -95,11 +97,24 @@ The problem this solves, in one or two sentences. Not a restatement of What.
   `Verified` beyond `npm run check`
 - No screenshots of text, no checklists of process steps, no AI attribution
   (see "Authorship" above)
+- Assign every pull request to Viacheslav Danilov (`--assignee ViacheslavDanilov`) and label
+  it by type, one label for each Conventional Commit type among its commits. `feat` is
+  `enhancement`, `fix` is `bug`, `docs` is `documentation`, and `refactor`, `perf`, `test`,
+  `ci`, `build` and `chore` carry their own names. `duplicate`, `invalid` and `wontfix` are
+  for a pull request closed without merging
 
 ## Git workflow
 
 - Never commit directly to `main`; branch, then open a pull request
-- Do not commit, push, or open a pull request unless explicitly asked to
+- Push feature branches, open pull requests and edit their title and body without asking
+- Merge a pull request into `main` yourself, with `gh pr merge --squash`, once all of these hold:
+  the acceptance criteria were confirmed by Viacheslav, CI is green on the current head, and an
+  independent review of every commit says it is ready to merge. An update from `main` that adds
+  nothing of its own needs no new review, and one that resolves a conflict or carries any other
+  edit does. With several pull requests, merge them in dependency order and update each from
+  `main` before it. Stop and ask when the change touches repository settings or secrets, or
+  when the review leaves a must-fix open. After a merge, switch to the updated `main` and delete
+  the local branch
 - Do not force-push a shared branch without asking first
 - The `pre-commit` hook runs `lint-staged` (Prettier); let it run — do not use
   `--no-verify` except when rewriting history, where the tree must stay byte-identical
@@ -127,10 +142,13 @@ and the ones left out on purpose, and `VENDORED.md` says where the copied ones c
 ```bash
 npm run dev        # dev server
 npm run build      # production build
-npm run check      # prettier --check .  (run before committing)
+npm run check      # prettier --check . and scripts/lint-content.mjs  (run before committing)
 npm run format     # prettier --write .
 npm run test:e2e   # Playwright end-to-end tests (PORT=3100 npm run test:e2e if 3000 is taken)
 ```
+
+CI runs `check`, `build` and `test:e2e` on every pull request, in `.github/workflows/ci.yaml`.
+If a step passes locally and fails there, suspect a difference in Node or browser version first.
 
 ## Code conventions
 
@@ -150,7 +168,8 @@ Files under `public/` use lower-case ASCII kebab-case: `cluster-number-compariso
 
 - No underscores, spaces, or upper case
 - ASCII only — no Cyrillic look-alikes (`с` U+0441 vs `c`), no en dashes (`–` U+2013)
-- Renaming an asset means updating every reference in `app/`; verify none are left behind
+- Renaming an asset means updating every reference in `app/`; verify none are left behind.
+  `npm run check` fails on a name that breaks these rules and on a reference to a missing file
 
 ## Experience summaries
 
