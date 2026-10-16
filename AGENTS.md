@@ -224,6 +224,12 @@ renders, but write them in the same order so the source reads like the page.
 - My own links in the footer and in About use the same order, without the website, since the reader
   is already on it
 
+## References order
+
+Cards on `/references` are sorted in code: by category (Research, Medicine, Industry, Pharma),
+then by name as written on the card. A new entry goes anywhere in `REFERENCES_DATA` and lands in
+its place. The filter tabs list the categories in the same order.
+
 ## Portfolio project pages
 
 Project pages live in `app/portfolio/<project-name>/page.jsx`. Each page keeps its own data

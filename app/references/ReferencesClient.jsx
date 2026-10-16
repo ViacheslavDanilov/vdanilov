@@ -341,12 +341,21 @@ const REFERENCES_DATA = [
   },
 ];
 
+const CATEGORY_ORDER = ["Research", "Medicine", "Industry", "Pharma"];
+
+// Category first, then name, wherever an entry sits in the data above
+const SORTED_REFERENCES = [...REFERENCES_DATA].sort(
+  (a, b) =>
+    CATEGORY_ORDER.indexOf(a.category) - CATEGORY_ORDER.indexOf(b.category) ||
+    a.name.localeCompare(b.name),
+);
+
 const FILTER_OPTIONS = [
   { id: "featured", label: "Featured", icon: faStar },
   { id: "all", label: "All", icon: "" /* faLayerGroup */ },
   { id: "Research", label: "Research", icon: "" /* faFlask */ },
-  { id: "Industry", label: "Industry", icon: "" /* faBriefcase */ },
   { id: "Medicine", label: "Medicine", icon: "" /* faHeartPulse */ },
+  { id: "Industry", label: "Industry", icon: "" /* faBriefcase */ },
   { id: "Pharma", label: "Pharma", icon: "" /* faCapsules */ },
 ];
 
@@ -368,7 +377,7 @@ export default function References() {
           </header>
 
           <FilteredGrid
-            items={REFERENCES_DATA}
+            items={SORTED_REFERENCES}
             options={FILTER_OPTIONS}
             label="Filter references"
             layoutId="references-filter"
