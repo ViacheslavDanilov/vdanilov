@@ -56,7 +56,8 @@ const TEAM_MEMBERS = [
       linkedin: "https://www.linkedin.com/in/viacheslav-danilov/",
       github: "https://github.com/ViacheslavDanilov",
       researchgate: "https://www.researchgate.net/profile/Viacheslav-Danilov-2",
-      google: "https://scholar.google.com/citations?user=SJidGZkAAAAJ&hl=en",
+      googleScholar:
+        "https://scholar.google.com/citations?user=SJidGZkAAAAJ&hl=en",
       email: "viacheslav.v.danilov@gmail.com",
     },
   },
@@ -67,7 +68,7 @@ const TEAM_MEMBERS = [
     location: "Tomsk · Russia 🇷🇺",
     photo: "/people/vladislav-laptev.webp",
     links: {
-      globe: "https://loop.frontiersin.org/people/2713564/overview",
+      website: "https://loop.frontiersin.org/people/2713564/overview",
       github: "https://github.com/vladislavml",
       orcid: "https://orcid.org/0000-0001-8639-8889",
       email: "lptwlad1@gmail.com",
@@ -80,10 +81,11 @@ const TEAM_MEMBERS = [
     location: "Kemerovo · Russia 🇷🇺",
     photo: "/people/kirill-klyshnikov.webp",
     links: {
-      globe: "https://loop.frontiersin.org/people/1380790/overview",
+      website: "https://loop.frontiersin.org/people/1380790/overview",
       linkedin: "https://www.linkedin.com/in/kirill-klyshnikov-83304b78/",
       researchgate: "https://www.researchgate.net/profile/Kirill-Klyshnikov",
-      google: "https://scholar.google.com/citations?user=K2r_PIQAAAAJ&hl=en",
+      googleScholar:
+        "https://scholar.google.com/citations?user=K2r_PIQAAAAJ&hl=en",
       email: "klyshnikovk@gmail.com",
     },
   },
@@ -94,10 +96,11 @@ const TEAM_MEMBERS = [
     location: "Kemerovo · Russia 🇷🇺",
     photo: "/people/evgeny-ovcharenko.webp",
     links: {
-      globe: "https://loop.frontiersin.org/people/355364/overview",
+      website: "https://loop.frontiersin.org/people/355364/overview",
       linkedin: "https://ru.linkedin.com/in/evgeny-ovcharenko-89098722",
       researchgate: "https://www.researchgate.net/profile/Evgeny-Ovcharenko",
-      google: "https://scholar.google.ru/citations?user=taoklzsAAAAJ&hl=en",
+      googleScholar:
+        "https://scholar.google.ru/citations?user=taoklzsAAAAJ&hl=en",
       email: "ov.eugene@gmail.com",
     },
   },
@@ -108,11 +111,11 @@ const TEAM_MEMBERS = [
     location: "Kemerovo · Russia 🇷🇺",
     photo: "/people/nikita-kochergin.webp",
     links: {
-      globe:
+      website:
         "https://kemcardio.ru/news/molodye-uchenye-nii-kpssz-vyigrali-tri-granta-rossijskogo-nauchnogo-fonda/",
-      orcid: "https://orcid.org/0000-0002-1534-264X",
       researchgate:
         "https://www.researchgate.net/scientific-contributions/Nikita-Kochergin-2072471213",
+      orcid: "https://orcid.org/0000-0002-1534-264X",
       email: "nikotwin@mail.ru",
     },
   },

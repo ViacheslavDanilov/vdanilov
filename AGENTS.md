@@ -172,6 +172,18 @@ The CV holds the same order in the chip slots on the `Experience / *` components
 means rewriting each slot's label and hyperlink in place, never moving the nodes: the row is auto
 layout and moving children has broken a separator before.
 
+## Person link order
+
+A person's links on a reference card and on a project team card render in one fixed order, set by
+`PERSON_LINKS` in `lib/person-links.js`: website, LinkedIn, GitHub, GitLab, Kaggle, ResearchGate,
+Google Scholar, ORCID, Facebook, email. The order of the keys in the data does not change what
+renders, but write them in the same order so the source reads like the page.
+
+- Keys are `website`, `linkedin`, `github`, `gitlab`, `kaggle`, `researchgate`, `googleScholar`,
+  `orcid`, `facebook` and `email`. An unknown key throws at render
+- `email` holds the bare address, not a `mailto:` link
+- A new kind of link is added to `PERSON_LINKS` at the place it should read, not to a single card
+
 ## Portfolio project pages
 
 Project pages live in `app/portfolio/<project-name>/page.jsx`. Each page keeps its own data

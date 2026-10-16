@@ -126,9 +126,9 @@ const REFERENCES_DATA = [
     socials: {
       website: "https://ieeexplore.ieee.org/author/37327193600",
       linkedin: "https://www.linkedin.com/in/maria-j-ledesma-carbayo-440aa8275",
-      orcid: "https://orcid.org/0000-0001-6846-3923",
       googleScholar:
         "https://scholar.google.es/citations?user=jCcBex0AAAAJ&hl=en",
+      orcid: "https://orcid.org/0000-0001-6846-3923",
       email: "mj.ledesma@upm.es",
     },
   },
@@ -271,8 +271,8 @@ const REFERENCES_DATA = [
     socials: {
       website: "https://quantori.com/about/yuriy-gankin",
       linkedin: "https://www.linkedin.com/in/yuriygankin/",
-      orcid: "https://orcid.org/0000-0003-0046-1037",
       googleScholar: "https://scholar.google.com/citations?user=0H_Ty8sAAAAJ",
+      orcid: "https://orcid.org/0000-0003-0046-1037",
       email: "yuriy.gankin@quantori.com",
     },
   },
@@ -286,8 +286,8 @@ const REFERENCES_DATA = [
     image: "/people/efim-furman.webp",
     featured: true,
     socials: {
-      facebook: "https://www.facebook.com/efim.furman",
       linkedin: "https://www.linkedin.com/in/fima-furman-74133a",
+      facebook: "https://www.facebook.com/efim.furman",
       email: "efimfurman@gmail.com",
     },
   },

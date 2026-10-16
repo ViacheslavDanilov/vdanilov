@@ -56,7 +56,8 @@ const TEAM_MEMBERS = [
       linkedin: "https://www.linkedin.com/in/viacheslav-danilov/",
       github: "https://github.com/ViacheslavDanilov",
       researchgate: "https://www.researchgate.net/profile/Viacheslav-Danilov-2",
-      google: "https://scholar.google.com/citations?user=SJidGZkAAAAJ&hl=en",
+      googleScholar:
+        "https://scholar.google.com/citations?user=SJidGZkAAAAJ&hl=en",
       email: "viacheslav.v.danilov@gmail.com",
     },
   },
@@ -67,7 +68,7 @@ const TEAM_MEMBERS = [
     location: "Tomsk · Russia 🇷🇺",
     photo: "/people/nikita-laptev.webp",
     links: {
-      globe: "https://ieeexplore.ieee.org/author/37086602301",
+      website: "https://ieeexplore.ieee.org/author/37086602301",
       researchgate:
         "https://www.researchgate.net/scientific-contributions/Nikita-V-Laptev-2169942870",
       email: "nikitalaptev77@gmail.com",
@@ -80,7 +81,7 @@ const TEAM_MEMBERS = [
     location: "Tomsk · Russia 🇷🇺",
     photo: "/people/vladislav-laptev.webp",
     links: {
-      globe: "https://loop.frontiersin.org/people/2713564/overview",
+      website: "https://loop.frontiersin.org/people/2713564/overview",
       github: "https://github.com/vladislavml",
       orcid: "https://orcid.org/0000-0001-8639-8889",
       email: "lptwlad1@gmail.com",
@@ -104,9 +105,9 @@ const TEAM_MEMBERS = [
     location: "Tomsk · Russia 🇷🇺",
     photo: "/people/jane-doe.webp",
     links: {
-      globe: "https://ieeexplore.ieee.org/author/37086166435",
-      orcid: "https://orcid.org/0000-0002-6242-9502",
+      website: "https://ieeexplore.ieee.org/author/37086166435",
       researchgate: "https://www.researchgate.net/profile/Olga-Gerget",
+      orcid: "https://orcid.org/0000-0002-6242-9502",
       email: "olgagerget@mail.ru",
     },
   },
@@ -117,7 +118,7 @@ const TEAM_MEMBERS = [
     location: "Tomsk · Russia 🇷🇺",
     photo: "/people/dmitriy-sonkin.webp",
     links: {
-      globe: "https://www.incom.tomsk.ru/",
+      website: "https://www.incom.tomsk.ru/",
       researchgate: "https://www.researchgate.net/profile/Dmitriy-Sonkin",
       email: "sonkin@tpu.ru",
     },

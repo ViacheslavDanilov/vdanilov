@@ -4,15 +4,6 @@ import React from "react";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faLinkedin,
-  faResearchgate,
-  faOrcid,
-  faGoogleScholar,
-  faFacebookSquare,
-} from "@fortawesome/free-brands-svg-icons";
-import {
-  faEnvelope,
-  faGlobe,
   faFlask,
   faBriefcase,
   faHeartPulse,
@@ -20,6 +11,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { GlowCard } from "@/components/ui/glow-card";
 import { Badge } from "@/components/ui/badge";
+import { orderedPersonLinks } from "@/lib/person-links";
 
 // Badge configuration for each category
 const CATEGORY_CONFIG = {
@@ -27,16 +19,6 @@ const CATEGORY_CONFIG = {
   Industry: { variant: "violet", icon: faBriefcase },
   Medicine: { variant: "teal", icon: faHeartPulse },
   Pharma: { variant: "sky", icon: faCapsules },
-};
-
-const SOCIAL_ICONS = {
-  website: { icon: faGlobe, label: "Website" },
-  linkedin: { icon: faLinkedin, label: "LinkedIn" },
-  researchgate: { icon: faResearchgate, label: "ResearchGate" },
-  googleScholar: { icon: faGoogleScholar, label: "Google Scholar" },
-  orcid: { icon: faOrcid, label: "ORCID" },
-  facebook: { icon: faFacebookSquare, label: "Facebook" },
-  email: { icon: faEnvelope, label: "Email" },
 };
 
 const ReferenceCard = ({ reference, priority = false }) => {
@@ -51,21 +33,7 @@ const ReferenceCard = ({ reference, priority = false }) => {
   } = reference;
   const config = CATEGORY_CONFIG[category] || CATEGORY_CONFIG.Research;
 
-  // Build array of social links to render
-  const socialLinks = [];
-  if (socials.website)
-    socialLinks.push({ type: "website", url: socials.website });
-  if (socials.linkedin)
-    socialLinks.push({ type: "linkedin", url: socials.linkedin });
-  if (socials.researchgate)
-    socialLinks.push({ type: "researchgate", url: socials.researchgate });
-  if (socials.googleScholar)
-    socialLinks.push({ type: "googleScholar", url: socials.googleScholar });
-  if (socials.orcid) socialLinks.push({ type: "orcid", url: socials.orcid });
-  if (socials.facebook)
-    socialLinks.push({ type: "facebook", url: socials.facebook });
-  if (socials.email)
-    socialLinks.push({ type: "email", url: `mailto:${socials.email}` });
+  const socialLinks = orderedPersonLinks(socials);
 
   return (
     <GlowCard className="group w-full h-full p-5 relative" spotlightSize={250}>
@@ -107,31 +75,26 @@ const ReferenceCard = ({ reference, priority = false }) => {
 
         {/* Social Links */}
         <div className="flex flex-wrap items-center justify-center gap-4 mt-auto pt-2">
-          {socialLinks.map((social) => {
-            const iconConfig = SOCIAL_ICONS[social.type];
-            return (
-              <a
-                key={social.type}
-                href={social.url}
-                target={social.type === "email" ? undefined : "_blank"}
-                rel={
-                  social.type === "email" ? undefined : "noopener noreferrer"
-                }
-                aria-label={`${name}'s ${iconConfig.label}`}
-                className="p-2 -m-2 text-gray-400 hover:text-light transition-all duration-300 transform hover:scale-110"
-              >
-                <FontAwesomeIcon
-                  icon={iconConfig.icon}
-                  className="w-5 h-5"
-                  style={{
-                    width: "1.25rem",
-                    height: "1.25rem",
-                    display: "block",
-                  }}
-                />
-              </a>
-            );
-          })}
+          {socialLinks.map(({ key, label, icon, href, external }) => (
+            <a
+              key={key}
+              href={href}
+              target={external ? "_blank" : undefined}
+              rel={external ? "noopener noreferrer" : undefined}
+              aria-label={`${name}'s ${label}`}
+              className="p-2 -m-2 text-gray-400 hover:text-light transition-all duration-300 transform hover:scale-110"
+            >
+              <FontAwesomeIcon
+                icon={icon}
+                className="w-5 h-5"
+                style={{
+                  width: "1.25rem",
+                  height: "1.25rem",
+                  display: "block",
+                }}
+              />
+            </a>
+          ))}
         </div>
       </div>
     </GlowCard>
