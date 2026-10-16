@@ -130,6 +130,9 @@ npm run format     # prettier --write .
 npm run test:e2e   # Playwright end-to-end tests (PORT=3100 npm run test:e2e if 3000 is taken)
 ```
 
+CI runs `check`, `build` and `test:e2e` on every pull request, in `.github/workflows/ci.yaml`.
+If a step passes locally and fails there, suspect a difference in Node or browser version first.
+
 ## Code conventions
 
 - Plain JavaScript with JSX — no TypeScript in application code (the Playwright tests
