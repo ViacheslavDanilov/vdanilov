@@ -118,8 +118,9 @@ request's head, not in the checkout you were started in.
 
 4. In the worktree of the owner's own PR, run `npm ci`. The checks need the packages even on a
    docs-only PR. **On a colleague's PR run nothing from the head** until the owner says it is
-   safe: `npm ci` and the build execute that PR's install scripts and code. Review the diff only,
-   and record step 8 as not run.
+   safe: `npm ci` and the build execute that PR's install scripts and code. Review the diff only.
+   Record step 8 and lens #6 as not run, since both start the app, and run lens #7 on the diff
+   text alone.
 5. Run everything after this from `$WT`. A subagent's shell starts in the checkout you were
    started in, so every delegated prompt names `$WT` by its absolute path, says to run git
    there with `git -C "$WT"`, and names the criteria source by its absolute path or inlines
@@ -204,10 +205,12 @@ gh pr view <n> --json title,body,assignees,labels
 
 Report as **must-fix**:
 
-- **Any AI attribution:** `Co-Authored-By: Claude`, `Generated with ...`, or a mention of
-  Claude, Copilot, Cursor, an LLM or "AI-generated" in a commit, the PR title or the body. The
-  harness injects these by default and `AGENTS.md` forbids them, so this is the single most
-  likely finding. Naming the file `CLAUDE.md` is not a hit: match the tool, not the filename.
+- **Any AI attribution:** a `Co-Authored-By` trailer naming an AI tool, a `Generated with ...`
+  footer, or a line crediting Claude, Copilot, Cursor or an LLM with writing the change, in a
+  commit, the PR title or the body. The harness injects these by default and `AGENTS.md`
+  forbids them, so this is the single most likely finding. A commit that only discusses a tool,
+  such as "Claude Code ships a built-in code-review", is not a hit, and neither is naming the
+  file `CLAUDE.md`: match the credit, not the word.
 - A commit subject over 72 characters, not imperative, capitalized after the colon, ending in a
   period, or outside the allowed types.
 - One commit bundling unrelated changes.
@@ -336,8 +339,11 @@ Only the owner's own pull requests, and only when the verdict is ready to merge.
 are in the "Git workflow" section of `AGENTS.md`: the acceptance criteria were confirmed, CI is
 green on the current head, and this review covers every commit. Check them in that order.
 
-1. Re-read the head SHA. If the fix loop pushed, wait for CI on the new head:
-   `gh pr checks <n> --watch`. A red check on the head is a must-fix, not a reason to merge.
+1. Re-read the head SHA, then wait for CI on it with `gh pr checks <n> --watch` and confirm
+   every check passed, whether or not the fix loop pushed. A pending check is not a green one,
+   and a red check on the head is a must-fix, not a reason to merge. The fix loop's own commits
+   count as reviewed when its last round came back clean on the final head. A must-fix still
+   open after the third round blocks the merge.
 2. If the PR depends on another open one, or another open PR depends on this one, merge in
    dependency order, and update the branch from `main` first with `gh pr update-branch <n>`. An
    update that adds nothing of its own needs no new review. One that resolves a conflict does.
