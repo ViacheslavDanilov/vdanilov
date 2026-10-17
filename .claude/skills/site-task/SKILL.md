@@ -50,6 +50,9 @@ When feature and bug both fit, take **bug**: reproduce first is stricter. Signal
 **investigate** even when the ask sounds like a change: no reproduction, "надо проверить", or a
 claim nobody checked against the code.
 
+A change to the CV alone is not a site task. It belongs to the cv repository, under its own
+`AGENTS.md`: say so, and do it there.
+
 ## 3. Pin down the requirements, checkpoint
 
 A request has no acceptance criteria. **You derive them and get them confirmed.**
