@@ -84,8 +84,8 @@ Traps that are specific to this site:
 
 - **One fact, several places.** A person appears on the references page and on project team
   cards, and their links must match. An experience entry shows on `/experience`, and its
-  `summary`, duty lines and link order, like a featured project's description, also print in
-  the CV in Figma, kept in the cv repository at `/Users/viacheslav/projects/personal/cv`. List
+  `summary`, duty lines and links, like a featured project's description and a referee's name
+  and title, also print in the CV in Figma, kept in the cv repository at `/Users/viacheslav/projects/personal/cv`. List
   each in the criteria; step 10 carries it there after the merge. Search for every place the
   fact lives before editing one.
 - **Affiliations.** A project team card names the role and organisation at the time of the
