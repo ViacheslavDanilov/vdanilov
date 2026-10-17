@@ -4,7 +4,7 @@ import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata({
   title: "Publications",
   description:
-    "Peer-reviewed research, conference proceedings, technical articles, and datasets by Viacheslav Danilov.",
+    "Selected from 48 peer-reviewed publications and 8 open datasets by Viacheslav Danilov: first author on 32, senior author on 4, 14 in Q1 journals.",
   path: "/publications/",
 });
 
