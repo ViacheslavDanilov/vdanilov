@@ -165,9 +165,10 @@ GitHub, such as a port already taken on this machine. It carries the limits in *
 in the conventions file, with the exception noted there for a review subagent.
 
 Read its verdict. `site-review` runs its own fix loop and merges when every condition in "Git
-workflow" in `AGENTS.md` holds. If it stops with a must-fix open, fix it here as the author,
-push, and start a new review subagent on the new head. If the second review still leaves a
-must-fix, stop and ask.
+workflow" in `AGENTS.md` holds. If it stops without merging, with a must-fix open or a
+question for the owner, stop and ask: pass on what it found and what it tried. Fix a must-fix
+here as the author only once the owner says so, then push and start a new review subagent on
+the new head.
 
 When the owner asks to review the pull request first, skip this step and end the hand-off with
 the next step: **new session, `/site-review <n>`.**
