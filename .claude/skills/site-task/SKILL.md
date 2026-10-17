@@ -50,6 +50,9 @@ When feature and bug both fit, take **bug**: reproduce first is stricter. Signal
 **investigate** even when the ask sounds like a change: no reproduction, "надо проверить", or a
 claim nobody checked against the code.
 
+A change to the CV alone is not a site task. It belongs to the cv repository, under its own
+`AGENTS.md`: say so, and do it there.
+
 ## 3. Pin down the requirements, checkpoint
 
 A request has no acceptance criteria. **You derive them and get them confirmed.**
@@ -84,8 +87,8 @@ Traps that are specific to this site:
 
 - **One fact, several places.** A person appears on the references page and on project team
   cards, and their links must match. An experience entry shows on `/experience`, and its
-  `summary`, duty lines and link order, like a featured project's description, also print in
-  the CV in Figma, kept in the cv repository at `/Users/viacheslav/projects/personal/cv`. List
+  `summary`, duty lines and links, like a featured project's description and a referee's name
+  and title, also print in the CV in Figma, kept in the cv repository at `/Users/viacheslav/projects/personal/cv`. List
   each in the criteria; step 10 carries it there after the merge. Search for every place the
   fact lives before editing one.
 - **Affiliations.** A project team card names the role and organisation at the time of the
@@ -122,7 +125,9 @@ Run the three commands of the **Pushing** section in the conventions file and re
 they printed. Never claim done without output.
 
 - Type checks and tests verify the code, not the feature. For any change that renders, start
-  the dev server and look at the page in a browser, at desktop width and at 320 px.
+  the dev server and look at the page in a browser, at desktop width and at 360 px, the
+  narrowest phones in common use. At 320 px the cards on `/experience` overflow by 16 to 37 px,
+  and the owner chose on 17 October 2026 not to fix that for phones no longer sold.
 - A refactor that must not change how anything looks is verified by comparing what renders
   before and after, with zero tolerance, not by a quick look.
 - The independent browser pass happens in `/site-review`. The PR's
