@@ -160,9 +160,10 @@ as a named follow-up. If CI is red on the pushed head, read the log and fix it b
 
 Start a general-purpose subagent that invokes `site-review` with the PR number. It sees the
 pull request and the diff, not this conversation, which is what a new session would give. The
-prompt names the PR, the criteria file from step 3, and anything the reviewer cannot find on
-GitHub, such as a port already taken on this machine. It carries the limits in **Delegating**
-in the conventions file, with the exception noted there for a review subagent.
+prompt names the PR, the criteria file from step 3 with a line saying the owner confirmed it,
+and anything the reviewer cannot find on GitHub, such as a port already taken on this machine.
+It carries the limits in **Delegating** in the conventions file, with the exception noted there
+for a review subagent.
 
 Read its verdict. `site-review` runs its own fix loop and merges when every condition in "Git
 workflow" in `AGENTS.md` holds. If it stops without merging, with a must-fix open or a
