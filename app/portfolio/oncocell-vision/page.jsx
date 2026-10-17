@@ -37,7 +37,7 @@ const HIGHLIGHTS_ITEMS = [
   {
     icon: faCogs,
     label: "Action",
-    text: "Used the EfficientDet architecture with BiFPN, applied advanced tiling strategies for high-resolution images, and trained on 1,664 annotated samples from internal and public datasets.",
+    text: "Used the EfficientDet architecture with BiFPN, applied advanced tiling strategies for high-resolution images, and trained on 1,004 of 1,664 annotated images from internal and public datasets.",
   },
   {
     icon: faChartLine,
