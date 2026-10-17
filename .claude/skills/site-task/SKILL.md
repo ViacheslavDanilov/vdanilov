@@ -44,7 +44,7 @@ State the route in one line for the user to override:
 | **feature**      | new behavior or layout someone can observe                                        | PR                               |
 | **bug**          | behavior that already worked is wrong                                             | failing test first, then PR      |
 | **investigate**  | a question, an unknown cause, or "does the site match what I said"                | a written finding, no code       |
-| **out of scope** | install software, write to a person, change the CV in Figma                       | name it, stop, draft the message |
+| **out of scope** | install software, write to a person                                               | name it, stop, draft the message |
 
 When feature and bug both fit, take **bug**: reproduce first is stricter. Signals for
 **investigate** even when the ask sounds like a change: no reproduction, "надо проверить", or a
@@ -84,8 +84,10 @@ Traps that are specific to this site:
 
 - **One fact, several places.** A person appears on the references page and on project team
   cards, and their links must match. An experience entry shows on `/experience`, and its
-  `summary` and link order are mirrored in the CV in Figma, which is outside the repo: name
-  that as follow-up work for the owner. Search for every place the fact lives before editing one.
+  `summary`, duty lines and link order, like a featured project's description, also print in
+  the CV in Figma, kept in the cv repository at `/Users/viacheslav/projects/personal/cv`. List
+  each in the criteria; step 10 carries it there after the merge. Search for every place the
+  fact lives before editing one.
 - **Affiliations.** A project team card names the role and organisation at the time of the
   project, and a reference card names the current one. A different title in the two is correct.
 - **A number or a name nobody checked** is about to become published copy: check it.
@@ -174,16 +176,25 @@ the new head.
 When the owner asks to review the pull request first, skip this step and end the hand-off with
 the next step: **new session, `/site-review <n>`.**
 
-## 10. Hand off
+## 10. Carry it into the CV
+
+When the merged change alters something the CV prints, carry it into Figma by "A Figma change
+is done when" and "When the site changes" in the cv repository's `AGENTS.md`: the edit, its
+record, the refreshed export and the push. That repository has its own commit format and git
+workflow; follow those there, not this repository's. Skip this step when the review did not
+merge. A `/site-review` run in a later session carries the CV itself after its merge.
+
+## 11. Hand off
 
 Reply in Russian: the route taken, the PR URL, branch and head SHA, how many files changed,
 what you verified, whether CI is green, the review's verdict and URL, whether it merged and
-the merge SHA, the follow-ups it left, and anything you could not do.
+the merge SHA, the follow-ups it left, what changed in the CV and its exports, and anything you
+could not do.
 
 ## Red flags, stop and ask
 
 - The acceptance criteria are yours to invent and the owner has not confirmed them.
 - The request contradicts the code, or something the owner said earlier.
 - A name, a title or a number is about to be published and nobody has checked it.
-- The change would touch the CV in Figma, secrets, or the repository's GitHub settings.
+- The change would touch secrets or the repository's GitHub settings.
 - The change breaks an `AGENTS.md` rule, and the owner has not said the rule should change.
