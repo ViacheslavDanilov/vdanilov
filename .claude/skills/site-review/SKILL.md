@@ -177,7 +177,8 @@ already covers em dashes, asset names and asset references, so do not repeat it.
 - **One fact, several places:** a person's links and a project's facts match everywhere they
   appear (`grep` for the name). An experience `summary` stays in the length band, and the link
   order is website, then a hosted document, then the owner's project. When the PR changes
-  something the CV prints, say so in the review. Step 13 makes sure it reaches the CV.
+  something the CV prints, as step 4 of `site-task` lists it, links and a referee's name and
+  title included, say so in the review. Step 13 makes sure it reaches the CV.
 
 Run lens #7 as `codex exec -s read-only` from the worktree. The prompt names the diff command,
 `git diff <baseline>...HEAD`, the high-risk files the diff touches, and what to look for
