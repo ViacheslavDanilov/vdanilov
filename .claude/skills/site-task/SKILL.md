@@ -182,7 +182,7 @@ When the merged change alters something the CV prints, carry it into Figma by "A
 is done when" and "When the site changes" in the cv repository's `AGENTS.md`: the edit, its
 record, the refreshed export and the push. That repository has its own commit format and git
 workflow; follow those there, not this repository's. Skip this step when the review did not
-merge.
+merge. A `/site-review` run in a later session carries the CV itself after its merge.
 
 ## 11. Hand off
 

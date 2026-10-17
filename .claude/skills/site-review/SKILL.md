@@ -177,7 +177,7 @@ already covers em dashes, asset names and asset references, so do not repeat it.
 - **One fact, several places:** a person's links and a project's facts match everywhere they
   appear (`grep` for the name). An experience `summary` stays in the length band, and the link
   order is website, then a hosted document, then the owner's project. When the PR changes
-  something the CV prints, say so, so the author carries it into the CV after the merge.
+  something the CV prints, say so in the review. Step 13 makes sure it reaches the CV.
 
 Run lens #7 as `codex exec -s read-only` from the worktree. The prompt names the diff command,
 `git diff <baseline>...HEAD`, the high-risk files the diff touches, and what to look for
@@ -360,6 +360,11 @@ branch. If it was not, and that checkout has the PR's branch open with a clean t
 loop pushed anything, bring it up to date with `git merge --ff-only origin/<branch>`; otherwise
 tell the owner it is behind.
 
+If you merged a PR that changes something the CV prints, at any depth, the CV follows it. When
+a `site-task` session started this review, name what to carry in the reply, and its step 10
+carries it. Otherwise carry it yourself, by step 10 of `site-task`, before you reply.
+
 Then reply in Russian: the verdict (ready to merge or not), the event submitted, the must-fix
 count, every fix committed and pushed, whether the notation gate passed, whether QA ran and what
-it printed, whether CI is green, and whether you merged, with the merge commit.
+it printed, whether CI is green, whether you merged, with the merge commit, and what changed in
+the CV or is left for `site-task` to carry.
