@@ -63,7 +63,7 @@ const PUBLICATIONS_DATA = [
   {
     id: "journal-4",
     title:
-      "ML-driven segmentation of microvascular features during histological examination of vascular grafts",
+      "ML-driven segmentation of microvascular features during histological examination of tissue-engineered vascular grafts",
     venue: "Frontiers in Bioengineering and Biotechnology",
     year: "2024",
     url: "https://doi.org/10.3389/fbioe.2024.1411680",
@@ -479,10 +479,9 @@ export default function Publications() {
             <h1 className="text-4xl md:text-5xl font-bold text-light mb-4">
               Publications
             </h1>
-            <p className="text-gray-400 mt-3 max-w-3xl mx-auto leading-relaxed">
-              Peer-reviewed research, conference proceedings, technical
-              articles, and open-access datasets spanning machine learning,
-              computer vision, data science, and applied AI
+            <p className="text-gray-400 mt-3 max-w-3xl mx-auto leading-relaxed text-balance">
+              Selected from 48 peer-reviewed publications and 8 open datasets:
+              first author on 32, senior author on 4, 14 in Q1 journals
             </p>
           </header>
 
