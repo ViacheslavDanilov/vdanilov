@@ -176,8 +176,8 @@ already covers em dashes, asset names and asset references, so do not repeat it.
   current one.
 - **One fact, several places:** a person's links and a project's facts match everywhere they
   appear (`grep` for the name). An experience `summary` stays in the length band, and the link
-  order is website, then a hosted document, then the owner's project. When the PR changes an
-  experience entry, say the CV in Figma needs the same edit.
+  order is website, then a hosted document, then the owner's project. When the PR changes
+  something the CV prints, say so, so the author carries it into the CV after the merge.
 
 Run lens #7 as `codex exec -s read-only` from the worktree. The prompt names the diff command,
 `git diff <baseline>...HEAD`, the high-risk files the diff touches, and what to look for
