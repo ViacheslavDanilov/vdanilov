@@ -162,7 +162,7 @@ const EXPERIENCES_DATA = [
       "Led 6 developers in ML and computer vision: tumor immune phenotyping for Boehringer Ingelheim, chromosomal instability for Volastra, and explainable chest radiography for Beth Israel",
     responsibilities: [
       "Led 6 developers across ML, data science and computer vision for pharma and hospital clients",
-      "Turned histopathology slides into tumor immune phenotypes for Boehringer Ingelheim at 89% F1, replacing a pathologist's manual read",
+      "Turned histopathology slides into tumor immune phenotypes for Boehringer Ingelheim with a cell classifier at 89% weighted F1, replacing a pathologist's manual read",
       "Built the microscopy readout Volastra Therapeutics used to track chromosomal instability and drug response: nuclei, micronuclei, mitosis and apoptosis at 85% and 66% mAP",
       "Delivered three chest X-ray models for Beth Israel Deaconess: 84% accuracy on COVID and pneumonia, severity at 0.30 MAE out of 6, and the lung regions behind each call",
       "Ran data collection and label review with practicing radiologists, pathologists and cardiologists, giving every model clinical-grade ground truth",

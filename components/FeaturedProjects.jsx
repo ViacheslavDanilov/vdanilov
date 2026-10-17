@@ -42,7 +42,7 @@ const PROJECTS = [
     client: "Boehringer Ingelheim",
     location: "Ingelheim · Germany 🇩🇪",
     description:
-      "A hybrid machine learning pipeline that classifies tumor immune phenotypes from whole-slide histopathology images using deep nucleus segmentation, feature engineering, and AutoML-based cell classification. Achieving an 89% weighted F1-score, it enables automated adenocarcinoma slide analysis, reducing manual workload and supporting more precise, personalized immunotherapy decisions.",
+      "A hybrid machine learning pipeline that classifies tumor immune phenotypes from whole-slide histopathology images using deep nucleus segmentation, feature engineering, and AutoML-based cell classification. With its cell classifier at an 89% weighted F1-score, it enables automated adenocarcinoma slide analysis, reducing manual workload and supporting more precise, personalized immunotherapy decisions.",
     stack: ["PyTorch", "HoVer-Net", "scikit-learn", "OpenSlide", "AutoML"],
     link: "/portfolio/immune-profiler",
     image: "/portfolio/previews/immune-profiler.jpg",

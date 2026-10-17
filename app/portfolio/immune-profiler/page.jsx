@@ -41,7 +41,7 @@ const HIGHLIGHTS_ITEMS = [
   {
     icon: faChartLine,
     label: "Result",
-    text: "Achieved 89% F1-score, reduced manual workload, and improved diagnostic precision.",
+    text: "Achieved 89% weighted F1-score in cell classification, reduced manual workload, and improved diagnostic precision.",
   },
 ];
 
