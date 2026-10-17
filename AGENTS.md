@@ -125,14 +125,16 @@ The problem this solves, in one or two sentences. Not a restatement of What.
 Two slash commands take a change from idea to merge. You answer questions and confirm the
 acceptance criteria. The agent does the rest, and merges under the rules in "Git workflow".
 
-| Command                      | When                                             | Ends with                                                                 |
-| ---------------------------- | ------------------------------------------------ | ------------------------------------------------------------------------- |
-| `/site-task <what you want>` | to start any piece of work                       | an open pull request, or a written finding when there is nothing to build |
-| `/site-review <PR number>`   | in a **new** session, once a pull request exists | one review on GitHub and a verdict: ready to merge, or what blocks it     |
+| Command                      | When                                               | Ends with                                                                                                                  |
+| ---------------------------- | -------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `/site-task <what you want>` | to start any piece of work                         | a pull request reviewed by `/site-review` and merged when it is ready, or a written finding when there is nothing to build |
+| `/site-review <PR number>`   | once a pull request exists, in a **fresh** context | one review on GitHub and a verdict: ready to merge, or what blocks it                                                      |
 
-`/site-review` runs in its own session on purpose. The session that wrote the code knows what
-it meant, so it reads its own diff generously. A fresh session sees only the diff and the pull
-request, the way a human reviewer would.
+`/site-review` runs in a fresh context on purpose. The session that wrote the code knows what
+it meant, so it reads its own diff generously. A reviewer that sees only the diff and the pull
+request reads it the way a human reviewer would. `/site-task` starts `/site-review` in a
+subagent once its pull request is open, and a new session does the same job for a pull request
+opened by hand or by someone else.
 
 The skills live in `.claude/skills/`. `shared/site-conventions.md` lists every skill they call
 and the ones left out on purpose, and `VENDORED.md` says where the copied ones came from.

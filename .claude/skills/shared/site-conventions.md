@@ -85,6 +85,9 @@ arrive:
 - never touch `CLAUDE.md` or `AGENTS.md`, and never add routing rules to either, unless the
   task is a change to them.
 
+A subagent that runs `site-review` is the exception to the first two: its fix loop commits and
+pushes on the owner's branch, and it merges under "Git workflow" in `AGENTS.md`.
+
 ## Which skill to reach for
 
 These two skills are rails and repo conventions. **The heavy lifting is delegated.** Do not
