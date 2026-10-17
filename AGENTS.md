@@ -125,10 +125,10 @@ The problem this solves, in one or two sentences. Not a restatement of What.
 Two slash commands take a change from idea to merge. You answer questions and confirm the
 acceptance criteria. The agent does the rest, and merges under the rules in "Git workflow".
 
-| Command                      | When                                               | Ends with                                                                                                                  |
-| ---------------------------- | -------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| `/site-task <what you want>` | to start any piece of work                         | a pull request reviewed by `/site-review` and merged when it is ready, or a written finding when there is nothing to build |
-| `/site-review <PR number>`   | once a pull request exists, in a **fresh** context | one review on GitHub and a verdict: ready to merge, or what blocks it                                                      |
+| Command                      | When                                               | Ends with                                                                                                                                                                      |
+| ---------------------------- | -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `/site-task <what you want>` | to start any piece of work                         | a pull request reviewed by `/site-review` and merged when it is ready, a written finding when there is nothing to build, or work in the cv repository when only the CV changes |
+| `/site-review <PR number>`   | once a pull request exists, in a **fresh** context | one review on GitHub and a verdict: ready to merge, or what blocks it                                                                                                          |
 
 `/site-review` runs in a fresh context on purpose. The session that wrote the code knows what
 it meant, so it reads its own diff generously. A reviewer that sees only the diff and the pull

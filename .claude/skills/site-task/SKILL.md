@@ -38,20 +38,18 @@ ambiguous, ask once. Never infer scope from a name. Check `git log` and the open
 
 State the route in one line for the user to override:
 
-| Route            | When                                                                              | Ends with                        |
-| ---------------- | --------------------------------------------------------------------------------- | -------------------------------- |
-| **content**      | copy, data or assets change: a reference, a project, an experience entry, a photo | PR                               |
-| **feature**      | new behavior or layout someone can observe                                        | PR                               |
-| **bug**          | behavior that already worked is wrong                                             | failing test first, then PR      |
-| **investigate**  | a question, an unknown cause, or "does the site match what I said"                | a written finding, no code       |
-| **out of scope** | install software, write to a person                                               | name it, stop, draft the message |
+| Route            | When                                                                              | Ends with                                                                                               |
+| ---------------- | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| **content**      | copy, data or assets change: a reference, a project, an experience entry, a photo | PR                                                                                                      |
+| **feature**      | new behavior or layout someone can observe                                        | PR                                                                                                      |
+| **bug**          | behavior that already worked is wrong                                             | failing test first, then PR                                                                             |
+| **investigate**  | a question, an unknown cause, or "does the site match what I said"                | a written finding, no code                                                                              |
+| **out of scope** | install software, write to a person                                               | name it, stop, draft the message                                                                        |
+| **cv only**      | a change to the CV alone, with nothing on the site                                | the work done in the cv repository, `/Users/viacheslav/projects/personal/cv`, under its own `AGENTS.md` |
 
 When feature and bug both fit, take **bug**: reproduce first is stricter. Signals for
 **investigate** even when the ask sounds like a change: no reproduction, "надо проверить", or a
 claim nobody checked against the code.
-
-A change to the CV alone is not a site task. It belongs to the cv repository, under its own
-`AGENTS.md`: say so, and do it there.
 
 ## 3. Pin down the requirements, checkpoint
 
