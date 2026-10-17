@@ -38,20 +38,18 @@ ambiguous, ask once. Never infer scope from a name. Check `git log` and the open
 
 State the route in one line for the user to override:
 
-| Route            | When                                                                              | Ends with                        |
-| ---------------- | --------------------------------------------------------------------------------- | -------------------------------- |
-| **content**      | copy, data or assets change: a reference, a project, an experience entry, a photo | PR                               |
-| **feature**      | new behavior or layout someone can observe                                        | PR                               |
-| **bug**          | behavior that already worked is wrong                                             | failing test first, then PR      |
-| **investigate**  | a question, an unknown cause, or "does the site match what I said"                | a written finding, no code       |
-| **out of scope** | install software, write to a person                                               | name it, stop, draft the message |
+| Route            | When                                                                              | Ends with                                                                                               |
+| ---------------- | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| **content**      | copy, data or assets change: a reference, a project, an experience entry, a photo | PR                                                                                                      |
+| **feature**      | new behavior or layout someone can observe                                        | PR                                                                                                      |
+| **bug**          | behavior that already worked is wrong                                             | failing test first, then PR                                                                             |
+| **investigate**  | a question, an unknown cause, or "does the site match what I said"                | a written finding, no code                                                                              |
+| **out of scope** | install software, write to a person                                               | name it, stop, draft the message                                                                        |
+| **cv only**      | a change to the CV alone, with nothing on the site                                | the work done in the cv repository, `/Users/viacheslav/projects/personal/cv`, under its own `AGENTS.md` |
 
 When feature and bug both fit, take **bug**: reproduce first is stricter. Signals for
 **investigate** even when the ask sounds like a change: no reproduction, "надо проверить", or a
 claim nobody checked against the code.
-
-A change to the CV alone is not a site task. It belongs to the cv repository, under its own
-`AGENTS.md`: say so, and do it there.
 
 ## 3. Pin down the requirements, checkpoint
 
@@ -88,9 +86,9 @@ Traps that are specific to this site:
 - **One fact, several places.** A person appears on the references page and on project team
   cards, and their links must match. An experience entry shows on `/experience`, and its
   `summary`, duty lines and links, like a featured project's description and a referee's name
-  and title, also print in the CV in Figma, kept in the cv repository at `/Users/viacheslav/projects/personal/cv`. List
-  each in the criteria; step 10 carries it there after the merge. Search for every place the
-  fact lives before editing one.
+  and title, also print in the CV in Figma, kept in the cv repository at
+  `/Users/viacheslav/projects/personal/cv`. List each in the criteria; step 10 carries it there
+  after the merge. Search for every place the fact lives before editing one.
 - **Affiliations.** A project team card names the role and organisation at the time of the
   project, and a reference card names the current one. A different title in the two is correct.
 - **A number or a name nobody checked** is about to become published copy: check it.
@@ -127,7 +125,7 @@ they printed. Never claim done without output.
 - Type checks and tests verify the code, not the feature. For any change that renders, start
   the dev server and look at the page in a browser, at desktop width and at 360 px, the
   narrowest phones in common use. At 320 px the cards on `/experience` overflow by 16 to 37 px,
-  and the owner chose on 17 October 2026 not to fix that for phones no longer sold.
+  and the owner chose on 17 October 2026 not to fix that for phones no longer in common use.
 - A refactor that must not change how anything looks is verified by comparing what renders
   before and after, with zero tolerance, not by a quick look.
 - The independent browser pass happens in `/site-review`. The PR's

@@ -4,8 +4,12 @@ const CATEGORIES = ["Research", "Medicine", "Industry", "Pharma"];
 
 // Names on the cards of one filter, once the grid shows exactly that filter's cards
 async function namesFor(page: Page, filter: string, label: string) {
-  await page.goto(`/references/?filter=${filter}`);
   const tab = page.getByRole("button", { name: new RegExp(`^${label} \\(`) });
+  if (new URL(page.url()).pathname === "/references/") {
+    await tab.click();
+  } else {
+    await page.goto(`/references/?filter=${filter}`);
+  }
   await expect(tab).toHaveAttribute("aria-pressed", "true");
   const count = Number((await tab.textContent())?.match(/\((\d+)\)/)?.[1]);
   const names = page.getByRole("listitem").locator("h3");

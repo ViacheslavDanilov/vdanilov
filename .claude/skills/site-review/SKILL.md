@@ -1,12 +1,12 @@
 ---
 name: site-review
 description: >-
-  Pre-merge review of any pull request, in its own session or a fresh subagent: depth triage, context from the PR
-  body, review lenses (repo rules and criteria, bugs, history, prior threads, content rules,
-  UI, and a second model on high-risk changes), a notation gate over commits and the PR body,
-  a QA pass, and a bounded fix loop on the owner's own branch. Publishes one submitted GitHub
-  review. Use when the user says "review PR #N", "проверь пулреквест", "ревью 12", or invokes
-  /site-review.
+  Pre-merge review of any pull request, in its own session or a fresh subagent: depth
+  triage, context from the PR body, review lenses (repo rules and criteria, bugs, history,
+  prior threads, content rules, UI, and a second model on high-risk changes), a notation gate
+  over commits and the PR body, a QA pass, and a bounded fix loop on the owner's own branch.
+  Publishes one submitted GitHub review. Use when the user says "review PR #N", "проверь
+  пулреквест", "ревью 12", or invokes /site-review.
 disable-model-invocation: false
 ---
 
@@ -175,8 +175,9 @@ already covers em dashes, asset names and asset references, so do not repeat it.
 - **Affiliations:** a team card names the role at the time of the project, a reference card the
   current one.
 - **One fact, several places:** a person's links and a project's facts match everywhere they
-  appear (`grep` for the name). An experience `summary` stays in the length band, and the link
-  order is website, then a hosted document, then the owner's project. When the PR changes
+  appear (`grep` for the name). An experience `summary` stays in the length band, and its links
+  follow "Experience link order" in `AGENTS.md`: someone else's live page first, a document
+  hosted here second, the owner's own project last. When the PR changes
   something the CV prints, as step 4 of `site-task` lists it, links and a referee's name and
   title included, say so in the review. Step 13 makes sure it reaches the CV.
 
