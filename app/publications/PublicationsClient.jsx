@@ -63,7 +63,7 @@ const PUBLICATIONS_DATA = [
   {
     id: "journal-4",
     title:
-      "ML-driven segmentation of microvascular features during histological examination of vascular grafts",
+      "ML-driven segmentation of microvascular features during histological examination of tissue-engineered vascular grafts",
     venue: "Frontiers in Bioengineering and Biotechnology",
     year: "2024",
     url: "https://doi.org/10.3389/fbioe.2024.1411680",
