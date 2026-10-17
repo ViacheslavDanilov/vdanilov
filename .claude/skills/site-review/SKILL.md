@@ -163,7 +163,7 @@ Apply to this pass's scope, not the whole PR history.
 | **#3 Git history**        | `git blame` and `git log` on scoped hunks: removed guards, reintroduced regressions                                                 | none                                                                                       |
 | **#4 Prior threads**      | earlier comments on scoped files; never repeat a resolved item                                                                      | none                                                                                       |
 | **#5 Content rules**      | what `npm run check` cannot decide: see below                                                                                       | none                                                                                       |
-| **#6 UI**                 | how the changed pages look and behave, at desktop width and at 320 px, accessibility                                                | `design-review`, `web-design-guidelines`                                                   |
+| **#6 UI**                 | how the changed pages look and behave, at desktop width and at 360 px, accessibility                                                | `design-review`, `web-design-guidelines`                                                   |
 | **#7 Second model**       | the same diff through a different model's eyes; its errors do not correlate with yours                                              | `codex exec`, read-only, **whenever the pass touches a high-risk path**                    |
 
 **Lens #5** reads the diff against the parts of `AGENTS.md` that need judgment. `npm run check`
@@ -240,7 +240,7 @@ Skip for docs-only, test-only or config-only diffs.
 step 9, per **Pushing** in the conventions file.
 
 What to run, from `$WT`: `npm run check`, `npm run build` and `npm run test:e2e` (on another
-port if 3000 is busy), then the pages the PR changed in a browser at desktop width and at 320
+port if 3000 is busy), then the pages the PR changed in a browser at desktop width and at 360
 px. If CI has already run on the head, read its result rather than assume it. If something
 could not be run, say so plainly instead of implying it passed.
 

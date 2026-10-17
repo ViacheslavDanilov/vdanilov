@@ -122,7 +122,9 @@ Run the three commands of the **Pushing** section in the conventions file and re
 they printed. Never claim done without output.
 
 - Type checks and tests verify the code, not the feature. For any change that renders, start
-  the dev server and look at the page in a browser, at desktop width and at 320 px.
+  the dev server and look at the page in a browser, at desktop width and at 360 px, the
+  narrowest phones in common use. At 320 px the cards on `/experience` overflow by 16 to 37 px,
+  and the owner chose on 17 October 2026 not to fix that for phones no longer sold.
 - A refactor that must not change how anything looks is verified by comparing what renders
   before and after, with zero tolerance, not by a quick look.
 - The independent browser pass happens in `/site-review`. The PR's
