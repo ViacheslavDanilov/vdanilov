@@ -58,6 +58,8 @@ for the push that opens a pull request and for the pushes at the end of `site-re
 loop. CI runs the same three, but a red run costs a round trip that a local run does not.
 If another `next dev` for this repo already runs, Playwright cannot start a second one: find
 its port with `lsof -nP -iTCP -sTCP:LISTEN`, and run `PORT=<port> npm run test:e2e` against it.
+Stop a dev server you started by its PID. A name pattern such as `pkill -f "next dev"` also
+stops servers that other projects run on this machine.
 
 **Delegated skills bring their own git habits, and none of them apply here.**
 
@@ -84,6 +86,9 @@ arrive:
 - never upgrade gstack or any other tool, whatever its preamble offers;
 - never touch `CLAUDE.md` or `AGENTS.md`, and never add routing rules to either, unless the
   task is a change to them.
+
+A subagent that runs `site-review` is the exception to the first two: its fix loop commits and
+pushes on the owner's branch, and it merges under "Git workflow" in `AGENTS.md`.
 
 ## Which skill to reach for
 

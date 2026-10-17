@@ -4,8 +4,9 @@ description: >-
   Take a task to an open pull request: a content change, a feature or a bug, described in
   chat. Triage the route, grill out acceptance criteria and get them confirmed, check the
   claims against the repo, implement on a branch, verify, self-review in a fresh context,
-  commit in the repo notation and open the PR. Review and QA run afterwards in /site-review,
-  in its own session. Routes that write no code are first-class endings.
+  commit in the repo notation and open the PR, then run /site-review on it in a fresh
+  subagent, which merges when the PR is ready. Routes that write no code are first-class
+  endings.
   Use when the user says "сделай задачу", "добавь на сайт", "исправь баг", names a change
   to the site, or invokes /site-task.
 disable-model-invocation: false
@@ -20,9 +21,10 @@ policy, the skill table and the authorship trap, and this skill does not repeat 
 **The checkpoint is mandatory.** A request arrives as a sentence in chat. A question costs a
 minute; a wrong assumption costs a rebuilt page, or a wrong name published under the owner's.
 
-**This session ends at the pull request.** Review and QA belong to
-`/site-review`, run in a fresh session. The session that wrote the code knows what it meant,
-so it is the worst-placed to see what it wrote.
+**This session writes up to the pull request, and a fresh context reviews it.** Review and
+QA belong to `/site-review`, which step 9 starts in a subagent. The session that wrote the
+code knows what it meant, so it is the worst-placed to see what it wrote. It never reviews
+or merges its own pull request.
 
 Make a todo list with one item per step you will run, then follow it in order.
 
@@ -152,14 +154,31 @@ asking: `gh pr create` with a title that is a short imperative phrase, no `type:
 65 characters, the `## What` / `## Why` / `## Verified` body from `AGENTS.md`, and the assignee
 and labels its **Pull requests** section asks for. `Verified` carries measured numbers only and
 names pre-existing failures as pre-existing. A judgment call left from step 7 goes in the body
-as a named follow-up. If CI is red on the pushed head, read the log and fix it before handing off.
+as a named follow-up. If CI is red on the pushed head, read the log and fix it before step 9.
 
-## 9. Hand off
+## 9. Independent review in a subagent
+
+Start a general-purpose subagent that invokes `site-review` with the PR number. It sees the
+pull request and the diff, not this conversation, which is what a new session would give. The
+prompt names the PR, the criteria file from step 3 with a line saying the owner confirmed it,
+and anything the reviewer cannot find on GitHub, such as a port already taken on this machine.
+It carries the limits in **Delegating** in the conventions file, with the exception noted there
+for a review subagent.
+
+Read its verdict. `site-review` runs its own fix loop and merges when every condition in "Git
+workflow" in `AGENTS.md` holds. If it stops without merging, with a must-fix open or a
+question for the owner, stop and ask: pass on what it found and what it tried. Fix a must-fix
+here as the author only once the owner says so, then push and start a new review subagent on
+the new head.
+
+When the owner asks to review the pull request first, skip this step and end the hand-off with
+the next step: **new session, `/site-review <n>`.**
+
+## 10. Hand off
 
 Reply in Russian: the route taken, the PR URL, branch and head SHA, how many files changed,
-what you verified, whether CI is green, and anything you could not do. When there is a PR, end
-with the next step: **new session, `/site-review <n>`.** Do not merge from this session: the
-independent review comes first, and the merge follows it.
+what you verified, whether CI is green, the review's verdict and URL, whether it merged and
+the merge SHA, the follow-ups it left, and anything you could not do.
 
 ## Red flags, stop and ask
 

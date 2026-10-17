@@ -1,7 +1,7 @@
 ---
 name: site-review
 description: >-
-  Pre-merge review of any pull request, in its own session: depth triage, context from the PR
+  Pre-merge review of any pull request, in its own session or a fresh subagent: depth triage, context from the PR
   body, review lenses (repo rules and criteria, bugs, history, prior threads, content rules,
   UI, and a second model on high-risk changes), a notation gate over commits and the PR body,
   a QA pass, and a bounded fix loop on the owner's own branch. Publishes one submitted GitHub
@@ -17,8 +17,8 @@ not a linter dump. **Read [`../shared/site-conventions.md`](../shared/site-conve
 first** for the language policy, the skill table and the authorship trap.
 
 **The unit of review is the pull request, not the task.** One opened by `/site-task`, by hand,
-or by a colleague gets the same review. Run it in a session that did not write the code: an
-author reads what they meant, a reviewer reads what is there.
+or by a colleague gets the same review. Run it in a session or a subagent that did not write
+the code: an author reads what they meant, a reviewer reads what is there.
 
 **Review in a worktree of your own, at the PR head.** Step 4 sets it up. The checkout the owner
 or another session works in never switches branch, and every lens sees exactly what GitHub
