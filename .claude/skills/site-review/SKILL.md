@@ -175,8 +175,9 @@ already covers em dashes, asset names and asset references, so do not repeat it.
 - **Affiliations:** a team card names the role at the time of the project, a reference card the
   current one.
 - **One fact, several places:** a person's links and a project's facts match everywhere they
-  appear (`grep` for the name). An experience `summary` stays in the length band, and the link
-  order is website, then a hosted document, then the owner's project. When the PR changes
+  appear (`grep` for the name). An experience `summary` stays in the length band, and its links
+  follow "Experience link order" in `AGENTS.md`: someone else's live page first, a document
+  hosted here second, the owner's own project last. When the PR changes
   something the CV prints, as step 4 of `site-task` lists it, links and a referee's name and
   title included, say so in the review. Step 13 makes sure it reaches the CV.
 
