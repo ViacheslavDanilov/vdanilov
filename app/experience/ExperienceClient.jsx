@@ -251,7 +251,7 @@ const EXPERIENCES_DATA = [
     summary:
       "Built ML on MRI and CT: de-identification running in Biospective's PACS, contrast classification and body part recognition for Bristol Myers Squibb, and medical text OCR",
     responsibilities: [
-      "Built the de-identification model Biospective runs in PACS: faces and ears gone from CT and MRI at 96% and 94% accuracy, keeping every intracranial voxel behind a 2 mm margin",
+      "Built the de-identification model Biospective runs in PACS: faces and ears gone from CT and MRI at 96% and 94% F1, keeping every intracranial voxel behind a 2 mm margin",
       "Added contrast classification and body part recognition on CT and MRI for Bristol Myers Squibb, sorting trial scans before anyone opened them",
       "Brought medical text recognition into the product, retraining CLOVA OCR and adding the CRAFT detector for text regions",
     ],

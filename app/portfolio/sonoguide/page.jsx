@@ -341,9 +341,9 @@ export default function ProjectPage() {
           {/* Results */}
           <Section title="Results">
             <p className="text-gray-300 leading-relaxed mb-4 text-justify">
-              The V-net architecture achieved high spatial precision in
-              localizing catheters despite strong speckle noise and anatomical
-              occlusion:
+              In the PhD thesis, the V-net architecture achieved high spatial
+              precision in localizing catheters despite strong speckle noise and
+              anatomical occlusion:
             </p>
 
             <ul className="space-y-2 text-gray-300 mb-4">
@@ -362,6 +362,12 @@ export default function ProjectPage() {
                 DSC on average
               </li>
             </ul>
+
+            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+              The journal article reports a separate result: its network reaches
+              92.6 ± 2.2% DSC when trained on real and semi-synthetic data,
+              against 86.5 ± 3.6% on real data alone.
+            </p>
 
             <p className="text-gray-300 leading-relaxed mb-6 text-justify">
               Segmentation accuracy on synthetic and real samples is shown in{" "}

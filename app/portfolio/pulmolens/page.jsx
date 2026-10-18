@@ -41,7 +41,7 @@ const HIGHLIGHTS_ITEMS = [
   {
     icon: faChartLine,
     label: "Result",
-    text: "Achieved 84% test accuracy (+11% over baseline) and outperformed larger custom models, while producing transparent, lung-focused visual diagnostics.",
+    text: "Achieved 84% test accuracy, up from 78% after transfer learning alone, and outperformed larger custom models, while producing transparent, lung-focused visual diagnostics.",
   },
 ];
 
@@ -435,9 +435,9 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Improvement:</strong>{" "}
-                  Grad-CAM integration led to +9% gain for VGG-16 from Stage I
-                  to III in COVID-19 detection
+                  <strong className="text-gray-200">Improvement:</strong> VGG-16
+                  validation accuracy rose by 9 points across the three stages,
+                  from 79% to 88%
                 </span>
               </li>
             </ul>
