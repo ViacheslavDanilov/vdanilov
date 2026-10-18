@@ -437,7 +437,7 @@ export default function ProjectPage() {
                 <span>
                   <strong className="text-gray-200">Improvement:</strong> VGG-16
                   validation accuracy rose by 9 points across the three stages,
-                  from 79% to 88%, 1 point of it from Grad-CAM in Stage III
+                  from 79% to 88%
                 </span>
               </li>
             </ul>
