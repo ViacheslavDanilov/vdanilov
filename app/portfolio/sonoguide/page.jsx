@@ -361,14 +361,13 @@ export default function ProjectPage() {
                 <strong className="text-gray-200">SegNet / FCN:</strong> &lt;25%
                 DSC on average
               </li>
-              <li>
-                <strong className="text-gray-200">
-                  Modified U-net, journal article:
-                </strong>{" "}
-                92.6 ± 2.2% DSC when trained on real and semi-synthetic data,
-                against 86.5 ± 3.6% on real data alone
-              </li>
             </ul>
+
+            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+              The journal article reports a separate result: its network reaches
+              92.6 ± 2.2% DSC when trained on real and semi-synthetic data,
+              against 86.5 ± 3.6% on real data alone.
+            </p>
 
             <p className="text-gray-300 leading-relaxed mb-6 text-justify">
               Segmentation accuracy on synthetic and real samples is shown in{" "}
