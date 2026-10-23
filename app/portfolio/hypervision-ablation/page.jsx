@@ -49,7 +49,7 @@ const HIGHLIGHTS_ITEMS = [
 const TEAM_MEMBERS = [
   {
     name: "Viacheslav Danilov",
-    role: "Research Scientist",
+    role: "Senior Research Scientist",
     organization: "Politecnico di Milano",
     location: "Milan · Italy 🇮🇹",
     photo: "/people/viacheslav-danilov.webp",

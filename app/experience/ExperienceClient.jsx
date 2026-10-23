@@ -118,8 +118,8 @@ const EXPERIENCES_DATA = [
       "Led an R&D group of 5 developers and researchers in AI, ML and agents, and acted as architect and lead engineer on the InsurTech systems it built for AmTrust, CNA, Lumos Insurance and GNP",
       "Shipped a multi-tenant compliance platform for construction insurance: 4 web apps, a FastAPI backend, and an OCR worker that grades coverage",
       "Built 6 InsurTech prototypes for claim intake, fraud scoring, pricing and forecasting; about half were taken into client work",
-      "Cut claim intake to about a minute per form in testing, from a carrier baseline of 107,000 claims a year keyed by 30 staff, using OCR and LLM mapping with confidence checks",
-      "Built explainability into every model with AutoGluon and SHAP, ranking the drivers behind each fraud score and premium",
+      "Cut claim intake to about a minute per form, from a carrier baseline of 107,000 claims a year keyed by 30 staff, using OCR and LLM mapping with confidence checks",
+      "Built explainability into the fraud and pricing models with AutoGluon and SHAP, ranking the drivers behind each fraud score and premium",
     ],
     links: [
       {
@@ -206,9 +206,9 @@ const EXPERIENCES_DATA = [
     location: "Milan • Italy 🇮🇹",
     logo: "/experience/core-roles/polimi.svg",
     summary:
-      "Built hyperspectral ML that finds tumor margins and grades laser ablation for the ERC project LASER OPTIMAL, and turned prosthetic heart valve design into an optimization search",
+      "Built hyperspectral ML that detects and segments laser ablation zones for the ERC project LASER OPTIMAL, and turned prosthetic heart valve design into an optimization search",
     responsibilities: [
-      "Built the hyperspectral pipeline that finds tumor margins and grades laser ablation on 100-band images, with Faster R-CNN at 74.4% mAP on PCA-transformed reflectance data",
+      "Built the hyperspectral pipeline that detects and segments laser ablation zones on 100-band images, with Faster R-CNN at 74.4% mAP on PCA-transformed reflectance data",
       "Ran the data collection in experimental surgery at the Institute for Image-Guided Surgery and Cardinale Panico Hospital, training the models on tissue imaged during the procedure",
       "Turned prosthetic heart valve design from hand iteration into an optimization search for the Kemerovo Cardiology Center, across 11,500+ FEM-evaluated geometries at 95% design efficacy",
     ],
