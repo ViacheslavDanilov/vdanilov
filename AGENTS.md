@@ -248,8 +248,8 @@ Adapted from [Andrej Karpathy's observations on LLM coding pitfalls](https://git
 
 1. **Think before coding.** State assumptions. When a request has several readings, name them
    instead of picking one. When something is unclear, stop and ask
-2. **Simplicity first.** The minimum code that solves the problem: no features, abstractions,
-   configurability or error handling that nobody asked for
+2. **Simplicity first.** The minimum code that solves the problem: no features or configurability
+   nobody asked for, no abstractions for single-use code, no error handling for impossible cases
 3. **Surgical changes.** Every changed line traces to the request. Match the existing style,
    mention unrelated dead code instead of deleting it, and remove only what your change made
    unused
