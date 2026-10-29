@@ -66,10 +66,8 @@ The problem this solves, in one or two sentences. Not a restatement of What.
 
 - Merging squashes, and GitHub appends `(#NN)` to the title, so the title becomes
   the commit subject in `main`. Keep it to about 65 characters so the result
-  still fits 72
-- This holds for a single-commit pull request too, because the repository's squash
-  setting is `PR_TITLE`. GitHub's default, `COMMIT_OR_PR_TITLE`, takes the commit
-  subject instead, which is how #47 landed as `chore: rewrite the about me bio`
+  still fits 72. This holds for a single-commit pull request too: the repository's
+  squash setting is `PR_TITLE`
 - `What` lists changes, not files. The diff already shows the files
 - `Why` explains the problem, not the solution
 - `Verified` records what was actually run and what it printed. Numbers are
@@ -123,22 +121,9 @@ tool adds one automatically, strip it with `git commit --amend` before pushing.
 
 ## Agent lifecycle
 
-Two slash commands take a change from idea to merge. You answer questions and confirm the
-acceptance criteria. The agent does the rest, and merges under the rules in "Git workflow".
-
-| Command                      | When                                               | Ends with                                                                                                                                                                      |
-| ---------------------------- | -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `/site-task <what you want>` | to start any piece of work                         | a pull request reviewed by `/site-review` and merged when it is ready, a written finding when there is nothing to build, or work in the cv repository when only the CV changes |
-| `/site-review <PR number>`   | once a pull request exists, in a **fresh** context | one review on GitHub and a verdict: ready to merge, or what blocks it                                                                                                          |
-
-`/site-review` runs in a fresh context on purpose. The session that wrote the code knows what
-it meant, so it reads its own diff generously. A reviewer that sees only the diff and the pull
-request reads it the way a human reviewer would. `/site-task` starts `/site-review` in a
-subagent once its pull request is open, and a new session does the same job for a pull request
-opened by hand or by someone else.
-
-The skills live in `.claude/skills/`. `shared/site-conventions.md` lists every skill they call
-and the ones left out on purpose, and `VENDORED.md` says where the copied ones came from.
+`/site-task <what you want>` takes a change from idea to merge, and `/site-review <PR number>`
+reviews a pull request in a fresh context. The skills live in `.claude/skills/`, and
+`shared/site-conventions.md` lists every skill they call.
 
 ## Commands
 
@@ -187,10 +172,8 @@ grid. Somewhere above 198 the CV's `Duty` node runs to a third line and the card
 band leaves room at both ends.
 
 **The count is a proxy; the real limit is rendered width**, so a string of wide characters
-breaks earlier than a narrow one. Four entries sit above the band today, 192 to 198 characters,
-and one sits below it at 159; all were left alone because both sides were measured and render
-correctly. Check the rendered node, not the character count, before deciding a long one is too
-long.
+breaks earlier than a narrow one. A few entries sit just outside the band and render correctly.
+Check the rendered node on the site and in the CV, not the character count, before changing one.
 
 The site and the CV hold the same string. Changing one means changing the other, and the
 `Duty` node lives on the `Experience / *` components, not on the instances.
@@ -261,51 +244,15 @@ divergence to reconcile.
 ## Working principles
 
 Adapted from [Andrej Karpathy's observations on LLM coding pitfalls](https://github.com/multica-ai/andrej-karpathy-skills)
-(MIT licensed). These bias toward caution over speed; for trivial tasks, use judgement.
+(MIT licensed). They bias toward caution over speed; for trivial tasks, use judgement.
 
-### 1. Think before coding
-
-**Don't assume. Don't hide confusion. Surface tradeoffs.**
-
-- State your assumptions explicitly. If uncertain, ask.
-- If multiple interpretations exist, present them, don't pick silently.
-- If a simpler approach exists, say so. Push back when warranted.
-- If something is unclear, stop. Name what's confusing. Ask.
-
-### 2. Simplicity first
-
-**Minimum code that solves the problem. Nothing speculative.**
-
-- No features beyond what was asked.
-- No abstractions for single-use code.
-- No "flexibility" or "configurability" that wasn't requested.
-- No error handling for impossible scenarios.
-- If you write 200 lines and it could be 50, rewrite it.
-
-Ask yourself: "Would a senior engineer say this is overcomplicated?" If yes, simplify.
-
-### 3. Surgical changes
-
-**Touch only what you must. Clean up only your own mess.**
-
-- Don't "improve" adjacent code, comments, or formatting.
-- Don't refactor things that aren't broken.
-- Match existing style, even if you'd do it differently.
-- If you notice unrelated dead code, mention it, don't delete it.
-- Remove imports and variables that _your_ changes made unused; leave pre-existing dead
-  code alone unless asked.
-
-The test: every changed line should trace directly to the request.
-
-### 4. Goal-driven execution
-
-**Define success criteria. Loop until verified.**
-
-Turn tasks into verifiable goals:
-
-- "Add validation" → "write tests for invalid inputs, then make them pass"
-- "Fix the bug" → "write a test that reproduces it, then make it pass"
-- "Rename the assets" → "no reference in `app/` points at a missing file"
-
-For multi-step work, state a brief plan with a verification step per item, then run it.
-Report what you actually verified, not what you expect to be true.
+1. **Think before coding.** State assumptions. When a request has several readings, name them
+   instead of picking one. When something is unclear, stop and ask
+2. **Simplicity first.** The minimum code that solves the problem: no features, abstractions,
+   configurability or error handling that nobody asked for
+3. **Surgical changes.** Every changed line traces to the request. Match the existing style,
+   mention unrelated dead code instead of deleting it, and remove only what your change made
+   unused
+4. **Goal-driven execution.** Turn the task into a check that can pass or fail ("fix the bug"
+   becomes "a test reproduces it, then passes"), and report what you verified, not what you
+   expect
