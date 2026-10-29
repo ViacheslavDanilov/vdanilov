@@ -19,8 +19,8 @@ Applies to commit messages, pull request text, and copy on the site.
 - Plain English: short sentences, ordinary words, active voice
 - Say what the code does. Do not write as if a component wanted, asked for, or
   decided something
-- `npm run check` fails on an em dash in `app/`, `components/`, `lib/`, `tests/` and
-  `README.md`
+- `npm run check` fails on an em dash in `app/`, `components/`, `lib/`, `tests/`, `.github/`
+  and `README.md`
 
 ## Commit messages
 
