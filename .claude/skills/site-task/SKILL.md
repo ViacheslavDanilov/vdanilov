@@ -124,8 +124,7 @@ they printed. Never claim done without output.
 
 - Type checks and tests verify the code, not the feature. For any change that renders, start
   the dev server and look at the page in a browser, at desktop width and at 360 px, the
-  narrowest phones in common use. At 320 px the cards on `/experience` overflow by 16 to 37 px,
-  and the owner chose on 17 October 2026 not to fix that for phones no longer in common use.
+  narrowest phones in common use. 320 px is out of scope by the owner's choice.
 - A refactor that must not change how anything looks is verified by comparing what renders
   before and after, with zero tolerance, not by a quick look.
 - The independent browser pass happens in `/site-review`. The PR's
@@ -155,11 +154,9 @@ can abort, and piping the command through `tail` or `&&` hides that.
 `git log origin/main..HEAD --oneline`: do the commits read as one coherent change?
 
 Run the checks from **Pushing** before any push. Then push and open the pull request without
-asking: `gh pr create` with a title that is a short imperative phrase, no `type:` prefix, about
-65 characters, the `## What` / `## Why` / `## Verified` body from `AGENTS.md`, and the assignee
-and labels its **Pull requests** section asks for. `Verified` carries measured numbers only and
-names pre-existing failures as pre-existing. A judgment call left from step 7 goes in the body
-as a named follow-up. If CI is red on the pushed head, read the log and fix it before step 9.
+asking: `gh pr create` with the title, body, assignee and labels that **Pull requests** in
+`AGENTS.md` asks for. A judgment call left from step 7 goes in the body as a named follow-up. If
+CI is red on the pushed head, read the log and fix it before step 9.
 
 ## 9. Independent review in a subagent
 

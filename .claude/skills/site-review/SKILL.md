@@ -69,19 +69,10 @@ branch was cut, reversed, as if this PR had undone it.
 
 **High-risk, never trivial, always at least delta:**
 
-- build, CI and agent configuration:
-  - `.github/workflows/`
-  - `package.json`
-  - `next.config.mjs`
-  - `playwright.config.ts`
-  - `scripts/`
-  - `AGENTS.md`
-  - `.claude/`
+- build, CI and agent configuration: `.github/workflows/`, `package.json`, `next.config.mjs`,
+  `playwright.config.ts`, `scripts/`, `AGENTS.md`, `.claude/`
 - the shared rendering of people and projects, where one edit changes many pages:
-  - `lib/person-links.js`
-  - `components/ReferenceCard.jsx`
-  - `components/project/`
-  - `app/layout.jsx`
+  `lib/person-links.js`, `components/ReferenceCard.jsx`, `components/project/`, `app/layout.jsx`
 - the regression tests: `tests/regressions.spec.ts`
 
 If a path above no longer exists, that is a finding: fix the list before going on.
@@ -176,10 +167,9 @@ already covers em dashes, asset names and asset references, so do not repeat it.
   current one.
 - **One fact, several places:** a person's links and a project's facts match everywhere they
   appear (`grep` for the name). An experience `summary` stays in the length band, and its links
-  follow "Experience link order" in `AGENTS.md`: someone else's live page first, a document
-  hosted here second, the owner's own project last. When the PR changes
-  something the CV prints, as step 4 of `site-task` lists it, links and a referee's name and
-  title included, say so in the review. Step 13 makes sure it reaches the CV.
+  follow "Experience link order" in `AGENTS.md`. When the PR changes something the CV prints, as
+  step 4 of `site-task` lists it, links and a referee's name and title included, say so in the
+  review. Step 13 makes sure it reaches the CV.
 
 Run lens #7 as `codex exec -s read-only` from the worktree. The prompt names the diff command,
 `git diff <baseline>...HEAD`, the high-risk files the diff touches, and what to look for
