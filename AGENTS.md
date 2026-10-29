@@ -4,7 +4,7 @@ Instructions for AI coding agents working in this repository. Claude Code, Codex
 Copilot all read this file directly. Do not add a `CLAUDE.md` or `CLAUDE.local.md`: Claude Code
 reads `AGENTS.md` only when neither exists.
 
-Personal portfolio site of Viacheslav Danilov — Next.js 16 (App Router), React 19,
+Personal portfolio site of Viacheslav Danilov: Next.js 16 (App Router), React 19,
 Tailwind CSS v4, plain JavaScript/JSX, deployed on Vercel.
 
 ## Prose
@@ -117,7 +117,7 @@ tool adds one automatically, strip it with `git commit --amend` before pushing.
   when the review leaves a must-fix open. After a merge, switch to the updated `main` and delete
   the local branch
 - Do not force-push a shared branch without asking first
-- The `pre-commit` hook runs `lint-staged` (Prettier); let it run — do not use
+- The `pre-commit` hook runs `lint-staged` (Prettier); let it run, and do not use
   `--no-verify` except when rewriting history, where the tree must stay byte-identical
 - Pull request title and body follow the notation in "Pull requests" above
 
@@ -155,7 +155,7 @@ If a step passes locally and fails there, suspect a difference in Node or browse
 
 ## Code conventions
 
-- Plain JavaScript with JSX — no TypeScript in application code (the Playwright tests
+- Plain JavaScript with JSX, no TypeScript in application code (the Playwright tests
   under `tests/` are TypeScript)
 - Import via the `@/*` alias from `jsconfig.json` (`@/components/Hero`, `@/lib/utils`)
 - Prettier with default settings is the only formatter; there is no ESLint config
@@ -170,7 +170,7 @@ If a step passes locally and fails there, suspect a difference in Node or browse
 Files under `public/` use lower-case ASCII kebab-case: `cluster-number-comparison.webp`.
 
 - No underscores, spaces, or upper case
-- ASCII only — no Cyrillic look-alikes (`с` U+0441 vs `c`), no en dashes (`–` U+2013)
+- ASCII only: no Cyrillic look-alikes (`с` U+0441 vs `c`), no en dashes (`–` U+2013)
 - Renaming an asset means updating every reference in `app/`; verify none are left behind.
   `npm run check` fails on a name that breaks these rules and on a reference to a missing file
 
@@ -242,7 +242,7 @@ and prose, and renders the shared header, highlights, team and section headings 
 An abbreviation's full expansion (the `Full Phrase (ABBR)` form) appears only **once per
 scope**; later mentions use the bare abbreviation. The `HIGHLIGHTS_ITEMS` summary and the
 main prose body are separate scopes, so each may expand an abbreviation once. This does
-not apply to non-abbreviation parentheticals — legend labels `(blue)`, cross-references
+not apply to non-abbreviation parentheticals: legend labels `(blue)`, cross-references
 `(Figure 1)`, value annotations `(MAE: 2.52)`, plain-word clarifications `(digital)`.
 
 ### Affiliations
@@ -261,14 +261,14 @@ divergence to reconcile.
 ## Working principles
 
 Adapted from [Andrej Karpathy's observations on LLM coding pitfalls](https://github.com/multica-ai/andrej-karpathy-skills)
-(MIT licensed). These bias toward caution over speed — for trivial tasks, use judgement.
+(MIT licensed). These bias toward caution over speed; for trivial tasks, use judgement.
 
 ### 1. Think before coding
 
 **Don't assume. Don't hide confusion. Surface tradeoffs.**
 
 - State your assumptions explicitly. If uncertain, ask.
-- If multiple interpretations exist, present them — don't pick silently.
+- If multiple interpretations exist, present them, don't pick silently.
 - If a simpler approach exists, say so. Push back when warranted.
 - If something is unclear, stop. Name what's confusing. Ask.
 
@@ -291,7 +291,7 @@ Ask yourself: "Would a senior engineer say this is overcomplicated?" If yes, sim
 - Don't "improve" adjacent code, comments, or formatting.
 - Don't refactor things that aren't broken.
 - Match existing style, even if you'd do it differently.
-- If you notice unrelated dead code, mention it — don't delete it.
+- If you notice unrelated dead code, mention it, don't delete it.
 - Remove imports and variables that _your_ changes made unused; leave pre-existing dead
   code alone unless asked.
 
