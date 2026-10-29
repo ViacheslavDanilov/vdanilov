@@ -1,7 +1,8 @@
 # AGENTS.md
 
-Instructions for AI coding agents working in this repository. `CLAUDE.md` is a symlink to
-this file, so Claude Code, Codex, Cursor and Copilot all read the same rules.
+Instructions for AI coding agents working in this repository. Claude Code, Codex, Cursor and
+Copilot all read this file directly. Do not add a `CLAUDE.md` or `CLAUDE.local.md`: Claude Code
+reads `AGENTS.md` only when neither exists.
 
 Personal portfolio site of Viacheslav Danilov — Next.js 16 (App Router), React 19,
 Tailwind CSS v4, plain JavaScript/JSX, deployed on Vercel.

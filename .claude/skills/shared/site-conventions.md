@@ -12,9 +12,8 @@ would only let the two drift apart.
 | The commands that verify a change                                                          | root `AGENTS.md`, section **Commands** |
 | How CI runs them                                                                           | `.github/workflows/ci.yaml`            |
 
-`CLAUDE.md` is a symlink to `AGENTS.md`. If this file and `AGENTS.md` disagree, **`AGENTS.md`
-wins and this file gets fixed.** Never restate a commit, pull request or prose rule here.
-Point at `AGENTS.md` instead.
+If this file and `AGENTS.md` disagree, **`AGENTS.md` wins and this file gets fixed.** Never
+restate a commit, pull request or prose rule here. Point at `AGENTS.md` instead.
 
 ## Language
 
@@ -84,8 +83,8 @@ arrive:
   `qa`'s;
 - never push;
 - never upgrade gstack or any other tool, whatever its preamble offers;
-- never touch `CLAUDE.md` or `AGENTS.md`, and never add routing rules to either, unless the
-  task is a change to them.
+- never touch `AGENTS.md`, never add routing rules to it, and never create a `CLAUDE.md`,
+  unless the task is a change to them.
 
 A subagent that runs `site-review` is the exception to the first two: its fix loop commits and
 pushes on the owner's branch, and it merges under "Git workflow" in `AGENTS.md`.
