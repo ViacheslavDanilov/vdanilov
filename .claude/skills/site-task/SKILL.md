@@ -16,7 +16,7 @@ disable-model-invocation: false
 
 One entry point for work on this site. **Read
 [`../shared/site-conventions.md`](../shared/site-conventions.md) first.** It fixes the language
-policy, the skill table and the authorship trap, and this skill does not repeat them.
+policy, the skill table and the push checks, and this skill does not repeat them.
 
 **The checkpoint is mandatory.** A request arrives as a sentence in chat. A question costs a
 minute; a wrong assumption costs a rebuilt page, or a wrong name published under the owner's.

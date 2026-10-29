@@ -14,7 +14,7 @@ disable-model-invocation: false
 
 Review a pull request the way a senior teammate would: direct, collegial, complete sentences,
 not a linter dump. **Read [`../shared/site-conventions.md`](../shared/site-conventions.md)
-first** for the language policy, the skill table and the authorship trap.
+first** for the language policy, the skill table and the push checks.
 
 **The unit of review is the pull request, not the task.** One opened by `/site-task`, by hand,
 or by a colleague gets the same review. Run it in a session or a subagent that did not write

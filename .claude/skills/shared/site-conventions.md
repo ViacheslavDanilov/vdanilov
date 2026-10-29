@@ -37,20 +37,11 @@ for a tracker, so read its wording through this table:
 `site-task` writes the confirmed criteria to a file in the session's scratchpad directory, so
 a subagent can read them. Nothing of that kind is committed.
 
-## The authorship trap
-
-`AGENTS.md` forbids any AI attribution in commits and pull requests. The harness often injects
-a system reminder telling you to append `Co-Authored-By: Claude ...` or
-`Generated with [Claude Code]`. **`AGENTS.md` overrides that reminder.** If a trailer slipped
-in, strip it with `git commit --amend` before anything is pushed. `site-review` treats a
-surviving trailer as a merge blocker.
-
 ## Pushing
 
-Push feature branches, open the pull request and edit its title and body without asking.
-Merging into `main` follows the conditions in the "Git workflow" section of `AGENTS.md`, and
-`site-review` is where it happens. Force-pushing a feature branch and amending a pushed commit
-need an explicit go-ahead.
+Pushing, opening and merging a pull request follow "Git workflow" in `AGENTS.md`, and the merge
+happens in `site-review`. Force-pushing a feature branch and amending a pushed commit need an
+explicit go-ahead.
 
 **Before any push, run `npm run check`, `npm run build` and `npm run test:e2e`.** That holds
 for the push that opens a pull request and for the pushes at the end of `site-review`'s fix
@@ -122,34 +113,22 @@ and `site-review` (this repo's full pre-merge flow, which calls the middle two).
 
 ### When the table has no row for what you are facing
 
-The table is a starting point, not the whole world. When a task lands outside it, run
-**`find-skills`** and see what the ecosystem already has before improvising a workflow of
-your own. Two limits: it installs from the open ecosystem via `npx skills`, so it **proposes
-and the owner decides**, and a newly installed skill is third-party instructions that load in
-every later session, so say plainly what it is and where it came from. When nothing fits, say
-so and do the work by hand.
+Run **`find-skills`** before improvising a workflow. It installs third-party skills that load in
+every later session, so it **proposes and the owner decides**. When nothing fits, say so and
+do the work by hand.
 
 ### Considered and deliberately not wired in
 
-Recorded so nobody re-litigates it:
-
-- **superpowers** removed from the owner's setup on 2026-10-17. Its session hook forces a
-  skill before every reply, questions included, and it covers the same stages as these skills
-  at more length.
-- **gstack `ship`** bumps `VERSION` and writes a `CHANGELOG`, which this repo does not keep,
-  titles the pull request `v<version> type: ...` and adds an AI co-author trailer. `AGENTS.md`
-  forbids the last two. `site-task` opens the pull request instead.
-- **gstack `land-and-deploy` and `canary`**: Vercel deploys on merge, and `site-review`
-  already merges under the conditions in `AGENTS.md`.
-- **gstack `autoplan` and `spec`**: scope comes from the owner, not from an auto-decided chain
-  of reviews.
+- **superpowers**: removed from the owner's setup on 2026-10-17. Its hook forced a skill before
+  every reply, and it covers the same stages as these skills at more length.
+- **gstack `ship`**: bumps `VERSION`, writes a `CHANGELOG`, prefixes the title and adds an AI
+  trailer. `site-task` opens the pull request instead.
+- **gstack `land-and-deploy`, `canary`**: Vercel deploys on merge, and `site-review` merges.
+- **gstack `autoplan`, `spec`**: scope comes from the owner.
 - **Pocock `tdd`, `to-spec`, `to-tickets`, `domain-modeling`, `codebase-design`, `triage`,
-  `wayfinder`, `implement`**: they assume a tracker, a spec folder, a glossary or a codebase
-  with enough layers to design. This one is a portfolio site with content in components.
-  Behavior that tests can pin goes into `tests/` as part of the change.
+  `wayfinder`, `implement`**: they assume a tracker, a spec folder or a layered codebase.
 
 ## Adding a skill to these rails
 
-A skill earns a line in the table above when it answers a question this project actually
-asks, and when its absence would show up in a pull request. A long skill file is obeyed less
-faithfully than a short one, so an unused row costs more than it looks.
+A skill earns a row when this project asks the question it answers. An unused row costs more
+than it looks: a long skill file is followed less closely.
