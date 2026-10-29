@@ -147,15 +147,15 @@ Write it before the lenses; never publish it. Scale to depth, omit empty section
 
 Apply to this pass's scope, not the whole PR history.
 
-| Lens                      | Focus                                                                                                                               | Delegate to                                                                                |
-| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| **#1 Rules and criteria** | `AGENTS.md` sections covering files in scope, the code-smell baseline, and whether the diff does what the PR says, no less, no more | `two-axis-review`, fixed point = the baseline, standards source `AGENTS.md`, spec = step 3 |
-| **#2 Bugs**               | real defects and regressions in scope, no nitpicks                                                                                  | built-in `/code-review` at a depth matching the pass                                       |
-| **#3 Git history**        | `git blame` and `git log` on scoped hunks: removed guards, reintroduced regressions                                                 | none                                                                                       |
-| **#4 Prior threads**      | earlier comments on scoped files; never repeat a resolved item                                                                      | none                                                                                       |
-| **#5 Content rules**      | what `npm run check` cannot decide: see below                                                                                       | none                                                                                       |
-| **#6 UI**                 | how the changed pages look and behave, at desktop width and at 360 px, accessibility                                                | `design-review`, `web-design-guidelines`                                                   |
-| **#7 Second model**       | the same diff through a different model's eyes; its errors do not correlate with yours                                              | `codex exec`, read-only, **whenever the pass touches a high-risk path**                    |
+| Lens                      | Focus                                                                                                                               | Delegate to                                                                                  |
+| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| **#1 Rules and criteria** | `AGENTS.md` sections covering files in scope, the code-smell baseline, and whether the diff does what the PR says, no less, no more | `two-axis-review`, fixed point = the baseline, standards source `AGENTS.md`, spec = step 3   |
+| **#2 Bugs**               | real defects and regressions in scope, no nitpicks                                                                                  | built-in `/code-review` at a depth matching the pass                                         |
+| **#3 Git history**        | `git blame` and `git log` on scoped hunks: removed guards, reintroduced regressions                                                 | none                                                                                         |
+| **#4 Prior threads**      | earlier comments on scoped files; never repeat a resolved item                                                                      | none                                                                                         |
+| **#5 Content rules**      | what `npm run check` cannot decide: see below                                                                                       | none                                                                                         |
+| **#6 UI**                 | how the changed pages look, move and behave, at desktop width and at 360 px, accessibility                                          | `impeccable critique`, `design-review`, `web-design-guidelines`, `review-animations` (below) |
+| **#7 Second model**       | the same diff through a different model's eyes; its errors do not correlate with yours                                              | `codex exec`, read-only, **whenever the pass touches a high-risk path**                      |
 
 **Lens #5** reads the diff against the parts of `AGENTS.md` that need judgment. `npm run check`
 already covers em dashes, asset names and asset references, so do not repeat it.
@@ -170,6 +170,11 @@ already covers em dashes, asset names and asset references, so do not repeat it.
   follow "Experience link order" in `AGENTS.md`. When the PR changes something the CV prints, as
   step 4 of `site-task` lists it, links and a referee's name and title included, say so in the
   review. Step 13 makes sure it reaches the CV.
+
+**Lens #6** runs `impeccable detect --json` on the changed UI files, then `impeccable critique`
+on the changed pages, within "Design skills" in the conventions file. When the diff touches
+motion (a `motion` import, a CSS `transition` or `animation`, a keyframe), it also reviews
+that motion against `review-animations`, read from its file as that section says.
 
 Run lens #7 as `codex exec -s read-only` from the worktree. The prompt names the diff command,
 `git diff <baseline>...HEAD`, the high-risk files the diff touches, and what to look for

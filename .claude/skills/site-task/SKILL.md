@@ -114,8 +114,9 @@ goes red on this bug, no fix. When the behavior can be pinned in `tests/`, write
 first for a feature too.
 
 Stay surgical. Every changed line traces to the task. Do not improve adjacent code and do not
-delete pre-existing dead code: mention it. For UI work, use `frontend-design`,
-`vercel:nextjs` and `vercel:react-best-practices`.
+delete pre-existing dead code: mention it. For UI work, use `impeccable`, `vercel:nextjs` and
+`vercel:react-best-practices`, and for motion, `animate`. "Design skills" in the conventions
+file sets their limits and the `detect` run that ends UI work.
 
 ## 6. Verify
 

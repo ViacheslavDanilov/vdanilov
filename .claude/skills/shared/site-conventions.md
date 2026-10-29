@@ -86,23 +86,27 @@ These two skills are rails and repo conventions. **The heavy lifting is delegate
 reimplement what an installed skill already does. `vendored` means a copy under
 `.claude/skills/`; `VENDORED.md` says where each came from and what was changed.
 
-| Need                                                                          | Skill                                                             | Source           |
-| ----------------------------------------------------------------------------- | ----------------------------------------------------------------- | ---------------- |
-| Push a feature's scope beyond what was asked                                  | `plan-ceo-review`, SELECTIVE EXPANSION mode                       | gstack           |
-| Pin down requirements before building                                         | `grilling`                                                        | vendored         |
-| Review a plan that changes structure: data shape, routing, build or CI config | `plan-eng-review`                                                 | gstack           |
-| Chase a bug or an unknown cause                                               | `diagnosing-bugs`                                                 | vendored         |
-| Check a diff against the repo rules and the criteria                          | `two-axis-review`                                                 | vendored         |
-| Find bugs in a diff                                                           | `/code-review`                                                    | built-in         |
-| A second opinion from a different model                                       | `codex`                                                           | gstack           |
-| Click through the pages                                                       | `qa` (own branch, fixes) / `qa-only` (report only)                | gstack           |
-| Judge how the pages look, and catch visual regressions                        | `design-review`                                                   | gstack           |
-| Check UI against web standards and accessibility                              | `web-design-guidelines`                                           | plugin           |
-| Prove a change did not cost load time                                         | `benchmark`                                                       | gstack           |
-| Auth, secrets, workflows or untrusted input touched                           | `security-review` (built-in), `cso` (gstack)                      | built-in, gstack |
-| Build a UI                                                                    | `frontend-design`, `vercel:nextjs`, `vercel:react-best-practices` | plugin           |
-| Polish site copy                                                              | `editor`, `no-ai-slop`                                            | global           |
-| Nothing above fits the task                                                   | `find-skills`, see below                                          | global           |
+| Need                                                                          | Skill                                                        | Source           |
+| ----------------------------------------------------------------------------- | ------------------------------------------------------------ | ---------------- |
+| Push a feature's scope beyond what was asked                                  | `plan-ceo-review`, SELECTIVE EXPANSION mode                  | gstack           |
+| Pin down requirements before building                                         | `grilling`                                                   | vendored         |
+| Review a plan that changes structure: data shape, routing, build or CI config | `plan-eng-review`                                            | gstack           |
+| Chase a bug or an unknown cause                                               | `diagnosing-bugs`                                            | vendored         |
+| Check a diff against the repo rules and the criteria                          | `two-axis-review`                                            | vendored         |
+| Find bugs in a diff                                                           | `/code-review`                                               | built-in         |
+| A second opinion from a different model                                       | `codex`                                                      | gstack           |
+| Click through the pages                                                       | `qa` (own branch, fixes) / `qa-only` (report only)           | gstack           |
+| Critique a page's design: hierarchy, layout, type, color                      | `impeccable` `critique`, `audit`                             | vendored         |
+| Catch visual regressions in the browser                                       | `design-review`                                              | gstack           |
+| Check UI against web standards and accessibility                              | `web-design-guidelines`                                      | plugin           |
+| Prove a change did not cost load time                                         | `benchmark`                                                  | gstack           |
+| Auth, secrets, workflows or untrusted input touched                           | `security-review` (built-in), `cso` (gstack)                 | built-in, gstack |
+| Build or refine a UI                                                          | `impeccable`, `vercel:nextjs`, `vercel:react-best-practices` | vendored, plugin |
+| Build or change an animation                                                  | `animate`                                                    | vendored         |
+| Review the motion in a diff                                                   | `review-animations`, see "Design skills" below               | vendored         |
+| Audit the motion across the whole site                                        | `improve-animations`                                         | vendored         |
+| Polish site copy                                                              | `editor`, `no-ai-slop`                                       | global           |
+| Nothing above fits the task                                                   | `find-skills`, see below                                     | global           |
 
 **If a listed skill is not installed, say so out loud and continue by hand.** Never skip the
 step silently, and never pretend a delegated pass ran.
@@ -110,6 +114,24 @@ step silently, and never pretend a delegated pass ran.
 **Do not confuse four similar names:** `review` (gstack, generic pre-landing review, not used
 here), `/code-review` (built-in, finds bugs), `two-axis-review` (vendored, rules and criteria)
 and `site-review` (this repo's full pre-merge flow, which calls the middle two).
+
+### Design skills
+
+`impeccable` owns how a page looks. The three Emil Kowalski skills own motion, so use `animate`
+rather than `impeccable animate`.
+
+- The repo has no `PRODUCT.md` or `DESIGN.md`. Impeccable's narrow commands (`critique`,
+  `audit`, `polish`, `quieter`, `typeset`, `layout`) treat the code as the design authority
+  and run without them. `init`, `document`, `shape` and any redesign write new files at the
+  repo root and widen scope, so they are tasks of their own, never a step inside another one.
+- Impeccable's "finish the job" never widens a task. The confirmed criteria set the scope, and
+  its own rule "refinement preserves" applies.
+- After a UI edit, run `.claude/skills/impeccable/scripts/impeccable detect --json <changed files>`
+  once. `app/` and `components/` scanned clean on 2026-10-29, so any finding is new.
+- `impeccable generate-image` bills the owner's OpenAI key, and `impeccable live` starts a
+  server. Run neither without the owner's go-ahead.
+- `review-animations` runs only when a user types it. To use it from a skill or a subagent,
+  read `.claude/skills/review-animations/SKILL.md` and its `STANDARDS.md` and follow them.
 
 ### When the table has no row for what you are facing
 
@@ -127,6 +149,14 @@ do the work by hand.
 - **gstack `autoplan`, `spec`**: scope comes from the owner.
 - **Pocock `tdd`, `to-spec`, `to-tickets`, `domain-modeling`, `codebase-design`, `triage`,
   `wayfinder`, `implement`**: they assume a tracker, a spec folder or a layered codebase.
+- **Impeccable design hook**: runs the engine after every edit and again on stop, outside model
+  approval. Most edits here are content, and the one `detect` run above covers UI edits.
+- **Emil Kowalski `emil-design-eng` and his other skills**: `emil-design-eng` gives general
+  design advice that Impeccable already covers. The rest target other platforms or tasks this
+  site does not have.
+- **`frontend-design`, `ui-ux-pro-max`, `framer-motion-animator`, Leon's taste-skill**: each is
+  another general design voice. Impeccable started from `frontend-design`, and several voices on
+  one page give conflicting advice.
 
 ## Adding a skill to these rails
 
