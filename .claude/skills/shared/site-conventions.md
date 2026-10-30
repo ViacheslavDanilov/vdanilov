@@ -130,6 +130,11 @@ rather than `impeccable animate`.
   once. `app/` and `components/` scanned clean on 2026-10-29, so any finding is new.
 - `impeccable generate-image` bills the owner's OpenAI key, and `impeccable live` starts a
   server. Run neither without the owner's go-ahead.
+- `impeccable critique` ends by asking the user what to fix, saves a snapshot under
+  `.impeccable/critique/`, and may start `impeccable live-server` for a browser overlay. Inside
+  `site-review`, which often runs in a subagent, skip all three: end the critique with
+  `Questions skipped: run inside site-review`, write no snapshot, and take plain screenshots
+  instead of the overlay. Its priority issues go into the review.
 - `review-animations` runs only when a user types it. To use it from a skill or a subagent,
   read `.claude/skills/review-animations/SKILL.md` and its `STANDARDS.md` and follow them.
 
