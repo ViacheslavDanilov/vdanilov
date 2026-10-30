@@ -210,9 +210,9 @@ out of scope.
   `impeccable hooks ignore-value`; `ignore-file` and `ignore-rule` need the owner's go-ahead. A
   worker without the hook, such as Codex, runs `impeccable detect --json <changed files>` once
   at the end of UI work. `app/` and `components/` scanned clean on 2026-10-29.
-- Impeccable's four agents, `impeccable-*` in `.claude/agents/`, inherit the session's model.
-  Their `medium` effort stays as upstream ships it, an exception to the two levels in **Model
-  routing**.
+- Impeccable's four agents, `impeccable-*` in `.claude/agents/`, inherit the session's model and
+  keep the effort upstream ships. `impeccable-finish-reviewer` runs at `high`. The other three
+  run at `medium`, an exception to the two levels in **Model routing**.
 - `impeccable generate-image` bills the owner's OpenAI key, so it needs the owner's go-ahead.
 - `impeccable live` and its helper server may run without asking. The helper listens on port 8400. When a dev server has to be started for it, use a port other than 3000, which the owner
   keeps for their own `npm run dev`.
