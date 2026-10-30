@@ -34,8 +34,8 @@ for a tracker, so read its wording through this table:
 | publish a spec                | none: the confirmed criteria are the spec                                                                              |
 | the ticket tracker            | none                                                                                                                   |
 
-`site-task` writes the confirmed criteria to a file in the session's scratchpad directory, so
-a subagent can read them. Nothing of that kind is committed.
+`site-task` writes the confirmed criteria into `BRIEF.md` at the root of the working tree, so a
+worker or a later session can read them. See **Brief and status** below. It is never committed.
 
 ## Pushing
 
@@ -79,6 +79,64 @@ arrive:
 
 A subagent that runs `site-review` is the exception to the first two: its fix loop commits and
 pushes on the owner's branch, and it merges under "Git workflow" in `AGENTS.md`.
+
+## Model routing
+
+The session that runs `site-task` is the orchestrator. `.claude/settings.json` starts it on
+Sonnet at `high` effort. It talks to the owner, writes the brief, makes small edits itself,
+commits and merges. Other work goes to the worker in this table. **Pick the row by what the work
+is, never by a guess at how hard it is.**
+
+| Work                                                                                      | Worker                                 | Model, effort      |
+| ----------------------------------------------------------------------------------------- | -------------------------------------- | ------------------ |
+| Dialog, criteria, brief, small edits, commits, merge                                      | the session                            | Sonnet, high       |
+| A plan for a structural change: data shape, routing, build or CI config, design tokens    | `site-planner` agent                   | Opus, xhigh        |
+| Visual and copy work: layout, components, site copy, project pages; `impeccable critique` | `site-crafter` agent                   | Sonnet, xhigh      |
+| Code with no taste in it: tests, data, scripts, accessibility, performance, an exact plan | Codex, `workspace-write`               | gpt-6.1-sol, xhigh |
+| `site-review`, first pass or delta                                                        | `site-reviewer` agent                  | Opus, high         |
+| `site-review` when the PR touches a high-risk path from its step 2                        | `site-reviewer` agent, `effort: xhigh` | Opus, xhigh        |
+| `site-review` trivial or comment-only pass                                                | general-purpose agent, `model: sonnet` | Sonnet, high       |
+| The review's fix loop and `qa`                                                            | general-purpose agent, `model: sonnet` | Sonnet, high       |
+| Review lenses #2 (bugs) and #7 (second opinion)                                           | Codex, `read-only`                     | gpt-6.1-sol, xhigh |
+| Technical and motion audits                                                               | Codex, `read-only`                     | gpt-6.1-sol, xhigh |
+| Run `check`, `build`, `test:e2e`; search; count; summarise long output                    | `site-runner` agent                    | Haiku, high        |
+
+This table is the instruction that sets the Agent tool's `model` and `effort` parameters.
+
+- **A small edit stays in the session.** Handing off a one-line change costs more than making
+  it, so a brief is for work that is larger, needs another model, or may outlive the session.
+- **Codex never decides how something looks or reads.** It gets work with a check that passes
+  or fails. Visual and copy work stays with Claude.
+- **Codex does not commit.** The session reads its diff, runs the checks and commits per
+  `AGENTS.md`.
+- **When Codex is missing or fails**, say so and move the work to Claude: code to the session,
+  lens #2 to `/code-review`, and record lens #7 as not run.
+- The owner can override any row: `/model opus` in a session, or a word in chat.
+
+Run Codex from the working tree, with the report written to a file:
+
+```bash
+codex exec -m gpt-6.1-sol -c model_reasoning_effort=xhigh -s read-only -C <worktree> \
+  -o <report.md> "<prompt>"
+```
+
+Use `-s workspace-write` instead of `read-only` when Codex implements. The prompt carries the
+limits in **Delegating** and points at `BRIEF.md`.
+
+### Brief and status
+
+When work goes to a worker, or may outlive the session through a quota limit or a hand-off to
+another account, the orchestrator writes `BRIEF.md` at the root of the working tree, and the
+worker keeps `STATUS.md` beside it. Both are gitignored and never committed.
+
+- **`BRIEF.md`**, written once: the goal; the acceptance criteria the owner confirmed, word for
+  word; what is out of scope; the `AGENTS.md` sections that apply; the files to start from; how
+  to verify, with commands and expected output; the limits in **Delegating**.
+- **`STATUS.md`**, updated after every step: done, with commit shas; in progress; the next
+  step; check results with numbers; blockers and questions for the owner.
+
+Any worker, or a new session on another account, reads both before anything else. A worker
+never edits `BRIEF.md`: a change of scope goes back to the owner, who confirms a new brief.
 
 ## Which skill to reach for
 
