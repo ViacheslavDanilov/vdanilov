@@ -194,8 +194,8 @@ site feel like a website on a phone.
 
 Every design skill keeps two decisions the owner made: body text stays justified, and links
 are underlined only on hover. Where an Emil skill names a skill this repo leaves out, read
-`emil-design-eng` as `impeccable critique`, and treat `pick-ui-library` and `animate-expo` as
-out of scope.
+`emil-design-eng` as `impeccable critique` and `find-animation-opportunities` as
+`improve-animations`, and treat `pick-ui-library` and `animate-expo` as out of scope.
 
 - `PRODUCT.md` at the repo root records who the site is for and what it must keep true. The
   repo has no `DESIGN.md`, so Impeccable's narrow commands (`critique`, `audit`, `polish`,
