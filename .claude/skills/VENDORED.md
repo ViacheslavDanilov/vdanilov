@@ -12,6 +12,9 @@ upstream copy can be diffed against them.
 | `animate/`            | [emilkowalski/skills](https://github.com/emilkowalski/skills) `skills/animate/`                 | `a81dbca` (2026-10-28)              |
 | `review-animations/`  | [emilkowalski/skills](https://github.com/emilkowalski/skills) `skills/review-animations/`       | `a81dbca` (2026-10-28)              |
 | `improve-animations/` | [emilkowalski/skills](https://github.com/emilkowalski/skills) `skills/improve-animations/`      | `a81dbca` (2026-10-28)              |
+| `prototype/`          | [emilkowalski/skills](https://github.com/emilkowalski/skills) `skills/prototype/`               | `a81dbca` (2026-10-28)              |
+| `break-ui/`           | [emilkowalski/skills](https://github.com/emilkowalski/skills) `skills/break-ui/`                | `a81dbca` (2026-10-28)              |
+| `mobile-native/`      | [emilkowalski/skills](https://github.com/emilkowalski/skills) `skills/mobile-native/`           | `a81dbca` (2026-10-28)              |
 
 The three Pocock skills are also vendored in `video-bokeh`.
 

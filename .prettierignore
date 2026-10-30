@@ -10,3 +10,6 @@ out/
 .claude/skills/animate/
 .claude/skills/review-animations/
 .claude/skills/improve-animations/
+.claude/skills/prototype/
+.claude/skills/break-ui/
+.claude/skills/mobile-native/

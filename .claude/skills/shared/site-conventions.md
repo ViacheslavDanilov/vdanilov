@@ -169,6 +169,9 @@ reimplement what an installed skill already does. `vendored` means a copy under
 | Build or change an animation                                                  | `animate`                                                    | vendored         |
 | Review the motion in a diff                                                   | `review-animations`, see "Design skills" below               | vendored         |
 | Audit the motion across the whole site                                        | `improve-animations`                                         | vendored         |
+| Explore several new directions for a piece of UI                              | `prototype`, see "Design skills" below                       | vendored         |
+| Stress a component with worst-case data                                       | `break-ui`                                                   | vendored         |
+| Make the site feel native on a phone                                          | `mobile-native`                                              | vendored         |
 | Polish site copy                                                              | `editor`, `no-ai-slop`                                       | global           |
 | Nothing above fits the task                                                   | `find-skills`, see below                                     | global           |
 
@@ -182,8 +185,9 @@ and `site-review` (this repo's full pre-merge flow, which calls `two-axis-review
 
 ### Design skills
 
-`impeccable` owns how a page looks. The three Emil Kowalski skills own motion, so use `animate`
-rather than `impeccable animate`.
+`impeccable` owns how a page looks. The Emil Kowalski skills own motion, so use `animate`
+rather than `impeccable animate`, and three of them cover narrower jobs: `prototype`,
+`break-ui` and `mobile-native`.
 
 - `PRODUCT.md` at the repo root records who the site is for and what it must keep true. The
   repo has no `DESIGN.md`, so Impeccable's narrow commands (`critique`, `audit`, `polish`,
@@ -200,6 +204,13 @@ rather than `impeccable animate`.
 - `impeccable critique` ends by asking the user what to fix. In a subagent nobody can answer,
   so it lists the questions in its report and does not wait. Its snapshots under
   `.impeccable/critique/` are ignored by git.
+- To change an element that is already on a page, use `impeccable live`. To design a new piece
+  of UI in several directions, use `prototype`, which runs only when a user types it. Delete its
+  picker and harness before the pull request.
+- `break-ui` adds a worst-case toggle and fixtures. Keep them out of the pull request: commit
+  only the fixes the owner chose.
+- `mobile-native` gives way to the owner's decisions: justified text and links underlined only
+  on hover stay.
 - `review-animations` runs only when a user types it. To use it from a skill or a subagent,
   read `.claude/skills/review-animations/SKILL.md` and its `STANDARDS.md` and follow them.
 
@@ -221,9 +232,11 @@ do the work by hand.
   `wayfinder`, `implement`**: they assume a tracker, a spec folder or a layered codebase.
 - **Impeccable design hook**: runs the engine after every edit and again on stop, outside model
   approval. Most edits here are content, and the one `detect` run above covers UI edits.
-- **Emil Kowalski `emil-design-eng` and his other skills**: `emil-design-eng` gives general
-  design advice that Impeccable already covers. The rest target other platforms or tasks this
-  site does not have.
+- **Emil Kowalski `emil-design-eng`, `apple-design`, `find-animation-opportunities`,
+  `remove-animations`, `animation-vocabulary` and the rest**: `emil-design-eng` and
+  `apple-design` give general design advice that Impeccable already covers;
+  `improve-animations` already finds and removes motion; the rest name effects for people or
+  target other platforms and libraries.
 - **`frontend-design`, `ui-ux-pro-max`, `framer-motion-animator`, Leon's taste-skill**: each is
   another general design voice. Impeccable started from `frontend-design`, and several voices on
   one page give conflicting advice.
