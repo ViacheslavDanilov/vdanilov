@@ -205,7 +205,8 @@ are underlined only on hover. Where an Emil skill names a skill this repo leaves
 - `PRODUCT.md` at the repo root records who the site is for and what it must keep true.
   `DESIGN.md` and its sidecar `.impeccable/design.json` record the design system as the code
   ships it. Impeccable's narrow commands (`critique`, `audit`, `polish`, `quieter`, `typeset`,
-  `layout`) read both, and where `DESIGN.md` and the rendered site disagree the code wins and the
+  `layout`) read `DESIGN.md` through `impeccable context`, and the detector and `impeccable live`
+  also read the sidecar. Where `DESIGN.md` and the rendered site disagree, the code wins and the
   file is corrected. `document`, `shape` and any redesign write files or replace the look, so
   they are tasks of their own, never a step inside another one. A change to `PRODUCT.md` needs
   the owner's approval.
