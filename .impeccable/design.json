@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-30T19:54:11Z",
+  "generatedAt": "2026-10-30T20:13:38Z",
   "title": "Design System: Viacheslav Danilov Portfolio",
   "extensions": {
     "colorMeta": {
@@ -108,10 +108,13 @@
         "displayName": "Title",
         "purpose": "Project page section headings with the accent bar."
       },
-      "body": { "displayName": "Body", "purpose": "Card and prose text." },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Card and prose text."
+      },
       "label": {
         "displayName": "Label",
-        "purpose": "Uppercase card titles, company names, footer heads."
+        "purpose": "Footer column heads."
       }
     },
     "shadows": [
@@ -122,8 +125,8 @@
       },
       {
         "name": "glass-button",
-        "value": "0 0 8px rgba(0,0,0,0.03), 0 2px 6px rgba(0,0,0,0.08), inset 1px 1px 1px -0.5px rgba(255,255,255,0.6), inset -1px -1px 1px -0.5px rgba(255,255,255,0.6), inset 0 0 6px 6px rgba(255,255,255,0.12), inset 0 0 2px 2px rgba(255,255,255,0.06), 0 0 12px rgba(0,0,0,0.15)",
-        "purpose": "Glass highlight on pill buttons (abridged from the source stack)."
+        "value": "0 0 8px rgba(0,0,0,0.03), 0 2px 6px rgba(0,0,0,0.08), inset 3px 3px 0.5px -3.5px rgba(255,255,255,0.09), inset -3px -3px 0.5px -3.5px rgba(255,255,255,0.85), inset 1px 1px 1px -0.5px rgba(255,255,255,0.6), inset -1px -1px 1px -0.5px rgba(255,255,255,0.6), inset 0 0 6px 6px rgba(255,255,255,0.12), inset 0 0 2px 2px rgba(255,255,255,0.06), 0 0 12px rgba(0,0,0,0.15)",
+        "purpose": "Glass highlight on pill buttons."
       }
     ],
     "motion": [
@@ -135,7 +138,7 @@
       {
         "name": "state-fade",
         "value": "300ms",
-        "purpose": "Hover colour and scale on links, tiles and buttons."
+        "purpose": "Hover colour and scale on nav links, logo tiles and glass buttons."
       },
       {
         "name": "tab-spring",
@@ -144,8 +147,22 @@
       }
     ],
     "breakpoints": [
-      { "name": "md", "value": "768px" },
-      { "name": "lg", "value": "1024px" }
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "xl",
+        "value": "1280px"
+      }
     ]
   },
   "components": [
@@ -155,15 +172,15 @@
       "refersTo": "button-glass",
       "description": "Pill button for the main calls to action.",
       "html": "<a class=\"ds-btn\" href=\"#\">Download CV</a>",
-      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;height:56px;padding:0 40px;border-radius:9999px;border:1px solid rgba(255,255,255,0.1);background:transparent;backdrop-filter:blur(12px);color:#f5f5f5;font-size:14px;font-weight:500;text-decoration:none;box-shadow:inset 1px 1px 1px -0.5px rgba(255,255,255,0.6),inset 0 0 6px 6px rgba(255,255,255,0.12);transition:transform .3s}.ds-btn:hover{transform:scale(.99)}.ds-btn:active{transform:scale(.975)}.ds-btn:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(3,177,251,0.5)}"
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;height:56px;padding:0 40px;border-radius:9999px;border:1px solid rgba(255,255,255,0.1);background:transparent;backdrop-filter:blur(12px);color:#f5f5f5;font-size:14px;font-weight:500;text-decoration:none;box-shadow:0 0 8px rgba(0,0,0,0.03),0 2px 6px rgba(0,0,0,0.08),inset 3px 3px 0.5px -3.5px rgba(255,255,255,0.09),inset -3px -3px 0.5px -3.5px rgba(255,255,255,0.85),inset 1px 1px 1px -0.5px rgba(255,255,255,0.6),inset -1px -1px 1px -0.5px rgba(255,255,255,0.6),inset 0 0 6px 6px rgba(255,255,255,0.12),inset 0 0 2px 2px rgba(255,255,255,0.06),0 0 12px rgba(0,0,0,0.15);transition:transform .3s}.ds-btn:hover{transform:scale(.99)}.ds-btn:active{transform:scale(.975)}.ds-btn:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(3,177,251,0.5)}"
     },
     {
       "name": "Nav Pill",
       "kind": "nav",
       "refersTo": "nav-pill",
       "description": "Floating glass navigation with a cyan active link.",
-      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-a ds-on\" href=\"#\">Home</a><a class=\"ds-nav-a\" href=\"#\">Experience</a><a class=\"ds-nav-a\" href=\"#\">Portfolio</a></nav>",
-      "css": ".ds-nav{display:flex;gap:4px;align-items:center;height:56px;padding:0 24px;border-radius:9999px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);backdrop-filter:blur(24px);box-shadow:0 10px 15px -3px rgba(0,0,0,.1)}.ds-nav-a{padding:8px 16px;border-radius:9999px;color:#d1d5db;font-size:16px;text-decoration:none;transition:all .3s}.ds-nav-a:hover{color:#f5f5f5;background:rgba(245,245,245,0.1)}.ds-nav-a.ds-on{background:rgba(3,177,251,0.2);color:#03b1fb}.ds-nav-a:focus-visible{outline:2px solid #03b1fb}"
+      "html": "<nav class=\"ds-nav\"><span class=\"ds-logo\">VD</span><div class=\"ds-links\"><a class=\"ds-nav-a ds-on\" href=\"#\">Home</a><a class=\"ds-nav-a\" href=\"#\">Experience</a><a class=\"ds-nav-a\" href=\"#\">Portfolio</a></div></nav>",
+      "css": ".ds-nav{display:flex;justify-content:space-between;gap:32px;align-items:center;height:56px;padding:0 24px;border-radius:9999px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);backdrop-filter:blur(24px);box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1)}.ds-logo{color:#f5f5f5;font-weight:600}.ds-links{display:flex;gap:4px;align-items:center}.ds-nav-a{padding:8px 16px;border-radius:9999px;color:#d1d5db;text-decoration:none;transition:all .3s}.ds-nav-a:hover{color:#f5f5f5;background:rgba(245,245,245,0.1)}.ds-nav-a.ds-on{background:rgba(3,177,251,0.2);color:#03b1fb}"
     },
     {
       "name": "Badge",
@@ -171,7 +188,7 @@
       "refersTo": "badge",
       "description": "Tinted category tag.",
       "html": "<span class=\"ds-badge\">Computer Vision</span>",
-      "css": ".ds-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:9999px;font-size:12px;font-weight:500;background:rgba(37,99,235,0.2);color:#60a5fa;border:1px solid rgba(37,99,235,0.4)}"
+      "css": ".ds-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:9999px;font-size:12px;font-weight:500;background:rgba(21,93,252,0.2);color:#51a2ff;border:1px solid rgba(21,93,252,0.4)}"
     },
     {
       "name": "Keyword Highlight",
@@ -187,7 +204,7 @@
       "refersTo": "glow-card",
       "description": "Glass card; the pointer spotlight is added by script on desktop.",
       "html": "<div class=\"ds-card\"><h3>SENIOR ENGINEER</h3><p>Dates and location in muted grey.</p></div>",
-      "css": ".ds-card{padding:16px;border-radius:16px;background:rgba(153,153,153,0.06);border:1.5px solid rgba(153,153,153,0.06);backdrop-filter:blur(2px);box-shadow:0 .5rem 1rem -.5rem rgba(0,0,0,.3);color:#f5f5f5;font-family:Poppins,system-ui,sans-serif}.ds-card h3{margin:0 0 8px;font-size:16px;font-weight:700;letter-spacing:.05em}.ds-card p{margin:0;font-size:14px;color:#9ca3af}"
+      "css": ".ds-card{padding:20px;border-radius:16px;background:rgba(153,153,153,0.06);border:1.5px solid rgba(153,153,153,0.06);backdrop-filter:blur(2px);box-shadow:0 .5rem 1rem -.5rem rgba(0,0,0,.3);color:#f5f5f5;font-family:Poppins,system-ui,sans-serif}.ds-card h3{margin:0 0 8px;font-weight:700;letter-spacing:.05em;text-transform:uppercase}.ds-card p{margin:0;font-size:14px;color:#9ca3af}"
     },
     {
       "name": "Section Heading",
@@ -195,15 +212,15 @@
       "refersTo": "title",
       "description": "Project page heading with the cyan accent bar.",
       "html": "<h2 class=\"ds-h\"><span></span>Results</h2>",
-      "css": ".ds-h{display:flex;align-items:center;gap:12px;margin:0;font-size:20px;font-weight:600;color:#f5f5f5}.ds-h span{width:4px;height:24px;border-radius:9999px;background:#03b1fb}"
+      "css": ".ds-h{display:flex;align-items:center;gap:12px;margin:0 0 16px;font-size:20px;font-weight:600;color:#f5f5f5}.ds-h span{width:4px;height:24px;border-radius:9999px;background:#03b1fb}"
     }
   ],
   "narrative": {
     "northStar": "The Night Ledger",
-    "overview": "A near-black page with one cool cyan signal. Content sits on faint glass panels that light up under the pointer, the way a ledger page answers a finger running down it. The site is dark-only today; a light theme is planned beside it, so colour roles below are named by role, not by \"dark\".",
+    "overview": "A near-black page with one cool cyan signal. Content sits on faint glass panels that light up under the pointer, the way a ledger page answers a finger running down it. The site is dark-only today; a light theme is planned beside it, so colour roles below are named by role, not by \"dark\".\n\nThe tone is calm and exact. Text is dense and factual, because readers come to check a record: publications, roles, references. Decoration is limited to glass, a soft glow, and one accent. Nothing competes with the facts.",
     "keyCharacteristics": [
       "One accent (signal cyan) on a near-black ground, with soft grey text tiers.",
-      "Glass surfaces: translucent white fills, thin white borders, backdrop blur.",
+      "Glass surfaces: translucent fills, hairline borders, backdrop blur.",
       "Pill shapes for controls, 16px rounding for cards.",
       "Pointer-following glow on cards, desktop only.",
       "Poppins throughout, one family."
@@ -216,7 +233,7 @@
       },
       {
         "name": "The Role Tint Rule",
-        "body": "Accent fills are tints (10% highlight, 20% active, 30% border), never solid cyan blocks.",
+        "body": "Accent fills behind text are tints (10% highlight, 20% active, 30% border). Solid cyan is for small marks (list bullets, the section accent bar) and the single 404 home button, which carries dark text.",
         "section": "colors"
       },
       {
@@ -226,13 +243,13 @@
       },
       {
         "name": "The Glass Rule",
-        "body": "Floating chrome (nav, mobile menu, glow cards) uses blur plus a white hairline, not an opaque fill.",
+        "body": "Floating chrome (nav, mobile menu, glow cards) uses blur, a translucent fill and a hairline border, not an opaque fill.",
         "section": "elevation"
       }
     ],
     "dos": [
-      "Do use Signal Cyan (#03b1fb) as the only accent, as a tint.",
-      "Do build floating surfaces from translucent white, blur and a 10 to 20% white hairline.",
+      "Do use Signal Cyan (#03b1fb) as the only accent, as a tint for fills behind text.",
+      "Do build floating surfaces from a translucent fill, blur and a hairline border: white at 10 to 20%, or the fill's own grey on glow cards.",
       "Do make small controls full pills and cards 16px.",
       "Do keep grey tiers: Paper Light for headings, Text Soft or 200 to 300 for body, Text Muted for metadata.",
       "Do disable pointer glow below 768px and keep touch panning intact.",
@@ -240,7 +257,7 @@
     ],
     "donts": [
       "Don't add a second accent hue outside the badge set.",
-      "Don't use solid cyan blocks or opaque light panels on the dark ground.",
+      "Don't fill areas behind text with solid cyan, beyond the 404 home button, or use opaque light panels on the dark ground.",
       "Don't introduce a new typeface; Poppins only.",
       "Don't rely on hover alone for meaning; phones are a main reader."
     ]
