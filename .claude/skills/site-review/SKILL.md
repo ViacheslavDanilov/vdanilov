@@ -3,7 +3,7 @@ name: site-review
 description: >-
   Pre-merge review of any pull request, in its own session or a fresh subagent: depth
   triage, context from the PR body, review lenses (repo rules and criteria, bugs, history,
-  prior threads, content rules, UI, and a second model on high-risk changes), a notation gate
+  prior threads, content rules, UI, and a second model), a notation gate
   over commits and the PR body, a QA pass, and a bounded fix loop on the owner's own branch.
   Publishes one submitted GitHub review. Use when the user says "review PR #N", "проверь
   пулреквест", "ревью 12", or invokes /site-review.

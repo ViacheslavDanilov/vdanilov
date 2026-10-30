@@ -177,7 +177,8 @@ step silently, and never pretend a delegated pass ran.
 
 **Do not confuse four similar names:** `review` (gstack, generic pre-landing review, not used
 here), `/code-review` (built-in, finds bugs), `two-axis-review` (vendored, rules and criteria)
-and `site-review` (this repo's full pre-merge flow, which calls the middle two).
+and `site-review` (this repo's full pre-merge flow, which calls `two-axis-review`, and
+`/code-review` as a fallback).
 
 ### Design skills
 
