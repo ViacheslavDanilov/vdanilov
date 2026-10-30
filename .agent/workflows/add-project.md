@@ -151,7 +151,7 @@ export default function ProjectPage() {
 ### Data Shapes
 
 - `HIGHLIGHTS_ITEMS`: `[{ icon, label, text }]`, four STAR items with `faSearch`, `faBullseye`, `faCogs`, `faChartLine`
-- `TEAM_MEMBERS`: `[{ name, role, organization, location, photo, links }]`; `links` keys are `linkedin`, `github`, `gitlab`, `researchgate`, `google`, `orcid`, `kaggle`, `facebook`, `globe`, `email` (the email value is the bare address)
+- `TEAM_MEMBERS`: `[{ name, role, organization, location, photo, links }]`; `links` keys and their order follow "Person link order" in `AGENTS.md`
 - `RESOURCES`: `[{ label, url }]`
 - `TECH_STACK`: `["Python", "PyTorch", ...]`
 
