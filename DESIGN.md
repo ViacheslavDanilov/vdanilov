@@ -193,7 +193,7 @@ Pills for anything clickable and small (nav, buttons, badges, tabs, accent bar).
 
 ### Cards / Containers
 
-- **Glow card:** 16px radius, 6% grey fill, 1.5px border in the same grey, 2px blur. Padding is 20px on list and project cards and 24px on home cards. On desktop a radial spotlight follows the pointer across fill and border. Off below 768px.
+- **Glow card:** 16px radius, 6% grey fill, 1.5px border in the same grey, 2px blur. Padding is 20px on list and project cards and 24px on home cards (40px from md on the statistics cards). The call-to-action card keeps the 16px default and pads its own content inside. On desktop a radial spotlight follows the pointer across fill and border. Off below 768px.
 - **Logo tile:** 64px square, 16px radius, slate 50% fill, Paper Light 10% border. From md, hover scales it to 1.03 and turns the border cyan 30%.
 
 ### Navigation

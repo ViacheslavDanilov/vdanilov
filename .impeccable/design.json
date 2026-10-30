@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-30T20:13:38Z",
+  "generatedAt": "2026-10-30T20:19:30Z",
   "title": "Design System: Viacheslav Danilov Portfolio",
   "extensions": {
     "colorMeta": {
@@ -178,9 +178,9 @@
       "name": "Nav Pill",
       "kind": "nav",
       "refersTo": "nav-pill",
-      "description": "Floating glass navigation with a cyan active link.",
-      "html": "<nav class=\"ds-nav\"><span class=\"ds-logo\">VD</span><div class=\"ds-links\"><a class=\"ds-nav-a ds-on\" href=\"#\">Home</a><a class=\"ds-nav-a\" href=\"#\">Experience</a><a class=\"ds-nav-a\" href=\"#\">Portfolio</a></div></nav>",
-      "css": ".ds-nav{display:flex;justify-content:space-between;gap:32px;align-items:center;height:56px;padding:0 24px;border-radius:9999px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);backdrop-filter:blur(24px);box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1)}.ds-logo{color:#f5f5f5;font-weight:600}.ds-links{display:flex;gap:4px;align-items:center}.ds-nav-a{padding:8px 16px;border-radius:9999px;color:#d1d5db;text-decoration:none;transition:all .3s}.ds-nav-a:hover{color:#f5f5f5;background:rgba(245,245,245,0.1)}.ds-nav-a.ds-on{background:rgba(3,177,251,0.2);color:#03b1fb}"
+      "description": "Floating glass navigation with a cyan active link. The 42 by 32px logo image is shown as an empty placeholder box.",
+      "html": "<nav class=\"ds-nav\"><span class=\"ds-logo\" aria-hidden=\"true\"></span><div class=\"ds-links\"><a class=\"ds-nav-a ds-on\" href=\"#\">Home</a><a class=\"ds-nav-a\" href=\"#\">Experience</a><a class=\"ds-nav-a\" href=\"#\">Portfolio</a></div></nav>",
+      "css": ".ds-nav{display:flex;justify-content:space-between;gap:32px;align-items:center;height:56px;padding:0 24px;border-radius:9999px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);backdrop-filter:blur(24px);box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1)}.ds-logo{display:block;width:42px;height:32px;border-radius:8px;background:rgba(245,245,245,0.1)}.ds-links{display:flex;gap:4px;align-items:center}.ds-nav-a{padding:8px 16px;border-radius:9999px;color:#d1d5db;text-decoration:none;transition:all .3s}.ds-nav-a:hover{color:#f5f5f5;background:rgba(245,245,245,0.1)}.ds-nav-a.ds-on{background:rgba(3,177,251,0.2);color:#03b1fb}"
     },
     {
       "name": "Badge",
