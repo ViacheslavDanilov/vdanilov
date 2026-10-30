@@ -120,8 +120,9 @@ codex exec -m gpt-6.1-sol -c model_reasoning_effort=xhigh -s read-only -C <workt
   -o <report.md> "<prompt>" < /dev/null
 ```
 
-End the command with `< /dev/null`. Without it, a `codex exec` run in the background reads
-stdin, prints `Reading additional input from stdin...` and waits for input that never comes,
+End the command with `< /dev/null`, unless input is piped in, as `site-review` does on a
+colleague's pull request. Without either, a `codex exec` run in the background reads stdin,
+prints `Reading additional input from stdin...` and waits for input that never comes,
 while the agent that started it waits for the report.
 
 Use `-s workspace-write` instead of `read-only` when Codex implements. The prompt carries the
