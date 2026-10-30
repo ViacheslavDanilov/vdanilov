@@ -127,7 +127,8 @@ limits in **Delegating** and points at `BRIEF.md`.
 
 When work goes to a worker, or may outlive the session through a quota limit or a hand-off to
 another account, the orchestrator writes `BRIEF.md` at the root of the working tree, and the
-worker keeps `STATUS.md` beside it. Both are gitignored and never committed.
+worker keeps `STATUS.md` beside it. Both are gitignored and never committed. A worker in another
+worktree, such as `site-review`'s, gets both by absolute path from the caller.
 
 - **`BRIEF.md`**, written once: the goal; the acceptance criteria the owner confirmed, word for
   word; what is out of scope; the `AGENTS.md` sections that apply; the files to start from; how
@@ -136,7 +137,12 @@ worker keeps `STATUS.md` beside it. Both are gitignored and never committed.
   step; check results with numbers; blockers and questions for the owner.
 
 Any worker, or a new session on another account, reads both before anything else. A worker
-never edits `BRIEF.md`: a change of scope goes back to the owner, who confirms a new brief.
+never edits `BRIEF.md`: a change of scope goes back to the owner, who confirms a new brief. A
+read-only worker, such as `site-planner`, `site-runner` or a read-only Codex run, reports its
+progress in its reply, and the orchestrator records it in `STATUS.md`.
+
+Both files belong to one task. The orchestrator deletes them once the task's pull request merges
+or closes, or the task ends without one, so the next session does not pick up a finished task.
 
 ## Which skill to reach for
 

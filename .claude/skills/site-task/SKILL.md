@@ -193,6 +193,9 @@ merge. A `/site-review` run in a later session carries the CV itself after its m
 
 ## 11. Hand off
 
+If the pull request merged, or the route ended without one, delete `BRIEF.md` and `STATUS.md`
+first, as **Brief and status** in the conventions file says.
+
 Reply in Russian: the route taken, the PR URL, branch and head SHA, how many files changed,
 what you verified, whether CI is green, the review's verdict and URL, whether it merged and
 the merge SHA, the follow-ups it left, what changed in the CV and its exports, and anything you
