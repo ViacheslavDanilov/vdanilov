@@ -84,3 +84,6 @@ vdanilov/
 **/.impeccable/live/deferred-svelte-component-accepts.json
 **/.impeccable/live/*.png
 # impeccable-ignore-end
+
+# Impeccable critique snapshots stay local
+**/.impeccable/critique/

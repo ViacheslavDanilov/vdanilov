@@ -120,21 +120,21 @@ and `site-review` (this repo's full pre-merge flow, which calls the middle two).
 `impeccable` owns how a page looks. The three Emil Kowalski skills own motion, so use `animate`
 rather than `impeccable animate`.
 
-- The repo has no `PRODUCT.md` or `DESIGN.md`. Impeccable's narrow commands (`critique`,
-  `audit`, `polish`, `quieter`, `typeset`, `layout`) treat the code as the design authority
-  and run without them. `init`, `document`, `shape` and any redesign write new files at the
-  repo root and widen scope, so they are tasks of their own, never a step inside another one.
+- `PRODUCT.md` at the repo root records who the site is for and what it must keep true. The
+  repo has no `DESIGN.md`, so Impeccable's narrow commands (`critique`, `audit`, `polish`,
+  `quieter`, `typeset`, `layout`) treat the code as the design authority. `document`, `shape`
+  and any redesign write new files or replace the look, so they are tasks of their own, never
+  a step inside another one. A change to `PRODUCT.md` needs the owner's approval.
 - Impeccable's "finish the job" never widens a task. The confirmed criteria set the scope, and
   its own rule "refinement preserves" applies.
 - After a UI edit, run `.claude/skills/impeccable/scripts/impeccable detect --json <changed files>`
   once. `app/` and `components/` scanned clean on 2026-10-29, so any finding is new.
-- `impeccable generate-image` bills the owner's OpenAI key, and `impeccable live` starts a
-  server. Run neither without the owner's go-ahead.
-- `impeccable critique` ends by asking the user what to fix, saves a snapshot under
-  `.impeccable/critique/`, and may start `impeccable live-server` for a browser overlay. Inside
-  `site-review`, which often runs in a subagent, skip all three: end the critique with
-  `Questions skipped: run inside site-review`, write no snapshot, and take plain screenshots
-  instead of the overlay. Its priority issues go into the review.
+- `impeccable generate-image` bills the owner's OpenAI key, so it needs the owner's go-ahead.
+- `impeccable live` and its helper server may run without asking. The helper listens on port 8400. When a dev server has to be started for it, use a port other than 3000, which the
+  owner keeps for their own `npm run dev`.
+- `impeccable critique` ends by asking the user what to fix. In a subagent nobody can answer,
+  so it lists the questions in its report and does not wait. Its snapshots under
+  `.impeccable/critique/` are ignored by git.
 - `review-animations` runs only when a user types it. To use it from a skill or a subagent,
   read `.claude/skills/review-animations/SKILL.md` and its `STANDARDS.md` and follow them.
 
