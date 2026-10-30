@@ -201,11 +201,13 @@ are underlined only on hover. Where an Emil skill names a skill this repo leaves
 `emil-design-eng` as `impeccable critique` and `find-animation-opportunities` as
 `improve-animations`, and treat `pick-ui-library` and `animate-expo` as out of scope.
 
-- `PRODUCT.md` at the repo root records who the site is for and what it must keep true. The
-  repo has no `DESIGN.md`, so Impeccable's narrow commands (`critique`, `audit`, `polish`,
-  `quieter`, `typeset`, `layout`) treat the code as the design authority. `document`, `shape`
-  and any redesign write new files or replace the look, so they are tasks of their own, never
-  a step inside another one. A change to `PRODUCT.md` needs the owner's approval.
+- `PRODUCT.md` at the repo root records who the site is for and what it must keep true.
+  `DESIGN.md` and its sidecar `.impeccable/design.json` record the design system as the code
+  ships it. Impeccable's narrow commands (`critique`, `audit`, `polish`, `quieter`, `typeset`,
+  `layout`) read both, and where `DESIGN.md` and the rendered site disagree the code wins and the
+  file is corrected. `document`, `shape` and any redesign write files or replace the look, so
+  they are tasks of their own, never a step inside another one. A change to `PRODUCT.md` needs
+  the owner's approval.
 - Impeccable's "finish the job" never widens a task. The confirmed criteria set the scope, and
   its own rule "refinement preserves" applies.
 - The design hook in `.claude/settings.json` runs Impeccable's detector after every edit to a UI
