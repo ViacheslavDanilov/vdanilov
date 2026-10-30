@@ -208,8 +208,9 @@ out of scope.
   file, and a deeper pass when the session stops. It never blocks an edit, stays quiet on a clean
   file, and uses no model quota. Fix what it reports. A false positive is silenced only with
   `impeccable hooks ignore-value`; `ignore-file` and `ignore-rule` need the owner's go-ahead. A
-  worker without the hook, such as Codex, runs `impeccable detect --json <changed files>` once
-  at the end of UI work. `app/` and `components/` scanned clean on 2026-10-29.
+  worker without the hook, such as Codex, runs
+  `.claude/skills/impeccable/scripts/impeccable detect --json <changed files>` once at the end of
+  UI work. `app/` and `components/` scanned clean on 2026-10-29.
 - Impeccable's four agents, `impeccable-*` in `.claude/agents/`, inherit the session's model and
   keep the effort upstream ships. `impeccable-finish-reviewer` runs at `high`. The other three
   run at `medium`, an exception to the two levels in **Model routing**.
