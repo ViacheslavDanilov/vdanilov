@@ -83,13 +83,13 @@ pushes on the owner's branch, and it merges under "Git workflow" in `AGENTS.md`.
 ## Model routing
 
 The session that runs `site-task` is the orchestrator. `.claude/settings.json` starts it on
-Sonnet at `high` effort. It talks to the owner, writes the brief, makes small edits itself,
-commits and merges. Other work goes to the worker in this table. **Pick the row by what the work
-is, never by a guess at how hard it is.**
+Sonnet at `high` effort. It talks to the owner, writes the brief, makes small edits itself and
+commits. The merge happens in `site-review`, as **Pushing** says. Other work goes to the worker in
+this table. **Pick the row by what the work is, never by a guess at how hard it is.**
 
 | Work                                                                                      | Worker                                 | Model, effort      |
 | ----------------------------------------------------------------------------------------- | -------------------------------------- | ------------------ |
-| Dialog, criteria, brief, small edits, commits, merge                                      | the session                            | Sonnet, high       |
+| Dialog, criteria, brief, small edits, commits                                             | the session                            | Sonnet, high       |
 | A plan for a structural change: data shape, routing, build or CI config, design tokens    | `site-planner` agent                   | Opus, xhigh        |
 | Visual and copy work: layout, components, site copy, project pages; `impeccable critique` | `site-crafter` agent                   | Sonnet, xhigh      |
 | Code with no taste in it: tests, data, scripts, accessibility, performance, an exact plan | Codex, `workspace-write`               | gpt-6.1-sol, xhigh |
