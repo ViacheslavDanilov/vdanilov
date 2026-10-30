@@ -73,8 +73,9 @@ Then reply in Russian with:
 - Что вне скоупа
 - Открытые вопросы
 
-**Wait for an explicit yes.** Then write the criteria to a file in the session's scratchpad
-directory. Step 7 hands its path to a subagent.
+**Wait for an explicit yes.** Then write the criteria into `BRIEF.md` at the root of the working
+tree, as **Brief and status** in the conventions file describes. Steps 7 and 9 hand it to
+subagents.
 
 ## 4. Reality check, before any code
 
@@ -114,8 +115,13 @@ goes red on this bug, no fix. When the behavior can be pinned in `tests/`, write
 first for a feature too.
 
 Stay surgical. Every changed line traces to the task. Do not improve adjacent code and do not
-delete pre-existing dead code: mention it. For UI work, use `frontend-design`,
-`vercel:nextjs` and `vercel:react-best-practices`.
+delete pre-existing dead code: mention it. For UI work, use `impeccable`, `vercel:nextjs` and
+`vercel:react-best-practices`, and for motion, `animate`. "Design skills" in the conventions
+file sets their limits and the `detect` run that ends UI work.
+
+Route the work by **Model routing** in the conventions file: small edits here, visual and copy
+work to `site-crafter`, code with no taste in it to Codex, and a structural change to
+`site-planner` before anyone writes code.
 
 ## 6. Verify
 
@@ -136,7 +142,7 @@ Commit first, by step 8's rules, and do not push. `two-axis-review` diffs commit
 so it cannot see uncommitted work.
 
 Run `git fetch origin`, then invoke `two-axis-review` with `origin/main` as the fixed point,
-the criteria file from step 3 as the spec, and `AGENTS.md` named as the standards source. Its
+`BRIEF.md` as the spec, and `AGENTS.md` named as the standards source. Its
 two subagents see the diff and the criteria, not this conversation, and that is the point:
 they read what you wrote rather than what you meant. The prompt carries the limits in
 **Delegating** in the conventions file.
@@ -160,9 +166,10 @@ CI is red on the pushed head, read the log and fix it before step 9.
 
 ## 9. Independent review in a subagent
 
-Start a general-purpose subagent that invokes `site-review` with the PR number. It sees the
+Start a `site-reviewer` subagent that invokes `site-review` with the PR number, with
+`effort: xhigh` when the PR touches a high-risk path from step 2 of `site-review`. It sees the
 pull request and the diff, not this conversation, which is what a new session would give. The
-prompt names the PR, the criteria file from step 3 with a line saying the owner confirmed it,
+prompt names the PR, `BRIEF.md` with a line saying the owner confirmed its criteria,
 and anything the reviewer cannot find on GitHub, such as a port already taken on this machine.
 It carries the limits in **Delegating** in the conventions file, with the exception noted there
 for a review subagent.
@@ -185,6 +192,9 @@ workflow; follow those there, not this repository's. Skip this step when the rev
 merge. A `/site-review` run in a later session carries the CV itself after its merge.
 
 ## 11. Hand off
+
+If the pull request merged, or the route ended without one, delete `BRIEF.md` and `STATUS.md`
+first, as **Brief and status** in the conventions file says.
 
 Reply in Russian: the route taken, the PR URL, branch and head SHA, how many files changed,
 what you verified, whether CI is green, the review's verdict and URL, whether it merged and

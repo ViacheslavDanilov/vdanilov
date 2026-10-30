@@ -1,15 +1,19 @@
 # Vendored skills
 
-Three skills here are copies of [mattpocock/skills](https://github.com/mattpocock/skills) at
-commit `49dd158` (2026-10-09), copied rather than installed so they can be adapted to this
-repo and so every session loads the same version. The same three are vendored in
-`video-bokeh`.
+The skills below are copies, not installs, so every session loads the same version and a later
+upstream copy can be diffed against them.
 
-| Here               | Upstream                              |
-| ------------------ | ------------------------------------- |
-| `grilling/`        | `skills/productivity/grilling/`       |
-| `two-axis-review/` | `skills/engineering/code-review/`     |
-| `diagnosing-bugs/` | `skills/engineering/diagnosing-bugs/` |
+| Here                  | Upstream                                                                                        | At                                  |
+| --------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------- |
+| `grilling/`           | [mattpocock/skills](https://github.com/mattpocock/skills) `skills/productivity/grilling/`       | `49dd158` (2026-10-09)              |
+| `two-axis-review/`    | [mattpocock/skills](https://github.com/mattpocock/skills) `skills/engineering/code-review/`     | `49dd158` (2026-10-09)              |
+| `diagnosing-bugs/`    | [mattpocock/skills](https://github.com/mattpocock/skills) `skills/engineering/diagnosing-bugs/` | `49dd158` (2026-10-09)              |
+| `impeccable/`         | [pbakaus/impeccable](https://github.com/pbakaus/impeccable) `.claude/skills/impeccable/`        | `3930843` (2026-10-30), skill 4.8.0 |
+| `animate/`            | [emilkowalski/skills](https://github.com/emilkowalski/skills) `skills/animate/`                 | `a81dbca` (2026-10-28)              |
+| `review-animations/`  | [emilkowalski/skills](https://github.com/emilkowalski/skills) `skills/review-animations/`       | `a81dbca` (2026-10-28)              |
+| `improve-animations/` | [emilkowalski/skills](https://github.com/emilkowalski/skills) `skills/improve-animations/`      | `a81dbca` (2026-10-28)              |
+
+The three Pocock skills are also vendored in `video-bokeh`.
 
 ## Local edits
 
@@ -23,19 +27,32 @@ Kept to the minimum, so a later upstream copy can be diffed against these files:
   references says there usually are none. The spec-file item, which named `docs/`, `specs/` and
   `.scratch/`, becomes the pull request's `## What` and `## Why`.
 - The `agents/openai.yaml` files are dropped. They configure Codex, not Claude Code.
-- The three folders are listed in `.prettierignore`, so Prettier does not reformat them and
-  they stay diffable against upstream.
+- `impeccable/` is the upstream Claude Code build, copied by hand rather than with
+  `npx impeccable install`. That leaves out the design hook and the four `impeccable-*`
+  subagents; the skill falls back to its `reference/degraded/` playbooks. Upstream `LICENSE` and
+  `NOTICE.md` are copied into the folder, as Apache 2.0 requires. The launcher in
+  `impeccable/scripts/` downloads its engine binary once into `~/.impeccable/bin/` and checks it
+  against `engine-checksums.txt`. The root `.gitattributes` checks `impeccable.cmd` out with CRLF
+  line endings, as upstream's own `.gitattributes` does.
+- The Emil Kowalski skills are unchanged.
+- Every vendored folder is listed in `.prettierignore`, so Prettier does not reformat it and it
+  stays diffable against upstream.
 
 ## Updating
 
-Clone upstream, copy the three folders over these, then re-apply the edits above. `git diff`
-shows exactly what upstream changed.
+Clone upstream, copy the folders over these, then re-apply the edits above. `git diff` shows
+exactly what upstream changed. For `impeccable/`, copy `.claude/skills/impeccable/` from the
+repo root, which is the Claude Code build, and update the `.gitignore` block from its README.
 
-## License
+## Licenses
+
+`impeccable/` is under the Apache License 2.0; its text is in `impeccable/LICENSE`. The Pocock
+and Emil Kowalski skills are under the MIT License, with the same text for both:
 
 MIT License
 
 Copyright (c) 2026 Matt Pocock
+Copyright (c) 2026 Emil Kowalski
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
