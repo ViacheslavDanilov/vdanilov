@@ -117,7 +117,7 @@ first for a feature too.
 Stay surgical. Every changed line traces to the task. Do not improve adjacent code and do not
 delete pre-existing dead code: mention it. For UI work, use `impeccable`, `vercel:nextjs` and
 `vercel:react-best-practices`, and for motion, `animate`. "Design skills" in the conventions
-file sets their limits and the `detect` run that ends UI work.
+file sets their limits and how to treat the design hook's findings.
 
 Route the work by **Model routing** in the conventions file: small edits here, visual and copy
 work to `site-crafter`, code with no taste in it to Codex, and a structural change to

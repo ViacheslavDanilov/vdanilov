@@ -169,9 +169,10 @@ reimplement what an installed skill already does. `vendored` means a copy under
 | Build or change an animation                                                  | `animate`                                                    | vendored         |
 | Review the motion in a diff                                                   | `review-animations`, see "Design skills" below               | vendored         |
 | Audit the motion across the whole site                                        | `improve-animations`                                         | vendored         |
-| Explore several new directions for a piece of UI                              | `prototype`, see "Design skills" below                       | vendored         |
-| Stress a component with worst-case data                                       | `break-ui`                                                   | vendored         |
-| Make the site feel native on a phone                                          | `mobile-native`                                              | vendored         |
+| Explore several new directions for a piece of UI                              | `/prototype`, typed by the owner only                        | vendored         |
+| Stress a component with worst-case data                                       | `break-ui`, see "Design skills" below                        | vendored         |
+| Make the site feel native on a phone                                          | `mobile-native`, see "Design skills" below                   | vendored         |
+| Find why an animation drops frames, or pick a cheap property to animate       | `animation-performance`                                      | vendored         |
 | Polish site copy                                                              | `editor`, `no-ai-slop`                                       | global           |
 | Nothing above fits the task                                                   | `find-skills`, see below                                     | global           |
 
@@ -185,9 +186,16 @@ and `site-review` (this repo's full pre-merge flow, which calls `two-axis-review
 
 ### Design skills
 
-`impeccable` owns how a page looks. The Emil Kowalski skills own motion, so use `animate`
-rather than `impeccable animate`, and three of them cover narrower jobs: `prototype`,
-`break-ui` and `mobile-native`.
+`impeccable` owns how a page looks. Four Emil Kowalski skills own motion: `animate`,
+`review-animations`, `improve-animations` and `animation-performance`, so use `animate` rather
+than `impeccable animate`. Three more cover jobs outside motion: `prototype` explores new UI,
+`break-ui` tests a component against worst-case data, and `mobile-native` fixes what makes the
+site feel like a website on a phone.
+
+Every design skill keeps two decisions the owner made: body text stays justified, and links
+are underlined only on hover. Where an Emil skill names a skill this repo leaves out, read
+`emil-design-eng` as `impeccable critique`, and treat `pick-ui-library` and `animate-expo` as
+out of scope.
 
 - `PRODUCT.md` at the repo root records who the site is for and what it must keep true. The
   repo has no `DESIGN.md`, so Impeccable's narrow commands (`critique`, `audit`, `polish`,
@@ -196,21 +204,26 @@ rather than `impeccable animate`, and three of them cover narrower jobs: `protot
   a step inside another one. A change to `PRODUCT.md` needs the owner's approval.
 - Impeccable's "finish the job" never widens a task. The confirmed criteria set the scope, and
   its own rule "refinement preserves" applies.
-- After a UI edit, run `.claude/skills/impeccable/scripts/impeccable detect --json <changed files>`
-  once. `app/` and `components/` scanned clean on 2026-10-29, so any finding is new.
+- The design hook in `.claude/settings.json` runs Impeccable's detector after every edit to a UI
+  file, and a deeper pass when the session stops. It never blocks an edit, stays quiet on a clean
+  file, and uses no model quota. Fix what it reports. A false positive is silenced only with
+  `impeccable hooks ignore-value`; `ignore-file` and `ignore-rule` need the owner's go-ahead. A
+  worker without the hook, such as Codex, runs `impeccable detect --json <changed files>` once
+  at the end of UI work. `app/` and `components/` scanned clean on 2026-10-29.
+- Impeccable's four agents, `impeccable-*` in `.claude/agents/`, inherit the session's model.
+  Their `medium` effort stays as upstream ships it, an exception to the two levels in **Model
+  routing**.
 - `impeccable generate-image` bills the owner's OpenAI key, so it needs the owner's go-ahead.
-- `impeccable live` and its helper server may run without asking. The helper listens on port 8400. When a dev server has to be started for it, use a port other than 3000, which the
-  owner keeps for their own `npm run dev`.
+- `impeccable live` and its helper server may run without asking. The helper listens on port 8400. When a dev server has to be started for it, use a port other than 3000, which the owner
+  keeps for their own `npm run dev`.
 - `impeccable critique` ends by asking the user what to fix. In a subagent nobody can answer,
   so it lists the questions in its report and does not wait. Its snapshots under
   `.impeccable/critique/` are ignored by git.
-- To change an element that is already on a page, use `impeccable live`. To design a new piece
-  of UI in several directions, use `prototype`, which runs only when a user types it. Delete its
-  picker and harness before the pull request.
+- To change an element that is already on a page, use `impeccable live`. A new piece of UI in
+  several directions is `/prototype`, which only the owner starts: an agent never routes to it.
+  Never commit its picker or harness, even when the owner keeps a variant.
 - `break-ui` adds a worst-case toggle and fixtures. Keep them out of the pull request: commit
   only the fixes the owner chose.
-- `mobile-native` gives way to the owner's decisions: justified text and links underlined only
-  on hover stay.
 - `review-animations` runs only when a user types it. To use it from a skill or a subagent,
   read `.claude/skills/review-animations/SKILL.md` and its `STANDARDS.md` and follow them.
 
@@ -230,13 +243,17 @@ do the work by hand.
 - **gstack `autoplan`, `spec`**: scope comes from the owner.
 - **Pocock `tdd`, `to-spec`, `to-tickets`, `domain-modeling`, `codebase-design`, `triage`,
   `wayfinder`, `implement`**: they assume a tracker, a spec folder or a layered codebase.
-- **Impeccable design hook**: runs the engine after every edit and again on stop, outside model
-  approval. Most edits here are content, and the one `detect` run above covers UI edits.
-- **Emil Kowalski `emil-design-eng`, `apple-design`, `find-animation-opportunities`,
-  `remove-animations`, `animation-vocabulary` and the rest**: `emil-design-eng` and
-  `apple-design` give general design advice that Impeccable already covers;
-  `improve-animations` already finds and removes motion; the rest name effects for people or
-  target other platforms and libraries.
+- **The other nine Emil Kowalski skills**:
+  - `emil-design-eng`: general design advice that Impeccable already covers.
+  - `apple-design`: Apple-style design and gesture-driven spring motion for touch interfaces.
+    Impeccable covers the design and `animate` the motion on this site.
+  - `find-animation-opportunities`: `improve-animations` already lists the missed openings.
+  - `remove-animations`: `improve-animations` plans what to cut, and the site has little motion
+    to remove.
+  - `animation-vocabulary`: a glossary for people who write prompts, not a task.
+  - `pick-ui-library`: the stack is settled, and a new dependency is a task of its own.
+  - `ask-sonner`: the site uses no Sonner toasts.
+  - `animate-expo` and `write-swift`: React Native and Swift.
 - **`frontend-design`, `ui-ux-pro-max`, `framer-motion-animator`, Leon's taste-skill**: each is
   another general design voice. Impeccable started from `frontend-design`, and several voices on
   one page give conflicting advice.

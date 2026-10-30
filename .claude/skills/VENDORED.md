@@ -3,18 +3,20 @@
 The skills below are copies, not installs, so every session loads the same version and a later
 upstream copy can be diffed against them.
 
-| Here                  | Upstream                                                                                        | At                                  |
-| --------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------- |
-| `grilling/`           | [mattpocock/skills](https://github.com/mattpocock/skills) `skills/productivity/grilling/`       | `49dd158` (2026-10-09)              |
-| `two-axis-review/`    | [mattpocock/skills](https://github.com/mattpocock/skills) `skills/engineering/code-review/`     | `49dd158` (2026-10-09)              |
-| `diagnosing-bugs/`    | [mattpocock/skills](https://github.com/mattpocock/skills) `skills/engineering/diagnosing-bugs/` | `49dd158` (2026-10-09)              |
-| `impeccable/`         | [pbakaus/impeccable](https://github.com/pbakaus/impeccable) `.claude/skills/impeccable/`        | `3930843` (2026-10-30), skill 4.8.0 |
-| `animate/`            | [emilkowalski/skills](https://github.com/emilkowalski/skills) `skills/animate/`                 | `a81dbca` (2026-10-28)              |
-| `review-animations/`  | [emilkowalski/skills](https://github.com/emilkowalski/skills) `skills/review-animations/`       | `a81dbca` (2026-10-28)              |
-| `improve-animations/` | [emilkowalski/skills](https://github.com/emilkowalski/skills) `skills/improve-animations/`      | `a81dbca` (2026-10-28)              |
-| `prototype/`          | [emilkowalski/skills](https://github.com/emilkowalski/skills) `skills/prototype/`               | `a81dbca` (2026-10-28)              |
-| `break-ui/`           | [emilkowalski/skills](https://github.com/emilkowalski/skills) `skills/break-ui/`                | `a81dbca` (2026-10-28)              |
-| `mobile-native/`      | [emilkowalski/skills](https://github.com/emilkowalski/skills) `skills/mobile-native/`           | `a81dbca` (2026-10-28)              |
+| Here                        | Upstream                                                                                        | At                                  |
+| --------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------- |
+| `grilling/`                 | [mattpocock/skills](https://github.com/mattpocock/skills) `skills/productivity/grilling/`       | `49dd158` (2026-10-09)              |
+| `two-axis-review/`          | [mattpocock/skills](https://github.com/mattpocock/skills) `skills/engineering/code-review/`     | `49dd158` (2026-10-09)              |
+| `diagnosing-bugs/`          | [mattpocock/skills](https://github.com/mattpocock/skills) `skills/engineering/diagnosing-bugs/` | `49dd158` (2026-10-09)              |
+| `impeccable/`               | [pbakaus/impeccable](https://github.com/pbakaus/impeccable) `.claude/skills/impeccable/`        | `3930843` (2026-10-30), skill 4.8.0 |
+| `animate/`                  | [emilkowalski/skills](https://github.com/emilkowalski/skills) `skills/animate/`                 | `a81dbca` (2026-10-28)              |
+| `review-animations/`        | [emilkowalski/skills](https://github.com/emilkowalski/skills) `skills/review-animations/`       | `a81dbca` (2026-10-28)              |
+| `improve-animations/`       | [emilkowalski/skills](https://github.com/emilkowalski/skills) `skills/improve-animations/`      | `a81dbca` (2026-10-28)              |
+| `prototype/`                | [emilkowalski/skills](https://github.com/emilkowalski/skills) `skills/prototype/`               | `a81dbca` (2026-10-28)              |
+| `break-ui/`                 | [emilkowalski/skills](https://github.com/emilkowalski/skills) `skills/break-ui/`                | `a81dbca` (2026-10-28)              |
+| `mobile-native/`            | [emilkowalski/skills](https://github.com/emilkowalski/skills) `skills/mobile-native/`           | `a81dbca` (2026-10-28)              |
+| `animation-performance/`    | [emilkowalski/skills](https://github.com/emilkowalski/skills) `skills/animation-performance/`   | `a81dbca` (2026-10-28)              |
+| `../agents/impeccable-*.md` | [pbakaus/impeccable](https://github.com/pbakaus/impeccable) `.claude/agents/`                   | `3930843` (2026-10-30)              |
 
 The three Pocock skills are also vendored in `video-bokeh`.
 
@@ -31,8 +33,10 @@ Kept to the minimum, so a later upstream copy can be diffed against these files:
   `.scratch/`, becomes the pull request's `## What` and `## Why`.
 - The `agents/openai.yaml` files are dropped. They configure Codex, not Claude Code.
 - `impeccable/` is the upstream Claude Code build, copied by hand rather than with
-  `npx impeccable install`. That leaves out the design hook and the four `impeccable-*`
-  subagents; the skill falls back to its `reference/degraded/` playbooks. Upstream `LICENSE` and
+  `npx impeccable install`. Its four agents are copied unchanged to `.claude/agents/`, and its
+  three hooks (`SessionStart`, `PostToolUse` on `Edit|Write`, `Stop`) are copied into
+  `.claude/settings.json` exactly as upstream's own `.claude/settings.json` has them.
+  `.impeccable/config.json` turns on the hook's quiet mode. Upstream `LICENSE` and
   `NOTICE.md` are copied into the folder, as Apache 2.0 requires. The launcher in
   `impeccable/scripts/` downloads its engine binary once into `~/.impeccable/bin/` and checks it
   against `engine-checksums.txt`. The root `.gitattributes` checks `impeccable.cmd` out with CRLF
