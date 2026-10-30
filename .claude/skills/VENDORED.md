@@ -32,7 +32,8 @@ Kept to the minimum, so a later upstream copy can be diffed against these files:
   subagents; the skill falls back to its `reference/degraded/` playbooks. Upstream `LICENSE` and
   `NOTICE.md` are copied into the folder, as Apache 2.0 requires. The launcher in
   `impeccable/scripts/` downloads its engine binary once into `~/.impeccable/bin/` and checks it
-  against `engine-checksums.txt`.
+  against `engine-checksums.txt`. The root `.gitattributes` checks `impeccable.cmd` out with CRLF
+  line endings, as upstream's own `.gitattributes` does.
 - The Emil Kowalski skills are unchanged.
 - Every vendored folder is listed in `.prettierignore`, so Prettier does not reformat it and it
   stays diffable against upstream.
