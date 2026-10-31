@@ -87,6 +87,33 @@ test.describe("Phone layout at 360px", () => {
     const card = await title.locator("xpath=ancestor::article").boundingBox();
     const box = await wrapper.boundingBox();
     expect(box?.width).toBeGreaterThanOrEqual((card?.width ?? 0) - 50);
+
+    const badge = await page
+      .locator("article span.rounded-full")
+      .first()
+      .boundingBox();
+    expect(badge?.y).toBeLessThan(box?.y ?? 0);
+    expect((badge?.y ?? 0) + (badge?.height ?? 0)).toBeLessThanOrEqual(
+      box?.y ?? 0,
+    );
+  });
+});
+
+test.describe("Touch screens", () => {
+  test.use({ viewport: { width: 360, height: 800 }, hasTouch: true });
+
+  test("the lightbox thumbnail shows an expand cue and no Esc hint", async ({
+    page,
+  }) => {
+    await page.goto("/portfolio/deep-anatomy/");
+    const thumb = page
+      .getByRole("button", { name: /^View .* in full size$/ })
+      .first();
+    await thumb.scrollIntoViewIfNeeded();
+    await expect(thumb.locator("svg.w-4")).toBeVisible();
+    await thumb.click();
+    await expect(page.getByRole("dialog")).toBeVisible();
+    await expect(page.getByText("to close")).toBeHidden();
   });
 });
 
