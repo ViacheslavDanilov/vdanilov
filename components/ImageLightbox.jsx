@@ -159,7 +159,7 @@ export default function ImageLightbox({
 
             {/* Keyboard hint */}
             <div className="absolute top-4 left-4 z-10 pointer-coarse:hidden">
-              <span className="text-gray-500 text-xs bg-black/50 px-3 py-1.5 rounded-md">
+              <span className="text-gray-400 text-xs bg-black/50 px-3 py-1.5 rounded-md">
                 Press <kbd className="text-gray-400 font-mono">Esc</kbd> to
                 close
               </span>
