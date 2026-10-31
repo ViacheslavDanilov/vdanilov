@@ -85,7 +85,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="w-full max-w-7xl mx-auto px-6 py-12 md:py-24"
+      className="w-full max-w-7xl mx-auto px-6 py-12 lg:min-h-svh lg:flex lg:flex-col lg:justify-center"
     >
       <div className="mb-12 text-center">
         <h2 className="text-3xl md:text-4xl font-bold text-light mb-4">
