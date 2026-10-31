@@ -967,6 +967,37 @@ test.describe("Page weight", () => {
   }
 });
 
+test.describe("Hero and About videos", () => {
+  for (const [name, src] of [
+    ["hero", "/hero/hero-video.mp4"],
+    ["about", "/hero/about-video.mp4"],
+  ]) {
+    test(`the ${name} video is 1082 px, plays and stays under 4 MB`, async ({
+      page,
+      request,
+    }) => {
+      await page.goto("/");
+      const video = page.locator(`video:has(source[src="${src}"])`);
+      await video.scrollIntoViewIfNeeded();
+
+      await expect
+        .poll(() => video.evaluate((el: HTMLVideoElement) => el.currentTime), {
+          timeout: 15_000,
+        })
+        .toBeGreaterThan(0);
+      const size = await video.evaluate((el: HTMLVideoElement) => [
+        el.videoWidth,
+        el.videoHeight,
+      ]);
+      expect(size).toEqual([1082, 1082]);
+
+      const response = await request.get(src);
+      expect(response.headers()["content-type"]).toContain("video/mp4");
+      expect((await response.body()).length).toBeLessThan(4 * 1024 * 1024);
+    });
+  }
+});
+
 test.describe("Reduced motion", () => {
   const modes = [
     ["no preference", "no-preference", true],
