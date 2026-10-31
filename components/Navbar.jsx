@@ -153,6 +153,7 @@ function Navbar() {
               <Link
                 key={item.label}
                 href={item.href}
+                aria-current={isActive ? "page" : undefined}
                 onClick={() => window.scrollTo(0, 0)}
                 className={`px-4 py-2 rounded-full text-md font-normal transition-all duration-300 cursor-pointer ${
                   isActive
@@ -206,6 +207,7 @@ function Navbar() {
                     <li key={item.label}>
                       <Link
                         href={item.href}
+                        aria-current={isActive ? "page" : undefined}
                         onClick={handleNavClick}
                         className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all ${
                           isActive

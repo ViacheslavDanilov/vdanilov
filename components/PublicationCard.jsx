@@ -81,7 +81,7 @@ const PublicationCard = ({ publication }) => {
                 rel="noopener noreferrer"
                 className="group/link inline"
               >
-                <h3 className="text-base font-semibold text-light leading-snug group-hover:text-accent transition-colors inline">
+                <h2 className="text-base font-semibold text-light leading-snug group-hover:text-accent transition-colors inline">
                   {title}
                   <span
                     className="inline-block ml-1.5 align-baseline transition-transform duration-300 group-hover/link:translate-x-1"
@@ -98,12 +98,12 @@ const PublicationCard = ({ publication }) => {
                       aria-hidden="true"
                     />
                   </span>
-                </h3>
+                </h2>
               </a>
             ) : (
-              <h3 className="text-base font-semibold text-light leading-snug">
+              <h2 className="text-base font-semibold text-light leading-snug">
                 {title}
-              </h3>
+              </h2>
             )}
           </div>
 

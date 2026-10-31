@@ -133,7 +133,7 @@ A restrained dark palette: ink ground, slate cards, one cyan accent, and a cool 
 ### Named Rules
 
 **The One Signal Rule.** Cyan is the only accent for state and emphasis. A new surface does not introduce a second action colour.
-**The Role Tint Rule.** Accent fills behind text are tints (10% highlight, 15 to 20% active, 30% border). Solid cyan is for small marks (list bullets, the section accent bar) and the single 404 home button, which carries dark text.
+**The Role Tint Rule.** Accent fills behind text are tints (10% highlight, 15 to 20% active, 30% border, 60% on the selected tab). Solid cyan is for small marks (list bullets, the section accent bar), the glass button focus ring and the single 404 home button, which carries dark text.
 
 ## Typography
 
@@ -184,7 +184,7 @@ Pills for anything clickable and small (nav, buttons, badges, tabs, accent bar).
 
 - **Shape:** full pill, 56px tall at the main size.
 - **Primary (glass):** transparent fill, white 10% border, blur 12px, inset highlight shadows, light text at 14px, weight 500.
-- **Hover / Focus:** scale to 0.99, active 0.975, 300ms; focus ring 3px cyan at 50%.
+- **Hover / Focus:** scale to 0.99, active 0.975, 300ms; focus ring 3px solid cyan.
 
 ### Chips
 
@@ -198,11 +198,11 @@ Pills for anything clickable and small (nav, buttons, badges, tabs, accent bar).
 
 ### Navigation
 
-- Floating glass pill, 56px tall, max 896px wide, 16px from top. Hides when scrolling down, returns on scroll up or focus. Links are pills; active is cyan text on cyan 15% (20% in the mobile menu). Under lg, a menu toggle opens a panel of Ink at 60% with a blur, a white 10% border and 12px-radius items.
+- Floating glass pill, 56px tall, max 896px wide, 16px from top. Hides when scrolling down, returns on scroll up or focus. A skip link sits top left, visible only while focused. Links are pills; active is cyan text on cyan 15% (20% in the mobile menu). Under lg, a menu toggle opens a panel of Ink at 60% with a blur, a white 10% border and 12px-radius items.
 
 ### Tabs
 
-- Pill buttons; the selected one gets a cyan 20% pill with a 30% border that slides between tabs (spring, 0.4s).
+- Pill buttons; the selected one gets a cyan 20% pill with a 60% border that slides between tabs (spring, 0.4s).
 
 ## Do's and Don'ts
 

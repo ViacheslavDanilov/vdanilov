@@ -62,7 +62,7 @@ const ReferenceCard = ({ reference, priority = false }) => {
         </div>
 
         {/* Name */}
-        <h3 className="text-lg font-bold text-light mb-1.5">{name}</h3>
+        <h2 className="text-lg font-bold text-light mb-1.5">{name}</h2>
 
         {/* Role */}
         <p className="text-sm font-medium text-accent mb-1.5">{role}</p>

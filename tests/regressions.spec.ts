@@ -81,7 +81,7 @@ test.describe("Phone layout at 360px", () => {
 
   test("a publication title keeps most of the card width", async ({ page }) => {
     await page.goto("/publications/");
-    const title = page.locator("article h3").first();
+    const title = page.locator("article h2").first();
     await expect(title).toBeVisible();
     const wrapper = title.locator("xpath=ancestor::div[1]");
     const card = await title.locator("xpath=ancestor::article").boundingBox();
@@ -122,6 +122,66 @@ test.describe("Touch screens", () => {
     await thumb.click();
     await expect(page.getByRole("dialog")).toBeVisible();
     await expect(page.getByText("to close")).toBeHidden();
+  });
+});
+
+test.describe("Document structure", () => {
+  for (const path of ["/portfolio/", "/publications/", "/references/"]) {
+    test(`${path} headings do not skip a level`, async ({ page }) => {
+      await page.goto(path);
+      await expect(page.locator("main h2").first()).toBeVisible();
+      const levels = await page.evaluate(() =>
+        [...document.querySelectorAll("h1, h2, h3, h4, h5, h6")].map((h) =>
+          Number(h.tagName[1]),
+        ),
+      );
+      levels.forEach((level, i) => {
+        if (i > 0)
+          expect(level - levels[i - 1], `heading ${i}`).toBeLessThan(2);
+      });
+    });
+  }
+
+  test("the skip link is the first tab stop and moves focus to main", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    await page.keyboard.press("Tab");
+    const link = page.getByRole("link", { name: "Skip to content" });
+    await expect(link).toBeFocused();
+    await expect(link).toBeInViewport();
+    await page.keyboard.press("Enter");
+    await expect(page).toHaveURL(/#main$/);
+    await expect(page.locator("main")).toBeFocused();
+  });
+
+  test("the nav marks the current page, also on a project page", async ({
+    page,
+  }) => {
+    await page.goto("/portfolio/deep-anatomy/");
+    const current = page.locator('nav a[aria-current="page"]');
+    await expect(current).toHaveCount(1);
+    await expect(current).toHaveText("Portfolio");
+  });
+
+  test("tab panels never share an id while one swaps for another", async ({
+    page,
+  }) => {
+    await page.goto("/experience/");
+    const card = page
+      .locator("article")
+      .filter({ has: page.getByRole("button", { name: "Links" }) })
+      .first();
+    await card.getByRole("button", { name: "Responsibilities" }).click();
+    await expect(card.locator('[id$="-panel"]')).toHaveCount(1);
+    await card.getByRole("button", { name: "Links" }).click();
+    const duplicates = await page.evaluate(() => {
+      const ids = [...document.querySelectorAll('[id$="-panel"]')].map(
+        (el) => el.id,
+      );
+      return ids.length - new Set(ids).size;
+    });
+    expect(duplicates).toBe(0);
   });
 });
 
