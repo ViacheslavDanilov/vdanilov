@@ -81,7 +81,7 @@ test.describe("Phone layout at 360px", () => {
 
   test("a publication title keeps most of the card width", async ({ page }) => {
     await page.goto("/publications/");
-    const title = page.locator("article h3").first();
+    const title = page.locator("article h2").first();
     await expect(title).toBeVisible();
     const wrapper = title.locator("xpath=ancestor::div[1]");
     const card = await title.locator("xpath=ancestor::article").boundingBox();
@@ -123,6 +123,24 @@ test.describe("Touch screens", () => {
     await expect(page.getByRole("dialog")).toBeVisible();
     await expect(page.getByText("to close")).toBeHidden();
   });
+});
+
+test.describe("Document structure", () => {
+  for (const path of ["/portfolio/", "/publications/", "/references/"]) {
+    test(`${path} headings do not skip a level`, async ({ page }) => {
+      await page.goto(path);
+      await expect(page.locator("main h2").first()).toBeVisible();
+      const levels = await page.evaluate(() =>
+        [...document.querySelectorAll("h1, h2, h3, h4, h5, h6")].map((h) =>
+          Number(h.tagName[1]),
+        ),
+      );
+      levels.forEach((level, i) => {
+        if (i > 0)
+          expect(level - levels[i - 1], `heading ${i}`).toBeLessThan(2);
+      });
+    });
+  }
 });
 
 test.describe("Mobile menu", () => {

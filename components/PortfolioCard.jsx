@@ -72,7 +72,7 @@ const PortfolioCard = ({ project, priority = false }) => {
         {/* Title with Arrow - Clickable */}
         <div className="mb-2">
           <Link href={projectUrl} className="group/title inline">
-            <h3 className="text-lg font-semibold text-light transition-colors duration-300 group-hover:text-accent inline">
+            <h2 className="text-lg font-semibold text-light transition-colors duration-300 group-hover:text-accent inline">
               {title}
               <span
                 className="inline-block ml-1.5 align-baseline transition-transform duration-300 group-hover/title:translate-x-1"
@@ -89,7 +89,7 @@ const PortfolioCard = ({ project, priority = false }) => {
                   aria-hidden="true"
                 />
               </span>
-            </h3>
+            </h2>
           </Link>
         </div>
         <p className="text-sm text-gray-400 line-clamp-3 leading-relaxed">

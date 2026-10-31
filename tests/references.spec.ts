@@ -12,7 +12,7 @@ async function namesFor(page: Page, filter: string, label: string) {
   }
   await expect(tab).toHaveAttribute("aria-pressed", "true");
   const count = Number((await tab.textContent())?.match(/\((\d+)\)/)?.[1]);
-  const names = page.getByRole("listitem").locator("h3");
+  const names = page.getByRole("listitem").locator("h2");
   await expect.poll(() => names.count()).toBe(count);
   return names.allTextContents();
 }
