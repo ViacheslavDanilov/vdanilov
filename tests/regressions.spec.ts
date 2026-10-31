@@ -58,6 +58,26 @@ test.describe("Phone layout at 360px", () => {
     );
     expect(peak).toBeLessThanOrEqual(360);
   });
+
+  test("the lightbox image fills the width of the phone", async ({ page }) => {
+    await page.goto("/portfolio/deep-anatomy/");
+    const buttons = page.getByRole("button", {
+      name: /^View .* in full size$/,
+    });
+    const count = await buttons.count();
+    expect(count).toBeGreaterThan(0);
+    for (let i = 0; i < count; i++) {
+      await buttons.nth(i).scrollIntoViewIfNeeded();
+      await buttons.nth(i).click();
+      const image = page.getByRole("dialog").locator("img");
+      await expect(image).toBeVisible();
+      await page.waitForTimeout(300);
+      const box = await image.boundingBox();
+      expect(box?.width, `lightbox image ${i}`).toBeGreaterThanOrEqual(326);
+      await page.keyboard.press("Escape");
+      await expect(page.getByRole("dialog")).toHaveCount(0);
+    }
+  });
 });
 
 test.describe("Mobile menu", () => {
