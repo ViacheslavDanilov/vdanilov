@@ -133,7 +133,7 @@ A restrained dark palette: ink ground, slate cards, one cyan accent, and a cool 
 ### Named Rules
 
 **The One Signal Rule.** Cyan is the only accent for state and emphasis. A new surface does not introduce a second action colour.
-**The Role Tint Rule.** Accent fills behind text are tints (10% highlight, 15 to 20% active, 30% border). Solid cyan is for small marks (list bullets, the section accent bar) and the single 404 home button, which carries dark text.
+**The Role Tint Rule.** Accent fills behind text are tints (10% highlight, 15 to 20% active, 30% border, 60% on the selected tab). Solid cyan is for small marks (list bullets, the section accent bar), the glass button focus ring and the single 404 home button, which carries dark text.
 
 ## Typography
 

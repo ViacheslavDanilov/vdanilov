@@ -233,7 +233,7 @@
       },
       {
         "name": "The Role Tint Rule",
-        "body": "Accent fills behind text are tints (10% highlight, 15 to 20% active, 30% border). Solid cyan is for small marks (list bullets, the section accent bar) and the single 404 home button, which carries dark text.",
+        "body": "Accent fills behind text are tints (10% highlight, 15 to 20% active, 30% border, 60% on the selected tab). Solid cyan is for small marks (list bullets, the section accent bar), the glass button focus ring and the single 404 home button, which carries dark text.",
         "section": "colors"
       },
       {
