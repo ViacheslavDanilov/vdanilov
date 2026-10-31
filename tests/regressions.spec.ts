@@ -903,4 +903,12 @@ test.describe("Page weight", () => {
       expect(source.trimStart(), name).not.toMatch(/^["']use client["']/);
     }
   });
+
+  test("/references/ loads only the first card image eagerly", async ({
+    page,
+  }) => {
+    await page.goto("/references/");
+
+    await expect(page.locator('main img:not([loading="lazy"])')).toHaveCount(1);
+  });
 });

@@ -383,7 +383,7 @@ export default function References() {
             layoutId="references-filter"
             gridClassName="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
             renderItem={(reference, index) => (
-              <ReferenceCard reference={reference} priority={index < 3} />
+              <ReferenceCard reference={reference} priority={index === 0} />
             )}
             empty={
               <p className="text-center text-gray-500 italic py-12">
