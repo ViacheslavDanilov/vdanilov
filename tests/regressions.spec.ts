@@ -1,3 +1,4 @@
+import { readFileSync } from "node:fs";
 import { test, expect, type Page } from "@playwright/test";
 
 type Entrance = {
@@ -889,5 +890,17 @@ test.describe("Page weight", () => {
     );
     expect(italics).toBeGreaterThanOrEqual(1);
     expect(italics).toBeLessThanOrEqual(2);
+  });
+
+  test("server-only home sections stay server components", () => {
+    for (const name of [
+      "About",
+      "FeaturedProjects",
+      "ExpertiseSection",
+      "CallToAction",
+    ]) {
+      const source = readFileSync(`components/${name}.jsx`, "utf8");
+      expect(source.trimStart(), name).not.toMatch(/^["']use client["']/);
+    }
   });
 });
