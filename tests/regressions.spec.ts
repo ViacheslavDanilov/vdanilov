@@ -861,3 +861,33 @@ test.describe("Last small tap targets at 360px", () => {
     }
   });
 });
+
+test.describe("Page weight", () => {
+  test("the home page fetches only the upright Poppins files", async ({
+    page,
+  }) => {
+    const fonts: string[] = [];
+    page.on("request", (request) => {
+      if (request.resourceType() === "font") fonts.push(request.url());
+    });
+    await page.goto("/");
+    await page.evaluate(() => document.fonts.ready);
+
+    expect(fonts.length).toBeGreaterThan(0);
+    expect(fonts.length).toBeLessThanOrEqual(5);
+  });
+
+  test("italic text still uses a real italic face", async ({ page }) => {
+    await page.goto("/publications/");
+    await page.evaluate(() => document.fonts.ready);
+
+    const italics = await page.evaluate(
+      () =>
+        [...document.fonts].filter(
+          (face) => face.style === "italic" && face.status === "loaded",
+        ).length,
+    );
+    expect(italics).toBeGreaterThanOrEqual(1);
+    expect(italics).toBeLessThanOrEqual(2);
+  });
+});

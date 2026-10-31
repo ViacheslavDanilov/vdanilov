@@ -12,10 +12,20 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 
 const poppins = Poppins({
   weight: ["300", "400", "500", "600", "700"],
-  style: ["normal", "italic"],
+  style: ["normal"],
   subsets: ["latin"],
   display: "swap",
   variable: "--font-poppins",
+});
+
+// A second instance, so only the upright files are preloaded
+const poppinsItalic = Poppins({
+  weight: ["400", "500"],
+  style: ["italic"],
+  subsets: ["latin"],
+  display: "swap",
+  preload: false,
+  variable: "--font-poppins-italic",
 });
 
 // Preview deployments link to themselves; production links to the canonical domain
@@ -44,7 +54,11 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={poppins.variable} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${poppins.variable} ${poppinsItalic.variable}`}
+      suppressHydrationWarning
+    >
       <body suppressHydrationWarning>
         <MotionProvider>
           <a
