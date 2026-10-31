@@ -313,3 +313,51 @@ test.describe("Cards without JavaScript", () => {
     });
   }
 });
+
+test.describe("Sitemap and robots", () => {
+  const SITE = "https://www.vdanilov.com";
+
+  test("sitemap lists the main pages and every project", async ({
+    page,
+    request,
+  }) => {
+    await page.goto("/portfolio/?filter=all");
+    await expect(page.locator('[role="listitem"]')).toHaveCount(22);
+    const hrefs = await page
+      .locator('[role="listitem"] a[href^="/portfolio/"]')
+      .evaluateAll((links) => [
+        ...new Set(links.map((a) => a.getAttribute("href"))),
+      ]);
+    expect(hrefs).toHaveLength(22);
+
+    const response = await request.get("/sitemap.xml");
+    expect(response.status()).toBe(200);
+    expect(response.headers()["content-type"]).toContain("xml");
+
+    const xml = await response.text();
+    const locs = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+    const pages = [
+      "/",
+      "/experience/",
+      "/education/",
+      "/portfolio/",
+      "/publications/",
+      "/references/",
+    ];
+    expect([...locs].sort()).toEqual(
+      [...pages, ...hrefs].map((path) => `${SITE}${path}`).sort(),
+    );
+  });
+
+  test("robots.txt allows crawling and names the sitemap", async ({
+    request,
+  }) => {
+    const response = await request.get("/robots.txt");
+    expect(response.status()).toBe(200);
+
+    const text = await response.text();
+    expect(text).toMatch(/User-Agent: \*/i);
+    expect(text).toMatch(/Allow: \//i);
+    expect(text).toContain(`Sitemap: ${SITE}/sitemap.xml`);
+  });
+});
