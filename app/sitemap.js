@@ -2,6 +2,9 @@ import { existsSync, readdirSync } from "node:fs";
 import path from "node:path";
 import { SITE_URL } from "@/lib/metadata";
 
+// Reads app/ at build time, so it must stay a static route
+export const dynamic = "force-static";
+
 const PAGES = [
   "/",
   "/experience/",
