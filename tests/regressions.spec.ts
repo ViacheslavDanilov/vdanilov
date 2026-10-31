@@ -271,3 +271,45 @@ test.describe("Page metadata", () => {
     });
   }
 });
+
+test.describe("Cards without JavaScript", () => {
+  const paths = ["/portfolio/", "/publications/", "/references/"];
+
+  for (const path of paths) {
+    test(`${path} serves cards that are not transparent`, async ({
+      request,
+    }) => {
+      const html = await (await request.get(path)).text();
+      const items = html.match(/<div[^>]*role="listitem"[^>]*>/g) ?? [];
+
+      expect(items.length).toBeGreaterThan(0);
+      for (const item of items) {
+        expect(item).not.toContain("opacity:0");
+      }
+    });
+
+    test(`${path} shows its cards when scripts are off`, async ({
+      browser,
+    }) => {
+      const context = await browser.newContext({ javaScriptEnabled: false });
+      const page = await context.newPage();
+      await page.goto(path);
+
+      await expect(page.locator('[role="listitem"]').first()).toHaveCSS(
+        "opacity",
+        "1",
+      );
+      await context.close();
+    });
+
+    test(`${path} cards keep their entrance animation`, async ({ page }) => {
+      await page.goto(path);
+
+      const name = await page
+        .locator('[role="listitem"]')
+        .first()
+        .evaluate((el) => getComputedStyle(el).animationName);
+      expect(name).not.toBe("none");
+    });
+  }
+});
