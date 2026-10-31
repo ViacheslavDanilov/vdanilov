@@ -999,7 +999,7 @@ test.describe("Hero and About videos", () => {
 });
 
 test.describe("Home section spacing", () => {
-  const big = [1, 3, 4, 6];
+  const big = [1, 2, 3, 4, 6];
 
   for (const [width, height] of [
     [3840, 2160],
@@ -1022,7 +1022,6 @@ test.describe("Home section spacing", () => {
         expect(boxes).toHaveLength(7);
         for (const i of big) expect(boxes[i][1]).toBeGreaterThanOrEqual(height);
         expect(boxes[0][0] + boxes[0][1]).toBeCloseTo(height, 0);
-        expect(boxes[2][1]).toBeLessThan(height);
         expect(boxes[5][1]).toBeLessThan(height);
         expect(
           await page.evaluate(
