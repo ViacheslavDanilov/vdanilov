@@ -141,6 +141,28 @@ test.describe("Document structure", () => {
       });
     });
   }
+
+  test("the skip link is the first tab stop and moves focus to main", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    await page.keyboard.press("Tab");
+    const link = page.getByRole("link", { name: "Skip to content" });
+    await expect(link).toBeFocused();
+    await expect(link).toBeInViewport();
+    await page.keyboard.press("Enter");
+    await expect(page).toHaveURL(/#main$/);
+    await expect(page.locator("main")).toBeFocused();
+  });
+
+  test("the nav marks the current page, also on a project page", async ({
+    page,
+  }) => {
+    await page.goto("/portfolio/deep-anatomy/");
+    const current = page.locator('nav a[aria-current="page"]');
+    await expect(current).toHaveCount(1);
+    await expect(current).toHaveText("Portfolio");
+  });
 });
 
 test.describe("Mobile menu", () => {
