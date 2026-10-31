@@ -25,13 +25,13 @@ const CertificateCard = ({ certificate }) => {
                 href={certificate.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group/title flex items-center gap-2 text-md font-bold text-light group-hover:text-accent transition-colors w-fit"
+                className="group/title flex items-end gap-2 text-md font-bold text-light group-hover:text-accent transition-colors w-fit"
               >
                 <span className="uppercase tracking-wide md:truncate">
                   {certificate.title}
                 </span>
                 <span
-                  className="inline-block transition-transform duration-300 group-hover/title:translate-x-1"
+                  className="inline-block shrink-0 mb-[calc((1lh-0.75rem)/2)] transition-transform duration-300 group-hover/title:translate-x-1"
                   style={{ width: "0.75rem", height: "0.75rem" }}
                 >
                   <FontAwesomeIcon

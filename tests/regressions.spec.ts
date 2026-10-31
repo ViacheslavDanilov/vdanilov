@@ -614,3 +614,43 @@ test.describe("Touch targets at 360px", () => {
     }
   });
 });
+
+test.describe("Small polish", () => {
+  test("certificate arrows stay clear of the card edge and on the last title line", async ({
+    page,
+  }) => {
+    for (const width of [360, 1440]) {
+      await page.setViewportSize({ width, height: 900 });
+      await page.goto("/education/");
+
+      const problems = await page.evaluate(() =>
+        [...document.querySelectorAll("article")]
+          .filter((article) => article.querySelector("a.group\\/title"))
+          .flatMap((article) => {
+            const card = article.firstElementChild as HTMLElement;
+            const edge = card.getBoundingClientRect().right - 8;
+            const title = article.querySelector(
+              "a.group\\/title span.uppercase",
+            ) as HTMLElement;
+            const arrow = article
+              .querySelector("a.group\\/title span.inline-block")!
+              .getBoundingClientRect();
+            const range = document.createRange();
+            range.selectNodeContents(title);
+            const lines = [...range.getClientRects()];
+            const last = lines[lines.length - 1];
+            const centre = arrow.top + arrow.height / 2;
+
+            const found: string[] = [];
+            if (arrow.right > edge) found.push("too close to the card edge");
+            if (centre < last.top - 2 || centre > last.bottom + 2) {
+              found.push("off the last title line");
+            }
+            return found.map((what) => `${title.textContent}: ${what}`);
+          }),
+      );
+
+      expect(problems, `at ${width}px`).toEqual([]);
+    }
+  });
+});
