@@ -252,8 +252,8 @@
       "Do build floating surfaces from a translucent fill, blur and a hairline border: white at 10 to 20%, or the fill's own grey on glow cards.",
       "Do make small controls full pills and cards 16px.",
       "Do keep grey tiers: Paper Light for headings, Text Soft or 200 to 300 for body, Text Muted for metadata.",
-      "Do disable pointer glow below 768px and keep touch panning intact.",
-      "Do give every control a 44px tap target at 360px. The visible size stays small: the extra area is padding offset by a negative margin, or a pseudo-element where a parent's spacing would clash.",
+      "Do disable pointer glow below 768px and keep touch panning and pinch zoom intact.",
+      "Do give icon links, tabs, footer links, card titles and the menu toggle a 44px tap target at 360px. The visible size stays small: the extra area is padding offset by a negative margin, or a pseudo-element where a parent's spacing would clash.",
       "Do keep the page usable with one dark theme now and a light theme later: reference colour roles, not literal values, in new components."
     ],
     "donts": [
