@@ -111,6 +111,10 @@ export default function ImageLightbox({
           className="w-full h-auto"
           style={{ display: "block" }}
         />
+        {/* Touch cue */}
+        <div className="hidden pointer-coarse:flex absolute bottom-2 right-2 w-8 h-8 rounded-full bg-black/60 items-center justify-center">
+          <FontAwesomeIcon icon={faExpand} className="w-4 h-4 text-light" />
+        </div>
         {/* Hover overlay */}
         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
           <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -154,8 +158,8 @@ export default function ImageLightbox({
             </button>
 
             {/* Keyboard hint */}
-            <div className="absolute top-4 left-4 z-10">
-              <span className="text-gray-500 text-xs bg-black/50 px-3 py-1.5 rounded-md">
+            <div className="absolute top-4 left-4 z-10 pointer-coarse:hidden">
+              <span className="text-gray-400 text-xs bg-black/50 px-3 py-1.5 rounded-md">
                 Press <kbd className="text-gray-400 font-mono">Esc</kbd> to
                 close
               </span>
@@ -177,7 +181,7 @@ export default function ImageLightbox({
                 height={height}
                 sizes="95vw"
                 quality={90}
-                className="max-w-full max-h-[90vh] w-auto h-auto rounded-lg shadow-2xl"
+                className="max-w-full max-h-[90vh] w-[calc(100vw-2rem)] sm:w-auto h-auto rounded-lg shadow-2xl"
                 style={{ objectFit: "contain" }}
                 priority
               />

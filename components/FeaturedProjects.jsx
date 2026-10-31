@@ -132,7 +132,7 @@ const FeaturedProjects = () => {
                   <div className="text-sm font-light text-white uppercase tracking-wide text-center sm:text-left mb-2">
                     {project.client}
                   </div>
-                  <div className="text-sm text-neutral-500 mt-1 text-center sm:text-left">
+                  <div className="text-sm text-gray-400 mt-1 text-center sm:text-left">
                     {project.location}
                   </div>
                 </div>

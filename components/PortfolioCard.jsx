@@ -100,7 +100,7 @@ const PortfolioCard = ({ project, priority = false }) => {
         <div className="mt-4 flex items-center justify-between">
           {/* Date */}
           {formattedDate && (
-            <div className="flex items-center gap-1.5 text-xs text-gray-500">
+            <div className="flex items-center gap-1.5 text-xs text-gray-400">
               <FontAwesomeIcon
                 icon={faCalendarAlt}
                 className="w-3 h-3"

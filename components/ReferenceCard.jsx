@@ -71,7 +71,7 @@ const ReferenceCard = ({ reference, priority = false }) => {
         <p className="text-sm text-gray-300 mb-1.5">{organization}</p>
 
         {/* Location */}
-        <p className="text-xs text-gray-500 mb-4">{location}</p>
+        <p className="text-xs text-gray-400 mb-4">{location}</p>
 
         {/* Social Links */}
         <div className="flex flex-wrap items-center justify-center gap-4 mt-auto pt-2">

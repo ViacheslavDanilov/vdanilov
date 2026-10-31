@@ -38,6 +38,93 @@ test.describe("Layout width", () => {
   }
 });
 
+test.describe("Phone layout at 360px", () => {
+  test.use({ viewport: { width: 360, height: 800 } });
+
+  test("the hero word flip never widens the page", async ({ page }) => {
+    await page.goto("/");
+    const peak = await page.evaluate(
+      () =>
+        new Promise<number>((resolve) => {
+          let max = 0;
+          const end = performance.now() + 7000;
+          const tick = () => {
+            max = Math.max(max, document.documentElement.scrollWidth);
+            if (performance.now() < end) requestAnimationFrame(tick);
+            else resolve(max);
+          };
+          tick();
+        }),
+    );
+    expect(peak).toBeLessThanOrEqual(360);
+  });
+
+  test("the lightbox image fills the width of the phone", async ({ page }) => {
+    await page.goto("/portfolio/deep-anatomy/");
+    const buttons = page.getByRole("button", {
+      name: /^View .* in full size$/,
+    });
+    const count = await buttons.count();
+    expect(count).toBeGreaterThan(0);
+    for (let i = 0; i < count; i++) {
+      await buttons.nth(i).scrollIntoViewIfNeeded();
+      await buttons.nth(i).click();
+      const image = page.getByRole("dialog").locator("img");
+      await expect(image).toBeVisible();
+      await page.waitForTimeout(300);
+      const box = await image.boundingBox();
+      expect(box?.width, `lightbox image ${i}`).toBeGreaterThanOrEqual(326);
+      await page.keyboard.press("Escape");
+      await expect(page.getByRole("dialog")).toHaveCount(0);
+    }
+  });
+
+  test("a publication title keeps most of the card width", async ({ page }) => {
+    await page.goto("/publications/");
+    const title = page.locator("article h3").first();
+    await expect(title).toBeVisible();
+    const wrapper = title.locator("xpath=ancestor::div[1]");
+    const card = await title.locator("xpath=ancestor::article").boundingBox();
+    const box = await wrapper.boundingBox();
+    const contentWidth = await wrapper.evaluate((el) => {
+      const style = getComputedStyle(el);
+      return (
+        el.clientWidth -
+        parseFloat(style.paddingLeft) -
+        parseFloat(style.paddingRight)
+      );
+    });
+    expect(contentWidth).toBeGreaterThanOrEqual((card?.width ?? 0) - 50);
+
+    const badge = await page
+      .locator("article span.rounded-full")
+      .first()
+      .boundingBox();
+    expect(badge?.y).toBeLessThan(box?.y ?? 0);
+    expect((badge?.y ?? 0) + (badge?.height ?? 0)).toBeLessThanOrEqual(
+      box?.y ?? 0,
+    );
+  });
+});
+
+test.describe("Touch screens", () => {
+  test.use({ viewport: { width: 360, height: 800 }, hasTouch: true });
+
+  test("the lightbox thumbnail shows an expand cue and no Esc hint", async ({
+    page,
+  }) => {
+    await page.goto("/portfolio/deep-anatomy/");
+    const thumb = page
+      .getByRole("button", { name: /^View .* in full size$/ })
+      .first();
+    await thumb.scrollIntoViewIfNeeded();
+    await expect(thumb.locator("svg.w-4")).toBeVisible();
+    await thumb.click();
+    await expect(page.getByRole("dialog")).toBeVisible();
+    await expect(page.getByText("to close")).toBeHidden();
+  });
+});
+
 test.describe("Mobile menu", () => {
   test.use({ viewport: { width: 390, height: 844 } });
 

@@ -42,14 +42,17 @@ const Hero = () => {
   const roles = ["Tech Lead", "Engineering Manager", "Research Scientist"];
 
   return (
-    <section id="hero" className="w-full max-w-7xl mx-auto px-6 py-12 md:py-24">
+    <section
+      id="hero"
+      className="w-full max-w-7xl mx-auto px-6 py-12 md:py-24 overflow-x-clip"
+    >
       <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-6 lg:gap-10">
         {/* Text Content */}
         <div className="w-full md:w-1/2 space-y-4 text-center md:text-left">
           <h1 className="text-4xl md:text-5xl font-semibold text-light tracking-tight">
             Viacheslav Danilov, PhD
           </h1>
-          <h2 className="text-2xl md:text-3xl text-gray-400 min-h-[2.0em] flex items-center justify-center md:justify-start">
+          <h2 className="relative text-2xl md:text-3xl text-gray-400 min-h-[2.0em] flex items-center justify-center md:justify-start">
             <FlipWords words={roles} className="text-light" />
           </h2>
 

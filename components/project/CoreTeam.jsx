@@ -21,7 +21,7 @@ function TeamMemberCard({ member }) {
         <h3 className="text-base font-bold text-light mb-1.5">{member.name}</h3>
         <p className="text-sm font-medium text-accent mb-2">{member.role}</p>
         <p className="text-sm text-gray-300 mb-2">{member.organization}</p>
-        <p className="text-sm text-gray-500 mb-4">{member.location}</p>
+        <p className="text-sm text-gray-400 mb-4">{member.location}</p>
         <div className="flex flex-wrap items-center justify-center gap-4 mt-auto">
           {orderedPersonLinks(member.links).map(
             ({ key, label, icon, href, external }) => (
