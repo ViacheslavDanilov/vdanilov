@@ -78,6 +78,16 @@ test.describe("Phone layout at 360px", () => {
       await expect(page.getByRole("dialog")).toHaveCount(0);
     }
   });
+
+  test("a publication title keeps most of the card width", async ({ page }) => {
+    await page.goto("/publications/");
+    const title = page.locator("article h3").first();
+    await expect(title).toBeVisible();
+    const wrapper = title.locator("xpath=ancestor::div[1]");
+    const card = await title.locator("xpath=ancestor::article").boundingBox();
+    const box = await wrapper.boundingBox();
+    expect(box?.width).toBeGreaterThanOrEqual((card?.width ?? 0) - 50);
+  });
 });
 
 test.describe("Mobile menu", () => {

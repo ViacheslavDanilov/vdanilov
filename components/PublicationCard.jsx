@@ -65,7 +65,7 @@ const PublicationCard = ({ publication }) => {
           <Badge
             variant={config.variant}
             icon={config.icon}
-            className="absolute top-5 right-5 z-10"
+            className="flex w-fit sm:absolute sm:top-5 sm:right-5 z-10"
           >
             {type}
           </Badge>
@@ -73,7 +73,7 @@ const PublicationCard = ({ publication }) => {
 
         <div className="flex flex-col gap-3">
           {/* Title */}
-          <div className="pr-30">
+          <div className="sm:pr-30">
             {url ? (
               <a
                 href={url}
