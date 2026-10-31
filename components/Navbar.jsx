@@ -117,10 +117,9 @@ function Navbar() {
     <nav
       ref={navRef}
       onFocus={() => setIsVisible(true)}
-      className="fixed top-4 left-0 right-0 z-50 flex justify-center px-6"
+      className="fixed top-4 left-0 right-0 z-50 flex justify-center px-6 transition-transform duration-300 ease-in-out motion-reduce:transition-none"
       style={{
         transform: isVisible ? "translateY(0)" : "translateY(-130%)",
-        transition: "transform 0.3s ease-in-out",
       }}
     >
       {/* Glassmorphism Pill Container */}

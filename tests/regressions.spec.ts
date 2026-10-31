@@ -1021,6 +1021,19 @@ test.describe("Reduced motion", () => {
         await page.mouse.up();
       });
 
+      test(`the navbar ${moves ? "slides" : "jumps"} when it hides`, async ({
+        page,
+      }) => {
+        await page.goto("/");
+
+        const property = await page
+          .locator("nav")
+          .first()
+          .evaluate((el) => getComputedStyle(el).transitionProperty);
+        if (moves) expect(property).not.toBe("none");
+        else expect(property).toBe("none");
+      });
+
       test(`an Experience tab panel opens ${moves ? "gradually" : "at once"}`, async ({
         page,
       }) => {
