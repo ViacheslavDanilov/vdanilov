@@ -89,7 +89,7 @@ const GlowCard = ({ children, className = "", spotlightSize = 180 }) => {
         backgroundAttachment: "fixed",
         border: "var(--border-size) solid var(--backup-border)",
         position: "relative",
-        touchAction: "pan-y",
+        touchAction: "pan-y pinch-zoom",
       }}
       className={cn(
         "rounded-2xl relative grid grid-rows-[1fr_auto] shadow-[0_0.5rem_1rem_-0.5rem_rgba(0,0,0,0.3)] p-4 gap-4 backdrop-blur-[2px]",

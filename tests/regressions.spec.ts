@@ -674,6 +674,14 @@ test.describe("Small polish", () => {
     }
   });
 
+  test("glow cards let a two-finger pinch zoom the page", async ({ page }) => {
+    await page.goto("/references/");
+
+    await expect(
+      page.locator('main div[style*="touch-action"]').first(),
+    ).toHaveCSS("touch-action", "pan-y pinch-zoom");
+  });
+
   test("tabs draw their focus ring on the visible pill", async ({ page }) => {
     await page.goto("/portfolio/");
     const rings = await page
