@@ -22,7 +22,7 @@ const CORE_EDUCATION_DATA = [
     institution: "Tomsk Polytechnic University",
     url: INSTITUTION_URLS["Tomsk Polytechnic University"],
     honors: "Honors", // GPA: 5.0/5.0
-    period: "Sep 2015 - Sep 2020",
+    period: "Sep 2015 – Sep 2020",
     location: "Tomsk • Russia 🇷🇺",
     logo: "/education/universities/tpu.svg",
     coreCourses: [
@@ -41,7 +41,7 @@ const CORE_EDUCATION_DATA = [
     institution: "Tomsk Polytechnic University",
     url: INSTITUTION_URLS["Tomsk Polytechnic University"],
     honors: "Honors", // GPA: 4.94/5.0
-    period: "Sep 2011 - Sep 2013",
+    period: "Sep 2011 – Sep 2013",
     location: "Tomsk • Russia 🇷🇺",
     logo: "/education/universities/tpu.svg",
     coreCourses: [
@@ -62,7 +62,7 @@ const CORE_EDUCATION_DATA = [
     institution: "Tomsk State University",
     url: INSTITUTION_URLS["Tomsk State University"],
     honors: "Honors", // GPA: 5.0/5.0
-    period: "Sep 2011 - Sep 2013",
+    period: "Sep 2011 – Sep 2013",
     location: "Tomsk • Russia 🇷🇺",
     logo: "/education/universities/tsu.svg",
     coreCourses: [
@@ -82,7 +82,7 @@ const CORE_EDUCATION_DATA = [
     institution: "Tomsk Polytechnic University",
     url: INSTITUTION_URLS["Tomsk Polytechnic University"],
     honors: "", // GPA: 4.8/5.0
-    period: "Sep 2007 - Sep 2011",
+    period: "Sep 2007 – Sep 2011",
     location: "Tomsk • Russia 🇷🇺",
     logo: "/education/universities/tpu.svg",
     coreCourses: [
@@ -105,7 +105,7 @@ const ADDITIONAL_EDUCATION_DATA = [
     field: "Machine Learning and Medical Image Analysis",
     institution: "University of Leeds",
     url: INSTITUTION_URLS["University of Leeds"],
-    period: "Jan 2019 - Aug 2019",
+    period: "Jan 2019 – Aug 2019",
     location: "Leeds • United Kingdom 🇬🇧",
     logo: "/education/universities/uol.svg",
     coreCourses: ["Machine learning and deep learning research"],
@@ -117,7 +117,7 @@ const ADDITIONAL_EDUCATION_DATA = [
     field: "Machine Learning for Biomedical Imaging",
     institution: "Technical University of Madrid",
     url: INSTITUTION_URLS["Technical University of Madrid"],
-    period: "Aug 2018 - Jan 2019",
+    period: "Aug 2018 – Jan 2019",
     location: "Madrid • Spain 🇪🇸",
     logo: "/education/universities/upm.svg",
     coreCourses: [
@@ -134,7 +134,7 @@ const ADDITIONAL_EDUCATION_DATA = [
     field: "Pattern Recognition and Signal Processing",
     institution: "University of Trento",
     url: INSTITUTION_URLS["University of Trento"],
-    period: "Mar 2017 - Aug 2017",
+    period: "Mar 2017 – Aug 2017",
     location: "Trento • Italy 🇮🇹",
     logo: "/education/universities/uot.svg",
     coreCourses: [
@@ -149,7 +149,7 @@ const ADDITIONAL_EDUCATION_DATA = [
     field: "Intelligent Systems and AI",
     institution: "University of Lisbon",
     url: INSTITUTION_URLS["University of Lisbon"],
-    period: "Jan 2013 - Aug 2013",
+    period: "Jan 2013 – Aug 2013",
     location: "Lisbon • Portugal 🇵🇹",
     logo: "/education/universities/ist.svg",
     coreCourses: [

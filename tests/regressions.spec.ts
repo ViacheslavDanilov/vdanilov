@@ -57,8 +57,8 @@ test.describe("Experience dates west of UTC", () => {
     });
 
     await page.goto("/experience/");
-    await expect(page.getByText("Jun 2023 - Present")).toBeVisible();
-    await expect(page.getByText("May 2023 - Present")).toHaveCount(0);
+    await expect(page.getByText("Jun 2023 – Present")).toBeVisible();
+    await expect(page.getByText("May 2023 – Present")).toHaveCount(0);
     expect(errors).toEqual([]);
   });
 });
@@ -746,4 +746,89 @@ test.describe("Small polish", () => {
 
     expect(html).toMatch(/<meta name="theme-color" content="#0a0e14"\/?>/i);
   });
+});
+
+test.describe("Date ranges", () => {
+  for (const path of ["/education/", "/experience/"]) {
+    test(`${path} separates dates with an en dash`, async ({ page }) => {
+      await page.goto(path);
+      const text = await page.locator("main").innerText();
+
+      expect(text).toMatch(
+        /[A-Z][a-z]{2} \d{4} \u2013 (?:[A-Z][a-z]{2} \d{4}|Present)/,
+      );
+      expect(text).not.toMatch(/\d{4} - /);
+    });
+  }
+});
+
+test.describe("Last small tap targets at 360px", () => {
+  test.use({ viewport: { width: 360, height: 780 }, hasTouch: true });
+
+  const targets = [
+    ["logo links", "/", 'a[aria-label="Go to home page"]'],
+    ["Featured project titles", "/", "main a:has(> h3)"],
+    [
+      "Back to Portfolio",
+      "/portfolio/deep-anatomy/",
+      'main a[href="/portfolio/"]',
+    ],
+    [
+      "client link",
+      "/portfolio/deep-anatomy/",
+      "main header a.text-accent:not([class*='bg-'])",
+    ],
+    [
+      "client link with a short name",
+      "/portfolio/risk-profiler/",
+      "main header a.text-accent:not([class*='bg-'])",
+    ],
+    [
+      "resource buttons (rows 42px apart)",
+      "/portfolio/deep-anatomy/",
+      "main a:has-text('PhD Thesis'), main a:has-text('PhD Abstract')",
+      42,
+    ],
+    [
+      "institution links",
+      "/education/",
+      'main a[aria-label$="website"]:not(:has(img))',
+    ],
+    ["certificate titles", "/education/", "article a.group\\/title"],
+    ["certificate organisations", "/education/", "article a.tracking-wider"],
+  ];
+
+  for (const [name, path, selector, min = 43] of targets) {
+    test(`${name} take a tap in a 44px area`, async ({ page }) => {
+      await page.goto(path);
+      const areas = await page.locator(selector).evaluateAll((links) =>
+        links.map((link) => {
+          link.scrollIntoView({ block: "center" });
+          const box = link.getBoundingClientRect();
+          const cx = box.left + box.width / 2;
+          const cy = box.top + box.height / 2;
+          const run = (dx: number, dy: number) => {
+            let n = 0;
+            while (
+              n < 60 &&
+              link.contains(document.elementFromPoint(cx + dx * n, cy + dy * n))
+            )
+              n += 1;
+            return n;
+          };
+          return {
+            label: link.textContent?.trim().slice(0, 24),
+            width: run(1, 0) + run(-1, 0) - 1,
+            height: run(0, 1) + run(0, -1) - 1,
+          };
+        }),
+      );
+
+      expect(areas.length).toBeGreaterThan(0);
+      for (const { label, width, height } of areas) {
+        expect(width, `${label} width`).toBeGreaterThanOrEqual(43);
+        expect(height, `${label} height`).toBeGreaterThanOrEqual(min);
+      }
+    });
+  }
 });

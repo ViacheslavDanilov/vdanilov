@@ -50,7 +50,7 @@ const calculateDuration = (startDate, endDate = null) => {
  * Format date period in readable format
  * @param {string} startDate - ISO date string
  * @param {string|null} endDate - ISO date string or null for ongoing
- * @returns {string} Formatted period (e.g., "Nov 2024 - Present")
+ * @returns {string} Formatted period (e.g., "Nov 2024 – Present")
  */
 const formatPeriod = (startDate, endDate = null) => {
   const formatDate = (date) => {
@@ -58,7 +58,7 @@ const formatPeriod = (startDate, endDate = null) => {
     return `${MONTHS[month - 1]} ${year}`;
   };
 
-  return `${formatDate(startDate)} - ${endDate ? formatDate(endDate) : "Present"}`;
+  return `${formatDate(startDate)} – ${endDate ? formatDate(endDate) : "Present"}`;
 };
 
 // Experience data configuration

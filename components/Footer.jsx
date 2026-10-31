@@ -73,7 +73,7 @@ function Footer() {
         <div className="space-y-4 text-center lg:text-left lg:col-start-1 lg:row-start-1">
           <Link
             href="/"
-            className="inline-flex items-center justify-center gap-2 [@media(hover:hover)]:hover:brightness-125 [@media(hover:hover)]:hover:scale-[1.03] transition-all duration-200 origin-center"
+            className="relative after:absolute after:-inset-x-1 after:-inset-y-1.5 inline-flex items-center justify-center gap-2 [@media(hover:hover)]:hover:brightness-125 [@media(hover:hover)]:hover:scale-[1.03] transition-all duration-200 origin-center"
             aria-label="Go to home page"
           >
             <Image
