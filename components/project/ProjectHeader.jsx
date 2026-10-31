@@ -19,7 +19,7 @@ export default function ProjectHeader({
     <>
       <Link
         href="/portfolio"
-        className="inline-flex items-center gap-2 text-gray-400 hover:text-accent transition-colors mb-8 group"
+        className="relative after:absolute after:-inset-y-3 after:inset-x-0 focus-visible:after:hidden inline-flex items-center gap-2 text-gray-400 hover:text-accent transition-colors mb-8 group"
       >
         <FontAwesomeIcon
           icon={faArrowLeft}
@@ -44,7 +44,7 @@ export default function ProjectHeader({
             href={client.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-accent hover:underline"
+            className="relative px-2 -mx-2 py-3.5 focus-visible:p-0 focus-visible:m-0 text-accent hover:underline"
           >
             {client.name}
           </a>
@@ -64,14 +64,14 @@ export default function ProjectHeader({
 
         <div className="h-px bg-light/10 my-8" />
 
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-x-2 gap-y-2.5">
           {resources.map((resource) => (
             <a
               key={resource.label}
               href={resource.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-lg bg-accent/10 text-accent border border-accent/30 hover:bg-accent/20 transition-colors"
+              className="relative after:absolute after:-inset-y-1.5 after:inset-x-0 focus-visible:after:hidden inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-lg bg-accent/10 text-accent border border-accent/30 hover:bg-accent/20 transition-colors"
             >
               {resource.label}
               <FontAwesomeIcon

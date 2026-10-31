@@ -131,7 +131,7 @@ const EducationCard = ({ education }) => {
               href={education.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-medium text-light md:hover:text-accent uppercase cursor-pointer transition-colors max-w-full"
+              className="relative after:absolute after:-inset-3 focus-visible:after:hidden text-sm font-medium text-light md:hover:text-accent uppercase cursor-pointer transition-colors max-w-full"
               aria-label={`${education.institution} website`}
             >
               {education.institution}
