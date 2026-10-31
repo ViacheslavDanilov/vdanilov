@@ -35,7 +35,7 @@ const CertificateCard = ({ certificate }) => {
                   <span className="whitespace-nowrap">
                     {lastWord}
                     <span
-                      className="inline-block ml-2 align-[-1px] transition-transform duration-300 group-hover/title:translate-x-1"
+                      className="inline-block ml-2 align-[-1px] transition-transform duration-300 motion-safe:group-hover/title:translate-x-1"
                       style={{ width: "0.75rem", height: "0.75rem" }}
                     >
                       <FontAwesomeIcon

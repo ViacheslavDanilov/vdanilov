@@ -966,3 +966,118 @@ test.describe("Page weight", () => {
     });
   }
 });
+
+test.describe("Reduced motion", () => {
+  const modes = [
+    ["no preference", "no-preference", true],
+    ["reduce", "reduce", false],
+  ] as const;
+
+  for (const [name, reducedMotion, moves] of modes) {
+    test.describe(`with ${name}`, () => {
+      test.use({ reducedMotion });
+
+      test(`an About icon ${moves ? "grows" : "stays put"} on hover`, async ({
+        page,
+      }) => {
+        await page.goto("/");
+        const icon = page
+          .locator('main a[aria-label][style*="inline-block"]')
+          .first();
+        await icon.scrollIntoViewIfNeeded();
+        await icon.hover();
+
+        await expect
+          .poll(() => icon.evaluate((el) => getComputedStyle(el).scale))
+          .toBe(moves ? "1.1" : "none");
+      });
+
+      test(`a card title arrow ${moves ? "slides" : "stays put"} on hover`, async ({
+        page,
+      }) => {
+        await page.goto("/portfolio/");
+        const title = page.locator("article a:has(h2)").first();
+        await title.scrollIntoViewIfNeeded();
+        await title.hover();
+        const arrow = title.locator("span.inline-block");
+
+        await expect
+          .poll(() => arrow.evaluate((el) => getComputedStyle(el).translate))
+          .toBe(moves ? "4px" : "none");
+      });
+
+      test(`a pressed tab ${moves ? "shrinks" : "stays put"}`, async ({
+        page,
+      }) => {
+        await page.goto("/portfolio/");
+        const tab = page.locator('button[aria-pressed="false"]').first();
+        const box = (await tab.boundingBox())!;
+        await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2);
+        await page.mouse.down();
+
+        await expect
+          .poll(() => tab.evaluate((el) => getComputedStyle(el).scale))
+          .toBe(moves ? "0.95" : "none");
+        await page.mouse.up();
+      });
+
+      test(`an Experience tab panel opens ${moves ? "gradually" : "at once"}`, async ({
+        page,
+      }) => {
+        await page.goto("/experience/");
+        const card = page.locator("article").first();
+        await card.scrollIntoViewIfNeeded();
+
+        const heights = await card.evaluate(async (article) => {
+          const tab = article.querySelector(
+            "button[aria-expanded]",
+          ) as HTMLElement;
+          const samples: number[] = [];
+          const started = performance.now();
+          tab.click();
+          while (performance.now() - started < 700) {
+            await new Promise(requestAnimationFrame);
+            const panel = article.querySelector('[id$="-panel"]');
+            samples.push(panel ? panel.getBoundingClientRect().height : 0);
+          }
+          return samples;
+        });
+
+        const settled = heights[heights.length - 1];
+        expect(settled).toBeGreaterThan(40);
+        const between = heights.filter(
+          (h) => h > settled * 0.1 && h < settled * 0.9,
+        );
+        if (moves) expect(between.length).toBeGreaterThan(2);
+        else expect(between).toEqual([]);
+      });
+    });
+  }
+
+  for (const [reducedMotion, instant] of [
+    ["reduce", true],
+    ["no-preference", false],
+  ] as const) {
+    test(`the menu icon morphs ${instant ? "at once" : "with a transition"} with ${reducedMotion}`, async ({
+      page,
+    }) => {
+      await page.emulateMedia({ reducedMotion });
+      await page.setViewportSize({ width: 360, height: 780 });
+      await page.goto("/");
+
+      const properties = await page
+        .locator(
+          'button[aria-label="Toggle menu"] svg, button[aria-label="Toggle menu"] svg path:first-child',
+        )
+        .evaluateAll((els) =>
+          els.map((el) => getComputedStyle(el).transitionProperty),
+        );
+
+      expect(properties).toHaveLength(2);
+      for (const property of properties) {
+        if (instant) expect(property).toBe("none");
+        else expect(property).not.toBe("none");
+      }
+    });
+  }
+});

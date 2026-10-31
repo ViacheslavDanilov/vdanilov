@@ -40,7 +40,7 @@ export default function NotFound() {
               href="/"
               className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 
                          px-6 py-3 rounded-full bg-accent text-dark font-medium
-                         hover:bg-accent/90 transition-all duration-300 hover:scale-[1.02]"
+                         hover:bg-accent/90 transition-all duration-300 motion-safe:hover:scale-[1.02]"
             >
               <FontAwesomeIcon icon={faHouse} className="w-4 h-4" />
               Take Me Home
@@ -51,11 +51,11 @@ export default function NotFound() {
               className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 
                          px-6 py-3 rounded-full bg-transparent text-light font-medium
                          border border-white/20 hover:bg-white/5 cursor-pointer
-                         transition-all duration-300 hover:scale-[1.02]"
+                         transition-all duration-300 motion-safe:hover:scale-[1.02]"
             >
               <FontAwesomeIcon
                 icon={faArrowLeft}
-                className="w-4 h-4 transition-transform group-hover:-translate-x-1"
+                className="w-4 h-4 transition-transform motion-safe:group-hover:-translate-x-1"
               />
               Go Back
             </button>

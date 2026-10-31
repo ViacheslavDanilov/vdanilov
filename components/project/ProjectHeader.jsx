@@ -23,7 +23,7 @@ export default function ProjectHeader({
       >
         <FontAwesomeIcon
           icon={faArrowLeft}
-          className="w-4 h-4 transition-transform group-hover:-translate-x-1"
+          className="w-4 h-4 transition-transform motion-safe:group-hover:-translate-x-1"
         />
         <span>Back to Portfolio</span>
       </Link>

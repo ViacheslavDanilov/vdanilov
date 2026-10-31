@@ -34,7 +34,7 @@ const PortfolioCard = ({ project, priority = false }) => {
     <article
       className="group relative overflow-hidden rounded-2xl bg-card border border-white/10 
                  transition-all duration-300 hover:border-accent/30 hover:shadow-lg 
-                 hover:shadow-accent/5 active:scale-[0.99]"
+                 hover:shadow-accent/5 motion-safe:active:scale-[0.99]"
     >
       {/* Image Container - Clickable */}
       <Link
@@ -48,7 +48,7 @@ const PortfolioCard = ({ project, priority = false }) => {
           priority={priority}
           sizes="(max-width: 767px) calc(100vw - 3rem), (max-width: 1023px) calc(50vw - 2.25rem), (max-width: 1279px) calc(33vw - 2rem), 395px"
           quality={90}
-          className="object-cover transition-transform duration-500 group-hover:scale-102"
+          className="object-cover transition-transform duration-500 motion-safe:group-hover:scale-102"
         />
         {/* Gradient Overlay */}
         <div
@@ -75,7 +75,7 @@ const PortfolioCard = ({ project, priority = false }) => {
             <h2 className="text-lg font-semibold text-light transition-colors duration-300 group-hover:text-accent inline">
               {title}
               <span
-                className="inline-block ml-1.5 align-baseline transition-transform duration-300 group-hover/title:translate-x-1"
+                className="inline-block ml-1.5 align-baseline transition-transform duration-300 motion-safe:group-hover/title:translate-x-1"
                 style={{ width: "0.75rem", height: "0.75rem" }}
               >
                 <FontAwesomeIcon
