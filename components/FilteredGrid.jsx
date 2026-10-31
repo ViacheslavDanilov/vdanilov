@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Tab } from "@/components/ui/tab";
 import FilterParamSync from "@/components/FilterParamSync";
@@ -32,6 +32,13 @@ export default function FilteredGrid({
   splitAt,
 }) {
   const [activeFilter, setActiveFilter] = useFilterParam("featured", options);
+
+  // CSS plays the first entrance; Motion animates the cards a later filter change adds
+  const [firstEntrance, setFirstEntrance] = useState(true);
+  useEffect(() => {
+    const timer = setTimeout(() => setFirstEntrance(false), 300);
+    return () => clearTimeout(timer);
+  }, []);
 
   const filteredItems = useMemo(
     () => items.filter((item) => matches(item, activeFilter)),
@@ -90,13 +97,13 @@ export default function FilteredGrid({
       )}
 
       <div className={gridClassName} role="list">
-        <AnimatePresence mode="popLayout">
+        <AnimatePresence initial={false} mode="popLayout">
           {filteredItems.map((item, index) => (
             <motion.div
               key={item.id}
               layout
-              className="animate-card-in"
-              initial={false}
+              className={firstEntrance ? "animate-card-in" : undefined}
+              initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.3 }}

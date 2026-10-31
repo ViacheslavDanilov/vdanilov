@@ -1,4 +1,44 @@
-import { test, expect } from "@playwright/test";
+import { test, expect, type Page } from "@playwright/test";
+
+type Entrance = {
+  name: string;
+  duration: number;
+};
+
+const entranceOf = async (page: Page, path: string) => {
+  await page.addInitScript(() => {
+    document.addEventListener(
+      "animationstart",
+      (event) => {
+        const target = event.target as Element;
+        const entered = window as Window & { entrance?: Entrance };
+        if (entered.entrance) return;
+        if (target !== document.querySelector('[role="listitem"]')) return;
+        const animation = target
+          .getAnimations()
+          .find(
+            (a) =>
+              (a as CSSAnimation).animationName ===
+              (event as AnimationEvent).animationName,
+          );
+        if (!animation?.effect) return;
+        entered.entrance = {
+          name: (animation as CSSAnimation).animationName,
+          duration: Number(animation.effect.getComputedTiming().duration),
+        };
+      },
+      true,
+    );
+  });
+  await page.goto(path);
+
+  const read = () =>
+    page.evaluate(
+      () => (window as Window & { entrance?: Entrance }).entrance ?? null,
+    );
+  await expect.poll(read).not.toBeNull();
+  return (await read()) as Entrance;
+};
 
 test.describe("Experience dates west of UTC", () => {
   test.use({ timezoneId: "America/Los_Angeles" });
@@ -303,22 +343,86 @@ test.describe("Cards without JavaScript", () => {
     });
 
     test(`${path} cards keep their entrance animation`, async ({ page }) => {
-      await page.goto(path);
+      const entrance = await entranceOf(page, path);
 
-      const { name, duration } = await page
-        .locator('[role="listitem"]')
-        .first()
-        .evaluate((el) => {
-          const style = getComputedStyle(el);
-          return {
-            name: style.animationName,
-            duration: style.animationDuration,
-          };
-        });
-      expect(name).not.toBe("none");
-      expect(duration).toBe("0.3s");
+      expect(entrance.name).toBe("card-in");
+      expect(entrance.duration).toBe(300);
     });
   }
+});
+
+test.describe("Card entrance", () => {
+  test("a kept card does not replay its entrance on a filter change", async ({
+    page,
+  }) => {
+    await page.goto("/portfolio/");
+    const medicalImaging = page.getByRole("button", {
+      name: /^Medical Imaging \(/,
+    });
+    await expect(async () => {
+      await medicalImaging.click();
+      expect(await medicalImaging.getAttribute("aria-pressed")).toBe("true");
+    }).toPass();
+
+    const count = Number(
+      (await medicalImaging.innerText()).match(/\((\d+)\)/)![1],
+    );
+    await expect
+      .poll(() =>
+        page.evaluate((expected) => {
+          const list = document.querySelector('[role="list"]')!;
+          const items = [
+            ...list.querySelectorAll(':scope > [role="listitem"]'),
+          ];
+          return (
+            items.length === expected &&
+            items.every((el) => getComputedStyle(el).opacity === "1") &&
+            list.getAnimations({ subtree: true }).length === 0
+          );
+        }, count),
+      )
+      .toBe(true);
+
+    const { opacities, moved } = await page
+      .getByRole("button", { name: /^Featured \(/ })
+      .evaluate(
+        (button) =>
+          new Promise<{ opacities: number[]; moved: boolean }>((resolve) => {
+            const find = () =>
+              document
+                .querySelector('a[href="/portfolio/coronary-insight/"]')
+                ?.closest('[role="listitem"]') ?? null;
+            const card = find();
+            let didMove = false;
+            const observer = new MutationObserver((records) => {
+              didMove ||= records.some((r) =>
+                [...r.addedNodes].includes(card!),
+              );
+            });
+            observer.observe(document.querySelector('[role="list"]')!, {
+              childList: true,
+            });
+
+            button.click();
+            const samples: number[] = [];
+            const end = performance.now() + 500;
+            const sample = () => {
+              const el = find();
+              samples.push(el ? Number(getComputedStyle(el).opacity) : 0);
+              if (performance.now() < end) requestAnimationFrame(sample);
+              else {
+                observer.disconnect();
+                resolve({ opacities: samples, moved: didMove });
+              }
+            };
+            requestAnimationFrame(sample);
+          }),
+      );
+
+    expect(moved, "the card moves in the DOM").toBe(true);
+    expect(opacities.length).toBeGreaterThan(0);
+    expect(Math.min(...opacities)).toBeGreaterThanOrEqual(0.95);
+  });
 });
 
 test.describe("Sitemap and robots", () => {
