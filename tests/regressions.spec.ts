@@ -1,4 +1,46 @@
-import { test, expect } from "@playwright/test";
+import { test, expect, type Page } from "@playwright/test";
+
+type Entrance = {
+  name: string;
+  duration: number;
+  keyframes: Record<string, unknown>[];
+};
+
+const entranceOf = async (page: Page, path: string) => {
+  await page.addInitScript(() => {
+    document.addEventListener(
+      "animationstart",
+      (event) => {
+        const target = event.target as Element;
+        const entered = window as Window & { entrance?: Entrance };
+        if (entered.entrance) return;
+        if (target !== document.querySelector('[role="listitem"]')) return;
+        const animation = target
+          .getAnimations()
+          .find(
+            (a) =>
+              (a as CSSAnimation).animationName ===
+              (event as AnimationEvent).animationName,
+          );
+        if (!animation?.effect) return;
+        entered.entrance = {
+          name: (animation as CSSAnimation).animationName,
+          duration: Number(animation.effect.getComputedTiming().duration),
+          keyframes: (animation.effect as KeyframeEffect).getKeyframes(),
+        };
+      },
+      true,
+    );
+  });
+  await page.goto(path);
+
+  const read = () =>
+    page.evaluate(
+      () => (window as Window & { entrance?: Entrance }).entrance ?? null,
+    );
+  await expect.poll(read).not.toBeNull();
+  return (await read()) as Entrance;
+};
 
 test.describe("Experience dates west of UTC", () => {
   test.use({ timezoneId: "America/Los_Angeles" });
@@ -270,4 +312,234 @@ test.describe("Page metadata", () => {
       );
     });
   }
+});
+
+test.describe("Cards without JavaScript", () => {
+  const paths = ["/portfolio/", "/publications/", "/references/"];
+
+  for (const path of paths) {
+    test(`${path} serves cards that are not transparent`, async ({
+      request,
+    }) => {
+      const html = await (await request.get(path)).text();
+      const items = html.match(/<div[^>]*role="listitem"[^>]*>/g) ?? [];
+
+      expect(items.length).toBeGreaterThan(0);
+      for (const item of items) {
+        expect(item).not.toContain("opacity:0");
+      }
+    });
+
+    test(`${path} shows its cards when scripts are off`, async ({
+      browser,
+    }) => {
+      const context = await browser.newContext({ javaScriptEnabled: false });
+      const page = await context.newPage();
+      await page.goto(path);
+
+      await expect(page.locator('[role="listitem"]').first()).toHaveCSS(
+        "opacity",
+        "1",
+      );
+      await context.close();
+    });
+
+    test(`${path} cards keep their entrance animation`, async ({ page }) => {
+      const entrance = await entranceOf(page, path);
+
+      expect(entrance.name).toBe("card-in");
+      expect(entrance.duration).toBe(300);
+    });
+  }
+});
+
+test.describe("Card entrance", () => {
+  test("the entrance fades and scales, and leaves transform to Motion", async ({
+    page,
+  }) => {
+    const { keyframes } = await entranceOf(page, "/portfolio/");
+
+    expect(keyframes.some((kf) => kf.opacity === "0")).toBe(true);
+    expect(keyframes.some((kf) => kf.scale === "0.9")).toBe(true);
+    for (const kf of keyframes) {
+      expect(kf.transform ?? "none").toBe("none");
+    }
+  });
+
+  test("a kept card does not replay its entrance on a filter change", async ({
+    page,
+  }) => {
+    await page.goto("/portfolio/");
+    const medicalImaging = page.getByRole("button", {
+      name: /^Medical Imaging \(/,
+    });
+    await expect(async () => {
+      await medicalImaging.click();
+      expect(await medicalImaging.getAttribute("aria-pressed")).toBe("true");
+    }).toPass();
+
+    const count = Number(
+      (await medicalImaging.innerText()).match(/\((\d+)\)/)![1],
+    );
+    await expect
+      .poll(() =>
+        page.evaluate((expected) => {
+          const list = document.querySelector('[role="list"]')!;
+          const items = [
+            ...list.querySelectorAll(':scope > [role="listitem"]'),
+          ];
+          return (
+            items.length === expected &&
+            items.every((el) => getComputedStyle(el).opacity === "1") &&
+            list.getAnimations({ subtree: true }).length === 0
+          );
+        }, count),
+      )
+      .toBe(true);
+
+    const { opacities, moved, replays } = await page
+      .getByRole("button", { name: /^Featured \(/ })
+      .evaluate(
+        (button) =>
+          new Promise<{
+            opacities: number[];
+            moved: boolean;
+            replays: string[];
+          }>((resolve) => {
+            const find = () =>
+              document
+                .querySelector('a[href="/portfolio/coronary-insight/"]')
+                ?.closest('[role="listitem"]') ?? null;
+            const card = find();
+            let didMove = false;
+            const observer = new MutationObserver((records) => {
+              didMove ||= records.some((r) =>
+                [...r.addedNodes].includes(card!),
+              );
+            });
+            observer.observe(document.querySelector('[role="list"]')!, {
+              childList: true,
+            });
+            const replays: string[] = [];
+            card!.addEventListener("animationstart", (event) => {
+              if (event.target === card) replays.push(event.animationName);
+            });
+
+            button.click();
+            const samples: number[] = [];
+            const end = performance.now() + 500;
+            const sample = () => {
+              const el = find();
+              samples.push(el ? Number(getComputedStyle(el).opacity) : 0);
+              if (performance.now() < end) requestAnimationFrame(sample);
+              else {
+                observer.disconnect();
+                resolve({ opacities: samples, moved: didMove, replays });
+              }
+            };
+            requestAnimationFrame(sample);
+          }),
+      );
+
+    expect(moved, "the card moves in the DOM").toBe(true);
+    expect(replays).toEqual([]);
+    expect(opacities.length).toBeGreaterThan(0);
+    expect(Math.min(...opacities)).toBeGreaterThanOrEqual(0.95);
+  });
+
+  test("a card a filter link adds gets one entrance, not two", async ({
+    page,
+  }) => {
+    type Added = { name: string; transform: string };
+    await page.addInitScript(() => {
+      document.addEventListener(
+        "animationstart",
+        (event) => {
+          const target = event.target as HTMLElement;
+          if (!target.matches('[role="listitem"]')) return;
+          if (!target.querySelector('a[href="/portfolio/insurecast/"]')) return;
+          (window as Window & { added?: Added }).added = {
+            name: (event as AnimationEvent).animationName,
+            transform: target.style.transform,
+          };
+        },
+        true,
+      );
+    });
+    await page.goto("/portfolio/?filter=all");
+
+    const read = () =>
+      page.evaluate(() => (window as Window & { added?: Added }).added ?? null);
+    await expect.poll(read).not.toBeNull();
+    const added = (await read()) as Added;
+
+    expect(added.name).toBe("card-in");
+    expect(["", "none"]).toContain(added.transform);
+  });
+
+  test.describe("with reduced motion", () => {
+    test.use({ reducedMotion: "reduce" });
+
+    test("the entrance fades without scaling", async ({ page }) => {
+      const { keyframes } = await entranceOf(page, "/portfolio/");
+
+      expect(keyframes.some((kf) => kf.opacity !== undefined)).toBe(true);
+      for (const kf of keyframes) {
+        expect(kf.scale ?? "none").toBe("none");
+        expect(kf.transform ?? "none").toBe("none");
+      }
+    });
+  });
+});
+
+test.describe("Sitemap and robots", () => {
+  const SITE = "https://www.vdanilov.com";
+
+  test("sitemap lists the main pages and every project", async ({
+    page,
+    request,
+  }) => {
+    await page.goto("/portfolio/?filter=all");
+    const allLabel = await page
+      .getByRole("button", { name: /^All \(\d+\)/ })
+      .innerText();
+    const total = Number(allLabel.match(/\d+/)![0]);
+    await expect(page.locator('[role="listitem"]')).toHaveCount(total);
+    const hrefs = await page
+      .locator('[role="listitem"] a[href^="/portfolio/"]')
+      .evaluateAll((links) => [
+        ...new Set(links.map((a) => a.getAttribute("href"))),
+      ]);
+    expect(hrefs).toHaveLength(total);
+
+    const response = await request.get("/sitemap.xml");
+    expect(response.status()).toBe(200);
+    expect(response.headers()["content-type"]).toContain("xml");
+
+    const xml = await response.text();
+    const locs = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+    const pages = [
+      "/",
+      "/experience/",
+      "/education/",
+      "/portfolio/",
+      "/publications/",
+      "/references/",
+    ];
+    expect([...locs].sort()).toEqual(
+      [...pages, ...hrefs].map((path) => `${SITE}${path}`).sort(),
+    );
+  });
+
+  test("robots.txt allows crawling and names the sitemap", async ({
+    request,
+  }) => {
+    const response = await request.get("/robots.txt");
+    expect(response.status()).toBe(200);
+
+    const text = await response.text();
+    expect(text).toMatch(/User-Agent: \*/i);
+    expect(text).toMatch(/Allow: \//i);
+    expect(text).toContain(`Sitemap: ${SITE}/sitemap.xml`);
+  });
 });
