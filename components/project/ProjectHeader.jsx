@@ -19,7 +19,7 @@ export default function ProjectHeader({
     <>
       <Link
         href="/portfolio"
-        className="relative after:absolute after:-inset-y-3 after:inset-x-0 inline-flex items-center gap-2 text-gray-400 hover:text-accent transition-colors mb-8 group"
+        className="relative after:absolute after:-inset-y-3 after:inset-x-0 focus-visible:after:hidden inline-flex items-center gap-2 text-gray-400 hover:text-accent transition-colors mb-8 group"
       >
         <FontAwesomeIcon
           icon={faArrowLeft}
@@ -71,7 +71,7 @@ export default function ProjectHeader({
               href={resource.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="relative after:absolute after:-inset-y-1.5 after:inset-x-0 inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-lg bg-accent/10 text-accent border border-accent/30 hover:bg-accent/20 transition-colors"
+              className="relative after:absolute after:-inset-y-1.5 after:inset-x-0 focus-visible:after:hidden inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-lg bg-accent/10 text-accent border border-accent/30 hover:bg-accent/20 transition-colors"
             >
               {resource.label}
               <FontAwesomeIcon

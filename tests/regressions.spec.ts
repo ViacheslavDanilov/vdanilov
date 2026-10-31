@@ -836,4 +836,29 @@ test.describe("Last small tap targets at 360px", () => {
       }
     });
   }
+
+  test("tap areas stay out of the keyboard focus ring", async ({ page }) => {
+    for (const [name, path, selector] of targets) {
+      await page.goto(path);
+      await page.keyboard.press("Shift");
+      const focused = await page.locator(selector).evaluateAll((links) =>
+        links.map((link) => {
+          (link as HTMLElement).focus();
+          const after = getComputedStyle(link, "::after");
+          return {
+            ring: after.content !== "none" && after.display !== "none",
+            padded:
+              !link.matches("[class*='bg-']") &&
+              getComputedStyle(link).paddingTop !== "0px",
+          };
+        }),
+      );
+
+      expect(focused.length, name).toBeGreaterThan(0);
+      for (const { ring, padded } of focused) {
+        expect(ring, `${name} pseudo-element`).toBe(false);
+        expect(padded, `${name} padding`).toBe(false);
+      }
+    }
+  });
 });
