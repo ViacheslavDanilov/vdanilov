@@ -52,7 +52,7 @@ const Statistics = () => {
   return (
     <section
       id="statistics"
-      className="w-full max-w-7xl mx-auto px-6 py-12 lg:min-h-svh lg:flex lg:flex-col lg:justify-center"
+      className="w-full max-w-7xl mx-auto px-6 py-12 lg:min-h-[min(100svh,72rem)] lg:flex lg:flex-col lg:justify-center"
     >
       <div className="mb-12 text-center">
         <h2 className="text-3xl md:text-4xl font-bold text-light mb-4">

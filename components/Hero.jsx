@@ -44,7 +44,7 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="w-full max-w-7xl mx-auto px-6 py-12 overflow-x-clip lg:min-h-[calc(100svh-6rem)] lg:flex lg:flex-col lg:justify-center"
+      className="w-full max-w-7xl mx-auto px-6 py-12 overflow-x-clip lg:min-h-[min(calc(100svh-6rem),66rem)] lg:flex lg:flex-col lg:justify-center"
     >
       <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-6 lg:gap-10">
         {/* Text Content */}
