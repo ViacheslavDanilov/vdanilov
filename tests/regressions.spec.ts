@@ -653,4 +653,31 @@ test.describe("Small polish", () => {
       expect(problems, `at ${width}px`).toEqual([]);
     }
   });
+
+  test("reference badges keep 8px clear of the photo circle at 360px", async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 360, height: 900 });
+    await page.goto("/references/");
+
+    const gaps = await page.evaluate(() =>
+      [...document.querySelectorAll("main h2")].slice(0, 6).map((heading) => {
+        const card = heading.closest("div.relative")!;
+        const photo = card.querySelector("img")!.parentElement!;
+        const badge = card
+          .querySelector(".absolute.top-5.right-5")!
+          .getBoundingClientRect();
+        const circle = photo.getBoundingClientRect();
+        const radius = circle.width / 2;
+        const cx = circle.left + radius;
+        const cy = circle.top + radius;
+        const nearX = Math.min(Math.max(cx, badge.left), badge.right);
+        const nearY = Math.min(Math.max(cy, badge.top), badge.bottom);
+        return Math.hypot(cx - nearX, cy - nearY) - radius;
+      }),
+    );
+
+    expect(gaps).toHaveLength(6);
+    for (const gap of gaps) expect(gap).toBeGreaterThanOrEqual(8);
+  });
 });

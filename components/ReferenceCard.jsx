@@ -48,7 +48,7 @@ const ReferenceCard = ({ reference, priority = false }) => {
 
       <div className="flex flex-col items-center text-center h-full">
         {/* Profile Photo */}
-        <div className="relative w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-2 border-accent/20 shadow-lg bg-dark mb-4">
+        <div className="relative w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-2 border-accent/20 shadow-lg bg-dark mb-4 max-md:mt-6">
           <Image
             src={image}
             alt={name}
