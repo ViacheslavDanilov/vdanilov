@@ -619,7 +619,7 @@ test.describe("Touch targets at 360px", () => {
 });
 
 test.describe("Small polish", () => {
-  test("certificate arrows sit on the last title line, inside the card at 360px", async ({
+  test("certificate arrows follow the last word, inside the card at 360px", async ({
     page,
   }) => {
     for (const width of [360, 1440]) {
@@ -638,21 +638,33 @@ test.describe("Small polish", () => {
               const title = article.querySelector(
                 "a.group\\/title span.uppercase",
               ) as HTMLElement;
-              const arrow = article
-                .querySelector("a.group\\/title span.inline-block")!
-                .getBoundingClientRect();
+              const arrow = [...article.querySelectorAll("a.group\\/title svg")]
+                .map((icon) => icon.parentElement!.getBoundingClientRect())
+                .find((rect) => rect.width > 0)!;
+              const words = document.createTreeWalker(
+                title,
+                NodeFilter.SHOW_TEXT,
+              );
+              let lastText: Node | null = null;
+              while (words.nextNode()) {
+                if (words.currentNode.textContent!.trim()) {
+                  lastText = words.currentNode;
+                }
+              }
               const range = document.createRange();
-              range.selectNodeContents(title);
+              range.selectNodeContents(lastText!);
               const lines = [...range.getClientRects()];
               const last = lines[lines.length - 1];
               const offset =
                 arrow.top + arrow.height / 2 - (last.top + last.bottom) / 2;
+              const gap = arrow.left - last.right;
 
               const found: string[] = [];
               if (checkEdge && arrow.right > edge + 0.5) {
                 found.push("outside the content box");
               }
               if (Math.abs(offset) > 2) found.push("off the last title line");
+              if (gap < 0 || gap > 12) found.push("not next to the last word");
               return found.map((what) => `${title.textContent}: ${what}`);
             }),
         width === 360,
