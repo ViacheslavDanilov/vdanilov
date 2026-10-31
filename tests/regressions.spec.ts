@@ -654,6 +654,27 @@ test.describe("Small polish", () => {
     }
   });
 
+  test("tabs draw their focus ring on the visible pill", async ({ page }) => {
+    await page.goto("/portfolio/");
+    const rings = await page
+      .locator("button[aria-pressed]")
+      .evaluateAll((tabs) =>
+        tabs.map((tab) => {
+          const style = getComputedStyle(tab);
+          return {
+            round:
+              parseFloat(style.borderTopLeftRadius) >=
+              (tab as HTMLElement).offsetHeight / 2,
+            offset: style.outlineOffset,
+          };
+        }),
+      );
+
+    expect(rings.length).toBeGreaterThan(0);
+    for (const ring of rings)
+      expect(ring).toEqual({ round: true, offset: "-4px" });
+  });
+
   test("reference badges keep 8px clear of the photo circle at 360px", async ({
     page,
   }) => {

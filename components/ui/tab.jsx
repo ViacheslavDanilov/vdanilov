@@ -19,7 +19,7 @@ export function Tab({
       type="button"
       onClick={() => setSelected(text)}
       className={cn(
-        "relative w-fit px-4 py-3 -my-1 text-sm font-semibold capitalize",
+        "relative w-fit px-4 py-3 -my-1 rounded-full -outline-offset-4 text-sm font-semibold capitalize",
         "text-foreground transition-[color,transform] active:scale-95 flex items-center gap-2 cursor-pointer",
         !selected &&
           "hover:text-light before:absolute before:inset-x-0 before:inset-y-1 before:rounded-full before:bg-white/5 before:opacity-0 before:transition-opacity hover:before:opacity-100",
