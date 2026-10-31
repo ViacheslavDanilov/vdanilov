@@ -354,11 +354,12 @@ test.describe("Cards without JavaScript", () => {
 });
 
 test.describe("Card entrance", () => {
-  test("the entrance animates scale and leaves transform to Motion", async ({
+  test("the entrance fades and scales, and leaves transform to Motion", async ({
     page,
   }) => {
     const { keyframes } = await entranceOf(page, "/portfolio/");
 
+    expect(keyframes.some((kf) => kf.opacity === "0")).toBe(true);
     expect(keyframes.some((kf) => kf.scale === "0.9")).toBe(true);
     for (const kf of keyframes) {
       expect(kf.transform ?? "none").toBe("none");
@@ -396,11 +397,15 @@ test.describe("Card entrance", () => {
       )
       .toBe(true);
 
-    const { opacities, moved } = await page
+    const { opacities, moved, replays } = await page
       .getByRole("button", { name: /^Featured \(/ })
       .evaluate(
         (button) =>
-          new Promise<{ opacities: number[]; moved: boolean }>((resolve) => {
+          new Promise<{
+            opacities: number[];
+            moved: boolean;
+            replays: string[];
+          }>((resolve) => {
             const find = () =>
               document
                 .querySelector('a[href="/portfolio/coronary-insight/"]')
@@ -415,6 +420,10 @@ test.describe("Card entrance", () => {
             observer.observe(document.querySelector('[role="list"]')!, {
               childList: true,
             });
+            const replays: string[] = [];
+            card!.addEventListener("animationstart", (event) => {
+              if (event.target === card) replays.push(event.animationName);
+            });
 
             button.click();
             const samples: number[] = [];
@@ -425,7 +434,7 @@ test.describe("Card entrance", () => {
               if (performance.now() < end) requestAnimationFrame(sample);
               else {
                 observer.disconnect();
-                resolve({ opacities: samples, moved: didMove });
+                resolve({ opacities: samples, moved: didMove, replays });
               }
             };
             requestAnimationFrame(sample);
@@ -433,6 +442,7 @@ test.describe("Card entrance", () => {
       );
 
     expect(moved, "the card moves in the DOM").toBe(true);
+    expect(replays).toEqual([]);
     expect(opacities.length).toBeGreaterThan(0);
     expect(Math.min(...opacities)).toBeGreaterThanOrEqual(0.95);
   });
