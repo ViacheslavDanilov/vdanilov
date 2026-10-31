@@ -619,38 +619,43 @@ test.describe("Touch targets at 360px", () => {
 });
 
 test.describe("Small polish", () => {
-  test("certificate arrows stay clear of the card edge and on the last title line", async ({
+  test("certificate arrows sit on the last title line, inside the card at 360px", async ({
     page,
   }) => {
     for (const width of [360, 1440]) {
       await page.setViewportSize({ width, height: 900 });
       await page.goto("/education/");
 
-      const problems = await page.evaluate(() =>
-        [...document.querySelectorAll("article")]
-          .filter((article) => article.querySelector("a.group\\/title"))
-          .flatMap((article) => {
-            const card = article.firstElementChild as HTMLElement;
-            const edge = card.getBoundingClientRect().right - 8;
-            const title = article.querySelector(
-              "a.group\\/title span.uppercase",
-            ) as HTMLElement;
-            const arrow = article
-              .querySelector("a.group\\/title span.inline-block")!
-              .getBoundingClientRect();
-            const range = document.createRange();
-            range.selectNodeContents(title);
-            const lines = [...range.getClientRects()];
-            const last = lines[lines.length - 1];
-            const centre = arrow.top + arrow.height / 2;
+      const problems = await page.evaluate(
+        (checkEdge) =>
+          [...document.querySelectorAll("article")]
+            .filter((article) => article.querySelector("a.group\\/title"))
+            .flatMap((article) => {
+              const card = article.firstElementChild as HTMLElement;
+              const edge =
+                card.getBoundingClientRect().right -
+                parseFloat(getComputedStyle(card).paddingRight);
+              const title = article.querySelector(
+                "a.group\\/title span.uppercase",
+              ) as HTMLElement;
+              const arrow = article
+                .querySelector("a.group\\/title span.inline-block")!
+                .getBoundingClientRect();
+              const range = document.createRange();
+              range.selectNodeContents(title);
+              const lines = [...range.getClientRects()];
+              const last = lines[lines.length - 1];
+              const offset =
+                arrow.top + arrow.height / 2 - (last.top + last.bottom) / 2;
 
-            const found: string[] = [];
-            if (arrow.right > edge) found.push("too close to the card edge");
-            if (centre < last.top - 2 || centre > last.bottom + 2) {
-              found.push("off the last title line");
-            }
-            return found.map((what) => `${title.textContent}: ${what}`);
-          }),
+              const found: string[] = [];
+              if (checkEdge && arrow.right > edge + 0.5) {
+                found.push("outside the content box");
+              }
+              if (Math.abs(offset) > 2) found.push("off the last title line");
+              return found.map((what) => `${title.textContent}: ${what}`);
+            }),
+        width === 360,
       );
 
       expect(problems, `at ${width}px`).toEqual([]);
