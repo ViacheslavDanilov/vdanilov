@@ -1,5 +1,6 @@
-// Checks the rules in AGENTS.md that a machine can decide: no em dash in copy, asset
-// names, and asset references that point at a file. Run by `npm run check`.
+// Checks the rules in AGENTS.md and DESIGN.md that a machine can decide: no em dash in
+// copy, asset names, asset references that point at a file, and motion-safe: on hover
+// movement. Run by `npm run check`.
 import { execFileSync } from "node:child_process";
 import { existsSync, readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
@@ -55,6 +56,47 @@ for (const file of tracked("app", "components", "lib")) {
       problems.push(`${file}: ${path} is not in public/`);
     }
   }
+}
+
+// Reduced motion: a state effect that moves, scales or turns needs motion-safe:
+const MOVEMENT =
+  /^(?:-?(?:scale|translate|rotate)(?:-|$)|\[(?:scale|translate|rotate):)/;
+const STATE_VARIANT =
+  /^(?:(?:group|peer)(?:-[\w-]+)?(?:\/[\w-]+)?|hover|active|focus|focus-visible|focus-within|open|checked|aria-.+|data-.+)$/;
+const variantsOf = (token) => {
+  const parts = [];
+  let depth = 0;
+  let part = "";
+  for (const char of token) {
+    if ("[(".includes(char)) depth += 1;
+    if ("])".includes(char)) depth -= 1;
+    if (char === ":" && depth === 0) {
+      parts.push(part);
+      part = "";
+    } else {
+      part += char;
+    }
+  }
+  return [...parts, part];
+};
+for (const file of tracked("app", "components")) {
+  readFileSync(file, "utf8")
+    .split("\n")
+    .forEach((line, index) => {
+      for (const token of line.split(/[\s"'`{},]+/)) {
+        const parts = variantsOf(token.replace(/^!/, ""));
+        const utility = parts.pop();
+        if (
+          MOVEMENT.test(utility) &&
+          parts.some((variant) => STATE_VARIANT.test(variant)) &&
+          !parts.some((variant) => variant.startsWith("motion-"))
+        ) {
+          problems.push(
+            `${file}:${index + 1}: ${token} moves on a state change, add motion-safe:`,
+          );
+        }
+      }
+    });
 }
 
 if (problems.length > 0) {
