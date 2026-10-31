@@ -86,7 +86,15 @@ test.describe("Phone layout at 360px", () => {
     const wrapper = title.locator("xpath=ancestor::div[1]");
     const card = await title.locator("xpath=ancestor::article").boundingBox();
     const box = await wrapper.boundingBox();
-    expect(box?.width).toBeGreaterThanOrEqual((card?.width ?? 0) - 50);
+    const contentWidth = await wrapper.evaluate((el) => {
+      const style = getComputedStyle(el);
+      return (
+        el.clientWidth -
+        parseFloat(style.paddingLeft) -
+        parseFloat(style.paddingRight)
+      );
+    });
+    expect(contentWidth).toBeGreaterThanOrEqual((card?.width ?? 0) - 50);
 
     const badge = await page
       .locator("article span.rounded-full")
