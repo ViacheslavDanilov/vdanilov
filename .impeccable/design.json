@@ -255,7 +255,7 @@
       "Do disable pointer glow below 768px and keep touch panning and pinch zoom intact.",
       "Do wrap every hover, focus or press effect that moves, scales or turns in motion-safe:, so a visitor who asks for less motion keeps the colour change and loses the movement. npm run check fails on one that is not wrapped.",
       "Do give every link and button a 44px tap target at 360px, except links inside running text, the link lists in an Experience card's Links tab, and the skip link. Where neighbours sit closer than 44px (icon rows, footer lists) the areas share the space. The visible size stays small: the extra area is padding offset by a negative margin, or a pseudo-element where a parent's spacing would clash.",
-      "Do size the home sections from the screen, not from fixed pixels: from lg, lg:min-h-svh with content centred (lg:min-h-[calc(100svh-6rem)] on the hero, to allow for the page's top padding), and 48px of padding on every section.",
+      "Do size the home sections from the screen, not from fixed pixels: from lg, lg:min-h-[min(100svh,72rem)] with content centred (lg:min-h-[min(calc(100svh-6rem),66rem)] on the hero, to allow for the page's top padding), and 48px of padding on every section. Put short neighbours on one screen instead of padding each to a full one.",
       "Do keep the page usable with one dark theme now and a light theme later: reference colour roles, not literal values, in new components."
     ],
     "donts": [
