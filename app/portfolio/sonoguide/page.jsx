@@ -321,15 +321,23 @@ export default function ProjectPage() {
               </figcaption>
             </figure>
 
-            {/* Figure 4: Feature Transfer (GIF) */}
+            {/* Figure 4: Feature Transfer */}
             <figure id="figure-4" className="scroll-mt-24">
-              <ImageLightbox
-                src="/portfolio/sonoguide/v-net-feature-transfer.gif"
-                alt="V-net Feature Transfer"
-                width={552}
-                height={281}
-                maxWidth="2xl"
-              />
+              <div className="mx-auto w-full max-w-2xl rounded-xl overflow-hidden border border-white/10">
+                <AutoplayVideo
+                  aspectRatio="552 / 281"
+                  poster="/portfolio/sonoguide/v-net-feature-transfer-poster.webp"
+                  controls
+                  aria-label="V-net Feature Transfer"
+                  className="block w-full h-auto"
+                >
+                  <source
+                    src="/portfolio/sonoguide/v-net-feature-transfer.mp4"
+                    type="video/mp4"
+                  />
+                  Your browser does not support the video tag.
+                </AutoplayVideo>
+              </div>
               <figcaption className="text-center text-sm text-gray-400 mt-3">
                 <span className="text-gray-300">Figure 4.</span> Dense feature
                 transfer during encoding and decoding, allowing early-layer

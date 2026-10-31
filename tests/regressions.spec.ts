@@ -1,3 +1,4 @@
+import { readFileSync } from "node:fs";
 import { test, expect, type Page } from "@playwright/test";
 
 type Entrance = {
@@ -860,4 +861,108 @@ test.describe("Last small tap targets at 360px", () => {
       }
     }
   });
+});
+
+test.describe("Page weight", () => {
+  test("the home page fetches only the upright Poppins files", async ({
+    page,
+  }) => {
+    const fonts: string[] = [];
+    page.on("request", (request) => {
+      if (request.resourceType() === "font") fonts.push(request.url());
+    });
+    await page.goto("/");
+    await page.evaluate(() => document.fonts.ready);
+
+    expect(fonts.length).toBeGreaterThan(0);
+    expect(fonts.length).toBeLessThanOrEqual(5);
+  });
+
+  test("italic text still uses a real italic face", async ({ page }) => {
+    await page.goto("/publications/");
+    await page.evaluate(() => document.fonts.ready);
+
+    const italics = await page.evaluate(
+      () =>
+        [...document.fonts].filter(
+          (face) => face.style === "italic" && face.status === "loaded",
+        ).length,
+    );
+    expect(italics).toBeGreaterThanOrEqual(1);
+    expect(italics).toBeLessThanOrEqual(2);
+  });
+
+  test("server-only home sections stay server components", () => {
+    for (const name of [
+      "About",
+      "FeaturedProjects",
+      "ExpertiseSection",
+      "CallToAction",
+    ]) {
+      const source = readFileSync(`components/${name}.jsx`, "utf8");
+      expect(source.trimStart(), name).not.toMatch(/^["']use client["']/);
+    }
+  });
+
+  test("/references/ loads only the first card image eagerly", async ({
+    page,
+  }) => {
+    await page.goto("/references/");
+
+    await expect(page.locator('main img:not([loading="lazy"])')).toHaveCount(1);
+  });
+
+  test("the home page warms nothing when the data saver is on", async ({
+    browser,
+  }) => {
+    const warmed = async (saveData: boolean) => {
+      const context = await browser.newContext();
+      const page = await context.newPage();
+      await page.addInitScript((value) => {
+        Object.defineProperty(navigator, "connection", {
+          value: { saveData: value },
+          configurable: true,
+        });
+      }, saveData);
+      let count = 0;
+      page.on("request", (request) => {
+        if (request.url().endsWith("/experience/core-roles/symfa.svg")) {
+          count += 1;
+        }
+      });
+      await page.goto("/");
+      await page.waitForTimeout(3500);
+      await context.close();
+      return count;
+    };
+
+    expect(await warmed(false)).toBeGreaterThan(0);
+    expect(await warmed(true)).toBe(0);
+  });
+
+  for (const project of ["deep-anatomy", "sonoguide"]) {
+    test(`${project} shows the feature transfer figure as a video`, async ({
+      page,
+      request,
+    }) => {
+      const gifs: string[] = [];
+      page.on("response", (response) => {
+        if (response.url().endsWith(".gif")) gifs.push(response.url());
+      });
+      await page.goto(`/portfolio/${project}/`);
+
+      const video = page.locator(
+        `video[controls] source[src="/portfolio/${project}/v-net-feature-transfer.mp4"]`,
+      );
+      await expect(video).toHaveCount(1);
+      await expect(page.locator('img[src*=".gif"]')).toHaveCount(0);
+      expect(gifs).toEqual([]);
+
+      const response = await request.get(
+        `/portfolio/${project}/v-net-feature-transfer.mp4`,
+      );
+      expect(response.status()).toBe(200);
+      expect(response.headers()["content-type"]).toContain("video/mp4");
+    });
+  }
 });

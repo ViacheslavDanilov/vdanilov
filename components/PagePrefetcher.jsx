@@ -19,6 +19,8 @@ export default function PagePrefetcher() {
   const router = useRouter();
 
   useEffect(() => {
+    if (navigator.connection?.saveData) return;
+
     ROUTES_TO_PREFETCH.forEach((route) => router.prefetch(route));
 
     const warmImages = () => {

@@ -1,5 +1,3 @@
-"use client";
-
 import { GlowCard } from "@/components/ui/glow-card";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
