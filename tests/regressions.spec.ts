@@ -689,4 +689,12 @@ test.describe("Small polish", () => {
 
     await expect(chip).toHaveCSS("font-size", "12px");
   });
+
+  test("the page sets a theme colour for the browser bar", async ({
+    request,
+  }) => {
+    const html = await (await request.get("/")).text();
+
+    expect(html).toMatch(/<meta name="theme-color" content="#0a0e14"\/?>/i);
+  });
 });

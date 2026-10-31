@@ -38,6 +38,10 @@ export const metadata = {
   },
 };
 
+export const viewport = {
+  themeColor: "#0a0e14",
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={poppins.variable} suppressHydrationWarning>
