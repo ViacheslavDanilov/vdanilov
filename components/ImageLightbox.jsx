@@ -111,7 +111,7 @@ export default function ImageLightbox({
           className="w-full h-auto"
           style={{ display: "block" }}
         />
-        {/* Touch screens have no hover, so they get a standing cue */}
+        {/* Touch cue */}
         <div className="hidden pointer-coarse:flex absolute bottom-2 right-2 w-8 h-8 rounded-full bg-black/60 items-center justify-center">
           <FontAwesomeIcon icon={faExpand} className="w-4 h-4 text-light" />
         </div>
@@ -181,7 +181,7 @@ export default function ImageLightbox({
                 height={height}
                 sizes="95vw"
                 quality={90}
-                className="max-w-full max-h-[90vh] w-[calc(100vw-2rem)] md:w-auto h-auto rounded-lg shadow-2xl"
+                className="max-w-full max-h-[90vh] w-[calc(100vw-2rem)] sm:w-auto h-auto rounded-lg shadow-2xl"
                 style={{ objectFit: "contain" }}
                 priority
               />
