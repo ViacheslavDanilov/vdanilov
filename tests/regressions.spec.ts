@@ -57,8 +57,8 @@ test.describe("Experience dates west of UTC", () => {
     });
 
     await page.goto("/experience/");
-    await expect(page.getByText("Jun 2023 - Present")).toBeVisible();
-    await expect(page.getByText("May 2023 - Present")).toHaveCount(0);
+    await expect(page.getByText("Jun 2023 – Present")).toBeVisible();
+    await expect(page.getByText("May 2023 – Present")).toHaveCount(0);
     expect(errors).toEqual([]);
   });
 });
@@ -746,4 +746,18 @@ test.describe("Small polish", () => {
 
     expect(html).toMatch(/<meta name="theme-color" content="#0a0e14"\/?>/i);
   });
+});
+
+test.describe("Date ranges", () => {
+  for (const path of ["/education/", "/experience/"]) {
+    test(`${path} separates dates with an en dash`, async ({ page }) => {
+      await page.goto(path);
+      const text = await page.locator("main").innerText();
+
+      expect(text).toMatch(
+        /[A-Z][a-z]{2} \d{4} \u2013 (?:[A-Z][a-z]{2} \d{4}|Present)/,
+      );
+      expect(text).not.toMatch(/\d{4} - /);
+    });
+  }
 });
