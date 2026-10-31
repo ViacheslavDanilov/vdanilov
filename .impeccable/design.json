@@ -243,7 +243,7 @@
       },
       {
         "name": "The Glass Rule",
-        "body": "Floating chrome (nav, mobile menu, glow cards) uses blur, a translucent fill and a hairline border, not an opaque fill.",
+        "body": "Floating chrome (nav, mobile menu, glow cards) uses blur, a translucent fill and a hairline border, not an opaque fill. The portfolio card is the one exception, because it carries a full-width image.",
         "section": "elevation"
       }
     ],
@@ -253,6 +253,7 @@
       "Do make small controls full pills and cards 16px.",
       "Do keep grey tiers: Paper Light for headings, Text Soft or 200 to 300 for body, Text Muted for metadata.",
       "Do disable pointer glow below 768px and keep touch panning intact.",
+      "Do give every control a 44px tap target at 360px. The visible size stays small: the extra area is padding offset by a negative margin, or a pseudo-element where a parent's spacing would clash.",
       "Do keep the page usable with one dark theme now and a light theme later: reference colour roles, not literal values, in new components."
     ],
     "donts": [
