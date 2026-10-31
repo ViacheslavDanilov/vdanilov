@@ -999,29 +999,42 @@ test.describe("Hero and About videos", () => {
 });
 
 test.describe("Home section spacing", () => {
-  const big = [1, 2, 3, 4, 5, 6];
-
   for (const [width, height] of [
     [3840, 2160],
+    [2560, 1440],
     [1920, 1080],
     [1440, 900],
   ]) {
     test.describe(`at ${width}x${height}`, () => {
       test.use({ viewport: { width, height } });
+      // Sections stop growing at 72rem so a very tall screen is not left empty
+      const screen = Math.min(height, 1152);
 
-      test("the big sections fill the screen and the hero does not leak", async ({
+      test("each screen holds one section and the hero does not leak", async ({
         page,
       }) => {
         await page.goto("/");
-        const boxes = await page.locator("main section").evaluateAll((els) =>
+        const sections = page.locator("main section");
+        const boxes = await sections.evaluateAll((els) =>
           els.map((el) => {
             const r = el.getBoundingClientRect();
             return [r.top + scrollY, r.height];
           }),
         );
         expect(boxes).toHaveLength(7);
-        for (const i of big) expect(boxes[i][1]).toBeGreaterThanOrEqual(height);
-        expect(boxes[0][0] + boxes[0][1]).toBeCloseTo(height, 0);
+        for (const i of [1, 2, 3, 4]) {
+          expect(boxes[i][1]).toBeGreaterThanOrEqual(screen);
+        }
+        const pair = await sections
+          .nth(5)
+          .evaluate((el) => el.parentElement!.getBoundingClientRect().height);
+        expect(pair).toBeGreaterThanOrEqual(screen);
+        expect(boxes[0][0] + boxes[0][1]).toBeCloseTo(screen, 0);
+        if (height >= 1080) {
+          expect(boxes[6][0] + boxes[6][1] - boxes[5][0]).toBeLessThanOrEqual(
+            height,
+          );
+        }
         expect(
           await page.evaluate(
             () =>
@@ -1029,6 +1042,19 @@ test.describe("Home section spacing", () => {
               document.documentElement.clientWidth,
           ),
         ).toBe(true);
+      });
+
+      test("the client logos sit in two rows", async ({ page }) => {
+        await page.goto("/");
+        const rows = await page
+          .locator('main li:has(img[src*="/clients/"])')
+          .evaluateAll(
+            (els) =>
+              new Set(
+                els.map((el) => Math.round(el.getBoundingClientRect().top)),
+              ).size,
+          );
+        expect(rows).toBe(2);
       });
     });
   }
