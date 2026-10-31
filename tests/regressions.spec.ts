@@ -38,6 +38,28 @@ test.describe("Layout width", () => {
   }
 });
 
+test.describe("Phone layout at 360px", () => {
+  test.use({ viewport: { width: 360, height: 800 } });
+
+  test("the hero word flip never widens the page", async ({ page }) => {
+    await page.goto("/");
+    const peak = await page.evaluate(
+      () =>
+        new Promise<number>((resolve) => {
+          let max = 0;
+          const end = performance.now() + 7000;
+          const tick = () => {
+            max = Math.max(max, document.documentElement.scrollWidth);
+            if (performance.now() < end) requestAnimationFrame(tick);
+            else resolve(max);
+          };
+          tick();
+        }),
+    );
+    expect(peak).toBeLessThanOrEqual(360);
+  });
+});
+
 test.describe("Mobile menu", () => {
   test.use({ viewport: { width: 390, height: 844 } });
 
