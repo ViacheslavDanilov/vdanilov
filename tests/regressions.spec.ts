@@ -1037,16 +1037,17 @@ test.describe("Home section spacing", () => {
     [390, 844],
     [800, 1024],
   ]) {
-    test(`sections sit 96 px apart at ${width}x${height}`, async ({ page }) => {
+    test(`section content sits 96 px apart at ${width}x${height}`, async ({
+      page,
+    }) => {
       await page.setViewportSize({ width, height });
       await page.goto("/");
       const rows = await page.locator("main section").evaluateAll((els) =>
         els.map((el) => {
-          const r = el.getBoundingClientRect();
           const s = getComputedStyle(el);
           return [
-            r.top + scrollY,
-            r.bottom + scrollY,
+            el.firstElementChild!.getBoundingClientRect().top + scrollY,
+            el.lastElementChild!.getBoundingClientRect().bottom + scrollY,
             parseFloat(s.paddingTop),
             parseFloat(s.paddingBottom),
           ];
@@ -1055,7 +1056,7 @@ test.describe("Home section spacing", () => {
       expect(rows).toHaveLength(7);
       rows.forEach(([, , top, bottom], i) => {
         expect([i, top, bottom]).toEqual([i, 48, 48]);
-        if (i > 0) expect(rows[i][0] - rows[i - 1][1]).toBeCloseTo(0, 0);
+        if (i > 0) expect(rows[i][0] - rows[i - 1][1]).toBeCloseTo(96, 0);
       });
     });
   }
