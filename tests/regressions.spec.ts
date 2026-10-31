@@ -911,4 +911,32 @@ test.describe("Page weight", () => {
 
     await expect(page.locator('main img:not([loading="lazy"])')).toHaveCount(1);
   });
+
+  test("the home page warms nothing when the data saver is on", async ({
+    browser,
+  }) => {
+    const warmed = async (saveData: boolean) => {
+      const context = await browser.newContext();
+      const page = await context.newPage();
+      await page.addInitScript((value) => {
+        Object.defineProperty(navigator, "connection", {
+          value: { saveData: value },
+          configurable: true,
+        });
+      }, saveData);
+      let count = 0;
+      page.on("request", (request) => {
+        if (request.url().endsWith("/experience/core-roles/symfa.svg")) {
+          count += 1;
+        }
+      });
+      await page.goto("/");
+      await page.waitForTimeout(3500);
+      await context.close();
+      return count;
+    };
+
+    expect(await warmed(false)).toBeGreaterThan(0);
+    expect(await warmed(true)).toBe(0);
+  });
 });
