@@ -30,7 +30,7 @@ function TeamMemberCard({ member }) {
                 href={href}
                 target={external ? "_blank" : undefined}
                 rel={external ? "noopener noreferrer" : undefined}
-                className="p-2 -m-2 text-gray-400 hover:text-light transition-all duration-300 transform hover:scale-110"
+                className="p-3.5 -m-3.5 text-gray-400 hover:text-light transition-all duration-300 transform hover:scale-110"
                 aria-label={`${member.name}'s ${label}`}
               >
                 <FontAwesomeIcon

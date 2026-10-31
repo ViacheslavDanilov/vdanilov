@@ -543,3 +543,74 @@ test.describe("Sitemap and robots", () => {
     expect(text).toContain(`Sitemap: ${SITE}/sitemap.xml`);
   });
 });
+
+test.describe("Touch targets at 360px", () => {
+  test.use({ viewport: { width: 360, height: 780 }, hasTouch: true });
+
+  const targets = [
+    ["menu toggle", "/", 'button[aria-label="Toggle menu"]'],
+    ["team icons", "/portfolio/deep-anatomy/", 'main a[aria-label*="\'s "]'],
+    ["reference icons", "/references/", 'main a[aria-label*="\'s "]'],
+    ["About icons", "/", 'main a[aria-label][style*="inline-block"]'],
+    ["filter tabs", "/portfolio/", "button[aria-pressed]"],
+    ["card tabs", "/experience/", "article button[aria-expanded]"],
+    ["footer links", "/", "footer ul a"],
+    ["portfolio card titles", "/portfolio/?filter=all", "article a:has(h2)"],
+  ];
+
+  for (const [name, path, selector] of targets) {
+    test(`${name} are at least 44px square`, async ({ page }) => {
+      await page.goto(path);
+      const boxes = await page.locator(selector).evaluateAll((els) =>
+        els.map((el) => ({
+          width: (el as HTMLElement).offsetWidth,
+          height: (el as HTMLElement).offsetHeight,
+        })),
+      );
+
+      expect(boxes.length).toBeGreaterThan(0);
+      for (const { width, height } of boxes) {
+        expect(width).toBeGreaterThanOrEqual(43.5);
+        expect(height).toBeGreaterThanOrEqual(43.5);
+      }
+    });
+  }
+
+  test("Experience company links take a tap 21px above and below", async ({
+    page,
+  }) => {
+    await page.goto("/experience/");
+    const misses = await page
+      .locator('main a[aria-label$="website"]:not(:has(img))')
+      .evaluateAll((links) =>
+        links.flatMap((link) => {
+          link.scrollIntoView({ block: "center" });
+          const { left, top, width, height } = link.getBoundingClientRect();
+          const x = left + width / 2;
+          return [-21, 21]
+            .map((dy) => document.elementFromPoint(x, top + height / 2 + dy))
+            .filter((hit) => !link.contains(hit))
+            .map(() => link.textContent);
+        }),
+      );
+
+    expect(misses).toEqual([]);
+  });
+
+  test("a press moves a tab and a portfolio card", async ({ page }) => {
+    await page.goto("/portfolio/");
+    const tab = page.locator('button[aria-pressed="false"]').first();
+    const card = page.locator("article").first();
+
+    for (const target of [tab, card]) {
+      await target.scrollIntoViewIfNeeded();
+      const box = (await target.boundingBox())!;
+      await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2);
+      await page.mouse.down();
+      await expect
+        .poll(() => target.evaluate((el) => getComputedStyle(el).scale))
+        .not.toBe("none");
+      await page.mouse.up();
+    }
+  });
+});

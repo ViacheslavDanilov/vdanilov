@@ -105,7 +105,7 @@ function Footer() {
                     <li key={link.title}>
                       <Link
                         href={link.href}
-                        className="text-gray-400 hover:text-accent inline-flex items-center transition-colors duration-300 h-6"
+                        className="text-gray-400 hover:text-accent inline-flex items-center transition-colors duration-300 h-11 -my-2.5"
                       >
                         <FontAwesomeIcon
                           icon={link.icon}
@@ -141,7 +141,7 @@ function Footer() {
                           ? undefined
                           : "noopener noreferrer"
                       }
-                      className="text-gray-400 hover:text-accent inline-flex items-center transition-colors duration-300 h-6"
+                      className="text-gray-400 hover:text-accent inline-flex items-center transition-colors duration-300 h-11 -my-2.5"
                     >
                       <FontAwesomeIcon
                         icon={link.icon}

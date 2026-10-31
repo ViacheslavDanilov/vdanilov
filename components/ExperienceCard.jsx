@@ -247,7 +247,7 @@ const JobInfo = ({
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className="text-sm font-medium text-light md:hover:text-accent uppercase cursor-pointer transition-colors"
+      className="relative after:absolute after:-inset-3 text-sm font-medium text-light md:hover:text-accent uppercase cursor-pointer transition-colors"
       aria-label={`${company} website`}
     >
       {company}
