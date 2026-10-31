@@ -60,7 +60,7 @@ components:
     rounded: "{rounded.full}"
     height: "56px"
   nav-link-active:
-    backgroundColor: "rgba(3,177,251,0.20)"
+    backgroundColor: "rgba(3,177,251,0.15)"
     textColor: "{colors.signal-cyan}"
     rounded: "{rounded.full}"
     padding: "8px 16px"
@@ -133,7 +133,7 @@ A restrained dark palette: ink ground, slate cards, one cyan accent, and a cool 
 ### Named Rules
 
 **The One Signal Rule.** Cyan is the only accent for state and emphasis. A new surface does not introduce a second action colour.
-**The Role Tint Rule.** Accent fills behind text are tints (10% highlight, 20% active, 30% border). Solid cyan is for small marks (list bullets, the section accent bar) and the single 404 home button, which carries dark text.
+**The Role Tint Rule.** Accent fills behind text are tints (10% highlight, 15 to 20% active, 30% border). Solid cyan is for small marks (list bullets, the section accent bar) and the single 404 home button, which carries dark text.
 
 ## Typography
 
@@ -198,7 +198,7 @@ Pills for anything clickable and small (nav, buttons, badges, tabs, accent bar).
 
 ### Navigation
 
-- Floating glass pill, 56px tall, max 896px wide, 16px from top. Hides when scrolling down, returns on scroll up or focus. Links are pills; active is cyan text on cyan 20%. Under lg, a menu toggle opens a panel of Ink at 60% with a blur, a white 10% border and 12px-radius items.
+- Floating glass pill, 56px tall, max 896px wide, 16px from top. Hides when scrolling down, returns on scroll up or focus. Links are pills; active is cyan text on cyan 15% (20% in the mobile menu). Under lg, a menu toggle opens a panel of Ink at 60% with a blur, a white 10% border and 12px-radius items.
 
 ### Tabs
 
