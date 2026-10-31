@@ -166,7 +166,9 @@ const EducationCard = ({ education }) => {
                   selected={activeTab === tab.id}
                   aria-expanded={activeTab === tab.id}
                   aria-controls={
-                    activeTab === tab.id ? `${education.id}-panel` : undefined
+                    activeTab === tab.id
+                      ? `${education.id}-${tab.id}-panel`
+                      : undefined
                   }
                   setSelected={() => handleTabClick(tab.id)}
                   layoutId={`tab-${education.id}`}
@@ -184,7 +186,7 @@ const EducationCard = ({ education }) => {
                   exit={{ opacity: 0, height: 0 }}
                   transition={{ duration: 0.3, ease: "easeInOut" }}
                   className="overflow-hidden"
-                  id={`${education.id}-panel`}
+                  id={`${education.id}-${activeTab}-panel`}
                 >
                   <div className="py-2">{tabContent}</div>
                 </motion.div>

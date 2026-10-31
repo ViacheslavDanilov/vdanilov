@@ -366,7 +366,9 @@ const ExperienceCard = ({ experience }) => {
               selected={activeTab === tab.id}
               aria-expanded={activeTab === tab.id}
               aria-controls={
-                activeTab === tab.id ? `${experience.id}-panel` : undefined
+                activeTab === tab.id
+                  ? `${experience.id}-${tab.id}-panel`
+                  : undefined
               }
               setSelected={() => handleTabClick(tab.id)}
               layoutId={`tab-${experience.id}`}
@@ -384,7 +386,7 @@ const ExperienceCard = ({ experience }) => {
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
               className="overflow-hidden"
-              id={`${experience.id}-panel`}
+              id={`${experience.id}-${activeTab}-panel`}
             >
               <div className="py-2">{tabContent}</div>
             </motion.div>

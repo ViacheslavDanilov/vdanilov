@@ -163,6 +163,26 @@ test.describe("Document structure", () => {
     await expect(current).toHaveCount(1);
     await expect(current).toHaveText("Portfolio");
   });
+
+  test("tab panels never share an id while one swaps for another", async ({
+    page,
+  }) => {
+    await page.goto("/experience/");
+    const card = page
+      .locator("article")
+      .filter({ has: page.getByRole("button", { name: "Links" }) })
+      .first();
+    await card.getByRole("button", { name: "Responsibilities" }).click();
+    await expect(card.locator('[id$="-panel"]')).toHaveCount(1);
+    await card.getByRole("button", { name: "Links" }).click();
+    const duplicates = await page.evaluate(() => {
+      const ids = [...document.querySelectorAll('[id$="-panel"]')].map(
+        (el) => el.id,
+      );
+      return ids.length - new Set(ids).size;
+    });
+    expect(duplicates).toBe(0);
+  });
 });
 
 test.describe("Mobile menu", () => {
