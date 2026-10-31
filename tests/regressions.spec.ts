@@ -610,6 +610,9 @@ test.describe("Touch targets at 360px", () => {
       await expect
         .poll(() => target.evaluate((el) => getComputedStyle(el).scale))
         .not.toBe("none");
+      expect(
+        await target.evaluate((el) => getComputedStyle(el).transitionProperty),
+      ).toMatch(/\b(all|scale)\b/);
       await page.mouse.up();
     }
   });
