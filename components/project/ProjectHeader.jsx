@@ -44,7 +44,7 @@ export default function ProjectHeader({
             href={client.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="relative after:absolute after:-inset-x-2 after:-inset-y-3.5 text-accent hover:underline"
+            className="relative px-2 -mx-2 py-3.5 focus-visible:p-0 focus-visible:m-0 text-accent hover:underline"
           >
             {client.name}
           </a>

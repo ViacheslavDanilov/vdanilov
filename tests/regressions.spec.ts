@@ -784,6 +784,11 @@ test.describe("Last small tap targets at 360px", () => {
       "main header a.text-accent:not([class*='bg-'])",
     ],
     [
+      "client link that wraps",
+      "/portfolio/hypervision-ablation/",
+      "main header a.text-accent:not([class*='bg-'])",
+    ],
+    [
       "resource buttons (rows 42px apart)",
       "/portfolio/deep-anatomy/",
       "main a:has-text('PhD Thesis'), main a:has-text('PhD Abstract')",
