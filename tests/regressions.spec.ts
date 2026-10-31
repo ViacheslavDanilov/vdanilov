@@ -998,6 +998,71 @@ test.describe("Hero and About videos", () => {
   }
 });
 
+test.describe("Home section spacing", () => {
+  const big = [1, 3, 4, 6];
+
+  for (const [width, height] of [
+    [3840, 2160],
+    [1920, 1080],
+    [1440, 900],
+  ]) {
+    test.describe(`at ${width}x${height}`, () => {
+      test.use({ viewport: { width, height } });
+
+      test("the big sections fill the screen and the hero does not leak", async ({
+        page,
+      }) => {
+        await page.goto("/");
+        const boxes = await page.locator("main section").evaluateAll((els) =>
+          els.map((el) => {
+            const r = el.getBoundingClientRect();
+            return [r.top + scrollY, r.height];
+          }),
+        );
+        expect(boxes).toHaveLength(7);
+        for (const i of big) expect(boxes[i][1]).toBeGreaterThanOrEqual(height);
+        expect(boxes[0][0] + boxes[0][1]).toBeCloseTo(height, 0);
+        expect(boxes[2][1]).toBeLessThan(height);
+        expect(boxes[5][1]).toBeLessThan(height);
+        expect(
+          await page.evaluate(
+            () =>
+              document.documentElement.scrollWidth <=
+              document.documentElement.clientWidth,
+          ),
+        ).toBe(true);
+      });
+    });
+  }
+
+  for (const [width, height] of [
+    [390, 844],
+    [800, 1024],
+  ]) {
+    test(`sections sit 96 px apart at ${width}x${height}`, async ({ page }) => {
+      await page.setViewportSize({ width, height });
+      await page.goto("/");
+      const rows = await page.locator("main section").evaluateAll((els) =>
+        els.map((el) => {
+          const r = el.getBoundingClientRect();
+          const s = getComputedStyle(el);
+          return [
+            r.top + scrollY,
+            r.bottom + scrollY,
+            parseFloat(s.paddingTop),
+            parseFloat(s.paddingBottom),
+          ];
+        }),
+      );
+      expect(rows).toHaveLength(7);
+      rows.forEach(([, , top, bottom], i) => {
+        expect([i, top, bottom]).toEqual([i, 48, 48]);
+        if (i > 0) expect(rows[i][0] - rows[i - 1][1]).toBeCloseTo(0, 0);
+      });
+    });
+  }
+});
+
 test.describe("Reduced motion", () => {
   const modes = [
     ["no preference", "no-preference", true],
