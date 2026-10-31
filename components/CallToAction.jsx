@@ -8,7 +8,7 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 const CallToAction = () => {
   return (
-    <section className="w-full max-w-7xl mx-auto px-6 lg:px-8 py-12">
+    <section className="w-full max-w-7xl mx-auto px-6 lg:px-8 py-12 lg:min-h-[min(100svh,72rem)] lg:flex lg:flex-col lg:justify-center">
       <GlowCard className="w-full h-full" spotlightSize={400}>
         <div className="flex flex-col lg:flex-row items-center gap-4 lg:gap-10 p-8 lg:py-12 lg:px-16">
           {/* Image Section */}
