@@ -171,7 +171,7 @@ function Navbar() {
         <button
           ref={toggleRef}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="lg:hidden text-light hover:text-accent transition-colors flex-shrink-0"
+          className="lg:hidden p-1.5 -m-1.5 text-light hover:text-accent transition-colors flex-shrink-0"
           aria-label="Toggle menu"
           aria-expanded={isMenuOpen}
           aria-controls={isMenuOpen ? "mobile-menu" : undefined}

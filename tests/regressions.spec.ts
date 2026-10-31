@@ -543,3 +543,207 @@ test.describe("Sitemap and robots", () => {
     expect(text).toContain(`Sitemap: ${SITE}/sitemap.xml`);
   });
 });
+
+test.describe("Touch targets at 360px", () => {
+  test.use({ viewport: { width: 360, height: 780 }, hasTouch: true });
+
+  const targets = [
+    ["menu toggle", "/", 'button[aria-label="Toggle menu"]'],
+    ["team icons", "/portfolio/deep-anatomy/", 'main a[aria-label*="\'s "]'],
+    ["reference icons", "/references/", 'main a[aria-label*="\'s "]'],
+    ["About icons", "/", 'main a[aria-label][style*="inline-block"]'],
+    ["filter tabs", "/portfolio/", "button[aria-pressed]"],
+    ["card tabs", "/experience/", "article button[aria-expanded]"],
+    ["footer links", "/", "footer ul a"],
+    ["portfolio card titles", "/portfolio/?filter=all", "article a:has(h2)"],
+  ];
+
+  for (const [name, path, selector] of targets) {
+    test(`${name} are at least 44px square`, async ({ page }) => {
+      await page.goto(path);
+      const boxes = await page.locator(selector).evaluateAll((els) =>
+        els.map((el) => ({
+          width: (el as HTMLElement).offsetWidth,
+          height: (el as HTMLElement).offsetHeight,
+        })),
+      );
+
+      expect(boxes.length).toBeGreaterThan(0);
+      for (const { width, height } of boxes) {
+        expect(width).toBeGreaterThanOrEqual(43.5);
+        expect(height).toBeGreaterThanOrEqual(43.5);
+      }
+    });
+  }
+
+  test("Experience company links take a tap 21px above and below", async ({
+    page,
+  }) => {
+    await page.goto("/experience/");
+    const misses = await page
+      .locator('main a[aria-label$="website"]:not(:has(img))')
+      .evaluateAll((links) =>
+        links.flatMap((link) => {
+          link.scrollIntoView({ block: "center" });
+          const { left, top, width, height } = link.getBoundingClientRect();
+          const x = left + width / 2;
+          return [-21, 21]
+            .map((dy) => document.elementFromPoint(x, top + height / 2 + dy))
+            .filter((hit) => !link.contains(hit))
+            .map(() => link.textContent);
+        }),
+      );
+
+    expect(misses).toEqual([]);
+  });
+
+  test("a press moves a tab and a portfolio card", async ({ page }) => {
+    await page.goto("/portfolio/");
+    const tab = page.locator('button[aria-pressed="false"]').first();
+    const card = page.locator("article").first();
+
+    for (const target of [tab, card]) {
+      await target.scrollIntoViewIfNeeded();
+      const box = (await target.boundingBox())!;
+      await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2);
+      await page.mouse.down();
+      await expect
+        .poll(() => target.evaluate((el) => getComputedStyle(el).scale))
+        .not.toBe("none");
+      expect(
+        await target.evaluate((el) => getComputedStyle(el).transitionProperty),
+      ).toMatch(/\b(all|scale)\b/);
+      await page.mouse.up();
+    }
+  });
+});
+
+test.describe("Small polish", () => {
+  test("certificate arrows follow the last word, inside the card at 360px", async ({
+    page,
+  }) => {
+    for (const width of [360, 1440]) {
+      await page.setViewportSize({ width, height: 900 });
+      await page.goto("/education/");
+
+      const problems = await page.evaluate(
+        (checkEdge) =>
+          [...document.querySelectorAll("article")]
+            .filter((article) => article.querySelector("a.group\\/title"))
+            .flatMap((article) => {
+              const card = article.firstElementChild as HTMLElement;
+              const edge =
+                card.getBoundingClientRect().right -
+                parseFloat(getComputedStyle(card).paddingRight);
+              const title = article.querySelector(
+                "a.group\\/title span.uppercase",
+              ) as HTMLElement;
+              const arrow = [...article.querySelectorAll("a.group\\/title svg")]
+                .map((icon) => icon.parentElement!.getBoundingClientRect())
+                .find((rect) => rect.width > 0)!;
+              const words = document.createTreeWalker(
+                title,
+                NodeFilter.SHOW_TEXT,
+              );
+              let lastText: Node | null = null;
+              while (words.nextNode()) {
+                if (words.currentNode.textContent!.trim()) {
+                  lastText = words.currentNode;
+                }
+              }
+              const range = document.createRange();
+              range.selectNodeContents(lastText!);
+              const lines = [...range.getClientRects()];
+              const last = lines[lines.length - 1];
+              const offset =
+                arrow.top + arrow.height / 2 - (last.top + last.bottom) / 2;
+              const gap = arrow.left - last.right;
+
+              const found: string[] = [];
+              if (checkEdge && arrow.right > edge + 0.5) {
+                found.push("outside the content box");
+              }
+              if (Math.abs(offset) > 2) found.push("off the last title line");
+              if (gap < 0 || gap > 12) found.push("not next to the last word");
+              return found.map((what) => `${title.textContent}: ${what}`);
+            }),
+        width === 360,
+      );
+
+      expect(problems, `at ${width}px`).toEqual([]);
+    }
+  });
+
+  test("glow cards let a two-finger pinch zoom the page", async ({ page }) => {
+    await page.goto("/references/");
+
+    await expect(
+      page.locator('main div[style*="touch-action"]').first(),
+    ).toHaveCSS("touch-action", "pan-y pinch-zoom");
+  });
+
+  test("tabs draw their focus ring on the visible pill", async ({ page }) => {
+    await page.goto("/portfolio/");
+    const rings = await page
+      .locator("button[aria-pressed]")
+      .evaluateAll((tabs) =>
+        tabs.map((tab) => {
+          const style = getComputedStyle(tab);
+          return {
+            round:
+              parseFloat(style.borderTopLeftRadius) >=
+              (tab as HTMLElement).offsetHeight / 2,
+            offset: style.outlineOffset,
+          };
+        }),
+      );
+
+    expect(rings.length).toBeGreaterThan(0);
+    for (const ring of rings)
+      expect(ring).toEqual({ round: true, offset: "-4px" });
+  });
+
+  test("reference badges keep 8px clear of the photo circle at 360px", async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 360, height: 900 });
+    await page.goto("/references/");
+
+    const gaps = await page.evaluate(() =>
+      [...document.querySelectorAll("main h2")].slice(0, 6).map((heading) => {
+        const card = heading.closest("div.relative")!;
+        const photo = card.querySelector("img")!.parentElement!;
+        const badge = card
+          .querySelector(".absolute.top-5.right-5")!
+          .getBoundingClientRect();
+        const circle = photo.getBoundingClientRect();
+        const radius = circle.width / 2;
+        const cx = circle.left + radius;
+        const cy = circle.top + radius;
+        const nearX = Math.min(Math.max(cx, badge.left), badge.right);
+        const nearY = Math.min(Math.max(cy, badge.top), badge.bottom);
+        return Math.hypot(cx - nearX, cy - nearY) - radius;
+      }),
+    );
+
+    expect(gaps).toHaveLength(6);
+    for (const gap of gaps) expect(gap).toBeGreaterThanOrEqual(8);
+  });
+
+  test("project tech chips use the 12px chip size", async ({ page }) => {
+    await page.goto("/portfolio/deep-anatomy/");
+    const chip = page
+      .locator('span[class*="rounded-full"][class*="bg-white/5"]')
+      .first();
+
+    await expect(chip).toHaveCSS("font-size", "12px");
+  });
+
+  test("the page sets a theme colour for the browser bar", async ({
+    request,
+  }) => {
+    const html = await (await request.get("/")).text();
+
+    expect(html).toMatch(/<meta name="theme-color" content="#0a0e14"\/?>/i);
+  });
+});

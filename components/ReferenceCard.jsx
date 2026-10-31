@@ -48,7 +48,7 @@ const ReferenceCard = ({ reference, priority = false }) => {
 
       <div className="flex flex-col items-center text-center h-full">
         {/* Profile Photo */}
-        <div className="relative w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-2 border-accent/20 shadow-lg bg-dark mb-4">
+        <div className="relative w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-2 border-accent/20 shadow-lg bg-dark mb-4 max-sm:mt-6">
           <Image
             src={image}
             alt={name}
@@ -82,7 +82,7 @@ const ReferenceCard = ({ reference, priority = false }) => {
               target={external ? "_blank" : undefined}
               rel={external ? "noopener noreferrer" : undefined}
               aria-label={`${name}'s ${label}`}
-              className="p-2 -m-2 text-gray-400 hover:text-light transition-all duration-300 transform hover:scale-110"
+              className="p-3 -m-3 text-gray-400 hover:text-light transition-all duration-300 transform hover:scale-110"
             >
               <FontAwesomeIcon
                 icon={icon}

@@ -19,9 +19,10 @@ export function Tab({
       type="button"
       onClick={() => setSelected(text)}
       className={cn(
-        "relative w-fit px-4 py-2 text-sm font-semibold capitalize",
-        "text-foreground transition-colors flex items-center gap-2 cursor-pointer",
-        !selected && "hover:text-light hover:bg-white/5 rounded-full",
+        "relative w-fit px-4 py-3 -my-1 rounded-full -outline-offset-4 text-sm font-semibold capitalize",
+        "text-foreground transition-[color,scale] active:scale-95 flex items-center gap-2 cursor-pointer",
+        !selected &&
+          "hover:text-light before:absolute before:inset-x-0 before:inset-y-1 before:rounded-full before:bg-white/5 before:opacity-0 before:transition-opacity hover:before:opacity-100",
       )}
       {...props}
     >
@@ -39,7 +40,7 @@ export function Tab({
         <motion.span
           layoutId={layoutId}
           transition={{ type: "spring", duration: 0.4 }}
-          className="absolute inset-0 z-0 rounded-full bg-accent/20 border border-accent/60 shadow-sm"
+          className="absolute inset-x-0 inset-y-1 z-0 rounded-full bg-accent/20 border border-accent/60 shadow-sm"
         />
       )}
     </button>

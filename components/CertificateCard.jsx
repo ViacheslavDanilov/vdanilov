@@ -7,6 +7,9 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { CompanyLogo } from "@/components/ExperienceCard";
 
 const CertificateCard = ({ certificate }) => {
+  const words = certificate.title.split(" ");
+  const lastWord = words.pop();
+
   return (
     <article className="h-full w-full">
       <GlowCard className="w-full h-full p-5 pb-3 group" spotlightSize={180}>
@@ -25,24 +28,27 @@ const CertificateCard = ({ certificate }) => {
                 href={certificate.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group/title flex items-center gap-2 text-md font-bold text-light group-hover:text-accent transition-colors w-fit"
+                className="group/title block md:whitespace-nowrap text-md font-bold text-light group-hover:text-accent transition-colors w-fit"
               >
-                <span className="uppercase tracking-wide md:truncate">
-                  {certificate.title}
-                </span>
-                <span
-                  className="inline-block transition-transform duration-300 group-hover/title:translate-x-1"
-                  style={{ width: "0.75rem", height: "0.75rem" }}
-                >
-                  <FontAwesomeIcon
-                    icon={faArrowRight}
-                    className="opacity-60"
-                    style={{
-                      width: "0.75rem",
-                      height: "0.75rem",
-                      display: "block",
-                    }}
-                  />
+                <span className="uppercase tracking-wide">
+                  {words.length > 0 && `${words.join(" ")} `}
+                  <span className="whitespace-nowrap">
+                    {lastWord}
+                    <span
+                      className="inline-block ml-2 align-[-1px] transition-transform duration-300 group-hover/title:translate-x-1"
+                      style={{ width: "0.75rem", height: "0.75rem" }}
+                    >
+                      <FontAwesomeIcon
+                        icon={faArrowRight}
+                        className="opacity-60"
+                        style={{
+                          width: "0.75rem",
+                          height: "0.75rem",
+                          display: "block",
+                        }}
+                      />
+                    </span>
+                  </span>
                 </span>
               </a>
 

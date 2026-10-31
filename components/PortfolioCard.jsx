@@ -34,7 +34,7 @@ const PortfolioCard = ({ project, priority = false }) => {
     <article
       className="group relative overflow-hidden rounded-2xl bg-card border border-white/10 
                  transition-all duration-300 hover:border-accent/30 hover:shadow-lg 
-                 hover:shadow-accent/5"
+                 hover:shadow-accent/5 active:scale-[0.99]"
     >
       {/* Image Container - Clickable */}
       <Link
@@ -71,7 +71,7 @@ const PortfolioCard = ({ project, priority = false }) => {
       <div className="p-5">
         {/* Title with Arrow - Clickable */}
         <div className="mb-2">
-          <Link href={projectUrl} className="group/title inline">
+          <Link href={projectUrl} className="group/title inline py-3.5">
             <h2 className="text-lg font-semibold text-light transition-colors duration-300 group-hover:text-accent inline">
               {title}
               <span

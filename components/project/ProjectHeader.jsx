@@ -55,7 +55,7 @@ export default function ProjectHeader({
           {techStack.map((tech) => (
             <span
               key={tech}
-              className="px-2.5 py-0.5 text-[11px] rounded-full bg-white/5 border border-white/10 text-gray-400"
+              className="px-2.5 py-0.5 text-xs rounded-full bg-white/5 border border-white/10 text-gray-400"
             >
               {tech}
             </span>

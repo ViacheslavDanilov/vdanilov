@@ -172,7 +172,7 @@ Depth is mostly tonal and translucent: glass fills, blur, and hairline borders. 
 
 ### Named Rules
 
-**The Glass Rule.** Floating chrome (nav, mobile menu, glow cards) uses blur, a translucent fill and a hairline border, not an opaque fill.
+**The Glass Rule.** Floating chrome (nav, mobile menu, glow cards) uses blur, a translucent fill and a hairline border, not an opaque fill. The portfolio card is the one exception, because it carries a full-width image.
 
 ## Shapes
 
@@ -194,6 +194,7 @@ Pills for anything clickable and small (nav, buttons, badges, tabs, accent bar).
 ### Cards / Containers
 
 - **Glow card:** 16px radius, 6% grey fill, 1.5px border in the same grey, 2px blur. Padding is 20px on list and project cards and 24px on home cards (40px from md on the statistics cards). The call-to-action card keeps the 16px default and pads its own content inside. On desktop a radial spotlight follows the pointer across fill and border. Off below 768px.
+- **Portfolio card:** an opaque card fill with a 1px white 10% border and no pointer glow or blur, because it carries a full-width image. On hover the border turns cyan 30% and a faint cyan shadow appears. It is the one card that is not glass. Pressing it scales it to 0.99.
 - **Logo tile:** 64px square, 16px radius, slate 50% fill, Paper Light 10% border. From md, hover scales it to 1.03 and turns the border cyan 30%.
 
 ### Navigation
@@ -202,7 +203,11 @@ Pills for anything clickable and small (nav, buttons, badges, tabs, accent bar).
 
 ### Tabs
 
-- Pill buttons; the selected one gets a cyan 20% pill with a 60% border that slides between tabs (spring, 0.4s).
+- Pill buttons; the selected one gets a cyan 20% pill with a 60% border that slides between tabs (spring, 0.4s). Pressing a tab scales it to 0.95.
+
+### Footer
+
+- The three parts sit on a grid from lg, but the link columns are placed by eye, not by geometry. Quick Links and Connect hold labels of very different length (Home against ResearchGate), so they sit where the visual weight looks centred. Do not move them to the page grid.
 
 ## Do's and Don'ts
 
@@ -212,7 +217,8 @@ Pills for anything clickable and small (nav, buttons, badges, tabs, accent bar).
 - **Do** build floating surfaces from a translucent fill, blur and a hairline border: white at 10 to 20%, or the fill's own grey on glow cards.
 - **Do** make small controls full pills and cards 16px.
 - **Do** keep grey tiers: Paper Light for headings, Text Soft or 200 to 300 for body, Text Muted for metadata.
-- **Do** disable pointer glow below 768px and keep touch panning intact.
+- **Do** disable pointer glow below 768px and keep touch panning and pinch zoom intact.
+- **Do** give icon links, tabs, footer links, portfolio card titles, Experience company links and the menu toggle a 44px tap target at 360px. The visible size stays small: the extra area is padding offset by a negative margin, or a pseudo-element where a parent's spacing would clash.
 - **Do** keep the page usable with one dark theme now and a light theme later: reference colour roles, not literal values, in new components.
 
 ### Don't:
