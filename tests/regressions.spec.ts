@@ -305,11 +305,18 @@ test.describe("Cards without JavaScript", () => {
     test(`${path} cards keep their entrance animation`, async ({ page }) => {
       await page.goto(path);
 
-      const name = await page
+      const { name, duration } = await page
         .locator('[role="listitem"]')
         .first()
-        .evaluate((el) => getComputedStyle(el).animationName);
+        .evaluate((el) => {
+          const style = getComputedStyle(el);
+          return {
+            name: style.animationName,
+            duration: style.animationDuration,
+          };
+        });
       expect(name).not.toBe("none");
+      expect(duration).toBe("0.3s");
     });
   }
 });
@@ -322,13 +329,17 @@ test.describe("Sitemap and robots", () => {
     request,
   }) => {
     await page.goto("/portfolio/?filter=all");
-    await expect(page.locator('[role="listitem"]')).toHaveCount(22);
+    const allLabel = await page
+      .getByRole("button", { name: /^All \(\d+\)/ })
+      .innerText();
+    const total = Number(allLabel.match(/\d+/)![0]);
+    await expect(page.locator('[role="listitem"]')).toHaveCount(total);
     const hrefs = await page
       .locator('[role="listitem"] a[href^="/portfolio/"]')
       .evaluateAll((links) => [
         ...new Set(links.map((a) => a.getAttribute("href"))),
       ]);
-    expect(hrefs).toHaveLength(22);
+    expect(hrefs).toHaveLength(total);
 
     const response = await request.get("/sitemap.xml");
     expect(response.status()).toBe(200);
