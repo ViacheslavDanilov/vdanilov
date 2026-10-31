@@ -128,7 +128,7 @@ function Navbar() {
         {/* Logo */}
         <Link
           href="/"
-          className="inline-flex items-center gap-2 hover:brightness-125 hover:scale-[1.03] transition-all duration-200 origin-center cursor-pointer flex-shrink-0"
+          className="relative after:absolute after:-inset-x-1 after:-inset-y-1.5 inline-flex items-center gap-2 hover:brightness-125 hover:scale-[1.03] transition-all duration-200 origin-center cursor-pointer flex-shrink-0"
           aria-label="Go to home page"
         >
           <Image
