@@ -218,7 +218,7 @@ Pills for anything clickable and small (nav, buttons, badges, tabs, accent bar).
 - **Do** make small controls full pills and cards 16px.
 - **Do** keep grey tiers: Paper Light for headings, Text Soft or 200 to 300 for body, Text Muted for metadata.
 - **Do** disable pointer glow below 768px and keep touch panning and pinch zoom intact.
-- **Do** give icon links, tabs, footer links, portfolio card titles, Experience company links and the menu toggle a 44px tap target at 360px. The visible size stays small: the extra area is padding offset by a negative margin, or a pseudo-element where a parent's spacing would clash.
+- **Do** give every link and button a 44px tap target at 360px, except links inside running text and the skip link. Where neighbours sit closer than 44px (icon rows, footer lists, wrapped chips) the areas share the space. The visible size stays small: the extra area is padding offset by a negative margin, or a pseudo-element where a parent's spacing would clash.
 - **Do** keep the page usable with one dark theme now and a light theme later: reference colour roles, not literal values, in new components.
 
 ### Don't:
