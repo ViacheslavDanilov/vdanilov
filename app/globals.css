@@ -13,13 +13,13 @@
   --color-gray-300: #d1d5db;
   --color-gray-400: #9ca3af;
 
-  /* Cards fade in and grow on mount; the final state is in the HTML */
+  /* Cards fade in and grow on first paint; the final state is in the HTML */
   --animate-card-in: card-in 0.3s ease-out backwards;
 
   @keyframes card-in {
     from {
       opacity: 0;
-      transform: scale(0.9);
+      scale: 0.9;
     }
   }
 

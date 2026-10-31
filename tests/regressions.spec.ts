@@ -3,6 +3,7 @@ import { test, expect, type Page } from "@playwright/test";
 type Entrance = {
   name: string;
   duration: number;
+  keyframes: Record<string, unknown>[];
 };
 
 const entranceOf = async (page: Page, path: string) => {
@@ -25,6 +26,7 @@ const entranceOf = async (page: Page, path: string) => {
         entered.entrance = {
           name: (animation as CSSAnimation).animationName,
           duration: Number(animation.effect.getComputedTiming().duration),
+          keyframes: (animation.effect as KeyframeEffect).getKeyframes(),
         };
       },
       true,
@@ -352,6 +354,17 @@ test.describe("Cards without JavaScript", () => {
 });
 
 test.describe("Card entrance", () => {
+  test("the entrance animates scale and leaves transform to Motion", async ({
+    page,
+  }) => {
+    const { keyframes } = await entranceOf(page, "/portfolio/");
+
+    expect(keyframes.some((kf) => kf.scale === "0.9")).toBe(true);
+    for (const kf of keyframes) {
+      expect(kf.transform ?? "none").toBe("none");
+    }
+  });
+
   test("a kept card does not replay its entrance on a filter change", async ({
     page,
   }) => {
