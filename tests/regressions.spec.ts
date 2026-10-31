@@ -437,6 +437,36 @@ test.describe("Card entrance", () => {
     expect(Math.min(...opacities)).toBeGreaterThanOrEqual(0.95);
   });
 
+  test("a card a filter link adds gets one entrance, not two", async ({
+    page,
+  }) => {
+    type Added = { name: string; transform: string };
+    await page.addInitScript(() => {
+      document.addEventListener(
+        "animationstart",
+        (event) => {
+          const target = event.target as HTMLElement;
+          if (!target.matches('[role="listitem"]')) return;
+          if (!target.querySelector('a[href="/portfolio/insurecast/"]')) return;
+          (window as Window & { added?: Added }).added = {
+            name: (event as AnimationEvent).animationName,
+            transform: target.style.transform,
+          };
+        },
+        true,
+      );
+    });
+    await page.goto("/portfolio/?filter=all");
+
+    const read = () =>
+      page.evaluate(() => (window as Window & { added?: Added }).added ?? null);
+    await expect.poll(read).not.toBeNull();
+    const added = (await read()) as Added;
+
+    expect(added.name).toBe("card-in");
+    expect(["", "none"]).toContain(added.transform);
+  });
+
   test.describe("with reduced motion", () => {
     test.use({ reducedMotion: "reduce" });
 
