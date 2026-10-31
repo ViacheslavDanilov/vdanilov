@@ -117,10 +117,9 @@ function Navbar() {
     <nav
       ref={navRef}
       onFocus={() => setIsVisible(true)}
-      className="fixed top-4 left-0 right-0 z-50 flex justify-center px-6"
+      className="fixed top-4 left-0 right-0 z-50 flex justify-center px-6 transition-transform duration-300 ease-in-out motion-reduce:transition-none"
       style={{
         transform: isVisible ? "translateY(0)" : "translateY(-130%)",
-        transition: "transform 0.3s ease-in-out",
       }}
     >
       {/* Glassmorphism Pill Container */}
@@ -128,7 +127,7 @@ function Navbar() {
         {/* Logo */}
         <Link
           href="/"
-          className="relative after:absolute after:-inset-x-1 after:-inset-y-1.5 focus-visible:after:hidden inline-flex items-center gap-2 hover:brightness-125 hover:scale-[1.03] transition-all duration-200 origin-center cursor-pointer flex-shrink-0"
+          className="relative after:absolute after:-inset-x-1 after:-inset-y-1.5 focus-visible:after:hidden inline-flex items-center gap-2 hover:brightness-125 motion-safe:hover:scale-[1.03] transition-all duration-200 origin-center cursor-pointer flex-shrink-0"
           aria-label="Go to home page"
         >
           <Image

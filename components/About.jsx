@@ -139,7 +139,7 @@ const About = () => {
                   : "noopener noreferrer"
               }
               aria-label={social.name}
-              className={`p-3 -m-3 text-gray-400 transition-all duration-300 transform hover:scale-110 ${social.color}`}
+              className={`p-3 -m-3 text-gray-400 transition-all duration-300 transform motion-safe:hover:scale-110 ${social.color}`}
               style={{ display: "inline-block" }}
             >
               <FontAwesomeIcon

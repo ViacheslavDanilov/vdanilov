@@ -112,7 +112,7 @@ const FeaturedProjects = () => {
                     <h3 className="text-sm font-bold text-white group-hover:text-accent uppercase leading-tight tracking-wider mb-3 text-center sm:text-left transition-colors flex items-center justify-center sm:justify-start gap-2">
                       {project.title}
                       <span
-                        className="inline-block transition-transform duration-300 group-hover/title:translate-x-1"
+                        className="inline-block transition-transform duration-300 motion-safe:group-hover/title:translate-x-1"
                         style={{ width: "0.75rem", height: "0.75rem" }}
                       >
                         <FontAwesomeIcon

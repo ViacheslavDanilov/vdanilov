@@ -88,7 +88,7 @@ const LogoGrid = () => {
               href={logo.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center transition-all duration-300 hover:brightness-125 hover:scale-[1.01]"
+              className="flex items-center justify-center transition-all duration-300 hover:brightness-125 motion-safe:hover:scale-[1.01]"
               style={{ width: "10rem", height: "5rem" }}
             >
               <Image

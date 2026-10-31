@@ -212,7 +212,7 @@ export const CompanyLogo = ({
     href={url}
     target="_blank"
     rel="noopener noreferrer"
-    className={`relative w-16 h-16 flex-shrink-0 rounded-2xl overflow-hidden border border-light/10 bg-card/50 cursor-pointer transition-all duration-300 md:hover:scale-[1.03] md:hover:border-accent/30 ${className}`}
+    className={`relative w-16 h-16 flex-shrink-0 rounded-2xl overflow-hidden border border-light/10 bg-card/50 cursor-pointer transition-all duration-300 motion-safe:md:hover:scale-[1.03] md:hover:border-accent/30 ${className}`}
     aria-label={`${company} website`}
   >
     <Image
