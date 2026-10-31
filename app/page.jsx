@@ -27,8 +27,10 @@ export default function Home() {
         <Statistics />
         <FeaturedProjects />
         <ExpertiseSection />
-        <LogoGrid />
-        <CallToAction />
+        <div className="w-full flex flex-col items-center lg:min-h-[min(100svh,72rem)] lg:justify-center">
+          <LogoGrid />
+          <CallToAction />
+        </div>
       </div>
     </div>
   );

@@ -67,7 +67,7 @@ const logos = [
 
 const LogoGrid = () => {
   return (
-    <section className="max-w-7xl mx-auto px-6 py-12 lg:min-h-svh lg:flex lg:flex-col lg:justify-center">
+    <section className="max-w-7xl mx-auto px-6 py-12">
       <div className="mb-12 text-center">
         <h2 className="text-3xl md:text-4xl font-bold text-light mb-4">
           Selected Clients
@@ -77,7 +77,7 @@ const LogoGrid = () => {
           engineering teams
         </p>
       </div>
-      <ul className="grid grid-cols-2 gap-x-10 gap-y-8 md:gap-x-16 md:grid-cols-3 lg:grid-cols-4">
+      <ul className="grid grid-cols-2 gap-x-10 gap-y-8 md:gap-x-16 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 xl:gap-x-10">
         {logos.map((logo, idx) => (
           <li
             key={idx}
