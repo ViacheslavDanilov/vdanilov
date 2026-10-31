@@ -64,7 +64,7 @@ export default function ProjectHeader({
 
         <div className="h-px bg-light/10 my-8" />
 
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-x-2 gap-y-2.5">
           {resources.map((resource) => (
             <a
               key={resource.label}

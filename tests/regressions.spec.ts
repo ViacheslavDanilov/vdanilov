@@ -789,10 +789,9 @@ test.describe("Last small tap targets at 360px", () => {
       "main header a.text-accent:not([class*='bg-'])",
     ],
     [
-      "resource buttons (rows 42px apart)",
+      "resource buttons",
       "/portfolio/deep-anatomy/",
       "main a:has-text('PhD Thesis'), main a:has-text('PhD Abstract')",
-      42,
     ],
     [
       "institution links",
@@ -803,7 +802,7 @@ test.describe("Last small tap targets at 360px", () => {
     ["certificate organisations", "/education/", "article a.tracking-wider"],
   ];
 
-  for (const [name, path, selector, min = 43] of targets) {
+  for (const [name, path, selector] of targets) {
     test(`${name} take a tap in a 44px area`, async ({ page }) => {
       await page.goto(path);
       const areas = await page.locator(selector).evaluateAll((links) =>
@@ -832,7 +831,7 @@ test.describe("Last small tap targets at 360px", () => {
       expect(areas.length).toBeGreaterThan(0);
       for (const { label, width, height } of areas) {
         expect(width, `${label} width`).toBeGreaterThanOrEqual(43);
-        expect(height, `${label} height`).toBeGreaterThanOrEqual(min);
+        expect(height, `${label} height`).toBeGreaterThanOrEqual(43);
       }
     });
   }
