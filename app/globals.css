@@ -15,11 +15,18 @@
 
   /* Cards fade in and grow on first paint; the final state is in the HTML */
   --animate-card-in: card-in 0.3s ease-out backwards;
+  --animate-card-fade-in: card-fade-in 0.3s ease-out backwards;
 
   @keyframes card-in {
     from {
       opacity: 0;
       scale: 0.9;
+    }
+  }
+
+  @keyframes card-fade-in {
+    from {
+      opacity: 0;
     }
   }
 

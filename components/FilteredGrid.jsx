@@ -102,7 +102,11 @@ export default function FilteredGrid({
             <motion.div
               key={item.id}
               layout
-              className={firstEntrance ? "animate-card-in" : undefined}
+              className={
+                firstEntrance
+                  ? "animate-card-in motion-reduce:animate-card-fade-in"
+                  : undefined
+              }
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}

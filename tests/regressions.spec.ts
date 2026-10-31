@@ -436,6 +436,20 @@ test.describe("Card entrance", () => {
     expect(opacities.length).toBeGreaterThan(0);
     expect(Math.min(...opacities)).toBeGreaterThanOrEqual(0.95);
   });
+
+  test.describe("with reduced motion", () => {
+    test.use({ reducedMotion: "reduce" });
+
+    test("the entrance fades without scaling", async ({ page }) => {
+      const { keyframes } = await entranceOf(page, "/portfolio/");
+
+      expect(keyframes.some((kf) => kf.opacity !== undefined)).toBe(true);
+      for (const kf of keyframes) {
+        expect(kf.scale ?? "none").toBe("none");
+        expect(kf.transform ?? "none").toBe("none");
+      }
+    });
+  });
 });
 
 test.describe("Sitemap and robots", () => {
