@@ -1022,19 +1022,10 @@ test.describe("Home section spacing", () => {
           }),
         );
         expect(boxes).toHaveLength(7);
-        for (const i of [1, 2, 3, 4]) {
+        for (const i of [1, 2, 3, 4, 5, 6]) {
           expect(boxes[i][1]).toBeGreaterThanOrEqual(screen);
         }
-        const pair = await sections
-          .nth(5)
-          .evaluate((el) => el.parentElement!.getBoundingClientRect().height);
-        expect(pair).toBeGreaterThanOrEqual(screen);
         expect(boxes[0][0] + boxes[0][1]).toBeCloseTo(screen, 0);
-        if (height >= 1080) {
-          expect(boxes[6][0] + boxes[6][1] - boxes[5][0]).toBeLessThanOrEqual(
-            height,
-          );
-        }
         expect(
           await page.evaluate(
             () =>
@@ -1044,7 +1035,9 @@ test.describe("Home section spacing", () => {
         ).toBe(true);
       });
 
-      test("the client logos sit in two rows", async ({ page }) => {
+      test("the 12 client logos sit in three rows of four", async ({
+        page,
+      }) => {
         await page.goto("/");
         const rows = await page
           .locator('main li:has(img[src*="/clients/"])')
@@ -1054,7 +1047,7 @@ test.describe("Home section spacing", () => {
                 els.map((el) => Math.round(el.getBoundingClientRect().top)),
               ).size,
           );
-        expect(rows).toBe(2);
+        expect(rows).toBe(3);
       });
     });
   }
@@ -1080,6 +1073,14 @@ test.describe("Home section spacing", () => {
         }),
       );
       expect(rows).toHaveLength(7);
+      const logoRows = await page
+        .locator('main li:has(img[src*="/clients/"])')
+        .evaluateAll(
+          (els) =>
+            new Set(els.map((el) => Math.round(el.getBoundingClientRect().top)))
+              .size,
+        );
+      expect(logoRows).toBe(width < 768 ? 6 : 3);
       rows.forEach(([, , top, bottom], i) => {
         expect([i, top, bottom]).toEqual([i, 48, 48]);
         if (i > 0) expect(rows[i][0] - rows[i - 1][1]).toBeCloseTo(96, 0);
