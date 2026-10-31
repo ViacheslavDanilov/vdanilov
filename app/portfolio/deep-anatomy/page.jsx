@@ -4,6 +4,7 @@ import {
   faCogs,
   faChartLine,
 } from "@fortawesome/free-solid-svg-icons";
+import AutoplayVideo from "@/components/AutoplayVideo";
 import ImageLightbox from "@/components/ImageLightbox";
 import { pageMetadata } from "@/lib/metadata";
 import ProjectHeader from "@/components/project/ProjectHeader";
@@ -328,14 +329,21 @@ export default function ProjectPage() {
 
             {/* Figure 2: Feature Transfer Animation */}
             <figure id="figure-2" className="mb-6 scroll-mt-24">
-              <ImageLightbox
-                src="/portfolio/deep-anatomy/v-net-feature-transfer.gif"
-                alt="V-net Feature Transfer"
-                width={552}
-                height={281}
-                maxWidth="2xl"
-                unoptimized={true}
-              />
+              <div className="mx-auto w-full max-w-2xl rounded-xl overflow-hidden border border-white/10">
+                <AutoplayVideo
+                  aspectRatio="552 / 281"
+                  poster="/portfolio/deep-anatomy/v-net-feature-transfer-poster.webp"
+                  controls
+                  aria-label="V-net Feature Transfer"
+                  className="block w-full h-auto"
+                >
+                  <source
+                    src="/portfolio/deep-anatomy/v-net-feature-transfer.mp4"
+                    type="video/mp4"
+                  />
+                  Your browser does not support the video tag.
+                </AutoplayVideo>
+              </div>
               <figcaption className="text-center text-sm text-gray-400 mt-3">
                 <span className="text-gray-300">Figure 2.</span> Dense feature
                 transfer mechanism showing intra-block concatenation during

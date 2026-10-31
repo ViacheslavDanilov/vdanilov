@@ -939,4 +939,30 @@ test.describe("Page weight", () => {
     expect(await warmed(false)).toBeGreaterThan(0);
     expect(await warmed(true)).toBe(0);
   });
+
+  for (const project of ["deep-anatomy", "sonoguide"]) {
+    test(`${project} shows the feature transfer figure as a video`, async ({
+      page,
+      request,
+    }) => {
+      const gifs: string[] = [];
+      page.on("response", (response) => {
+        if (response.url().endsWith(".gif")) gifs.push(response.url());
+      });
+      await page.goto(`/portfolio/${project}/`);
+
+      const video = page.locator(
+        `video[controls] source[src="/portfolio/${project}/v-net-feature-transfer.mp4"]`,
+      );
+      await expect(video).toHaveCount(1);
+      await expect(page.locator('img[src*=".gif"]')).toHaveCount(0);
+      expect(gifs).toEqual([]);
+
+      const response = await request.get(
+        `/portfolio/${project}/v-net-feature-transfer.mp4`,
+      );
+      expect(response.status()).toBe(200);
+      expect(response.headers()["content-type"]).toContain("video/mp4");
+    });
+  }
 });
