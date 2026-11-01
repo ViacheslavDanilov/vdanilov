@@ -77,7 +77,7 @@ const PlusMark = ({ className }) => (
   <svg
     aria-hidden="true"
     viewBox="0 0 24 24"
-    className={`absolute -right-3 -bottom-3 z-10 size-6 text-white/40 ${className}`}
+    className={`pointer-events-none absolute -right-3 -bottom-3 z-10 size-6 text-white/40 ${className}`}
     fill="none"
     stroke="currentColor"
     strokeWidth="1"
