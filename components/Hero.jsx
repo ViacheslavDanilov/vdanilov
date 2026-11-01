@@ -130,12 +130,12 @@ const Hero = () => {
             peer-reviewed papers.
           </p>
 
-          <div className="order-2 lg:order-none flex flex-wrap items-center justify-center lg:justify-start gap-3">
+          <div className="order-2 lg:order-none flex flex-wrap items-center justify-center lg:justify-start gap-2 sm:gap-3">
             <LiquidButtonLink
               href="https://drive.google.com/uc?export=download&id=1viI3o1RBDoreQcbCwe5zc2NTWpxU7ouk"
               ariaLabel="Download CV"
               size="xl"
-              className="px-4 sm:px-8"
+              className="px-3.5 sm:h-14 sm:px-10"
               textClassName="text-sm"
             >
               <FontAwesomeIcon icon={faFileArrowDown} className="w-4 h-4" />
@@ -145,7 +145,7 @@ const Hero = () => {
               href={`mailto:${EMAIL}`}
               ariaLabel="Contact me"
               size="xl"
-              className="px-4 sm:px-8"
+              className="px-3.5 sm:h-14 sm:px-10"
               textClassName="text-sm"
             >
               <FontAwesomeIcon icon={faEnvelope} className="w-4 h-4" />

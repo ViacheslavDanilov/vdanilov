@@ -1357,23 +1357,27 @@ test.describe("Home hero", () => {
   for (const [width, height] of [
     [390, 844],
     [360, 740],
+    [345, 740],
   ]) {
-    test(`both buttons show on the first screen at ${width}x${height}`, async ({
+    test(`both buttons show in one row on the first screen at ${width}x${height}`, async ({
       page,
     }) => {
       await page.setViewportSize({ width, height });
       await page.goto("/");
+      const tops = [];
       for (const name of ["Download CV", "Contact me"]) {
         const box = (await page
           .locator("#hero")
           .getByRole("link", { name })
           .boundingBox())!;
+        tops.push(box.y);
         expect([name, box.y + box.height <= height]).toEqual([name, true]);
         expect([name, box.x >= 0 && box.x + box.width <= width]).toEqual([
           name,
           true,
         ]);
       }
+      expect(tops[0]).toBe(tops[1]);
     });
   }
 

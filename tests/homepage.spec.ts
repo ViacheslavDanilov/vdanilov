@@ -247,7 +247,7 @@ test.describe("Homepage - Hero Section", () => {
     await expect(cvButton).toBeVisible();
     await expect(cvButton).toHaveAttribute(
       "href",
-      /^https:\/\/drive\.google\.com\/uc\?export=download&id=/,
+      /^https:\/\/drive\.google\.com\/uc\?export=download&id=1viI3o1RBDoreQcbCwe5zc2NTWpxU7ouk$/,
     );
   });
 
