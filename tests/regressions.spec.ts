@@ -1389,7 +1389,7 @@ test.describe("Home hero", () => {
       const bottom = (el: Element | null) =>
         Math.round(el!.getBoundingClientRect().bottom);
       return {
-        statement: bottom(hero.querySelector("p")),
+        tagline: bottom(hero.querySelector("p")),
         video: bottom(hero.querySelector("video")),
         icons: bottom(hero.querySelector('a[aria-label="Email"]')),
         buttons: bottom(hero.querySelector('a[aria-label="Contact me"]')),
@@ -1400,7 +1400,7 @@ test.describe("Home hero", () => {
     }
   });
 
-  test("from lg the video sits left of the text, under the statement", async ({
+  test("from lg the video sits left of the text, under the name", async ({
     page,
   }) => {
     await page.setViewportSize({ width: 1280, height: 800 });
@@ -1408,12 +1408,69 @@ test.describe("Home hero", () => {
     const hero = page.locator("#hero");
     const video = (await hero.locator("video").boundingBox())!;
     const bio = (await hero.getByText("published nearly 50").boundingBox())!;
-    const statement = (await hero
-      .getByText("Bridging Science and Engineering")
+    const header = (await hero
+      .getByText("Fusing Science with Engineering Precision")
       .boundingBox())!;
     expect(video.x + video.width).toBeLessThan(bio.x);
-    expect(statement.y + statement.height).toBeLessThan(video.y);
-    expect(statement.y + statement.height).toBeLessThan(bio.y);
+    expect(header.y + header.height).toBeLessThan(video.y);
+    expect(header.y + header.height).toBeLessThan(bio.y);
+  });
+
+  test("the buttons and the icons are centred under the paragraph", async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto("/");
+    const hero = page.locator("#hero");
+    const bio = (await hero.getByText("published nearly 50").boundingBox())!;
+    const centre = (b: { x: number; width: number }) => b.x + b.width / 2;
+    const first = (await hero
+      .getByRole("link", { name: "Download CV" })
+      .boundingBox())!;
+    const last = (await hero
+      .getByRole("link", { name: "Contact me" })
+      .boundingBox())!;
+    expect((first.x + last.x + last.width) / 2).toBeCloseTo(centre(bio), -1);
+    const icons = await hero
+      .locator('a[aria-label][style*="inline-block"]')
+      .evaluateAll((els) =>
+        els.map((el) => el.firstElementChild!.getBoundingClientRect()),
+      );
+    const left = icons[0].left;
+    const right = icons[icons.length - 1].right;
+    expect((left + right) / 2).toBeCloseTo(centre(bio), -1);
+  });
+
+  for (const [width, height, max] of [
+    [360, 740, 160],
+    [768, 1024, 192],
+    [1440, 900, 320],
+  ]) {
+    test(`the video is at most ${max}px across at ${width}px`, async ({
+      page,
+    }) => {
+      await page.setViewportSize({ width, height });
+      await page.goto("/");
+      const box = (await page.locator("#hero video").boundingBox())!;
+      expect(Math.round(box.width)).toBeLessThanOrEqual(max);
+      expect(Math.round(box.width)).toBeGreaterThanOrEqual(max - 64);
+    });
+  }
+
+  test("the two key roles are bold and white, not chips", async ({ page }) => {
+    await page.goto("/");
+    const roles = page.locator("#hero p strong");
+    await expect(roles).toHaveText([
+      "Lead AI/ML Engineer",
+      "Research Scientist",
+    ]);
+    for (const role of await roles.all()) {
+      const style = await role.evaluate((el) => {
+        const s = getComputedStyle(el);
+        return [s.fontWeight, s.color, s.backgroundColor];
+      });
+      expect(style).toEqual(["600", "rgb(255, 255, 255)", "rgba(0, 0, 0, 0)"]);
+    }
   });
 
   for (const width of [360, 390, 768, 810, 1024, 1280]) {

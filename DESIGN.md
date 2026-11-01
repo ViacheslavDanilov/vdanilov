@@ -145,7 +145,7 @@ A restrained dark palette: ink ground, slate cards, one cyan accent, and a cool 
 
 ### Hierarchy
 
-- **Display** (600, 1.875rem on phones, 3rem from 640px, 3.75rem from 1280px on screens 800px tall or more, tight tracking, balanced wrapping): the statement in the home hero. The name above it is 1.125rem to 1.25rem, 600.
+- **Display** (600, 1.875rem to 3rem, tight tracking, balanced wrapping): the page name in the home hero.
 - **Headline** (700, 1.875rem to 2.25rem): home section headings.
 - **Title** (600, 1.25rem): project page section headings, with the accent bar.
 - **Body** (400, 0.875rem to 1rem, line height 1.625): card and prose text in the grey tiers. Most body copy uses `leading-relaxed`, so 1.625 is the recorded value. Prose blocks cap at max-w-5xl or narrower.
@@ -189,7 +189,7 @@ Pills for anything clickable and small (nav, buttons, badges, tabs, accent bar).
 ### Chips
 
 - **Badge:** 12px text, weight 500, pill, tinted fill plus border in one of five hues, optional 12px icon.
-- **Keyword highlight:** cyan 10% fill, cyan text, weight 600. Each word is its own inline block. The first word has 16px left padding and a 24px left radius, the last has 16px right padding and a 24px right radius, and words between have neither. `highlightKeywords` renders a compact form of the same chip in responsibility lines and education content: 8px by 3px padding and a 12px radius. Experience summaries are plain Tailwind 300 grey text with a 2px cyan 40% left border and 12px of left padding.
+- **Keyword highlight:** cyan 10% fill, cyan text, weight 600, 8px by 3px padding and a 12px radius. `highlightKeywords` renders it in responsibility lines and education content. The home hero paragraph does not use it: its two roles are plain semibold white. Experience summaries are plain Tailwind 300 grey text with a 2px cyan 40% left border and 12px of left padding.
 
 ### Cards / Containers
 
@@ -199,9 +199,10 @@ Pills for anything clickable and small (nav, buttons, badges, tabs, accent bar).
 
 ### Hero
 
-- The home hero is a small line (name, then the rotating role), the Display statement, then a round video (14rem on phones, 16rem from 640px, from lg up to 28rem and no taller than the screen minus 24rem) beside the paragraph about the owner, two glass buttons (Download CV, Contact me) and six profile icons. The video sits left and the text right from lg.
-- Below lg the order is statement, video, buttons, paragraph, icons, so that both buttons show on the first screen of a 360px phone. The page is centred below lg and left-aligned from lg. The name line stacks above the role below 640px.
-- The one h1 on the page is the name. Download CV downloads the Drive file directly and Contact me opens an email. The profile icons are 44px targets. The glass buttons are 48px tall with 14px side padding below 640px, so both fit one row down to 345px, and 56px tall with 32px padding from 640px.
+- The home hero is the page name (Display), the rotating role and the tagline, then a round video beside the paragraph about the owner, two glass buttons (Download CV, Contact me) and six profile icons. The video is 10rem on phones, 12rem from 640px and from lg between 14rem and 20rem, depending on the screen height. It sits left and the text right from lg, and the buttons and icons are centred under the paragraph.
+- Below lg the order is name, role, tagline, video, buttons, paragraph, icons, so that both buttons show on the first screen of a 360px phone. The page is centred below lg and left-aligned from lg.
+- The paragraph names the two roles in semibold white, with no chip, so that the first line starts flush with the text below it.
+- The one h1 on the page is the name. Download CV downloads the Drive file directly and Contact me opens an email. The profile icons are 44px targets. The glass buttons are 48px tall with 14px side padding below 640px, so both fit one row down to 345px, and 56px tall with 40px padding from 640px.
 
 ### Navigation
 

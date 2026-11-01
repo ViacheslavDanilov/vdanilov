@@ -201,9 +201,7 @@ test.describe("Homepage - Hero Section", () => {
       page.getByRole("heading", { name: "Viacheslav Danilov, PhD" }),
     ).toBeVisible();
     await expect(
-      page.getByText(
-        "Bridging Science and Engineering to Solve Complex Challenges",
-      ),
+      page.getByText("Fusing Science with Engineering Precision"),
     ).toBeVisible();
     await expect(page.locator("h1")).toHaveCount(1);
   });
@@ -574,9 +572,7 @@ test.describe("Homepage - Responsive Layout Tests", () => {
 
     // Check that main sections are visible
     await expect(
-      page.getByText(
-        "Bridging Science and Engineering to Solve Complex Challenges",
-      ),
+      page.getByRole("heading", { name: "Viacheslav Danilov, PhD" }),
     ).toBeVisible();
     await expect(
       page.getByRole("heading", { name: "Featured Projects" }),
