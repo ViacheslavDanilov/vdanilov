@@ -1,6 +1,12 @@
 "use client";
 
-import React, { useEffect, useMemo, useState } from "react";
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Tab } from "@/components/ui/tab";
 import FilterParamSync from "@/components/FilterParamSync";
@@ -19,7 +25,6 @@ const matches = (item, filter) =>
  * @param {string} props.gridClassName - Classes for the grid of cards
  * @param {Function} props.renderItem - (item, index) => card
  * @param {React.ReactNode} props.empty - Shown when no entry matches
- * @param {number} [props.splitAt] - Put the buttons from this index on a second row
  */
 export default function FilteredGrid({
   items,
@@ -29,7 +34,6 @@ export default function FilteredGrid({
   gridClassName,
   renderItem,
   empty,
-  splitAt,
 }) {
   const [activeFilter, setActiveFilter] = useFilterParam("featured", options);
 
@@ -56,45 +60,68 @@ export default function FilteredGrid({
     [items, options],
   );
 
-  const renderTabs = (tabOptions) =>
-    tabOptions.map((option) => (
-      <Tab
-        key={option.id}
-        text={`${option.label} (${counts[option.id]})`}
-        icon={option.icon}
-        selected={activeFilter === option.id}
-        aria-pressed={activeFilter === option.id}
-        setSelected={() => setActiveFilter(option.id)}
-        layoutId={layoutId}
-      />
-    ));
+  // Below md the buttons sit in one scrolling row; a fade marks each edge with more beyond it
+  const railRef = useRef(null);
+  const slid = useRef(false);
+  const [edges, setEdges] = useState({ start: false, end: false });
+
+  const readEdges = useCallback(() => {
+    const rail = railRef.current;
+    const start = rail.scrollLeft > 1;
+    const end = rail.scrollLeft + rail.clientWidth < rail.scrollWidth - 1;
+    setEdges((prev) =>
+      prev.start === start && prev.end === end ? prev : { start, end },
+    );
+  }, []);
+
+  useEffect(() => {
+    readEdges();
+    const observer = new ResizeObserver(readEdges);
+    observer.observe(railRef.current);
+    return () => observer.disconnect();
+  }, [readEdges]);
+
+  // Bring the selected button to the middle of the row, without moving the page
+  useEffect(() => {
+    const rail = railRef.current;
+    const chip = rail.querySelector('[aria-pressed="true"]');
+    if (!chip || rail.scrollWidth <= rail.clientWidth) return;
+    const still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    rail.scrollTo({
+      left: chip.offsetLeft - (rail.clientWidth - chip.offsetWidth) / 2,
+      behavior: slid.current && !still ? "smooth" : "auto",
+    });
+    slid.current = true;
+  }, [activeFilter]);
+
+  const fade = (on) => (on ? "2rem" : "0px");
+  const railMask = `linear-gradient(to right, transparent, #000 ${fade(edges.start)}, #000 calc(100% - ${fade(edges.end)}), transparent)`;
 
   return (
     <>
       <FilterParamSync />
 
-      {splitAt ? (
-        <div
-          className="flex flex-col items-center gap-2 mb-12"
-          role="group"
-          aria-label={label}
-        >
-          <div className="flex flex-wrap justify-center gap-2">
-            {renderTabs(options.slice(0, splitAt))}
-          </div>
-          <div className="flex flex-wrap justify-center gap-2">
-            {renderTabs(options.slice(splitAt))}
-          </div>
-        </div>
-      ) : (
-        <div
-          className="flex flex-wrap justify-center gap-2 mb-12"
-          role="group"
-          aria-label={label}
-        >
-          {renderTabs(options)}
-        </div>
-      )}
+      <div
+        ref={railRef}
+        onScroll={readEdges}
+        style={{ "--rail-mask": railMask }}
+        className="relative flex gap-x-2 -mx-6 px-6 mb-12 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden max-md:[mask-image:var(--rail-mask)] md:px-[max(0px,calc((100%_-_45rem)/2))] md:flex-wrap md:justify-center md:overflow-visible"
+        role="group"
+        aria-label={label}
+      >
+        {options.map((option) => (
+          <Tab
+            key={option.id}
+            outlined
+            text={`${option.label} (${counts[option.id]})`}
+            icon={option.icon}
+            selected={activeFilter === option.id}
+            aria-pressed={activeFilter === option.id}
+            setSelected={() => setActiveFilter(option.id)}
+            layoutId={layoutId}
+          />
+        ))}
+      </div>
 
       <div className={gridClassName} role="list">
         <AnimatePresence mode="popLayout">

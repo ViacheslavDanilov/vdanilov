@@ -299,7 +299,6 @@ export default function Portfolio() {
             options={FILTER_OPTIONS}
             label="Filter projects"
             layoutId="portfolio-filter"
-            splitAt={4}
             gridClassName="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
             renderItem={(project, index) => (
               <PortfolioCard project={project} priority={index < 3} />
