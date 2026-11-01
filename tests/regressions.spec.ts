@@ -1609,16 +1609,19 @@ test.describe("Home hero", () => {
     }
   });
 
-  test("the glass buttons keep their own layer, so hovering does not flicker", async ({
+  test("hovering a glass button does not scale it, so its text does not blink", async ({
     page,
   }) => {
     await page.goto("/");
     for (const name of ["Download CV", "Contact me"]) {
-      const willChange = await page
-        .locator("#hero")
-        .getByRole("link", { name })
-        .evaluate((el) => getComputedStyle(el).willChange);
-      expect([name, willChange]).toEqual([name, "transform"]);
+      const button = page.locator("#hero").getByRole("link", { name });
+      await button.hover();
+      await page.waitForTimeout(400);
+      const state = await button.evaluate((el) => {
+        const s = getComputedStyle(el);
+        return [el.matches(":hover"), s.scale, s.willChange];
+      });
+      expect([name, ...state]).toEqual([name, true, "none", "transform"]);
     }
   });
 
