@@ -56,84 +56,22 @@ const Hero = () => {
       className="w-full max-w-7xl mx-auto px-6 pb-12 overflow-x-clip lg:py-12 lg:min-h-[min(calc(100svh-6rem),66rem)] lg:flex lg:flex-col lg:justify-center"
     >
       <div className="flex flex-col items-center gap-8 lg:grid lg:grid-cols-2 lg:gap-16">
-        <div className="order-1 lg:order-none relative size-64 md:size-96 justify-self-center rounded-full overflow-hidden border-4 border-accent/20 shadow-2xl bg-dark">
-          <Image
-            src="/hero/hero-poster.webp"
-            alt="Viacheslav Danilov portrait"
-            fill
-            sizes="(min-width: 768px) 384px, 256px"
-            priority
-            className="object-cover brightness-175"
-          />
-          <AutoplayVideo className="relative w-full h-full object-cover brightness-150">
-            <source src="/hero/hero-video.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </AutoplayVideo>
-        </div>
-
-        {/* On phones and tablets the buttons come before the paragraph, so they show on the first screen */}
-        <div className="contents lg:flex lg:flex-col lg:gap-8">
-          <div className="space-y-3 text-center lg:text-left">
-            <h1 className="text-3xl sm:text-4xl lg:text-4xl xl:text-5xl text-balance font-semibold text-light tracking-tight">
-              Viacheslav Danilov, PhD
-            </h1>
-            <p className="flex flex-wrap items-center justify-center lg:justify-start gap-x-2 text-lg md:text-xl text-gray-300">
-              {roles.map((role, i) => (
-                <span key={role} className="whitespace-nowrap">
-                  {role}
-                  {i < roles.length - 1 && (
-                    <>
-                      <span aria-hidden="true" className="ml-2 text-gray-500">
-                        &middot;
-                      </span>
-                      <span className="sr-only">,</span>
-                    </>
-                  )}
-                </span>
-              ))}
-            </p>
+        <div className="contents lg:flex lg:flex-col lg:items-center lg:gap-8 lg:justify-self-center">
+          <div className="order-1 lg:order-none relative size-64 md:size-96 rounded-full overflow-hidden border-4 border-accent/20 shadow-2xl bg-dark">
+            <Image
+              src="/hero/hero-poster.webp"
+              alt="Viacheslav Danilov portrait"
+              fill
+              sizes="(min-width: 768px) 384px, 256px"
+              priority
+              className="object-cover brightness-175"
+            />
+            <AutoplayVideo className="relative w-full h-full object-cover brightness-150">
+              <source src="/hero/hero-video.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </AutoplayVideo>
           </div>
-
-          <p className="order-3 lg:order-none max-w-2xl text-light text-base xl:text-lg leading-relaxed text-justify">
-            <strong className="font-semibold text-white">
-              Lead AI/ML Engineer
-            </strong>{" "}
-            and{" "}
-            <strong className="font-semibold text-white">
-              Research Scientist
-            </strong>{" "}
-            with a PhD in Computer Science and over 10 years across academia and
-            industry. I take machine learning from first experiment to
-            production: medical signal and image analysis, computer vision, time
-            series, and LLM and RAG systems. I have led teams of developers and
-            researchers, supervised PhD students and postdocs, and published
-            nearly 50 peer-reviewed papers.
-          </p>
-
-          <div className="order-2 lg:order-none flex flex-wrap items-center justify-center gap-2 sm:gap-3">
-            <LiquidButtonLink
-              href="https://drive.google.com/uc?export=download&id=1viI3o1RBDoreQcbCwe5zc2NTWpxU7ouk"
-              ariaLabel="Download CV"
-              size="xl"
-              className="px-3.5 sm:h-14 sm:px-10"
-              textClassName="text-sm"
-            >
-              <FontAwesomeIcon icon={faFileArrowDown} className="w-4 h-4" />
-              &nbsp;Download CV
-            </LiquidButtonLink>
-            <LiquidButtonLink
-              href={`mailto:${EMAIL}`}
-              ariaLabel="Contact me"
-              size="xl"
-              className="px-3.5 sm:h-14 sm:px-10"
-              textClassName="text-sm"
-            >
-              <FontAwesomeIcon icon={faEnvelope} className="w-4 h-4" />
-              &nbsp;Contact me
-            </LiquidButtonLink>
-          </div>
-
-          <div className="order-4 lg:order-none flex flex-wrap items-center justify-center gap-8">
+          <div className="order-2 lg:order-none flex flex-wrap items-center justify-center gap-8">
             {socialLinks.map((social) => (
               <a
                 key={social.name}
@@ -161,6 +99,69 @@ const Hero = () => {
                 />
               </a>
             ))}
+          </div>
+        </div>
+
+        {/* Below lg the icons follow the video and the buttons come before the paragraph, so the buttons show on the first screen */}
+        <div className="contents lg:flex lg:flex-col lg:gap-8">
+          <div className="space-y-3 text-center">
+            <h1 className="text-3xl sm:text-4xl lg:text-4xl xl:text-5xl text-balance font-semibold text-light tracking-tight">
+              Viacheslav Danilov, PhD
+            </h1>
+            <p className="flex flex-wrap items-center justify-center gap-x-2 text-lg md:text-xl text-gray-300">
+              {roles.map((role, i) => (
+                <span key={role} className="whitespace-nowrap">
+                  {role}
+                  {i < roles.length - 1 && (
+                    <>
+                      <span aria-hidden="true" className="ml-2 text-gray-500">
+                        &middot;
+                      </span>
+                      <span className="sr-only">,</span>
+                    </>
+                  )}
+                </span>
+              ))}
+            </p>
+          </div>
+
+          <p className="order-4 lg:order-none max-w-2xl text-light text-base xl:text-lg leading-relaxed text-justify">
+            <strong className="font-semibold text-white">
+              Lead AI/ML Engineer
+            </strong>{" "}
+            and{" "}
+            <strong className="font-semibold text-white">
+              Research Scientist
+            </strong>{" "}
+            with a PhD in Computer Science and over 10 years across academia and
+            industry. I take machine learning from first experiment to
+            production: medical signal and image analysis, computer vision, time
+            series, and LLM and RAG systems. I have led teams of developers and
+            researchers, supervised PhD students and postdocs, and published
+            nearly 50 peer-reviewed papers.
+          </p>
+
+          <div className="order-3 lg:order-none flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+            <LiquidButtonLink
+              href="https://drive.google.com/uc?export=download&id=1viI3o1RBDoreQcbCwe5zc2NTWpxU7ouk"
+              ariaLabel="Download CV"
+              size="xl"
+              className="px-3.5 sm:h-14 sm:px-10"
+              textClassName="text-sm"
+            >
+              <FontAwesomeIcon icon={faFileArrowDown} className="w-4 h-4" />
+              &nbsp;Download CV
+            </LiquidButtonLink>
+            <LiquidButtonLink
+              href={`mailto:${EMAIL}`}
+              ariaLabel="Contact me"
+              size="xl"
+              className="px-3.5 sm:h-14 sm:px-10"
+              textClassName="text-sm"
+            >
+              <FontAwesomeIcon icon={faEnvelope} className="w-4 h-4" />
+              &nbsp;Contact me
+            </LiquidButtonLink>
           </div>
         </div>
       </div>

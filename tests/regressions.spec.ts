@@ -1403,13 +1403,14 @@ test.describe("Home hero", () => {
     expect(middle).toBeLessThan(icons.y + icons.height);
   });
 
-  test("the buttons and the icons are centred under the paragraph", async ({
+  test("the buttons centre under the paragraph and the icons under the video", async ({
     page,
   }) => {
     await page.setViewportSize({ width: 1440, height: 900 });
     await page.goto("/");
     const hero = page.locator("#hero");
     const bio = (await hero.getByText("published nearly 50").boundingBox())!;
+    const video = (await hero.locator("video").locator("..").boundingBox())!;
     const centre = (b: { x: number; width: number }) => b.x + b.width / 2;
     const first = (await hero
       .getByRole("link", { name: "Download CV" })
@@ -1423,9 +1424,44 @@ test.describe("Home hero", () => {
       .evaluateAll((els) =>
         els.map((el) => el.firstElementChild!.getBoundingClientRect()),
       );
-    const left = icons[0].left;
-    const right = icons[icons.length - 1].right;
-    expect((left + right) / 2).toBeCloseTo(centre(bio), -1);
+    expect(icons).toHaveLength(6);
+    expect((icons[0].left + icons[5].right) / 2).toBeCloseTo(centre(video), -1);
+    expect(icons[0].top).toBeGreaterThan(video.y + video.height);
+    const name = (await hero.locator("h1").boundingBox())!;
+    expect(centre(name)).toBeCloseTo(centre(bio), -1);
+  });
+
+  test("the two columns are balanced at 1440x900", async ({ page }) => {
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto("/");
+    const hero = page.locator("#hero");
+    const video = (await hero.locator("video").locator("..").boundingBox())!;
+    const name = (await hero.locator("h1").boundingBox())!;
+    const icons = (await hero
+      .getByRole("link", { name: "Email" })
+      .boundingBox())!;
+    const buttons = (await hero
+      .getByRole("link", { name: "Contact me" })
+      .boundingBox())!;
+    const left = icons.y + icons.height - video.y;
+    const right = buttons.y + buttons.height - name.y;
+    expect(Math.abs(left - right)).toBeLessThanOrEqual(40);
+  });
+
+  test("below lg the order is name, video, icons, buttons, paragraph", async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto("/");
+    const hero = page.locator("#hero");
+    const tops = [
+      await hero.locator("h1").boundingBox(),
+      await hero.locator("video").boundingBox(),
+      await hero.getByRole("link", { name: "LinkedIn" }).boundingBox(),
+      await hero.getByRole("link", { name: "Download CV" }).boundingBox(),
+      await hero.getByText("published nearly 50").boundingBox(),
+    ].map((box) => box!.y);
+    expect(tops).toEqual([...tops].sort((a, b) => a - b));
   });
 
   for (const [width, height, size] of [

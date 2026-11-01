@@ -199,8 +199,8 @@ Pills for anything clickable and small (nav, buttons, badges, tabs, accent bar).
 
 ### Hero
 
-- The home hero is a round video beside a text column: the page name (Display), the three roles in one grey line separated by dots, the paragraph about the owner, two glass buttons (Download CV, Contact me) and six profile icons. The video is 16rem across on phones and 24rem from 768px, the sizes the page had before the rework. The buttons and icons are centred under the paragraph.
-- Below lg the column is centred and stacked: name, roles, video, buttons, paragraph, icons, so that both buttons show on the first screen of a 360px phone. From lg the video sits left and the text right, left-aligned, so the name shares the paragraph's left edge. The roles are static, with no rotating word.
+- The home hero is two columns from lg. The left column is the round video with the six profile icons centred under it. The right column is the page name (Display), the three roles in one grey line separated by dots, the paragraph about the owner and two glass buttons (Download CV, Contact me). The name, roles and buttons are centred on the column, and the paragraph is justified. The video is 16rem across on phones and 24rem from 768px, the sizes the page had before the rework. At 1440x900 the two columns differ in height by about 20px.
+- Below lg everything is one centred column in this order: name, roles, video, icons, buttons, paragraph, so that both buttons show on the first screen of a 360px phone. The roles are static, with no rotating word.
 - The paragraph names the two roles in semibold white, with no chip, so that the first line starts flush with the text below it.
 - The one h1 on the page is the name. Download CV downloads the Drive file directly and Contact me opens an email. The profile icons are 44px targets. The glass buttons are 48px tall with 14px side padding below 640px, so both fit one row down to 345px, and 56px tall with 40px padding from 640px.
 
