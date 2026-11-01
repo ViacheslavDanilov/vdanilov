@@ -1125,13 +1125,40 @@ test.describe("Client logos", () => {
     await page.goto("/");
     const links = page.locator('main a:has(img[src*="/clients/"])');
     await links.first().scrollIntoViewIfNeeded();
+    const glow = (index: number) =>
+      links
+        .nth(index)
+        .evaluate(
+          (el) => getComputedStyle(el.parentElement!, "::before").opacity,
+        );
     await links.nth(0).hover();
     await links.nth(1).hover();
-    await page.waitForTimeout(60);
-    const alpha = (index: number) =>
-      links.nth(index).evaluate((el) => getComputedStyle(el).backgroundColor);
-    expect(await alpha(0)).toBe("rgba(0, 0, 0, 0)");
-    expect(await alpha(1)).not.toBe("rgba(0, 0, 0, 0)");
+    expect(await glow(0)).toBe("0");
+    expect(await glow(1)).toBe("1");
+  });
+
+  test("a cell is lit at every pixel from one logo cell to the next", async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto("/");
+    const links = page.locator('main a:has(img[src*="/clients/"])');
+    await links.first().scrollIntoViewIfNeeded();
+    const first = (await links.nth(0).boundingBox())!;
+    const second = (await links.nth(1).boundingBox())!;
+    const y = first.y + first.height / 2;
+    const lit = () =>
+      page.evaluate(() =>
+        [...document.querySelectorAll("main ul li:hover")].map(
+          (li) => getComputedStyle(li, "::before").opacity,
+        ),
+      );
+    const from = Math.round(first.x + first.width / 2);
+    const to = Math.round(second.x + second.width / 2);
+    for (let x = from; x <= to; x++) {
+      await page.mouse.move(x, y);
+      expect([x, await lit()]).toEqual([x, ["1"]]);
+    }
   });
 });
 
