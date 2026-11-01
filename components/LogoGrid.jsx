@@ -102,7 +102,7 @@ const LogoGrid = () => {
         {logos.map((logo, i) => (
           <li
             key={logo.name}
-            className={`relative border-r border-b border-white/10 before:pointer-events-none before:absolute before:inset-0 before:bg-white/[0.06] before:opacity-0 hover:bg-transparent! hover:before:opacity-100 ${
+            className={`group/cell relative border-r border-b border-white/10 before:pointer-events-none before:absolute before:inset-0 before:bg-white/[0.06] before:opacity-0 hover:bg-transparent! hover:before:opacity-100 ${
               tinted(i, 2) ? "bg-white/[0.03]" : ""
             } ${tinted(i, 4) ? "md:bg-white/[0.03]" : "md:bg-transparent"}`}
           >
@@ -119,7 +119,16 @@ const LogoGrid = () => {
                 width={320}
                 height={160}
                 style={{ width: "auto", height: "auto" }}
-                className={`${logo.size ?? "max-h-9 md:max-h-[3.25rem]"} max-w-[7.5rem] md:max-w-[11rem] object-contain brightness-[.96]`}
+                className={`${logo.size ?? "max-h-9 md:max-h-[3.25rem]"} max-w-[7.5rem] md:max-w-[11rem] object-contain brightness-[.96] motion-safe:transition-opacity motion-safe:duration-300 group-hover/cell:opacity-0 group-focus-within/cell:opacity-0`}
+              />
+              <Image
+                src={logo.src.replace("-mono", "")}
+                alt={logo.name}
+                aria-hidden="true"
+                width={320}
+                height={160}
+                style={{ width: "auto", height: "auto" }}
+                className={`${logo.size ?? "max-h-9 md:max-h-[3.25rem]"} max-w-[7.5rem] md:max-w-[11rem] object-contain absolute inset-0 m-auto opacity-0 motion-safe:transition-opacity motion-safe:duration-300 group-hover/cell:opacity-100 group-focus-within/cell:opacity-100`}
               />
             </Link>
             {inner(i, 2, 6) && <PlusMark className="md:hidden" />}

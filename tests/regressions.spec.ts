@@ -1861,8 +1861,8 @@ test.describe("Client logos", () => {
         "aria-label",
         /\(opens in a new tab\)$/,
       );
-      const img = link.locator("img");
-      await expect(img).toHaveAttribute("src", /-mono\.svg/);
+      const img = link.locator('img[src$="-mono.svg"]');
+      await expect(img).toHaveCount(1);
       await img.scrollIntoViewIfNeeded();
       // A lazy image measures 0px until it loads
       await expect
@@ -1875,6 +1875,51 @@ test.describe("Client logos", () => {
       const box = await img.boundingBox();
       expect(box!.height).toBeGreaterThan(0);
       expect(box!.height).toBeLessThanOrEqual(52.5);
+    }
+  });
+
+  test("a logo turns to its colour version on hover and on focus", async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto("/");
+    const link = page.locator('main a[aria-label^="Boehringer"]');
+    const opacity = (suffix: string) =>
+      link
+        .locator(`img[src$="${suffix}"]`)
+        .evaluate((el) => Number(getComputedStyle(el).opacity));
+    await link.scrollIntoViewIfNeeded();
+    expect([
+      await opacity("-mono.svg"),
+      await opacity("ingelheim.svg"),
+    ]).toEqual([1, 0]);
+    await link.hover();
+    await expect.poll(() => opacity("ingelheim.svg")).toBe(1);
+    await expect.poll(() => opacity("-mono.svg")).toBe(0);
+    await page.mouse.move(2, 2);
+    await expect.poll(() => opacity("ingelheim.svg")).toBe(0);
+    await link.focus();
+    await expect.poll(() => opacity("ingelheim.svg")).toBe(1);
+  });
+
+  test("the colour logo sits on the white one, hidden from screen readers", async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto("/");
+    const links = page.locator('main a:has(img[src*="/clients/"])');
+    for (const link of await links.all()) {
+      const mono = link.locator('img[src$="-mono.svg"]');
+      const colour = link.locator('img:not([src$="-mono.svg"])');
+      await expect(colour).toHaveAttribute("aria-hidden", "true");
+      await mono.scrollIntoViewIfNeeded();
+      const [a, b] = [await mono.boundingBox(), await colour.boundingBox()];
+      expect(
+        Math.abs(a!.x + a!.width / 2 - (b!.x + b!.width / 2)),
+      ).toBeLessThan(1);
+      expect(
+        Math.abs(a!.y + a!.height / 2 - (b!.y + b!.height / 2)),
+      ).toBeLessThan(1);
     }
   });
 
