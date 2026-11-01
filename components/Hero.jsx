@@ -137,7 +137,7 @@ const Hero = () => {
               href="https://drive.google.com/uc?export=download&id=1viI3o1RBDoreQcbCwe5zc2NTWpxU7ouk"
               ariaLabel="Download CV"
               size="xl"
-              className="px-3.5 sm:h-14 sm:px-10"
+              className="px-3.5 sm:h-14 sm:px-10 bg-accent/15 border-accent/40 hover:bg-accent/25"
               textClassName="text-sm"
             >
               <FontAwesomeIcon icon={faFileArrowDown} className="w-4 h-4" />

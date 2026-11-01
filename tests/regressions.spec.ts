@@ -1585,6 +1585,19 @@ test.describe("Home hero", () => {
     }
   });
 
+  test("Download CV is the tinted main action and Contact me stays glass", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    const fill = (name: string) =>
+      page
+        .locator("#hero")
+        .getByRole("link", { name })
+        .evaluate((el) => getComputedStyle(el).backgroundColor);
+    expect(await fill("Contact me")).toBe("rgba(0, 0, 0, 0)");
+    expect(await fill("Download CV")).toMatch(/\/ 0\.15\)$/);
+  });
+
   test("below lg the order is name, video, icons, buttons, paragraph", async ({
     page,
   }) => {
