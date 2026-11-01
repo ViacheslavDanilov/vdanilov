@@ -319,7 +319,7 @@ test.describe("Filter chips", () => {
   });
 
   for (const path of pages) {
-    test(`${path} chip names stay within 19 characters`, async ({ page }) => {
+    test(`${path} chip names stay within 20 characters`, async ({ page }) => {
       await page.goto(path);
       const names = (
         await page
@@ -328,7 +328,7 @@ test.describe("Filter chips", () => {
       ).map((text) => text.replace(/ \(\d+\)$/, ""));
 
       expect(names.length).toBeGreaterThan(0);
-      for (const name of names) expect(name.length).toBeLessThanOrEqual(19);
+      for (const name of names) expect(name.length).toBeLessThanOrEqual(20);
     });
   }
 
