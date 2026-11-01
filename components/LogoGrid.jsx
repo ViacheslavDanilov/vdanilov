@@ -6,16 +6,19 @@ const logos = [
   {
     name: "Boston Children's Hospital",
     src: "/clients/bch-mono.svg",
+    brighten: "brightness(1.8) saturate(1.2)",
     href: "https://www.childrenshospital.org/",
   },
   {
     name: "Boehringer Ingelheim",
     src: "/clients/boehringer-ingelheim-mono.svg",
+    brighten: "brightness(1.2) saturate(1.1)",
     href: "https://www.boehringer-ingelheim.com/",
   },
   {
     name: "Biospective",
     src: "/clients/biospective-mono.svg",
+    brighten: "brightness(1.3) saturate(1.2)",
     href: "https://www.biospective.com/",
   },
   {
@@ -46,11 +49,13 @@ const logos = [
   {
     name: "AmTrust",
     src: "/clients/amtrust-mono.svg",
+    brighten: "brightness(1.3) saturate(1.2)",
     href: "https://amtrustfinancial.com/",
   },
   {
     name: "Lumos Insurance",
     src: "/clients/lumos-mono.svg",
+    brighten: "brightness(1.5) saturate(1.2)",
     href: "https://www.lumosinsurance.com/",
   },
   {
@@ -127,7 +132,11 @@ const LogoGrid = () => {
                 aria-hidden="true"
                 width={320}
                 height={160}
-                style={{ width: "auto", height: "auto" }}
+                style={{
+                  width: "auto",
+                  height: "auto",
+                  filter: logo.brighten,
+                }}
                 className={`${logo.size ?? "max-h-9 md:max-h-[3.25rem]"} max-w-[7.5rem] md:max-w-[11rem] object-contain absolute inset-0 m-auto opacity-0 motion-safe:transition-opacity motion-safe:duration-300 group-hover/cell:opacity-100 group-focus-within/cell:opacity-100`}
               />
             </Link>
