@@ -1137,6 +1137,26 @@ test.describe("Client logos", () => {
     expect(await glow(1)).toBe("1");
   });
 
+  test("a lit logo cell has the same colour with or without the tint", async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto("/");
+    const links = page.locator('main a:has(img[src*="/clients/"])');
+    await links.first().scrollIntoViewIfNeeded();
+    const cellBackground = (index: number) =>
+      links
+        .nth(index)
+        .evaluate((el) => getComputedStyle(el.parentElement!).backgroundColor);
+    // Cell 0 carries the checkerboard tint at md, cell 1 does not
+    expect(await cellBackground(0)).not.toBe("rgba(0, 0, 0, 0)");
+    expect(await cellBackground(1)).toBe("rgba(0, 0, 0, 0)");
+    for (const index of [0, 1]) {
+      await links.nth(index).hover();
+      expect(await cellBackground(index)).toBe("rgba(0, 0, 0, 0)");
+    }
+  });
+
   test("a cell is lit at every pixel from one logo cell to the next", async ({
     page,
   }) => {
