@@ -12,9 +12,6 @@ import { Tab } from "@/components/ui/tab";
 import FilterParamSync from "@/components/FilterParamSync";
 import { useFilterParam } from "@/lib/useFilterParam";
 
-const prefersReducedMotion = () =>
-  window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
 const matches = (item, filter) =>
   filter === "all" ||
   (filter === "featured" ? item.featured : item.category === filter);
@@ -95,9 +92,12 @@ export default function FilteredGrid({
     const rail = railRef.current;
     const chip = rail.querySelector('[aria-pressed="true"]');
     if (!chip || rail.scrollWidth <= rail.clientWidth) return;
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
     rail.scrollTo({
       left: chip.offsetLeft - (rail.clientWidth - chip.offsetWidth) / 2,
-      behavior: smooth && !prefersReducedMotion() ? "smooth" : "auto",
+      behavior: smooth && !reduceMotion ? "smooth" : "auto",
     });
   }, [activeFilter]);
 
@@ -107,71 +107,38 @@ export default function FilteredGrid({
       event.target.scrollIntoView({ block: "nearest", inline: "nearest" });
   };
 
-  const showMore = () =>
-    railRef.current.scrollBy({
-      left: railRef.current.clientWidth * 0.7,
-      behavior: prefersReducedMotion() ? "auto" : "smooth",
-    });
-
-  const edgeFade = (on, width) => (on ? width : "0px");
-  // At the end the chips fade out before the arrow and leave its spot clear
-  const railMask = `linear-gradient(to right, transparent, #000 ${edgeFade(edges.start, "2rem")}, #000 calc(100% - ${edgeFade(edges.end, "4rem")}), transparent calc(100% - ${edgeFade(edges.end, "2.5rem")}))`;
-  // From 50rem the chips wrap, balanced, centred on a 52rem measure
+  const edgeFade = (on) => (on ? "2rem" : "0px");
+  const railMask = `linear-gradient(to right, transparent, #000 ${edgeFade(edges.start)}, #000 calc(100% - ${edgeFade(edges.end)}), transparent)`;
+  // From 50rem the chips wrap, balanced, on a 52rem measure: 49rem plus the 3rem it bleeds into the section padding
 
   return (
     <>
       <FilterParamSync />
 
-      <div className="relative -mx-6 mb-12">
-        <div
-          ref={railRef}
-          onScroll={readEdges}
-          onFocus={revealFocused}
-          style={{ "--rail-mask": railMask }}
-          className="flex gap-x-2 px-6 scroll-pl-8 scroll-pr-16 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden max-md:[mask-image:var(--rail-mask)] min-[50rem]:px-[max(0px,calc((100%_-_52rem)/2))] md:block md:text-center md:text-balance md:overflow-visible"
-          role="group"
-          aria-label={label}
-        >
-          {options.map((option) => (
-            <Tab
-              key={option.id}
-              outlined
-              text={`${option.label} (${counts[option.id]})`}
-              icon={option.icon}
-              selected={activeFilter === option.id}
-              aria-pressed={activeFilter === option.id}
-              setSelected={() => {
-                picked.current = true;
-                setActiveFilter(option.id);
-              }}
-              layoutId={layoutId}
-            />
-          ))}
-        </div>
-        {edges.end && (
-          <button
-            type="button"
-            tabIndex={-1}
-            aria-hidden="true"
-            data-rail-next
-            onClick={showMore}
-            className="absolute right-0.5 top-0 z-10 flex h-11 w-11 cursor-pointer items-center justify-center rounded-full text-light transition-[scale] motion-safe:active:scale-95 md:hidden"
-          >
-            <span className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-card">
-              <svg
-                viewBox="0 0 20 20"
-                className="h-4 w-4"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M7 4l6 6-6 6" />
-              </svg>
-            </span>
-          </button>
-        )}
+      <div
+        ref={railRef}
+        onScroll={readEdges}
+        onFocus={revealFocused}
+        style={{ "--rail-mask": railMask }}
+        className="relative flex gap-x-2 -mx-6 px-6 scroll-px-8 mb-12 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden max-md:[mask-image:var(--rail-mask)] min-[50rem]:px-[max(0px,calc((100%_-_49rem)/2))] md:block md:text-center md:text-balance md:overflow-visible"
+        role="group"
+        aria-label={label}
+      >
+        {options.map((option) => (
+          <Tab
+            key={option.id}
+            outlined
+            text={`${option.label} (${counts[option.id]})`}
+            icon={option.icon}
+            selected={activeFilter === option.id}
+            aria-pressed={activeFilter === option.id}
+            setSelected={() => {
+              picked.current = true;
+              setActiveFilter(option.id);
+            }}
+            layoutId={layoutId}
+          />
+        ))}
       </div>
 
       <div className={gridClassName} role="list">
