@@ -102,7 +102,7 @@ const LogoGrid = () => {
         {logos.map((logo, i) => (
           <li
             key={logo.name}
-            className={`relative border-r border-b border-white/10 before:pointer-events-none before:absolute before:inset-0 before:bg-white/[0.06] before:opacity-0 hover:before:opacity-100 ${
+            className={`relative border-r border-b border-white/10 before:pointer-events-none before:absolute before:inset-0 before:bg-white/[0.06] before:opacity-0 hover:bg-transparent! hover:before:opacity-100 ${
               tinted(i, 2) ? "bg-white/[0.03]" : ""
             } ${tinted(i, 4) ? "md:bg-white/[0.03]" : "md:bg-transparent"}`}
           >
