@@ -111,7 +111,7 @@ const LogoGrid = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`${logo.name} (opens in a new tab)`}
-              className="group flex h-24 md:h-28 items-center justify-center px-6 transition-colors hover:bg-white/[0.06] focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-accent"
+              className="flex h-24 md:h-28 items-center justify-center px-6 transition-colors hover:bg-white/[0.06] focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-accent"
             >
               <Image
                 src={logo.src}
@@ -119,7 +119,7 @@ const LogoGrid = () => {
                 width={320}
                 height={160}
                 style={{ width: "auto", height: "auto" }}
-                className={`${logo.size ?? "max-h-9 md:max-h-[3.25rem]"} max-w-[7.5rem] md:max-w-[11rem] object-contain opacity-80 transition-opacity group-hover:opacity-100`}
+                className={`${logo.size ?? "max-h-9 md:max-h-[3.25rem]"} max-w-[7.5rem] md:max-w-[11rem] object-contain brightness-[.96]`}
               />
             </Link>
             {inner(i, 2, 6) && <PlusMark className="md:hidden" />}
