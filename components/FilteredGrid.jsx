@@ -1,6 +1,12 @@
 "use client";
 
-import React, { useEffect, useMemo, useState } from "react";
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Tab } from "@/components/ui/tab";
 import FilterParamSync from "@/components/FilterParamSync";
@@ -19,7 +25,6 @@ const matches = (item, filter) =>
  * @param {string} props.gridClassName - Classes for the grid of cards
  * @param {Function} props.renderItem - (item, index) => card
  * @param {React.ReactNode} props.empty - Shown when no entry matches
- * @param {number} [props.splitAt] - Put the buttons from this index on a second row
  */
 export default function FilteredGrid({
   items,
@@ -29,7 +34,6 @@ export default function FilteredGrid({
   gridClassName,
   renderItem,
   empty,
-  splitAt,
 }) {
   const [activeFilter, setActiveFilter] = useFilterParam("featured", options);
 
@@ -56,45 +60,86 @@ export default function FilteredGrid({
     [items, options],
   );
 
-  const renderTabs = (tabOptions) =>
-    tabOptions.map((option) => (
-      <Tab
-        key={option.id}
-        text={`${option.label} (${counts[option.id]})`}
-        icon={option.icon}
-        selected={activeFilter === option.id}
-        aria-pressed={activeFilter === option.id}
-        setSelected={() => setActiveFilter(option.id)}
-        layoutId={layoutId}
-      />
-    ));
+  // Below md: one scrolling row, a fade at each edge with chips beyond it
+  const railRef = useRef(null);
+  const picked = useRef(false);
+  const [edges, setEdges] = useState({ start: false, end: true });
+
+  const readEdges = useCallback(() => {
+    const rail = railRef.current;
+    const { firstElementChild: first, lastElementChild: last } = rail;
+    const start = rail.scrollLeft > first.offsetLeft + 1;
+    const end =
+      last.offsetLeft + last.offsetWidth >
+      rail.scrollLeft + rail.clientWidth + 1;
+    setEdges((prev) =>
+      prev.start === start && prev.end === end ? prev : { start, end },
+    );
+  }, []);
+
+  useEffect(() => {
+    readEdges();
+    const observer = new ResizeObserver(readEdges);
+    observer.observe(railRef.current);
+    for (const chip of railRef.current.children) observer.observe(chip);
+    return () => observer.disconnect();
+  }, [readEdges]);
+
+  // Centre the selected chip in the row, sliding only after a click
+  useEffect(() => {
+    const smooth = picked.current;
+    picked.current = false;
+    const rail = railRef.current;
+    const chip = rail.querySelector('[aria-pressed="true"]');
+    if (!chip || rail.scrollWidth <= rail.clientWidth) return;
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    rail.scrollTo({
+      left: chip.offsetLeft - (rail.clientWidth - chip.offsetWidth) / 2,
+      behavior: smooth && !reduceMotion ? "smooth" : "auto",
+    });
+  }, [activeFilter]);
+
+  // Bring a chip reached by keyboard clear of the edge fades
+  const revealFocused = (event) => {
+    if (event.target.matches(":focus-visible"))
+      event.target.scrollIntoView({ block: "nearest", inline: "nearest" });
+  };
+
+  const edgeFade = (on) => (on ? "2rem" : "0px");
+  const railMask = `linear-gradient(to right, transparent, #000 ${edgeFade(edges.start)}, #000 calc(100% - ${edgeFade(edges.end)}), transparent)`;
+  // From 50rem the chips wrap, balanced, on a 52rem measure: 49rem plus the 3rem it bleeds into the section padding
 
   return (
     <>
       <FilterParamSync />
 
-      {splitAt ? (
-        <div
-          className="flex flex-col items-center gap-2 mb-12"
-          role="group"
-          aria-label={label}
-        >
-          <div className="flex flex-wrap justify-center gap-2">
-            {renderTabs(options.slice(0, splitAt))}
-          </div>
-          <div className="flex flex-wrap justify-center gap-2">
-            {renderTabs(options.slice(splitAt))}
-          </div>
-        </div>
-      ) : (
-        <div
-          className="flex flex-wrap justify-center gap-2 mb-12"
-          role="group"
-          aria-label={label}
-        >
-          {renderTabs(options)}
-        </div>
-      )}
+      <div
+        ref={railRef}
+        onScroll={readEdges}
+        onFocus={revealFocused}
+        style={{ "--rail-mask": railMask }}
+        className="relative flex gap-x-2 -mx-6 px-6 scroll-px-8 mb-12 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden max-md:[mask-image:var(--rail-mask)] min-[50rem]:px-[max(0px,calc((100%_-_49rem)/2))] md:block md:text-center md:text-balance md:overflow-visible"
+        role="group"
+        aria-label={label}
+      >
+        {options.map((option) => (
+          <Tab
+            key={option.id}
+            outlined
+            text={`${option.label} (${counts[option.id]})`}
+            icon={option.icon}
+            selected={activeFilter === option.id}
+            aria-pressed={activeFilter === option.id}
+            setSelected={() => {
+              picked.current = true;
+              setActiveFilter(option.id);
+            }}
+            layoutId={layoutId}
+          />
+        ))}
+      </div>
 
       <div className={gridClassName} role="list">
         <AnimatePresence mode="popLayout">

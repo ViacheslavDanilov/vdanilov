@@ -133,7 +133,7 @@ const PROJECTS_DATA = [
     title: "SonoGuide",
     description:
       "Deep learning solution for surgical tool segmentation in 3D ultrasound, achieving 93.6% Dice score for real-time catheter localization.",
-    category: "clinical-decision-support",
+    category: "image-guided-surgery",
     image: "/portfolio/previews/sonoguide.jpg",
     date: "2023-02",
     featured: true,
@@ -173,7 +173,7 @@ const PROJECTS_DATA = [
     title: "TAVI PinPoint",
     description:
       "Real-time landmark tracking for safer valve implantation during TAVI procedures using multi-task deep learning with 97% accuracy.",
-    category: "clinical-decision-support",
+    category: "image-guided-surgery",
     image: "/portfolio/previews/tavi-pinpoint.jpg",
     date: "2021-07",
     featured: false,
@@ -183,7 +183,7 @@ const PROJECTS_DATA = [
     title: "Stenosis Spotter",
     description:
       "Real-time coronary stenosis detection using deep learning for intraoperative angiographic image analysis with 0.94 mAP.",
-    category: "clinical-decision-support",
+    category: "image-guided-surgery",
     image: "/portfolio/previews/stenosis-spotter.jpg",
     date: "2021-04",
     featured: false,
@@ -247,8 +247,8 @@ const FILTER_OPTIONS = [
     icon: "" /* faXRay */,
   },
   {
-    id: "clinical-decision-support",
-    label: "Clinical Decision Support",
+    id: "image-guided-surgery",
+    label: "Image-Guided Surgery",
     icon: "" /* faHeartPulse */,
   },
   {
@@ -299,7 +299,6 @@ export default function Portfolio() {
             options={FILTER_OPTIONS}
             label="Filter projects"
             layoutId="portfolio-filter"
-            splitAt={4}
             gridClassName="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
             renderItem={(project, index) => (
               <PortfolioCard project={project} priority={index < 3} />
