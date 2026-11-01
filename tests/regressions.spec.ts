@@ -297,23 +297,19 @@ test.describe("Portfolio filter", () => {
 
 test.describe("Institute name", () => {
   // Experience keeps the name inside a closed tab, the next test opens it
-  const pages = [
-    ["/", true],
-    ["/experience/", false],
-    ["/portfolio/hypervision-ablation/", true],
-  ] as const;
-
-  for (const [path, shown] of pages) {
+  for (const path of ["/", "/portfolio/hypervision-ablation/"]) {
     test(`${path} spells it "of", never "for"`, async ({ page }) => {
       await page.goto(path);
       const text = await page.locator("body").innerText();
 
-      if (shown) expect(text).toContain("Institute of Image-Guided Surgery");
+      expect(text).toContain("Institute of Image-Guided Surgery");
       expect(text).not.toMatch(/Institute for Image/i);
     });
   }
 
-  test("the Experience card still highlights the name", async ({ page }) => {
+  test('the Experience card spells it "of" and highlights it', async ({
+    page,
+  }) => {
     await page.goto("/experience/");
     const card = page
       .locator("article")
@@ -327,6 +323,7 @@ test.describe("Institute name", () => {
         hasText: "Institute of Image-Guided Surgery",
       }),
     ).toBeVisible();
+    await expect(card).not.toContainText(/Institute for Image/i);
   });
 });
 
