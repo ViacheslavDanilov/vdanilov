@@ -1090,7 +1090,7 @@ test.describe("Home section spacing", () => {
 });
 
 test.describe("Client logos", () => {
-  test("are white, at most 40px tall and say they open a new tab", async ({
+  test("are white, at most 52px tall and say they open a new tab", async ({
     page,
   }) => {
     await page.setViewportSize({ width: 1440, height: 900 });
@@ -1106,7 +1106,7 @@ test.describe("Client logos", () => {
       await expect(img).toHaveAttribute("src", /-mono\.svg/);
       await img.scrollIntoViewIfNeeded();
       const box = await img.boundingBox();
-      expect(box!.height).toBeLessThanOrEqual(40.5);
+      expect(box!.height).toBeLessThanOrEqual(52.5);
     }
   });
 });

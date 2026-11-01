@@ -56,13 +56,13 @@ const logos = [
   {
     name: "CNA",
     src: "/clients/cna-mono.svg",
-    size: "max-h-5 md:max-h-7",
+    size: "max-h-6 md:max-h-9",
     href: "https://www.cna.com/",
   },
   {
     name: "Huawei",
     src: "/clients/huawei-mono.svg",
-    size: "max-h-6 md:max-h-8",
+    size: "max-h-7 md:max-h-10",
     href: "https://www.huawei.com/",
   },
 ];
@@ -111,7 +111,7 @@ const LogoGrid = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`${logo.name} (opens in a new tab)`}
-              className="group flex h-20 md:h-24 items-center justify-center px-6 transition-colors hover:bg-white/[0.06] focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-accent"
+              className="group flex h-24 md:h-28 items-center justify-center px-6 transition-colors hover:bg-white/[0.06] focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-accent"
             >
               <Image
                 src={logo.src}
@@ -119,7 +119,7 @@ const LogoGrid = () => {
                 width={320}
                 height={160}
                 style={{ width: "auto", height: "auto" }}
-                className={`${logo.size ?? "max-h-7 md:max-h-10"} max-w-[6.5rem] md:max-w-[9rem] object-contain opacity-80 transition-opacity group-hover:opacity-100`}
+                className={`${logo.size ?? "max-h-9 md:max-h-[3.25rem]"} max-w-[7.5rem] md:max-w-[11rem] object-contain opacity-80 transition-opacity group-hover:opacity-100`}
               />
             </Link>
             {inner(i, 2, 6) && <PlusMark className="md:hidden" />}
