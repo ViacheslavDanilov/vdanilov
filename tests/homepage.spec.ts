@@ -372,7 +372,7 @@ test.describe("Homepage - Featured Projects Section", () => {
       "Vall d'Hebron Hospital",
       "Symfa",
       "Boehringer Ingelheim",
-      "Institute for Image-Guided Surgery",
+      "Institute of Image-Guided Surgery",
     ];
 
     // Scroll way down to ensure projects section is in view

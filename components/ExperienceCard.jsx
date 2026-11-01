@@ -69,7 +69,7 @@ const HIGHLIGHT_KEYWORDS = [
   "Beth Israel Deaconess",
   "Beth Israel",
   "Politecnico di Milano",
-  "Institute for Image-Guided Surgery",
+  "Institute of Image-Guided Surgery",
   "Cardinale Panico Hospital",
   "HyperSIGHT",
   "LASER OPTIMAL",

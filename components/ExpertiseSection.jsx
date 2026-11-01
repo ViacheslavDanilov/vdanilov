@@ -20,7 +20,7 @@ const cardData = [
   {
     title: "Medical Imaging AI",
     description:
-      "Developing advanced ML and AI systems for <highlight>medical imaging</highlight> across ultrasound, CT, MRI, hyperspectral, and time-series physiological data. Projects delivered for <highlight>leading medical centers</highlight> including Vall d'Hebron, Beth Israel Deaconess, Boston Children's, and the Institute for Image-Guided Surgery.",
+      "Developing advanced ML and AI systems for <highlight>medical imaging</highlight> across ultrasound, CT, MRI, hyperspectral, and time-series physiological data. Projects delivered for <highlight>leading medical centers</highlight> including Vall d'Hebron, Beth Israel Deaconess, Boston Children's, and the Institute of Image-Guided Surgery.",
     label: "Healthcare AI",
     icon: faHeartPulse,
   },

@@ -27,7 +27,7 @@ const HIGHLIGHTS_ITEMS = [
   {
     icon: faSearch,
     label: "Situation",
-    text: "The Institute for Image-Guided Surgery in Strasbourg needed to automate evaluation of laser-induced tissue damage from hyperspectral imaging during surgical procedures.",
+    text: "The Institute of Image-Guided Surgery in Strasbourg needed to automate evaluation of laser-induced tissue damage from hyperspectral imaging during surgical procedures.",
   },
   {
     icon: faBullseye,
@@ -162,7 +162,7 @@ export default function ProjectPage() {
             alt: "HyperVision Ablation - Hyperspectral imaging for tissue ablation",
           }}
           client={{
-            name: "Institute for Image-Guided Surgery",
+            name: "Institute of Image-Guided Surgery",
             url: "https://www.ihu-strasbourg.eu/",
             location: "Strasbourg · France 🇫🇷",
           }}
