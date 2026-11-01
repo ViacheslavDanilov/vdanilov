@@ -998,6 +998,17 @@ test.describe("Hero and About videos", () => {
   }
 });
 
+// Number of client logos in each row of the grid, top to bottom
+const logoRows = (page: Page) =>
+  page.locator('main li:has(img[src*="/clients/"])').evaluateAll((els) => {
+    const rows = new Map<number, number>();
+    for (const el of els) {
+      const top = Math.round(el.getBoundingClientRect().top);
+      rows.set(top, (rows.get(top) ?? 0) + 1);
+    }
+    return [...rows.keys()].sort((a, b) => a - b).map((t) => rows.get(t));
+  });
+
 test.describe("Home section spacing", () => {
   for (const [width, height] of [
     [3840, 2160],
@@ -1024,6 +1035,7 @@ test.describe("Home section spacing", () => {
         expect(boxes).toHaveLength(7);
         for (const i of [1, 2, 3, 4, 5, 6]) {
           expect(boxes[i][1]).toBeGreaterThanOrEqual(screen);
+          if (height > screen) expect(boxes[i][1]).toBeLessThan(height);
         }
         expect(boxes[0][0] + boxes[0][1]).toBeCloseTo(screen, 0);
         expect(
@@ -1039,15 +1051,7 @@ test.describe("Home section spacing", () => {
         page,
       }) => {
         await page.goto("/");
-        const rows = await page
-          .locator('main li:has(img[src*="/clients/"])')
-          .evaluateAll(
-            (els) =>
-              new Set(
-                els.map((el) => Math.round(el.getBoundingClientRect().top)),
-              ).size,
-          );
-        expect(rows).toBe(3);
+        expect(await logoRows(page)).toEqual([4, 4, 4]);
       });
     });
   }
@@ -1073,14 +1077,9 @@ test.describe("Home section spacing", () => {
         }),
       );
       expect(rows).toHaveLength(7);
-      const logoRows = await page
-        .locator('main li:has(img[src*="/clients/"])')
-        .evaluateAll(
-          (els) =>
-            new Set(els.map((el) => Math.round(el.getBoundingClientRect().top)))
-              .size,
-        );
-      expect(logoRows).toBe(width < 768 ? 6 : 3);
+      expect(await logoRows(page)).toEqual(
+        width < 768 ? [2, 2, 2, 2, 2, 2] : [4, 4, 4],
+      );
       rows.forEach(([, , top, bottom], i) => {
         expect([i, top, bottom]).toEqual([i, 48, 48]);
         if (i > 0) expect(rows[i][0] - rows[i - 1][1]).toBeCloseTo(96, 0);
@@ -1105,7 +1104,16 @@ test.describe("Client logos", () => {
       const img = link.locator("img");
       await expect(img).toHaveAttribute("src", /-mono\.svg/);
       await img.scrollIntoViewIfNeeded();
+      // A lazy image measures 0px until it loads
+      await expect
+        .poll(() =>
+          img.evaluate((el: HTMLImageElement) =>
+            el.complete ? el.naturalWidth : 0,
+          ),
+        )
+        .toBeGreaterThan(0);
       const box = await img.boundingBox();
+      expect(box!.height).toBeGreaterThan(0);
       expect(box!.height).toBeLessThanOrEqual(52.5);
     }
   });
