@@ -111,7 +111,7 @@ const LogoGrid = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`${logo.name} (opens in a new tab)`}
-              className="flex h-24 md:h-28 items-center justify-center px-6 transition-colors hover:bg-white/[0.06] focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-accent"
+              className="flex h-24 md:h-28 items-center justify-center px-6 transition-none hover:transition-colors hover:duration-100 hover:bg-white/[0.06] focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-accent"
             >
               <Image
                 src={logo.src}
