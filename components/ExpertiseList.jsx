@@ -8,7 +8,7 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 const DESKTOP = "(min-width: 1024px)";
 
-// Rows beside a pinned picture; the row on the middle line of the screen, or under the pointer or focus, is the active one
+// The active row is the one on the screen's middle line, or under the pointer or focus
 export default function ExpertiseList({ items }) {
   const [active, setActive] = useState(0);
   const rows = useRef([]);
@@ -40,7 +40,7 @@ export default function ExpertiseList({ items }) {
   }, []);
 
   return (
-    <div className="grid gap-10 lg:grid-cols-[minmax(0,6fr)_minmax(0,6fr)] lg:gap-16">
+    <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
       <div
         aria-hidden="true"
         data-testid="expertise-picture"
@@ -62,7 +62,7 @@ export default function ExpertiseList({ items }) {
         </div>
       </div>
 
-      <ol className="m-0 flex list-none flex-col gap-12 p-0 lg:gap-16">
+      <ol className="flex flex-col gap-12 lg:gap-16">
         {items.map((item, index) => (
           <li
             key={item.title}
@@ -100,8 +100,8 @@ export default function ExpertiseList({ items }) {
                 {item.label}
               </span>
             </div>
-            <h3 className="m-0 text-lg font-bold text-light">{item.title}</h3>
-            <p className="m-0 text-sm leading-relaxed text-light/80 text-justify">
+            <h3 className="text-lg font-bold text-light">{item.title}</h3>
+            <p className="text-sm leading-relaxed text-light/80 text-justify">
               {item.parts.map((part) =>
                 part.highlight ? (
                   <span key={part.key} className="font-semibold text-light/90">

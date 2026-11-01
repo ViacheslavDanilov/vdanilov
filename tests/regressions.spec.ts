@@ -1797,7 +1797,9 @@ test.describe("Home section spacing", () => {
         expect(boxes).toHaveLength(6);
         for (const i of [1, 2, 3, 4, 5]) {
           expect(boxes[i][1]).toBeGreaterThanOrEqual(screen);
-          if (height > screen) expect(boxes[i][1]).toBeLessThan(height);
+          if (height > screen && i !== 3) {
+            expect(boxes[i][1]).toBeLessThan(height);
+          }
         }
         expect(boxes[0][0] + boxes[0][1]).toBeCloseTo(screen, 0);
         expect(

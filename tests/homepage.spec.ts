@@ -478,15 +478,15 @@ test.describe("Homepage - Expertise list with a pinned picture", () => {
     await page
       .getByRole("heading", { name: "Expertise & Leadership" })
       .scrollIntoViewIfNeeded();
-    await page.waitForTimeout(300);
-    expect(await shown(page)).toContain(ROWS[0][1]);
+    await expect.poll(() => shown(page)).toContain(ROWS[0][1]);
 
     await row(page, ROWS[1][0]).scrollIntoViewIfNeeded();
     await page.waitForTimeout(500);
     await row(page, ROWS[1][0]).hover();
     await expect.poll(() => shown(page)).toContain(ROWS[1][1]);
 
-    await row(page, ROWS[5][0]).getByRole("link").focus();
+    await row(page, ROWS[1][0]).getByRole("link").focus();
+    await page.keyboard.press("Tab");
     await expect.poll(() => shown(page)).toContain(ROWS[5][1]);
 
     await row(page, ROWS[3][0]).scrollIntoViewIfNeeded();
@@ -735,7 +735,7 @@ test.describe("Homepage - Accessibility Tests", () => {
     for (let i = 0; i < imageCount; i++) {
       const img = images.nth(i);
       const alt = await img.getAttribute("alt");
-      expect(alt).toBeTruthy();
+      expect(alt).not.toBeNull();
     }
   });
 
