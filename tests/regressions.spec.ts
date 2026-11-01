@@ -295,6 +295,149 @@ test.describe("Portfolio filter", () => {
   });
 });
 
+test.describe("Filter chips", () => {
+  const pages = ["/portfolio/", "/publications/", "/references/"];
+
+  test("an unselected chip has a border and a fill, a selected one is cyan", async ({
+    page,
+  }) => {
+    await page.goto("/portfolio/");
+    const pill = await page
+      .locator('button[aria-pressed="false"]')
+      .first()
+      .evaluate((el) => {
+        const style = getComputedStyle(el, "::before");
+        return { border: style.borderTopWidth, fill: style.backgroundColor };
+      });
+    expect(pill.border).toBe("1px");
+    expect(pill.fill).toMatch(/ \/ 0\.05\)$/);
+
+    const selected = page.locator('button[aria-pressed="true"] > span').last();
+    await expect(selected).toHaveCSS("border-top-width", "1px");
+    await expect(selected).toHaveCSS("background-color", / \/ 0\.2\)$/);
+    await expect(selected).toHaveCSS("border-top-color", / \/ 0\.6\)$/);
+  });
+
+  test("the accordion tabs on a card have no outline", async ({ page }) => {
+    await page.goto("/experience/");
+    const tab = page.locator("article button[aria-expanded]").first();
+    expect(
+      await tab.evaluate(
+        (el) => getComputedStyle(el, "::before").borderTopWidth,
+      ),
+    ).toBe("0px");
+  });
+
+  for (const path of pages) {
+    for (const width of [768, 810, 1024, 1440]) {
+      test(`${path} at ${width}px wraps with no chip alone on a row`, async ({
+        page,
+      }) => {
+        await page.setViewportSize({ width, height: 900 });
+        await page.goto(path);
+        const rows = await page
+          .locator("[role=group] button[aria-pressed]")
+          .evaluateAll((chips) => {
+            const counts = new Map<number, number>();
+            for (const chip of chips) {
+              const top = Math.round(chip.getBoundingClientRect().top);
+              counts.set(top, (counts.get(top) ?? 0) + 1);
+            }
+            return [...counts.values()];
+          });
+
+        expect(rows.length).toBeLessThanOrEqual(2);
+        if (rows.length > 1) expect(Math.min(...rows)).toBeGreaterThan(1);
+      });
+    }
+  }
+
+  test.describe("at 360px", () => {
+    test.use({ viewport: { width: 360, height: 780 } });
+
+    test("the chips sit in one row and the first card starts high", async ({
+      page,
+    }) => {
+      await page.goto("/portfolio/");
+      const group = page.getByRole("group", { name: "Filter projects" });
+      const row = await group.evaluate((el) => ({
+        overflows: el.scrollWidth > el.clientWidth,
+        height: el.getBoundingClientRect().height,
+        tops: new Set(
+          [...el.querySelectorAll("button")].map((chip) =>
+            Math.round(chip.getBoundingClientRect().top),
+          ),
+        ).size,
+      }));
+      const card = await page
+        .locator("[role=list] > *")
+        .first()
+        .evaluate((el) => el.getBoundingClientRect().top);
+
+      expect(row).toEqual({ overflows: true, height: 44, tops: 1 });
+      expect(card).toBeLessThan(480);
+    });
+
+    for (const path of pages) {
+      test(`${path} keeps the page from scrolling sideways`, async ({
+        page,
+      }) => {
+        await page.goto(path);
+        const overflow = await page.evaluate(
+          () =>
+            document.documentElement.scrollWidth -
+            document.documentElement.clientWidth,
+        );
+
+        expect(overflow).toBe(0);
+      });
+    }
+
+    test("the selected chip is brought into view from a link and on Back", async ({
+      page,
+    }) => {
+      await page.goto("/portfolio/?filter=insurtech");
+      const group = page.getByRole("group", { name: "Filter projects" });
+      const chip = page.getByRole("button", { name: /^InsurTech/ });
+      const inside = () =>
+        chip.evaluate((el) => {
+          const rail = el.parentElement!.getBoundingClientRect();
+          const box = el.getBoundingClientRect();
+          return box.left >= rail.left && box.right <= rail.right;
+        });
+
+      await expect.poll(inside).toBe(true);
+      expect(await group.evaluate((el) => el.scrollLeft)).toBeGreaterThan(0);
+
+      await page.getByRole("button", { name: /^Featured/ }).click();
+      await expect
+        .poll(() => group.evaluate((el) => el.scrollLeft))
+        .toBeLessThan(2);
+    });
+
+    test("a fade shows at an edge only while more chips hide beyond it", async ({
+      page,
+    }) => {
+      await page.goto("/portfolio/");
+      const group = page.getByRole("group", { name: "Filter projects" });
+      const fades = () =>
+        group.evaluate((el) => {
+          const mask = el.style.getPropertyValue("--rail-mask");
+          return {
+            start: mask.includes("#000 2rem"),
+            end: mask.includes("calc(100% - 2rem)"),
+          };
+        });
+
+      await expect.poll(fades).toEqual({ start: false, end: true });
+      await group.evaluate((el) => el.scrollBy({ left: 40 }));
+      await expect.poll(fades).toEqual({ start: true, end: true });
+      await group.evaluate((el) => el.scrollTo({ left: el.scrollWidth }));
+      await expect.poll(fades).toEqual({ start: true, end: false });
+    });
+  });
+});
+
 test.describe("Page metadata", () => {
   for (const path of ["/experience/", "/portfolio/deep-anatomy/"]) {
     test(`${path} has a canonical link and og:url`, async ({ page }) => {
