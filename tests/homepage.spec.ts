@@ -431,6 +431,123 @@ test.describe("Homepage - Expertise Section", () => {
   });
 });
 
+test.describe("Homepage - Expertise list with a pinned picture", () => {
+  const ROWS = [
+    ["10+ Years of Advanced R&D", "oncocell-vision", "/experience/"],
+    ["Medical Imaging AI", "pulmoscore", "/portfolio/?filter=medical-imaging"],
+    ["Scalable ML Systems", "insurecast", null],
+    ["Technology Leadership", "risk-profiler", null],
+    ["Cross-Functional Management", "claim-assistant", null],
+    [
+      "Applied ML & AI Across Industries",
+      "insurance-pricing",
+      "/portfolio/?filter=industry-ai-ml",
+    ],
+  ] as const;
+
+  const row = (page: Page, title: string) =>
+    page.locator("li", { has: page.getByRole("heading", { name: title }) });
+  const shown = async (page: Page) =>
+    decodeURIComponent(
+      (await page
+        .getByTestId("expertise-picture")
+        .locator('img[data-active="true"]')
+        .getAttribute("src"))!,
+    );
+
+  test("rows link to the portfolio filter or the experience page, or to nothing", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    for (const [title, , href] of ROWS) {
+      const links = row(page, title).getByRole("link");
+      if (href) {
+        await expect(links, title).toHaveCount(1);
+        await expect(links, title).toHaveAttribute("href", href);
+      } else {
+        await expect(links, title).toHaveCount(0);
+      }
+    }
+  });
+
+  test("the pinned picture follows the pointer, the keyboard and the scroll", async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto("/");
+    await page
+      .getByRole("heading", { name: "Expertise & Leadership" })
+      .scrollIntoViewIfNeeded();
+    await page.waitForTimeout(300);
+    expect(await shown(page)).toContain(ROWS[0][1]);
+
+    await row(page, ROWS[1][0]).scrollIntoViewIfNeeded();
+    await page.waitForTimeout(500);
+    await row(page, ROWS[1][0]).hover();
+    await expect.poll(() => shown(page)).toContain(ROWS[1][1]);
+
+    await row(page, ROWS[5][0]).getByRole("link").focus();
+    await expect.poll(() => shown(page)).toContain(ROWS[5][1]);
+
+    await row(page, ROWS[3][0]).scrollIntoViewIfNeeded();
+    await page.mouse.move(2, 2);
+    await page.evaluate(() => {
+      const el = [...document.querySelectorAll("li")].find((li) =>
+        li.textContent?.includes("Technology Leadership"),
+      )!;
+      window.scrollBy(
+        0,
+        el.getBoundingClientRect().top + el.clientHeight / 2 - innerHeight / 2,
+      );
+    });
+    await expect.poll(() => shown(page)).toContain(ROWS[3][1]);
+  });
+
+  test("on a phone every row carries its own picture and nothing is pinned", async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto("/");
+    await expect(page.getByTestId("expertise-picture")).toBeHidden();
+    for (const [title, name] of ROWS) {
+      const picture = row(page, title).locator("img");
+      await expect(picture, title).toHaveCount(1);
+      expect(
+        decodeURIComponent((await picture.getAttribute("src"))!),
+      ).toContain(name);
+    }
+  });
+
+  for (const width of [360, 768, 1024, 1440]) {
+    test(`the list does not scroll sideways at ${width}px`, async ({
+      page,
+    }) => {
+      await page.setViewportSize({ width, height: 900 });
+      await page.goto("/");
+      const overflow = await page.evaluate(
+        () => document.documentElement.scrollWidth - innerWidth,
+      );
+      expect(overflow).toBeLessThanOrEqual(0);
+    });
+  }
+
+  test("with reduced motion the picture changes without a fade", async ({
+    page,
+  }) => {
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto("/");
+    const durations = await page
+      .getByTestId("expertise-picture")
+      .locator("img")
+      .evaluateAll((images) =>
+        images.map((image) => getComputedStyle(image).transitionDuration),
+      );
+    expect(durations).toHaveLength(6);
+    expect(new Set(durations)).toEqual(new Set(["0s"]));
+  });
+});
+
 test.describe("Homepage - Clients Section (LogoGrid)", () => {
   test("clients section has correct heading", async ({ page }) => {
     await page.goto("/");
