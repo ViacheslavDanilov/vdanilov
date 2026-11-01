@@ -145,7 +145,7 @@ A restrained dark palette: ink ground, slate cards, one cyan accent, and a cool 
 
 ### Hierarchy
 
-- **Display** (600, 2.25rem to 3rem, tight tracking): the page name in the home hero.
+- **Display** (600, 1.875rem on phones, 3rem from 640px, 3.75rem from 1280px on screens 800px tall or more, tight tracking, balanced wrapping): the statement in the home hero. The name above it is 1.125rem to 1.25rem, 600.
 - **Headline** (700, 1.875rem to 2.25rem): home section headings.
 - **Title** (600, 1.25rem): project page section headings, with the accent bar.
 - **Body** (400, 0.875rem to 1rem, line height 1.625): card and prose text in the grey tiers. Most body copy uses `leading-relaxed`, so 1.625 is the recorded value. Prose blocks cap at max-w-5xl or narrower.
@@ -196,6 +196,12 @@ Pills for anything clickable and small (nav, buttons, badges, tabs, accent bar).
 - **Glow card:** 16px radius, 6% grey fill, 1.5px border in the same grey, 2px blur. Padding is 20px on list and project cards and 24px on home cards (40px from md on the statistics cards). The call-to-action card keeps the 16px default and pads its own content inside. On desktop a radial spotlight follows the pointer across fill and border. Off below 768px.
 - **Portfolio card:** an opaque card fill with a 1px white 10% border and no pointer glow or blur, because it carries a full-width image. On hover the border turns cyan 30% and a faint cyan shadow appears. It is the one card that is not glass. Pressing it scales it to 0.99.
 - **Logo tile:** 64px square, 16px radius, slate 50% fill, Paper Light 10% border. From md, hover scales it to 1.03 and turns the border cyan 30%.
+
+### Hero
+
+- The home hero is a small line (name, then the rotating role), the Display statement, then a round video (14rem on phones, 16rem from 640px, from lg up to 28rem and no taller than the screen minus 24rem) beside the About paragraph, two glass buttons (Download CV, Contact me) and six profile icons. The video sits left and the text right from lg.
+- Below lg the order is statement, video, buttons, paragraph, icons, so that both buttons show on the first screen of a 360px phone. The page is centred below lg and left-aligned from lg. The name line stacks above the role below 640px.
+- The one h1 on the page is the name. Download CV downloads the Drive file directly and Contact me opens an email. The profile icons are the same 44px targets as before.
 
 ### Navigation
 

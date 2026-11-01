@@ -888,7 +888,7 @@ test.describe("Touch targets at 360px", () => {
     ["menu toggle", "/", 'button[aria-label="Toggle menu"]'],
     ["team icons", "/portfolio/deep-anatomy/", 'main a[aria-label*="\'s "]'],
     ["reference icons", "/references/", 'main a[aria-label*="\'s "]'],
-    ["About icons", "/", 'main a[aria-label][style*="inline-block"]'],
+    ["hero icons", "/", 'main a[aria-label][style*="inline-block"]'],
     ["filter tabs", "/portfolio/", "button[aria-pressed]"],
     ["card tabs", "/experience/", "article button[aria-expanded]"],
     ["footer links", "/", "footer ul a"],
@@ -1230,7 +1230,6 @@ test.describe("Page weight", () => {
 
   test("server-only home sections stay server components", () => {
     for (const name of [
-      "About",
       "FeaturedProjects",
       "ExpertiseSection",
       "CallToAction",
@@ -1304,32 +1303,128 @@ test.describe("Page weight", () => {
 });
 
 test.describe("Hero and About videos", () => {
-  for (const [name, src] of [
-    ["hero", "/hero/hero-video.mp4"],
-    ["about", "/hero/about-video.mp4"],
+  test("the hero video is 1082 px, plays and stays under 4 MB", async ({
+    page,
+    request,
+  }) => {
+    await page.goto("/");
+    const src = "/hero/hero-video.mp4";
+    const video = page.locator(`video:has(source[src="${src}"])`);
+    await video.scrollIntoViewIfNeeded();
+
+    await expect
+      .poll(() => video.evaluate((el: HTMLVideoElement) => el.currentTime), {
+        timeout: 15_000,
+      })
+      .toBeGreaterThan(0);
+    const size = await video.evaluate((el: HTMLVideoElement) => [
+      el.videoWidth,
+      el.videoHeight,
+    ]);
+    expect(size).toEqual([1082, 1082]);
+
+    const response = await request.get(src);
+    expect(response.headers()["content-type"]).toContain("video/mp4");
+    expect((await response.body()).length).toBeLessThan(4 * 1024 * 1024);
+  });
+
+  test("the About video is off the page, its file stays 1082 px under 4 MB", async ({
+    page,
+    request,
+  }) => {
+    const src = "/hero/about-video.mp4";
+    await page.goto("/");
+    await expect(page.locator(`source[src="${src}"]`)).toHaveCount(0);
+
+    await page.goto(src);
+    const video = page.locator("video");
+    await expect
+      .poll(() => video.evaluate((el: HTMLVideoElement) => el.videoWidth), {
+        timeout: 15_000,
+      })
+      .toBe(1082);
+    expect(await video.evaluate((el: HTMLVideoElement) => el.videoHeight)).toBe(
+      1082,
+    );
+
+    const response = await request.get(src);
+    expect(response.headers()["content-type"]).toContain("video/mp4");
+    expect((await response.body()).length).toBeLessThan(4 * 1024 * 1024);
+  });
+});
+
+test.describe("Home hero", () => {
+  for (const [width, height] of [
+    [390, 844],
+    [360, 740],
   ]) {
-    test(`the ${name} video is 1082 px, plays and stays under 4 MB`, async ({
+    test(`both buttons show on the first screen at ${width}x${height}`, async ({
       page,
-      request,
     }) => {
+      await page.setViewportSize({ width, height });
       await page.goto("/");
-      const video = page.locator(`video:has(source[src="${src}"])`);
-      await video.scrollIntoViewIfNeeded();
+      for (const name of ["Download CV", "Contact me"]) {
+        const box = (await page
+          .locator("#hero")
+          .getByRole("link", { name })
+          .boundingBox())!;
+        expect([name, box.y + box.height <= height]).toEqual([name, true]);
+        expect([name, box.x >= 0 && box.x + box.width <= width]).toEqual([
+          name,
+          true,
+        ]);
+      }
+    });
+  }
 
-      await expect
-        .poll(() => video.evaluate((el: HTMLVideoElement) => el.currentTime), {
-          timeout: 15_000,
-        })
-        .toBeGreaterThan(0);
-      const size = await video.evaluate((el: HTMLVideoElement) => [
-        el.videoWidth,
-        el.videoHeight,
-      ]);
-      expect(size).toEqual([1082, 1082]);
+  test("at 1440x900 the whole hero fits the first screen", async ({ page }) => {
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto("/");
+    const bottoms = await page.evaluate(() => {
+      const hero = document.querySelector("#hero")!;
+      const bottom = (el: Element | null) =>
+        Math.round(el!.getBoundingClientRect().bottom);
+      return {
+        statement: bottom(hero.querySelector("p")),
+        video: bottom(hero.querySelector("video")),
+        icons: bottom(hero.querySelector('a[aria-label="Email"]')),
+        buttons: bottom(hero.querySelector('a[aria-label="Contact me"]')),
+      };
+    });
+    for (const [part, bottom] of Object.entries(bottoms)) {
+      expect([part, bottom <= 900]).toEqual([part, true]);
+    }
+  });
 
-      const response = await request.get(src);
-      expect(response.headers()["content-type"]).toContain("video/mp4");
-      expect((await response.body()).length).toBeLessThan(4 * 1024 * 1024);
+  test("from lg the video sits left of the text, under the statement", async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 1280, height: 800 });
+    await page.goto("/");
+    const hero = page.locator("#hero");
+    const video = (await hero.locator("video").boundingBox())!;
+    const bio = (await hero.getByText("published nearly 50").boundingBox())!;
+    const statement = (await hero
+      .getByText("Bridging Science and Engineering")
+      .boundingBox())!;
+    expect(video.x + video.width).toBeLessThan(bio.x);
+    expect(statement.y + statement.height).toBeLessThan(video.y);
+    expect(statement.y + statement.height).toBeLessThan(bio.y);
+  });
+
+  for (const width of [360, 390, 768, 810, 1024, 1280]) {
+    test(`the hero does not scroll sideways at ${width}px`, async ({
+      page,
+    }) => {
+      await page.setViewportSize({ width, height: 800 });
+      await page.goto("/");
+      expect(
+        await page.evaluate(
+          () =>
+            document.documentElement.scrollWidth <=
+            document.documentElement.clientWidth,
+        ),
+      ).toBe(true);
     });
   }
 });
@@ -1368,8 +1463,8 @@ test.describe("Home section spacing", () => {
             return [r.top + scrollY, r.height];
           }),
         );
-        expect(boxes).toHaveLength(7);
-        for (const i of [1, 2, 3, 4, 5, 6]) {
+        expect(boxes).toHaveLength(6);
+        for (const i of [1, 2, 3, 4, 5]) {
           expect(boxes[i][1]).toBeGreaterThanOrEqual(screen);
           if (height > screen) expect(boxes[i][1]).toBeLessThan(height);
         }
@@ -1412,12 +1507,13 @@ test.describe("Home section spacing", () => {
           ];
         }),
       );
-      expect(rows).toHaveLength(7);
+      expect(rows).toHaveLength(6);
       expect(await logoRows(page)).toEqual(
         width < 768 ? [2, 2, 2, 2, 2, 2] : [4, 4, 4],
       );
       rows.forEach(([, , top, bottom], i) => {
-        expect([i, top, bottom]).toEqual([i, 48, 48]);
+        // Below lg the hero starts at the page's own top padding
+        expect([i, top, bottom]).toEqual([i, i === 0 ? 0 : 48, 48]);
         if (i > 0) expect(rows[i][0] - rows[i - 1][1]).toBeCloseTo(96, 0);
       });
     });
@@ -1533,7 +1629,7 @@ test.describe("Reduced motion", () => {
     test.describe(`with ${name}`, () => {
       test.use({ reducedMotion });
 
-      test(`an About icon ${moves ? "grows" : "stays put"} on hover`, async ({
+      test(`a hero icon ${moves ? "grows" : "stays put"} on hover`, async ({
         page,
       }) => {
         await page.goto("/");

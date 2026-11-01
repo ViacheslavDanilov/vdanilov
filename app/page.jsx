@@ -2,7 +2,6 @@ import Hero from "@/components/Hero";
 import ExpertiseSection from "@/components/ExpertiseSection";
 import FeaturedProjects from "@/components/FeaturedProjects";
 import LogoGrid from "@/components/LogoGrid";
-import About from "@/components/About";
 import Statistics from "@/components/Statistics";
 import CallToAction from "@/components/CallToAction";
 import LightRays from "@/components/ui/light-rays";
@@ -23,7 +22,6 @@ export default function Home() {
       </div>
       <div className="flex flex-col items-center pt-12 lg:pt-0 pb-12">
         <Hero />
-        <About />
         <Statistics />
         <FeaturedProjects />
         <ExpertiseSection />
