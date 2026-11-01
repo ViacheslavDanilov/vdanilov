@@ -295,6 +295,38 @@ test.describe("Portfolio filter", () => {
   });
 });
 
+test.describe("Institute name", () => {
+  // Experience keeps the name inside a closed tab, the next test opens it
+  for (const path of ["/", "/portfolio/hypervision-ablation/"]) {
+    test(`${path} spells it "of", never "for"`, async ({ page }) => {
+      await page.goto(path);
+      const text = await page.locator("body").innerText();
+
+      expect(text).toContain("Institute of Image-Guided Surgery");
+      expect(text).not.toMatch(/Institute for Image/i);
+    });
+  }
+
+  test('the Experience card spells it "of" and highlights it', async ({
+    page,
+  }) => {
+    await page.goto("/experience/");
+    const card = page
+      .locator("article")
+      .filter({ hasText: "Politecnico di Milano" })
+      .filter({ hasText: "LASER OPTIMAL" })
+      .first();
+    await card.getByRole("button", { name: "Responsibilities" }).click();
+
+    await expect(
+      card.locator("span.font-semibold", {
+        hasText: "Institute of Image-Guided Surgery",
+      }),
+    ).toBeVisible();
+    await expect(card).not.toContainText(/Institute for Image/i);
+  });
+});
+
 test.describe("Filter chips", () => {
   const pages = ["/portfolio/", "/publications/", "/references/"];
 

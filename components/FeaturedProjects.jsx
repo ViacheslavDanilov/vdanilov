@@ -48,7 +48,7 @@ const PROJECTS = [
   {
     id: "hypervision-ablation",
     title: "HyperVision Ablation",
-    client: "Institute for Image-Guided Surgery",
+    client: "Institute of Image-Guided Surgery",
     location: "Strasbourg · France 🇫🇷",
     description:
       "A multi-stage machine learning pipeline that detects and segments laser-induced tissue ablation from hyperspectral imaging data using PCA/t-SNE reduction, Faster R-CNN detection, and Mean Shift clustering. The workflow enables automated assessment of thermal damage across organs, improving diagnostic accuracy and supporting research in laser-based cancer therapy.",

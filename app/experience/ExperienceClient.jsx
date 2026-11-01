@@ -209,7 +209,7 @@ const EXPERIENCES_DATA = [
       "Built hyperspectral ML that detects and segments laser ablation zones for the ERC project LASER OPTIMAL, and turned prosthetic heart valve design into an optimization search",
     responsibilities: [
       "Built the hyperspectral pipeline that detects and segments laser ablation zones on 100-band images, with Faster R-CNN at 74.4% mAP on PCA-transformed reflectance data",
-      "Ran the data collection in experimental surgery at the Institute for Image-Guided Surgery and Cardinale Panico Hospital, training the models on tissue imaged during the procedure",
+      "Ran the data collection in experimental surgery at the Institute of Image-Guided Surgery and Cardinale Panico Hospital, training the models on tissue imaged during the procedure",
       "Turned prosthetic heart valve design from hand iteration into an optimization search for the Kemerovo Cardiology Center, across 11,500+ FEM-evaluated geometries at 95% design efficacy",
     ],
     links: [
