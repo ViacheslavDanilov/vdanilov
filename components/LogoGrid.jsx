@@ -6,7 +6,7 @@ const logos = [
   {
     name: "Boston Children's Hospital",
     src: "/clients/bch-mono.svg",
-    brighten: "brightness(1.8) saturate(1.2)",
+    brighten: "brightness(1.5) saturate(1)",
     href: "https://www.childrenshospital.org/",
   },
   {
