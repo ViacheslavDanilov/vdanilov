@@ -30,6 +30,7 @@ const logos = [
   {
     name: "Institute of Image-Guided Surgery",
     src: "/clients/ihu-mono.svg",
+    brighten: "saturate(1.4)",
     href: "https://www.ihu-strasbourg.eu/",
   },
   {
