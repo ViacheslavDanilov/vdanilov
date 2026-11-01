@@ -318,6 +318,35 @@ test.describe("Filter chips", () => {
     await expect(selected).toHaveCSS("border-top-color", / \/ 0\.6\)$/);
   });
 
+  for (const path of pages) {
+    test(`${path} chip names stay within 19 characters`, async ({ page }) => {
+      await page.goto(path);
+      const names = (
+        await page
+          .locator("[role=group] button[aria-pressed]")
+          .allTextContents()
+      ).map((text) => text.replace(/ \(\d+\)$/, ""));
+
+      expect(names.length).toBeGreaterThan(0);
+      for (const name of names) expect(name.length).toBeLessThanOrEqual(19);
+    });
+  }
+
+  test("a portfolio card badge uses the name of its filter chip", async ({
+    page,
+  }) => {
+    await page.goto("/portfolio/?filter=all");
+    const chips = (
+      await page.locator("[role=group] button[aria-pressed]").allTextContents()
+    ).map((text) => text.replace(/ \(\d+\)$/, ""));
+    const badges = await page
+      .locator('article [class*="top-5"][class*="right-5"]')
+      .allTextContents();
+
+    expect(badges.length).toBeGreaterThan(0);
+    for (const badge of new Set(badges)) expect(chips).toContain(badge);
+  });
+
   test("the accordion tabs on a card have no outline", async ({ page }) => {
     await page.goto("/experience/");
     const tab = page.locator("article button[aria-expanded]").first();
