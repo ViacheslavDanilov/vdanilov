@@ -1,9 +1,6 @@
-"use client";
-
 import React from "react";
 import Image from "next/image";
 import AutoplayVideo from "@/components/AutoplayVideo";
-import { FlipWords } from "@/components/ui/flip-words";
 import { LiquidButtonLink } from "@/components/ui/liquid-button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -50,33 +47,21 @@ const socialLinks = [
   },
 ];
 
-const Hero = () => {
-  const roles = ["Tech Lead", "Engineering Manager", "Research Scientist"];
+const roles = ["Tech Lead", "Engineering Manager", "Research Scientist"];
 
+const Hero = () => {
   return (
     <section
       id="hero"
       className="w-full max-w-7xl mx-auto px-6 pb-12 overflow-x-clip lg:py-12 lg:min-h-[min(calc(100svh-6rem),66rem)] lg:flex lg:flex-col lg:justify-center"
     >
-      <div className="mb-8 lg:mb-10 space-y-3 text-center lg:text-left">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl text-balance font-semibold text-light tracking-tight">
-          Viacheslav Danilov, PhD
-        </h1>
-        <div className="relative min-h-[2em] flex items-center justify-center lg:justify-start text-2xl md:text-3xl text-gray-400">
-          <FlipWords words={roles} className="text-light" />
-        </div>
-        <p className="text-base md:text-lg text-gray-300">
-          Fusing Science with Engineering Precision
-        </p>
-      </div>
-
       <div className="flex flex-col items-center gap-8 lg:grid lg:grid-cols-2 lg:gap-16">
-        <div className="order-1 lg:order-none relative size-40 sm:size-48 lg:size-[clamp(14rem,calc(100svh-26rem),20rem)] justify-self-center rounded-full overflow-hidden border-4 border-accent/20 shadow-2xl bg-dark">
+        <div className="order-1 lg:order-none relative size-64 md:size-96 justify-self-center rounded-full overflow-hidden border-4 border-accent/20 shadow-2xl bg-dark">
           <Image
             src="/hero/hero-poster.webp"
             alt="Viacheslav Danilov portrait"
             fill
-            sizes="(min-width: 1024px) 320px, (min-width: 640px) 192px, 160px"
+            sizes="(min-width: 768px) 384px, 256px"
             priority
             className="object-cover brightness-175"
           />
@@ -88,6 +73,27 @@ const Hero = () => {
 
         {/* On phones and tablets the buttons come before the paragraph, so they show on the first screen */}
         <div className="contents lg:flex lg:flex-col lg:gap-8">
+          <div className="space-y-3 text-center lg:text-left">
+            <h1 className="text-3xl sm:text-4xl lg:text-4xl xl:text-5xl text-balance font-semibold text-light tracking-tight">
+              Viacheslav Danilov, PhD
+            </h1>
+            <p className="flex flex-wrap items-center justify-center lg:justify-start gap-x-2 text-lg md:text-xl text-gray-300">
+              {roles.map((role, i) => (
+                <span key={role} className="whitespace-nowrap">
+                  {role}
+                  {i < roles.length - 1 && (
+                    <>
+                      <span aria-hidden="true" className="ml-2 text-gray-500">
+                        &middot;
+                      </span>
+                      <span className="sr-only">,</span>
+                    </>
+                  )}
+                </span>
+              ))}
+            </p>
+          </div>
+
           <p className="order-3 lg:order-none max-w-2xl text-light text-base xl:text-lg leading-relaxed text-justify">
             <strong className="font-semibold text-white">
               Lead AI/ML Engineer

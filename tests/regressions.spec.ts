@@ -84,24 +84,6 @@ test.describe("Layout width", () => {
 test.describe("Phone layout at 360px", () => {
   test.use({ viewport: { width: 360, height: 800 } });
 
-  test("the hero word flip never widens the page", async ({ page }) => {
-    await page.goto("/");
-    const peak = await page.evaluate(
-      () =>
-        new Promise<number>((resolve) => {
-          let max = 0;
-          const end = performance.now() + 7000;
-          const tick = () => {
-            max = Math.max(max, document.documentElement.scrollWidth);
-            if (performance.now() < end) requestAnimationFrame(tick);
-            else resolve(max);
-          };
-          tick();
-        }),
-    );
-    expect(peak).toBeLessThanOrEqual(360);
-  });
-
   test("the lightbox image fills the width of the phone", async ({ page }) => {
     await page.goto("/portfolio/deep-anatomy/");
     const buttons = page.getByRole("button", {
@@ -1230,6 +1212,7 @@ test.describe("Page weight", () => {
 
   test("server-only home sections stay server components", () => {
     for (const name of [
+      "Hero",
       "FeaturedProjects",
       "ExpertiseSection",
       "CallToAction",
@@ -1389,7 +1372,7 @@ test.describe("Home hero", () => {
       const bottom = (el: Element | null) =>
         Math.round(el!.getBoundingClientRect().bottom);
       return {
-        tagline: bottom(hero.querySelector("p")),
+        roles: bottom(hero.querySelector("p")),
         video: bottom(hero.querySelector("video")),
         icons: bottom(hero.querySelector('a[aria-label="Email"]')),
         buttons: bottom(hero.querySelector('a[aria-label="Contact me"]')),
@@ -1400,7 +1383,7 @@ test.describe("Home hero", () => {
     }
   });
 
-  test("from lg the video sits left of the text, under the name", async ({
+  test("from lg the video sits left of the name and the text", async ({
     page,
   }) => {
     await page.setViewportSize({ width: 1280, height: 800 });
@@ -1408,12 +1391,16 @@ test.describe("Home hero", () => {
     const hero = page.locator("#hero");
     const video = (await hero.locator("video").boundingBox())!;
     const bio = (await hero.getByText("published nearly 50").boundingBox())!;
-    const header = (await hero
-      .getByText("Fusing Science with Engineering Precision")
+    const name = (await hero.locator("h1").boundingBox())!;
+    const icons = (await hero
+      .getByRole("link", { name: "Email" })
       .boundingBox())!;
+    expect(video.x + video.width).toBeLessThan(name.x);
     expect(video.x + video.width).toBeLessThan(bio.x);
-    expect(header.y + header.height).toBeLessThan(video.y);
-    expect(header.y + header.height).toBeLessThan(bio.y);
+    expect(name.y + name.height).toBeLessThan(bio.y);
+    const middle = video.y + video.height / 2;
+    expect(middle).toBeGreaterThan(name.y);
+    expect(middle).toBeLessThan(icons.y + icons.height);
   });
 
   test("the buttons and the icons are centred under the paragraph", async ({
@@ -1441,21 +1428,40 @@ test.describe("Home hero", () => {
     expect((left + right) / 2).toBeCloseTo(centre(bio), -1);
   });
 
-  for (const [width, height, max] of [
-    [360, 740, 160],
-    [768, 1024, 192],
-    [1440, 900, 320],
+  for (const [width, height, size] of [
+    [360, 740, 256],
+    [768, 1024, 384],
+    [1440, 900, 384],
   ]) {
-    test(`the video is at most ${max}px across at ${width}px`, async ({
-      page,
-    }) => {
+    test(`the video is ${size}px across at ${width}px`, async ({ page }) => {
       await page.setViewportSize({ width, height });
       await page.goto("/");
-      const box = (await page.locator("#hero video").boundingBox())!;
-      expect(Math.round(box.width)).toBeLessThanOrEqual(max);
-      expect(Math.round(box.width)).toBeGreaterThanOrEqual(max - 64);
+      const box = (await page
+        .locator("#hero video")
+        .locator("..")
+        .boundingBox())!;
+      expect(Math.round(box.width)).toBe(size);
+      expect(Math.round(box.height)).toBe(size);
     });
   }
+
+  test("the name leads the first screen on phones and sits in the text column from lg", async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto("/");
+    const phone = {
+      name: (await page.locator("#hero h1").boundingBox())!,
+      video: (await page.locator("#hero video").boundingBox())!,
+    };
+    expect(phone.name.y + phone.name.height).toBeLessThan(phone.video.y);
+    await page.setViewportSize({ width: 1440, height: 900 });
+    const wide = {
+      name: (await page.locator("#hero h1").boundingBox())!,
+      video: (await page.locator("#hero video").boundingBox())!,
+    };
+    expect(wide.name.x).toBeGreaterThan(wide.video.x + wide.video.width);
+  });
 
   test("the two key roles are bold and white, not chips", async ({ page }) => {
     await page.goto("/");

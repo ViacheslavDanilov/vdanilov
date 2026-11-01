@@ -200,28 +200,22 @@ test.describe("Homepage - Hero Section", () => {
     await expect(
       page.getByRole("heading", { name: "Viacheslav Danilov, PhD" }),
     ).toBeVisible();
-    await expect(
-      page.getByText("Fusing Science with Engineering Precision"),
-    ).toBeVisible();
     await expect(page.locator("h1")).toHaveCount(1);
+    await expect(page.getByText("Fusing Science")).toHaveCount(0);
   });
 
-  test("hero section displays animated role titles", async ({ page }) => {
+  test("hero section lists the three roles", async ({ page }) => {
     await page.goto("/");
 
-    // Check that at least one of the flip words is present
-    const roles = ["Tech Lead", "Engineering Manager", "Research Scientist"];
-    let foundRole = false;
-
-    for (const role of roles) {
-      const roleElement = page.locator(`text="${role}"`);
-      if (await roleElement.isVisible()) {
-        foundRole = true;
-        break;
-      }
+    for (const role of [
+      "Tech Lead",
+      "Engineering Manager",
+      "Research Scientist",
+    ]) {
+      await expect(
+        page.locator("#hero p").first().getByText(role),
+      ).toBeVisible();
     }
-
-    expect(foundRole).toBeTruthy();
   });
 
   test("hero video element is present", async ({ page }) => {
