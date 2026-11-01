@@ -17,7 +17,7 @@ const formatDate = (dateString) => {
 // Category display names mapping
 const CATEGORY_LABELS = {
   "medical-imaging": "Medical Imaging",
-  "clinical-decision-support": "Clinical Support",
+  "image-guided-surgery": "Image-Guided Surgery",
   "biomedical-research": "Biomedical Research",
   "medical-devices": "Medical Devices",
   insurtech: "InsurTech",
