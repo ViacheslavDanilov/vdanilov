@@ -1598,6 +1598,36 @@ test.describe("Home hero", () => {
     expect(await fill("Download CV")).toMatch(/\/ 0\.15\)$/);
   });
 
+  for (const [width, height] of [
+    [360, 740],
+    [390, 844],
+  ]) {
+    test(`the gaps between the hero blocks are even at ${width}px`, async ({
+      page,
+    }) => {
+      await page.setViewportSize({ width, height });
+      await page.goto("/");
+      const gaps = await page.evaluate(() => {
+        const hero = document.querySelector("#hero")!;
+        const rect = (el: Element) => el.getBoundingClientRect();
+        const parts = [
+          rect(hero.querySelector("h1")!),
+          rect(hero.querySelector("[data-depth-flip]")!),
+          rect(hero.querySelector("video")!.parentElement!),
+          rect(hero.querySelector('a[aria-label="LinkedIn"] svg')!),
+          rect(hero.querySelector('a[aria-label="Download CV"]')!),
+          rect(
+            [...hero.querySelectorAll("p")].find((p) =>
+              p.textContent!.includes("published nearly"),
+            )!,
+          ),
+        ];
+        return parts.slice(1).map((box, i) => box.top - parts[i].bottom);
+      });
+      expect(Math.max(...gaps) - Math.min(...gaps)).toBeLessThanOrEqual(8);
+    });
+  }
+
   test("below lg the order is name, video, icons, buttons, paragraph", async ({
     page,
   }) => {

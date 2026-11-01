@@ -56,7 +56,7 @@ const Hero = () => {
       id="hero"
       className="w-full max-w-7xl mx-auto px-6 pb-12 overflow-x-clip lg:py-12 lg:min-h-[min(calc(100svh-6rem),66rem)] lg:flex lg:flex-col lg:justify-center"
     >
-      <div className="flex flex-col items-center gap-8 lg:grid lg:grid-cols-[auto_minmax(0,36rem)] lg:justify-center lg:gap-16">
+      <div className="flex flex-col items-center gap-6 lg:grid lg:grid-cols-[auto_minmax(0,36rem)] lg:justify-center lg:gap-16">
         <div className="contents lg:flex lg:flex-col lg:items-center lg:gap-8">
           <div className="order-1 lg:order-none relative size-64 md:size-96 rounded-full overflow-hidden border-4 border-accent/20 shadow-2xl bg-dark">
             <Image
@@ -72,7 +72,7 @@ const Hero = () => {
               Your browser does not support the video tag.
             </AutoplayVideo>
           </div>
-          <div className="order-2 lg:order-none -mt-3 lg:mt-0 flex flex-wrap items-center justify-center gap-8">
+          <div className="order-2 lg:order-none flex flex-wrap items-center justify-center gap-8">
             {socialLinks.map((social) => (
               <a
                 key={social.name}
@@ -106,17 +106,17 @@ const Hero = () => {
 
         {/* Below lg the icons follow the video and the buttons come before the paragraph, so the buttons show on the first screen */}
         <div className="contents lg:flex lg:flex-col lg:gap-8">
-          <div className="space-y-3 text-center">
-            <h1 className="text-3xl sm:text-4xl lg:text-4xl xl:text-5xl text-balance font-semibold text-light tracking-tight">
+          <div className="space-y-5 lg:space-y-6 text-center">
+            <h1 className="text-3xl sm:text-4xl lg:text-4xl xl:text-5xl text-balance font-semibold leading-[1.1] text-light tracking-tight">
               Viacheslav Danilov, PhD
             </h1>
             <DepthFlipText
               phrases={roles}
-              className="text-lg md:text-xl text-gray-300"
+              className="text-lg md:text-xl leading-none text-gray-300"
             />
           </div>
 
-          <p className="order-4 lg:order-none max-w-2xl text-gray-300 text-base xl:text-lg leading-relaxed text-justify hyphens-auto text-pretty">
+          <p className="order-4 lg:order-none -my-0.5 max-w-2xl text-gray-300 text-base xl:text-lg leading-relaxed text-justify hyphens-auto text-pretty">
             <strong className="font-semibold text-white">
               Lead AI/ML Engineer
             </strong>{" "}
