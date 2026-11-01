@@ -1354,7 +1354,7 @@ test.describe("Home hero", () => {
           .getByRole("link", { name })
           .boundingBox())!;
         tops.push(box.y);
-        expect([name, box.y + box.height <= height]).toEqual([name, true]);
+        expect([name, box.y + box.height <= height - 8]).toEqual([name, true]);
         expect([name, box.x >= 0 && box.x + box.width <= width]).toEqual([
           name,
           true,
@@ -1446,6 +1446,44 @@ test.describe("Home hero", () => {
     const left = icons.y + icons.height - video.y;
     const right = buttons.y + buttons.height - name.y;
     expect(Math.abs(left - right)).toBeLessThanOrEqual(40);
+  });
+
+  for (const width of [1024, 1280, 1440]) {
+    test(`the two columns sit centred on the page at ${width}px`, async ({
+      page,
+    }) => {
+      await page.setViewportSize({ width, height: 900 });
+      await page.goto("/");
+      const hero = page.locator("#hero");
+      const video = (await hero.locator("video").locator("..").boundingBox())!;
+      const text = (await hero.getByText("published nearly 50").boundingBox())!;
+      const left = video.x;
+      const right = width - (text.x + text.width);
+      expect(Math.abs(left - right)).toBeLessThanOrEqual(24);
+    });
+  }
+
+  test("the paragraph hyphenates and stays justified", async ({ page }) => {
+    await page.goto("/");
+    const style = await page
+      .locator("#hero")
+      .getByText("published nearly 50")
+      .evaluate((el) => {
+        const s = getComputedStyle(el);
+        return [s.hyphens, s.textAlign, el.closest("html")!.lang];
+      });
+    expect(style).toEqual(["auto", "justify", "en"]);
+  });
+
+  test("each profile icon has a tooltip and a 24px glyph", async ({ page }) => {
+    await page.goto("/");
+    const icons = page.locator('#hero a[aria-label][style*="inline-block"]');
+    for (const icon of await icons.all()) {
+      const label = await icon.getAttribute("aria-label");
+      await expect(icon).toHaveAttribute("title", label!);
+      const glyph = (await icon.locator("svg").boundingBox())!;
+      expect(Math.round(glyph.width)).toBe(24);
+    }
   });
 
   test("below lg the order is name, video, icons, buttons, paragraph", async ({

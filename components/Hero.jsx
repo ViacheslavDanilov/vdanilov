@@ -55,8 +55,8 @@ const Hero = () => {
       id="hero"
       className="w-full max-w-7xl mx-auto px-6 pb-12 overflow-x-clip lg:py-12 lg:min-h-[min(calc(100svh-6rem),66rem)] lg:flex lg:flex-col lg:justify-center"
     >
-      <div className="flex flex-col items-center gap-8 lg:grid lg:grid-cols-2 lg:gap-16">
-        <div className="contents lg:flex lg:flex-col lg:items-center lg:gap-8 lg:justify-self-center">
+      <div className="flex flex-col items-center gap-8 lg:grid lg:grid-cols-[auto_minmax(0,36rem)] lg:justify-center lg:gap-16">
+        <div className="contents lg:flex lg:flex-col lg:items-center lg:gap-8">
           <div className="order-1 lg:order-none relative size-64 md:size-96 rounded-full overflow-hidden border-4 border-accent/20 shadow-2xl bg-dark">
             <Image
               src="/hero/hero-poster.webp"
@@ -71,7 +71,7 @@ const Hero = () => {
               Your browser does not support the video tag.
             </AutoplayVideo>
           </div>
-          <div className="order-2 lg:order-none flex flex-wrap items-center justify-center gap-8">
+          <div className="order-2 lg:order-none -mt-3 lg:mt-0 flex flex-wrap items-center justify-center gap-6">
             {socialLinks.map((social) => (
               <a
                 key={social.name}
@@ -85,15 +85,16 @@ const Hero = () => {
                     : "noopener noreferrer"
                 }
                 aria-label={social.name}
-                className="p-3 -m-3 text-gray-400 transition-all duration-300 transform motion-safe:hover:scale-110 hover:text-light"
+                title={social.name}
+                className="p-3 -m-3 rounded-full text-gray-400 transition-all duration-300 transform motion-safe:hover:scale-110 hover:text-light focus-visible:outline-2 focus-visible:outline-accent"
                 style={{ display: "inline-block" }}
               >
                 <FontAwesomeIcon
                   icon={social.icon}
-                  className="w-5 h-5"
+                  className="w-6 h-6"
                   style={{
-                    width: "1.25rem",
-                    height: "1.25rem",
+                    width: "1.5rem",
+                    height: "1.5rem",
                     display: "block",
                   }}
                 />
@@ -125,7 +126,7 @@ const Hero = () => {
             </p>
           </div>
 
-          <p className="order-4 lg:order-none max-w-2xl text-light text-base xl:text-lg leading-relaxed text-justify">
+          <p className="order-4 lg:order-none max-w-2xl text-light text-base xl:text-lg leading-relaxed text-justify hyphens-auto text-pretty">
             <strong className="font-semibold text-white">
               Lead AI/ML Engineer
             </strong>{" "}
