@@ -393,7 +393,7 @@ test.describe("Filter chips", () => {
       });
     }
 
-    test("the selected chip is brought into view from a link and on Back", async ({
+    test("the selected chip is brought into view from a link, a click and Back", async ({
       page,
     }) => {
       await page.goto("/portfolio/?filter=insurtech");
@@ -413,6 +413,17 @@ test.describe("Filter chips", () => {
       await expect
         .poll(() => group.evaluate((el) => el.scrollLeft))
         .toBeLessThan(2);
+
+      await chip.click();
+      await expect.poll(inside).toBe(true);
+      await page
+        .locator('[role="listitem"] a[href^="/portfolio/"]')
+        .first()
+        .click();
+      await expect(page).toHaveURL(/\/portfolio\/[a-z-]+\/$/);
+      await page.goBack();
+      await expect(page).toHaveURL(/\?filter=insurtech$/);
+      await expect.poll(inside).toBe(true);
     });
 
     test("a fade shows at an edge only while more chips hide beyond it", async ({

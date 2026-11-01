@@ -60,10 +60,10 @@ export default function FilteredGrid({
     [items, options],
   );
 
-  // Below md the buttons sit in one scrolling row; a fade marks each edge with more beyond it
+  // Below md: one scrolling row, a fade at each edge with chips beyond it
   const railRef = useRef(null);
-  const slid = useRef(false);
-  const [edges, setEdges] = useState({ start: false, end: false });
+  const picked = useRef(false);
+  const [edges, setEdges] = useState({ start: false, end: true });
 
   const readEdges = useCallback(() => {
     const rail = railRef.current;
@@ -78,24 +78,28 @@ export default function FilteredGrid({
     readEdges();
     const observer = new ResizeObserver(readEdges);
     observer.observe(railRef.current);
+    for (const chip of railRef.current.children) observer.observe(chip);
     return () => observer.disconnect();
   }, [readEdges]);
 
-  // Bring the selected button to the middle of the row, without moving the page
+  // Centre the selected chip in the row, sliding only after a click
   useEffect(() => {
     const rail = railRef.current;
     const chip = rail.querySelector('[aria-pressed="true"]');
     if (!chip || rail.scrollWidth <= rail.clientWidth) return;
-    const still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
     rail.scrollTo({
       left: chip.offsetLeft - (rail.clientWidth - chip.offsetWidth) / 2,
-      behavior: slid.current && !still ? "smooth" : "auto",
+      behavior: picked.current && !reduceMotion ? "smooth" : "auto",
     });
-    slid.current = true;
+    picked.current = false;
   }, [activeFilter]);
 
-  const fade = (on) => (on ? "2rem" : "0px");
-  const railMask = `linear-gradient(to right, transparent, #000 ${fade(edges.start)}, #000 calc(100% - ${fade(edges.end)}), transparent)`;
+  const edgeFade = (on) => (on ? "2rem" : "0px");
+  const railMask = `linear-gradient(to right, transparent, #000 ${edgeFade(edges.start)}, #000 calc(100% - ${edgeFade(edges.end)}), transparent)`;
+  // From md the row is 48rem wide: 45rem plus the 3rem it bleeds into the section padding
 
   return (
     <>
@@ -117,7 +121,10 @@ export default function FilteredGrid({
             icon={option.icon}
             selected={activeFilter === option.id}
             aria-pressed={activeFilter === option.id}
-            setSelected={() => setActiveFilter(option.id)}
+            setSelected={() => {
+              picked.current = true;
+              setActiveFilter(option.id);
+            }}
             layoutId={layoutId}
           />
         ))}
