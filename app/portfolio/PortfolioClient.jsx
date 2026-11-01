@@ -248,7 +248,7 @@ const FILTER_OPTIONS = [
   },
   {
     id: "clinical-decision-support",
-    label: "Clinical Decision Support",
+    label: "Clinical Support",
     icon: "" /* faHeartPulse */,
   },
   {
