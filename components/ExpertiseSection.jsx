@@ -15,7 +15,7 @@ const cardData = [
       "From a PhD in Computer Science to research roles across <highlight>Europe's leading institutions</highlight>: Pompeu Fabra, Sorbonne, ICFO, Politecnico di Milano, University of Leeds, Madrid Polytechnic, and UniTrento. Bridging <highlight>fundamental research</highlight> with practical applications in computer science, big data, AI and machine learning.",
     label: "Research & Development",
     icon: faFlask,
-    image: "/portfolio/previews/oncocell-vision.jpg",
+    image: "/expertise/research-and-development.jpg",
     link: { href: "/experience", label: "View experience" },
   },
   {
@@ -24,7 +24,7 @@ const cardData = [
       "Developing advanced ML and AI systems for <highlight>medical imaging</highlight> across ultrasound, CT, MRI, hyperspectral, and time-series physiological data. Projects delivered for <highlight>leading medical centers</highlight> including Vall d'Hebron, Beth Israel Deaconess, Boston Children's, and the Institute of Image-Guided Surgery.",
     label: "Healthcare AI",
     icon: faHeartPulse,
-    image: "/portfolio/previews/pulmoscore.jpg",
+    image: "/expertise/medical-imaging-ai.jpg",
     link: { href: "/portfolio?filter=medical-imaging", label: "View projects" },
   },
   {
@@ -33,7 +33,7 @@ const cardData = [
       "Building scalable ML and AI systems with <highlight>AutoML, PyTorch, TensorFlow, LangChain,</highlight> scikit-learn, MLflow, and DVC, deployed across <highlight>AWS and Google Cloud</highlight>. Integrating Generative AI with OpenAI, Qwen, Llama, and Stable Diffusion models for intelligent pipelines and workflow automation.",
     label: "ML Engineering",
     icon: faMicrochip,
-    image: "/portfolio/previews/insurecast.jpg",
+    image: "/expertise/scalable-ml-systems.jpg",
   },
   {
     title: "Technology Leadership",
@@ -41,7 +41,7 @@ const cardData = [
       "Serving as <highlight>AI thought leader</highlight>, driving strategic direction, architectural decisions, and execution across client and internal projects. Establishing <highlight>long-term technical vision</highlight> and aligning technological units around scalable, AI-driven innovation for sustainable growth and competitive advantage.",
     label: "Strategic Leadership",
     icon: faChessKing,
-    image: "/portfolio/previews/risk-profiler.jpg",
+    image: "/expertise/technology-leadership.jpg",
   },
   {
     title: "Cross-Functional Management",
@@ -49,7 +49,7 @@ const cardData = [
       "Leading and scaling a <highlight>cross-functional department</highlight> focused on AI, ML, autonomous agents, and automation. Managing diverse teams of <highlight>developers, scientists, and product managers</highlight> to deliver innovative solutions while fostering collaboration, mentorship, and continuous learning.",
     label: "Team Leadership",
     icon: faUsers,
-    image: "/portfolio/previews/claim-assistant.jpg",
+    image: "/expertise/cross-functional-management.jpg",
   },
   {
     title: "Applied ML & AI Across Industries",
@@ -57,7 +57,7 @@ const cardData = [
       "Developing applied ML & AI systems for <highlight>insurance, diagnostics, and pharma</highlight> with deployments involving AmTrust, CNA, Lumos Insurance, leading medical centers, and pharmaceutical companies like Bristol Myers Squibb, Boehringer Ingelheim, and Volastra Therapeutics.",
     label: "Industry Applications",
     icon: faIndustry,
-    image: "/portfolio/previews/insurance-pricing.jpg",
+    image: "/expertise/applied-ml-across-industries.jpg",
     link: { href: "/portfolio?filter=industry-ai-ml", label: "View projects" },
   },
 ];

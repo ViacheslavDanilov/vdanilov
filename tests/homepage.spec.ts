@@ -433,14 +433,18 @@ test.describe("Homepage - Expertise Section", () => {
 
 test.describe("Homepage - Expertise list with a pinned picture", () => {
   const ROWS = [
-    ["10+ Years of Advanced R&D", "oncocell-vision", "/experience/"],
-    ["Medical Imaging AI", "pulmoscore", "/portfolio/?filter=medical-imaging"],
-    ["Scalable ML Systems", "insurecast", null],
-    ["Technology Leadership", "risk-profiler", null],
-    ["Cross-Functional Management", "claim-assistant", null],
+    ["10+ Years of Advanced R&D", "research-and-development", "/experience/"],
+    [
+      "Medical Imaging AI",
+      "medical-imaging-ai",
+      "/portfolio/?filter=medical-imaging",
+    ],
+    ["Scalable ML Systems", "scalable-ml-systems", null],
+    ["Technology Leadership", "technology-leadership", null],
+    ["Cross-Functional Management", "cross-functional-management", null],
     [
       "Applied ML & AI Across Industries",
-      "insurance-pricing",
+      "applied-ml-across-industries",
       "/portfolio/?filter=industry-ai-ml",
     ],
   ] as const;
