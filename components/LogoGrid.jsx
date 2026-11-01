@@ -126,7 +126,7 @@ const LogoGrid = () => {
                 width={320}
                 height={160}
                 style={{ width: "auto", height: "auto" }}
-                className={`${logo.size ?? "max-h-9 md:max-h-[3.25rem]"} max-w-[7.5rem] md:max-w-[11rem] object-contain brightness-[.96] motion-safe:transition-opacity motion-safe:duration-300 group-hover/cell:opacity-0 group-focus-within/cell:opacity-0`}
+                className={`${logo.size ?? "max-h-9 md:max-h-[3.25rem]"} max-w-[7.5rem] md:max-w-[11rem] object-contain brightness-[.96] motion-safe:transition-opacity motion-safe:duration-300 group-hover/cell:opacity-0 group-has-[:focus-visible]/cell:opacity-0`}
               />
               <Image
                 src={logo.src.replace("-mono", "")}
@@ -139,7 +139,7 @@ const LogoGrid = () => {
                   height: "auto",
                   filter: logo.brighten,
                 }}
-                className={`${logo.size ?? "max-h-9 md:max-h-[3.25rem]"} max-w-[7.5rem] md:max-w-[11rem] object-contain absolute inset-0 m-auto opacity-0 motion-safe:transition-opacity motion-safe:duration-300 group-hover/cell:opacity-100 group-focus-within/cell:opacity-100`}
+                className={`${logo.size ?? "max-h-9 md:max-h-[3.25rem]"} max-w-[7.5rem] md:max-w-[11rem] object-contain absolute inset-0 m-auto opacity-0 motion-safe:transition-opacity motion-safe:duration-300 group-hover/cell:opacity-100 group-has-[:focus-visible]/cell:opacity-100`}
               />
             </Link>
             {inner(i, 2, 6) && <PlusMark className="md:hidden" />}

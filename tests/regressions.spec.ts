@@ -1,5 +1,5 @@
 import { readFileSync } from "node:fs";
-import { test, expect, type Page } from "@playwright/test";
+import { test, expect, devices, type Page } from "@playwright/test";
 
 type Entrance = {
   name: string;
@@ -1898,8 +1898,35 @@ test.describe("Client logos", () => {
     await expect.poll(() => opacity("-mono.svg")).toBe(0);
     await page.mouse.move(2, 2);
     await expect.poll(() => opacity("ingelheim.svg")).toBe(0);
-    await link.focus();
+    await page.locator('main a[aria-label^="Boston"]').focus();
+    await page.keyboard.press("Tab");
+    await expect(link).toBeFocused();
     await expect.poll(() => opacity("ingelheim.svg")).toBe(1);
+    await expect.poll(() => opacity("-mono.svg")).toBe(0);
+  });
+
+  test("a tap on a logo on a touch screen keeps the white version", async ({
+    browser,
+    baseURL,
+  }) => {
+    const context = await browser.newContext({
+      ...devices["Pixel 7"],
+      baseURL,
+    });
+    const page = await context.newPage();
+    await page.goto("/");
+    const link = page.locator('main a[aria-label^="Boehringer"]');
+    await link.scrollIntoViewIfNeeded();
+    await link.tap();
+    await expect(link).toBeFocused();
+    const opacity = (suffix: string) =>
+      link
+        .locator(`img[src$="${suffix}"]`)
+        .evaluate((el) => Number(getComputedStyle(el).opacity));
+    await page.waitForTimeout(500);
+    expect(await opacity("ingelheim.svg")).toBe(0);
+    expect(await opacity("-mono.svg")).toBe(1);
+    await context.close();
   });
 
   test("the colour logo sits on the white one, hidden from screen readers", async ({
