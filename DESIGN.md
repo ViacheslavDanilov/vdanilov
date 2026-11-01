@@ -190,7 +190,7 @@ Pills for anything clickable and small (nav, buttons, badges, tabs, accent bar).
 ### Chips
 
 - **Badge:** 12px text, weight 500, pill, tinted fill plus border in one of five hues, optional 12px icon.
-- **Keyword highlight:** cyan 10% fill, cyan text, weight 600, 8px by 3px padding and a 12px radius. `highlightKeywords` renders it in responsibility lines and education content. The home hero paragraph does not use it: its two roles are plain semibold white. Experience summaries are plain Tailwind 300 grey text with a 2px cyan 40% left border and 12px of left padding.
+- **Keyword highlight:** cyan 10% fill, cyan text, weight 600, 8px by 3px padding and a 12px radius. `highlightKeywords` renders it in responsibility lines and education content. The home hero paragraph does not use it: its two roles are gradient text. Experience summaries are plain Tailwind 300 grey text with a 2px cyan 40% left border and 12px of left padding.
 
 ### Cards / Containers
 
@@ -202,7 +202,7 @@ Pills for anything clickable and small (nav, buttons, badges, tabs, accent bar).
 
 - The home hero is two columns from lg, a video column and a text column of at most 36rem, centred together on the page so the margins either side match. The left column is the round video with the six profile icons centred under it (20px glyphs in 44px targets 32px apart, each with a tooltip and a cyan focus ring). The right column is the page name (Display), one of the three roles in grey, flipped to the next one on a 3D hinge every 3 seconds (Depth Flip Text, built on GSAP and loaded after the page), the paragraph about the owner and two glass buttons (Download CV, Contact me). The name, roles and buttons are centred on the column, and the paragraph is justified and hyphenated. The video is 16rem across on phones and 24rem from 768px, the sizes the page had before the rework. At 1440x900 the two columns differ in height by about 20px.
 - Below lg everything is one centred column in this order: name, roles, video, icons, buttons, paragraph, so that both buttons show on the first screen of a 360px phone, with at least 8px to spare. The page wrapper adds only 16px above the hero on phones, and the icons sit 20px under the video. The next role sits over the current one on one line, so the slot never wraps and never moves the layout. Each cycle holds 2 seconds and flips for about 1.5. Hovering pauses the flip. Screen readers get the three roles as one list and the changing slot is hidden from them. With reduced motion all three show, stacked, and never change.
-- The paragraph names the two roles in semibold white, with no chip, so that the first line starts flush with the text below it.
+- The paragraph names the two roles in semibold gradient text (`GradientText` from React Bits, the accent cyan and a light tint of it, a 10 second back-and-forth sweep that stops with reduced motion or off screen), with no chip, so that the first line starts flush with the text below it. The component wraps with the paragraph, and each line restarts the gradient.
 - The one h1 on the page is the name. Download CV downloads the Drive file directly and Contact me opens an email. The profile icons are 44px targets. The glass buttons are 48px tall with 14px side padding below 640px, so both fit one row down to 345px, and 56px tall with 40px padding from 640px.
 
 ### Navigation

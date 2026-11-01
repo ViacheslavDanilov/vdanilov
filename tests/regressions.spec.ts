@@ -1649,7 +1649,9 @@ test.describe("Home hero", () => {
     expect(wide.name.x).toBeGreaterThan(wide.video.x + wide.video.width);
   });
 
-  test("the two key roles are bold and white, not chips", async ({ page }) => {
+  test("the two key roles are semibold gradient text, not chips", async ({
+    page,
+  }) => {
     await page.goto("/");
     const roles = page.locator("#hero p strong");
     await expect(roles).toHaveText([
@@ -1659,10 +1661,48 @@ test.describe("Home hero", () => {
     for (const role of await roles.all()) {
       const style = await role.evaluate((el) => {
         const s = getComputedStyle(el);
-        return [s.fontWeight, s.color, s.backgroundColor];
+        const fill = getComputedStyle(el.querySelector("span span span")!);
+        return [
+          s.fontWeight,
+          s.backgroundColor,
+          fill.backgroundImage.startsWith("repeating-linear-gradient"),
+          fill.webkitTextFillColor,
+        ];
       });
-      expect(style).toEqual(["600", "rgb(255, 255, 255)", "rgba(0, 0, 0, 0)"]);
+      expect(style).toEqual([
+        "600",
+        "rgba(0, 0, 0, 0)",
+        true,
+        "rgba(0, 0, 0, 0)",
+      ]);
     }
+  });
+
+  test("the role gradient moves, and stands still with reduced motion", async ({
+    browser,
+  }) => {
+    const gradientOf = (page: Page) =>
+      page
+        .locator("#hero p strong")
+        .first()
+        .evaluate(
+          (el) =>
+            getComputedStyle(el.querySelector("span span span")!)
+              .backgroundImage,
+        );
+    const moving = await (await browser.newContext()).newPage();
+    await moving.goto("/");
+    const first = await gradientOf(moving);
+    await moving.waitForTimeout(1500);
+    expect(await gradientOf(moving)).not.toBe(first);
+
+    const still = await (
+      await browser.newContext({ reducedMotion: "reduce" })
+    ).newPage();
+    await still.goto("/");
+    const rest = await gradientOf(still);
+    await still.waitForTimeout(1500);
+    expect(await gradientOf(still)).toBe(rest);
   });
 
   for (const width of [360, 390, 768, 810, 1024, 1280]) {

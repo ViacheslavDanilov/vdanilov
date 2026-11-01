@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import AutoplayVideo from "@/components/AutoplayVideo";
 import DepthFlipText from "@/components/ui/depth-flip-text";
+import GradientText from "@/components/ui/gradient-text";
 import { LiquidButtonLink } from "@/components/ui/liquid-button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -49,6 +50,7 @@ const socialLinks = [
 ];
 
 const roles = ["Tech Lead", "Engineering Manager", "Research Scientist"];
+const ROLE_GRADIENT = ["#03b1fb", "#b6ecff"];
 
 const Hero = () => {
   return (
@@ -117,12 +119,16 @@ const Hero = () => {
           </div>
 
           <p className="order-4 lg:order-none max-w-2xl text-light text-base xl:text-lg leading-relaxed text-justify hyphens-auto text-pretty">
-            <strong className="font-semibold text-white">
-              Lead AI/ML Engineer
+            <strong className="font-semibold">
+              <GradientText colors={ROLE_GRADIENT} animationSpeed={10} inline>
+                Lead AI/ML Engineer
+              </GradientText>
             </strong>{" "}
             and{" "}
-            <strong className="font-semibold text-white">
-              Research Scientist
+            <strong className="font-semibold">
+              <GradientText colors={ROLE_GRADIENT} animationSpeed={10} inline>
+                Research Scientist
+              </GradientText>
             </strong>{" "}
             with a PhD in Computer Science and over 10 years across academia and
             industry. I take machine learning from first experiment to
