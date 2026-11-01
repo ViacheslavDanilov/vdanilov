@@ -200,27 +200,21 @@ test.describe("Homepage - Hero Section", () => {
     await expect(
       page.getByRole("heading", { name: "Viacheslav Danilov, PhD" }),
     ).toBeVisible();
-    await expect(
-      page.getByText("Fusing Science with Engineering Precision"),
-    ).toBeVisible();
+    await expect(page.locator("h1")).toHaveCount(1);
+    await expect(page.getByText("Fusing Science")).toHaveCount(0);
   });
 
-  test("hero section displays animated role titles", async ({ page }) => {
+  test("hero section lists the three roles for screen readers", async ({
+    page,
+  }) => {
     await page.goto("/");
 
-    // Check that at least one of the flip words is present
-    const roles = ["Tech Lead", "Engineering Manager", "Research Scientist"];
-    let foundRole = false;
-
-    for (const role of roles) {
-      const roleElement = page.locator(`text="${role}"`);
-      if (await roleElement.isVisible()) {
-        foundRole = true;
-        break;
-      }
-    }
-
-    expect(foundRole).toBeTruthy();
+    await expect(page.locator("#hero [data-depth-flip] > .sr-only")).toHaveText(
+      "Tech Lead, Engineering Manager, Research Scientist",
+    );
+    await expect(page.locator('#hero [data-phrase="current"]')).toHaveText(
+      "Tech Lead",
+    );
   });
 
   test("hero video element is present", async ({ page }) => {
@@ -244,69 +238,79 @@ test.describe("Homepage - Hero Section", () => {
     await expect(cvButton).toBeVisible();
     await expect(cvButton).toHaveAttribute(
       "href",
-      /^https?:\/\/drive\.google\.com\//,
+      /^https:\/\/drive\.google\.com\/uc\?export=download&id=1viI3o1RBDoreQcbCwe5zc2NTWpxU7ouk$/,
     );
   });
 
-  test("portfolio button is visible and links to portfolio page", async ({
+  test("the hero has no Portfolio button", async ({ page }) => {
+    await page.goto("/");
+
+    await expect(
+      page.locator("#hero").getByRole("link", { name: /Portfolio/i }),
+    ).toHaveCount(0);
+  });
+
+  test("the About section is merged into the hero", async ({ page }) => {
+    await page.goto("/");
+
+    await expect(page.getByRole("heading", { name: "About Me" })).toHaveCount(
+      0,
+    );
+    await expect(page.locator("#about")).toHaveCount(0);
+    await expect(
+      page.locator("#hero").getByText("published nearly 50 peer-reviewed"),
+    ).toBeVisible();
+  });
+
+  test("the hero holds the only video on the page", async ({ page }) => {
+    await page.goto("/");
+
+    await expect(page.locator("video")).toHaveCount(1);
+    await expect(page.locator("#hero video")).toHaveCount(1);
+  });
+
+  test("all 6 social links are present in the hero, in order", async ({
     page,
   }) => {
     await page.goto("/");
 
-    const portfolioButton = page
-      .locator("#hero")
-      .getByRole("link", { name: /Portfolio/i });
-    await expect(portfolioButton).toBeVisible();
-    await expect(portfolioButton).toHaveAttribute("href", /\/portfolio\/?$/);
-  });
-});
-
-test.describe("Homepage - About Section", () => {
-  test("about section is visible with heading", async ({ page }) => {
-    await page.goto("/");
-
-    await expect(page.getByRole("heading", { name: "About Me" })).toBeVisible();
-    await expect(
-      page.getByText(
-        "Bridging science and engineering to solve complex challenges",
-      ),
-    ).toBeVisible();
-  });
-
-  test("about video element is present", async ({ page }) => {
-    await page.goto("/");
-
-    const videos = page.locator("video");
-    const videoCount = await videos.count();
-
-    // There should be at least 2 videos (hero + about)
-    expect(videoCount).toBeGreaterThanOrEqual(2);
-  });
-
-  test("all 6 social links are present in about section", async ({ page }) => {
-    await page.goto("/");
-
-    const socialLinks = [
-      { name: "LinkedIn", href: "linkedin.com" },
-      { name: "GitHub", href: "github.com" },
-      { name: "Google Scholar", href: "scholar.google.com" },
-      { name: "ORCID", href: "orcid.org" },
-      { name: "ResearchGate", href: "researchgate.net" },
-      { name: "Email", href: "mailto:" },
+    const links = page.locator('#hero a[aria-label][style*="inline-block"]');
+    await expect(links).toHaveCount(6);
+    expect(
+      await links.evaluateAll((els) => els.map((el) => el.ariaLabel)),
+    ).toEqual([
+      "LinkedIn",
+      "GitHub",
+      "ResearchGate",
+      "Google Scholar",
+      "ORCID",
+      "Email",
+    ]);
+    const hrefs = [
+      "linkedin.com",
+      "github.com",
+      "researchgate.net",
+      "scholar.google.com",
+      "orcid.org",
+      "mailto:",
     ];
-
-    for (const social of socialLinks) {
-      const link = page.locator(`a[href*="${social.href}"]`).first();
-      await expect(link).toBeVisible();
+    for (const [i, href] of hrefs.entries()) {
+      await expect(links.nth(i)).toHaveAttribute("href", new RegExp(href));
     }
   });
 
-  test("WhatsApp contact button is visible", async ({ page }) => {
+  test("Contact me opens an email and WhatsApp is gone", async ({ page }) => {
     await page.goto("/");
 
-    const whatsappButton = page.getByRole("link", { name: /Contact me/i });
-    await expect(whatsappButton).toBeVisible();
-    await expect(whatsappButton).toHaveAttribute("href", /wa\.me/);
+    const contact = page
+      .locator("#hero")
+      .getByRole("link", { name: "Contact me" });
+    await expect(contact).toBeVisible();
+    await expect(contact).toHaveAttribute(
+      "href",
+      "mailto:viacheslav.v.danilov@gmail.com",
+    );
+    await expect(page.locator('a[href*="wa.me"]')).toHaveCount(0);
   });
 
   test("social links open in new tab", async ({ page }) => {
@@ -560,7 +564,9 @@ test.describe("Homepage - Responsive Layout Tests", () => {
     await page.goto("/");
 
     // Check that main sections are visible
-    await expect(page.getByRole("heading", { name: "About Me" })).toBeVisible();
+    await expect(
+      page.getByRole("heading", { name: "Viacheslav Danilov, PhD" }),
+    ).toBeVisible();
     await expect(
       page.getByRole("heading", { name: "Featured Projects" }),
     ).toBeVisible();
@@ -681,7 +687,7 @@ test.describe("Homepage - Performance Tests", () => {
     const videos = page.locator("video");
     const videoCount = await videos.count();
 
-    expect(videoCount).toBeGreaterThanOrEqual(2);
+    expect(videoCount).toBeGreaterThanOrEqual(1);
 
     // Check that videos are present and have source
     const firstVideo = videos.first();

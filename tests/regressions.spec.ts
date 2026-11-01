@@ -84,24 +84,6 @@ test.describe("Layout width", () => {
 test.describe("Phone layout at 360px", () => {
   test.use({ viewport: { width: 360, height: 800 } });
 
-  test("the hero word flip never widens the page", async ({ page }) => {
-    await page.goto("/");
-    const peak = await page.evaluate(
-      () =>
-        new Promise<number>((resolve) => {
-          let max = 0;
-          const end = performance.now() + 7000;
-          const tick = () => {
-            max = Math.max(max, document.documentElement.scrollWidth);
-            if (performance.now() < end) requestAnimationFrame(tick);
-            else resolve(max);
-          };
-          tick();
-        }),
-    );
-    expect(peak).toBeLessThanOrEqual(360);
-  });
-
   test("the lightbox image fills the width of the phone", async ({ page }) => {
     await page.goto("/portfolio/deep-anatomy/");
     const buttons = page.getByRole("button", {
@@ -888,7 +870,7 @@ test.describe("Touch targets at 360px", () => {
     ["menu toggle", "/", 'button[aria-label="Toggle menu"]'],
     ["team icons", "/portfolio/deep-anatomy/", 'main a[aria-label*="\'s "]'],
     ["reference icons", "/references/", 'main a[aria-label*="\'s "]'],
-    ["About icons", "/", 'main a[aria-label][style*="inline-block"]'],
+    ["hero icons", "/", 'main a[aria-label][style*="inline-block"]'],
     ["filter tabs", "/portfolio/", "button[aria-pressed]"],
     ["card tabs", "/experience/", "article button[aria-expanded]"],
     ["footer links", "/", "footer ul a"],
@@ -1230,7 +1212,7 @@ test.describe("Page weight", () => {
 
   test("server-only home sections stay server components", () => {
     for (const name of [
-      "About",
+      "Hero",
       "FeaturedProjects",
       "ExpertiseSection",
       "CallToAction",
@@ -1304,32 +1286,473 @@ test.describe("Page weight", () => {
 });
 
 test.describe("Hero and About videos", () => {
-  for (const [name, src] of [
-    ["hero", "/hero/hero-video.mp4"],
-    ["about", "/hero/about-video.mp4"],
+  test("the hero video is 1082 px, plays and stays under 4 MB", async ({
+    page,
+    request,
+  }) => {
+    await page.goto("/");
+    const src = "/hero/hero-video.mp4";
+    const video = page.locator(`video:has(source[src="${src}"])`);
+    await video.scrollIntoViewIfNeeded();
+
+    await expect
+      .poll(() => video.evaluate((el: HTMLVideoElement) => el.currentTime), {
+        timeout: 15_000,
+      })
+      .toBeGreaterThan(0);
+    const size = await video.evaluate((el: HTMLVideoElement) => [
+      el.videoWidth,
+      el.videoHeight,
+    ]);
+    expect(size).toEqual([1082, 1082]);
+
+    const response = await request.get(src);
+    expect(response.headers()["content-type"]).toContain("video/mp4");
+    expect((await response.body()).length).toBeLessThan(4 * 1024 * 1024);
+  });
+
+  test("the About video is off the page, its file stays 1082 px under 4 MB", async ({
+    page,
+    request,
+  }) => {
+    const src = "/hero/about-video.mp4";
+    await page.goto("/");
+    await expect(page.locator(`source[src="${src}"]`)).toHaveCount(0);
+
+    await page.goto(src);
+    const video = page.locator("video");
+    await expect
+      .poll(() => video.evaluate((el: HTMLVideoElement) => el.videoWidth), {
+        timeout: 15_000,
+      })
+      .toBe(1082);
+    expect(await video.evaluate((el: HTMLVideoElement) => el.videoHeight)).toBe(
+      1082,
+    );
+
+    const response = await request.get(src);
+    expect(response.headers()["content-type"]).toContain("video/mp4");
+    expect((await response.body()).length).toBeLessThan(4 * 1024 * 1024);
+  });
+});
+
+test.describe("Home hero roles with reduced motion", () => {
+  test.use({ reducedMotion: "reduce" });
+
+  test("all three roles show stacked and never change", async ({ page }) => {
+    await page.goto("/");
+    const roles = page.locator("#hero [data-depth-flip] p:visible");
+    await expect(roles).toHaveText([
+      "Tech Lead",
+      "Engineering Manager",
+      "Research Scientist",
+    ]);
+    await expect(page.locator("#hero [data-phrase]")).toHaveCount(2);
+    await expect(page.locator("#hero [data-phrase]").first()).toBeHidden();
+    const tops = await roles.evaluateAll((els) =>
+      els.map((el) => el.getBoundingClientRect().top),
+    );
+    expect(new Set(tops).size).toBe(3);
+    await page.waitForTimeout(3600);
+    await expect(roles).toHaveText([
+      "Tech Lead",
+      "Engineering Manager",
+      "Research Scientist",
+    ]);
+  });
+});
+
+test.describe("Home hero", () => {
+  for (const [width, height] of [
+    [390, 844],
+    [360, 740],
+    [345, 740],
   ]) {
-    test(`the ${name} video is 1082 px, plays and stays under 4 MB`, async ({
+    test(`both buttons show on the first screen at ${width}x${height}${width >= 360 ? ", in one row" : ""}`, async ({
       page,
-      request,
     }) => {
+      await page.setViewportSize({ width, height });
       await page.goto("/");
-      const video = page.locator(`video:has(source[src="${src}"])`);
-      await video.scrollIntoViewIfNeeded();
+      const tops = [];
+      for (const name of ["Download CV", "Contact me"]) {
+        const box = (await page
+          .locator("#hero")
+          .getByRole("link", { name })
+          .boundingBox())!;
+        tops.push(box.y);
+        expect([name, box.y + box.height <= height - 8]).toEqual([name, true]);
+        expect([name, box.x >= 0 && box.x + box.width <= width]).toEqual([
+          name,
+          true,
+        ]);
+      }
+      if (width >= 360) expect(tops[0]).toBe(tops[1]);
+    });
+  }
 
+  test("at 1440x900 the whole hero fits the first screen", async ({ page }) => {
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto("/");
+    const bottoms = await page.evaluate(() => {
+      const hero = document.querySelector("#hero")!;
+      const bottom = (el: Element | null) =>
+        Math.round(el!.getBoundingClientRect().bottom);
+      return {
+        roles: bottom(hero.querySelector("p")),
+        video: bottom(hero.querySelector("video")),
+        icons: bottom(hero.querySelector('a[aria-label="Email"]')),
+        buttons: bottom(hero.querySelector('a[aria-label="Contact me"]')),
+      };
+    });
+    for (const [part, bottom] of Object.entries(bottoms)) {
+      expect([part, bottom <= 900]).toEqual([part, true]);
+    }
+  });
+
+  test("from lg the video sits left of the name and the text", async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 1280, height: 800 });
+    await page.goto("/");
+    const hero = page.locator("#hero");
+    const video = (await hero.locator("video").boundingBox())!;
+    const bio = (await hero.getByText("published nearly 50").boundingBox())!;
+    const name = (await hero.locator("h1").boundingBox())!;
+    const icons = (await hero
+      .getByRole("link", { name: "Email" })
+      .boundingBox())!;
+    expect(video.x + video.width).toBeLessThan(name.x);
+    expect(video.x + video.width).toBeLessThan(bio.x);
+    expect(name.y + name.height).toBeLessThan(bio.y);
+    const middle = video.y + video.height / 2;
+    expect(middle).toBeGreaterThan(name.y);
+    expect(middle).toBeLessThan(icons.y + icons.height);
+  });
+
+  test("the buttons centre under the paragraph and the icons under the video", async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto("/");
+    const hero = page.locator("#hero");
+    const bio = (await hero.getByText("published nearly 50").boundingBox())!;
+    const video = (await hero.locator("video").locator("..").boundingBox())!;
+    const centre = (b: { x: number; width: number }) => b.x + b.width / 2;
+    const first = (await hero
+      .getByRole("link", { name: "Download CV" })
+      .boundingBox())!;
+    const last = (await hero
+      .getByRole("link", { name: "Contact me" })
+      .boundingBox())!;
+    expect((first.x + last.x + last.width) / 2).toBeCloseTo(centre(bio), -1);
+    const icons = await hero
+      .locator('a[aria-label][style*="inline-block"]')
+      .evaluateAll((els) =>
+        els.map((el) => el.firstElementChild!.getBoundingClientRect()),
+      );
+    expect(icons).toHaveLength(6);
+    expect((icons[0].left + icons[5].right) / 2).toBeCloseTo(centre(video), -1);
+    expect(icons[0].top).toBeGreaterThan(video.y + video.height);
+    const name = (await hero.locator("h1").boundingBox())!;
+    expect(centre(name)).toBeCloseTo(centre(bio), -1);
+  });
+
+  test("the two columns are balanced at 1440x900", async ({ page }) => {
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto("/");
+    const hero = page.locator("#hero");
+    const video = (await hero.locator("video").locator("..").boundingBox())!;
+    const name = (await hero.locator("h1").boundingBox())!;
+    const icons = (await hero
+      .getByRole("link", { name: "Email" })
+      .boundingBox())!;
+    const buttons = (await hero
+      .getByRole("link", { name: "Contact me" })
+      .boundingBox())!;
+    const left = icons.y + icons.height - video.y;
+    const right = buttons.y + buttons.height - name.y;
+    expect(Math.abs(left - right)).toBeLessThanOrEqual(40);
+  });
+
+  const shownRole = (page: Page) =>
+    page.locator('#hero [data-phrase="current"]').textContent();
+
+  test("one role shows at a time and the next one follows", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    expect(await shownRole(page)).toBe("Tech Lead");
+    for (const role of [
+      "Engineering Manager",
+      "Research Scientist",
+      "Tech Lead",
+    ]) {
+      await expect.poll(() => shownRole(page), { timeout: 10_000 }).toBe(role);
+    }
+  });
+
+  test("the roles flip in 3D while they change", async ({ page }) => {
+    await page.goto("/");
+    const next = page.locator('#hero [data-phrase="next"]');
+    await expect
+      .poll(() => next.evaluate((el) => getComputedStyle(el).opacity), {
+        timeout: 10_000,
+      })
+      .toBe("1");
+    const flipping = await next
+      .locator("div, span")
+      .evaluateAll((els) =>
+        els.some((el) => getComputedStyle(el).transform.startsWith("matrix3d")),
+      );
+    expect(flipping).toBe(true);
+  });
+
+  for (const [width, height] of [
+    [360, 740],
+    [390, 844],
+    [1024, 768],
+    [1440, 900],
+  ]) {
+    test(`the role slot keeps one line and its size at ${width}px`, async ({
+      page,
+    }) => {
+      await page.setViewportSize({ width, height });
+      await page.goto("/");
+      const slot = page.locator("#hero [data-depth-flip]");
+      const first = (await slot.boundingBox())!;
+      expect(first.height).toBeLessThan(36);
       await expect
-        .poll(() => video.evaluate((el: HTMLVideoElement) => el.currentTime), {
-          timeout: 15_000,
-        })
-        .toBeGreaterThan(0);
-      const size = await video.evaluate((el: HTMLVideoElement) => [
-        el.videoWidth,
-        el.videoHeight,
+        .poll(() => shownRole(page), { timeout: 10_000 })
+        .toBe("Engineering Manager");
+      await page.waitForTimeout(300);
+      const second = (await slot.boundingBox())!;
+      expect([second.width, second.height]).toEqual([
+        first.width,
+        first.height,
       ]);
-      expect(size).toEqual([1082, 1082]);
+      expect(
+        await page.evaluate(
+          () =>
+            document.documentElement.scrollWidth <=
+            document.documentElement.clientWidth,
+        ),
+      ).toBe(true);
+    });
+  }
 
-      const response = await request.get(src);
-      expect(response.headers()["content-type"]).toContain("video/mp4");
-      expect((await response.body()).length).toBeLessThan(4 * 1024 * 1024);
+  test("hovering the roles pauses the flip between flips", async ({ page }) => {
+    await page.goto("/");
+    await page.locator("#hero [data-depth-flip]").hover();
+    await page.waitForTimeout(5000);
+    expect(await shownRole(page)).toBe("Tech Lead");
+  });
+
+  test("hovering during a flip lets it finish instead of freezing tilted", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    const current = page.locator('#hero [data-phrase="current"]');
+    await expect
+      .poll(
+        () =>
+          current.evaluate((el) =>
+            [...el.querySelectorAll("div, span")].some((char) => {
+              const m = getComputedStyle(char).transform;
+              return m.startsWith("matrix3d") && Number(m.split(",")[5]) < 0.9;
+            }),
+          ),
+        { timeout: 10_000, intervals: [50] },
+      )
+      .toBe(true);
+    await page.locator("#hero [data-depth-flip]").hover();
+    await expect
+      .poll(() => shownRole(page), { timeout: 5000 })
+      .toBe("Engineering Manager");
+  });
+
+  for (const width of [1024, 1280, 1440]) {
+    test(`the two columns sit centred on the page at ${width}px`, async ({
+      page,
+    }) => {
+      await page.setViewportSize({ width, height: 900 });
+      await page.goto("/");
+      const hero = page.locator("#hero");
+      const video = (await hero.locator("video").locator("..").boundingBox())!;
+      const text = (await hero.getByText("published nearly 50").boundingBox())!;
+      const left = video.x;
+      const right = width - (text.x + text.width);
+      expect(Math.abs(left - right)).toBeLessThanOrEqual(24);
+    });
+  }
+
+  test("the paragraph hyphenates and stays justified", async ({ page }) => {
+    await page.goto("/");
+    const style = await page
+      .locator("#hero")
+      .getByText("published nearly 50")
+      .evaluate((el) => {
+        const s = getComputedStyle(el);
+        return [s.hyphens, s.textAlign, el.closest("html")!.lang];
+      });
+    expect(style).toEqual(["auto", "justify", "en"]);
+  });
+
+  test("each profile icon has a tooltip and a 20px glyph", async ({ page }) => {
+    await page.goto("/");
+    const icons = page.locator('#hero a[aria-label][style*="inline-block"]');
+    await expect(icons).toHaveCount(6);
+    for (const icon of await icons.all()) {
+      const label = await icon.getAttribute("aria-label");
+      await expect(icon).toHaveAttribute("title", label!);
+      const glyph = (await icon.locator("svg").boundingBox())!;
+      expect(Math.round(glyph.width)).toBe(20);
+    }
+  });
+
+  test("the glass buttons keep their own layer, so hovering does not flicker", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    for (const name of ["Download CV", "Contact me"]) {
+      const willChange = await page
+        .locator("#hero")
+        .getByRole("link", { name })
+        .evaluate((el) => getComputedStyle(el).willChange);
+      expect([name, willChange]).toEqual([name, "transform"]);
+    }
+  });
+
+  test("Download CV is the tinted main action and Contact me stays glass", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    const fill = (name: string) =>
+      page
+        .locator("#hero")
+        .getByRole("link", { name })
+        .evaluate((el) => getComputedStyle(el).backgroundColor);
+    expect(await fill("Contact me")).toBe("rgba(0, 0, 0, 0)");
+    expect(await fill("Download CV")).toMatch(/\/ 0\.15\)$/);
+  });
+
+  for (const [width, height] of [
+    [360, 740],
+    [390, 844],
+  ]) {
+    test(`the gaps between the hero blocks are even at ${width}px`, async ({
+      page,
+    }) => {
+      await page.setViewportSize({ width, height });
+      await page.goto("/");
+      const gaps = await page.evaluate(() => {
+        const hero = document.querySelector("#hero")!;
+        const rect = (el: Element) => el.getBoundingClientRect();
+        const parts = [
+          rect(hero.querySelector("h1")!),
+          rect(hero.querySelector("[data-depth-flip]")!),
+          rect(hero.querySelector("video")!.parentElement!),
+          rect(hero.querySelector('a[aria-label="LinkedIn"] svg')!),
+          rect(hero.querySelector('a[aria-label="Download CV"]')!),
+          rect(
+            [...hero.querySelectorAll("p")].find((p) =>
+              p.textContent!.includes("published nearly"),
+            )!,
+          ),
+        ];
+        return parts.slice(1).map((box, i) => box.top - parts[i].bottom);
+      });
+      expect(Math.max(...gaps) - Math.min(...gaps)).toBeLessThanOrEqual(8);
+    });
+  }
+
+  test("below lg the order is name, video, icons, buttons, paragraph", async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto("/");
+    const hero = page.locator("#hero");
+    const tops = [
+      await hero.locator("h1").boundingBox(),
+      await hero.locator("video").boundingBox(),
+      await hero.getByRole("link", { name: "LinkedIn" }).boundingBox(),
+      await hero.getByRole("link", { name: "Download CV" }).boundingBox(),
+      await hero.getByText("published nearly 50").boundingBox(),
+    ].map((box) => box!.y);
+    expect(tops).toEqual([...tops].sort((a, b) => a - b));
+  });
+
+  for (const [width, height, size] of [
+    [360, 740, 256],
+    [768, 1024, 384],
+    [1440, 900, 384],
+  ]) {
+    test(`the video is ${size}px across at ${width}px`, async ({ page }) => {
+      await page.setViewportSize({ width, height });
+      await page.goto("/");
+      const box = (await page
+        .locator("#hero video")
+        .locator("..")
+        .boundingBox())!;
+      expect(Math.round(box.width)).toBe(size);
+      expect(Math.round(box.height)).toBe(size);
+    });
+  }
+
+  test("the name leads the first screen on phones and sits in the text column from lg", async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto("/");
+    const phone = {
+      name: (await page.locator("#hero h1").boundingBox())!,
+      video: (await page.locator("#hero video").boundingBox())!,
+    };
+    expect(phone.name.y + phone.name.height).toBeLessThan(phone.video.y);
+    await page.setViewportSize({ width: 1440, height: 900 });
+    const wide = {
+      name: (await page.locator("#hero h1").boundingBox())!,
+      video: (await page.locator("#hero video").boundingBox())!,
+    };
+    expect(wide.name.x).toBeGreaterThan(wide.video.x + wide.video.width);
+  });
+
+  test("the two key roles stand out by weight and tone, not colour", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    const roles = page.locator("#hero p strong");
+    await expect(roles).toHaveText([
+      "Lead AI/ML Engineer",
+      "Research Scientist",
+    ]);
+    for (const role of await roles.all()) {
+      const style = await role.evaluate((el) => {
+        const s = getComputedStyle(el);
+        const body = getComputedStyle(el.parentElement!);
+        return [s.fontWeight, s.color, s.backgroundColor, body.color];
+      });
+      expect(style).toEqual([
+        "600",
+        "rgb(255, 255, 255)",
+        "rgba(0, 0, 0, 0)",
+        "rgb(209, 213, 219)",
+      ]);
+    }
+  });
+
+  for (const width of [360, 390, 768, 810, 1024, 1280]) {
+    test(`the hero does not scroll sideways at ${width}px`, async ({
+      page,
+    }) => {
+      await page.setViewportSize({ width, height: 800 });
+      await page.goto("/");
+      expect(
+        await page.evaluate(
+          () =>
+            document.documentElement.scrollWidth <=
+            document.documentElement.clientWidth,
+        ),
+      ).toBe(true);
     });
   }
 });
@@ -1368,8 +1791,8 @@ test.describe("Home section spacing", () => {
             return [r.top + scrollY, r.height];
           }),
         );
-        expect(boxes).toHaveLength(7);
-        for (const i of [1, 2, 3, 4, 5, 6]) {
+        expect(boxes).toHaveLength(6);
+        for (const i of [1, 2, 3, 4, 5]) {
           expect(boxes[i][1]).toBeGreaterThanOrEqual(screen);
           if (height > screen) expect(boxes[i][1]).toBeLessThan(height);
         }
@@ -1412,12 +1835,13 @@ test.describe("Home section spacing", () => {
           ];
         }),
       );
-      expect(rows).toHaveLength(7);
+      expect(rows).toHaveLength(6);
       expect(await logoRows(page)).toEqual(
         width < 768 ? [2, 2, 2, 2, 2, 2] : [4, 4, 4],
       );
       rows.forEach(([, , top, bottom], i) => {
-        expect([i, top, bottom]).toEqual([i, 48, 48]);
+        // Below lg the hero starts at the page's own top padding
+        expect([i, top, bottom]).toEqual([i, i === 0 ? 0 : 48, 48]);
         if (i > 0) expect(rows[i][0] - rows[i - 1][1]).toBeCloseTo(96, 0);
       });
     });
@@ -1533,7 +1957,7 @@ test.describe("Reduced motion", () => {
     test.describe(`with ${name}`, () => {
       test.use({ reducedMotion });
 
-      test(`an About icon ${moves ? "grows" : "stays put"} on hover`, async ({
+      test(`a hero icon ${moves ? "grows" : "stays put"} on hover`, async ({
         page,
       }) => {
         await page.goto("/");
