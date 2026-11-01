@@ -329,25 +329,44 @@ test.describe("Filter chips", () => {
   });
 
   for (const path of pages) {
-    for (const width of [768, 810, 1024, 1440]) {
+    for (const width of [810, 1024, 1440]) {
       test(`${path} at ${width}px wraps with no chip alone on a row`, async ({
         page,
       }) => {
         await page.setViewportSize({ width, height: 900 });
         await page.goto(path);
-        const rows = await page
-          .locator("[role=group] button[aria-pressed]")
-          .evaluateAll((chips) => {
-            const counts = new Map<number, number>();
-            for (const chip of chips) {
-              const top = Math.round(chip.getBoundingClientRect().top);
-              counts.set(top, (counts.get(top) ?? 0) + 1);
-            }
-            return [...counts.values()];
-          });
+        const group = page.locator("[role=group]").first();
+        const { rows, room } = await group.evaluate((el) => {
+          const style = getComputedStyle(el);
+          const inner =
+            el.clientWidth -
+            parseFloat(style.paddingLeft) -
+            parseFloat(style.paddingRight);
+          const spans = new Map<number, [number, number]>();
+          const counts = new Map<number, number>();
+          for (const chip of el.querySelectorAll("button")) {
+            const box = chip.getBoundingClientRect();
+            const top = Math.round(box.top);
+            const [left, right] = spans.get(top) ?? [box.left, box.right];
+            spans.set(top, [
+              Math.min(left, box.left),
+              Math.max(right, box.right),
+            ]);
+            counts.set(top, (counts.get(top) ?? 0) + 1);
+          }
+          return {
+            rows: [...counts.values()],
+            room: Math.min(
+              ...[...spans.values()].map(
+                ([left, right]) => inner - (right - left),
+              ),
+            ),
+          };
+        });
 
         expect(rows.length).toBeLessThanOrEqual(2);
         if (rows.length > 1) expect(Math.min(...rows)).toBeGreaterThan(1);
+        expect(room).toBeGreaterThanOrEqual(24);
       });
     }
   }

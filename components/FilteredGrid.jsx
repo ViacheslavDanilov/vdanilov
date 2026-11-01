@@ -99,7 +99,7 @@ export default function FilteredGrid({
 
   const edgeFade = (on) => (on ? "2rem" : "0px");
   const railMask = `linear-gradient(to right, transparent, #000 ${edgeFade(edges.start)}, #000 calc(100% - ${edgeFade(edges.end)}), transparent)`;
-  // From md the row is 48rem wide: 45rem plus the 3rem it bleeds into the section padding
+  // From md the row is 52rem wide: 49rem plus the 3rem it bleeds into the section padding
 
   return (
     <>
@@ -109,7 +109,7 @@ export default function FilteredGrid({
         ref={railRef}
         onScroll={readEdges}
         style={{ "--rail-mask": railMask }}
-        className="relative flex gap-x-2 -mx-6 px-6 mb-12 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden max-md:[mask-image:var(--rail-mask)] md:px-[max(0px,calc((100%_-_45rem)/2))] md:flex-wrap md:justify-center md:overflow-visible"
+        className="relative flex gap-x-2 -mx-6 px-6 mb-12 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden max-md:[mask-image:var(--rail-mask)] md:px-[max(0px,calc((100%_-_49rem)/2))] md:flex-wrap md:justify-center md:overflow-visible"
         role="group"
         aria-label={label}
       >
