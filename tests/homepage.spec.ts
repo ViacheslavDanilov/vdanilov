@@ -209,12 +209,12 @@ test.describe("Homepage - Hero Section", () => {
   }) => {
     await page.goto("/");
 
-    await expect(
-      page.locator("#hero p").first().locator(".sr-only"),
-    ).toHaveText("Tech Lead, Engineering Manager, Research Scientist");
-    await expect(
-      page.locator('#hero p [aria-hidden="true"] > span'),
-    ).toHaveText(["Tech Lead", "Engineering Manager", "Research Scientist"]);
+    await expect(page.locator("#hero [data-depth-flip] > .sr-only")).toHaveText(
+      "Tech Lead, Engineering Manager, Research Scientist",
+    );
+    await expect(page.locator('#hero [data-phrase="current"]')).toHaveText(
+      "Tech Lead",
+    );
   });
 
   test("hero video element is present", async ({ page }) => {

@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import AutoplayVideo from "@/components/AutoplayVideo";
-import RotatingRoles from "@/components/RotatingRoles";
+import DepthFlipText from "@/components/ui/depth-flip-text";
 import { LiquidButtonLink } from "@/components/ui/liquid-button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -110,8 +110,8 @@ const Hero = () => {
             <h1 className="text-3xl sm:text-4xl lg:text-4xl xl:text-5xl text-balance font-semibold text-light tracking-tight">
               Viacheslav Danilov, PhD
             </h1>
-            <RotatingRoles
-              roles={roles}
+            <DepthFlipText
+              phrases={roles}
               className="text-lg md:text-xl text-gray-300"
             />
           </div>

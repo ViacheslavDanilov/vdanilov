@@ -1341,21 +1341,24 @@ test.describe("Home hero roles with reduced motion", () => {
 
   test("all three roles show stacked and never change", async ({ page }) => {
     await page.goto("/");
-    const slots = page.locator('#hero p [aria-hidden="true"] > span');
-    const boxes = await slots.evaluateAll((els) =>
-      els.map((el) => [
-        getComputedStyle(el).opacity,
-        el.getBoundingClientRect().top,
-      ]),
+    const roles = page.locator("#hero [data-depth-flip] p:visible");
+    await expect(roles).toHaveText([
+      "Tech Lead",
+      "Engineering Manager",
+      "Research Scientist",
+    ]);
+    await expect(page.locator("#hero [data-phrase]")).toHaveCount(2);
+    await expect(page.locator("#hero [data-phrase]").first()).toBeHidden();
+    const tops = await roles.evaluateAll((els) =>
+      els.map((el) => el.getBoundingClientRect().top),
     );
-    expect(boxes.map(([opacity]) => opacity)).toEqual(["1", "1", "1"]);
-    expect(new Set(boxes.map(([, top]) => top)).size).toBe(3);
+    expect(new Set(tops).size).toBe(3);
     await page.waitForTimeout(3600);
-    expect(
-      await slots.evaluateAll((els) =>
-        els.map((el) => getComputedStyle(el).opacity),
-      ),
-    ).toEqual(["1", "1", "1"]);
+    await expect(roles).toHaveText([
+      "Tech Lead",
+      "Engineering Manager",
+      "Research Scientist",
+    ]);
   });
 });
 
@@ -1471,30 +1474,37 @@ test.describe("Home hero", () => {
     expect(Math.abs(left - right)).toBeLessThanOrEqual(40);
   });
 
-  const roleSlots = '#hero p [aria-hidden="true"] > span';
   const shownRole = (page: Page) =>
-    page
-      .locator(roleSlots)
-      .evaluateAll((els) =>
-        els
-          .filter((el) => getComputedStyle(el).opacity === "1")
-          .map((el) => el.textContent),
-      );
+    page.locator('#hero [data-phrase="current"]').textContent();
 
   test("one role shows at a time and the next one follows", async ({
     page,
   }) => {
     await page.goto("/");
-    expect(await shownRole(page)).toEqual(["Tech Lead"]);
+    expect(await shownRole(page)).toBe("Tech Lead");
+    for (const role of [
+      "Engineering Manager",
+      "Research Scientist",
+      "Tech Lead",
+    ]) {
+      await expect.poll(() => shownRole(page), { timeout: 10_000 }).toBe(role);
+    }
+  });
+
+  test("the roles flip in 3D while they change", async ({ page }) => {
+    await page.goto("/");
+    const next = page.locator('#hero [data-phrase="next"]');
     await expect
-      .poll(() => shownRole(page), { timeout: 8000 })
-      .toEqual(["Engineering Manager"]);
-    await expect
-      .poll(() => shownRole(page), { timeout: 8000 })
-      .toEqual(["Research Scientist"]);
-    await expect
-      .poll(() => shownRole(page), { timeout: 8000 })
-      .toEqual(["Tech Lead"]);
+      .poll(() => next.evaluate((el) => getComputedStyle(el).opacity), {
+        timeout: 10_000,
+      })
+      .toBe("1");
+    const flipping = await next
+      .locator("div, span")
+      .evaluateAll((els) =>
+        els.some((el) => getComputedStyle(el).transform.startsWith("matrix3d")),
+      );
+    expect(flipping).toBe(true);
   });
 
   for (const [width, height] of [
@@ -1508,12 +1518,13 @@ test.describe("Home hero", () => {
     }) => {
       await page.setViewportSize({ width, height });
       await page.goto("/");
-      const slot = page.locator('#hero p [aria-hidden="true"]');
+      const slot = page.locator("#hero [data-depth-flip]");
       const first = (await slot.boundingBox())!;
       expect(first.height).toBeLessThan(36);
       await expect
-        .poll(() => shownRole(page), { timeout: 8000 })
-        .toEqual(["Engineering Manager"]);
+        .poll(() => shownRole(page), { timeout: 10_000 })
+        .toBe("Engineering Manager");
+      await page.waitForTimeout(300);
       const second = (await slot.boundingBox())!;
       expect([second.width, second.height]).toEqual([
         first.width,
@@ -1529,11 +1540,11 @@ test.describe("Home hero", () => {
     });
   }
 
-  test("hovering the roles pauses the rotation", async ({ page }) => {
+  test("hovering the roles pauses the flip", async ({ page }) => {
     await page.goto("/");
-    await page.locator('#hero p [aria-hidden="true"]').hover();
-    await page.waitForTimeout(4500);
-    expect(await shownRole(page)).toEqual(["Tech Lead"]);
+    await page.locator("#hero [data-depth-flip]").hover();
+    await page.waitForTimeout(5000);
+    expect(await shownRole(page)).toBe("Tech Lead");
   });
 
   for (const width of [1024, 1280, 1440]) {
