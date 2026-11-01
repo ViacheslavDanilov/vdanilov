@@ -1336,6 +1336,29 @@ test.describe("Hero and About videos", () => {
   });
 });
 
+test.describe("Home hero roles with reduced motion", () => {
+  test.use({ reducedMotion: "reduce" });
+
+  test("all three roles show stacked and never change", async ({ page }) => {
+    await page.goto("/");
+    const slots = page.locator('#hero p [aria-hidden="true"] > span');
+    const boxes = await slots.evaluateAll((els) =>
+      els.map((el) => [
+        getComputedStyle(el).opacity,
+        el.getBoundingClientRect().top,
+      ]),
+    );
+    expect(boxes.map(([opacity]) => opacity)).toEqual(["1", "1", "1"]);
+    expect(new Set(boxes.map(([, top]) => top)).size).toBe(3);
+    await page.waitForTimeout(3600);
+    expect(
+      await slots.evaluateAll((els) =>
+        els.map((el) => getComputedStyle(el).opacity),
+      ),
+    ).toEqual(["1", "1", "1"]);
+  });
+});
+
 test.describe("Home hero", () => {
   for (const [width, height] of [
     [390, 844],
@@ -1446,6 +1469,71 @@ test.describe("Home hero", () => {
     const left = icons.y + icons.height - video.y;
     const right = buttons.y + buttons.height - name.y;
     expect(Math.abs(left - right)).toBeLessThanOrEqual(40);
+  });
+
+  const roleSlots = '#hero p [aria-hidden="true"] > span';
+  const shownRole = (page: Page) =>
+    page
+      .locator(roleSlots)
+      .evaluateAll((els) =>
+        els
+          .filter((el) => getComputedStyle(el).opacity === "1")
+          .map((el) => el.textContent),
+      );
+
+  test("one role shows at a time and the next one follows", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    expect(await shownRole(page)).toEqual(["Tech Lead"]);
+    await expect
+      .poll(() => shownRole(page), { timeout: 8000 })
+      .toEqual(["Engineering Manager"]);
+    await expect
+      .poll(() => shownRole(page), { timeout: 8000 })
+      .toEqual(["Research Scientist"]);
+    await expect
+      .poll(() => shownRole(page), { timeout: 8000 })
+      .toEqual(["Tech Lead"]);
+  });
+
+  for (const [width, height] of [
+    [360, 740],
+    [390, 844],
+    [1024, 768],
+    [1440, 900],
+  ]) {
+    test(`the role slot keeps one line and its size at ${width}px`, async ({
+      page,
+    }) => {
+      await page.setViewportSize({ width, height });
+      await page.goto("/");
+      const slot = page.locator('#hero p [aria-hidden="true"]');
+      const first = (await slot.boundingBox())!;
+      expect(first.height).toBeLessThan(36);
+      await expect
+        .poll(() => shownRole(page), { timeout: 8000 })
+        .toEqual(["Engineering Manager"]);
+      const second = (await slot.boundingBox())!;
+      expect([second.width, second.height]).toEqual([
+        first.width,
+        first.height,
+      ]);
+      expect(
+        await page.evaluate(
+          () =>
+            document.documentElement.scrollWidth <=
+            document.documentElement.clientWidth,
+        ),
+      ).toBe(true);
+    });
+  }
+
+  test("hovering the roles pauses the rotation", async ({ page }) => {
+    await page.goto("/");
+    await page.locator('#hero p [aria-hidden="true"]').hover();
+    await page.waitForTimeout(4500);
+    expect(await shownRole(page)).toEqual(["Tech Lead"]);
   });
 
   for (const width of [1024, 1280, 1440]) {

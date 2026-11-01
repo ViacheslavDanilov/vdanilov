@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import AutoplayVideo from "@/components/AutoplayVideo";
+import RotatingRoles from "@/components/RotatingRoles";
 import { LiquidButtonLink } from "@/components/ui/liquid-button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -109,21 +110,10 @@ const Hero = () => {
             <h1 className="text-3xl sm:text-4xl lg:text-4xl xl:text-5xl text-balance font-semibold text-light tracking-tight">
               Viacheslav Danilov, PhD
             </h1>
-            <p className="flex flex-wrap items-center justify-center gap-x-2 text-lg md:text-xl text-gray-300">
-              {roles.map((role, i) => (
-                <span key={role} className="whitespace-nowrap">
-                  {role}
-                  {i < roles.length - 1 && (
-                    <>
-                      <span aria-hidden="true" className="ml-2 text-gray-500">
-                        &middot;
-                      </span>
-                      <span className="sr-only">,</span>
-                    </>
-                  )}
-                </span>
-              ))}
-            </p>
+            <RotatingRoles
+              roles={roles}
+              className="text-lg md:text-xl text-gray-300"
+            />
           </div>
 
           <p className="order-4 lg:order-none max-w-2xl text-light text-base xl:text-lg leading-relaxed text-justify hyphens-auto text-pretty">

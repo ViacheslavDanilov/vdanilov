@@ -204,18 +204,17 @@ test.describe("Homepage - Hero Section", () => {
     await expect(page.getByText("Fusing Science")).toHaveCount(0);
   });
 
-  test("hero section lists the three roles", async ({ page }) => {
+  test("hero section lists the three roles for screen readers", async ({
+    page,
+  }) => {
     await page.goto("/");
 
-    for (const role of [
-      "Tech Lead",
-      "Engineering Manager",
-      "Research Scientist",
-    ]) {
-      await expect(
-        page.locator("#hero p").first().getByText(role),
-      ).toBeVisible();
-    }
+    await expect(
+      page.locator("#hero p").first().locator(".sr-only"),
+    ).toHaveText("Tech Lead, Engineering Manager, Research Scientist");
+    await expect(
+      page.locator('#hero p [aria-hidden="true"] > span'),
+    ).toHaveText(["Tech Lead", "Engineering Manager", "Research Scientist"]);
   });
 
   test("hero video element is present", async ({ page }) => {
