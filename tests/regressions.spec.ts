@@ -1117,6 +1117,22 @@ test.describe("Client logos", () => {
       expect(box!.height).toBeLessThanOrEqual(52.5);
     }
   });
+
+  test("only one logo cell is highlighted while the pointer moves", async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto("/");
+    const links = page.locator('main a:has(img[src*="/clients/"])');
+    await links.first().scrollIntoViewIfNeeded();
+    await links.nth(0).hover();
+    await links.nth(1).hover();
+    await page.waitForTimeout(60);
+    const alpha = (index: number) =>
+      links.nth(index).evaluate((el) => getComputedStyle(el).backgroundColor);
+    expect(await alpha(0)).toBe("rgba(0, 0, 0, 0)");
+    expect(await alpha(1)).not.toBe("rgba(0, 0, 0, 0)");
+  });
 });
 
 test.describe("Reduced motion", () => {
