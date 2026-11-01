@@ -1147,17 +1147,22 @@ test.describe("Client logos", () => {
     const first = (await links.nth(0).boundingBox())!;
     const second = (await links.nth(1).boundingBox())!;
     const y = first.y + first.height / 2;
-    const lit = () =>
+    const state = () =>
       page.evaluate(() =>
-        [...document.querySelectorAll("main ul li:hover")].map(
-          (li) => getComputedStyle(li, "::before").opacity,
-        ),
+        [...document.querySelectorAll("main ul li")]
+          .filter((li) => li.querySelector('img[src*="/clients/"]'))
+          .map((li) => {
+            const glow = getComputedStyle(li, "::before");
+            const opacity = glow.content === "none" ? "none" : glow.opacity;
+            return `${li.matches(":hover") ? "hover" : "idle"} ${opacity}`;
+          }),
       );
     const from = Math.round(first.x + first.width / 2);
     const to = Math.round(second.x + second.width / 2);
     for (let x = from; x <= to; x++) {
       await page.mouse.move(x, y);
-      expect([x, await lit()]).toEqual([x, ["1"]]);
+      const lit = (await state()).filter((cell) => cell !== "idle 0");
+      expect([x, lit]).toEqual([x, ["hover 1"]]);
     }
   });
 });
