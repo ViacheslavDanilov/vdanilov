@@ -500,6 +500,32 @@ test.describe("Filter chips", () => {
       await expect.poll(inside).toBe(true);
     });
 
+    test("a chip reached by Tab stays clear of the edge fades", async ({
+      page,
+    }) => {
+      await page.goto("/portfolio/");
+      const group = page.getByRole("group", { name: "Filter projects" });
+      const clear = () =>
+        group.evaluate((rail) => {
+          const chip = document.activeElement!;
+          if (!rail.contains(chip)) return false;
+          const mask = rail.style.getPropertyValue("--rail-mask");
+          const room = rail.getBoundingClientRect();
+          const box = chip.getBoundingClientRect();
+          const fade = (shown: boolean) => (shown ? 31 : 0);
+          return (
+            box.left >= room.left + fade(mask.includes("#000 2rem")) &&
+            box.right <= room.right - fade(mask.includes("calc(100% - 2rem)"))
+          );
+        });
+
+      await group.locator("button").first().focus();
+      for (let press = 0; press < 7; press++) {
+        await page.keyboard.press("Tab");
+        await expect.poll(clear).toBe(true);
+      }
+    });
+
     test("a fade shows at an edge only while more chips hide beyond it", async ({
       page,
     }) => {

@@ -97,6 +97,12 @@ export default function FilteredGrid({
     picked.current = false;
   }, [activeFilter]);
 
+  // Bring a chip reached by keyboard clear of the edge fades
+  const revealFocused = (event) => {
+    if (event.target.matches(":focus-visible"))
+      event.target.scrollIntoView({ block: "nearest", inline: "nearest" });
+  };
+
   const edgeFade = (on) => (on ? "2rem" : "0px");
   const railMask = `linear-gradient(to right, transparent, #000 ${edgeFade(edges.start)}, #000 calc(100% - ${edgeFade(edges.end)}), transparent)`;
   // From 50rem the chips wrap, balanced, on a 52rem measure: 49rem plus the 3rem it bleeds into the section padding
@@ -108,8 +114,9 @@ export default function FilteredGrid({
       <div
         ref={railRef}
         onScroll={readEdges}
+        onFocus={revealFocused}
         style={{ "--rail-mask": railMask }}
-        className="relative flex gap-x-2 -mx-6 px-6 mb-12 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden max-md:[mask-image:var(--rail-mask)] min-[50rem]:px-[max(0px,calc((100%_-_49rem)/2))] md:block md:text-center md:text-balance md:overflow-visible"
+        className="relative flex gap-x-2 -mx-6 px-6 scroll-px-8 mb-12 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden max-md:[mask-image:var(--rail-mask)] min-[50rem]:px-[max(0px,calc((100%_-_49rem)/2))] md:block md:text-center md:text-balance md:overflow-visible"
         role="group"
         aria-label={label}
       >
