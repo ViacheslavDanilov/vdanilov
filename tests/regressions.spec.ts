@@ -1089,6 +1089,28 @@ test.describe("Home section spacing", () => {
   }
 });
 
+test.describe("Client logos", () => {
+  test("are white, at most 40px tall and say they open a new tab", async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto("/");
+    const links = page.locator('main a:has(img[src*="/clients/"])');
+    await expect(links).toHaveCount(12);
+    for (const link of await links.all()) {
+      await expect(link).toHaveAttribute(
+        "aria-label",
+        /\(opens in a new tab\)$/,
+      );
+      const img = link.locator("img");
+      await expect(img).toHaveAttribute("src", /-mono\.svg/);
+      await img.scrollIntoViewIfNeeded();
+      const box = await img.boundingBox();
+      expect(box!.height).toBeLessThanOrEqual(40.5);
+    }
+  });
+});
+
 test.describe("Reduced motion", () => {
   const modes = [
     ["no preference", "no-preference", true],
