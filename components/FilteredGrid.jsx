@@ -87,6 +87,8 @@ export default function FilteredGrid({
 
   // Centre the selected chip in the row, sliding only after a click
   useEffect(() => {
+    const smooth = picked.current;
+    picked.current = false;
     const rail = railRef.current;
     const chip = rail.querySelector('[aria-pressed="true"]');
     if (!chip || rail.scrollWidth <= rail.clientWidth) return;
@@ -95,9 +97,8 @@ export default function FilteredGrid({
     ).matches;
     rail.scrollTo({
       left: chip.offsetLeft - (rail.clientWidth - chip.offsetWidth) / 2,
-      behavior: picked.current && !reduceMotion ? "smooth" : "auto",
+      behavior: smooth && !reduceMotion ? "smooth" : "auto",
     });
-    picked.current = false;
   }, [activeFilter]);
 
   // Bring a chip reached by keyboard clear of the edge fades
