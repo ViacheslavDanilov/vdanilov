@@ -1577,6 +1577,7 @@ test.describe("Home hero", () => {
   test("each profile icon has a tooltip and a 20px glyph", async ({ page }) => {
     await page.goto("/");
     const icons = page.locator('#hero a[aria-label][style*="inline-block"]');
+    await expect(icons).toHaveCount(6);
     for (const icon of await icons.all()) {
       const label = await icon.getAttribute("aria-label");
       await expect(icon).toHaveAttribute("title", label!);
