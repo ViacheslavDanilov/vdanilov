@@ -184,8 +184,8 @@ Pills for anything clickable and small (nav, buttons, badges, tabs, accent bar).
 
 - **Shape:** full pill, 56px tall at the main size.
 - **Primary (glass):** transparent fill, white 10% border, blur 12px, inset highlight shadows, light text at 14px, weight 500.
-- **Primary tint:** the one main action on a screen (Download CV in the hero) adds a cyan 15% fill (25% on hover) and a cyan 40% border to the glass button. The second action stays plain glass.
-- **Hover / Focus:** the fill and border change colour over 300ms, and the button does not scale; pressing it scales to 0.975. Focus ring 3px solid cyan. Scaling on hover is left out because Chrome re-rasterises the label at the start and end of the scale, which shows as a blink of the text. The button keeps its own compositor layer (`will-change: transform`, only without reduced motion) for the press.
+- **Primary tint:** the one main action on a screen (Download CV in the hero) adds a cyan 15% fill (about 25% on hover, from the hover layer) and a cyan 40% border to the glass button. The second action stays plain glass.
+- **Hover / Focus:** a light layer fades in over 300ms (white 10% on the glass button, cyan 10% on the tinted Download CV), the button does not scale, and a 3px solid cyan focus ring shows on keyboard focus. Pressing scales it to 0.975. The fade is an opacity change on its own layer, which Chrome and Safari both paint at once; changing the background of the button itself lit slowly in Safari. Scaling on hover is left out because Chrome re-rasterises the label at the start and end of the scale, which shows as a blink of the text. The button has no `will-change`.
 
 ### Chips
 
