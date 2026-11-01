@@ -67,8 +67,11 @@ export default function FilteredGrid({
 
   const readEdges = useCallback(() => {
     const rail = railRef.current;
-    const start = rail.scrollLeft > 1;
-    const end = rail.scrollLeft + rail.clientWidth < rail.scrollWidth - 1;
+    const { firstElementChild: first, lastElementChild: last } = rail;
+    const start = rail.scrollLeft > first.offsetLeft + 1;
+    const end =
+      last.offsetLeft + last.offsetWidth >
+      rail.scrollLeft + rail.clientWidth + 1;
     setEdges((prev) =>
       prev.start === start && prev.end === end ? prev : { start, end },
     );

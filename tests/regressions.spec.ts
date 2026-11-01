@@ -541,7 +541,22 @@ test.describe("Filter chips", () => {
         });
 
       await expect.poll(fades).toEqual({ start: false, end: true });
-      await group.evaluate((el) => el.scrollBy({ left: 40 }));
+      const masked = await group.evaluate((el) => {
+        const style = getComputedStyle(el);
+        return style.maskImage || style.webkitMaskImage;
+      });
+      expect(masked).not.toBe("none");
+      await group.evaluate((el) => el.scrollTo({ left: 10 }));
+      await page.evaluate(
+        () =>
+          new Promise((done) =>
+            requestAnimationFrame(() =>
+              requestAnimationFrame(() => requestAnimationFrame(done)),
+            ),
+          ),
+      );
+      await expect.poll(fades).toEqual({ start: false, end: true });
+      await group.evaluate((el) => el.scrollBy({ left: 30 }));
       await expect.poll(fades).toEqual({ start: true, end: true });
       await group.evaluate((el) => el.scrollTo({ left: el.scrollWidth }));
       await expect.poll(fades).toEqual({ start: true, end: false });
