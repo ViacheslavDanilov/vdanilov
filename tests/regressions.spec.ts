@@ -371,6 +371,61 @@ test.describe("Filter chips", () => {
     }
   }
 
+  for (const path of pages) {
+    test(`${path} at 768px balances the rows inside the page gutter`, async ({
+      page,
+    }) => {
+      await page.setViewportSize({ width: 768, height: 900 });
+      await page.goto(path);
+      const { rows, left, right } = await page
+        .locator("[role=group]")
+        .first()
+        .evaluate((el) => {
+          const counts = new Map<number, number>();
+          let left = Infinity;
+          let right = -Infinity;
+          for (const chip of el.querySelectorAll("button")) {
+            const box = chip.getBoundingClientRect();
+            const top = Math.round(box.top);
+            counts.set(top, (counts.get(top) ?? 0) + 1);
+            left = Math.min(left, box.left);
+            right = Math.max(right, box.right);
+          }
+          return { rows: [...counts.values()], left, right };
+        });
+
+      expect(rows.length).toBeLessThanOrEqual(3);
+      expect(Math.max(...rows) - Math.min(...rows)).toBeLessThanOrEqual(1);
+      expect(left).toBeGreaterThanOrEqual(24);
+      expect(768 - right).toBeGreaterThanOrEqual(24);
+    });
+  }
+
+  for (const width of [768, 1440]) {
+    test(`/publications/ at ${width}px balances the rows with wider text`, async ({
+      page,
+    }) => {
+      await page.setViewportSize({ width, height: 900 });
+      await page.goto("/publications/");
+      await page.addStyleTag({
+        content: "[role=group] button { letter-spacing: 0.05em }",
+      });
+      const rows = await page
+        .locator("[role=group] button[aria-pressed]")
+        .evaluateAll((chips) => {
+          const counts = new Map<number, number>();
+          for (const chip of chips) {
+            const top = Math.round(chip.getBoundingClientRect().top);
+            counts.set(top, (counts.get(top) ?? 0) + 1);
+          }
+          return [...counts.values()];
+        });
+
+      expect(rows.length).toBeLessThanOrEqual(2);
+      if (rows.length > 1) expect(Math.min(...rows)).toBeGreaterThan(1);
+    });
+  }
+
   test.describe("at 360px", () => {
     test.use({ viewport: { width: 360, height: 780 } });
 

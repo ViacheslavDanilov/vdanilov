@@ -22,7 +22,9 @@ export function Tab({
       className={cn(
         "relative w-fit py-3 rounded-full -outline-offset-4 text-sm font-semibold capitalize",
         "text-foreground transition-[color,scale] motion-safe:active:scale-95 flex items-center gap-2 cursor-pointer",
-        outlined ? "shrink-0 px-3.5" : "-my-1 px-4",
+        outlined
+          ? "shrink-0 px-3.5 md:inline-flex md:align-top md:mx-1"
+          : "-my-1 px-4",
         !selected &&
           "hover:text-light before:absolute before:inset-x-0 before:inset-y-1 before:rounded-full",
         !selected &&

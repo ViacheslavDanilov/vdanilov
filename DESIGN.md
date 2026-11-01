@@ -205,7 +205,7 @@ Pills for anything clickable and small (nav, buttons, badges, tabs, accent bar).
 
 - Pill buttons; the selected one gets a cyan 20% pill with a 60% border that slides between tabs (spring, 0.4s). Pressing a tab scales it to 0.95.
 - **Filter chips** (Portfolio, Publications, References) are the same pill with a 1px white 20% border and a white 5% fill at rest, brighter on hover. The border is about 1.5:1 on the page, so the label carries the contrast. Each chip is 44px tall with the 36px pill inset 4px, and has 14px of side padding.
-- Below md the chips sit in one row that scrolls sideways, with a 2rem fade at each edge that still has chips beyond it, and the selected chip is scrolled to the middle. From md they wrap on a 52rem measure, centred, so no chip is left alone on a row, and the six-chip rows keep at least 24px to spare.
+- Below md the chips sit in one row that scrolls sideways, with a 2rem fade at each edge that still has chips beyond it, and the selected chip is scrolled to the middle. From md they wrap centred and the rows are balanced, so no chip is left alone on a row. Below 50rem the row keeps the 1.5rem page gutter; from 50rem it is a 52rem measure, and the six-chip rows keep at least 24px to spare.
 - The accordion tabs on Experience and Education cards keep the plain look: no border or fill at rest.
 
 ### Footer
