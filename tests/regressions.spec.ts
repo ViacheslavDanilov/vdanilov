@@ -998,6 +998,195 @@ test.describe("Hero and About videos", () => {
   }
 });
 
+// Number of client logos in each row of the grid, top to bottom
+const logoRows = (page: Page) =>
+  page.locator('main li:has(img[src*="/clients/"])').evaluateAll((els) => {
+    const rows = new Map<number, number>();
+    for (const el of els) {
+      const top = Math.round(el.getBoundingClientRect().top);
+      rows.set(top, (rows.get(top) ?? 0) + 1);
+    }
+    return [...rows.keys()].sort((a, b) => a - b).map((t) => rows.get(t));
+  });
+
+test.describe("Home section spacing", () => {
+  for (const [width, height] of [
+    [3840, 2160],
+    [2560, 1440],
+    [1920, 1080],
+    [1440, 900],
+  ]) {
+    test.describe(`at ${width}x${height}`, () => {
+      test.use({ viewport: { width, height } });
+      // Sections stop growing at 72rem so a very tall screen is not left empty
+      const screen = Math.min(height, 1152);
+
+      test("each screen holds one section and the hero does not leak", async ({
+        page,
+      }) => {
+        await page.goto("/");
+        const sections = page.locator("main section");
+        const boxes = await sections.evaluateAll((els) =>
+          els.map((el) => {
+            const r = el.getBoundingClientRect();
+            return [r.top + scrollY, r.height];
+          }),
+        );
+        expect(boxes).toHaveLength(7);
+        for (const i of [1, 2, 3, 4, 5, 6]) {
+          expect(boxes[i][1]).toBeGreaterThanOrEqual(screen);
+          if (height > screen) expect(boxes[i][1]).toBeLessThan(height);
+        }
+        expect(boxes[0][0] + boxes[0][1]).toBeCloseTo(screen, 0);
+        expect(
+          await page.evaluate(
+            () =>
+              document.documentElement.scrollWidth <=
+              document.documentElement.clientWidth,
+          ),
+        ).toBe(true);
+      });
+
+      test("the 12 client logos sit in three rows of four", async ({
+        page,
+      }) => {
+        await page.goto("/");
+        expect(await logoRows(page)).toEqual([4, 4, 4]);
+      });
+    });
+  }
+
+  for (const [width, height] of [
+    [390, 844],
+    [800, 1024],
+  ]) {
+    test(`section content sits 96 px apart at ${width}x${height}`, async ({
+      page,
+    }) => {
+      await page.setViewportSize({ width, height });
+      await page.goto("/");
+      const rows = await page.locator("main section").evaluateAll((els) =>
+        els.map((el) => {
+          const s = getComputedStyle(el);
+          return [
+            el.firstElementChild!.getBoundingClientRect().top + scrollY,
+            el.lastElementChild!.getBoundingClientRect().bottom + scrollY,
+            parseFloat(s.paddingTop),
+            parseFloat(s.paddingBottom),
+          ];
+        }),
+      );
+      expect(rows).toHaveLength(7);
+      expect(await logoRows(page)).toEqual(
+        width < 768 ? [2, 2, 2, 2, 2, 2] : [4, 4, 4],
+      );
+      rows.forEach(([, , top, bottom], i) => {
+        expect([i, top, bottom]).toEqual([i, 48, 48]);
+        if (i > 0) expect(rows[i][0] - rows[i - 1][1]).toBeCloseTo(96, 0);
+      });
+    });
+  }
+});
+
+test.describe("Client logos", () => {
+  test("are white, at most 52px tall and say they open a new tab", async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto("/");
+    const links = page.locator('main a:has(img[src*="/clients/"])');
+    await expect(links).toHaveCount(12);
+    for (const link of await links.all()) {
+      await expect(link).toHaveAttribute(
+        "aria-label",
+        /\(opens in a new tab\)$/,
+      );
+      const img = link.locator("img");
+      await expect(img).toHaveAttribute("src", /-mono\.svg/);
+      await img.scrollIntoViewIfNeeded();
+      // A lazy image measures 0px until it loads
+      await expect
+        .poll(() =>
+          img.evaluate((el: HTMLImageElement) =>
+            el.complete ? el.naturalWidth : 0,
+          ),
+        )
+        .toBeGreaterThan(0);
+      const box = await img.boundingBox();
+      expect(box!.height).toBeGreaterThan(0);
+      expect(box!.height).toBeLessThanOrEqual(52.5);
+    }
+  });
+
+  test("only one logo cell is highlighted while the pointer moves", async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto("/");
+    const links = page.locator('main a:has(img[src*="/clients/"])');
+    await links.first().scrollIntoViewIfNeeded();
+    const glow = (index: number) =>
+      links
+        .nth(index)
+        .evaluate(
+          (el) => getComputedStyle(el.parentElement!, "::before").opacity,
+        );
+    await links.nth(0).hover();
+    await links.nth(1).hover();
+    expect(await glow(0)).toBe("0");
+    expect(await glow(1)).toBe("1");
+  });
+
+  test("a lit logo cell has the same colour with or without the tint", async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto("/");
+    const links = page.locator('main a:has(img[src*="/clients/"])');
+    await links.first().scrollIntoViewIfNeeded();
+    const cellBackground = (index: number) =>
+      links
+        .nth(index)
+        .evaluate((el) => getComputedStyle(el.parentElement!).backgroundColor);
+    // Cell 0 carries the checkerboard tint at md, cell 1 does not
+    expect(await cellBackground(0)).not.toBe("rgba(0, 0, 0, 0)");
+    expect(await cellBackground(1)).toBe("rgba(0, 0, 0, 0)");
+    for (const index of [0, 1]) {
+      await links.nth(index).hover();
+      expect(await cellBackground(index)).toBe("rgba(0, 0, 0, 0)");
+    }
+  });
+
+  test("a cell is lit at every pixel from one logo cell to the next", async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto("/");
+    const links = page.locator('main a:has(img[src*="/clients/"])');
+    await links.first().scrollIntoViewIfNeeded();
+    const first = (await links.nth(0).boundingBox())!;
+    const second = (await links.nth(1).boundingBox())!;
+    const y = first.y + first.height / 2;
+    const state = () =>
+      page.evaluate(() =>
+        [...document.querySelectorAll("main ul li")]
+          .filter((li) => li.querySelector('img[src*="/clients/"]'))
+          .map((li) => {
+            const glow = getComputedStyle(li, "::before");
+            const opacity = glow.content === "none" ? "none" : glow.opacity;
+            return `${li.matches(":hover") ? "hover" : "idle"} ${opacity}`;
+          }),
+      );
+    const from = Math.round(first.x + first.width / 2);
+    const to = Math.round(second.x + second.width / 2);
+    for (let x = from; x <= to; x++) {
+      await page.mouse.move(x, y);
+      const lit = (await state()).filter((cell) => cell !== "idle 0");
+      expect([x, lit]).toEqual([x, ["hover 1"]]);
+    }
+  });
+});
+
 test.describe("Reduced motion", () => {
   const modes = [
     ["no preference", "no-preference", true],
