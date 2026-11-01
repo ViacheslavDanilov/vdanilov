@@ -336,6 +336,12 @@ test.describe("Filter chips", () => {
     page,
   }) => {
     await page.goto("/portfolio/?filter=all");
+    const allLabel = await page
+      .getByRole("button", { name: /^All \(\d+\)/ })
+      .innerText();
+    const total = Number(allLabel.match(/\d+/)![0]);
+    await expect(page.locator('[role="listitem"]')).toHaveCount(total);
+
     const chips = (
       await page.locator("[role=group] button[aria-pressed]").allTextContents()
     ).map((text) => text.replace(/ \(\d+\)$/, ""));
@@ -343,7 +349,7 @@ test.describe("Filter chips", () => {
       .locator('article [class*="top-5"][class*="right-5"]')
       .allTextContents();
 
-    expect(badges.length).toBeGreaterThan(0);
+    expect(badges).toHaveLength(total);
     for (const badge of new Set(badges)) expect(chips).toContain(badge);
   });
 
