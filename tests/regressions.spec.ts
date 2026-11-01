@@ -1609,19 +1609,32 @@ test.describe("Home hero", () => {
     }
   });
 
-  test("hovering a glass button does not scale it, so its text does not blink", async ({
+  test("hovering a glass button fades a light layer in and does not scale it", async ({
     page,
   }) => {
     await page.goto("/");
     for (const name of ["Download CV", "Contact me"]) {
       const button = page.locator("#hero").getByRole("link", { name });
+      const layer = button.locator('[data-slot="button-hover"]');
+      const state = () =>
+        button.evaluate((el) => {
+          const s = getComputedStyle(el);
+          const l = getComputedStyle(
+            el.querySelector('[data-slot="button-hover"]')!,
+          );
+          return [s.scale, s.willChange, Number(l.opacity)];
+        });
+      await expect(layer, name).toHaveCount(1);
+      expect([name, ...(await state())]).toEqual([name, "none", "auto", 0]);
       await button.hover();
-      await page.waitForTimeout(400);
-      const state = await button.evaluate((el) => {
-        const s = getComputedStyle(el);
-        return [el.matches(":hover"), s.scale, s.willChange];
-      });
-      expect([name, ...state]).toEqual([name, true, "none", "transform"]);
+      await expect
+        .poll(async () => (await state())[2], { message: name })
+        .toBe(1);
+      expect([name, ...(await state()).slice(0, 2)]).toEqual([
+        name,
+        "none",
+        "auto",
+      ]);
     }
   });
 
