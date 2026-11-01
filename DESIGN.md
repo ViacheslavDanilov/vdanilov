@@ -185,7 +185,7 @@ Pills for anything clickable and small (nav, buttons, badges, tabs, accent bar).
 - **Shape:** full pill, 56px tall at the main size.
 - **Primary (glass):** transparent fill, white 10% border, blur 12px, inset highlight shadows, light text at 14px, weight 500.
 - **Primary tint:** the one main action on a screen (Download CV in the hero) adds a cyan 15% fill (25% on hover) and a cyan 40% border to the glass button. The second action stays plain glass.
-- **Hover / Focus:** scale to 0.99, active 0.975, 300ms; focus ring 3px solid cyan.
+- **Hover / Focus:** scale to 0.99, active 0.975, 300ms; focus ring 3px solid cyan. The button keeps its own compositor layer (`will-change: transform`, only without reduced motion), because without it the blurred glass is redrawn when the scale starts and ends, which shows as a flicker.
 
 ### Chips
 

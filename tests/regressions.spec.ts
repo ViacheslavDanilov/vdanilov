@@ -1609,6 +1609,19 @@ test.describe("Home hero", () => {
     }
   });
 
+  test("the glass buttons keep their own layer, so hovering does not flicker", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    for (const name of ["Download CV", "Contact me"]) {
+      const willChange = await page
+        .locator("#hero")
+        .getByRole("link", { name })
+        .evaluate((el) => getComputedStyle(el).willChange);
+      expect([name, willChange]).toEqual([name, "transform"]);
+    }
+  });
+
   test("Download CV is the tinted main action and Contact me stays glass", async ({
     page,
   }) => {
