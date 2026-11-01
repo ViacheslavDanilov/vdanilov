@@ -1574,14 +1574,14 @@ test.describe("Home hero", () => {
     expect(style).toEqual(["auto", "justify", "en"]);
   });
 
-  test("each profile icon has a tooltip and a 24px glyph", async ({ page }) => {
+  test("each profile icon has a tooltip and a 20px glyph", async ({ page }) => {
     await page.goto("/");
     const icons = page.locator('#hero a[aria-label][style*="inline-block"]');
     for (const icon of await icons.all()) {
       const label = await icon.getAttribute("aria-label");
       await expect(icon).toHaveAttribute("title", label!);
       const glyph = (await icon.locator("svg").boundingBox())!;
-      expect(Math.round(glyph.width)).toBe(24);
+      expect(Math.round(glyph.width)).toBe(20);
     }
   });
 

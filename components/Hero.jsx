@@ -72,7 +72,7 @@ const Hero = () => {
               Your browser does not support the video tag.
             </AutoplayVideo>
           </div>
-          <div className="order-2 lg:order-none -mt-3 lg:mt-0 flex flex-wrap items-center justify-center gap-6">
+          <div className="order-2 lg:order-none -mt-3 lg:mt-0 flex flex-wrap items-center justify-center gap-8">
             {socialLinks.map((social) => (
               <a
                 key={social.name}
@@ -92,10 +92,10 @@ const Hero = () => {
               >
                 <FontAwesomeIcon
                   icon={social.icon}
-                  className="w-6 h-6"
+                  className="w-5 h-5"
                   style={{
-                    width: "1.5rem",
-                    height: "1.5rem",
+                    width: "1.25rem",
+                    height: "1.25rem",
                     display: "block",
                   }}
                 />
