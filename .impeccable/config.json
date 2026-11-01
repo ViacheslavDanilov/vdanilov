@@ -1,18 +1,5 @@
 {
   "hook": {
     "quiet": true
-  },
-  "detector": {
-    "ignoreRules": [],
-    "ignoreFiles": [],
-    "ignoreValues": [
-      {
-        "rule": "gradient-text",
-        "value": "*",
-        "files": ["components/ui/gradient-text.jsx"],
-        "createdAt": "2026-11-01T19:31:20.604Z",
-        "reason": "user confirmed: the owner asked for ReactBits GradientText to highlight two roles in the hero paragraph"
-      }
-    ]
   }
 }

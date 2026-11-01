@@ -1649,7 +1649,7 @@ test.describe("Home hero", () => {
     expect(wide.name.x).toBeGreaterThan(wide.video.x + wide.video.width);
   });
 
-  test("the two key roles are semibold gradient text, not chips", async ({
+  test("the two key roles stand out by weight and tone, not colour", async ({
     page,
   }) => {
     await page.goto("/");
@@ -1661,48 +1661,16 @@ test.describe("Home hero", () => {
     for (const role of await roles.all()) {
       const style = await role.evaluate((el) => {
         const s = getComputedStyle(el);
-        const fill = getComputedStyle(el.querySelector("span span span")!);
-        return [
-          s.fontWeight,
-          s.backgroundColor,
-          fill.backgroundImage.startsWith("repeating-linear-gradient"),
-          fill.webkitTextFillColor,
-        ];
+        const body = getComputedStyle(el.parentElement!);
+        return [s.fontWeight, s.color, s.backgroundColor, body.color];
       });
       expect(style).toEqual([
         "600",
+        "rgb(255, 255, 255)",
         "rgba(0, 0, 0, 0)",
-        true,
-        "rgba(0, 0, 0, 0)",
+        "rgb(209, 213, 219)",
       ]);
     }
-  });
-
-  test("the role gradient moves, and stands still with reduced motion", async ({
-    browser,
-  }) => {
-    const gradientOf = (page: Page) =>
-      page
-        .locator("#hero p strong")
-        .first()
-        .evaluate(
-          (el) =>
-            getComputedStyle(el.querySelector("span span span")!)
-              .backgroundImage,
-        );
-    const moving = await (await browser.newContext()).newPage();
-    await moving.goto("/");
-    const first = await gradientOf(moving);
-    await moving.waitForTimeout(1500);
-    expect(await gradientOf(moving)).not.toBe(first);
-
-    const still = await (
-      await browser.newContext({ reducedMotion: "reduce" })
-    ).newPage();
-    await still.goto("/");
-    const rest = await gradientOf(still);
-    await still.waitForTimeout(1500);
-    expect(await gradientOf(still)).toBe(rest);
   });
 
   for (const width of [360, 390, 768, 810, 1024, 1280]) {
