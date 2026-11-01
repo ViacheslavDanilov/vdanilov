@@ -106,8 +106,10 @@ export default function DepthFlipText({
 
   const pause = (paused) => {
     hovered.current = paused;
-    if (paused) timeline.current?.pause();
-    else timeline.current?.play();
+    // A flip already under way finishes, so it never stops tilted
+    if (paused) {
+      if (timeline.current?.progress() === 0) timeline.current.pause();
+    } else timeline.current?.play();
   };
 
   return (

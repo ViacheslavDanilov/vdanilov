@@ -1540,11 +1540,34 @@ test.describe("Home hero", () => {
     });
   }
 
-  test("hovering the roles pauses the flip", async ({ page }) => {
+  test("hovering the roles pauses the flip between flips", async ({ page }) => {
     await page.goto("/");
     await page.locator("#hero [data-depth-flip]").hover();
     await page.waitForTimeout(5000);
     expect(await shownRole(page)).toBe("Tech Lead");
+  });
+
+  test("hovering during a flip lets it finish instead of freezing tilted", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    const current = page.locator('#hero [data-phrase="current"]');
+    await expect
+      .poll(
+        () =>
+          current.evaluate((el) =>
+            [...el.querySelectorAll("div, span")].some((char) => {
+              const m = getComputedStyle(char).transform;
+              return m.startsWith("matrix3d") && Number(m.split(",")[5]) < 0.9;
+            }),
+          ),
+        { timeout: 10_000, intervals: [50] },
+      )
+      .toBe(true);
+    await page.locator("#hero [data-depth-flip]").hover();
+    await expect
+      .poll(() => shownRole(page), { timeout: 5000 })
+      .toBe("Engineering Manager");
   });
 
   for (const width of [1024, 1280, 1440]) {
