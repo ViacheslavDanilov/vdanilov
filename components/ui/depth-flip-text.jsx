@@ -129,7 +129,10 @@ export default function DepthFlipText({
         />
         <Phrase key={`next-${next}`} ref={nextRef} text={phrases[next]} />
       </div>
-      <div aria-hidden="true" className="hidden motion-reduce:block">
+      <div
+        aria-hidden="true"
+        className="hidden motion-reduce:block leading-normal"
+      >
         {phrases.map((phrase) => (
           <p key={phrase} className="m-0 text-center">
             {phrase}
