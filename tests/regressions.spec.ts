@@ -426,6 +426,12 @@ test.describe("Filter chips", () => {
     });
   }
 
+  test("the arrow is not shown from md", async ({ page }) => {
+    await page.setViewportSize({ width: 800, height: 900 });
+    await page.goto("/portfolio/");
+    await expect(page.locator("[data-rail-next]")).toBeHidden();
+  });
+
   test.describe("at 360px", () => {
     test.use({ viewport: { width: 360, height: 780 } });
 
@@ -512,10 +518,10 @@ test.describe("Filter chips", () => {
           const mask = rail.style.getPropertyValue("--rail-mask");
           const room = rail.getBoundingClientRect();
           const box = chip.getBoundingClientRect();
-          const fade = (shown: boolean) => (shown ? 31 : 0);
+          const left = mask.includes("#000 2rem") ? 31 : 0;
+          const right = mask.includes("calc(100% - 4rem)") ? 63 : 0;
           return (
-            box.left >= room.left + fade(mask.includes("#000 2rem")) &&
-            box.right <= room.right - fade(mask.includes("calc(100% - 2rem)"))
+            box.left >= room.left + left && box.right <= room.right - right
           );
         });
 
@@ -524,6 +530,64 @@ test.describe("Filter chips", () => {
         await page.keyboard.press("Tab");
         await expect.poll(clear).toBe(true);
       }
+    });
+
+    test("an arrow shows while chips hide to the right and scrolls the row", async ({
+      page,
+    }) => {
+      await page.goto("/portfolio/");
+      const group = page.getByRole("group", { name: "Filter projects" });
+      const arrow = page.locator("[data-rail-next]");
+
+      await expect(arrow).toBeVisible();
+      const box = (await arrow.boundingBox())!;
+      expect(box.width).toBeGreaterThanOrEqual(43.5);
+      expect(box.height).toBeGreaterThanOrEqual(43.5);
+      expect(box.x + box.width).toBeLessThanOrEqual(360);
+      await expect(arrow).toHaveAttribute("aria-hidden", "true");
+      await expect(arrow).toHaveAttribute("tabindex", "-1");
+
+      const before = await group.evaluate((el) => el.scrollLeft);
+      await arrow.click();
+      await expect
+        .poll(() => group.evaluate((el) => el.scrollLeft))
+        .toBeGreaterThan(before + 150);
+
+      for (let tap = 0; tap < 6 && (await arrow.count()); tap++) {
+        await arrow.click();
+        await page.waitForTimeout(500);
+      }
+      await expect(arrow).toHaveCount(0);
+      const last = group.locator("button[aria-pressed]").last();
+      const fits = await last.evaluate(
+        (el) =>
+          el.getBoundingClientRect().right <=
+          el.parentElement!.getBoundingClientRect().right,
+      );
+      expect(fits).toBe(true);
+    });
+
+    test("the arrow does not scroll away with the chips", async ({ page }) => {
+      await page.goto("/portfolio/");
+      const arrow = page.locator("[data-rail-next]");
+      const before = (await arrow.boundingBox())!;
+      await page
+        .getByRole("group", { name: "Filter projects" })
+        .evaluate((el) => el.scrollBy({ left: 120 }));
+      await expect
+        .poll(async () => (await arrow.boundingBox())!.x)
+        .toBe(before.x);
+    });
+
+    test("a press on the arrow jumps at once under Reduce Motion", async ({
+      page,
+    }) => {
+      await page.emulateMedia({ reducedMotion: "reduce" });
+      await page.goto("/portfolio/");
+      const group = page.getByRole("group", { name: "Filter projects" });
+      await page.locator("[data-rail-next]").click();
+      const after = await group.evaluate((el) => el.scrollLeft);
+      expect(after).toBeGreaterThan(150);
     });
 
     test("a fade shows at an edge only while more chips hide beyond it", async ({
@@ -536,7 +600,7 @@ test.describe("Filter chips", () => {
           const mask = el.style.getPropertyValue("--rail-mask");
           return {
             start: mask.includes("#000 2rem"),
-            end: mask.includes("calc(100% - 2rem)"),
+            end: mask.includes("calc(100% - 4rem)"),
           };
         });
 
