@@ -102,7 +102,7 @@ const LogoGrid = () => {
         {logos.map((logo, i) => (
           <li
             key={logo.name}
-            className={`relative border-r border-b border-white/10 ${
+            className={`relative border-r border-b border-white/10 before:pointer-events-none before:absolute before:inset-0 before:bg-white/[0.06] before:opacity-0 hover:before:opacity-100 ${
               tinted(i, 2) ? "bg-white/[0.03]" : ""
             } ${tinted(i, 4) ? "md:bg-white/[0.03]" : "md:bg-transparent"}`}
           >
@@ -111,7 +111,7 @@ const LogoGrid = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`${logo.name} (opens in a new tab)`}
-              className="flex h-24 md:h-28 items-center justify-center px-6 transition-none hover:transition-colors hover:duration-100 hover:bg-white/[0.06] focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-accent"
+              className="relative flex h-24 md:h-28 items-center justify-center px-6 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-accent"
             >
               <Image
                 src={logo.src}
