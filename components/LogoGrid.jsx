@@ -24,6 +24,7 @@ const logos = [
   {
     name: "Beth Israel Deaconess Medical Center",
     src: "/clients/bidmc-mono.svg",
+    brighten: "brightness(1.2) saturate(1.1)",
     href: "https://www.bidmc.org/",
   },
   {
