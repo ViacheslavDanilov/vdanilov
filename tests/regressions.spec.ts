@@ -1087,6 +1087,7 @@ test.describe("Last small tap targets at 360px", () => {
   const targets = [
     ["logo links", "/", 'a[aria-label="Go to home page"]'],
     ["Featured project titles", "/", "main a:has(> h3)"],
+    ["expertise row links", "/", "main li:has(> h3) > a"],
     [
       "Back to Portfolio",
       "/portfolio/deep-anatomy/",

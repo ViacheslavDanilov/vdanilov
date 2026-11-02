@@ -115,7 +115,7 @@ export default function ExpertiseList({ items }) {
             {item.link && (
               <Link
                 href={item.link.href}
-                className="group/link inline-flex w-fit items-center gap-2 rounded text-sm font-medium text-accent outline-none hover:underline focus-visible:ring-[3px] focus-visible:ring-accent"
+                className="group/link relative after:absolute after:-inset-y-3 after:inset-x-0 focus-visible:after:hidden inline-flex w-fit items-center gap-2 rounded text-sm font-medium text-accent outline-none hover:underline focus-visible:ring-[3px] focus-visible:ring-accent"
               >
                 {item.link.label}
                 <FontAwesomeIcon
