@@ -1,4 +1,4 @@
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { test, expect, devices, type Page } from "@playwright/test";
 
 type Entrance = {
@@ -1808,8 +1808,8 @@ test.describe("Home section spacing", () => {
             return [r.top + scrollY, r.height];
           }),
         );
-        expect(boxes).toHaveLength(6);
-        for (const i of [1, 2, 3, 4, 5]) {
+        expect(boxes).toHaveLength(5);
+        for (const i of [1, 2, 3, 4]) {
           expect(boxes[i][1]).toBeGreaterThanOrEqual(screen);
           if (height > screen && i !== 3) {
             expect(boxes[i][1]).toBeLessThan(height);
@@ -1854,7 +1854,7 @@ test.describe("Home section spacing", () => {
           ];
         }),
       );
-      expect(rows).toHaveLength(6);
+      expect(rows).toHaveLength(5);
       expect(await logoRows(page)).toEqual(
         width < 768 ? [2, 2, 2, 2, 2, 2] : [4, 4, 4],
       );
@@ -1865,6 +1865,24 @@ test.describe("Home section spacing", () => {
       });
     });
   }
+});
+
+test.describe("Home closing section", () => {
+  test("the home page ends with the client logos and has no call to action", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    await expect(
+      page.getByRole("heading", { name: "Let's Build What Matters" }),
+    ).toHaveCount(0);
+    await expect(page.locator("main section").last()).toContainText(
+      "Selected Clients",
+    );
+  });
+
+  test("the call to action component stays in the repository", () => {
+    expect(existsSync("components/CallToAction.jsx")).toBe(true);
+  });
 });
 
 test.describe("Client logos", () => {

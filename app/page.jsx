@@ -3,7 +3,6 @@ import ExpertiseSection from "@/components/ExpertiseSection";
 import FeaturedProjects from "@/components/FeaturedProjects";
 import LogoGrid from "@/components/LogoGrid";
 import Statistics from "@/components/Statistics";
-import CallToAction from "@/components/CallToAction";
 import LightRays from "@/components/ui/light-rays";
 import PagePrefetcher from "@/components/PagePrefetcher";
 import { pageMetadata, SITE_DESCRIPTION } from "@/lib/metadata";
@@ -26,7 +25,6 @@ export default function Home() {
         <FeaturedProjects />
         <ExpertiseSection />
         <LogoGrid />
-        <CallToAction />
       </div>
     </div>
   );
