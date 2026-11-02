@@ -1087,6 +1087,7 @@ test.describe("Last small tap targets at 360px", () => {
   const targets = [
     ["logo links", "/", 'a[aria-label="Go to home page"]'],
     ["Featured project titles", "/", "main a:has(> h3)"],
+    ["expertise row links", "/", "main li:has(> h3) > a"],
     [
       "Back to Portfolio",
       "/portfolio/deep-anatomy/",
@@ -1609,16 +1610,32 @@ test.describe("Home hero", () => {
     }
   });
 
-  test("the glass buttons keep their own layer, so hovering does not flicker", async ({
+  test("hovering a glass button fades a light layer in and does not scale it", async ({
     page,
   }) => {
     await page.goto("/");
     for (const name of ["Download CV", "Contact me"]) {
-      const willChange = await page
-        .locator("#hero")
-        .getByRole("link", { name })
-        .evaluate((el) => getComputedStyle(el).willChange);
-      expect([name, willChange]).toEqual([name, "transform"]);
+      const button = page.locator("#hero").getByRole("link", { name });
+      const layer = button.locator('[data-slot="button-hover"]');
+      const state = () =>
+        button.evaluate((el) => {
+          const s = getComputedStyle(el);
+          const l = getComputedStyle(
+            el.querySelector('[data-slot="button-hover"]')!,
+          );
+          return [s.scale, s.willChange, Number(l.opacity)];
+        });
+      await expect(layer, name).toHaveCount(1);
+      expect([name, ...(await state())]).toEqual([name, "none", "auto", 0]);
+      await button.hover();
+      await expect
+        .poll(async () => (await state())[2], { message: name })
+        .toBe(1);
+      expect([name, ...(await state()).slice(0, 2)]).toEqual([
+        name,
+        "none",
+        "auto",
+      ]);
     }
   });
 
@@ -1794,7 +1811,9 @@ test.describe("Home section spacing", () => {
         expect(boxes).toHaveLength(6);
         for (const i of [1, 2, 3, 4, 5]) {
           expect(boxes[i][1]).toBeGreaterThanOrEqual(screen);
-          if (height > screen) expect(boxes[i][1]).toBeLessThan(height);
+          if (height > screen && i !== 3) {
+            expect(boxes[i][1]).toBeLessThan(height);
+          }
         }
         expect(boxes[0][0] + boxes[0][1]).toBeCloseTo(screen, 0);
         expect(

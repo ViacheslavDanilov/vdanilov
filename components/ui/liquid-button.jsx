@@ -12,7 +12,7 @@ const liquidButtonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-transparent motion-safe:will-change-transform motion-safe:hover:scale-[0.99] motion-safe:active:scale-[0.975] duration-300 transition text-light",
+          "bg-transparent motion-safe:active:scale-[0.975] duration-300 transition text-light",
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",
@@ -34,6 +34,7 @@ const liquidButtonVariants = cva(
 export function LiquidButtonLink({
   className,
   textClassName,
+  hoverClassName = "bg-white/10",
   variant,
   size,
   href,
@@ -52,11 +53,21 @@ export function LiquidButtonLink({
       aria-label={ariaLabel}
       data-slot="button"
       className={cn(
-        "relative",
+        "group/button relative",
         liquidButtonVariants({ variant, size, className }),
       )}
       {...props}
     >
+      {/* Light layer that fades in on hover and focus */}
+      <div
+        aria-hidden="true"
+        data-slot="button-hover"
+        className={cn(
+          "pointer-events-none absolute top-0 left-0 z-0 h-full w-full rounded-full opacity-0 transition-opacity duration-300 group-hover/button:opacity-100 group-focus-visible/button:opacity-100",
+          hoverClassName,
+        )}
+      />
+
       {/* Glass effect shadow layer */}
       <div
         className="absolute top-0 left-0 z-0 h-full w-full rounded-full 

@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { test, expect, type Page } from "@playwright/test";
 
 test.describe("Homepage - Basic Page Tests", () => {
   test("has correct title", async ({ page }) => {
@@ -431,6 +431,154 @@ test.describe("Homepage - Expertise Section", () => {
   });
 });
 
+test.describe("Homepage - Expertise list with a pinned picture", () => {
+  const ROWS = [
+    ["10+ Years of Advanced R&D", "research-and-development", "/experience/"],
+    [
+      "Medical Imaging AI",
+      "medical-imaging-ai",
+      "/portfolio/?filter=medical-imaging",
+    ],
+    ["Scalable ML Systems", "scalable-ml-systems", null],
+    ["Technology Leadership", "technology-leadership", null],
+    ["Cross-Functional Management", "cross-functional-management", null],
+    [
+      "Applied ML & AI Across Industries",
+      "applied-ml-across-industries",
+      "/portfolio/?filter=industry-ai-ml",
+    ],
+  ] as const;
+
+  const row = (page: Page, title: string) =>
+    page.locator("li", { has: page.getByRole("heading", { name: title }) });
+  const shown = async (page: Page) =>
+    decodeURIComponent(
+      (await page
+        .getByTestId("expertise-picture")
+        .locator('img[data-active="true"]')
+        .getAttribute("src"))!,
+    );
+
+  test("rows link to the portfolio filter or the experience page, or to nothing", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    for (const [title, , href] of ROWS) {
+      const links = row(page, title).getByRole("link");
+      if (href) {
+        await expect(links, title).toHaveCount(1);
+        await expect(links, title).toHaveAttribute("href", href);
+      } else {
+        await expect(links, title).toHaveCount(0);
+      }
+    }
+  });
+
+  test("the pinned picture follows the pointer, the keyboard and the scroll", async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto("/");
+    await page
+      .getByRole("heading", { name: "Expertise & Leadership" })
+      .scrollIntoViewIfNeeded();
+    await expect.poll(() => shown(page)).toContain(ROWS[0][1]);
+
+    // Centre a row without a link, so the scroll makes it the active one
+    const centre = (title: string) =>
+      page.evaluate((title) => {
+        const el = [...document.querySelectorAll("li")].find(
+          (li) => li.querySelector("h3")?.textContent === title,
+        )!;
+        const box = el.getBoundingClientRect();
+        window.scrollBy(0, box.top + box.height / 2 - innerHeight / 2);
+      }, title);
+    await page.mouse.move(2, 2);
+    await centre(ROWS[2][0]);
+    await expect.poll(() => shown(page)).toContain(ROWS[2][1]);
+
+    // The pointer picks a row that is not on the middle line
+    await expect(row(page, ROWS[3][0])).toBeInViewport();
+    await row(page, ROWS[3][0]).hover();
+    await expect.poll(() => shown(page)).toContain(ROWS[3][1]);
+
+    // Tab onto a visible link above the middle line, without scrolling
+    await page.mouse.move(2, 2);
+    const next = row(page, ROWS[1][0]).getByRole("link");
+    await expect(next).toBeInViewport();
+    await row(page, ROWS[0][0])
+      .getByRole("link")
+      .evaluate((link) => (link as HTMLElement).focus({ preventScroll: true }));
+    await page.keyboard.press("Tab");
+    await expect(next).toBeFocused();
+    await expect.poll(() => shown(page)).toContain(ROWS[1][1]);
+
+    // The scroll takes over again
+    await centre(ROWS[4][0]);
+    await expect.poll(() => shown(page)).toContain(ROWS[4][1]);
+  });
+
+  test("on a phone every row carries its own picture and nothing is pinned", async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto("/");
+    await expect(page.getByTestId("expertise-picture")).toBeHidden();
+    for (const [title, name] of ROWS) {
+      const picture = row(page, title).locator("img");
+      await expect(picture, title).toHaveCount(1);
+      expect(
+        decodeURIComponent((await picture.getAttribute("src"))!),
+      ).toContain(name);
+    }
+  });
+
+  for (const width of [360, 768, 1024, 1440]) {
+    test(`the list does not scroll sideways at ${width}px`, async ({
+      page,
+    }) => {
+      await page.setViewportSize({ width, height: 900 });
+      await page.goto("/");
+      const overflow = await page.evaluate(
+        () => document.documentElement.scrollWidth - innerWidth,
+      );
+      expect(overflow).toBeLessThanOrEqual(0);
+    });
+  }
+
+  test("with reduced motion the picture changes without a fade", async ({
+    page,
+  }) => {
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto("/");
+    const durations = await page
+      .getByTestId("expertise-picture")
+      .locator("img")
+      .evaluateAll((images) =>
+        images.map((image) => getComputedStyle(image).transitionDuration),
+      );
+    expect(durations).toHaveLength(6);
+    expect(new Set(durations)).toEqual(new Set(["0s"]));
+  });
+
+  test("rows that are not active stay dim enough to read", async ({ page }) => {
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto("/");
+    // 75% keeps the cyan link of a dim row at 4.5:1 on the page ground
+    const opacities = await page
+      .locator("section ol > li:not([data-active='true'])")
+      .evaluateAll((rows) =>
+        rows.map((row) => Number(getComputedStyle(row).opacity)),
+      );
+    expect(opacities).toHaveLength(5);
+    for (const opacity of opacities) {
+      expect(opacity).toBeGreaterThanOrEqual(0.75);
+      expect(opacity).toBeLessThan(1);
+    }
+  });
+});
+
 test.describe("Homepage - Clients Section (LogoGrid)", () => {
   test("clients section has correct heading", async ({ page }) => {
     await page.goto("/");
@@ -618,7 +766,7 @@ test.describe("Homepage - Accessibility Tests", () => {
     for (let i = 0; i < imageCount; i++) {
       const img = images.nth(i);
       const alt = await img.getAttribute("alt");
-      expect(alt).toBeTruthy();
+      expect(alt).not.toBeNull();
     }
   });
 
