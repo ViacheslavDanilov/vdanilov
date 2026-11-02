@@ -54,7 +54,7 @@ export default function ExpertiseList({ items }) {
               alt=""
               fill
               sizes="(min-width: 1280px) 584px, calc(50vw - 56px)"
-              quality={85}
+              quality={90}
               data-active={index === active}
               className="object-cover opacity-0 data-[active=true]:opacity-100 motion-safe:transition-opacity motion-safe:duration-500"
             />
@@ -82,7 +82,7 @@ export default function ExpertiseList({ items }) {
                 alt=""
                 fill
                 sizes="100vw"
-                quality={85}
+                quality={90}
                 className="object-cover"
               />
             </div>
