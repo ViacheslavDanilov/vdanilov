@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { test, expect, type Page } from "@playwright/test";
 
 test.describe("Homepage - Basic Page Tests", () => {
   test("has correct title", async ({ page }) => {
@@ -484,27 +484,38 @@ test.describe("Homepage - Expertise list with a pinned picture", () => {
       .scrollIntoViewIfNeeded();
     await expect.poll(() => shown(page)).toContain(ROWS[0][1]);
 
-    await row(page, ROWS[1][0]).scrollIntoViewIfNeeded();
-    await page.waitForTimeout(500);
-    await row(page, ROWS[1][0]).hover();
+    // Centre a row without a link, so the scroll makes it the active one
+    const centre = (title: string) =>
+      page.evaluate((title) => {
+        const el = [...document.querySelectorAll("li")].find(
+          (li) => li.querySelector("h3")?.textContent === title,
+        )!;
+        const box = el.getBoundingClientRect();
+        window.scrollBy(0, box.top + box.height / 2 - innerHeight / 2);
+      }, title);
+    await page.mouse.move(2, 2);
+    await centre(ROWS[2][0]);
+    await expect.poll(() => shown(page)).toContain(ROWS[2][1]);
+
+    // The pointer picks a row that is not on the middle line
+    await expect(row(page, ROWS[3][0])).toBeInViewport();
+    await row(page, ROWS[3][0]).hover();
+    await expect.poll(() => shown(page)).toContain(ROWS[3][1]);
+
+    // Tab onto a visible link above the middle line, without scrolling
+    await page.mouse.move(2, 2);
+    const next = row(page, ROWS[1][0]).getByRole("link");
+    await expect(next).toBeInViewport();
+    await row(page, ROWS[0][0])
+      .getByRole("link")
+      .evaluate((link) => (link as HTMLElement).focus({ preventScroll: true }));
+    await page.keyboard.press("Tab");
+    await expect(next).toBeFocused();
     await expect.poll(() => shown(page)).toContain(ROWS[1][1]);
 
-    await row(page, ROWS[1][0]).getByRole("link").focus();
-    await page.keyboard.press("Tab");
-    await expect.poll(() => shown(page)).toContain(ROWS[5][1]);
-
-    await row(page, ROWS[3][0]).scrollIntoViewIfNeeded();
-    await page.mouse.move(2, 2);
-    await page.evaluate(() => {
-      const el = [...document.querySelectorAll("li")].find((li) =>
-        li.textContent?.includes("Technology Leadership"),
-      )!;
-      window.scrollBy(
-        0,
-        el.getBoundingClientRect().top + el.clientHeight / 2 - innerHeight / 2,
-      );
-    });
-    await expect.poll(() => shown(page)).toContain(ROWS[3][1]);
+    // The scroll takes over again
+    await centre(ROWS[4][0]);
+    await expect.poll(() => shown(page)).toContain(ROWS[4][1]);
   });
 
   test("on a phone every row carries its own picture and nothing is pinned", async ({
