@@ -33,9 +33,11 @@ Kept to the minimum, so a later upstream copy can be diffed against these files:
   `.scratch/`, becomes the pull request's `## What` and `## Why`.
 - The `agents/openai.yaml` files are dropped. They configure Codex, not Claude Code.
 - `impeccable/` is the upstream Claude Code build, copied by hand rather than with
-  `npx impeccable install`. Its four agents are copied unchanged to `.claude/agents/`, and its
+  `npx impeccable install`. Its four agents are copied unchanged to `.agents/agents/`, and its
   three hooks (`SessionStart`, `PostToolUse` on `Edit|Write`, `Stop`) are copied into
   `.claude/settings.json` exactly as upstream's own `.claude/settings.json` has them.
+  `.claude/skills` and `.claude/agents` symlink to `../.agents/skills` and `../.agents/agents`, so
+  the hooks and internal paths resolve without editing upstream files.
   `.impeccable/config.json` turns on the hook's quiet mode. Upstream `LICENSE` and
   `NOTICE.md` are copied into the folder, as Apache 2.0 requires. The launcher in
   `impeccable/scripts/` downloads its engine binary once into `~/.impeccable/bin/` and checks it

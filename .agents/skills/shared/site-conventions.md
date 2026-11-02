@@ -153,7 +153,7 @@ or closes, or the task ends without one, so the next session does not pick up a 
 
 These two skills are rails and repo conventions. **The heavy lifting is delegated.** Do not
 reimplement what an installed skill already does. `vendored` means a copy under
-`.claude/skills/`; `VENDORED.md` says where each came from and what was changed.
+`.agents/skills/`; `VENDORED.md` says where each came from and what was changed.
 
 | Need                                                                          | Skill                                                        | Source           |
 | ----------------------------------------------------------------------------- | ------------------------------------------------------------ | ---------------- |
@@ -217,9 +217,9 @@ are underlined only on hover. Where an Emil skill names a skill this repo leaves
   file, and uses no model quota. Fix what it reports. A false positive is silenced only with
   `impeccable hooks ignore-value`; `ignore-file` and `ignore-rule` need the owner's go-ahead. A
   worker without the hook, such as Codex, runs
-  `.claude/skills/impeccable/scripts/impeccable detect --json <changed files>` once at the end of
+  `.agents/skills/impeccable/scripts/impeccable detect --json <changed files>` once at the end of
   UI work. `app/` and `components/` scanned clean on 2026-10-29.
-- Impeccable's four agents, `impeccable-*` in `.claude/agents/`, inherit the session's model and
+- Impeccable's four agents, `impeccable-*` in `.agents/agents/`, inherit the session's model and
   keep the effort upstream ships. `impeccable-finish-reviewer` runs at `high`. The other three
   run at `medium`, an exception to the two levels in **Model routing**.
 - `impeccable generate-image` bills the owner's OpenAI key, so it needs the owner's go-ahead.
@@ -234,7 +234,7 @@ are underlined only on hover. Where an Emil skill names a skill this repo leaves
 - `break-ui` adds a worst-case toggle and fixtures. Keep them out of the pull request: commit
   only the fixes the owner chose.
 - `review-animations` runs only when a user types it. To use it from a skill or a subagent,
-  read `.claude/skills/review-animations/SKILL.md` and its `STANDARDS.md` and follow them.
+  read `.agents/skills/review-animations/SKILL.md` and its `STANDARDS.md` and follow them.
 
 ### When the table has no row for what you are facing
 

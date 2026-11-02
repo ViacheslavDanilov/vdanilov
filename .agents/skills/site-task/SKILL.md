@@ -108,7 +108,7 @@ at most five words. **Never commit to `main`.**
 
 Read the sections of `AGENTS.md` the change touches before writing: **Prose**, **Asset naming**,
 **Experience summaries**, **Experience link order**, **Person link order**, **Portfolio project
-pages**. For a new project page, follow `.agent/workflows/add-project.md`.
+pages**. For a new project page, follow `.agents/workflows/add-project.md`.
 
 On the **bug** route, invoke `diagnosing-bugs`. Its first phase is the rule: no command that
 goes red on this bug, no fix. When the behavior can be pinned in `tests/`, write that test

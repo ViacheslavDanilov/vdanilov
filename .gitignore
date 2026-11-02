@@ -88,6 +88,6 @@ vdanilov/
 # Impeccable critique snapshots stay local
 **/.impeccable/critique/
 
-# Agent hand-off files, see Model routing in .claude/skills/shared/site-conventions.md
+# Agent hand-off files, see Model routing in .agents/skills/shared/site-conventions.md
 /BRIEF.md
 /STATUS.md

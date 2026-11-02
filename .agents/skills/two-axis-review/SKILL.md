@@ -10,7 +10,7 @@ Two-axis review of the diff between `HEAD` and a fixed point the user supplies:
 
 Both axes run as **parallel sub-agents** so they don't pollute each other's context, then this skill aggregates their findings.
 
-Where the spec of a change lives in this repo is fixed in `.claude/skills/shared/site-conventions.md`, section **Specs and tickets**. Read it before writing anything.
+Where the spec of a change lives in this repo is fixed in `.agents/skills/shared/site-conventions.md`, section **Specs and tickets**. Read it before writing anything.
 
 ## Process
 
