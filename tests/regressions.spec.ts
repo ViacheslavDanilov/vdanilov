@@ -1,5 +1,5 @@
 import { readFileSync } from "node:fs";
-import { test, expect, type Page } from "@playwright/test";
+import { test, expect, devices, type Page } from "@playwright/test";
 
 type Entrance = {
   name: string;
@@ -1880,8 +1880,8 @@ test.describe("Client logos", () => {
         "aria-label",
         /\(opens in a new tab\)$/,
       );
-      const img = link.locator("img");
-      await expect(img).toHaveAttribute("src", /-mono\.svg/);
+      const img = link.locator('img[src$="-mono.svg"]');
+      await expect(img).toHaveCount(1);
       await img.scrollIntoViewIfNeeded();
       // A lazy image measures 0px until it loads
       await expect
@@ -1894,6 +1894,92 @@ test.describe("Client logos", () => {
       const box = await img.boundingBox();
       expect(box!.height).toBeGreaterThan(0);
       expect(box!.height).toBeLessThanOrEqual(52.5);
+    }
+  });
+
+  test("a logo turns to its colour version on hover and on focus", async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto("/");
+    const link = page.locator('main a[aria-label^="Boehringer"]');
+    const opacity = (suffix: string) =>
+      link
+        .locator(`img[src$="${suffix}"]`)
+        .evaluate((el) => Number(getComputedStyle(el).opacity));
+    await link.scrollIntoViewIfNeeded();
+    expect([
+      await opacity("-mono.svg"),
+      await opacity("ingelheim.svg"),
+    ]).toEqual([1, 0]);
+    await link.hover();
+    await expect.poll(() => opacity("ingelheim.svg")).toBe(1);
+    await expect.poll(() => opacity("-mono.svg")).toBe(0);
+    await page.mouse.move(2, 2);
+    await expect.poll(() => opacity("ingelheim.svg")).toBe(0);
+    await page.locator('main a[aria-label^="Boston"]').focus();
+    await page.keyboard.press("Tab");
+    await expect(link).toBeFocused();
+    await expect.poll(() => opacity("ingelheim.svg")).toBe(1);
+    await expect.poll(() => opacity("-mono.svg")).toBe(0);
+  });
+
+  test("a tap on a logo on a touch screen keeps the white version", async ({
+    browser,
+    baseURL,
+  }) => {
+    const context = await browser.newContext({
+      ...devices["Pixel 7"],
+      baseURL,
+    });
+    const page = await context.newPage();
+    await page.goto("/");
+    const link = page.locator('main a[aria-label^="Boehringer"]');
+    await link.scrollIntoViewIfNeeded();
+    await link.tap();
+    await expect(link).toBeFocused();
+    const opacity = (suffix: string) =>
+      link
+        .locator(`img[src$="${suffix}"]`)
+        .evaluate((el) => Number(getComputedStyle(el).opacity));
+    await page.waitForTimeout(500);
+    expect(await opacity("ingelheim.svg")).toBe(0);
+    expect(await opacity("-mono.svg")).toBe(1);
+    await context.close();
+  });
+
+  test("the colour logo fills the white one, hidden from screen readers", async ({
+    page,
+  }) => {
+    for (const width of [360, 768, 1440]) {
+      await page.setViewportSize({ width, height: 900 });
+      await page.goto("/");
+      const links = page.locator('main a:has(img[src*="/clients/"])');
+      for (const link of await links.all()) {
+        const mono = link.locator('img[src$="-mono.svg"]');
+        const colour = link.locator('img:not([src$="-mono.svg"])');
+        await expect(colour).toHaveAttribute("aria-hidden", "true");
+        await mono.scrollIntoViewIfNeeded();
+        for (const img of [mono, colour]) {
+          await expect
+            .poll(() =>
+              img.evaluate(
+                (el: HTMLImageElement) => el.complete && el.naturalWidth > 0,
+              ),
+            )
+            .toBe(true);
+        }
+        const [a, b] = [await mono.boundingBox(), await colour.boundingBox()];
+        const at = `${width}px ${await link.getAttribute("aria-label")}`;
+        expect([at, Math.abs(a!.width - b!.width) < 0.5]).toEqual([at, true]);
+        expect([at, Math.abs(a!.height - b!.height) < 0.5]).toEqual([at, true]);
+        expect(
+          Math.abs(a!.x + a!.width / 2 - (b!.x + b!.width / 2)),
+        ).toBeLessThan(0.5);
+        expect(
+          Math.abs(a!.y + a!.height / 2 - (b!.y + b!.height / 2)),
+        ).toBeLessThan(0.5);
+      }
     }
   });
 
