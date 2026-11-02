@@ -1929,24 +1929,38 @@ test.describe("Client logos", () => {
     await context.close();
   });
 
-  test("the colour logo sits on the white one, hidden from screen readers", async ({
+  test("the colour logo fills the white one, hidden from screen readers", async ({
     page,
   }) => {
-    await page.setViewportSize({ width: 1440, height: 900 });
-    await page.goto("/");
-    const links = page.locator('main a:has(img[src*="/clients/"])');
-    for (const link of await links.all()) {
-      const mono = link.locator('img[src$="-mono.svg"]');
-      const colour = link.locator('img:not([src$="-mono.svg"])');
-      await expect(colour).toHaveAttribute("aria-hidden", "true");
-      await mono.scrollIntoViewIfNeeded();
-      const [a, b] = [await mono.boundingBox(), await colour.boundingBox()];
-      expect(
-        Math.abs(a!.x + a!.width / 2 - (b!.x + b!.width / 2)),
-      ).toBeLessThan(1);
-      expect(
-        Math.abs(a!.y + a!.height / 2 - (b!.y + b!.height / 2)),
-      ).toBeLessThan(1);
+    for (const width of [360, 768, 1440]) {
+      await page.setViewportSize({ width, height: 900 });
+      await page.goto("/");
+      const links = page.locator('main a:has(img[src*="/clients/"])');
+      for (const link of await links.all()) {
+        const mono = link.locator('img[src$="-mono.svg"]');
+        const colour = link.locator('img:not([src$="-mono.svg"])');
+        await expect(colour).toHaveAttribute("aria-hidden", "true");
+        await mono.scrollIntoViewIfNeeded();
+        for (const img of [mono, colour]) {
+          await expect
+            .poll(() =>
+              img.evaluate(
+                (el: HTMLImageElement) => el.complete && el.naturalWidth > 0,
+              ),
+            )
+            .toBe(true);
+        }
+        const [a, b] = [await mono.boundingBox(), await colour.boundingBox()];
+        const at = `${width}px ${await link.getAttribute("aria-label")}`;
+        expect([at, Math.abs(a!.width - b!.width) < 0.5]).toEqual([at, true]);
+        expect([at, Math.abs(a!.height - b!.height) < 0.5]).toEqual([at, true]);
+        expect(
+          Math.abs(a!.x + a!.width / 2 - (b!.x + b!.width / 2)),
+        ).toBeLessThan(0.5);
+        expect(
+          Math.abs(a!.y + a!.height / 2 - (b!.y + b!.height / 2)),
+        ).toBeLessThan(0.5);
+      }
     }
   });
 
