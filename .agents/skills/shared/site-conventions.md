@@ -83,23 +83,25 @@ pushes on the owner's branch, and it merges under "Git workflow" in `AGENTS.md`.
 ## Model routing
 
 The session that runs `site-task` is the orchestrator. `.claude/settings.json` starts it on
-Sonnet at `high` effort. It talks to the owner, writes the brief, makes small edits itself and
-commits. The merge happens in `site-review`, as **Pushing** says. Other work goes to the worker in
-this table. **Pick the row by what the work is, never by a guess at how hard it is.**
+Sonnet at `high` effort; in other harnesses, subagents inherit the session's active model or the
+matching tier and read `.agents/agents/site-*.md`. It talks to the owner, writes the brief, makes
+small edits itself and commits. The merge happens in `site-review`, as **Pushing** says. Other
+work goes to the worker in this table. **Pick the row by what the work is, never by a guess at
+how hard it is.**
 
-| Work                                                                                      | Worker                                 | Model, effort      |
-| ----------------------------------------------------------------------------------------- | -------------------------------------- | ------------------ |
-| Dialog, criteria, brief, small edits, commits                                             | the session                            | Sonnet, high       |
-| A plan for a structural change: data shape, routing, build or CI config, design tokens    | `site-planner` agent                   | Opus, xhigh        |
-| Visual and copy work: layout, components, site copy, project pages; `impeccable critique` | `site-crafter` agent                   | Sonnet, xhigh      |
-| Code with no taste in it: tests, data, scripts, accessibility, performance, an exact plan | Codex, `workspace-write`               | gpt-6.1-sol, xhigh |
-| `site-review`, first pass or delta                                                        | `site-reviewer` agent                  | Opus, high         |
-| `site-review` when the PR touches a high-risk path from its step 2                        | `site-reviewer` agent, `effort: xhigh` | Opus, xhigh        |
-| `site-review` trivial or comment-only pass                                                | general-purpose agent, `model: sonnet` | Sonnet, high       |
-| The review's fix loop and `qa`                                                            | general-purpose agent, `model: sonnet` | Sonnet, high       |
-| Review lenses #2 (bugs) and #7 (second opinion)                                           | Codex, `read-only`                     | gpt-6.1-sol, xhigh |
-| Technical and motion audits                                                               | Codex, `read-only`                     | gpt-6.1-sol, xhigh |
-| Run `check`, `build`, `test:e2e`; search; count; summarise long output                    | `site-runner` agent                    | Haiku, high        |
+| Work                                                                                      | Worker                                 | Model, effort           |
+| ----------------------------------------------------------------------------------------- | -------------------------------------- | ----------------------- |
+| Dialog, criteria, brief, small edits, commits                                             | the session                            | Sonnet, high            |
+| A plan for a structural change: data shape, routing, build or CI config, design tokens    | `site-planner` agent                   | Opus, xhigh             |
+| Visual and copy work: layout, components, site copy, project pages; `impeccable critique` | `site-crafter` agent                   | Sonnet, xhigh           |
+| Code with no taste in it: tests, data, scripts, accessibility, performance, an exact plan | Codex, `workspace-write`               | `~/.codex` model, xhigh |
+| `site-review`, first pass or delta                                                        | `site-reviewer` agent                  | Opus, high              |
+| `site-review` when the PR touches a high-risk path from its step 2                        | `site-reviewer` agent, `effort: xhigh` | Opus, xhigh             |
+| `site-review` trivial or comment-only pass                                                | general-purpose agent, `model: sonnet` | Sonnet, high            |
+| The review's fix loop and `qa`                                                            | general-purpose agent, `model: sonnet` | Sonnet, high            |
+| Review lenses #2 (bugs) and #7 (second opinion)                                           | Codex, `read-only`                     | `~/.codex` model, xhigh |
+| Technical and motion audits                                                               | Codex, `read-only`                     | `~/.codex` model, xhigh |
+| Run `check`, `build`, `test:e2e`; search; count; summarise long output                    | `site-runner` agent                    | Haiku, high             |
 
 This table is the instruction that sets the Agent tool's `model` and `effort` parameters.
 
@@ -113,10 +115,12 @@ This table is the instruction that sets the Agent tool's `model` and `effort` pa
   lens #2 to `/code-review`, and record lens #7 as not run.
 - The owner can override any row: `/model opus` in a session, or a word in chat.
 
-Run Codex from the working tree, with the report written to a file:
+Run Codex from the working tree, with the report written to a file. `codex exec` uses the
+`model` configured in `~/.codex/config.toml` (`gpt-6-luna` on the base ChatGPT tier, or
+`gpt-6.1-sol` when available on the account):
 
 ```bash
-codex exec -m gpt-6.1-sol -c model_reasoning_effort=xhigh -s read-only -C <worktree> \
+codex exec -c model_reasoning_effort=xhigh -s read-only -C <worktree> \
   -o <report.md> "<prompt>" < /dev/null
 ```
 
