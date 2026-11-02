@@ -74,7 +74,7 @@ export default function ExpertiseList({ items }) {
               if (event.pointerType === "mouse") setActive(index);
             }}
             onFocus={() => setActive(index)}
-            className="flex flex-col gap-4 lg:border-l-2 lg:border-white/10 lg:pl-6 lg:opacity-60 lg:data-[active=true]:border-accent lg:data-[active=true]:opacity-100 motion-safe:lg:transition-[opacity,border-color] motion-safe:lg:duration-300"
+            className="flex flex-col gap-4 lg:border-l-2 lg:border-white/10 lg:pl-6 lg:opacity-75 lg:data-[active=true]:border-accent lg:data-[active=true]:opacity-100 motion-safe:lg:transition-[opacity,border-color] motion-safe:lg:duration-300"
           >
             <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-white/10 bg-card lg:hidden">
               <Image

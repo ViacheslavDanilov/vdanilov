@@ -550,6 +550,22 @@ test.describe("Homepage - Expertise list with a pinned picture", () => {
     expect(durations).toHaveLength(6);
     expect(new Set(durations)).toEqual(new Set(["0s"]));
   });
+
+  test("rows that are not active stay dim enough to read", async ({ page }) => {
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto("/");
+    // 75% keeps the cyan link of a dim row at 4.5:1 on the page ground
+    const opacities = await page
+      .locator("section ol > li:not([data-active='true'])")
+      .evaluateAll((rows) =>
+        rows.map((row) => Number(getComputedStyle(row).opacity)),
+      );
+    expect(opacities).toHaveLength(5);
+    for (const opacity of opacities) {
+      expect(opacity).toBeGreaterThanOrEqual(0.75);
+      expect(opacity).toBeLessThan(1);
+    }
+  });
 });
 
 test.describe("Homepage - Clients Section (LogoGrid)", () => {
