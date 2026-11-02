@@ -53,7 +53,7 @@ export default function ExpertiseList({ items }) {
               src={item.image}
               alt=""
               fill
-              sizes="40vw"
+              sizes="(min-width: 1280px) 584px, calc(50vw - 56px)"
               quality={85}
               data-active={index === active}
               className="object-cover opacity-0 data-[active=true]:opacity-100 motion-safe:transition-opacity motion-safe:duration-500"
