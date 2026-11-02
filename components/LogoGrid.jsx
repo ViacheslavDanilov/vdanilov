@@ -6,26 +6,31 @@ const logos = [
   {
     name: "Boston Children's Hospital",
     src: "/clients/bch-mono.svg",
+    brighten: "brightness(1.5) saturate(1)",
     href: "https://www.childrenshospital.org/",
   },
   {
     name: "Boehringer Ingelheim",
     src: "/clients/boehringer-ingelheim-mono.svg",
+    brighten: "brightness(1.2) saturate(1.1)",
     href: "https://www.boehringer-ingelheim.com/",
   },
   {
     name: "Biospective",
     src: "/clients/biospective-mono.svg",
+    brighten: "brightness(1.3) saturate(1.2)",
     href: "https://www.biospective.com/",
   },
   {
     name: "Beth Israel Deaconess Medical Center",
     src: "/clients/bidmc-mono.svg",
+    brighten: "brightness(1.2) saturate(1.1)",
     href: "https://www.bidmc.org/",
   },
   {
     name: "Institute of Image-Guided Surgery",
     src: "/clients/ihu-mono.svg",
+    brighten: "saturate(1.4)",
     href: "https://www.ihu-strasbourg.eu/",
   },
   {
@@ -46,11 +51,13 @@ const logos = [
   {
     name: "AmTrust",
     src: "/clients/amtrust-mono.svg",
+    brighten: "brightness(1.3) saturate(1.2)",
     href: "https://amtrustfinancial.com/",
   },
   {
     name: "Lumos Insurance",
     src: "/clients/lumos-mono.svg",
+    brighten: "brightness(1.5) saturate(1.2)",
     href: "https://www.lumosinsurance.com/",
   },
   {
@@ -102,7 +109,7 @@ const LogoGrid = () => {
         {logos.map((logo, i) => (
           <li
             key={logo.name}
-            className={`relative border-r border-b border-white/10 before:pointer-events-none before:absolute before:inset-0 before:bg-white/[0.06] before:opacity-0 hover:bg-transparent! hover:before:opacity-100 ${
+            className={`group/cell relative border-r border-b border-white/10 before:pointer-events-none before:absolute before:inset-0 before:bg-white/[0.06] before:opacity-0 hover:bg-transparent! hover:before:opacity-100 ${
               tinted(i, 2) ? "bg-white/[0.03]" : ""
             } ${tinted(i, 4) ? "md:bg-white/[0.03]" : "md:bg-transparent"}`}
           >
@@ -119,7 +126,20 @@ const LogoGrid = () => {
                 width={320}
                 height={160}
                 style={{ width: "auto", height: "auto" }}
-                className={`${logo.size ?? "max-h-9 md:max-h-[3.25rem]"} max-w-[7.5rem] md:max-w-[11rem] object-contain brightness-[.96]`}
+                className={`${logo.size ?? "max-h-9 md:max-h-[3.25rem]"} max-w-[7.5rem] md:max-w-[11rem] object-contain brightness-[.96] motion-safe:transition-opacity motion-safe:duration-300 group-hover/cell:opacity-0 group-has-[:focus-visible]/cell:opacity-0`}
+              />
+              <Image
+                src={logo.src.replace("-mono", "")}
+                alt={logo.name}
+                aria-hidden="true"
+                width={320}
+                height={160}
+                style={{
+                  width: "auto",
+                  height: "auto",
+                  filter: logo.brighten,
+                }}
+                className={`${logo.size ?? "max-h-9 md:max-h-[3.25rem]"} max-w-[min(7.5rem,calc(100%-3rem))] md:max-w-[min(11rem,calc(100%-3rem))] object-contain absolute inset-0 m-auto opacity-0 motion-safe:transition-opacity motion-safe:duration-300 group-hover/cell:opacity-100 group-has-[:focus-visible]/cell:opacity-100`}
               />
             </Link>
             {inner(i, 2, 6) && <PlusMark className="md:hidden" />}
