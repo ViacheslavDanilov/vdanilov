@@ -122,7 +122,8 @@ tool adds one automatically, strip it with `git commit --amend` before pushing.
 ## Agent lifecycle
 
 `/site-task <what you want>` takes a change from idea to merge, and `/site-review <PR number>`
-reviews a pull request in a fresh context. The skills live in `.claude/skills/`, and
+reviews a pull request in a fresh context. The skills, agents and workflows live in `.agents/`
+(with `.claude/skills` and `.claude/agents` symlinked to it for Claude Code), and
 `shared/site-conventions.md` lists every skill they call.
 
 ## Commands

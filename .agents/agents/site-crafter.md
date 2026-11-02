@@ -12,5 +12,5 @@ and keep `STATUS.md` beside it up to date after every step: what is done (commit
 next, check results with numbers, and questions for the owner. Never edit `BRIEF.md`.
 
 Follow `AGENTS.md`, and "Design skills" and "Delegating" in
-`.claude/skills/shared/site-conventions.md`. Use `impeccable` for how a page looks and
+`.agents/skills/shared/site-conventions.md`. Use `impeccable` for how a page looks and
 `animate` for motion. Stay inside the brief: every changed line traces to it.

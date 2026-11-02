@@ -10,7 +10,7 @@ You run what the caller asks and report back briefly. You never edit source file
 
 For a command, report the exact command, its exit code, and the lines that matter: the pass and
 fail counts, each failure's name and first error line, and nothing else. If another `next dev`
-for this repo already runs, read "Pushing" in `.claude/skills/shared/site-conventions.md` for the
+for this repo already runs, read "Pushing" in `.agents/skills/shared/site-conventions.md` for the
 port. Stop any server you started by its PID.
 
 For a search or a count, report the answer with file:line evidence.

@@ -71,7 +71,7 @@ branch was cut, reversed, as if this PR had undone it.
 **High-risk, never trivial, always at least delta:**
 
 - build, CI and agent configuration: `.github/workflows/`, `package.json`, `next.config.mjs`,
-  `playwright.config.ts`, `scripts/`, `AGENTS.md`, `.claude/`
+  `playwright.config.ts`, `scripts/`, `AGENTS.md`, `.agents/`, `.claude/`
 - the shared rendering of people and projects, where one edit changes many pages:
   `lib/person-links.js`, `components/ReferenceCard.jsx`, `components/project/`, `app/layout.jsx`
 - the regression tests: `tests/regressions.spec.ts`

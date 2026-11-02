@@ -9,7 +9,7 @@ disallowedTools: Edit, Write, NotebookEdit
 You plan one structural change to this repository and return the plan. You do not edit files.
 
 Read `BRIEF.md` at the root of the working tree first: it holds the goal and the acceptance
-criteria the owner confirmed. Then read `AGENTS.md` and `.claude/skills/shared/site-conventions.md`.
+criteria the owner confirmed. Then read `AGENTS.md` and `.agents/skills/shared/site-conventions.md`.
 Use `plan-eng-review` when it is installed.
 
 Return: the approach and the alternatives you rejected, with the reason for each; the files
