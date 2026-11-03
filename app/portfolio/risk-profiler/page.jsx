@@ -4,6 +4,7 @@ import {
   faCogs,
   faChartLine,
 } from "@fortawesome/free-solid-svg-icons";
+import AutoplayVideo from "@/components/AutoplayVideo";
 import ImageLightbox from "@/components/ImageLightbox";
 import { pageMetadata } from "@/lib/metadata";
 import ProjectHeader from "@/components/project/ProjectHeader";
@@ -288,8 +289,47 @@ export default function ProjectPage() {
               </li>
             </ul>
 
-            {/* Figure 1: Dashboard */}
-            <figure id="figure-1" className="scroll-mt-24">
+            <p className="text-gray-300 leading-relaxed mb-6 text-justify">
+              A walkthrough of scoring an auto claim, adjusting claim signals to
+              see the fraud probability cross the 65% threshold, and inspecting
+              the SHAP drivers and summary is shown in{" "}
+              <a href="#figure-1" className="text-accent hover:underline">
+                Figure 1
+              </a>
+              , and the full dashboard layout is shown in{" "}
+              <a href="#figure-2" className="text-accent hover:underline">
+                Figure 2
+              </a>
+              .
+            </p>
+
+            {/* Figure 1: Demo Video */}
+            <figure id="figure-1" className="scroll-mt-24 mb-8">
+              <div className="mx-auto w-full max-w-2xl rounded-xl overflow-hidden border border-white/10">
+                <AutoplayVideo
+                  aspectRatio="16 / 9"
+                  poster="/portfolio/risk-profiler/demo-risk-profiler-poster.webp"
+                  controls
+                  aria-label="Risk Profiler fraud scoring and SHAP explainability walkthrough"
+                  className="block w-full h-auto"
+                >
+                  <source
+                    src="/portfolio/risk-profiler/demo-risk-profiler.mp4"
+                    type="video/mp4"
+                  />
+                  Your browser does not support the video tag.
+                </AutoplayVideo>
+              </div>
+              <figcaption className="text-center text-sm text-gray-400 mt-3">
+                <span className="text-gray-300">Figure 1.</span> Walkthrough of
+                scoring a claim, updating claim features to trigger a high-risk
+                alert, and reviewing the additive SHAP feature effects and AI
+                summary.
+              </figcaption>
+            </figure>
+
+            {/* Figure 2: Dashboard */}
+            <figure id="figure-2" className="scroll-mt-24">
               <ImageLightbox
                 src="/portfolio/risk-profiler/dashboard.webp"
                 alt="Risk Profiler interactive dashboard with fraud risk score and SHAP feature effects"
@@ -298,7 +338,7 @@ export default function ProjectPage() {
                 maxWidth="lg"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 1.</span> Risk Profiler
+                <span className="text-gray-300">Figure 2.</span> Risk Profiler
                 dashboard: adjustable claim features, a risk-score gauge with
                 threshold, and a SHAP explainability panel showing each
                 feature&apos;s additive impact alongside an AI-generated
