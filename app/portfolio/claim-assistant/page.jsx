@@ -4,6 +4,7 @@ import {
   faCogs,
   faChartLine,
 } from "@fortawesome/free-solid-svg-icons";
+import AutoplayVideo from "@/components/AutoplayVideo";
 import ImageLightbox from "@/components/ImageLightbox";
 import { pageMetadata } from "@/lib/metadata";
 import ProjectHeader from "@/components/project/ProjectHeader";
@@ -321,13 +322,60 @@ export default function ProjectPage() {
             </ul>
 
             <p className="text-gray-300 leading-relaxed mb-6 text-justify">
-              Being form-agnostic, the pipeline generalizes across layouts and
-              input quality, from clean digital PDFs to noisy handwritten
-              submissions, without per-form training:
+              The end-to-end intake and review workflow on a handwritten Florida
+              claim form, from extraction and policy matching to fixing a
+              low-confidence field and exporting to ASC, is shown in{" "}
+              <a href="#figure-1" className="text-accent hover:underline">
+                Figure 1
+              </a>
+              .
             </p>
 
-            {/* Figure 1: Wisconsin (digital) */}
+            {/* Figure 1: Demo Video */}
             <figure id="figure-1" className="scroll-mt-24 mb-8">
+              <div className="mx-auto w-full max-w-2xl rounded-xl overflow-hidden border border-white/10">
+                <AutoplayVideo
+                  aspectRatio="16 / 9"
+                  poster="/portfolio/claim-assistant/demo-claim-assistant-poster.webp"
+                  controls
+                  aria-label="Claim Assistant end-to-end claim intake and review walkthrough"
+                  className="block w-full h-auto"
+                >
+                  <source
+                    src="/portfolio/claim-assistant/demo-claim-assistant.mp4"
+                    type="video/mp4"
+                  />
+                  Your browser does not support the video tag.
+                </AutoplayVideo>
+              </div>
+              <figcaption className="text-center text-sm text-gray-400 mt-3">
+                <span className="text-gray-300">Figure 1.</span> End-to-end
+                walkthrough on a handwritten Florida claim form: PDF extraction,
+                coverage analysis, bounding-box inspection, low-confidence field
+                correction, and ASC export.
+              </figcaption>
+            </figure>
+
+            <p className="text-gray-300 leading-relaxed mb-6 text-justify">
+              Being form-agnostic, the pipeline generalizes across layouts and
+              input quality, from clean digital PDFs to noisy handwritten
+              submissions, without per-form training (
+              <a href="#figure-2" className="text-accent hover:underline">
+                Figure 2
+              </a>
+              ,{" "}
+              <a href="#figure-3" className="text-accent hover:underline">
+                Figure 3
+              </a>
+              , and{" "}
+              <a href="#figure-4" className="text-accent hover:underline">
+                Figure 4
+              </a>
+              ):
+            </p>
+
+            {/* Figure 2: Wisconsin (digital) */}
+            <figure id="figure-2" className="scroll-mt-24 mb-8">
               <ImageLightbox
                 src="/portfolio/claim-assistant/wisconsin-digital.webp"
                 alt="Claim Assistant review interface processing a digital Wisconsin claim form"
@@ -336,15 +384,15 @@ export default function ProjectPage() {
                 maxWidth="2xl"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 1.</span> Claim Assistant
+                <span className="text-gray-300">Figure 2.</span> Claim Assistant
                 review interface on a digital Wisconsin form: side-by-side PDF
                 preview with extracted key fields, confidence scores, and
                 per-field approval.
               </figcaption>
             </figure>
 
-            {/* Figure 2: New Hampshire (handwritten) */}
-            <figure id="figure-2" className="scroll-mt-24 mb-8">
+            {/* Figure 3: New Hampshire (handwritten) */}
+            <figure id="figure-3" className="scroll-mt-24 mb-8">
               <ImageLightbox
                 src="/portfolio/claim-assistant/new-hampshire-handwritten.webp"
                 alt="Claim Assistant processing a handwritten New Hampshire claim form"
@@ -353,14 +401,14 @@ export default function ProjectPage() {
                 maxWidth="2xl"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 2.</span> Handwritten New
+                <span className="text-gray-300">Figure 3.</span> Handwritten New
                 Hampshire form: fields extracted and validated despite free-form
                 handwriting, with low-confidence values surfaced for review.
               </figcaption>
             </figure>
 
-            {/* Figure 3: New Hampshire (digital) */}
-            <figure id="figure-3" className="scroll-mt-24">
+            {/* Figure 4: New Hampshire (digital) */}
+            <figure id="figure-4" className="scroll-mt-24">
               <ImageLightbox
                 src="/portfolio/claim-assistant/new-hampshire-digital.webp"
                 alt="Claim Assistant processing a digital New Hampshire claim form"
@@ -369,7 +417,7 @@ export default function ProjectPage() {
                 maxWidth="2xl"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 3.</span> Digital New
+                <span className="text-gray-300">Figure 4.</span> Digital New
                 Hampshire form: high-confidence extraction across key fields
                 with an auto-generated coverage summary.
               </figcaption>

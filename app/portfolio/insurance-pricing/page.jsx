@@ -4,6 +4,7 @@ import {
   faCogs,
   faChartLine,
 } from "@fortawesome/free-solid-svg-icons";
+import AutoplayVideo from "@/components/AutoplayVideo";
 import ImageLightbox from "@/components/ImageLightbox";
 import { pageMetadata } from "@/lib/metadata";
 import ProjectHeader from "@/components/project/ProjectHeader";
@@ -280,8 +281,46 @@ export default function ProjectPage() {
               </li>
             </ul>
 
-            {/* Figure 1: Dashboard */}
-            <figure id="figure-1" className="scroll-mt-24">
+            <p className="text-gray-300 leading-relaxed mb-6 text-justify">
+              A walkthrough of quoting an applicant, inspecting the SHAP cost
+              drivers and plain-language explanation, and running a what-if
+              comparison when smoking status changes is shown in{" "}
+              <a href="#figure-1" className="text-accent hover:underline">
+                Figure 1
+              </a>
+              , and the full dashboard layout is shown in{" "}
+              <a href="#figure-2" className="text-accent hover:underline">
+                Figure 2
+              </a>
+              .
+            </p>
+
+            {/* Figure 1: Demo Video */}
+            <figure id="figure-1" className="scroll-mt-24 mb-8">
+              <div className="mx-auto w-full max-w-2xl rounded-xl overflow-hidden border border-white/10">
+                <AutoplayVideo
+                  aspectRatio="16 / 9"
+                  poster="/portfolio/insurance-pricing/demo-insurance-pricing-poster.webp"
+                  controls
+                  aria-label="Insurance Pricing quote estimation and what-if walkthrough"
+                  className="block w-full h-auto"
+                >
+                  <source
+                    src="/portfolio/insurance-pricing/demo-insurance-pricing.mp4"
+                    type="video/mp4"
+                  />
+                  Your browser does not support the video tag.
+                </AutoplayVideo>
+              </div>
+              <figcaption className="text-center text-sm text-gray-400 mt-3">
+                <span className="text-gray-300">Figure 1.</span> Walkthrough of
+                quoting an applicant, inspecting SHAP feature impacts and the AI
+                interpretation, and comparing a non-smoker what-if scenario.
+              </figcaption>
+            </figure>
+
+            {/* Figure 2: Dashboard */}
+            <figure id="figure-2" className="scroll-mt-24">
               <ImageLightbox
                 src="/portfolio/insurance-pricing/dashboard.webp"
                 alt="Insurance Pricing dashboard with estimated annual charges, LLM interpretation, and SHAP feature impact"
@@ -290,7 +329,7 @@ export default function ProjectPage() {
                 maxWidth="xl"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 1.</span> Insurance
+                <span className="text-gray-300">Figure 2.</span> Insurance
                 Pricing dashboard: input panel, estimated annual charge, a
                 plain-language interpretation of the main drivers, and the SHAP
                 feature-impact chart.

@@ -4,6 +4,7 @@ import {
   faCogs,
   faChartLine,
 } from "@fortawesome/free-solid-svg-icons";
+import AutoplayVideo from "@/components/AutoplayVideo";
 import ImageLightbox from "@/components/ImageLightbox";
 import { pageMetadata } from "@/lib/metadata";
 import ProjectHeader from "@/components/project/ProjectHeader";
@@ -281,8 +282,47 @@ export default function ProjectPage() {
               </li>
             </ul>
 
-            {/* Figure 1: Dashboard */}
-            <figure id="figure-1" className="scroll-mt-24">
+            <p className="text-gray-300 leading-relaxed mb-6 text-justify">
+              A walkthrough of selecting a segment, generating monthly claims
+              and cost forecasts with prediction bands, and stress-testing the
+              outlook under severity and frequency shocks is shown in{" "}
+              <a href="#figure-1" className="text-accent hover:underline">
+                Figure 1
+              </a>
+              , and the full dashboard view is shown in{" "}
+              <a href="#figure-2" className="text-accent hover:underline">
+                Figure 2
+              </a>
+              .
+            </p>
+
+            {/* Figure 1: Demo Video */}
+            <figure id="figure-1" className="scroll-mt-24 mb-8">
+              <div className="mx-auto w-full max-w-2xl rounded-xl overflow-hidden border border-white/10">
+                <AutoplayVideo
+                  aspectRatio="16 / 9"
+                  poster="/portfolio/insurecast/demo-insurecast-poster.webp"
+                  controls
+                  aria-label="InsureCast segment forecasting and scenario stress-testing walkthrough"
+                  className="block w-full h-auto"
+                >
+                  <source
+                    src="/portfolio/insurecast/demo-insurecast.mp4"
+                    type="video/mp4"
+                  />
+                  Your browser does not support the video tag.
+                </AutoplayVideo>
+              </div>
+              <figcaption className="text-center text-sm text-gray-400 mt-3">
+                <span className="text-gray-300">Figure 1.</span> Walkthrough of
+                segment selection, SARIMAX claims and cost forecasting with
+                prediction intervals, aligned AI summary generation, and what-if
+                scenario recalculation.
+              </figcaption>
+            </figure>
+
+            {/* Figure 2: Dashboard */}
+            <figure id="figure-2" className="scroll-mt-24">
               <ImageLightbox
                 src="/portfolio/insurecast/dashboard.webp"
                 alt="InsureCast forecasting dashboard with claims and cost forecasts, scenario sliders, and monthly table"
@@ -291,7 +331,7 @@ export default function ProjectPage() {
                 maxWidth="2xl"
               />
               <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 1.</span> InsureCast
+                <span className="text-gray-300">Figure 2.</span> InsureCast
                 dashboard: segment and scenario controls, historical-vs-forecast
                 charts with prediction bands for claims and average cost, an
                 aligned AI summary, and the monthly values table.
