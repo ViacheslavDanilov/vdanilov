@@ -54,4 +54,13 @@ test.describe("Keep exploring block", () => {
       page.getByRole("link", { name: /^All \d+ projects$/ }),
     ).toHaveAttribute("href", "/portfolio/");
   });
+
+  test("the card titles are h3 under the block heading", async ({ page }) => {
+    await page.goto("/portfolio/pulmovision/");
+    const section = page
+      .locator("section")
+      .filter({ has: page.getByRole("heading", { name: "Keep exploring" }) });
+    await expect(section.locator("article h3")).toHaveCount(2);
+    await expect(section.locator("h2")).toHaveText(["Keep exploring"]);
+  });
 });

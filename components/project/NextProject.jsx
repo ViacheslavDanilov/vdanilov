@@ -12,7 +12,7 @@ export default function NextProject({ id }) {
     <Section title="Keep exploring" headingClassName="mb-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {getNextProjects(id).map((project) => (
-          <PortfolioCard key={project.id} project={project} />
+          <PortfolioCard key={project.id} project={project} titleAs="h3" />
         ))}
       </div>
       <div className="mt-8 flex justify-center">
