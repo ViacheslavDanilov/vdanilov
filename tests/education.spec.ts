@@ -1,7 +1,7 @@
 import { test, expect, type Page } from "@playwright/test";
 
 const CERTIFICATE_TITLES = [
-  "Backend Engineer",
+  "Back-End Developer",
   "Database Engineer",
   "Figma UI / UX Design",
   "Tailwind CSS",
@@ -50,6 +50,20 @@ test.describe("Education - Certificates Section", () => {
       ).toBeTruthy();
       expect(await link.getAttribute("target")).toBe("_blank");
       expect(await link.getAttribute("rel")).toContain("noopener");
+    }
+  });
+
+  test("Coursera certificates use the verify link format", async ({ page }) => {
+    await page.goto("/education/");
+    const hrefs = await certificateTitles(page).evaluateAll((links) =>
+      links.map((link) => link.getAttribute("href") ?? ""),
+    );
+    const coursera = hrefs.filter((href) => href.includes("coursera.org"));
+    expect(coursera.length).toBeGreaterThan(0);
+    for (const href of coursera) {
+      expect(href).toMatch(
+        /^https:\/\/coursera\.org\/verify\/(professional-cert|specialization)\/[A-Z0-9]+$/,
+      );
     }
   });
 
