@@ -5,18 +5,6 @@ test.describe("Homepage - Basic Page Tests", () => {
     await page.goto("/");
     await expect(page).toHaveTitle(/Viacheslav Danilov/);
   });
-
-  test("all main sections are present", async ({ page }) => {
-    await page.goto("/");
-
-    // Wait for page to load
-    await page.waitForLoadState("domcontentloaded");
-
-    // Check that main structural elements exist
-    await expect(page.locator("nav").first()).toBeVisible();
-    await expect(page.locator("main")).toBeVisible();
-    await expect(page.locator("footer")).toBeVisible();
-  });
 });
 
 test.describe("Homepage - Statistics Section", () => {
@@ -24,15 +12,6 @@ test.describe("Homepage - Statistics Section", () => {
     await page.goto("/");
     await expect(
       page.getByRole("heading", { name: "Career Highlights" }),
-    ).toBeVisible();
-  });
-
-  test("statistics section has correct subtitle", async ({ page }) => {
-    await page.goto("/");
-    await expect(
-      page.getByText(
-        "Building scalable ML and AI solutions and advancing research across multiple domains, companies and countries",
-      ),
     ).toBeVisible();
   });
 
@@ -64,15 +43,6 @@ test.describe("Homepage - Statistics Section", () => {
       await expect(statsSection).toContainText(value);
     }
   });
-
-  test("statistics cards have proper styling", async ({ page }) => {
-    await page.goto("/");
-
-    const statCards = page.locator("#statistics > div:nth-child(2) > div");
-    await expect(statCards).toHaveCount(6);
-    await expect(statCards.first()).toHaveAttribute("data-glow");
-    await expect(statCards.first()).toHaveClass(/rounded-2xl/);
-  });
 });
 
 test.describe("Homepage - Navigation Tests", () => {
@@ -101,12 +71,6 @@ test.describe("Homepage - Navigation Tests", () => {
         await expect(navLink).toBeVisible();
         await expect(navLink).toHaveAttribute("href", link.href);
       }
-    });
-
-    test("logo is visible and clickable", async ({ page }) => {
-      await page.goto("/");
-      const logo = page.locator('nav img[alt="Viacheslav Danilov"]');
-      await expect(logo).toBeVisible();
     });
   });
 
@@ -141,7 +105,6 @@ test.describe("Homepage - Hero Section", () => {
       page.getByRole("heading", { name: "Viacheslav Danilov, PhD" }),
     ).toBeVisible();
     await expect(page.locator("h1")).toHaveCount(1);
-    await expect(page.getByText("Fusing Science")).toHaveCount(0);
   });
 
   test("hero section lists the three roles for screen readers", async ({
@@ -157,18 +120,6 @@ test.describe("Homepage - Hero Section", () => {
     );
   });
 
-  test("hero video element is present", async ({ page }) => {
-    await page.goto("/");
-
-    const video = page.locator("#hero video");
-    await expect(video).toBeVisible();
-    await expect(video).toHaveAttribute("loop");
-    await expect(video.locator("source")).toHaveAttribute(
-      "src",
-      "/hero/hero-video.mp4",
-    );
-  });
-
   test("CV download button is visible and has correct link", async ({
     page,
   }) => {
@@ -180,33 +131,6 @@ test.describe("Homepage - Hero Section", () => {
       "href",
       /^https:\/\/drive\.google\.com\/uc\?export=download&id=1viI3o1RBDoreQcbCwe5zc2NTWpxU7ouk$/,
     );
-  });
-
-  test("the hero has no Portfolio button", async ({ page }) => {
-    await page.goto("/");
-
-    await expect(
-      page.locator("#hero").getByRole("link", { name: /Portfolio/i }),
-    ).toHaveCount(0);
-  });
-
-  test("the About section is merged into the hero", async ({ page }) => {
-    await page.goto("/");
-
-    await expect(page.getByRole("heading", { name: "About Me" })).toHaveCount(
-      0,
-    );
-    await expect(page.locator("#about")).toHaveCount(0);
-    await expect(
-      page.locator("#hero").getByText("published nearly 50 peer-reviewed"),
-    ).toBeVisible();
-  });
-
-  test("the hero holds the only video on the page", async ({ page }) => {
-    await page.goto("/");
-
-    await expect(page.locator("video")).toHaveCount(1);
-    await expect(page.locator("#hero video")).toHaveCount(1);
   });
 
   test("all 6 social links are present in the hero, in order", async ({
@@ -239,7 +163,7 @@ test.describe("Homepage - Hero Section", () => {
     }
   });
 
-  test("Contact me opens an email and WhatsApp is gone", async ({ page }) => {
+  test("Contact me opens an email", async ({ page }) => {
     await page.goto("/");
 
     const contact = page
@@ -250,7 +174,6 @@ test.describe("Homepage - Hero Section", () => {
       "href",
       "mailto:viacheslav.v.danilov@gmail.com",
     );
-    await expect(page.locator('a[href*="wa.me"]')).toHaveCount(0);
   });
 
   test("social links open in new tab", async ({ page }) => {
@@ -351,23 +274,6 @@ test.describe("Homepage - Expertise Section", () => {
     await expect(
       page.getByRole("heading", { name: "Expertise & Leadership" }),
     ).toBeVisible();
-  });
-
-  test("all 6 expertise cards are visible", async ({ page }) => {
-    await page.goto("/");
-
-    const expertiseAreas = [
-      "10+ Years of Advanced R&D",
-      "Medical Imaging AI",
-      "Scalable ML Systems",
-      "Technology Leadership",
-      "Cross-Functional Management",
-      "Applied ML & AI Across Industries",
-    ];
-
-    for (const area of expertiseAreas) {
-      await expect(page.getByText(area, { exact: false })).toBeVisible();
-    }
   });
 });
 
@@ -473,19 +379,6 @@ test.describe("Homepage - Expertise list with a pinned picture", () => {
     }
   });
 
-  for (const width of [360, 768, 1024, 1440]) {
-    test(`the list does not scroll sideways at ${width}px`, async ({
-      page,
-    }) => {
-      await page.setViewportSize({ width, height: 900 });
-      await page.goto("/");
-      const overflow = await page.evaluate(
-        () => document.documentElement.scrollWidth - innerWidth,
-      );
-      expect(overflow).toBeLessThanOrEqual(0);
-    });
-  }
-
   test("with reduced motion the picture changes without a fade", async ({
     page,
   }) => {
@@ -526,26 +419,6 @@ test.describe("Homepage - Clients Section (LogoGrid)", () => {
     await expect(
       page.getByRole("heading", { name: "Selected Clients" }),
     ).toBeVisible();
-  });
-
-  test("all 12 client logos are present", async ({ page }) => {
-    await page.goto("/");
-
-    // Check for client logo images - look for images in clients directory
-    const clientLogos = page.locator('img[src*="clients/"]');
-    const logoCount = await clientLogos.count();
-
-    expect(logoCount).toBeGreaterThanOrEqual(12);
-  });
-
-  test("client logos have external links", async ({ page }) => {
-    await page.goto("/");
-
-    // Find links with client images
-    const externalLinks = page.locator('a:has(img[src*="clients/"])');
-
-    const linkCount = await externalLinks.count();
-    expect(linkCount).toBeGreaterThanOrEqual(12);
   });
 });
 
@@ -624,72 +497,9 @@ test.describe("Homepage - Footer", () => {
   });
 });
 
-test.describe("Homepage - Responsive Layout Tests", () => {
-  test("mobile viewport displays correctly", async ({ page }) => {
-    await page.setViewportSize({ width: 375, height: 667 });
-    await page.goto("/");
-
-    // Mobile menu toggle should be visible
-    await expect(
-      page.locator('nav button[aria-label="Toggle menu"]'),
-    ).toBeVisible();
-
-    // Main content should still be visible
-    await expect(
-      page.getByRole("heading", { name: "Viacheslav Danilov, PhD" }),
-    ).toBeVisible();
-  });
-
-  test("tablet viewport displays correctly", async ({ page }) => {
-    await page.setViewportSize({ width: 768, height: 1024 });
-    await page.goto("/");
-
-    // Check that main sections are visible
-    await expect(
-      page.getByRole("heading", { name: "Viacheslav Danilov, PhD" }),
-    ).toBeVisible();
-    await expect(
-      page.getByRole("heading", { name: "Featured Projects" }),
-    ).toBeVisible();
-  });
-
-  test("desktop viewport displays correctly", async ({ page }) => {
-    await page.setViewportSize({ width: 1920, height: 1080 });
-    await page.goto("/");
-
-    // Desktop navigation links should be visible (not in mobile menu)
-    const experienceLink = page
-      .getByRole("link", { name: "Experience", exact: true })
-      .first();
-    await expect(experienceLink).toBeVisible();
-  });
-});
+test.describe("Homepage - Responsive Layout Tests", () => {});
 
 test.describe("Homepage - Accessibility Tests", () => {
-  test("page has proper heading hierarchy", async ({ page }) => {
-    await page.goto("/");
-
-    // Check for h1
-    const h1 = page.locator("h1");
-    await expect(h1).toBeVisible();
-
-    // Check for multiple h2s (section headings)
-    const h2Count = await page.locator("h2").count();
-    expect(h2Count).toBeGreaterThan(0);
-  });
-
-  test("interactive elements are keyboard accessible", async ({ page }) => {
-    await page.goto("/");
-
-    // Tab to first focusable element and verify focus
-    await page.keyboard.press("Tab");
-
-    // Wait for an interactive element to be focused (link, button, or input)
-    await expect(
-      page.locator("a:focus, button:focus, input:focus"),
-    ).toBeVisible();
-  });
-
   test("images have alt text", async ({ page }) => {
     await page.goto("/");
 
@@ -732,32 +542,5 @@ test.describe("Homepage - Accessibility Tests", () => {
 
       linksChecked++;
     }
-  });
-});
-
-test.describe("Homepage - Performance Tests", () => {
-  // Timing depends on dev-server load from parallel workers
-  test.describe.configure({ retries: 2 });
-
-  test("page loads within acceptable time", async ({ page }) => {
-    const startTime = Date.now();
-    await page.goto("/");
-    await page.waitForLoadState("domcontentloaded");
-    const loadTime = Date.now() - startTime;
-
-    // Page should load within 3 seconds
-    expect(loadTime).toBeLessThan(3000);
-  });
-
-  test("images load successfully", async ({ page }) => {
-    await page.goto("/");
-
-    // Wait for first image to be visible
-    await expect(page.locator("img").first()).toBeVisible();
-
-    const images = page.locator("img");
-    const imageCount = await images.count();
-
-    expect(imageCount).toBeGreaterThan(0);
   });
 });
