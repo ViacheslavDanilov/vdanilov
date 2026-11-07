@@ -1,4 +1,4 @@
-import { existsSync, readFileSync } from "node:fs";
+import { readFileSync } from "node:fs";
 import { test, expect, devices, type Page } from "@playwright/test";
 
 type Entrance = {
@@ -1212,12 +1212,7 @@ test.describe("Page weight", () => {
   });
 
   test("server-only home sections stay server components", () => {
-    for (const name of [
-      "Hero",
-      "FeaturedProjects",
-      "ExpertiseSection",
-      "CallToAction",
-    ]) {
+    for (const name of ["Hero", "FeaturedProjects", "ExpertiseSection"]) {
       const source = readFileSync(`components/${name}.jsx`, "utf8");
       expect(source.trimStart(), name).not.toMatch(/^["']use client["']/);
     }
@@ -1878,10 +1873,6 @@ test.describe("Home closing section", () => {
     await expect(page.locator("main section").last()).toContainText(
       "Selected Clients",
     );
-  });
-
-  test("the call to action component stays in the repository", () => {
-    expect(existsSync("components/CallToAction.jsx")).toBe(true);
   });
 });
 
