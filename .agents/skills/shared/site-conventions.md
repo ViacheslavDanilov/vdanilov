@@ -223,25 +223,3 @@ are underlined only on hover. Where an Emil skill names a skill this repo leaves
 Run **`find-skills`** before improvising a workflow. It installs third-party skills that load in
 every later session, so it **proposes and the owner decides**. When nothing fits, say so and
 do the work by hand.
-
-### Considered and not wired in
-
-- **superpowers**: its hook forced a skill before every reply, and it covers the same stages as
-  these skills at more length.
-- **gstack `ship`**: bumps `VERSION`, writes a `CHANGELOG`, prefixes the title and adds an AI
-  trailer. `site-task` opens the pull request instead.
-- **gstack `land-and-deploy`, `canary`**: Vercel deploys on merge, and `site-review` merges.
-- **gstack `autoplan`, `spec`**: scope comes from the owner.
-- **Pocock `tdd`, `to-spec`, `to-tickets`, `domain-modeling`, `codebase-design`, `triage`,
-  `wayfinder`, `implement`**: they assume a tracker, a spec folder or a layered codebase.
-- **The other nine Emil Kowalski skills**: Impeccable and `improve-animations` already cover
-  the design and motion advice. The rest do not fit this site: a prompt glossary, a new UI
-  library (a task of its own), Sonner toasts, React Native and Swift.
-- **`frontend-design`, `ui-ux-pro-max`, `framer-motion-animator`, Leon's taste-skill**: each is
-  another general design voice. Impeccable started from `frontend-design`, and several voices on
-  one page give conflicting advice.
-
-## Adding a skill to these rails
-
-A skill earns a row when this project asks the question it answers. An unused row costs more
-than it looks: a long skill file is followed less closely.

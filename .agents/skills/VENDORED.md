@@ -18,8 +18,6 @@ upstream copy can be diffed against them.
 | `animation-performance/`    | [emilkowalski/skills](https://github.com/emilkowalski/skills) `skills/animation-performance/`   | `a81dbca` (2026-10-28)              |
 | `../agents/impeccable-*.md` | [pbakaus/impeccable](https://github.com/pbakaus/impeccable) `.claude/agents/`                   | `3930843` (2026-10-30)              |
 
-The three Pocock skills are also vendored in `video-bokeh`.
-
 ## Local edits
 
 Kept to the minimum, so a later upstream copy can be diffed against these files:

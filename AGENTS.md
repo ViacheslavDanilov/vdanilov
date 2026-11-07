@@ -193,7 +193,7 @@ because moving it into the middle would split a run of papers, which reads worse
 
 The CV holds the same order in the chip slots on the `Experience / *` components. Reordering there
 means rewriting each slot's label and hyperlink in place, never moving the nodes: the row is auto
-layout and moving children has broken a separator before.
+layout and moving children breaks a separator.
 
 ## Person link order
 
