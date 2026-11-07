@@ -48,6 +48,8 @@ const PortfolioCard = ({
       {/* Image Container - Clickable */}
       <Link
         href={projectUrl}
+        tabIndex={-1}
+        aria-hidden="true"
         className="block relative aspect-[16/10] overflow-hidden"
       >
         <Image

@@ -76,4 +76,20 @@ test.describe("Keep Exploring block", () => {
     await expect(section.locator("article h3")).toHaveCount(2);
     await expect(section.locator("h2")).toHaveText(["Keep Exploring"]);
   });
+
+  test("a card is one tab stop, the title link", async ({ page }) => {
+    for (const url of ["/portfolio/?filter=all", "/portfolio/pulmovision/"]) {
+      await page.goto(url);
+      const stops = await page
+        .locator("article")
+        .first()
+        .evaluate(
+          (article) =>
+            [...article.querySelectorAll("a")].filter(
+              (link) => link.tabIndex >= 0,
+            ).length,
+        );
+      expect(stops, `${url} card has extra tab stops`).toBe(1);
+    }
+  });
 });
