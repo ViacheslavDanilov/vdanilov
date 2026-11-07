@@ -1,6 +1,5 @@
 node_modules/
 .next/
-out/
 .agents/skills/grilling/
 .agents/skills/two-axis-review/
 .agents/skills/diagnosing-bugs/
