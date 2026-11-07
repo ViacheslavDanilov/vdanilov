@@ -81,7 +81,7 @@ Creates a new portfolio project page following the established structure.
 - [ ] **Methods** - Technical approach (if applicable)
 - [ ] **Results** - Metrics and visualizations (if applicable)
 - [ ] **Conclusion** - Key takeaways, future work
-- [ ] **Keep exploring** - `<NextProject id="[slug]" />` after the last Section
+- [ ] **Keep Exploring** - `<NextProject id="[slug]" />` after the last Section
 - [ ] **Figure captions** - All images have Figure N. captions
 - [ ] **Figure citations** - In-text references link to figures
 - [ ] **Text justified** - All paragraphs and lists use text-justify

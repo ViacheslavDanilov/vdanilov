@@ -5,7 +5,7 @@ const SLUGS = readdirSync("app/portfolio", { withFileTypes: true })
   .filter((entry) => entry.isDirectory())
   .map((entry) => entry.name);
 
-test.describe("Keep exploring block", () => {
+test.describe("Keep Exploring block", () => {
   test("every project page offers two other projects from two categories", async ({
     page,
   }) => {
@@ -16,7 +16,7 @@ test.describe("Keep exploring block", () => {
       await page.goto(`/portfolio/${slug}/`);
       const section = page
         .locator("section")
-        .filter({ has: page.getByRole("heading", { name: "Keep exploring" }) });
+        .filter({ has: page.getByRole("heading", { name: "Keep Exploring" }) });
       await expect(section, `${slug} has no block`).toHaveCount(1);
 
       const cards = section.locator("article");
@@ -72,8 +72,8 @@ test.describe("Keep exploring block", () => {
     await page.goto("/portfolio/pulmovision/");
     const section = page
       .locator("section")
-      .filter({ has: page.getByRole("heading", { name: "Keep exploring" }) });
+      .filter({ has: page.getByRole("heading", { name: "Keep Exploring" }) });
     await expect(section.locator("article h3")).toHaveCount(2);
-    await expect(section.locator("h2")).toHaveText(["Keep exploring"]);
+    await expect(section.locator("h2")).toHaveText(["Keep Exploring"]);
   });
 });

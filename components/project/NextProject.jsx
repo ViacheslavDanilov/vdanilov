@@ -9,7 +9,7 @@ import { PROJECTS, getNextProjects } from "@/lib/projects";
 // category, and a way back to all of them
 export default function NextProject({ id }) {
   return (
-    <Section title="Keep exploring" headingClassName="mb-6">
+    <Section title="Keep Exploring" headingClassName="mb-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {getNextProjects(id).map((project) => (
           <PortfolioCard
