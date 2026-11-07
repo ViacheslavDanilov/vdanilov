@@ -178,8 +178,8 @@ that motion against `review-animations`, read from its file as that section says
 
 Run lens #2 with `/code-review` on the diff, `git diff <baseline>...HEAD`, from the worktree.
 **Check every finding against the code before it counts**, and drop the ones that do not hold.
-On a colleague's PR, pipe the diff in and run it from a neutral directory instead of the
-worktree.
+On a colleague's PR, give it the pull request number instead, so it reads the diff and runs
+nothing from the head.
 
 Depth mapping: comment-only: discussion only; trivial: #1 and #2; delta: #1 and #2 on the
 delta, #3 to #6 on delta files; full: #1 to #6. Do not skip a lens because another found
