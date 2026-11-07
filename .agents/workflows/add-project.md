@@ -21,11 +21,9 @@ Creates a new portfolio project page following the established structure.
 
 ## Process
 
-// turbo-all
-
 ### Step 1: Fetch Content
 
-1. Read the provided URL using `read_url_content`
+1. Read the provided URL
 2. Extract: title, description, sections, team, resources
 
 ### Step 2: Suggest Title & Slug
@@ -126,12 +124,10 @@ export default function ProjectPage() {
           resources={RESOURCES}
         />
 
-        {/* Content Sections */}
         <div className="space-y-16">
           <Highlights items={HIGHLIGHTS_ITEMS} />
           <CoreTeam members={TEAM_MEMBERS} />
 
-          {/* Overview */}
           <Section title="Overview">
             <div className="prose prose-invert max-w-none">
               <p className="text-gray-300 leading-relaxed mb-4 text-justify">
@@ -141,7 +137,6 @@ export default function ProjectPage() {
           </Section>
         </div>
       </div>
-      {/* Bottom spacing before footer */}
       <div className="pb-24" />
     </div>
   );

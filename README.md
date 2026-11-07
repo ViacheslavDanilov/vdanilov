@@ -22,13 +22,6 @@
   <img src="https://img.shields.io/badge/Vercel-Deployed-black?style=flat-square&logo=vercel" alt="Vercel" />
 </p>
 
-## ✨ Features
-
-- **Modern Stack**: Built with Next.js 16, React 19, and Tailwind CSS v4
-- **Smooth Animations**: Powered by Motion, with a WebGL light effect on OGL
-- **Fully Responsive**: Mobile-first design that looks great everywhere
-- **Production Ready**: Deployed on Vercel with CI/CD
-
 ## 🚀 Quick Start
 
 ```bash

@@ -116,8 +116,7 @@ This table is the instruction that sets the Agent tool's `model` and `effort` pa
 - The owner can override any row: `/model opus` in a session, or a word in chat.
 
 Run Codex from the working tree, with the report written to a file. `codex exec` uses the
-`model` configured in `~/.codex/config.toml` (`gpt-6-luna` on the base ChatGPT tier, or
-`gpt-6.1-sol` when available on the account):
+`model` configured in `~/.codex/config.toml`:
 
 ```bash
 codex exec -c model_reasoning_effort=xhigh -s read-only -C <worktree> \
@@ -222,7 +221,7 @@ are underlined only on hover. Where an Emil skill names a skill this repo leaves
   `impeccable hooks ignore-value`; `ignore-file` and `ignore-rule` need the owner's go-ahead. A
   worker without the hook, such as Codex, runs
   `.agents/skills/impeccable/scripts/impeccable detect --json <changed files>` once at the end of
-  UI work. `app/` and `components/` scanned clean on 2026-10-29.
+  UI work.
 - Impeccable's four agents, `impeccable-*` in `.agents/agents/`, inherit the session's model and
   keep the effort upstream ships. `impeccable-finish-reviewer` runs at `high`. The other three
   run at `medium`, an exception to the two levels in **Model routing**.
@@ -246,27 +245,19 @@ Run **`find-skills`** before improvising a workflow. It installs third-party ski
 every later session, so it **proposes and the owner decides**. When nothing fits, say so and
 do the work by hand.
 
-### Considered and deliberately not wired in
+### Considered and not wired in
 
-- **superpowers**: removed from the owner's setup on 2026-10-17. Its hook forced a skill before
-  every reply, and it covers the same stages as these skills at more length.
+- **superpowers**: its hook forced a skill before every reply, and it covers the same stages as
+  these skills at more length.
 - **gstack `ship`**: bumps `VERSION`, writes a `CHANGELOG`, prefixes the title and adds an AI
   trailer. `site-task` opens the pull request instead.
 - **gstack `land-and-deploy`, `canary`**: Vercel deploys on merge, and `site-review` merges.
 - **gstack `autoplan`, `spec`**: scope comes from the owner.
 - **Pocock `tdd`, `to-spec`, `to-tickets`, `domain-modeling`, `codebase-design`, `triage`,
   `wayfinder`, `implement`**: they assume a tracker, a spec folder or a layered codebase.
-- **The other nine Emil Kowalski skills**:
-  - `emil-design-eng`: general design advice that Impeccable already covers.
-  - `apple-design`: Apple-style design and gesture-driven spring motion for touch interfaces.
-    Impeccable covers the design and `animate` the motion on this site.
-  - `find-animation-opportunities`: `improve-animations` already lists the missed openings.
-  - `remove-animations`: `improve-animations` plans what to cut, and the site has little motion
-    to remove.
-  - `animation-vocabulary`: a glossary for people who write prompts, not a task.
-  - `pick-ui-library`: the stack is settled, and a new dependency is a task of its own.
-  - `ask-sonner`: the site uses no Sonner toasts.
-  - `animate-expo` and `write-swift`: React Native and Swift.
+- **The other nine Emil Kowalski skills**: Impeccable and `improve-animations` already cover
+  the design and motion advice. The rest do not fit this site: a prompt glossary, a new UI
+  library (a task of its own), Sonner toasts, React Native and Swift.
 - **`frontend-design`, `ui-ux-pro-max`, `framer-motion-animator`, Leon's taste-skill**: each is
   another general design voice. Impeccable started from `frontend-design`, and several voices on
   one page give conflicting advice.

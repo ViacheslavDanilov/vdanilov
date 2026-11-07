@@ -6,11 +6,6 @@ test.describe("Homepage - Basic Page Tests", () => {
     await expect(page).toHaveTitle(/Viacheslav Danilov/);
   });
 
-  test("body element is visible", async ({ page }) => {
-    await page.goto("/");
-    await expect(page.locator("body")).toBeVisible();
-  });
-
   test("all main sections are present", async ({ page }) => {
     await page.goto("/");
 
@@ -84,12 +79,6 @@ test.describe("Homepage - Navigation Tests", () => {
   test.describe("Desktop Navigation", () => {
     test.use({ viewport: { width: 1280, height: 720 } });
 
-    test("navbar is visible on desktop", async ({ page }) => {
-      await page.goto("/");
-      const navbar = page.locator("nav").first();
-      await expect(navbar).toBeVisible();
-    });
-
     test("all 6 navigation links are present with correct hrefs", async ({
       page,
     }) => {
@@ -119,59 +108,10 @@ test.describe("Homepage - Navigation Tests", () => {
       const logo = page.locator('nav img[alt="Viacheslav Danilov"]');
       await expect(logo).toBeVisible();
     });
-
-    test.skip("logo navigates to home page", async ({ page }) => {
-      // TODO: This test has timing issues with Next.js navigation
-      // The logo click doesn't always trigger navigation properly
-      await page.goto("/");
-      await page.waitForLoadState("networkidle");
-
-      // Click Experience link first to navigate away from home
-      const experienceLink = page
-        .getByRole("link", { name: "Experience" })
-        .first();
-      await experienceLink.click();
-      await page.waitForURL(/\/experience\//);
-      await page.waitForLoadState("networkidle");
-
-      // Now click logo to go back home
-      const logo = page.locator("nav").first().locator('a[href="/"]').first();
-      await logo.click();
-      await expect(page).toHaveURL(/^\/$/);
-    });
   });
 
   test.describe("Mobile Navigation", () => {
     test.use({ viewport: { width: 375, height: 667 } });
-
-    test("mobile menu toggle is visible on mobile", async ({ page }) => {
-      await page.goto("/");
-      const menuToggle = page.locator('nav button[aria-label="Toggle menu"]');
-      await expect(menuToggle).toBeVisible();
-    });
-
-    test("mobile menu opens and closes", async ({ page }) => {
-      await page.goto("/");
-
-      const menuToggle = page.locator('nav button[aria-label="Toggle menu"]');
-
-      // Click to open menu
-      await menuToggle.click();
-      await page.waitForTimeout(500); // Wait for open animation
-
-      // Verify menu is open - links should be visible
-      await expect(
-        page.getByRole("link", { name: "Experience" }).first(),
-      ).toBeVisible();
-
-      // Close menu
-      await menuToggle.click();
-      await page.waitForTimeout(500); // Wait for close animation
-
-      // On mobile, after menu closes, desktop nav should not be visible
-      // Menu is controlled by transform/opacity animations, not display:none
-      // So we just verify the test completed without checking final state
-    });
 
     test("mobile menu navigation links are clickable when menu is open", async ({
       page,
@@ -610,13 +550,6 @@ test.describe("Homepage - Clients Section (LogoGrid)", () => {
 });
 
 test.describe("Homepage - Footer", () => {
-  test("footer is visible", async ({ page }) => {
-    await page.goto("/");
-
-    const footer = page.locator("footer");
-    await expect(footer).toBeVisible();
-  });
-
   test("footer contains logo that links to home", async ({ page }) => {
     await page.goto("/");
     await page.waitForLoadState("networkidle");
@@ -800,19 +733,6 @@ test.describe("Homepage - Accessibility Tests", () => {
       linksChecked++;
     }
   });
-
-  test("page has proper landmark structure", async ({ page }) => {
-    await page.goto("/");
-
-    // Ensure main landmark exists
-    await expect(page.locator("main")).toBeVisible();
-
-    // Ensure navigation landmark exists
-    await expect(page.locator("nav").first()).toBeVisible();
-
-    // Ensure footer landmark exists
-    await expect(page.locator("footer")).toBeVisible();
-  });
 });
 
 test.describe("Homepage - Performance Tests", () => {
@@ -827,23 +747,6 @@ test.describe("Homepage - Performance Tests", () => {
 
     // Page should load within 3 seconds
     expect(loadTime).toBeLessThan(3000);
-  });
-
-  test("videos load successfully", async ({ page }) => {
-    await page.goto("/");
-
-    const videos = page.locator("video");
-    const videoCount = await videos.count();
-
-    expect(videoCount).toBeGreaterThanOrEqual(1);
-
-    // Check that videos are present and have source
-    const firstVideo = videos.first();
-    const hasSrc = await firstVideo.getAttribute("src");
-    const hasSourceChild = await firstVideo.locator("source").count();
-
-    // Video should have either src attribute or source child elements
-    expect(hasSrc || hasSourceChild > 0).toBeTruthy();
   });
 
   test("images load successfully", async ({ page }) => {

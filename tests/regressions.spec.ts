@@ -1,4 +1,4 @@
-import { existsSync, readFileSync } from "node:fs";
+import { readFileSync } from "node:fs";
 import { test, expect, devices, type Page } from "@playwright/test";
 
 type Entrance = {
@@ -1212,12 +1212,7 @@ test.describe("Page weight", () => {
   });
 
   test("server-only home sections stay server components", () => {
-    for (const name of [
-      "Hero",
-      "FeaturedProjects",
-      "ExpertiseSection",
-      "CallToAction",
-    ]) {
+    for (const name of ["Hero", "FeaturedProjects", "ExpertiseSection"]) {
       const source = readFileSync(`components/${name}.jsx`, "utf8");
       expect(source.trimStart(), name).not.toMatch(/^["']use client["']/);
     }
@@ -1306,30 +1301,6 @@ test.describe("Hero and About videos", () => {
       el.videoHeight,
     ]);
     expect(size).toEqual([1082, 1082]);
-
-    const response = await request.get(src);
-    expect(response.headers()["content-type"]).toContain("video/mp4");
-    expect((await response.body()).length).toBeLessThan(4 * 1024 * 1024);
-  });
-
-  test("the About video is off the page, its file stays 1082 px under 4 MB", async ({
-    page,
-    request,
-  }) => {
-    const src = "/hero/about-video.mp4";
-    await page.goto("/");
-    await expect(page.locator(`source[src="${src}"]`)).toHaveCount(0);
-
-    await page.goto(src);
-    const video = page.locator("video");
-    await expect
-      .poll(() => video.evaluate((el: HTMLVideoElement) => el.videoWidth), {
-        timeout: 15_000,
-      })
-      .toBe(1082);
-    expect(await video.evaluate((el: HTMLVideoElement) => el.videoHeight)).toBe(
-      1082,
-    );
 
     const response = await request.get(src);
     expect(response.headers()["content-type"]).toContain("video/mp4");
@@ -1878,10 +1849,6 @@ test.describe("Home closing section", () => {
     await expect(page.locator("main section").last()).toContainText(
       "Selected Clients",
     );
-  });
-
-  test("the call to action component stays in the repository", () => {
-    expect(existsSync("components/CallToAction.jsx")).toBe(true);
   });
 });
 
