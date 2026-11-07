@@ -11,6 +11,7 @@ import ProjectHeader from "@/components/project/ProjectHeader";
 import Highlights from "@/components/project/Highlights";
 import CoreTeam from "@/components/project/CoreTeam";
 import Section from "@/components/project/Section";
+import NextProject from "@/components/project/NextProject";
 
 export const metadata = pageMetadata({
   title: "Stenosis Spotter",
@@ -476,6 +477,8 @@ export default function ProjectPage() {
               surgical intervention planning.
             </p>
           </Section>
+
+          <NextProject id="stenosis-spotter" />
         </div>
       </div>
       <div className="pb-24" />

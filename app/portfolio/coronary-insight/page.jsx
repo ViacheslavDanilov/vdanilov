@@ -10,6 +10,7 @@ import ProjectHeader from "@/components/project/ProjectHeader";
 import Highlights from "@/components/project/Highlights";
 import CoreTeam from "@/components/project/CoreTeam";
 import Section from "@/components/project/Section";
+import NextProject from "@/components/project/NextProject";
 
 export const metadata = pageMetadata({
   title: "Coronary Insight",
@@ -504,6 +505,8 @@ export default function ProjectPage() {
               application across diverse populations through expanded datasets.
             </p>
           </Section>
+
+          <NextProject id="coronary-insight" />
         </div>
       </div>
       <div className="pb-24" />

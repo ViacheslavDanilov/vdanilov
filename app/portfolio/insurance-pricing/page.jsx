@@ -11,6 +11,7 @@ import ProjectHeader from "@/components/project/ProjectHeader";
 import Highlights from "@/components/project/Highlights";
 import CoreTeam from "@/components/project/CoreTeam";
 import Section from "@/components/project/Section";
+import NextProject from "@/components/project/NextProject";
 
 export const metadata = pageMetadata({
   title: "Insurance Pricing",
@@ -347,6 +348,8 @@ export default function ProjectPage() {
               monitoring to keep predictions reliable as data shifts over time.
             </p>
           </Section>
+
+          <NextProject id="insurance-pricing" />
         </div>
       </div>
       <div className="pb-24" />

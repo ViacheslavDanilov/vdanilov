@@ -11,6 +11,7 @@ import ProjectHeader from "@/components/project/ProjectHeader";
 import Highlights from "@/components/project/Highlights";
 import CoreTeam from "@/components/project/CoreTeam";
 import Section from "@/components/project/Section";
+import NextProject from "@/components/project/NextProject";
 
 export const metadata = pageMetadata({
   title: "InsureCast",
@@ -350,6 +351,8 @@ export default function ProjectPage() {
               monitoring with CI hardening.
             </p>
           </Section>
+
+          <NextProject id="insurecast" />
         </div>
       </div>
       <div className="pb-24" />

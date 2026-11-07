@@ -11,6 +11,7 @@ import ProjectHeader from "@/components/project/ProjectHeader";
 import Highlights from "@/components/project/Highlights";
 import CoreTeam from "@/components/project/CoreTeam";
 import Section from "@/components/project/Section";
+import NextProject from "@/components/project/NextProject";
 
 export const metadata = pageMetadata({
   title: "Deep BrainWatch",
@@ -520,6 +521,8 @@ export default function ProjectPage() {
               critical.
             </p>
           </Section>
+
+          <NextProject id="deep-brainwatch" />
         </div>
       </div>
       <div className="pb-24" />
