@@ -24,7 +24,15 @@ const CATEGORY_LABELS = {
   "industry-ai-ml": "Industry AI/ML",
 };
 
-const PortfolioCard = ({ project, priority = false, titleAs = "h2" }) => {
+const GRID_SIZES =
+  "(max-width: 767px) calc(100vw - 3rem), (max-width: 1023px) calc(50vw - 2.25rem), (max-width: 1279px) calc(33vw - 2rem), 395px";
+
+const PortfolioCard = ({
+  project,
+  priority = false,
+  titleAs = "h2",
+  sizes = GRID_SIZES,
+}) => {
   const Title = titleAs;
   const { id, title, description, image, date, category } = project;
   const formattedDate = formatDate(date);
@@ -47,7 +55,7 @@ const PortfolioCard = ({ project, priority = false, titleAs = "h2" }) => {
           alt={title}
           fill
           priority={priority}
-          sizes="(max-width: 767px) calc(100vw - 3rem), (max-width: 1023px) calc(50vw - 2.25rem), (max-width: 1279px) calc(33vw - 2rem), 395px"
+          sizes={sizes}
           quality={90}
           className="object-cover transition-transform duration-500 motion-safe:group-hover:scale-102"
         />
