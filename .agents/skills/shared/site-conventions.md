@@ -218,6 +218,24 @@ are underlined only on hover. Where an Emil skill names a skill this repo leaves
 - `review-animations` runs only when a user types it. To use it from a skill or a subagent,
   read `.agents/skills/review-animations/SKILL.md` and its `STANDARDS.md` and follow them.
 
+### Reusing a ready-made component
+
+Before building a block with real interaction or motion (animated text, a background effect, a
+carousel, a command palette), look for a tested one. Plain markup, a card or a list is written by
+hand: a search costs more than the block.
+
+- Search 21st.dev with `mcp__21st__search` (metadata only, free), and React Bits or a similar
+  catalog on the web. The aim is a reference and a short list, not a dependency.
+- `mcp__21st__get_component` returns paid code. Call it only after the owner says yes.
+- A candidate must fit the stack: Tailwind 4, the site's own colours and glass look, no
+  shadcn CSS variables, and only libraries already installed (`motion`, `gsap`, `ogl`). It must
+  respect `prefers-reduced-motion`, work from the keyboard, and not add a dependency.
+- Copy the source into `components/ui/` and adapt it to the site, the way `depth-flip-text.jsx`
+  was. Do not install a package for one component. Name the source and the author in the commit
+  body, not in a code comment.
+- In the checkpoint of `site-task` step 3, give one or two candidates with a recommendation, or
+  one line saying what was searched and why nothing fits.
+
 ### When the table has no row for what you are facing
 
 Run **`find-skills`** before improvising a workflow. It installs third-party skills that load in
