@@ -136,7 +136,6 @@ const Hero = () => {
             <LiquidButtonLink
               href="https://drive.google.com/uc?export=download&id=1viI3o1RBDoreQcbCwe5zc2NTWpxU7ouk"
               ariaLabel="Download CV"
-              size="xl"
               className="px-3.5 sm:h-14 sm:px-10 bg-accent/15 border-accent/40"
               hoverClassName="bg-accent/10"
               textClassName="text-sm"
@@ -147,7 +146,6 @@ const Hero = () => {
             <LiquidButtonLink
               href={`mailto:${EMAIL}`}
               ariaLabel="Contact me"
-              size="xl"
               className="px-3.5 sm:h-14 sm:px-10"
               textClassName="text-sm"
             >

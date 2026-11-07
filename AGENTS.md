@@ -1,7 +1,7 @@
 # AGENTS.md
 
-Instructions for AI coding agents working in this repository. Claude Code, Codex, Cursor and
-Copilot all read this file directly. Do not add a `CLAUDE.md` or `CLAUDE.local.md`: Claude Code
+Instructions for AI coding agents working in this repository. Claude Code, Cursor and Copilot
+all read this file directly. Do not add a `CLAUDE.md` or `CLAUDE.local.md`: Claude Code
 reads `AGENTS.md` only when neither exists.
 
 Personal portfolio site of Viacheslav Danilov: Next.js 16 (App Router), React 19,
@@ -193,7 +193,7 @@ because moving it into the middle would split a run of papers, which reads worse
 
 The CV holds the same order in the chip slots on the `Experience / *` components. Reordering there
 means rewriting each slot's label and hyperlink in place, never moving the nodes: the row is auto
-layout and moving children has broken a separator before.
+layout and moving children breaks a separator.
 
 ## Person link order
 

@@ -2,41 +2,17 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { cva } from "class-variance-authority";
 
 import { cn } from "@/lib/utils";
 
-const liquidButtonVariants = cva(
-  "inline-flex items-center transition-colors justify-center cursor-pointer gap-2 whitespace-nowrap rounded-full font-medium transition-[color,box-shadow,transform] disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:ring-accent focus-visible:ring-[3px] border border-white/10",
-  {
-    variants: {
-      variant: {
-        default:
-          "bg-transparent motion-safe:active:scale-[0.975] duration-300 transition text-light",
-      },
-      size: {
-        default: "h-9 px-4 py-2 has-[>svg]:px-3",
-        sm: "h-8 text-xs gap-1.5 px-4 has-[>svg]:px-4",
-        lg: "h-10 rounded-full px-6 has-[>svg]:px-4",
-        xl: "h-12 rounded-full px-8 has-[>svg]:px-6",
-        xxl: "h-14 rounded-full px-10 has-[>svg]:px-8",
-        icon: "size-9",
-      },
-    },
-    defaultVariants: {
-      variant: "default",
-      size: "xl",
-    },
-  },
-);
+const BUTTON_CLASSES =
+  "inline-flex items-center transition-colors justify-center cursor-pointer gap-2 whitespace-nowrap rounded-full font-medium transition-[color,box-shadow,transform] disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:ring-accent focus-visible:ring-[3px] border border-white/10 bg-transparent motion-safe:active:scale-[0.975] duration-300 transition text-light h-12 rounded-full px-8 has-[>svg]:px-6";
 
 // Link variant for <a> tags
 export function LiquidButtonLink({
   className,
   textClassName,
   hoverClassName = "bg-white/10",
-  variant,
-  size,
   href,
   target,
   ariaLabel,
@@ -52,10 +28,7 @@ export function LiquidButtonLink({
       rel={target === "_blank" ? "noopener noreferrer" : undefined}
       aria-label={ariaLabel}
       data-slot="button"
-      className={cn(
-        "group/button relative",
-        liquidButtonVariants({ variant, size, className }),
-      )}
+      className={cn("group/button relative", BUTTON_CLASSES, className)}
       {...props}
     >
       {/* Light layer that fades in on hover and focus */}

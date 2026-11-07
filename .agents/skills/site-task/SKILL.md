@@ -120,7 +120,7 @@ delete pre-existing dead code: mention it. For UI work, use `impeccable`, `verce
 file sets their limits and how to treat the design hook's findings.
 
 Route the work by **Model routing** in the conventions file: small edits here, visual and copy
-work to `site-crafter`, code with no taste in it to Codex, and a structural change to
+work to `site-crafter`, code with no taste in it to the session, and a structural change to
 `site-planner` before anyone writes code.
 
 ## 6. Verify

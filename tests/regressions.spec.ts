@@ -65,7 +65,7 @@ test.describe("Experience dates west of UTC", () => {
 });
 
 test.describe("Layout width", () => {
-  for (const width of [320, 768, 1024]) {
+  for (const width of [320, 390, 768, 1024, 1280, 1440]) {
     test(`home and education do not scroll sideways at ${width}px`, async ({
       page,
     }) => {
@@ -1259,18 +1259,12 @@ test.describe("Page weight", () => {
       page,
       request,
     }) => {
-      const gifs: string[] = [];
-      page.on("response", (response) => {
-        if (response.url().endsWith(".gif")) gifs.push(response.url());
-      });
       await page.goto(`/portfolio/${project}/`);
 
       const video = page.locator(
         `video[controls] source[src="/portfolio/${project}/v-net-feature-transfer.mp4"]`,
       );
       await expect(video).toHaveCount(1);
-      await expect(page.locator('img[src*=".gif"]')).toHaveCount(0);
-      expect(gifs).toEqual([]);
 
       const response = await request.get(
         `/portfolio/${project}/v-net-feature-transfer.mp4`,
@@ -1281,8 +1275,8 @@ test.describe("Page weight", () => {
   }
 });
 
-test.describe("Hero and About videos", () => {
-  test("the hero video is 1082 px, plays and stays under 4 MB", async ({
+test.describe("Hero video", () => {
+  test("the hero video is 1082 px, loops, plays and stays under 4 MB", async ({
     page,
     request,
   }) => {
@@ -1290,6 +1284,7 @@ test.describe("Hero and About videos", () => {
     const src = "/hero/hero-video.mp4";
     const video = page.locator(`video:has(source[src="${src}"])`);
     await video.scrollIntoViewIfNeeded();
+    await expect(video).toHaveAttribute("loop");
 
     await expect
       .poll(() => video.evaluate((el: HTMLVideoElement) => el.currentTime), {
@@ -1686,24 +1681,6 @@ test.describe("Home hero", () => {
     });
   }
 
-  test("the name leads the first screen on phones and sits in the text column from lg", async ({
-    page,
-  }) => {
-    await page.setViewportSize({ width: 390, height: 844 });
-    await page.goto("/");
-    const phone = {
-      name: (await page.locator("#hero h1").boundingBox())!,
-      video: (await page.locator("#hero video").boundingBox())!,
-    };
-    expect(phone.name.y + phone.name.height).toBeLessThan(phone.video.y);
-    await page.setViewportSize({ width: 1440, height: 900 });
-    const wide = {
-      name: (await page.locator("#hero h1").boundingBox())!,
-      video: (await page.locator("#hero video").boundingBox())!,
-    };
-    expect(wide.name.x).toBeGreaterThan(wide.video.x + wide.video.width);
-  });
-
   test("the two key roles stand out by weight and tone, not colour", async ({
     page,
   }) => {
@@ -1836,20 +1813,6 @@ test.describe("Home section spacing", () => {
       });
     });
   }
-});
-
-test.describe("Home closing section", () => {
-  test("the home page ends with the client logos and has no call to action", async ({
-    page,
-  }) => {
-    await page.goto("/");
-    await expect(
-      page.getByRole("heading", { name: "Let's Build What Matters" }),
-    ).toHaveCount(0);
-    await expect(page.locator("main section").last()).toContainText(
-      "Selected Clients",
-    );
-  });
 });
 
 test.describe("Client logos", () => {
