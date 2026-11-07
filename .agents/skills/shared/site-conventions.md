@@ -89,47 +89,27 @@ small edits itself and commits. The merge happens in `site-review`, as **Pushing
 work goes to the worker in this table. **Pick the row by what the work is, never by a guess at
 how hard it is.**
 
-| Work                                                                                      | Worker                                 | Model, effort           |
-| ----------------------------------------------------------------------------------------- | -------------------------------------- | ----------------------- |
-| Dialog, criteria, brief, small edits, commits                                             | the session                            | Sonnet, high            |
-| A plan for a structural change: data shape, routing, build or CI config, design tokens    | `site-planner` agent                   | Opus, xhigh             |
-| Visual and copy work: layout, components, site copy, project pages; `impeccable critique` | `site-crafter` agent                   | Sonnet, xhigh           |
-| Code with no taste in it: tests, data, scripts, accessibility, performance, an exact plan | Codex, `workspace-write`               | `~/.codex` model, xhigh |
-| `site-review`, first pass or delta                                                        | `site-reviewer` agent                  | Opus, high              |
-| `site-review` when the PR touches a high-risk path from its step 2                        | `site-reviewer` agent, `effort: xhigh` | Opus, xhigh             |
-| `site-review` trivial or comment-only pass                                                | general-purpose agent, `model: sonnet` | Sonnet, high            |
-| The review's fix loop and `qa`                                                            | general-purpose agent, `model: sonnet` | Sonnet, high            |
-| Review lenses #2 (bugs) and #7 (second opinion)                                           | Codex, `read-only`                     | `~/.codex` model, xhigh |
-| Technical and motion audits                                                               | Codex, `read-only`                     | `~/.codex` model, xhigh |
-| Run `check`, `build`, `test:e2e`; search; count; summarise long output                    | `site-runner` agent                    | Haiku, high             |
+| Work                                                                                      | Worker                                 | Model, effort |
+| ----------------------------------------------------------------------------------------- | -------------------------------------- | ------------- |
+| Dialog, criteria, brief, small edits, commits                                             | the session                            | Sonnet, high  |
+| A plan for a structural change: data shape, routing, build or CI config, design tokens    | `site-planner` agent                   | Opus, xhigh   |
+| Visual and copy work: layout, components, site copy, project pages; `impeccable critique` | `site-crafter` agent                   | Sonnet, xhigh |
+| Code with no taste in it: tests, data, scripts, accessibility, performance, an exact plan | the session                            | Sonnet, high  |
+| `site-review`, first pass or delta                                                        | `site-reviewer` agent                  | Opus, high    |
+| `site-review` when the PR touches a high-risk path from its step 2                        | `site-reviewer` agent, `effort: xhigh` | Opus, xhigh   |
+| `site-review` trivial or comment-only pass                                                | general-purpose agent, `model: sonnet` | Sonnet, high  |
+| The review's fix loop and `qa`                                                            | general-purpose agent, `model: sonnet` | Sonnet, high  |
+| Run `check`, `build`, `test:e2e`; search; count; summarise long output                    | `site-runner` agent                    | Haiku, high   |
 
 This table is the instruction that sets the Agent tool's `model` and `effort` parameters.
 
 - **A small edit stays in the session.** Handing off a one-line change costs more than making
   it, so a brief is for work that is larger, needs another model, or may outlive the session.
-- **Codex never decides how something looks or reads.** It gets work with a check that passes
-  or fails. Visual and copy work stays with Claude.
-- **Codex does not commit.** The session reads its diff, runs the checks and commits per
+- **Code with no taste in it** gets a check that passes or fails: a test, a build, a script's
+  output. Visual and copy work goes to `site-crafter`.
+- **A worker does not commit.** The session reads its diff, runs the checks and commits per
   `AGENTS.md`.
-- **When Codex is missing or fails**, say so and move the work to Claude: code to the session,
-  lens #2 to `/code-review`, and record lens #7 as not run.
 - The owner can override any row: `/model opus` in a session, or a word in chat.
-
-Run Codex from the working tree, with the report written to a file. `codex exec` uses the
-`model` configured in `~/.codex/config.toml`:
-
-```bash
-codex exec -c model_reasoning_effort=xhigh -s read-only -C <worktree> \
-  -o <report.md> "<prompt>" < /dev/null
-```
-
-End the command with `< /dev/null`, unless input is piped in, as `site-review` does on a
-colleague's pull request. Without either, a `codex exec` run in the background reads stdin,
-prints `Reading additional input from stdin...` and waits for input that never comes,
-while the agent that started it waits for the report.
-
-Use `-s workspace-write` instead of `read-only` when Codex implements. The prompt carries the
-limits in **Delegating** and points at `BRIEF.md`.
 
 ### Brief and status
 
@@ -146,7 +126,7 @@ worktree, such as `site-review`'s, gets both by absolute path from the caller.
 
 Any worker, or a new session on another account, reads both before anything else. A worker
 never edits `BRIEF.md`: a change of scope goes back to the owner, who confirms a new brief. A
-read-only worker, such as `site-planner`, `site-runner` or a read-only Codex run, reports its
+read-only worker, such as `site-planner` or `site-runner`, reports its
 progress in its reply, and the orchestrator records it in `STATUS.md`.
 
 Both files belong to one task. The orchestrator deletes them once the task's pull request merges
@@ -166,7 +146,6 @@ reimplement what an installed skill already does. `vendored` means a copy under
 | Chase a bug or an unknown cause                                               | `diagnosing-bugs`                                            | vendored         |
 | Check a diff against the repo rules and the criteria                          | `two-axis-review`                                            | vendored         |
 | Find bugs in a diff                                                           | `/code-review`                                               | built-in         |
-| A second opinion from a different model                                       | `codex`                                                      | gstack           |
 | Click through the pages                                                       | `qa` (own branch, fixes) / `qa-only` (report only)           | gstack           |
 | Critique a page's design: hierarchy, layout, type, color                      | `impeccable` `critique`, `audit`                             | vendored         |
 | Catch visual regressions in the browser                                       | `design-review`                                              | gstack           |
@@ -219,7 +198,7 @@ are underlined only on hover. Where an Emil skill names a skill this repo leaves
   file, and a deeper pass when the session stops. It never blocks an edit, stays quiet on a clean
   file, and uses no model quota. Fix what it reports. A false positive is silenced only with
   `impeccable hooks ignore-value`; `ignore-file` and `ignore-rule` need the owner's go-ahead. A
-  worker without the hook, such as Codex, runs
+  worker without the hook runs
   `.agents/skills/impeccable/scripts/impeccable detect --json <changed files>` once at the end of
   UI work.
 - Impeccable's four agents, `impeccable-*` in `.agents/agents/`, inherit the session's model and

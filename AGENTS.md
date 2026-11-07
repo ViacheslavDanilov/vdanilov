@@ -1,7 +1,7 @@
 # AGENTS.md
 
-Instructions for AI coding agents working in this repository. Claude Code, Codex, Cursor and
-Copilot all read this file directly. Do not add a `CLAUDE.md` or `CLAUDE.local.md`: Claude Code
+Instructions for AI coding agents working in this repository. Claude Code, Cursor and Copilot
+all read this file directly. Do not add a `CLAUDE.md` or `CLAUDE.local.md`: Claude Code
 reads `AGENTS.md` only when neither exists.
 
 Personal portfolio site of Viacheslav Danilov: Next.js 16 (App Router), React 19,
