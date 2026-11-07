@@ -10,6 +10,7 @@ test.describe("Keep exploring block", () => {
     page,
   }) => {
     test.setTimeout(180_000);
+    const related = new Map<string, string>();
 
     for (const slug of SLUGS) {
       await page.goto(`/portfolio/${slug}/`);
@@ -45,6 +46,18 @@ test.describe("Keep exploring block", () => {
         first.badge,
         `${slug} offers two projects of one category`,
       ).not.toBe(second.badge);
+      related.set(slug, first.slug);
+    }
+
+    // The related cards close into rings, so every page is offered from another
+    for (const slug of SLUGS) {
+      let current = related.get(slug);
+      let steps = 1;
+      while (current !== slug && steps <= SLUGS.length) {
+        current = related.get(current as string);
+        steps += 1;
+      }
+      expect(current, `${slug} never comes round again`).toBe(slug);
     }
   });
 
