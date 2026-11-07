@@ -497,8 +497,6 @@ test.describe("Homepage - Footer", () => {
   });
 });
 
-test.describe("Homepage - Responsive Layout Tests", () => {});
-
 test.describe("Homepage - Accessibility Tests", () => {
   test("images have alt text", async ({ page }) => {
     await page.goto("/");
