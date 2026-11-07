@@ -231,8 +231,8 @@ hand: a search costs more than the block.
   shadcn CSS variables, and only libraries already installed (`motion`, `gsap`, `ogl`). It must
   respect `prefers-reduced-motion`, work from the keyboard, and not add a dependency.
 - Copy the source into `components/ui/` and adapt it to the site, the way `depth-flip-text.jsx`
-  was. Do not install a package for one component. Name the source and the author in the commit
-  body, not in a code comment.
+  was. Do not install a package for one component. Name the source and the author in one comment
+  line at the top of the file, as that file does.
 - In the checkpoint of `site-task` step 3, give one or two candidates with a recommendation, or
   one line saying what was searched and why nothing fits.
 
