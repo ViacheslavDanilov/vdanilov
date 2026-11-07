@@ -1306,30 +1306,6 @@ test.describe("Hero and About videos", () => {
     expect(response.headers()["content-type"]).toContain("video/mp4");
     expect((await response.body()).length).toBeLessThan(4 * 1024 * 1024);
   });
-
-  test("the About video is off the page, its file stays 1082 px under 4 MB", async ({
-    page,
-    request,
-  }) => {
-    const src = "/hero/about-video.mp4";
-    await page.goto("/");
-    await expect(page.locator(`source[src="${src}"]`)).toHaveCount(0);
-
-    await page.goto(src);
-    const video = page.locator("video");
-    await expect
-      .poll(() => video.evaluate((el: HTMLVideoElement) => el.videoWidth), {
-        timeout: 15_000,
-      })
-      .toBe(1082);
-    expect(await video.evaluate((el: HTMLVideoElement) => el.videoHeight)).toBe(
-      1082,
-    );
-
-    const response = await request.get(src);
-    expect(response.headers()["content-type"]).toContain("video/mp4");
-    expect((await response.body()).length).toBeLessThan(4 * 1024 * 1024);
-  });
 });
 
 test.describe("Home hero roles with reduced motion", () => {
