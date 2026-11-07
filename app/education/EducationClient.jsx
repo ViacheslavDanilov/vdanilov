@@ -162,12 +162,12 @@ const ADDITIONAL_EDUCATION_DATA = [
 ];
 const CERTIFICATES_DATA = [
   {
-    id: "meta-backend-engineer",
-    title: "Backend Engineer",
+    id: "meta-back-end-developer",
+    title: "Back-End Developer",
     organization: "Meta",
-    date: "Oct 2026",
+    date: "Nov 2026",
     logo: "/education/certificates/meta.svg",
-    url: "https://www.vdanilov.com/",
+    url: "https://coursera.org/verify/professional-cert/8SLMIIIIR8T5",
     organizationUrl:
       "https://certifications.facebookblueprint.com/student/catalog",
     logoBrightness: 1.0,
