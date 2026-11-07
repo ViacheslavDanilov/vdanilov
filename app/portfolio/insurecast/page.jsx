@@ -124,13 +124,11 @@ export default function ProjectPage() {
           resources={RESOURCES}
         />
 
-        {/* Content Sections */}
         <div className="space-y-16">
           <Highlights items={HIGHLIGHTS_ITEMS} />
 
           <CoreTeam members={TEAM_MEMBERS} />
 
-          {/* Overview */}
           <Section title="Overview">
             <div className="prose prose-invert max-w-none">
               <p className="text-gray-300 leading-relaxed mb-4 text-justify">
@@ -154,7 +152,6 @@ export default function ProjectPage() {
             </div>
           </Section>
 
-          {/* Data */}
           <Section title="Data">
             <p className="text-gray-300 leading-relaxed mb-4 text-justify">
               The demo is built on public OSHA Severe Injury Report (SIR) data,
@@ -195,7 +192,6 @@ export default function ProjectPage() {
             </p>
           </Section>
 
-          {/* Methods */}
           <Section title="Methods">
             <p className="text-gray-300 leading-relaxed mb-4 text-justify">
               The pipeline fits a seasonal model per segment and serves
@@ -240,7 +236,6 @@ export default function ProjectPage() {
             </ul>
           </Section>
 
-          {/* Results */}
           <Section title="Results">
             <p className="text-gray-300 leading-relaxed mb-4 text-justify">
               By unifying forecasting, scenarios, and reporting behind one API,
@@ -339,7 +334,6 @@ export default function ProjectPage() {
             </figure>
           </Section>
 
-          {/* Conclusion */}
           <Section title="Conclusion">
             <p className="text-gray-300 leading-relaxed mb-4 text-justify">
               InsureCast shows how classical time-series modeling, an
@@ -358,7 +352,6 @@ export default function ProjectPage() {
           </Section>
         </div>
       </div>
-      {/* Bottom spacing before footer */}
       <div className="pb-24" />
     </div>
   );

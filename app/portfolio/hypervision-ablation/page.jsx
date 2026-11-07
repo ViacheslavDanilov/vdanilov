@@ -170,13 +170,11 @@ export default function ProjectPage() {
           resources={RESOURCES}
         />
 
-        {/* Content Sections */}
         <div className="space-y-16">
           <Highlights items={HIGHLIGHTS_ITEMS} />
 
           <CoreTeam members={TEAM_MEMBERS} />
 
-          {/* Overview */}
           <Section title="Overview">
             <div className="prose prose-invert max-w-none">
               <p className="text-gray-300 leading-relaxed mb-4 text-justify">
@@ -208,7 +206,6 @@ export default function ProjectPage() {
             </div>
           </Section>
 
-          {/* Data */}
           <Section title="Data">
             <p className="text-gray-300 leading-relaxed mb-4 text-justify">
               The dataset consists of 233 hyperspectral cubes (dimensions: 640 ×
@@ -307,7 +304,6 @@ export default function ProjectPage() {
             </div>
           </Section>
 
-          {/* Methods */}
           <Section title="Methods">
             <p className="text-gray-300 leading-relaxed mb-4 text-justify">
               This methodology employed a structured machine learning workflow
@@ -362,7 +358,6 @@ export default function ProjectPage() {
             </figure>
           </Section>
 
-          {/* Results */}
           <Section title="Results">
             <p className="text-gray-300 leading-relaxed mb-4 text-justify">
               The proposed workflow demonstrated strong performance in detecting
@@ -453,7 +448,6 @@ export default function ProjectPage() {
             </figure>
           </Section>
 
-          {/* Conclusion */}
           <Section title="Conclusion">
             <p className="text-gray-300 leading-relaxed mb-4 text-justify">
               This project introduced a robust pipeline for analyzing
@@ -471,7 +465,6 @@ export default function ProjectPage() {
           </Section>
         </div>
       </div>
-      {/* Bottom spacing before footer */}
       <div className="pb-24" />
     </div>
   );

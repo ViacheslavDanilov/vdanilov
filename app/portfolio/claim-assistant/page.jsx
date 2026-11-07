@@ -135,13 +135,11 @@ export default function ProjectPage() {
           resources={RESOURCES}
         />
 
-        {/* Content Sections */}
         <div className="space-y-16">
           <Highlights items={HIGHLIGHTS_ITEMS} />
 
           <CoreTeam members={TEAM_MEMBERS} />
 
-          {/* Overview */}
           <Section title="Overview">
             <div className="prose prose-invert max-w-none">
               <p className="text-gray-300 leading-relaxed mb-4 text-justify">
@@ -166,7 +164,6 @@ export default function ProjectPage() {
             </div>
           </Section>
 
-          {/* Data */}
           <Section title="Data">
             <p className="text-gray-300 leading-relaxed mb-4 text-justify">
               The solution targets a high-volume claims operation handling
@@ -204,7 +201,6 @@ export default function ProjectPage() {
             </p>
           </Section>
 
-          {/* Methods */}
           <Section title="Methods">
             <p className="text-gray-300 leading-relaxed mb-4 text-justify">
               Claim Assistant uses a two-stage pipeline that combines
@@ -277,7 +273,6 @@ export default function ProjectPage() {
             </ul>
           </Section>
 
-          {/* Results */}
           <Section title="Results">
             <p className="text-gray-300 leading-relaxed mb-4 text-justify">
               By shifting intake from full manual data entry to AI-driven
@@ -424,7 +419,6 @@ export default function ProjectPage() {
             </figure>
           </Section>
 
-          {/* Conclusion */}
           <Section title="Conclusion">
             <p className="text-gray-300 leading-relaxed mb-4 text-justify">
               Claim Assistant shows how pairing document intelligence with LLM
@@ -444,7 +438,6 @@ export default function ProjectPage() {
           </Section>
         </div>
       </div>
-      {/* Bottom spacing before footer */}
       <div className="pb-24" />
     </div>
   );

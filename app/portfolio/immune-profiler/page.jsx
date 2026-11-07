@@ -148,13 +148,11 @@ export default function ProjectPage() {
           resources={RESOURCES}
         />
 
-        {/* Content Sections */}
         <div className="space-y-16">
           <Highlights items={HIGHLIGHTS_ITEMS} />
 
           <CoreTeam members={TEAM_MEMBERS} />
 
-          {/* Overview */}
           <Section title="Overview">
             <div className="prose prose-invert max-w-none">
               <p className="text-gray-300 leading-relaxed mb-4 text-justify">
@@ -176,7 +174,6 @@ export default function ProjectPage() {
             </div>
           </Section>
 
-          {/* Data */}
           <Section title="Data">
             <p className="text-gray-300 leading-relaxed mb-6 text-justify">
               Tumor immune phenotypes (immune inflamed, excluded, and desert)
@@ -268,7 +265,6 @@ export default function ProjectPage() {
             </ul>
           </Section>
 
-          {/* Methods */}
           <Section title="Methods">
             <p className="text-gray-300 leading-relaxed mb-4 text-justify">
               The proposed solution comprises five main stages (
@@ -357,7 +353,6 @@ export default function ProjectPage() {
             </figure>
           </Section>
 
-          {/* Results */}
           <Section title="Results">
             <p className="text-gray-300 leading-relaxed mb-4 text-justify">
               The results highlight the performance and scalability of the
@@ -441,7 +436,6 @@ export default function ProjectPage() {
             </figure>
           </Section>
 
-          {/* Conclusion */}
           <Section title="Conclusion">
             <p className="text-gray-300 leading-relaxed mb-4 text-justify">
               The hybrid deep and machine learning workflow successfully
@@ -459,7 +453,6 @@ export default function ProjectPage() {
           </Section>
         </div>
       </div>
-      {/* Bottom spacing before footer */}
       <div className="pb-24" />
     </div>
   );

@@ -162,13 +162,11 @@ export default function ProjectPage() {
           resources={RESOURCES}
         />
 
-        {/* Content Sections */}
         <div className="space-y-16">
           <Highlights items={HIGHLIGHTS_ITEMS} />
 
           <CoreTeam members={TEAM_MEMBERS} />
 
-          {/* Overview */}
           <Section title="Overview">
             <div className="prose prose-invert max-w-none">
               <p className="text-gray-300 leading-relaxed mb-4 text-justify">
@@ -200,7 +198,6 @@ export default function ProjectPage() {
             </div>
           </Section>
 
-          {/* Data */}
           <Section title="Data">
             <p className="text-gray-300 leading-relaxed mb-4 text-justify">
               The study utilized a dataset comprising 104 Whole Slide Images
@@ -260,7 +257,6 @@ export default function ProjectPage() {
             </figure>
           </Section>
 
-          {/* Methods */}
           <Section title="Methods">
             <p className="text-gray-300 leading-relaxed mb-4 text-justify">
               The methodology was designed to address the complexity of
@@ -302,7 +298,6 @@ export default function ProjectPage() {
             </ul>
           </Section>
 
-          {/* Results */}
           <Section title="Results">
             <p className="text-gray-300 leading-relaxed mb-4 text-justify">
               The results demonstrate the effectiveness of the proposed pipeline
@@ -387,7 +382,6 @@ export default function ProjectPage() {
             </figure>
           </Section>
 
-          {/* Conclusion */}
           <Section title="Conclusion">
             <p className="text-gray-300 leading-relaxed mb-4 text-justify">
               This project demonstrated the effectiveness of deep learning
@@ -405,7 +399,6 @@ export default function ProjectPage() {
           </Section>
         </div>
       </div>
-      {/* Bottom spacing before footer */}
       <div className="pb-24" />
     </div>
   );
