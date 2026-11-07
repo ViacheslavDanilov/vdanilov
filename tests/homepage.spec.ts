@@ -119,26 +119,6 @@ test.describe("Homepage - Navigation Tests", () => {
       const logo = page.locator('nav img[alt="Viacheslav Danilov"]');
       await expect(logo).toBeVisible();
     });
-
-    test.skip("logo navigates to home page", async ({ page }) => {
-      // TODO: This test has timing issues with Next.js navigation
-      // The logo click doesn't always trigger navigation properly
-      await page.goto("/");
-      await page.waitForLoadState("networkidle");
-
-      // Click Experience link first to navigate away from home
-      const experienceLink = page
-        .getByRole("link", { name: "Experience" })
-        .first();
-      await experienceLink.click();
-      await page.waitForURL(/\/experience\//);
-      await page.waitForLoadState("networkidle");
-
-      // Now click logo to go back home
-      const logo = page.locator("nav").first().locator('a[href="/"]').first();
-      await logo.click();
-      await expect(page).toHaveURL(/^\/$/);
-    });
   });
 
   test.describe("Mobile Navigation", () => {

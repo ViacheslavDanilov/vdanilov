@@ -187,24 +187,6 @@ const REFERENCES_DATA = [
     },
   },
   // Medicine
-  // {
-  //   id: "evgeny-ovcharenko",
-  //   name: "Evgeny Ovcharenko, PhD",
-  //   role: "Head of Biomaterials Lab",
-  //   organization: "Kemerovo Cardiology Center",
-  //   location: "Kemerovo · Russia 🇷🇺",
-  //   category: "Medicine",
-  //   image: "/people/evgeny-ovcharenko.webp",
-  //   featured: false,
-  //   socials: {
-  //     website: "https://loop.frontiersin.org/people/355364",
-  //     linkedin: "https://www.linkedin.com/in/evgeny-ovcharenko-89098722",
-  //     researchgate: "https://www.researchgate.net/profile/Evgeny-Ovcharenko",
-  //     googleScholar:
-  //       "https://scholar.google.ru/citations?user=taoklzsAAAAJ&hl=en",
-  //     email: "ov.eugene@gmail.com",
-  //   },
-  // },
   {
     id: "diana-litmanovich",
     name: "Diana Litmanovich, MD",
