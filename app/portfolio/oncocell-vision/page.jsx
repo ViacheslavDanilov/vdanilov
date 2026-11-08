@@ -11,6 +11,7 @@ import ProjectHeader from "@/components/project/ProjectHeader";
 import Highlights from "@/components/project/Highlights";
 import CoreTeam from "@/components/project/CoreTeam";
 import Section from "@/components/project/Section";
+import NextProject from "@/components/project/NextProject";
 
 export const metadata = pageMetadata({
   title: "OncoCell Vision",
@@ -504,6 +505,8 @@ export default function ProjectPage() {
               research settings.
             </p>
           </Section>
+
+          <NextProject id="oncocell-vision" />
         </div>
       </div>
       <div className="pb-24" />

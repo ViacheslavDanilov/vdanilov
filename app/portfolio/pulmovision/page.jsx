@@ -10,6 +10,7 @@ import ProjectHeader from "@/components/project/ProjectHeader";
 import Highlights from "@/components/project/Highlights";
 import CoreTeam from "@/components/project/CoreTeam";
 import Section from "@/components/project/Section";
+import NextProject from "@/components/project/NextProject";
 
 export const metadata = pageMetadata({
   title: "PulmoVision",
@@ -477,6 +478,8 @@ export default function ProjectPage() {
               hospital radiology departments.
             </p>
           </Section>
+
+          <NextProject id="pulmovision" />
         </div>
       </div>
       <div className="pb-24" />

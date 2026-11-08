@@ -10,6 +10,7 @@ import ProjectHeader from "@/components/project/ProjectHeader";
 import Highlights from "@/components/project/Highlights";
 import CoreTeam from "@/components/project/CoreTeam";
 import Section from "@/components/project/Section";
+import NextProject from "@/components/project/NextProject";
 
 export const metadata = pageMetadata({
   title: "RayTrace Segment",
@@ -337,6 +338,8 @@ export default function ProjectPage() {
               clinical relevance.
             </p>
           </Section>
+
+          <NextProject id="raytrace-segment" />
         </div>
       </div>
       <div className="pb-24" />

@@ -10,6 +10,7 @@ import ProjectHeader from "@/components/project/ProjectHeader";
 import Highlights from "@/components/project/Highlights";
 import CoreTeam from "@/components/project/CoreTeam";
 import Section from "@/components/project/Section";
+import NextProject from "@/components/project/NextProject";
 
 export const metadata = pageMetadata({
   title: "Histo Scanner",
@@ -397,6 +398,8 @@ export default function ProjectPage() {
               incorporating foundation models for broader applicability.
             </p>
           </Section>
+
+          <NextProject id="histo-scanner" />
         </div>
       </div>
       <div className="pb-24" />

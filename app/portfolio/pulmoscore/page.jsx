@@ -10,6 +10,7 @@ import ProjectHeader from "@/components/project/ProjectHeader";
 import Highlights from "@/components/project/Highlights";
 import CoreTeam from "@/components/project/CoreTeam";
 import Section from "@/components/project/Section";
+import NextProject from "@/components/project/NextProject";
 
 export const metadata = pageMetadata({
   title: "PulmoScore",
@@ -434,6 +435,8 @@ export default function ProjectPage() {
               pulmonary conditions, such as pneumonia and tuberculosis.
             </p>
           </Section>
+
+          <NextProject id="pulmoscore" />
         </div>
       </div>
       <div className="pb-24" />

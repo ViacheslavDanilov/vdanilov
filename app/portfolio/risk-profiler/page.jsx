@@ -11,6 +11,7 @@ import ProjectHeader from "@/components/project/ProjectHeader";
 import Highlights from "@/components/project/Highlights";
 import CoreTeam from "@/components/project/CoreTeam";
 import Section from "@/components/project/Section";
+import NextProject from "@/components/project/NextProject";
 
 export const metadata = pageMetadata({
   title: "Risk Profiler",
@@ -357,6 +358,8 @@ export default function ProjectPage() {
               platforms and larger fraud-detection workflows.
             </p>
           </Section>
+
+          <NextProject id="risk-profiler" />
         </div>
       </div>
       <div className="pb-24" />

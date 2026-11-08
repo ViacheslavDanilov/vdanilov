@@ -11,6 +11,7 @@ import ProjectHeader from "@/components/project/ProjectHeader";
 import Highlights from "@/components/project/Highlights";
 import CoreTeam from "@/components/project/CoreTeam";
 import Section from "@/components/project/Section";
+import NextProject from "@/components/project/NextProject";
 
 export const metadata = pageMetadata({
   title: "HyperVision Ablation",
@@ -463,6 +464,8 @@ export default function ProjectPage() {
               extending its use to other medical imaging modalities.
             </p>
           </Section>
+
+          <NextProject id="hypervision-ablation" />
         </div>
       </div>
       <div className="pb-24" />

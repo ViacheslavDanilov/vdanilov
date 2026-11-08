@@ -24,7 +24,16 @@ const CATEGORY_LABELS = {
   "industry-ai-ml": "Industry AI/ML",
 };
 
-const PortfolioCard = ({ project, priority = false }) => {
+const GRID_SIZES =
+  "(max-width: 767px) calc(100vw - 3rem), (max-width: 1023px) calc(50vw - 2.25rem), (max-width: 1279px) calc(33vw - 2rem), 395px";
+
+const PortfolioCard = ({
+  project,
+  priority = false,
+  titleAs = "h2",
+  sizes = GRID_SIZES,
+}) => {
+  const Title = titleAs;
   const { id, title, description, image, date, category } = project;
   const formattedDate = formatDate(date);
   const categoryLabel = CATEGORY_LABELS[category] || category;
@@ -36,25 +45,29 @@ const PortfolioCard = ({ project, priority = false }) => {
                  transition-all duration-300 hover:border-accent/30 hover:shadow-lg 
                  hover:shadow-accent/5 motion-safe:active:scale-[0.99]"
     >
-      {/* Image Container - Clickable */}
-      <Link
-        href={projectUrl}
-        className="block relative aspect-[16/10] overflow-hidden"
-      >
-        <Image
-          src={image}
-          alt={title}
-          fill
-          priority={priority}
-          sizes="(max-width: 767px) calc(100vw - 3rem), (max-width: 1023px) calc(50vw - 2.25rem), (max-width: 1279px) calc(33vw - 2rem), 395px"
-          quality={90}
-          className="object-cover transition-transform duration-500 motion-safe:group-hover:scale-102"
-        />
-        {/* Gradient Overlay */}
-        <div
-          className="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/20 to-transparent 
+      {/* Image Container */}
+      <div className="relative aspect-[16/10] overflow-hidden">
+        <Link
+          href={projectUrl}
+          tabIndex={-1}
+          aria-hidden="true"
+          className="absolute inset-0"
+        >
+          <Image
+            src={image}
+            alt={title}
+            fill
+            priority={priority}
+            sizes={sizes}
+            quality={90}
+            className="object-cover transition-transform duration-500 motion-safe:group-hover:scale-102"
+          />
+          {/* Gradient Overlay */}
+          <div
+            className="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/20 to-transparent 
                       opacity-60 transition-opacity duration-300 group-hover:opacity-80 pointer-events-none"
-        />
+          />
+        </Link>
 
         {/* Primary Category Badge - Top Right Corner */}
         {categoryLabel && (
@@ -65,14 +78,14 @@ const PortfolioCard = ({ project, priority = false }) => {
             {categoryLabel}
           </Badge>
         )}
-      </Link>
+      </div>
 
       {/* Content */}
       <div className="p-5">
         {/* Title with Arrow - Clickable */}
         <div className="mb-2">
           <Link href={projectUrl} className="group/title inline py-3.5">
-            <h2 className="text-lg font-semibold text-light transition-colors duration-300 group-hover:text-accent inline">
+            <Title className="text-lg font-semibold text-light transition-colors duration-300 group-hover:text-accent inline">
               {title}
               <span
                 className="inline-block ml-1.5 align-baseline transition-transform duration-300 motion-safe:group-hover/title:translate-x-1"
@@ -89,7 +102,7 @@ const PortfolioCard = ({ project, priority = false }) => {
                   aria-hidden="true"
                 />
               </span>
-            </h2>
+            </Title>
           </Link>
         </div>
         <p className="text-sm text-gray-400 line-clamp-3 leading-relaxed">

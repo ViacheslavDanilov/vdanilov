@@ -11,6 +11,7 @@ import ProjectHeader from "@/components/project/ProjectHeader";
 import Highlights from "@/components/project/Highlights";
 import CoreTeam from "@/components/project/CoreTeam";
 import Section from "@/components/project/Section";
+import NextProject from "@/components/project/NextProject";
 
 export const metadata = pageMetadata({
   title: "SonoGuide",
@@ -498,6 +499,8 @@ export default function ProjectPage() {
               interventions.
             </p>
           </Section>
+
+          <NextProject id="sonoguide" />
         </div>
       </div>
       <div className="pb-24" />

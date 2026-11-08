@@ -47,7 +47,7 @@ Creates a new portfolio project page following the established structure.
 4. Include all standard parts in order:
    - Metadata export built with `pageMetadata` from `@/lib/metadata`
    - Data constants (HIGHLIGHTS_ITEMS, TEAM_MEMBERS, RESOURCES, TECH_STACK)
-   - `ProjectPage` component that renders `ProjectHeader`, `Highlights`, `CoreTeam` and one `Section` per content section
+   - `ProjectPage` component that renders `ProjectHeader`, `Highlights`, `CoreTeam`, one `Section` per content section and `<NextProject id="[slug]" />` last (imported from `@/components/project/NextProject`)
 5. **CRITICAL - Section names must be EXACTLY:**
    - "Highlights" (rendered by `Highlights`)
    - "Core Team" (rendered by `CoreTeam`, if applicable)
@@ -59,8 +59,8 @@ Creates a new portfolio project page following the established structure.
 
 ### Step 4: Add to Portfolio Listing
 
-1. Edit `app/portfolio/PortfolioClient.jsx`
-2. Add entry to `PROJECTS_DATA` array
+1. Edit `lib/projects.js`
+2. Add entry to `PROJECTS_DATA` array (exported sorted as `PROJECTS`)
 
 ### Step 5: Verify
 
@@ -81,6 +81,7 @@ Creates a new portfolio project page following the established structure.
 - [ ] **Methods** - Technical approach (if applicable)
 - [ ] **Results** - Metrics and visualizations (if applicable)
 - [ ] **Conclusion** - Key takeaways, future work
+- [ ] **Keep Exploring** - `<NextProject id="[slug]" />` after the last Section
 - [ ] **Figure captions** - All images have Figure N. captions
 - [ ] **Figure citations** - In-text references link to figures
 - [ ] **Text justified** - All paragraphs and lists use text-justify
@@ -135,6 +136,8 @@ export default function ProjectPage() {
               </p>
             </div>
           </Section>
+
+          <NextProject id="[slug]" />
         </div>
       </div>
       <div className="pb-24" />

@@ -11,6 +11,7 @@ import ProjectHeader from "@/components/project/ProjectHeader";
 import Highlights from "@/components/project/Highlights";
 import CoreTeam from "@/components/project/CoreTeam";
 import Section from "@/components/project/Section";
+import NextProject from "@/components/project/NextProject";
 
 export const metadata = pageMetadata({
   title: "TAVI PinPoint",
@@ -517,6 +518,8 @@ export default function ProjectPage() {
               surgical robotics for semi-automated procedures.
             </p>
           </Section>
+
+          <NextProject id="tavi-pinpoint" />
         </div>
       </div>
       <div className="pb-24" />
