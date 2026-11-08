@@ -45,27 +45,29 @@ const PortfolioCard = ({
                  transition-all duration-300 hover:border-accent/30 hover:shadow-lg 
                  hover:shadow-accent/5 motion-safe:active:scale-[0.99]"
     >
-      {/* Image Container - Clickable */}
-      <Link
-        href={projectUrl}
-        tabIndex={-1}
-        aria-hidden="true"
-        className="block relative aspect-[16/10] overflow-hidden"
-      >
-        <Image
-          src={image}
-          alt={title}
-          fill
-          priority={priority}
-          sizes={sizes}
-          quality={90}
-          className="object-cover transition-transform duration-500 motion-safe:group-hover:scale-102"
-        />
-        {/* Gradient Overlay */}
-        <div
-          className="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/20 to-transparent 
+      {/* Image Container */}
+      <div className="relative aspect-[16/10] overflow-hidden">
+        <Link
+          href={projectUrl}
+          tabIndex={-1}
+          aria-hidden="true"
+          className="absolute inset-0"
+        >
+          <Image
+            src={image}
+            alt={title}
+            fill
+            priority={priority}
+            sizes={sizes}
+            quality={90}
+            className="object-cover transition-transform duration-500 motion-safe:group-hover:scale-102"
+          />
+          {/* Gradient Overlay */}
+          <div
+            className="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/20 to-transparent 
                       opacity-60 transition-opacity duration-300 group-hover:opacity-80 pointer-events-none"
-        />
+          />
+        </Link>
 
         {/* Primary Category Badge - Top Right Corner */}
         {categoryLabel && (
@@ -76,7 +78,7 @@ const PortfolioCard = ({
             {categoryLabel}
           </Badge>
         )}
-      </Link>
+      </div>
 
       {/* Content */}
       <div className="p-5">

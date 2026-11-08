@@ -25,7 +25,9 @@ test.describe("Keep Exploring block", () => {
       const targets = await cards.evaluateAll((articles) =>
         articles.map((article) => ({
           href: article.querySelector("a")?.getAttribute("href") ?? "",
-          badge: article.querySelector("a span")?.textContent?.trim() ?? "",
+          badge:
+            article.querySelector("span.rounded-full")?.textContent?.trim() ??
+            "",
         })),
       );
       const [first, second] = targets.map((target) => ({
@@ -90,6 +92,32 @@ test.describe("Keep Exploring block", () => {
             ).length,
         );
       expect(stops, `${url} card has extra tab stops`).toBe(1);
+    }
+  });
+
+  test("a card keeps its category in the accessibility tree", async ({
+    page,
+  }) => {
+    for (const url of ["/portfolio/?filter=all", "/portfolio/pulmovision/"]) {
+      await page.goto(url);
+      const article = page.locator("article").first();
+      await expect(async () => {
+        const category = await article.evaluate(
+          (card) => card.querySelector("span.rounded-full")?.textContent ?? "",
+        );
+        expect(category, `${url} card has no category badge`).not.toBe("");
+        expect(await article.ariaSnapshot(), url).toContain(category.trim());
+      }).toPass();
+
+      const hiddenStops = await article.evaluate(
+        (card) =>
+          [
+            ...card.querySelectorAll<HTMLElement>("a, button, [tabindex]"),
+          ].filter(
+            (el) => el.tabIndex >= 0 && el.closest("[aria-hidden='true']"),
+          ).length,
+      );
+      expect(hiddenStops, `${url} card hides a tab stop`).toBe(0);
     }
   });
 });
