@@ -65,7 +65,7 @@ const formatPeriod = (startDate, endDate = null) => {
 const EXPERIENCES_DATA = [
   {
     id: "upf-professor",
-    title: "Research Professor",
+    title: "Senior Research Scientist",
     company: "Pompeu Fabra University",
     type: "Full-time",
     category: "research",
