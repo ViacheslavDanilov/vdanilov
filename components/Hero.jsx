@@ -122,7 +122,7 @@ const Hero = () => {
             </strong>{" "}
             and{" "}
             <strong className="font-semibold text-white">
-              Research Scientist
+              Senior Research Scientist
             </strong>{" "}
             with a PhD in Computer Science and over 10 years across academia and
             industry. I take machine learning from first experiment to
