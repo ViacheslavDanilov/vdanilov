@@ -1688,7 +1688,7 @@ test.describe("Home hero", () => {
     const roles = page.locator("#hero p strong");
     await expect(roles).toHaveText([
       "Lead AI/ML Engineer",
-      "Research Scientist",
+      "Senior Research Scientist",
     ]);
     for (const role of await roles.all()) {
       const style = await role.evaluate((el) => {
