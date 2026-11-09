@@ -64,7 +64,7 @@ const formatPeriod = (startDate, endDate = null) => {
 // Experience data configuration
 const EXPERIENCES_DATA = [
   {
-    id: "upf-professor",
+    id: "upf-research-scientist",
     title: "Senior Research Scientist",
     company: "Pompeu Fabra University",
     type: "Full-time",
