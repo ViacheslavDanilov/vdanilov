@@ -179,6 +179,20 @@ Check the rendered node on the site and in the CV, not the character count, befo
 The site and the CV hold the same string. Changing one means changing the other, and the
 `Duty` node lives on the `Experience / *` components, not on the instances.
 
+## Home summary
+
+The paragraph under the name in `components/Hero.jsx` is the summary. The same text, word for
+word, sits in two more places: the `Text Card - Summary` instance on the first page of each CV
+version in Figma, and the bio in the README of the GitHub profile repository
+(`ViacheslavDanilov/ViacheslavDanilov`). Changing it in one place means changing it in all three.
+
+- Order: the site pull request first. Once it has merged, the CV and the profile README follow
+- The CV box is 513 pt wide and holds four lines. A fifth line pushes the page content past its
+  limit. Count the lines in Figma before editing, and when the new text does not fit, shorten it
+  on the site too, so the three stay identical
+- The profile README is its own repository. Commit straight to its `main`, with a plain sentence
+  as the subject like its earlier commits, and no trailer
+
 ## Experience link order
 
 The `links` array on each entry is ordered, and the order is the reading order on the card and in
