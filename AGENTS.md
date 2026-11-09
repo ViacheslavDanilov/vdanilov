@@ -190,8 +190,6 @@ version in Figma, and the bio in the README of the GitHub profile repository
 - The CV box is 513 pt wide and holds four lines. A fifth line pushes the page content past its
   limit. Count the lines in Figma before editing, and when the new text does not fit, shorten it
   on the site too, so the three stay identical
-- The profile README is its own repository. Commit straight to its `main`, with a plain sentence
-  as the subject like its earlier commits, and no trailer
 
 ## Experience link order
 
