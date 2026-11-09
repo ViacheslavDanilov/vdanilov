@@ -214,7 +214,7 @@ export default function ProjectPage() {
 </figure>
 ```
 
-Encode videos as H.264 at about twice their displayed width, without an audio track, with `-movflags +faststart`.
+Encode videos as H.264 at about twice their displayed width, with `-movflags +faststart`. Keep the audio track of a demo with narration or music, as AAC at 160 to 192 kbit/s; a looping clip with no sound has none. The player starts muted, and the viewer unmutes it.
 
 ---
 
