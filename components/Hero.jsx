@@ -124,10 +124,10 @@ const Hero = () => {
             <strong className="font-semibold text-white">
               Senior Research Scientist
             </strong>{" "}
-            with a PhD in Computer Science and over 10 years across academia and
+            with a PhD in Computer Science and over 10 years in academia and
             industry. I take machine learning from first experiment to
             production: medical signal and image analysis, computer vision, time
-            series, and LLM and RAG systems. I have led teams of developers and
+            series, and LLM and RAG systems. I led teams of developers and
             researchers, supervised PhD students and postdocs, and published
             nearly 50 peer-reviewed papers.
           </p>
