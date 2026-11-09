@@ -33,9 +33,11 @@ export default defineConfig({
     },
   ],
 
-  /* Run your local dev server before starting the tests */
+  /* The dev server locally; CI serves the production build the workflow made */
   webServer: {
-    command: `npx next dev -p ${PORT}`,
+    command: process.env.CI
+      ? `npx next start -p ${PORT}`
+      : `npx next dev -p ${PORT}`,
     url: `http://localhost:${PORT}`,
     reuseExistingServer: !process.env.CI,
   },
