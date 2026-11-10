@@ -10,7 +10,7 @@ Creates a new portfolio project page following the established structure.
 
 1. **Project URL**: `https://vdanilov.com/portfolio/[project-name]`
 2. **Media files** placed in:
-   - `public/portfolio/previews/[slug].jpg` - Hero/preview image (2400x1260, also the social preview)
+   - `public/portfolio/previews/[slug].jpg` - Hero/preview image (2400x1260, also the social preview). The masters (`png/`, `webp/`, `jpg/`, `github/`) and the prompt go to Google Drive, see "CV and Google Drive" in `AGENTS.md`
    - `public/portfolio/[slug]/` - Project-specific images and videos
    - `public/people/` - New team member photos (if any)
    - **Note**: If a team member photo is not available, use placeholder photos:
