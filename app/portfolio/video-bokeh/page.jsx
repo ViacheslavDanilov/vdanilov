@@ -280,6 +280,7 @@ export default function ProjectPage() {
                 <AutoplayVideo
                   aspectRatio="3 / 2"
                   poster="/portfolio/video-bokeh/demo-video-bokeh-streams-poster.webp"
+                  controls
                   aria-label="The six streams of one Video Bokeh sequence: all-in-focus, bokeh, disparity, alpha, optical flow and occlusion"
                   className="block w-full h-auto"
                 >
@@ -428,6 +429,7 @@ export default function ProjectPage() {
                 <AutoplayVideo
                   aspectRatio="4 / 1"
                   poster="/portfolio/video-bokeh/demo-video-bokeh-strengths-poster.webp"
+                  controls
                   aria-label="One Video Bokeh sequence in focus and at bokeh strengths 8, 16 and 32"
                   className="block w-full h-auto"
                 >
