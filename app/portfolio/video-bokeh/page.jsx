@@ -83,7 +83,7 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Valéry Dewil",
-    role: "Postdoctoral Researcher",
+    role: "Postdoctoral Fellow",
     organization: "Pompeu Fabra University",
     location: "Barcelona · Spain 🇪🇸",
     photo: "/people/john-doe.webp",
