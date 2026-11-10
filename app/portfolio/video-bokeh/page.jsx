@@ -64,6 +64,21 @@ const TEAM_MEMBERS = [
     },
   },
   {
+    name: "Valéry Dewil",
+    role: "Postdoctoral Fellow",
+    organization: "Pompeu Fabra University",
+    location: "Barcelona · Spain 🇪🇸",
+    photo: "/people/john-doe.webp",
+    links: {
+      github: "https://github.com/Valery-Dewil",
+      researchgate:
+        "https://www.researchgate.net/scientific-contributions/Valery-Dewil-2196478430",
+      googleScholar:
+        "https://scholar.google.com/citations?user=JWWBYTcAAAAJ&hl=en",
+      email: "valery.dewil@ens-paris-saclay.fr",
+    },
+  },
+  {
     name: "Pablo Arias",
     role: "Assistant Professor",
     organization: "Pompeu Fabra University",
@@ -79,21 +94,6 @@ const TEAM_MEMBERS = [
         "https://scholar.google.com/citations?user=9XSPStkAAAAJ&hl=en",
       orcid: "https://orcid.org/0000-0002-6961-5156",
       email: "pablo.arias@upf.edu",
-    },
-  },
-  {
-    name: "Valéry Dewil",
-    role: "Postdoctoral Fellow",
-    organization: "Pompeu Fabra University",
-    location: "Barcelona · Spain 🇪🇸",
-    photo: "/people/john-doe.webp",
-    links: {
-      github: "https://github.com/Valery-Dewil",
-      researchgate:
-        "https://www.researchgate.net/scientific-contributions/Valery-Dewil-2196478430",
-      googleScholar:
-        "https://scholar.google.com/citations?user=JWWBYTcAAAAJ&hl=en",
-      email: "valery.dewil@ens-paris-saclay.fr",
     },
   },
   {
