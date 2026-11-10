@@ -268,7 +268,7 @@ export default function ProjectPage() {
               <a href="#figure-2" className="text-accent hover:underline">
                 Figure 2
               </a>
-              , and two more sequences at two time steps each in{" "}
+              , and three more sequences at two time steps each in{" "}
               <a href="#figure-3" className="text-accent hover:underline">
                 Figure 3
               </a>
