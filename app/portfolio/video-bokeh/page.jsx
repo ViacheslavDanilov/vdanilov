@@ -60,7 +60,6 @@ const TEAM_MEMBERS = [
       researchgate: "https://www.researchgate.net/profile/Viacheslav-Danilov-2",
       googleScholar:
         "https://scholar.google.com/citations?user=SJidGZkAAAAJ&hl=en",
-      orcid: "https://orcid.org/0000-0002-1413-1381",
       email: "viacheslav.v.danilov@gmail.com",
     },
   },
