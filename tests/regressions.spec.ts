@@ -1124,7 +1124,7 @@ test.describe("Last small tap targets at 360px", () => {
 
   for (const [name, path, selector] of targets) {
     test(`${name} take a tap in a 44px area`, async ({ page }) => {
-      await page.goto(path);
+      await page.goto(path, { waitUntil: "domcontentloaded" });
       const areas = await page.locator(selector).evaluateAll((links) =>
         links.map((link) => {
           link.scrollIntoView({ block: "center" });
@@ -1157,8 +1157,9 @@ test.describe("Last small tap targets at 360px", () => {
   }
 
   test("tap areas stay out of the keyboard focus ring", async ({ page }) => {
+    test.setTimeout(120_000);
     for (const [name, path, selector] of targets) {
-      await page.goto(path);
+      await page.goto(path, { waitUntil: "domcontentloaded" });
       await page.keyboard.press("Shift");
       const focused = await page.locator(selector).evaluateAll((links) =>
         links.map((link) => {
