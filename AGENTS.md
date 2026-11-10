@@ -132,10 +132,11 @@ The site is the source of record for facts. Two other places hold the same mater
 is not finished until they agree.
 
 - **CV**: the repository `/Users/viacheslav/projects/personal/cv` (`AGENTS.md` there) and the
-  Figma file `nL1NJcrj3lWBJCnaTAlxup`. What the CV prints is listed in the sections above
-  (experience entries, home summary, featured projects, referees). After a pull request that
-  changes one of them merges, carry the change into the CV, as that repository's `AGENTS.md`
-  says. `00_rules/sources.md` there says which place is the source of what
+  Figma file `nL1NJcrj3lWBJCnaTAlxup`. The CV prints the experience entries, the home summary,
+  the featured projects on the home page (`components/FeaturedProjects.jsx`) and the referees.
+  "Experience summaries", "Home summary" and "Experience link order" below cover the first two.
+  After a pull request that changes one of them merges, carry the change into the CV, as that
+  repository's `AGENTS.md` says. `00_rules/sources.md` there says which place is the source of what
 - **Google Drive**: `~/Library/CloudStorage/GoogleDrive-viacheslav.v.danilov@gmail.com/My Drive/Personal website (vdanilov)`.
   It holds the sources that git does not: project figures (`portfolio/<slug>/`), previews
   (`portfolio/_previews/`), generation prompts (`portfolio/_prompts/`), and the home pictures
