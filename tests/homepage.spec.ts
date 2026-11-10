@@ -202,7 +202,7 @@ test.describe("Homepage - Featured Projects Section", () => {
       "Deep BrainWatch",
       "Sales Pilot",
       "Immune Profiler",
-      "HyperVision Ablation",
+      "Video Bokeh",
     ];
 
     // Scroll way down to ensure projects section is in view
@@ -225,7 +225,7 @@ test.describe("Homepage - Featured Projects Section", () => {
       "Deep BrainWatch",
       "Sales Pilot",
       "Immune Profiler",
-      "HyperVision Ablation",
+      "Video Bokeh",
     ]) {
       await expect(page.locator(`img[alt="${title}"]`)).toBeVisible();
     }
@@ -239,7 +239,7 @@ test.describe("Homepage - Featured Projects Section", () => {
       "Vall d'Hebron Hospital",
       "Symfa",
       "Boehringer Ingelheim",
-      "Institute of Image-Guided Surgery",
+      "Huawei",
     ];
 
     // Scroll way down to ensure projects section is in view

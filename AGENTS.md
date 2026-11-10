@@ -126,6 +126,30 @@ reviews a pull request in a fresh context. The skills, agents and workflows live
 (with `.claude/skills` and `.claude/agents` symlinked to it for Claude Code), and
 `shared/site-conventions.md` lists every skill they call.
 
+## CV and Google Drive
+
+The site is the source of record for facts. Two other places hold the same material, and a change
+is not finished until they agree.
+
+- **CV**: the repository `/Users/viacheslav/projects/personal/cv` (`AGENTS.md` there) and the
+  Figma file `nL1NJcrj3lWBJCnaTAlxup`. The CV prints the experience entries, the home summary,
+  the featured projects on the home page (`components/FeaturedProjects.jsx`) and the referees.
+  "Experience summaries", "Home summary" and "Experience link order" below cover the first two.
+  After a pull request that changes one of them merges, carry the change into the CV, as that
+  repository's `AGENTS.md` says. `00_rules/sources.md` there says which place is the source of what
+- **Google Drive**: `~/Library/CloudStorage/GoogleDrive-viacheslav.v.danilov@gmail.com/My Drive/Personal website (vdanilov)`.
+  It holds the sources that git does not: project figures (`portfolio/<slug>/`), previews
+  (`portfolio/_previews/`), generation prompts (`portfolio/_prompts/`), and the home pictures
+  (`expertise/`, `hero/`, `people/`). `portfolio/README.md` and `portfolio/_previews/README.md`
+  there describe the layout, sizes and formats. Read them before adding or changing an asset
+- `public/` holds only what the site serves, derived from Drive. A project preview is
+  `portfolio/_previews/jpg/<slug>.jpg` copied to `public/portfolio/previews/<slug>.jpg`. Videos
+  are not kept in Drive. The CV PDFs have their own copy in `My Drive/CV`
+- Write to Drive with `cp`, additive only. Never move, rename or delete a file the owner shares
+  by link, and check a copy by its hash
+- A new or changed project asset goes to Drive in the same change as the repository. A GitHub
+  social preview for the project's own repository (1280 x 640) goes to `_previews/github/<slug>.jpg`
+
 ## Commands
 
 ```bash
