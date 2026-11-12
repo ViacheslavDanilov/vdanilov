@@ -292,7 +292,7 @@ const REFERENCES_DATA = [
   // Pharma
   {
     id: "yury-popov",
-    name: "Yury Popov, MD, PhD",
+    name: "Yury Popov, MD",
     role: "Associate Director",
     organization: "AstraZeneca",
     location: "Munich · Germany 🇩🇪",
