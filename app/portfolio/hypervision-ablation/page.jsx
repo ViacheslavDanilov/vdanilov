@@ -96,7 +96,7 @@ const TEAM_MEMBERS = [
     role: "Scientific Director",
     organization: "IRCAD",
     location: "Strasbourg · France 🇫🇷",
-    photo: "/people/michael-diana.webp",
+    photo: "/people/michele-diana.webp",
     links: {
       website: "https://sciprofiles.com/profile/1373035",
       linkedin: "https://www.linkedin.com/in/michele-diana-b972382a/",

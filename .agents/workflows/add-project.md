@@ -12,7 +12,7 @@ Creates a new portfolio project page following the established structure.
 2. **Media files** placed in:
    - `public/portfolio/previews/[slug].jpg` - Hero/preview image (2400x1260, also the social preview). The masters (`png/`, `webp/`, `jpg/`, `github/`) and the prompt go to Google Drive, see "CV and Google Drive" in `AGENTS.md`
    - `public/portfolio/[slug]/` - Project-specific images and videos
-   - `public/people/` - New team member photos (if any)
+   - `public/people/<slug>.webp` - New team member photos (if any): copy `people/site/webp-alpha/<slug>.webp` from Google Drive, see "CV and Google Drive" in `AGENTS.md`
    - **Note**: If a team member photo is not available, use placeholder photos:
      - `/people/jane-doe.webp` for female team members
      - `/people/john-doe.webp` for male team members
