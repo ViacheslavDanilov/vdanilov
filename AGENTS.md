@@ -153,8 +153,7 @@ is not finished until they agree.
   `originals/` (the source photo and the raw generator output), `site/` (`webp-alpha/` for the
   site, `png/` and `webp/` on grey `#dadada` for the CV) and `tools/`. `public/people/<slug>.webp`
   is `people/site/webp-alpha/<slug>.webp`, and the backdrop behind it is the `bg-photo` utility in
-  `app/globals.css`, so a new backdrop is one edit. `people-old/`, beside `people/`, is the archive of the previous
-  layout and is not used
+  `app/globals.css`, so a new backdrop is one edit
 - Write to Drive with `cp`, additive only. Never move, rename or delete a file the owner shares
   by link, and check a copy by its hash
 - A new or changed project asset goes to Drive in the same change as the repository. A GitHub
