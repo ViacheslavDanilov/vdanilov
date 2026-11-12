@@ -88,11 +88,11 @@ const TEAM_MEMBERS = [
     },
   },
   {
-    name: "Yuriy Popov",
+    name: "Yury Popov",
     role: "Histopathologist",
     organization: "AstraZeneca",
     location: "Munich · Germany 🇩🇪",
-    photo: "/people/yuriy-popov.webp",
+    photo: "/people/yury-popov.webp",
     links: {
       linkedin: "https://www.linkedin.com/in/yury-popov/",
       email: "popow.yu.a@gmail.com",
