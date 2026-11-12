@@ -9,6 +9,10 @@
   --color-accent: #03b1fb;
   --color-card: #151a1f;
 
+  /* Backdrop behind the transparent portraits in public/people */
+  --color-photo-from: #e2e8f0;
+  --color-photo-to: #94a3b8;
+
   /* Gray colors for text */
   --color-gray-300: #d1d5db;
   --color-gray-400: #9ca3af;
@@ -35,6 +39,16 @@
     var(--font-poppins), system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+/* Portrait backdrop: one place to change it for every person */
+@utility bg-photo {
+  background-clip: padding-box;
+  background-image: radial-gradient(
+    farthest-corner at 50% 40%,
+    var(--color-photo-from),
+    var(--color-photo-to)
+  );
 }
 
 /* Apply typography to body */
