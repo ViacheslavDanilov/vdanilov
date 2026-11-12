@@ -40,8 +40,8 @@ Optional body explaining why the change was needed, wrapped at ~72 columns.
 - Subject: imperative mood ("add", not "added"), lower case after the colon,
   no trailing period, 72 characters or fewer
 - One logical change per commit; do not bundle unrelated edits. Merging squashes
-  the branch, and GitHub lists these subjects in the squash body, so they are
-  what a reader sees when unpacking a merged pull request
+  the branch into one commit with an empty body, so these subjects live in the branch
+  history and in the pull request's commit list, not in `main`
 - Body explains _why_, not _what_. The diff already shows what changed
 - No trailers at all, other than a genuine `Co-Authored-By` for a human collaborator
 
