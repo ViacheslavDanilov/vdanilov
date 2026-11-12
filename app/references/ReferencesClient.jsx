@@ -301,7 +301,7 @@ const REFERENCES_DATA = [
     featured: true,
     socials: {
       linkedin: "https://www.linkedin.com/in/yury-popov/",
-      email: "popow.yu.a@gmail.com",
+      email: "yury.popov@astrazeneca.com",
     },
   },
   {

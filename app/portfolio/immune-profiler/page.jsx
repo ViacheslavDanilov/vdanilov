@@ -95,7 +95,7 @@ const TEAM_MEMBERS = [
     photo: "/people/yury-popov.webp",
     links: {
       linkedin: "https://www.linkedin.com/in/yury-popov/",
-      email: "popow.yu.a@gmail.com",
+      email: "yury.popov@astrazeneca.com",
     },
   },
   {
