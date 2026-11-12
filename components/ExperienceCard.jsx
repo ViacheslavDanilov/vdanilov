@@ -95,7 +95,7 @@ const HIGHLIGHT_KEYWORDS = [
   "VAEs",
   "GANs",
   "Technical University of Madrid",
-  "Prof. Maria J. Ledesma-Carbayo",
+  "Prof. Maria Ledesma-Carbayo",
   "University of Trento",
   "Prof. Farid Melgani",
   "Prof. Olawande Daramola",
