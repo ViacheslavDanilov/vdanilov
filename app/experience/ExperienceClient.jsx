@@ -515,7 +515,7 @@ const VISITING_ROLES_DATA = [
         type: "Conference Paper",
       },
       {
-        title: "Reference letter by prof. Alejandro F. Frangi",
+        title: "Reference letter by prof. Alejandro Frangi",
         url: "/documents/reference-letter-alejandro-frangi.pdf",
         type: "Reference Letter",
       },
@@ -537,7 +537,7 @@ const VISITING_ROLES_DATA = [
     responsibilities: [
       "Designed a pipeline that turns real ultrasound scans into semi-synthetic training data, making segmentation more accurate and more robust",
       "Built models for pulmonary emphysema detection and unsupervised biomedical image segmentation",
-      "Worked with Prof. Maria J. Ledesma-Carbayo on image reconstruction and data augmentation",
+      "Worked with Prof. Maria Ledesma-Carbayo on image reconstruction and data augmentation",
     ],
     links: [
       {
@@ -553,7 +553,7 @@ const VISITING_ROLES_DATA = [
         type: "Conference Paper",
       },
       {
-        title: "Reference letter by prof. Maria J. Ledesma-Carbayo",
+        title: "Reference letter by prof. Maria Ledesma-Carbayo",
         url: "/documents/reference-letter-maria-ledesma-carbayo.pdf",
         type: "Reference Letter",
       },

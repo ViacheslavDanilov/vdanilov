@@ -291,17 +291,17 @@ const REFERENCES_DATA = [
   },
   // Pharma
   {
-    id: "yuriy-popov",
-    name: "Yuriy Popov, MD, PhD",
+    id: "yury-popov",
+    name: "Yury Popov, MD",
     role: "Associate Director",
     organization: "AstraZeneca",
     location: "Munich · Germany 🇩🇪",
     category: "Pharma",
-    image: "/people/yuriy-popov.webp",
+    image: "/people/yury-popov.webp",
     featured: true,
     socials: {
       linkedin: "https://www.linkedin.com/in/yury-popov/",
-      email: "popow.yu.a@gmail.com",
+      email: "yury.popov@astrazeneca.com",
     },
   },
   {

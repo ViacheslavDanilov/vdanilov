@@ -63,11 +63,11 @@ const TEAM_MEMBERS = [
     },
   },
   {
-    name: "Maxim Kazanskiy",
+    name: "Maksim Kazanskii",
     role: "Senior CV Engineer",
     organization: "Quantori",
     location: "Cambridge · United States 🇺🇸",
-    photo: "/people/maxim-kazanskiy.webp",
+    photo: "/people/maksim-kazanskii.webp",
     links: {
       linkedin: "https://www.linkedin.com/in/maksim-kazanskii-16658930/",
       email: "mkazanskii@googlemail.com",
@@ -88,14 +88,14 @@ const TEAM_MEMBERS = [
     },
   },
   {
-    name: "Yuriy Popov",
+    name: "Yury Popov",
     role: "Histopathologist",
     organization: "AstraZeneca",
     location: "Munich · Germany 🇩🇪",
-    photo: "/people/yuriy-popov.webp",
+    photo: "/people/yury-popov.webp",
     links: {
       linkedin: "https://www.linkedin.com/in/yury-popov/",
-      email: "popow.yu.a@gmail.com",
+      email: "yury.popov@astrazeneca.com",
     },
   },
   {

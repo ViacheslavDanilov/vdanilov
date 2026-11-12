@@ -176,7 +176,7 @@ Depth is mostly tonal and translucent: glass fills, blur, and hairline borders. 
 
 ## Shapes
 
-Pills for anything clickable and small (nav, buttons, badges, tabs, accent bar). Cards use 16px (14px for the glow border). Logo tiles 16px, keyword highlights 12px, menu items 12px. Borders are 1px hairlines at 10 to 20% white or Paper Light, except the 1.5px glow card border; the portrait has a 4px cyan 20% ring.
+Pills for anything clickable and small (nav, buttons, badges, tabs, accent bar). Cards use 16px (14px for the glow border). Logo tiles 16px, keyword highlights 12px, menu items 12px. Borders are 1px hairlines at 10 to 20% white or Paper Light, except the 1.5px glow card border; the portrait has a 4px cyan 20% ring. The people portraits on team and reference cards (2px ring) are transparent and sit on a cool slate radial gradient (`#e2e8f0` centre to `#94a3b8` edge, the `bg-photo` utility), clipped inside the ring so the ring stays dark.
 
 ## Components
 

@@ -19,6 +19,9 @@ Applies to commit messages, pull request text, and copy on the site.
 - Plain English: short sentences, ordinary words, active voice
 - Say what the code does. Do not write as if a component wanted, asked for, or
   decided something
+- A person's name is the first name and the last name as they use them, with no middle
+  initial (`Maria Poca`, not `Maria A. Poca`). It holds on the site, in the CV and in every
+  project that shows the person
 - `npm run check` fails on an em dash in `app/`, `components/`, `lib/`, `tests/`, `.github/`
   and `README.md`
 
@@ -140,11 +143,18 @@ is not finished until they agree.
 - **Google Drive**: `~/Library/CloudStorage/GoogleDrive-viacheslav.v.danilov@gmail.com/My Drive/Personal website (vdanilov)`.
   It holds the sources that git does not: project figures (`portfolio/<slug>/`), previews
   (`portfolio/_previews/`), generation prompts (`portfolio/_prompts/`), and the home pictures
-  (`expertise/`, `hero/`, `people/`). `portfolio/README.md` and `portfolio/_previews/README.md`
-  there describe the layout, sizes and formats. Read them before adding or changing an asset
+  (`expertise/`, `hero/`, `people/`). `portfolio/README.md`, `portfolio/_previews/README.md` and
+  `people/README.md` there describe the layout, sizes and formats. Read them before adding or
+  changing an asset
 - `public/` holds only what the site serves, derived from Drive. A project preview is
   `portfolio/_previews/jpg/<slug>.jpg` copied to `public/portfolio/previews/<slug>.jpg`. Videos
   are not kept in Drive. The CV PDFs have their own copy in `My Drive/CV`
+- People photos: Drive `people/` holds `cutouts/` (one transparent master per person),
+  `originals/` (the source photo and the raw generator output), `site/` (`webp-alpha/` for the
+  site, `png/` and `webp/` on grey `#dadada` for the CV) and `tools/`. `public/people/<slug>.webp`
+  is `people/site/webp-alpha/<slug>.webp`, and the backdrop behind it is the `bg-photo` utility in
+  `app/globals.css`, so a new backdrop is one edit. `people-old/`, beside `people/`, is the archive of the previous
+  layout and is not used
 - Write to Drive with `cp`, additive only. Never move, rename or delete a file the owner shares
   by link, and check a copy by its hash
 - A new or changed project asset goes to Drive in the same change as the repository. A GitHub

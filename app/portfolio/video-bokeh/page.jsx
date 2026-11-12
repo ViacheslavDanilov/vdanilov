@@ -83,7 +83,7 @@ const TEAM_MEMBERS = [
     role: "Assistant Professor",
     organization: "Pompeu Fabra University",
     location: "Barcelona · Spain 🇪🇸",
-    photo: "/people/john-doe.webp",
+    photo: "/people/pablo-arias.webp",
     links: {
       website: "https://www.upf.edu/web/pablo-arias",
       linkedin:
@@ -101,7 +101,7 @@ const TEAM_MEMBERS = [
     role: "Senior AI Architect",
     organization: "Huawei",
     location: "Nice · France 🇫🇷",
-    photo: "/people/john-doe.webp",
+    photo: "/people/nicola-brandonisio.webp",
     links: {
       linkedin: "https://www.linkedin.com/in/nicola-brandonisio-b64788a/",
       researchgate:
