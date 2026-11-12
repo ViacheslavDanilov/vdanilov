@@ -19,6 +19,9 @@ Applies to commit messages, pull request text, and copy on the site.
 - Plain English: short sentences, ordinary words, active voice
 - Say what the code does. Do not write as if a component wanted, asked for, or
   decided something
+- A person's name is the first name and the last name as they use them, with no middle
+  initial (`Maria Poca`, not `Maria A. Poca`). It holds on the site, in the CV and in every
+  project that shows the person
 - `npm run check` fails on an em dash in `app/`, `components/`, `lib/`, `tests/`, `.github/`
   and `README.md`
 
