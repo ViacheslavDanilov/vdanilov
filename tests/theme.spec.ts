@@ -50,9 +50,13 @@ test.describe("Theme bootstrap", () => {
     expect(await bodyBg(page)).toBe(DARK_BG);
   });
 
-  test("storage that throws leaves the system theme", async ({ browser }) => {
+  test("storage that throws leaves the system theme and the switch working", async ({
+    browser,
+  }) => {
     const context = await browser.newContext({ colorScheme: "light" });
     const page = await context.newPage();
+    const errors: string[] = [];
+    page.on("pageerror", (error) => errors.push(error.message));
     await page.addInitScript(() => {
       Object.defineProperty(window, "localStorage", {
         get() {
@@ -62,6 +66,9 @@ test.describe("Theme bootstrap", () => {
     });
     await page.goto("/");
     expect(await bodyBg(page)).toBe(LIGHT_BG);
+    await page.getByRole("switch", { name: "Dark theme" }).click();
+    expect(await bodyBg(page)).toBe(DARK_BG);
+    expect(errors).toEqual([]);
     await context.close();
   });
 });
@@ -192,7 +199,14 @@ test.describe("Dark islands", () => {
     const context = await browser.newContext({ colorScheme: "light" });
     const page = await context.newPage();
     await page.goto("/portfolio/");
-    await expect(page.locator('span[data-theme="dark"]').first()).toBeVisible();
+    const badge = page.locator('span[data-theme="dark"]').first();
+    await expect(badge).toBeVisible();
+    expect(
+      await badge.evaluate((el) =>
+        getComputedStyle(el).getPropertyValue("--bg").trim(),
+      ),
+    ).toBe("#0a0e14");
+    expect(await bodyBg(page)).toBe(LIGHT_BG);
     await context.close();
   });
 });
