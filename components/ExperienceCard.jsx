@@ -234,6 +234,7 @@ export const CompanyLogo = ({
         width={512}
         height={512}
         className="hidden light:block object-contain p-1 rounded-2xl w-full h-full"
+        loading={priority ? "eager" : undefined}
       />
     )}
   </a>

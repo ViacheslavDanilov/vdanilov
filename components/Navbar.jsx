@@ -137,7 +137,7 @@ function Navbar() {
             width={42}
             height={32}
             quality={100}
-            priority
+            loading="eager"
             className="h-8 w-auto light:hidden"
           />
           <Image
@@ -146,7 +146,7 @@ function Navbar() {
             width={42}
             height={32}
             quality={100}
-            priority
+            loading="eager"
             className="h-8 w-auto hidden light:block"
           />
         </Link>
