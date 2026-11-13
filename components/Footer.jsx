@@ -82,8 +82,17 @@ function Footer() {
               width={42}
               height={32}
               quality={100}
-              priority
-              className="h-8 w-auto"
+              loading="eager"
+              className="h-8 w-auto light:hidden"
+            />
+            <Image
+              src="/logo-light.webp"
+              alt="Viacheslav Danilov"
+              width={42}
+              height={32}
+              quality={100}
+              loading="eager"
+              className="h-8 w-auto hidden light:block"
             />
           </Link>
           <p className="text-sm text-muted mx-auto max-w-sm lg:mx-0 lg:max-w-xs lg:leading-relaxed">

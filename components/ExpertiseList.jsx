@@ -74,7 +74,7 @@ export default function ExpertiseList({ items }) {
               if (event.pointerType === "mouse") setActive(index);
             }}
             onFocus={() => setActive(index)}
-            className="flex flex-col gap-4 lg:border-l-2 lg:border-line lg:pl-6 lg:opacity-75 lg:data-[active=true]:border-accent lg:data-[active=true]:opacity-100 motion-safe:lg:transition-[opacity,border-color] motion-safe:lg:duration-300"
+            className="flex flex-col gap-4 lg:border-l-2 lg:border-line lg:pl-6 lg:opacity-75 light:lg:opacity-90 lg:data-[active=true]:border-accent lg:data-[active=true]:opacity-100 motion-safe:lg:transition-[opacity,border-color] motion-safe:lg:duration-300"
           >
             <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-line bg-surface lg:hidden">
               <Image
@@ -86,7 +86,7 @@ export default function ExpertiseList({ items }) {
                 className="object-cover"
               />
             </div>
-            <div className="flex items-center gap-2 text-ink/70">
+            <div className="flex items-center gap-2 text-strong/70">
               <FontAwesomeIcon
                 icon={item.icon}
                 className="h-3.5 w-3.5"

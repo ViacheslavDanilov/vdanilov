@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <div className="relative min-h-screen pt-24">
       <PagePrefetcher />
-      <div className="absolute top-0 left-0 right-0 h-[60vh] pointer-events-none -z-10">
+      <div className="absolute top-0 left-0 right-0 h-[60vh] pointer-events-none -z-10 light:hidden">
         <LightRays />
       </div>
       <div className="flex flex-col items-center pt-4 lg:pt-0 pb-12">

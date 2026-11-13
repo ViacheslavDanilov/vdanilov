@@ -247,9 +247,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
-                    Lung Segmentation:
-                  </strong>{" "}
+                  <strong className="text-strong">Lung Segmentation:</strong>{" "}
                   6,810 X-rays from three datasets (Darwin, Montgomery,
                   Shenzhen) providing diverse examples of lung pathologies and
                   healthy subjects
@@ -258,9 +256,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
-                    Disease Segmentation:
-                  </strong>{" "}
+                  <strong className="text-strong">Disease Segmentation:</strong>{" "}
                   1,364 X-rays from four COVID-19 datasets (ACCD, CRD, CCXD,
                   FCXD) and two normal datasets (CXN, RSNA) representing 580
                   COVID-19 and 784 normal cases
@@ -269,9 +265,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
-                    Source Diversity:
-                  </strong>{" "}
+                  <strong className="text-strong">Source Diversity:</strong>{" "}
                   Data sourced from over 40 institutions worldwide, ensuring
                   robust model generalization
                 </span>
@@ -292,14 +286,14 @@ export default function ProjectPage() {
 
             <ul className="space-y-4 text-body mb-6 text-justify">
               <li>
-                <strong className="text-legacy-gray-200">
+                <strong className="text-strong">
                   Stage I (Lung Segmentation):
                 </strong>{" "}
                 Pixel-level localization of the lungs and removal of irrelevant
                 areas using DeepLabV3+ architecture.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
+                <strong className="text-strong">
                   Stage II (Disease Segmentation):
                 </strong>{" "}
                 Identification of infected lung regions with nine tested neural
@@ -307,7 +301,7 @@ export default function ProjectPage() {
                 PSPNet, PAN, and MA-Net.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
+                <strong className="text-strong">
                   Stage III (Severity Scoring):
                 </strong>{" "}
                 Quantification and qualification of infected regions to compute
@@ -342,24 +336,20 @@ export default function ProjectPage() {
 
             <ul className="space-y-2 text-body mb-4">
               <li>
-                <strong className="text-legacy-gray-200">Best Accuracy:</strong>{" "}
+                <strong className="text-strong">Best Accuracy:</strong>{" "}
                 DeepLabV3+ (Stage I) + MA-Net (Stage II) achieved MAE of{" "}
                 <span className="font-semibold">0.30</span> out of 6.0,
                 significantly outperforming BS-net (MAE: 2.52) and COVID-Net-S
                 (MAE: 1.83).
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
-                  Processing Speed:
-                </strong>{" "}
-                The fastest solution (DeepLabV3+ + PSPNet) processed{" "}
+                <strong className="text-strong">Processing Speed:</strong> The
+                fastest solution (DeepLabV3+ + PSPNet) processed{" "}
                 <span className="font-semibold">12.5 images/second</span>, while
                 the most accurate achieved 7.9 images/second.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
-                  Efficiency Gain:
-                </strong>{" "}
+                <strong className="text-strong">Efficiency Gain:</strong>{" "}
                 <span className="text-strong font-semibold">11× faster</span>{" "}
                 than BS-net and COVID-Net-S (0.7 and 0.6 images/s respectively).
               </li>
@@ -411,7 +401,7 @@ export default function ProjectPage() {
                     />
                     <p className="text-center text-sm text-body mt-2">
                       <span className="font-medium">{item.model}</span>
-                      <span className="text-legacy-gray-500"> · Score: </span>
+                      <span className="text-muted"> · Score: </span>
                       <span className="text-accent font-semibold">
                         {item.score}
                       </span>

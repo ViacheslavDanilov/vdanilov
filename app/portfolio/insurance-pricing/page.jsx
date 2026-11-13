@@ -161,23 +161,22 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">Features:</strong>{" "}
-                  Age, sex, BMI, number of children/dependents, smoker status,
-                  and US region.
+                  <strong className="text-strong">Features:</strong> Age, sex,
+                  BMI, number of children/dependents, smoker status, and US
+                  region.
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">Target:</strong>{" "}
-                  Annual insurance charges, modeled as a tabular regression
-                  problem.
+                  <strong className="text-strong">Target:</strong> Annual
+                  insurance charges, modeled as a tabular regression problem.
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">Guardrails:</strong>{" "}
+                  <strong className="text-strong">Guardrails:</strong>{" "}
                   Training-distribution bounds are stored so the app can warn
                   when a query extrapolates beyond what the model has seen.
                 </span>
@@ -199,38 +198,30 @@ export default function ProjectPage() {
 
             <ul className="space-y-4 text-body mb-6 text-justify">
               <li>
-                <strong className="text-legacy-gray-200">
+                <strong className="text-strong">
                   Feature Input &amp; Preprocessing:
                 </strong>{" "}
                 User-provided insurance attributes are validated with Pydantic
                 and transformed for model consumption.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
-                  Model Inference:
-                </strong>{" "}
-                A trained AutoGluon TabularPredictor artifact predicts the
-                annual charge and checks the query against training-distribution
+                <strong className="text-strong">Model Inference:</strong> A
+                trained AutoGluon TabularPredictor artifact predicts the annual
+                charge and checks the query against training-distribution
                 bounds.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
-                  SHAP Value Computation:
-                </strong>{" "}
+                <strong className="text-strong">SHAP Value Computation:</strong>{" "}
                 A TreeExplainer generates per-prediction feature contributions,
                 ranking how each input pushes the estimate up or down.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
-                  LLM Interpretation:
-                </strong>{" "}
+                <strong className="text-strong">LLM Interpretation:</strong>{" "}
                 GPT-4o-mini translates the SHAP output into a structured,
                 plain-language explanation: headline, key drivers, and caveats.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
-                  Evaluation Reporting:
-                </strong>{" "}
+                <strong className="text-strong">Evaluation Reporting:</strong>{" "}
                 Model quality is summarized with R², MAPE, and SMAPE, with
                 LLM-based interpretation that puts those metrics into business
                 context.
@@ -249,9 +240,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
-                    Interpretability:
-                  </strong>{" "}
+                  <strong className="text-strong">Interpretability:</strong>{" "}
                   Every prediction ships with SHAP contributions plus an LLM
                   explanation, replacing a low-transparency black box.
                 </span>
@@ -259,7 +248,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
+                  <strong className="text-strong">
                     Per-Prediction Transparency:
                   </strong>{" "}
                   Local SHAP explanations show the cost drivers behind each
@@ -269,7 +258,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
+                  <strong className="text-strong">
                     Business-Readable Evaluation:
                   </strong>{" "}
                   Static R²/MAPE/SMAPE metrics become a human-interpreted
@@ -279,9 +268,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
-                    Stakeholder Trust:
-                  </strong>{" "}
+                  <strong className="text-strong">Stakeholder Trust:</strong>{" "}
                   Explainability and extrapolation warnings make results
                   defensible across technical and non-technical teams.
                 </span>

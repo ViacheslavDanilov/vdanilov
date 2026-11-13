@@ -192,17 +192,15 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">Job Data:</strong>{" "}
-                  Pulled from Upwork&apos;s public API, including metadata like
-                  job descriptions, client spending history, and ratings.
+                  <strong className="text-strong">Job Data:</strong> Pulled from
+                  Upwork&apos;s public API, including metadata like job
+                  descriptions, client spending history, and ratings.
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
-                    Company Data:
-                  </strong>{" "}
+                  <strong className="text-strong">Company Data:</strong>{" "}
                   Enriched via Apollo and other business intelligence sources,
                   including industry, size, location, and revenue signals.
                 </span>
@@ -210,9 +208,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
-                    Contact Data:
-                  </strong>{" "}
+                  <strong className="text-strong">Contact Data:</strong>{" "}
                   Retrieved via LinkedIn scraping and profile parsing.
                 </span>
               </li>
@@ -245,7 +241,7 @@ export default function ProjectPage() {
 
             <ul className="space-y-4 text-body mb-6 text-justify">
               <li>
-                <strong className="text-legacy-gray-200">
+                <strong className="text-strong">
                   Heuristic-based scoring:
                 </strong>{" "}
                 Deterministic scoring of structured data fields (e.g., location,
@@ -253,7 +249,7 @@ export default function ProjectPage() {
                 across components.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
+                <strong className="text-strong">
                   Component-based lead modeling:
                 </strong>
                 <ul className="mt-2 ml-4 space-y-1">
@@ -283,7 +279,7 @@ export default function ProjectPage() {
                 </ul>
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
+                <strong className="text-strong">
                   OpenAI embedding class assignment:
                 </strong>{" "}
                 For unstructured text fields, the system embeds input into
@@ -291,9 +287,7 @@ export default function ProjectPage() {
                 pre-labeled centroids (0–4 score classes).
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
-                  Weighted aggregation:
-                </strong>{" "}
+                <strong className="text-strong">Weighted aggregation:</strong>{" "}
                 Final lead score = 0.10 × Job + 0.40 × Contact + 0.50 × Company.
                 This ensures relevance filtering tailored to different business
                 priorities.
@@ -327,7 +321,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
+                  <strong className="text-strong">
                     Lead Filtering Accuracy:
                   </strong>{" "}
                   Only leads scoring above 2.5 (on a 0–4 scale) are passed to
@@ -337,9 +331,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
-                    Efficiency Gains:
-                  </strong>{" "}
+                  <strong className="text-strong">Efficiency Gains:</strong>{" "}
                   Reduced manual lead sourcing time from hours/days to minutes,
                   automating the full funnel from job discovery to contact
                   personalization.
@@ -348,9 +340,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
-                    Semantic Robustness:
-                  </strong>{" "}
+                  <strong className="text-strong">Semantic Robustness:</strong>{" "}
                   Embedding-based scoring proved effective across varied job
                   descriptions and role titles, achieving consistent
                   categorization even with diverse phrasing.

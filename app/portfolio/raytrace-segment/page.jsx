@@ -159,9 +159,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
-                    Cardiac MRI Dataset:
-                  </strong>{" "}
+                  <strong className="text-strong">Cardiac MRI Dataset:</strong>{" "}
                   Comprising 7,980 short-axis cardiac MRI images from 33
                   patients (York University). Each sequence includes 20 frames
                   with 8–15 slices per patient at 256×256 pixels resolution.
@@ -173,7 +171,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
+                  <strong className="text-strong">
                     Brain Tumor MRI Dataset:
                   </strong>{" "}
                   Contains 3,064 T1-weighted contrast-enhanced MRI slices from
@@ -196,13 +194,13 @@ export default function ProjectPage() {
 
             <ul className="space-y-4 text-body mb-6 text-justify">
               <li>
-                <strong className="text-legacy-gray-200">Preprocessing:</strong>{" "}
+                <strong className="text-strong">Preprocessing:</strong>{" "}
                 Histogram-based contrast enhancement using bimodal Gaussian
                 filtering, intensity normalization to reduce variability, and
                 resampling to ensure uniform resolution across datasets.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
+                <strong className="text-strong">
                   Ray Emission and Data Gathering:
                 </strong>{" "}
                 From a central point within the region of interest, rays are
@@ -215,18 +213,14 @@ export default function ProjectPage() {
                 ).
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
-                  Classifier Training:
-                </strong>{" "}
+                <strong className="text-strong">Classifier Training:</strong>{" "}
                 The extracted patches exhibit class imbalance, with boundary
                 points being underrepresented. Ensemble learning techniques such
                 as AdaBoost.M2, RUSBoost, UnderBagging, SMOTEBagging, and
                 SMOTEBoost were employed to improve boundary detection accuracy.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
-                  Post-Processing:
-                </strong>{" "}
+                <strong className="text-strong">Post-Processing:</strong>{" "}
                 Detected boundary points are interpolated using cubic splines to
                 generate smooth, closed contours representing the segmented
                 anatomical structures.
@@ -260,9 +254,7 @@ export default function ProjectPage() {
 
             <ul className="space-y-2 text-body mb-6">
               <li>
-                <strong className="text-legacy-gray-200">
-                  Heart Segmentation:
-                </strong>{" "}
+                <strong className="text-strong">Heart Segmentation:</strong>{" "}
                 Dice Score up to{" "}
                 <span className="font-semibold text-strong">91.8%</span> (mean
                 84.7–85.0% across ray configurations). Optimal trade-off at ∆φ =
@@ -273,7 +265,7 @@ export default function ProjectPage() {
                 ).
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
+                <strong className="text-strong">
                   Brain Tumor Segmentation:
                 </strong>{" "}
                 Dice Score up to{" "}
@@ -286,9 +278,7 @@ export default function ProjectPage() {
                 ).
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
-                  Best Classifiers:
-                </strong>{" "}
+                <strong className="text-strong">Best Classifiers:</strong>{" "}
                 AdaBoost.M2 and SMOTEBoost offered the best trade-off between
                 recall and precision across classifiers.
               </li>

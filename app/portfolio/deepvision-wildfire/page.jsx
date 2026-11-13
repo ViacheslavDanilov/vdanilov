@@ -315,35 +315,29 @@ export default function ProjectPage() {
 
             <ul className="space-y-4 text-body mb-6 text-justify">
               <li>
-                <strong className="text-legacy-gray-200">
+                <strong className="text-strong">
                   Dynamic Feature Extraction:
                 </strong>{" "}
                 Frame differencing and adaptive thresholding to isolate motion
                 patterns typical of smoke.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
-                  Object Detection:
-                </strong>{" "}
+                <strong className="text-strong">Object Detection:</strong>{" "}
                 Multiple models were evaluated (EfficientDet-D0/D1/D2, Faster
                 R-CNN, SSD MobileNet), with EfficientDet-D1 chosen for best
                 localization and speed.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
-                  Hybrid Classification:
-                </strong>{" "}
+                <strong className="text-strong">Hybrid Classification:</strong>{" "}
                 A CNN-RNN model combining InceptionV3 for spatial features and
                 LSTM for temporal analysis classified sequences of fire-related
                 frames.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
-                  Clustering Algorithm:
-                </strong>{" "}
-                A unique clustering algorithm aggregated detection results
-                across frames using intersection-over-union (IoU) similarity,
-                improving localization by 6% and reducing false positives.
+                <strong className="text-strong">Clustering Algorithm:</strong> A
+                unique clustering algorithm aggregated detection results across
+                frames using intersection-over-union (IoU) similarity, improving
+                localization by 6% and reducing false positives.
               </li>
             </ul>
 
@@ -396,7 +390,7 @@ export default function ProjectPage() {
 
             <ul className="space-y-2 text-body mb-4">
               <li>
-                <strong className="text-legacy-gray-200">
+                <strong className="text-strong">
                   Classification Accuracy:
                 </strong>{" "}
                 <span className="font-semibold">95.6%</span>, reflecting the
@@ -404,33 +398,31 @@ export default function ProjectPage() {
                 non-fire instances.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">F1-score:</strong>{" "}
+                <strong className="text-strong">F1-score:</strong>{" "}
                 <span className="font-semibold">94%</span>, indicating a strong
                 balance between precision and recall – critical for minimizing
                 missed fires and false alarms.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">Recall:</strong>{" "}
+                <strong className="text-strong">Recall:</strong>{" "}
                 <span className="font-semibold">97.2%</span>, showing the
                 system&apos;s excellent capability to detect almost all actual
                 fire events.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">Precision:</strong>{" "}
+                <strong className="text-strong">Precision:</strong>{" "}
                 <span className="font-semibold">93%</span>, indicating that the
                 majority of alerts corresponded to real fire-related events.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
+                <strong className="text-strong">
                   Localization Accuracy (IoU):
                 </strong>{" "}
                 <span className="font-semibold">62%</span>, measuring how well
                 the system identified the precise region of the fire.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
-                  Processing Speed:
-                </strong>{" "}
+                <strong className="text-strong">Processing Speed:</strong>{" "}
                 Approximately <span className="font-semibold">9 FPS</span> on a
                 GeForce RTX 2080 Ti GPU, ensuring quasi-real-time deployment.
               </li>

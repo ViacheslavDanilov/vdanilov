@@ -43,6 +43,18 @@ const entranceOf = async (page: Page, path: string) => {
   return (await read()) as Entrance;
 };
 
+// A card still growing in is scaled down, which shrinks its tap area
+const cardsSettled = (page: Page) =>
+  page.waitForFunction(() =>
+    document
+      .getAnimations()
+      .every(
+        (a) =>
+          !(a as CSSAnimation).animationName?.startsWith("card-") ||
+          a.playState === "finished",
+      ),
+  );
+
 test.describe("Experience dates west of UTC", () => {
   test.use({ timezoneId: "America/Los_Angeles" });
 
@@ -899,6 +911,7 @@ test.describe("Touch targets at 360px", () => {
     page,
   }) => {
     await page.goto("/experience/");
+    await cardsSettled(page);
     const misses = await page
       .locator('main a[aria-label$="website"]:not(:has(img))')
       .evaluateAll((links) =>
@@ -1063,7 +1076,10 @@ test.describe("Small polish", () => {
   }) => {
     const html = await (await request.get("/")).text();
 
-    expect(html).toMatch(/<meta name="theme-color" content="#0a0e14"\/?>/i);
+    const tags = html.match(/<meta name="theme-color"[^>]*>/gi) ?? [];
+
+    expect(tags).toHaveLength(1);
+    expect(tags[0]).toContain('content="#0a0e14"');
   });
 });
 
@@ -1125,6 +1141,7 @@ test.describe("Last small tap targets at 360px", () => {
   for (const [name, path, selector] of targets) {
     test(`${name} take a tap in a 44px area`, async ({ page }) => {
       await page.goto(path, { waitUntil: "domcontentloaded" });
+      await cardsSettled(page);
       const areas = await page.locator(selector).evaluateAll((links) =>
         links.map((link) => {
           link.scrollIntoView({ block: "center" });
@@ -1699,9 +1716,9 @@ test.describe("Home hero", () => {
       });
       expect(style).toEqual([
         "600",
-        "rgb(255, 255, 255)",
+        "rgb(241, 244, 248)",
         "rgba(0, 0, 0, 0)",
-        "rgb(209, 213, 219)",
+        "rgb(196, 204, 216)",
       ]);
     }
   });
@@ -1906,8 +1923,11 @@ test.describe("Client logos", () => {
       const links = page.locator('main a:has(img[src*="/clients/"])');
       for (const link of await links.all()) {
         const mono = link.locator('img[src$="-mono.svg"]');
-        const colour = link.locator('img:not([src$="-mono.svg"])');
-        await expect(colour).toHaveAttribute("aria-hidden", "true");
+        const colours = link.locator('img:not([src$="-mono.svg"])');
+        for (const img of await colours.all()) {
+          await expect(img).toHaveAttribute("aria-hidden", "true");
+        }
+        const colour = colours.locator("visible=true");
         await mono.scrollIntoViewIfNeeded();
         for (const img of [mono, colour]) {
           await expect
@@ -1930,6 +1950,22 @@ test.describe("Client logos", () => {
         ).toBeLessThan(0.5);
       }
     }
+  });
+
+  test("in light a logo with white lettering shows its light file", async ({
+    browser,
+  }) => {
+    const context = await browser.newContext();
+    await context.addInitScript(() => localStorage.setItem("theme", "light"));
+    const page = await context.newPage();
+    await page.goto("/");
+    const cell = page.getByRole("link", { name: /^Huawei/ });
+    await cell.scrollIntoViewIfNeeded();
+    await cell.hover();
+    await expect(
+      cell.locator('img:not([src$="-mono.svg"])').locator("visible=true"),
+    ).toHaveAttribute("src", /huawei-on-light\.svg/);
+    await context.close();
   });
 
   test("only one logo cell is highlighted while the pointer moves", async ({

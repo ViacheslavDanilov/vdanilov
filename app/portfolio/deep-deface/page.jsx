@@ -170,7 +170,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
+                  <strong className="text-strong">
                     Imaging Sources and Scale:
                   </strong>{" "}
                   551 head CT series and 555 head MRI series (210 T1-weighted,
@@ -189,7 +189,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
+                  <strong className="text-strong">
                     Pre-processing Workflow:
                   </strong>{" "}
                   DICOM files were converted to NIfTI, CT intensities were
@@ -201,9 +201,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
-                    Annotation Protocol:
-                  </strong>{" "}
+                  <strong className="text-strong">Annotation Protocol:</strong>{" "}
                   Three clinicians drew 3D bounding boxes around each face, left
                   ear, and right ear in 3D Slicer (
                   <a href="#figure-3" className="text-accent hover:underline">
@@ -216,10 +214,8 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
-                    Dataset Split:
-                  </strong>{" "}
-                  A hold-out set of 83 CT and 84 MRI series, never seen during
+                  <strong className="text-strong">Dataset Split:</strong> A
+                  hold-out set of 83 CT and 84 MRI series, never seen during
                   development, was reserved for final evaluation.
                 </span>
               </li>
@@ -339,7 +335,7 @@ export default function ProjectPage() {
 
             <ul className="space-y-4 text-body mb-6 text-justify">
               <li>
-                <strong className="text-legacy-gray-200">
+                <strong className="text-strong">
                   Stage 1 (3D Object Detector):
                 </strong>{" "}
                 EfficientDet-style backbone with depth-wise separable
@@ -349,7 +345,7 @@ export default function ProjectPage() {
                 variability.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
+                <strong className="text-strong">
                   Stage 2 (Region-selective Anonymizer):
                 </strong>{" "}
                 For every detected box, CUDA kernels apply either block-wise
@@ -359,9 +355,7 @@ export default function ProjectPage() {
                 downstream neuro-analysis.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
-                  Latency Engineering:
-                </strong>{" "}
+                <strong className="text-strong">Latency Engineering:</strong>{" "}
                 The network runs at 37 ms per slice on an NVIDIA RTX 3090 and
                 880 ms per slice on a 24-core Threadripper, enabling both
                 real-time GPU workflows and overnight CPU batch jobs.
@@ -380,10 +374,8 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
-                    CT Performance:
-                  </strong>{" "}
-                  The model reaches an F1-score of{" "}
+                  <strong className="text-strong">CT Performance:</strong> The
+                  model reaches an F1-score of{" "}
                   <span className="font-semibold">96.0%</span>, with a mean
                   Average Precision (mAP) of 74.1%. Faces are found most
                   reliably at 81.1% AP; left and right ears follow at 70.3% and
@@ -393,9 +385,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
-                    MRI Performance:
-                  </strong>{" "}
+                  <strong className="text-strong">MRI Performance:</strong>{" "}
                   Performance remains high, yielding{" "}
                   <span className="font-semibold">93.9%</span> F1 and 92.6% mAP
                   across T1, T2, and FLAIR sequences. MRI faces show
@@ -406,11 +396,9 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
-                    Safety Margin:
-                  </strong>{" "}
-                  Zero false negatives on intracranial tissue were observed –
-                  every voxel belonging to the brain proper remained unmodified,
+                  <strong className="text-strong">Safety Margin:</strong> Zero
+                  false negatives on intracranial tissue were observed – every
+                  voxel belonging to the brain proper remained unmodified,
                   confirming the 2 mm padding rule effectively protects
                   analytical regions.
                 </span>
@@ -418,11 +406,11 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">Throughput:</strong>{" "}
-                  On an NVIDIA RTX 3090, the end-to-end pipeline processes a
-                  slice in 37 milliseconds, implying a typical 300-slice head
-                  volume is anonymized in &lt;11 seconds, fast enough for
-                  real-time PACS workflows.
+                  <strong className="text-strong">Throughput:</strong> On an
+                  NVIDIA RTX 3090, the end-to-end pipeline processes a slice in
+                  37 milliseconds, implying a typical 300-slice head volume is
+                  anonymized in &lt;11 seconds, fast enough for real-time PACS
+                  workflows.
                 </span>
               </li>
             </ul>

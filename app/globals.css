@@ -34,6 +34,15 @@
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
+/* light: only an explicit data-theme="light" turns it on, dark is the default */
+@custom-variant light {
+  &:where([data-theme="light"], [data-theme="light"] *):not(
+      :where([data-theme="dark"], [data-theme="dark"] *)
+    ) {
+    @slot;
+  }
+}
+
 /* Semantic colours: components use these names, the values live in :root */
 @theme {
   --color-on-accent: #0a0e14;
@@ -47,32 +56,24 @@
   --color-ink: var(--ink);
   --color-strong: var(--text-strong);
   --color-focus: var(--accent-text);
-  --color-legacy-neutral-800: var(--legacy-neutral-800);
   --shadow-card: var(--card-shadow);
   --shadow-liquid: var(--liquid-shadow);
   --text-color-body: var(--text);
   --text-color-muted: var(--text-muted);
   --text-color-accent: var(--accent-text);
-  --text-color-legacy-gray-200: var(--legacy-gray-200);
-  --text-color-legacy-gray-500: var(--legacy-gray-500);
-  --text-color-legacy-neutral-300: var(--legacy-neutral-300);
-  --text-color-legacy-neutral-400: var(--legacy-neutral-400);
 }
 
-:root {
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
   --bg: #0a0e14;
   --surface: #151a1f;
   --ink: #fff;
-  --line: color-mix(in oklab, var(--ink) 10%, transparent);
-  --text-strong: #f5f5f5;
-  --text: #d1d5db;
-  --text-muted: #9ca3af;
+  --line: #232a33;
+  --text-strong: #f1f4f8;
+  --text: #c4ccd8;
+  --text-muted: #9aa5b4;
   --accent-text: #03b1fb;
-  --legacy-gray-200: oklch(92.8% 0.006 264.531);
-  --legacy-gray-500: oklch(55.1% 0.027 264.364);
-  --legacy-neutral-300: oklch(87% 0 0);
-  --legacy-neutral-400: oklch(70.8% 0 0);
-  --legacy-neutral-800: oklch(26.9% 0 0);
   --card-shadow: 0 0.5rem 1rem -0.5rem rgba(0, 0, 0, 0.3);
   --liquid-shadow:
     0 0 8px rgba(0, 0, 0, 0.03), 0 2px 6px rgba(0, 0, 0, 0.08),
@@ -82,11 +83,57 @@
     inset -1px -1px 1px -0.5px rgba(255, 255, 255, 0.6),
     inset 0 0 6px 6px rgba(255, 255, 255, 0.12),
     inset 0 0 2px 2px rgba(255, 255, 255, 0.06), 0 0 12px rgba(0, 0, 0, 0.15);
-  --glow-backdrop-alpha: 0.06;
+  --glow-fill: hsl(0 0% 60% / 0.06);
+  --glow-line: hsl(0 0% 60% / 0.06);
+  --glow-spot: 0.3;
+  --glow-outer: 1;
   --legend-lumen: #ff17cd;
   --legend-cap: #5eade6;
   --legend-lipid: #00e379;
   --legend-vasa: #f30f1e;
+}
+
+:root {
+  @variant light {
+    color-scheme: light;
+    --bg: #f4f6f9;
+    --surface: #ffffff;
+    --ink: #0b121b;
+    --line: #dfe4ea;
+    --text-strong: #0b121b;
+    --text: #2c3645;
+    --text-muted: #556072;
+    --accent-text: #0067c0;
+    --card-shadow: 0 0 #0000;
+    --glow-fill: var(--surface);
+    --glow-line: var(--line);
+    --glow-spot: 0.5;
+    --glow-outer: 0.35;
+    --liquid-shadow:
+      0 1px 2px rgba(11, 18, 27, 0.08),
+      inset 0 1px 1px rgba(255, 255, 255, 0.9),
+      inset 0 0 0 1px rgba(11, 18, 27, 0.06);
+    --legend-lumen: #b80a95;
+    --legend-cap: #1c6aa8;
+    --legend-lipid: #00794a;
+    --legend-vasa: #c4121e;
+  }
+}
+
+/* The theme cross-fade; the switch thumb slides as its own layer */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.3s;
+  animation-timing-function: cubic-bezier(0.2, 0, 0, 1);
+}
+
+::view-transition-group(theme-thumb) {
+  animation-duration: 0.2s;
+}
+
+/* A theme switch changes every colour in one frame */
+.theme-switching :not([data-keep-motion]) {
+  transition: none !important;
 }
 
 /* Portrait backdrop: one place to change it for every person */

@@ -495,7 +495,7 @@ export default function Publications() {
               <PublicationCard publication={publication} />
             )}
             empty={
-              <p className="text-center text-legacy-gray-500 italic py-12">
+              <p className="text-center text-muted italic py-12">
                 No publications found for this category.
               </p>
             }

@@ -159,7 +159,7 @@ const LinksList = ({ links }) => (
         <BulletPoint />
         <div className="flex-1">
           {pub.type && (
-            <span className="inline-block px-2 py-0.5 text-xs font-medium rounded-full bg-ink/5 text-legacy-neutral-300 border border-line mr-2 align-top">
+            <span className="inline-block px-2 py-0.5 text-xs font-medium rounded-full bg-ink/5 text-body border border-line mr-2 align-top">
               {pub.type}
             </span>
           )}
@@ -202,6 +202,7 @@ const LinksList = ({ links }) => (
 // Company logo component
 export const CompanyLogo = ({
   logo,
+  logoLight,
   company,
   url,
   className = "",
@@ -220,10 +221,22 @@ export const CompanyLogo = ({
       alt={`${company} logo`}
       width={512}
       height={512}
-      className="object-contain p-1 rounded-2xl w-full h-full"
-      style={{ filter: `brightness(${brightness})` }}
+      className={`object-contain p-1 rounded-2xl w-full h-full brightness-(--logo-brightness) light:brightness-100 ${logoLight ? "light:hidden" : ""}`}
+      style={{ "--logo-brightness": brightness }}
       priority={priority}
     />
+    {/* A logo drawn for a dark tile can have a version for the light one */}
+    {logoLight && (
+      <Image
+        src={logoLight}
+        alt=""
+        aria-hidden="true"
+        width={512}
+        height={512}
+        className="hidden light:block object-contain p-1 rounded-2xl w-full h-full"
+        loading={priority ? "eager" : undefined}
+      />
+    )}
   </a>
 );
 
@@ -310,12 +323,16 @@ const ExperienceCard = ({ experience }) => {
       : { variant: "teal", icon: faBriefcase, label: "Industry" };
 
   return (
-    <article ref={cardRef} className="self-start w-full">
+    <article
+      ref={cardRef}
+      className="self-start w-full animate-card-in motion-reduce:animate-card-fade-in"
+    >
       <GlowCard className="w-full h-full p-5" spotlightSize={300}>
         {/* Header: stacked and centred on phones, a row from md */}
         <div className="max-md:relative mb-4 flex flex-col gap-3 md:flex-row md:items-start md:gap-6">
           <CompanyLogo
             logo={experience.logo}
+            logoLight={experience.logoLight}
             company={experience.company}
             url={COMPANY_URLS[experience.company]}
             brightness={experience.logoBrightness}

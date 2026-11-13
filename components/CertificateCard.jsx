@@ -11,7 +11,7 @@ const CertificateCard = ({ certificate }) => {
   const lastWord = words.pop();
 
   return (
-    <article className="h-full w-full">
+    <article className="h-full w-full animate-card-in motion-reduce:animate-card-fade-in">
       <GlowCard className="w-full h-full p-5 pb-3 group" spotlightSize={180}>
         {/* Stacked and centred on phones, a row from md */}
         <div className="flex flex-col items-center justify-center gap-4 h-full md:flex-row md:justify-start md:gap-0">

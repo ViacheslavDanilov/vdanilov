@@ -58,7 +58,7 @@ const Hero = () => {
     >
       <div className="flex flex-col items-center gap-6 lg:grid lg:grid-cols-[auto_minmax(0,36rem)] lg:justify-center lg:gap-16">
         <div className="contents lg:flex lg:flex-col lg:items-center lg:gap-8">
-          <div className="order-1 lg:order-none relative size-64 md:size-96 rounded-full overflow-hidden border-4 border-accent/20 shadow-2xl bg-page">
+          <div className="order-1 lg:order-none relative size-64 md:size-96 rounded-full overflow-hidden border-4 border-accent/20 shadow-2xl light:shadow-none bg-page">
             <Image
               src="/hero/hero-poster.webp"
               alt="Viacheslav Danilov portrait"
@@ -117,11 +117,11 @@ const Hero = () => {
           </div>
 
           <p className="order-4 lg:order-none -my-0.5 max-w-2xl text-body text-base xl:text-lg leading-relaxed text-justify hyphens-auto text-pretty">
-            <strong className="font-semibold text-ink">
+            <strong className="font-semibold text-strong">
               Lead AI/ML Engineer
             </strong>{" "}
             and{" "}
-            <strong className="font-semibold text-ink">
+            <strong className="font-semibold text-strong">
               Senior Research Scientist
             </strong>{" "}
             with a PhD in Computer Science and over 10 years in academia and
@@ -134,7 +134,8 @@ const Hero = () => {
 
           <div className="order-3 lg:order-none flex flex-wrap items-center justify-center gap-2 sm:gap-3">
             <LiquidButtonLink
-              href="https://drive.google.com/uc?export=download&id=1viI3o1RBDoreQcbCwe5zc2NTWpxU7ouk"
+              href="https://drive.google.com/file/d/1viI3o1RBDoreQcbCwe5zc2NTWpxU7ouk/view"
+              target="_blank"
               ariaLabel="Download CV"
               className="px-3.5 sm:h-14 sm:px-10 bg-accent/15 border-accent/40"
               hoverClassName="bg-accent/10"

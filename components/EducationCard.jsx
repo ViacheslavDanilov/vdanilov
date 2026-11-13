@@ -101,7 +101,10 @@ const EducationCard = ({ education }) => {
   }, [activeTab, education.coreCourses, education.thesis]);
 
   return (
-    <article ref={cardRef} className="self-start w-full">
+    <article
+      ref={cardRef}
+      className="self-start w-full animate-card-in motion-reduce:animate-card-fade-in"
+    >
       <GlowCard className="w-full h-full p-5" spotlightSize={300}>
         {/* Header: stacked and centred on phones, a row from md */}
         <div className="relative mb-4 flex flex-col gap-3 md:flex-row md:items-start md:gap-6">
@@ -116,6 +119,7 @@ const EducationCard = ({ education }) => {
           )}
           <CompanyLogo
             logo={education.logo}
+            logoLight={education.logoLight}
             company={education.institution}
             url={education.url}
             brightness={education.logoBrightness}

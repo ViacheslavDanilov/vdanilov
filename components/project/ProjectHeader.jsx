@@ -30,7 +30,7 @@ export default function ProjectHeader({
 
       <ProjectBanner image={banner.image} alt={banner.alt} />
 
-      <header className="mb-16 p-6 rounded-2xl bg-strong/[0.03]">
+      <header className="mb-16 p-6 rounded-2xl bg-strong/[0.03] light:bg-surface light:ring-1 light:ring-inset light:ring-line">
         <h1 className="text-3xl md:text-4xl font-bold text-strong mb-3">
           {title}
         </h1>

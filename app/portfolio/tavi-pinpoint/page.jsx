@@ -231,26 +231,24 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">Source:</strong>{" "}
-                  Original aortography imaging series from 14 patients
-                  undergoing TAVI procedures (2015 – 2018) at the Kemerovo
-                  Cardiology Center
+                  <strong className="text-strong">Source:</strong> Original
+                  aortography imaging series from 14 patients undergoing TAVI
+                  procedures (2015 – 2018) at the Kemerovo Cardiology Center
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">Images:</strong>{" "}
-                  3,730 grayscale images (1,000×1,000 pixels), labeled with up
-                  to 11 anatomical and device-related keypoints
+                  <strong className="text-strong">Images:</strong> 3,730
+                  grayscale images (1,000×1,000 pixels), labeled with up to 11
+                  anatomical and device-related keypoints
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">Annotation:</strong>{" "}
-                  Image annotation was conducted by expert cardiologists using
-                  the{" "}
+                  <strong className="text-strong">Annotation:</strong> Image
+                  annotation was conducted by expert cardiologists using the{" "}
                   <a
                     href="https://supervisely.com/"
                     target="_blank"
@@ -265,16 +263,15 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">Split:</strong>{" "}
-                  Training (80%, 2,984 images) and validation (20%, 746 images)
-                  sets
+                  <strong className="text-strong">Split:</strong> Training (80%,
+                  2,984 images) and validation (20%, 746 images) sets
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">Coverage:</strong>{" "}
-                  Three critical surgical stages: delivery system positioning,
+                  <strong className="text-strong">Coverage:</strong> Three
+                  critical surgical stages: delivery system positioning,
                   prosthesis deployment initiation, and partial valve release
                 </span>
               </li>
@@ -321,30 +318,24 @@ export default function ProjectPage() {
 
             <ul className="space-y-4 text-body mb-6 text-justify">
               <li>
-                <strong className="text-legacy-gray-200">Architecture:</strong>{" "}
-                A shared feature extractor that reduced image dimensionality
-                while preserving semantic detail, combined with a classifier for
+                <strong className="text-strong">Architecture:</strong> A shared
+                feature extractor that reduced image dimensionality while
+                preserving semantic detail, combined with a classifier for
                 multi-label keypoint detection and a regressor for (x, y)
                 coordinate prediction.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
-                  Backbones Tested:
-                </strong>{" "}
-                Five architectures were evaluated: MobileNet V2, ResNet V2,
-                Inception V3, Inception ResNet V2, and EfficientNet B5.
+                <strong className="text-strong">Backbones Tested:</strong> Five
+                architectures were evaluated: MobileNet V2, ResNet V2, Inception
+                V3, Inception ResNet V2, and EfficientNet B5.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
-                  Training Strategy:
-                </strong>{" "}
+                <strong className="text-strong">Training Strategy:</strong>{" "}
                 Fine-tuning and early stopping were employed to boost
                 generalization and prevent overfitting.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
-                  Loss Functions:
-                </strong>{" "}
+                <strong className="text-strong">Loss Functions:</strong>{" "}
                 Log-Cosh loss for regression and binary cross-entropy for
                 classification, balanced via weighted sum.
               </li>
@@ -377,7 +368,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
+                  <strong className="text-strong">
                     ResNet V2 (fine-tuned):
                   </strong>{" "}
                   Reached <span className="font-semibold">97%</span>{" "}
@@ -388,7 +379,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
+                  <strong className="text-strong">
                     MobileNet V2 (fine-tuned):
                   </strong>{" "}
                   Achieved <span className="font-semibold">96%</span> accuracy
@@ -400,9 +391,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
-                    Model Convergence:
-                  </strong>{" "}
+                  <strong className="text-strong">Model Convergence:</strong>{" "}
                   Rapid convergence with early stopping applied around 22–76
                   epochs depending on architecture
                 </span>
@@ -410,9 +399,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
-                    Performance Gain:
-                  </strong>{" "}
+                  <strong className="text-strong">Performance Gain:</strong>{" "}
                   Fine-tuned models outperformed their non-tuned counterparts
                   across all metrics (F1-score, MAE, RMSE)
                 </span>
@@ -444,7 +431,7 @@ export default function ProjectPage() {
                     controls
                     className="w-full h-auto"
                   />
-                  <p className="text-center text-xs text-legacy-gray-500 mt-2">
+                  <p className="text-center text-xs text-muted mt-2">
                     MobileNet V2
                   </p>
                 </div>
@@ -455,7 +442,7 @@ export default function ProjectPage() {
                     controls
                     className="w-full h-auto"
                   />
-                  <p className="text-center text-xs text-legacy-gray-500 mt-2">
+                  <p className="text-center text-xs text-muted mt-2">
                     ResNet V2
                   </p>
                 </div>
@@ -466,7 +453,7 @@ export default function ProjectPage() {
                     controls
                     className="w-full h-auto"
                   />
-                  <p className="text-center text-xs text-legacy-gray-500 mt-2">
+                  <p className="text-center text-xs text-muted mt-2">
                     Inception V3
                   </p>
                 </div>

@@ -28,7 +28,10 @@ const ProjectBanner = ({ image, alt, aspectRatio = "40/21" }) => {
           priority
         />
         {/* Subtle gradient overlay for depth */}
-        <div className="absolute inset-0 bg-gradient-to-t from-page/30 via-transparent to-transparent pointer-events-none" />
+        <div
+          data-theme="dark"
+          className="absolute inset-0 bg-gradient-to-t from-page/30 via-transparent to-transparent pointer-events-none"
+        />
       </div>
     </div>
   );

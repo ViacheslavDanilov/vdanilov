@@ -226,26 +226,23 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">Parameters:</strong>{" "}
-                  Height (HGT), diameter (DIA), leaflet thickness (THK),
-                  curvature (CVT), elevation angle (ANG), and material stiffness
-                  (ELM).
+                  <strong className="text-strong">Parameters:</strong> Height
+                  (HGT), diameter (DIA), leaflet thickness (THK), curvature
+                  (CVT), elevation angle (ANG), and material stiffness (ELM).
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">Simulations:</strong>{" "}
-                  FEM simulations were performed for each design to evaluate
+                  <strong className="text-strong">Simulations:</strong> FEM
+                  simulations were performed for each design to evaluate
                   mechanical performance under physiological conditions.
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
-                    Output Metrics:
-                  </strong>{" "}
+                  <strong className="text-strong">Output Metrics:</strong>{" "}
                   Leaflet opening area (LMN) and peak stress (STS), critical
                   indicators of PHV functionality and durability.
                 </span>
@@ -285,7 +282,7 @@ export default function ProjectPage() {
 
             <ul className="space-y-4 text-body mb-6 text-justify">
               <li>
-                <strong className="text-legacy-gray-200">
+                <strong className="text-strong">
                   Parametric Modeling and Simulation:
                 </strong>{" "}
                 PHV geometries were generated algorithmically using a
@@ -293,7 +290,7 @@ export default function ProjectPage() {
                 simulate mechanical performance under physiological conditions.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
+                <strong className="text-strong">
                   Machine Learning Model Training:
                 </strong>{" "}
                 Using the dataset of 11,565 FEM-evaluated designs, we trained
@@ -301,7 +298,7 @@ export default function ProjectPage() {
                 ensemble methods. Models predicted LMN and STS with R² &gt; 96%.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
+                <strong className="text-strong">
                   Optimization Algorithms:
                 </strong>{" "}
                 Six state-of-the-art algorithms were deployed: Random Search
@@ -309,10 +306,8 @@ export default function ProjectPage() {
                 NSGA-II, MOTPE, and Quasi-Monte Carlo (QMC).
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
-                  Hybrid Approach:
-                </strong>{" "}
-                By combining ML predictions with optimization algorithms, we
+                <strong className="text-strong">Hybrid Approach:</strong> By
+                combining ML predictions with optimization algorithms, we
                 accelerated the search for optimal designs while reducing
                 reliance on computationally expensive FEM simulations.
               </li>
@@ -352,25 +347,19 @@ export default function ProjectPage() {
 
             <ul className="space-y-2 text-body mb-4">
               <li>
-                <strong className="text-legacy-gray-200">
-                  Model Accuracy:
-                </strong>{" "}
-                Trained ML models achieved R² values exceeding{" "}
+                <strong className="text-strong">Model Accuracy:</strong> Trained
+                ML models achieved R² values exceeding{" "}
                 <span className="font-semibold text-strong">96%</span> with MAPE
                 of 11.8% and 10.2% for opening area and peak stress.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
-                  Design Efficacy:
-                </strong>{" "}
-                TPE and NSGA-II achieved efficacy scores exceeding{" "}
+                <strong className="text-strong">Design Efficacy:</strong> TPE
+                and NSGA-II achieved efficacy scores exceeding{" "}
                 <span className="font-semibold text-strong">95%</span>,
                 identifying superior designs in fewer iterations.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
-                  Parameter Trends:
-                </strong>{" "}
+                <strong className="text-strong">Parameter Trends:</strong>{" "}
                 Algorithms favored thinner leaflets and larger diameters,
                 contributing to higher opening areas while maintaining
                 acceptable stress levels.

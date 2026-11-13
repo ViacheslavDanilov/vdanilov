@@ -175,9 +175,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
-                    ASC System (75%):
-                  </strong>{" "}
+                  <strong className="text-strong">ASC System (75%):</strong>{" "}
                   ~6.8K claims/month from phone (37%), email (45%), and fax
                   (18%) channels.
                 </span>
@@ -185,7 +183,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
+                  <strong className="text-strong">
                     External Portal (25%):
                   </strong>{" "}
                   ~2.5K claims/month submitted directly by insureds through
@@ -213,7 +211,7 @@ export default function ProjectPage() {
 
             <ul className="space-y-4 text-body mb-6 text-justify">
               <li>
-                <strong className="text-legacy-gray-200">
+                <strong className="text-strong">
                   Stage 1 (Document Intelligence):
                 </strong>{" "}
                 Azure Document Intelligence (Form Recognizer v3.x) extracts
@@ -221,7 +219,7 @@ export default function ProjectPage() {
                 confidence scores from each document.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
+                <strong className="text-strong">
                   Stage 2 (LLM Mapping &amp; Validation):
                 </strong>
                 <ul className="mt-2 ml-4 space-y-1">
@@ -261,11 +259,9 @@ export default function ProjectPage() {
                 </ul>
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
-                  Review Workflow:
-                </strong>{" "}
-                A side-by-side review UI highlights each field on the source
-                PDF, supports inline editing and approval, surfaces a dedicated
+                <strong className="text-strong">Review Workflow:</strong> A
+                side-by-side review UI highlights each field on the source PDF,
+                supports inline editing and approval, surfaces a dedicated
                 low-confidence queue (&lt;80%), and gates export to ASC until
                 all fields are approved.
               </li>
@@ -283,29 +279,23 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
-                    Processing Speed:
-                  </strong>{" "}
-                  ~1 minute per form (parallelizable), down from longer, fully
+                  <strong className="text-strong">Processing Speed:</strong> ~1
+                  minute per form (parallelizable), down from longer, fully
                   manual data entry.
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
-                    Coverage Hours:
-                  </strong>{" "}
-                  24/7 automated pre-processing replaces 12h/day weekday-only
+                  <strong className="text-strong">Coverage Hours:</strong> 24/7
+                  automated pre-processing replaces 12h/day weekday-only
                   coverage, eliminating overnight and weekend backlog.
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
-                    Staff Productivity:
-                  </strong>{" "}
+                  <strong className="text-strong">Staff Productivity:</strong>{" "}
                   The confidence-driven queue lets staff focus only on
                   exceptions and low-confidence cases instead of re-keying every
                   claim.
@@ -314,8 +304,8 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">Error Rate:</strong>{" "}
-                  Reduced through automated validation and visual bounding-box
+                  <strong className="text-strong">Error Rate:</strong> Reduced
+                  through automated validation and visual bounding-box
                   verification.
                 </span>
               </li>

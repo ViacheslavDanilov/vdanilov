@@ -64,6 +64,7 @@ const PortfolioCard = ({
           />
           {/* Gradient Overlay */}
           <div
+            data-theme="dark"
             className="absolute inset-0 bg-gradient-to-t from-page/90 via-page/20 to-transparent 
                       opacity-60 transition-opacity duration-300 group-hover:opacity-80 pointer-events-none"
           />

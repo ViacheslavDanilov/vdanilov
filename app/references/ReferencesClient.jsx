@@ -368,7 +368,7 @@ export default function References() {
               <ReferenceCard reference={reference} priority={index === 0} />
             )}
             empty={
-              <p className="text-center text-legacy-gray-500 italic py-12">
+              <p className="text-center text-muted italic py-12">
                 No references found for this category.
               </p>
             }

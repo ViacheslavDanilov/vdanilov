@@ -112,7 +112,10 @@ export default function ImageLightbox({
           style={{ display: "block" }}
         />
         {/* Touch cue */}
-        <div className="hidden pointer-coarse:flex absolute bottom-2 right-2 w-8 h-8 rounded-full bg-scrim/60 items-center justify-center">
+        <div
+          data-theme="dark"
+          className="hidden pointer-coarse:flex absolute bottom-2 right-2 w-8 h-8 rounded-full bg-scrim/60 items-center justify-center"
+        >
           <FontAwesomeIcon icon={faExpand} className="w-4 h-4 text-strong" />
         </div>
         {/* Hover overlay */}
@@ -139,6 +142,7 @@ export default function ImageLightbox({
             className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 cursor-zoom-out"
             onClick={() => setIsOpen(false)}
             role="dialog"
+            data-theme="dark"
             aria-modal="true"
             aria-label={alt}
           >

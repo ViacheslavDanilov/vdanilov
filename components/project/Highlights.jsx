@@ -17,7 +17,7 @@ export default function Highlights({ items }) {
               <div className="flex items-center gap-2">
                 <FontAwesomeIcon
                   icon={item.icon}
-                  className="w-3.5 h-3.5 text-ink/70 transition-colors duration-300 group-hover:text-accent"
+                  className="w-3.5 h-3.5 text-strong/70 transition-colors duration-300 group-hover:text-accent"
                   style={{
                     width: "0.875rem",
                     height: "0.875rem",
