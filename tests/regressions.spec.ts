@@ -1911,8 +1911,11 @@ test.describe("Client logos", () => {
       const links = page.locator('main a:has(img[src*="/clients/"])');
       for (const link of await links.all()) {
         const mono = link.locator('img[src$="-mono.svg"]');
-        const colour = link.locator('img:not([src$="-mono.svg"])');
-        await expect(colour).toHaveAttribute("aria-hidden", "true");
+        const colours = link.locator('img:not([src$="-mono.svg"])');
+        for (const img of await colours.all()) {
+          await expect(img).toHaveAttribute("aria-hidden", "true");
+        }
+        const colour = colours.locator("visible=true");
         await mono.scrollIntoViewIfNeeded();
         for (const img of [mono, colour]) {
           await expect
@@ -1935,6 +1938,21 @@ test.describe("Client logos", () => {
         ).toBeLessThan(0.5);
       }
     }
+  });
+
+  test("in light a logo with white lettering shows its light file", async ({
+    browser,
+  }) => {
+    const context = await browser.newContext({ colorScheme: "light" });
+    const page = await context.newPage();
+    await page.goto("/");
+    const cell = page.getByRole("link", { name: /^Huawei/ });
+    await cell.scrollIntoViewIfNeeded();
+    await cell.hover();
+    await expect(
+      cell.locator('img:not([src$="-mono.svg"])').locator("visible=true"),
+    ).toHaveAttribute("src", /huawei-on-light\.svg/);
+    await context.close();
   });
 
   test("only one logo cell is highlighted while the pointer moves", async ({
