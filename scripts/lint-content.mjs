@@ -101,13 +101,13 @@ for (const file of tracked("app", "components")) {
 
 // Colour: components use the semantic tokens in globals.css, never a palette step
 const PALETTE_CLASS =
-  /^-?(?:text|bg|border|from|via|to|ring|outline|fill|stroke|divide|decoration|caret|placeholder)-(?:white|black|(?:gray|slate|zinc|neutral|stone)(?:-\d+)?|dark|light|card)(?:\/[\w.[\]]+)?$/;
+  /^-?(?:text|bg|border(?:-[xytrblse])?|from|via|to|(?:inset-)?ring(?:-offset)?|outline|fill|stroke|divide|decoration|caret|placeholder|accent)-(?:white|black|(?:gray|slate|zinc|neutral|stone)(?:-\d+)?|dark|light|card)(?:\/[\w.[\]]+)?$/;
 for (const file of tracked("app", "components")) {
   readFileSync(file, "utf8")
     .split("\n")
     .forEach((line, index) => {
       for (const token of line.split(/[\s"'`{},]+/)) {
-        const utility = variantsOf(token.replace(/^!/, "")).pop();
+        const utility = variantsOf(token.replace(/^!|!$/g, "")).pop();
         if (PALETTE_CLASS.test(utility)) {
           problems.push(
             `${file}:${index + 1}: ${token} is a palette colour, use a token from globals.css`,
