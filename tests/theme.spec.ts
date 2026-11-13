@@ -190,6 +190,18 @@ test.describe("Theme switch", () => {
     await expect.poll(() => bodyBg(page)).toBe(DARK_BG);
   });
 
+  test("hovering the switch brightens it in dark and never in light", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    const track = themeSwitch(page).locator("span").first();
+    const filter = () => track.evaluate((el) => getComputedStyle(el).filter);
+    await themeSwitch(page).hover();
+    await expect.poll(filter).toBe("brightness(1.25)");
+    await themeSwitch(page).click();
+    await expect.poll(filter).not.toContain("brightness(1.");
+  });
+
   test("Space and Enter flip it from the keyboard", async ({ page }) => {
     await page.goto("/");
     await themeSwitch(page).focus();

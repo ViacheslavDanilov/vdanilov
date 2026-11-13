@@ -165,7 +165,7 @@ export default function ThemeToggle() {
       onClick={toggle}
       className="group/theme flex h-11 w-[3.25rem] flex-shrink-0 cursor-pointer items-center justify-center rounded-full focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-focus"
     >
-      <span className="relative block h-7 w-[3.25rem] rounded-full border border-ink/15 bg-gradient-to-br from-[#0e1b36] to-[#1d3566] shadow-[inset_0_1px_3px_rgba(0,0,0,0.5)] transition-[filter] group-hover/theme:brightness-125 light:border-[#7fb8e8]/70 light:from-[#d3ebff] light:to-[#8ccaff] light:shadow-[inset_0_1px_3px_rgba(0,60,120,0.25)]">
+      <span className="relative block h-7 w-[3.25rem] rounded-full border border-ink/15 bg-gradient-to-br from-[#0e1b36] to-[#1d3566] shadow-[inset_0_1px_3px_rgba(0,0,0,0.5)] transition-[filter] group-hover/theme:brightness-125 light:group-hover/theme:brightness-95 light:group-hover/theme:saturate-150 light:border-[#7fb8e8]/70 light:from-[#d3ebff] light:to-[#8ccaff] light:shadow-[inset_0_1px_3px_rgba(0,60,120,0.25)]">
         <span
           ref={thumb}
           data-keep-motion
