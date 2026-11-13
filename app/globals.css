@@ -34,6 +34,20 @@
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
+/* light: no theme attribute follows the system, an explicit data-theme wins */
+@custom-variant light {
+  &:where([data-theme="light"], [data-theme="light"] *):not(
+      :where([data-theme="dark"], [data-theme="dark"] *)
+    ) {
+    @slot;
+  }
+  @media (prefers-color-scheme: light) {
+    &:where(:not([data-theme="dark"], [data-theme="dark"] *)) {
+      @slot;
+    }
+  }
+}
+
 /* Semantic colours: components use these names, the values live in :root */
 @theme {
   --color-on-accent: #0a0e14;
@@ -54,7 +68,9 @@
   --text-color-accent: var(--accent-text);
 }
 
-:root {
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
   --bg: #0a0e14;
   --surface: #151a1f;
   --ink: #fff;
@@ -77,6 +93,21 @@
   --legend-cap: #5eade6;
   --legend-lipid: #00e379;
   --legend-vasa: #f30f1e;
+}
+
+:root {
+  @variant light {
+    color-scheme: light;
+    --bg: #f4f6f9;
+    --surface: #ffffff;
+    --ink: #0b121b;
+    --line: #dfe4ea;
+    --text-strong: #0b121b;
+    --text: #2c3645;
+    --text-muted: #556072;
+    --accent-text: #0b72b5;
+    --card-shadow: 0 0 #0000;
+  }
 }
 
 /* Portrait backdrop: one place to change it for every person */
