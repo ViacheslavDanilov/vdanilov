@@ -217,7 +217,7 @@
   ],
   "narrative": {
     "northStar": "The Night Ledger",
-    "overview": "A near-black page with one cool cyan signal. Content sits on faint glass panels that light up under the pointer, the way a ledger page answers a finger running down it. The site is dark-only. Colour roles below are named by role, not by \"dark\".\n\nThe tone is calm and exact. Text is dense and factual, because readers come to check a record: publications, roles, references. Decoration is limited to glass, a soft glow, and one accent. Nothing competes with the facts.",
+    "overview": "A near-black page with one cool cyan signal. Content sits on faint glass panels that light up under the pointer, the way a ledger page answers a finger running down it. Dark is the default theme and a light one sits behind a switch in the navbar. Colour roles below are named by role, not by \"dark\", and the values are the dark ones unless the Light theme section says otherwise.\n\nThe tone is calm and exact. Text is dense and factual, because readers come to check a record: publications, roles, references. Decoration is limited to glass, a soft glow, and one accent. Nothing competes with the facts.",
     "keyCharacteristics": [
       "One accent (signal cyan) on a near-black ground, with soft grey text tiers.",
       "Glass surfaces: translucent fills, hairline borders, backdrop blur.",
