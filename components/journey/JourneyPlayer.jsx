@@ -1,6 +1,6 @@
 "use client";
 
-import { memo, useCallback, useEffect, useRef, useState } from "react";
+import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { AnimatePresence, motion } from "motion/react";
@@ -236,12 +236,14 @@ export default function JourneyPlayer({ label }) {
   const calendar = calendarAt(state.dateMs);
   const active = state.remote.map((role) => role.org).join("|");
 
-  let lastLabelled = -1;
-  const labelled = YEARS.filter(({ at }) => {
-    if ((at - lastLabelled) * scaleWidth < MIN_LABEL_GAP_PX) return false;
-    lastLabelled = at;
-    return true;
-  });
+  const labelled = useMemo(() => {
+    let lastLabelled = -1;
+    return YEARS.filter(({ at }) => {
+      if ((at - lastLabelled) * scaleWidth < MIN_LABEL_GAP_PX) return false;
+      lastLabelled = at;
+      return true;
+    });
+  }, [scaleWidth]);
 
   const togglePlay = () => {
     if (progressRef.current >= 1) update(0);
