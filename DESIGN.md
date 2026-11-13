@@ -134,15 +134,15 @@ A restrained dark palette: ink ground, slate cards, one cyan accent, and a cool 
 
 Chosen with the switch in the navbar, never by the system setting: a page without a stored choice is dark. The choice sits in `localStorage` under `theme`, and an inline script in `<head>` sets `data-theme` before first paint. Components use role tokens (`page`, `surface`, `line`, `ink`, `strong`, body, muted, accent text) whose values live in `app/globals.css`, so a new colour is a token, not a palette class.
 
-| Role | Dark | Light |
-|---|---|---|
-| Page | #0a0e14 | #f4f6f9 |
+| Role            | Dark    | Light   |
+| --------------- | ------- | ------- |
+| Page            | #0a0e14 | #f4f6f9 |
 | Surface (cards) | #151a1f | #ffffff |
-| Line | #232a33 | #dfe4ea |
-| Strong text | #f1f4f8 | #0b121b |
-| Body text | #c4ccd8 | #2c3645 |
-| Muted text | #9aa5b4 | #556072 |
-| Accent text | #03b1fb | #0067c0 |
+| Line            | #232a33 | #dfe4ea |
+| Strong text     | #f1f4f8 | #0b121b |
+| Body text       | #c4ccd8 | #2c3645 |
+| Muted text      | #9aa5b4 | #556072 |
+| Accent text     | #03b1fb | #0067c0 |
 
 - The solid button fill stays Signal Cyan with dark text in both themes. In light the accent text is #0067c0, which holds 4.6:1 on the page where cyan would not.
 - Light cards are white with a hairline border and no shadow. The glow spotlight is softer.
