@@ -134,7 +134,8 @@ const Hero = () => {
 
           <div className="order-3 lg:order-none flex flex-wrap items-center justify-center gap-2 sm:gap-3">
             <LiquidButtonLink
-              href="https://drive.google.com/uc?export=download&id=1viI3o1RBDoreQcbCwe5zc2NTWpxU7ouk"
+              href="https://drive.google.com/file/d/1viI3o1RBDoreQcbCwe5zc2NTWpxU7ouk/view"
+              target="_blank"
               ariaLabel="Download CV"
               className="px-3.5 sm:h-14 sm:px-10 bg-accent/15 border-accent/40"
               hoverClassName="bg-accent/10"
