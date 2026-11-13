@@ -119,6 +119,11 @@
   }
 }
 
+/* A theme switch changes every colour in one frame */
+.theme-switching :not([data-keep-motion]) {
+  transition: none !important;
+}
+
 /* Portrait backdrop: one place to change it for every person */
 @utility bg-photo {
   background-clip: padding-box;

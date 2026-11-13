@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { MenuToggleIcon } from "@/components/ui/menu-toggle-icon";
+import ThemeToggle from "@/components/ui/theme-toggle";
 import { AnimatePresence, motion } from "motion/react";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -166,21 +167,25 @@ function Navbar() {
           })}
         </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          ref={toggleRef}
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="lg:hidden p-1.5 -m-1.5 text-strong hover:text-accent transition-colors flex-shrink-0"
-          aria-label="Toggle menu"
-          aria-expanded={isMenuOpen}
-          aria-controls={isMenuOpen ? "mobile-menu" : undefined}
-        >
-          <MenuToggleIcon
-            open={isMenuOpen}
-            className="w-8 h-8"
-            duration={500}
-          />
-        </button>
+        <div className="flex items-center gap-2 flex-shrink-0">
+          <ThemeToggle />
+
+          {/* Mobile Menu Button */}
+          <button
+            ref={toggleRef}
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="lg:hidden p-1.5 -m-1.5 text-strong hover:text-accent transition-colors flex-shrink-0"
+            aria-label="Toggle menu"
+            aria-expanded={isMenuOpen}
+            aria-controls={isMenuOpen ? "mobile-menu" : undefined}
+          >
+            <MenuToggleIcon
+              open={isMenuOpen}
+              className="w-8 h-8"
+              duration={500}
+            />
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu Overlay */}
