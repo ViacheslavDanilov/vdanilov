@@ -272,3 +272,41 @@ test.describe("Dark islands", () => {
     await context.close();
   });
 });
+
+test.describe("Light polish", () => {
+  test("the current page in the navbar is tinted blue in light", async ({
+    browser,
+  }) => {
+    const context = await browser.newContext({
+      colorScheme: "light",
+      viewport: { width: 1440, height: 900 },
+    });
+    const page = await context.newPage();
+    await page.goto("/experience/");
+    const link = page.locator('nav a[aria-current="page"]').first();
+    const [r, , b] = await link.evaluate((el) => {
+      const ctx = document.createElement("canvas").getContext("2d")!;
+      ctx.fillStyle = getComputedStyle(el).backgroundColor;
+      ctx.fillRect(0, 0, 1, 1);
+      return Array.from(ctx.getImageData(0, 0, 1, 1).data);
+    });
+    expect(b).toBeGreaterThan(r + 20);
+    await context.close();
+  });
+
+  test("experience and education cards fade in like the portfolio cards", async ({
+    page,
+  }) => {
+    for (const path of ["/experience/", "/education/", "/portfolio/"]) {
+      await page.goto(path, { waitUntil: "commit" });
+      await page.waitForFunction(() => document.querySelector("article"));
+      const names = await page.evaluate(() =>
+        document
+          .getAnimations()
+          .map((a) => (a as CSSAnimation).animationName)
+          .filter((n) => n?.startsWith("card-")),
+      );
+      expect(names.length, path).toBeGreaterThan(0);
+    }
+  });
+});

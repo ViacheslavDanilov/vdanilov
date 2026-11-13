@@ -1130,6 +1130,16 @@ test.describe("Last small tap targets at 360px", () => {
   for (const [name, path, selector] of targets) {
     test(`${name} take a tap in a 44px area`, async ({ page }) => {
       await page.goto(path, { waitUntil: "domcontentloaded" });
+      // A card still growing in is scaled down, which shrinks its tap area
+      await page.waitForFunction(() =>
+        document
+          .getAnimations()
+          .every(
+            (a) =>
+              !(a as CSSAnimation).animationName?.startsWith("card-") ||
+              a.playState === "finished",
+          ),
+      );
       const areas = await page.locator(selector).evaluateAll((links) =>
         links.map((link) => {
           link.scrollIntoView({ block: "center" });
