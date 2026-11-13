@@ -158,6 +158,7 @@ const EXPERIENCES_DATA = [
     endDate: "2025-11-01",
     location: "Cambridge • United States 🇺🇸",
     logo: "/experience/core-roles/quantori.svg",
+    logoLight: "/experience/core-roles/quantori-on-light.svg",
     summary:
       "Led 6 developers in ML and computer vision: tumor immune phenotyping for Boehringer Ingelheim, chromosomal instability for Volastra, and explainable chest radiography for Beth Israel",
     responsibilities: [
@@ -570,6 +571,7 @@ const VISITING_ROLES_DATA = [
     endDate: "2017-08-01",
     location: "Trento • Italy 🇮🇹",
     logo: "/experience/visiting-roles/uot.svg",
+    logoLight: "/experience/visiting-roles/uot-on-light.svg",
     summary:
       "Built catheter detection and segmentation in 3D ultrasound using support vector machines and texture features, and benchmarked a new feature selection method with Prof. Farid Melgani",
     responsibilities: [

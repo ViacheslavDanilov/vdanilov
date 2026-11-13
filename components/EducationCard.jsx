@@ -116,6 +116,7 @@ const EducationCard = ({ education }) => {
           )}
           <CompanyLogo
             logo={education.logo}
+            logoLight={education.logoLight}
             company={education.institution}
             url={education.url}
             brightness={education.logoBrightness}

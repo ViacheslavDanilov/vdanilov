@@ -51,7 +51,6 @@
 /* Semantic colours: components use these names, the values live in :root */
 @theme {
   --color-on-accent: #0a0e14;
-  --color-island: #0a0e14;
   --color-scrim: #000;
 }
 

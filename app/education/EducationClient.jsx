@@ -137,6 +137,7 @@ const ADDITIONAL_EDUCATION_DATA = [
     period: "Mar 2017 – Aug 2017",
     location: "Trento • Italy 🇮🇹",
     logo: "/education/universities/uot.svg",
+    logoLight: "/education/universities/uot-on-light.svg",
     coreCourses: [
       "Recognition systems",
       "Signal processing and pattern recognition",
