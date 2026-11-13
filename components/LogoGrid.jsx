@@ -122,7 +122,7 @@ const LogoGrid = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`${logo.name} (opens in a new tab)`}
-              className="relative flex h-24 md:h-28 items-center justify-center px-6 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-focus"
+              className="relative isolate flex h-24 md:h-28 items-center justify-center px-6 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-focus"
             >
               <Image
                 src={logo.src}
@@ -148,7 +148,7 @@ const LogoGrid = () => {
                     height: "auto",
                     filter: logo.brighten,
                   }}
-                  className={`${theme} ${logo.size ?? "max-h-9 md:max-h-[3.25rem]"} max-w-[min(7.5rem,calc(100%-3rem))] md:max-w-[min(11rem,calc(100%-3rem))] object-contain absolute inset-0 m-auto light:filter-none! opacity-0 motion-safe:transition-opacity motion-safe:duration-300 group-hover/cell:opacity-100 group-has-[:focus-visible]/cell:opacity-100`}
+                  className={`${theme} ${logo.size ?? "max-h-9 md:max-h-[3.25rem]"} max-w-[min(7.5rem,calc(100%-3rem))] md:max-w-[min(11rem,calc(100%-3rem))] object-contain absolute inset-0 m-auto mix-blend-plus-lighter light:filter-none! opacity-0 motion-safe:transition-opacity motion-safe:duration-300 group-hover/cell:opacity-100 group-has-[:focus-visible]/cell:opacity-100`}
                 />
               ))}
             </Link>
