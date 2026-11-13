@@ -58,7 +58,7 @@ const Hero = () => {
     >
       <div className="flex flex-col items-center gap-6 lg:grid lg:grid-cols-[auto_minmax(0,36rem)] lg:justify-center lg:gap-16">
         <div className="contents lg:flex lg:flex-col lg:items-center lg:gap-8">
-          <div className="order-1 lg:order-none relative size-64 md:size-96 rounded-full overflow-hidden border-4 border-accent/20 shadow-2xl bg-dark">
+          <div className="order-1 lg:order-none relative size-64 md:size-96 rounded-full overflow-hidden border-4 border-accent/20 shadow-2xl bg-page">
             <Image
               src="/hero/hero-poster.webp"
               alt="Viacheslav Danilov portrait"
@@ -87,7 +87,7 @@ const Hero = () => {
                 }
                 aria-label={social.name}
                 title={social.name}
-                className="p-3 -m-3 rounded-full text-muted transition-all duration-300 transform motion-safe:hover:scale-110 hover:text-strong focus-visible:outline-2 focus-visible:outline-accent"
+                className="p-3 -m-3 rounded-full text-muted transition-all duration-300 transform motion-safe:hover:scale-110 hover:text-strong focus-visible:outline-2 focus-visible:outline-focus"
                 style={{ display: "inline-block" }}
               >
                 <FontAwesomeIcon

@@ -105,20 +105,20 @@ const LogoGrid = () => {
           engineering teams
         </p>
       </div>
-      <ul className="grid grid-cols-2 md:grid-cols-4 border-t border-l border-white/10">
+      <ul className="grid grid-cols-2 md:grid-cols-4 border-t border-l border-line">
         {logos.map((logo, i) => (
           <li
             key={logo.name}
-            className={`group/cell relative border-r border-b border-white/10 before:pointer-events-none before:absolute before:inset-0 before:bg-white/[0.06] before:opacity-0 hover:bg-transparent! hover:before:opacity-100 ${
-              tinted(i, 2) ? "bg-white/[0.03]" : ""
-            } ${tinted(i, 4) ? "md:bg-white/[0.03]" : "md:bg-transparent"}`}
+            className={`group/cell relative border-r border-b border-line before:pointer-events-none before:absolute before:inset-0 before:bg-ink/[0.06] before:opacity-0 hover:bg-transparent! hover:before:opacity-100 ${
+              tinted(i, 2) ? "bg-ink/[0.03]" : ""
+            } ${tinted(i, 4) ? "md:bg-ink/[0.03]" : "md:bg-transparent"}`}
           >
             <Link
               href={logo.href}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`${logo.name} (opens in a new tab)`}
-              className="relative flex h-24 md:h-28 items-center justify-center px-6 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-accent"
+              className="relative flex h-24 md:h-28 items-center justify-center px-6 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-focus"
             >
               <Image
                 src={logo.src}

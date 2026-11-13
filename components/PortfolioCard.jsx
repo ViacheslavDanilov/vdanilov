@@ -41,7 +41,7 @@ const PortfolioCard = ({
 
   return (
     <article
-      className="group relative overflow-hidden rounded-2xl bg-card border border-white/10 
+      className="group relative overflow-hidden rounded-2xl bg-surface border border-line 
                  transition-all duration-300 hover:border-accent/30 hover:shadow-lg 
                  hover:shadow-accent/5 motion-safe:active:scale-[0.99]"
     >
@@ -64,7 +64,7 @@ const PortfolioCard = ({
           />
           {/* Gradient Overlay */}
           <div
-            className="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/20 to-transparent 
+            className="absolute inset-0 bg-gradient-to-t from-page/90 via-page/20 to-transparent 
                       opacity-60 transition-opacity duration-300 group-hover:opacity-80 pointer-events-none"
           />
         </Link>

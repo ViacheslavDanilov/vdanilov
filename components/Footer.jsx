@@ -65,7 +65,7 @@ function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative w-full max-w-[1400px] mx-auto flex flex-col items-center justify-center rounded-t-xl border-t border-light/10 bg-[radial-gradient(35%_128px_at_50%_0%,theme(backgroundColor.accent/8%),transparent)] px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+    <footer className="relative w-full max-w-[1400px] mx-auto flex flex-col items-center justify-center rounded-t-xl border-t border-strong/10 bg-[radial-gradient(35%_128px_at_50%_0%,theme(backgroundColor.accent/8%),transparent)] px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
       <div className="bg-accent/20 absolute top-0 right-1/2 left-1/2 h-px w-1/3 -translate-x-1/2 -translate-y-1/2 rounded-full blur" />
 
       {/* Stacked below lg; from lg, three columns with the copyright under the brand */}
@@ -161,7 +161,7 @@ function Footer() {
           </div>
         </div>
 
-        <div className="pt-6 border-t border-light/10 text-center lg:col-start-1 lg:row-start-2 lg:pt-8 lg:border-t-0 lg:text-left">
+        <div className="pt-6 border-t border-strong/10 text-center lg:col-start-1 lg:row-start-2 lg:pt-8 lg:border-t-0 lg:text-left">
           <p className="text-sm text-muted">
             © {year} Viacheslav Danilov • All rights reserved
           </p>

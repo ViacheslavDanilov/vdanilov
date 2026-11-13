@@ -414,7 +414,7 @@ export default function ProjectPage() {
                 <AutoplayVideo
                   aspectRatio="16 / 9"
                   controls
-                  className="w-full rounded-lg border border-white/10"
+                  className="w-full rounded-lg border border-line"
                 >
                   <source
                     src="/portfolio/provalve-design/valve-opening-rs.mp4"
@@ -432,7 +432,7 @@ export default function ProjectPage() {
                 <AutoplayVideo
                   aspectRatio="16 / 9"
                   controls
-                  className="w-full rounded-lg border border-white/10"
+                  className="w-full rounded-lg border border-line"
                 >
                   <source
                     src="/portfolio/provalve-design/valve-opening-tpe.mp4"

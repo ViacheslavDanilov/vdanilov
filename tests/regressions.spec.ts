@@ -1052,7 +1052,7 @@ test.describe("Small polish", () => {
   test("project tech chips use the 12px chip size", async ({ page }) => {
     await page.goto("/portfolio/deep-anatomy/");
     const chip = page
-      .locator('span[class*="rounded-full"][class*="bg-white/5"]')
+      .locator('span[class*="rounded-full"][class*="bg-ink/5"]')
       .first();
 
     await expect(chip).toHaveCSS("font-size", "12px");

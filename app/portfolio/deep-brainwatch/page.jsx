@@ -477,7 +477,7 @@ export default function ProjectPage() {
 
             {/* Figure 4 - Validation Video */}
             <figure id="figure-4" className="scroll-mt-24 mb-8">
-              <div className="relative rounded-xl overflow-hidden border border-white/10">
+              <div className="relative rounded-xl overflow-hidden border border-line">
                 <AutoplayVideo
                   aspectRatio="324 / 79"
                   className="w-full"
@@ -500,7 +500,7 @@ export default function ProjectPage() {
 
             {/* Figure 5 - Test Video */}
             <figure id="figure-5" className="scroll-mt-24">
-              <div className="relative rounded-xl overflow-hidden border border-white/10">
+              <div className="relative rounded-xl overflow-hidden border border-line">
                 <AutoplayVideo
                   aspectRatio="324 / 79"
                   className="w-full"

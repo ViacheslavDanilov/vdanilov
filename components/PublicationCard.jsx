@@ -133,7 +133,7 @@ const PublicationCard = ({ publication }) => {
               {tags?.map((tag) => (
                 <span
                   key={tag}
-                  className="px-2.5 py-0.5 text-xs font-medium rounded-full bg-white/5 text-legacy-neutral-300 border border-white/10"
+                  className="px-2.5 py-0.5 text-xs font-medium rounded-full bg-ink/5 text-legacy-neutral-300 border border-line"
                 >
                   {tag}
                 </span>

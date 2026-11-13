@@ -81,7 +81,7 @@ export default function Portfolio() {
                 animate={{ opacity: 1, y: 0 }}
                 className="text-center py-16"
               >
-                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-card border border-white/10 flex items-center justify-center">
+                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-surface border border-line flex items-center justify-center">
                   <svg
                     className="w-8 h-8 text-legacy-gray-500"
                     fill="none"

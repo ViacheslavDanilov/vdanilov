@@ -304,7 +304,7 @@ export default function ProjectPage() {
 
             {/* Figure 1: Demo Video */}
             <figure id="figure-1" className="scroll-mt-24 mb-8">
-              <div className="mx-auto w-full max-w-2xl rounded-xl overflow-hidden border border-white/10">
+              <div className="mx-auto w-full max-w-2xl rounded-xl overflow-hidden border border-line">
                 <AutoplayVideo
                   aspectRatio="16 / 9"
                   poster="/portfolio/insurance-pricing/demo-insurance-pricing-poster.webp"

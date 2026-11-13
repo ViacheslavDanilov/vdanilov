@@ -326,7 +326,7 @@ export default function ProjectPage() {
 
             {/* Figure 2: Feature Transfer Animation */}
             <figure id="figure-2" className="mb-6 scroll-mt-24">
-              <div className="mx-auto w-full max-w-2xl rounded-xl overflow-hidden border border-white/10">
+              <div className="mx-auto w-full max-w-2xl rounded-xl overflow-hidden border border-line">
                 <AutoplayVideo
                   aspectRatio="552 / 281"
                   poster="/portfolio/deep-anatomy/v-net-feature-transfer-poster.webp"

@@ -30,13 +30,13 @@ export default function ProjectHeader({
 
       <ProjectBanner image={banner.image} alt={banner.alt} />
 
-      <header className="mb-16 p-6 rounded-2xl bg-light/[0.03]">
+      <header className="mb-16 p-6 rounded-2xl bg-strong/[0.03]">
         <h1 className="text-3xl md:text-4xl font-bold text-strong mb-3">
           {title}
         </h1>
         <p className="text-lg text-muted leading-relaxed">{subtitle}</p>
 
-        <div className="h-px bg-light/10 my-8" />
+        <div className="h-px bg-strong/10 my-8" />
 
         <div className="text-sm text-muted">
           <span className="text-muted font-medium">Client: </span>
@@ -55,14 +55,14 @@ export default function ProjectHeader({
           {techStack.map((tech) => (
             <span
               key={tech}
-              className="px-2.5 py-0.5 text-xs rounded-full bg-white/5 border border-white/10 text-muted"
+              className="px-2.5 py-0.5 text-xs rounded-full bg-ink/5 border border-line text-muted"
             >
               {tech}
             </span>
           ))}
         </div>
 
-        <div className="h-px bg-light/10 my-8" />
+        <div className="h-px bg-strong/10 my-8" />
 
         <div className="flex flex-wrap gap-x-2 gap-y-2.5">
           {resources.map((resource) => (

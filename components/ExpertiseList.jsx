@@ -46,7 +46,7 @@ export default function ExpertiseList({ items }) {
         data-testid="expertise-picture"
         className="hidden lg:block lg:sticky lg:top-[max(6rem,calc(50svh-9rem))] lg:self-start"
       >
-        <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-white/10 bg-card">
+        <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-line bg-surface">
           {items.map((item, index) => (
             <Image
               key={item.title}
@@ -74,9 +74,9 @@ export default function ExpertiseList({ items }) {
               if (event.pointerType === "mouse") setActive(index);
             }}
             onFocus={() => setActive(index)}
-            className="flex flex-col gap-4 lg:border-l-2 lg:border-white/10 lg:pl-6 lg:opacity-75 lg:data-[active=true]:border-accent lg:data-[active=true]:opacity-100 motion-safe:lg:transition-[opacity,border-color] motion-safe:lg:duration-300"
+            className="flex flex-col gap-4 lg:border-l-2 lg:border-line lg:pl-6 lg:opacity-75 lg:data-[active=true]:border-accent lg:data-[active=true]:opacity-100 motion-safe:lg:transition-[opacity,border-color] motion-safe:lg:duration-300"
           >
-            <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-white/10 bg-card lg:hidden">
+            <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-line bg-surface lg:hidden">
               <Image
                 src={item.image}
                 alt=""
@@ -115,7 +115,7 @@ export default function ExpertiseList({ items }) {
             {item.link && (
               <Link
                 href={item.link.href}
-                className="group/link relative after:absolute after:-inset-y-3 after:inset-x-0 focus-visible:after:hidden inline-flex w-fit items-center gap-2 rounded text-sm font-medium text-accent outline-none hover:underline focus-visible:ring-[3px] focus-visible:ring-accent"
+                className="group/link relative after:absolute after:-inset-y-3 after:inset-x-0 focus-visible:after:hidden inline-flex w-fit items-center gap-2 rounded text-sm font-medium text-accent outline-none hover:underline focus-visible:ring-[3px] focus-visible:ring-focus"
               >
                 {item.link.label}
                 <FontAwesomeIcon

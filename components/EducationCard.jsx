@@ -154,7 +154,7 @@ const EducationCard = ({ education }) => {
         {tabs.length > 0 && (
           <>
             <div
-              className="flex items-center justify-center gap-1 mb-4 bg-card/30 rounded-full p-1 border border-light/10"
+              className="flex items-center justify-center gap-1 mb-4 bg-surface/30 rounded-full p-1 border border-strong/10"
               role="group"
               aria-label="Education information"
             >

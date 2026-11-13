@@ -50,7 +50,7 @@ export default function NotFound() {
               onClick={() => router.back()}
               className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 
                          px-6 py-3 rounded-full bg-transparent text-strong font-medium
-                         border border-white/20 hover:bg-white/5 cursor-pointer
+                         border border-ink/20 hover:bg-ink/5 cursor-pointer
                          transition-all duration-300 motion-safe:hover:scale-[1.02]"
             >
               <FontAwesomeIcon

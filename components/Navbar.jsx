@@ -123,7 +123,7 @@ function Navbar() {
       }}
     >
       {/* Glassmorphism Pill Container */}
-      <div className="flex items-center justify-between gap-8 px-6 lg:px-6 h-14 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 shadow-lg max-w-4xl w-full">
+      <div className="flex items-center justify-between gap-8 px-6 lg:px-6 h-14 rounded-full bg-ink/10 backdrop-blur-xl border border-ink/20 shadow-lg max-w-4xl w-full">
         {/* Logo */}
         <Link
           href="/"
@@ -157,7 +157,7 @@ function Navbar() {
                 className={`px-4 py-2 rounded-full text-md font-normal transition-all duration-300 cursor-pointer ${
                   isActive
                     ? "bg-accent/15 text-accent"
-                    : "text-body hover:text-strong hover:bg-light/10"
+                    : "text-body hover:text-strong hover:bg-strong/10"
                 }`}
               >
                 {item.label}
@@ -192,7 +192,7 @@ function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden fixed top-20 left-6 right-6 bg-dark/60 backdrop-blur-lg border border-white/10 shadow-lg rounded-2xl"
+            className="lg:hidden fixed top-20 left-6 right-6 bg-page/60 backdrop-blur-lg border border-line shadow-lg rounded-2xl"
           >
             <div className="px-6 py-4">
               <ul className="space-y-2">
@@ -211,7 +211,7 @@ function Navbar() {
                         className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all ${
                           isActive
                             ? "bg-accent/20 text-accent"
-                            : "text-muted hover:bg-light/10 hover:text-strong"
+                            : "text-muted hover:bg-strong/10 hover:text-strong"
                         }`}
                       >
                         <FontAwesomeIcon

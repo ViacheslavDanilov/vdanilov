@@ -159,7 +159,7 @@ const LinksList = ({ links }) => (
         <BulletPoint />
         <div className="flex-1">
           {pub.type && (
-            <span className="inline-block px-2 py-0.5 text-xs font-medium rounded-full bg-white/5 text-legacy-neutral-300 border border-white/10 mr-2 align-top">
+            <span className="inline-block px-2 py-0.5 text-xs font-medium rounded-full bg-ink/5 text-legacy-neutral-300 border border-line mr-2 align-top">
               {pub.type}
             </span>
           )}
@@ -212,7 +212,7 @@ export const CompanyLogo = ({
     href={url}
     target="_blank"
     rel="noopener noreferrer"
-    className={`relative w-16 h-16 flex-shrink-0 rounded-2xl overflow-hidden border border-light/10 bg-card/50 cursor-pointer transition-all duration-300 motion-safe:md:hover:scale-[1.03] md:hover:border-accent/30 ${className}`}
+    className={`relative w-16 h-16 flex-shrink-0 rounded-2xl overflow-hidden border border-strong/10 bg-surface/50 cursor-pointer transition-all duration-300 motion-safe:md:hover:scale-[1.03] md:hover:border-accent/30 ${className}`}
     aria-label={`${company} website`}
   >
     <Image
@@ -354,7 +354,7 @@ const ExperienceCard = ({ experience }) => {
 
         {/* Tabs */}
         <div
-          className="flex items-center justify-center gap-1 mb-4 bg-card/30 rounded-full p-1 border border-light/10"
+          className="flex items-center justify-center gap-1 mb-4 bg-surface/30 rounded-full p-1 border border-strong/10"
           role="group"
           aria-label="Job information"
         >

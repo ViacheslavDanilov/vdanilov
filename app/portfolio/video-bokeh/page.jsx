@@ -135,7 +135,7 @@ const TECH_STACK = [
 
 // A caption chip laid over one cell of a video that tiles several streams
 const StreamLabel = ({ children }) => (
-  <span className="m-1 self-end justify-self-start rounded bg-black/60 px-1.5 py-0.5 text-[10px] leading-tight text-legacy-gray-200 backdrop-blur-sm sm:m-2 sm:rounded-md sm:px-2 sm:text-xs">
+  <span className="m-1 self-end justify-self-start rounded bg-scrim/60 px-1.5 py-0.5 text-[10px] leading-tight text-legacy-gray-200 backdrop-blur-sm sm:m-2 sm:rounded-md sm:px-2 sm:text-xs">
     {children}
   </span>
 );
@@ -202,7 +202,7 @@ export default function ProjectPage() {
 
             {/* Figure 1: Demo Video */}
             <figure id="figure-1" className="scroll-mt-24">
-              <div className="mx-auto w-full max-w-3xl rounded-xl overflow-hidden border border-white/10">
+              <div className="mx-auto w-full max-w-3xl rounded-xl overflow-hidden border border-line">
                 <AutoplayVideo
                   aspectRatio="16 / 9"
                   poster="/portfolio/video-bokeh/demo-video-bokeh-poster.webp"
@@ -277,7 +277,7 @@ export default function ProjectPage() {
 
             {/* Figure 2: Streams of one sequence */}
             <figure id="figure-2" className="scroll-mt-24 mb-8">
-              <div className="relative mx-auto w-full max-w-2xl rounded-xl overflow-hidden border border-white/10">
+              <div className="relative mx-auto w-full max-w-2xl rounded-xl overflow-hidden border border-line">
                 <AutoplayVideo
                   aspectRatio="3 / 2"
                   poster="/portfolio/video-bokeh/demo-video-bokeh-streams-poster.webp"
@@ -433,7 +433,7 @@ export default function ProjectPage() {
 
             {/* Figure 5: Bokeh strengths */}
             <figure id="figure-5" className="scroll-mt-24">
-              <div className="relative mx-auto w-full max-w-4xl rounded-xl overflow-hidden border border-white/10">
+              <div className="relative mx-auto w-full max-w-4xl rounded-xl overflow-hidden border border-line">
                 <AutoplayVideo
                   aspectRatio="4 / 1"
                   poster="/portfolio/video-bokeh/demo-video-bokeh-strengths-poster.webp"

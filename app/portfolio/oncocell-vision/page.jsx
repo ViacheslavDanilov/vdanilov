@@ -333,7 +333,7 @@ export default function ProjectPage() {
             {/* Figure 2: Tiling Strategies */}
             <figure id="figure-2" className="mb-6 scroll-mt-24">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="rounded-xl overflow-hidden border border-white/10">
+                <div className="rounded-xl overflow-hidden border border-line">
                   <AutoplayVideo
                     aspectRatio="1 / 1"
                     src="/portfolio/oncocell-vision/tiling-with-regular-window-shift.mp4"
@@ -342,11 +342,11 @@ export default function ProjectPage() {
                   >
                     Your browser does not support the video tag.
                   </AutoplayVideo>
-                  <p className="text-center text-xs text-muted py-2 bg-dark/50">
+                  <p className="text-center text-xs text-muted py-2 bg-page/50">
                     (a) Regular window shift
                   </p>
                 </div>
-                <div className="rounded-xl overflow-hidden border border-white/10">
+                <div className="rounded-xl overflow-hidden border border-line">
                   <AutoplayVideo
                     aspectRatio="1 / 1"
                     src="/portfolio/oncocell-vision/tiling-with-padding.mp4"
@@ -355,11 +355,11 @@ export default function ProjectPage() {
                   >
                     Your browser does not support the video tag.
                   </AutoplayVideo>
-                  <p className="text-center text-xs text-muted py-2 bg-dark/50">
+                  <p className="text-center text-xs text-muted py-2 bg-page/50">
                     (b) Window padding
                   </p>
                 </div>
-                <div className="rounded-xl overflow-hidden border border-white/10">
+                <div className="rounded-xl overflow-hidden border border-line">
                   <AutoplayVideo
                     aspectRatio="1 / 1"
                     src="/portfolio/oncocell-vision/tiling-with-unfixed-size-window.mp4"
@@ -368,7 +368,7 @@ export default function ProjectPage() {
                   >
                     Your browser does not support the video tag.
                   </AutoplayVideo>
-                  <p className="text-center text-xs text-muted py-2 bg-dark/50">
+                  <p className="text-center text-xs text-muted py-2 bg-page/50">
                     (c) Unfixed-size windows
                   </p>
                 </div>

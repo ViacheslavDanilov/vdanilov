@@ -323,7 +323,7 @@ export default function ProjectPage() {
 
             {/* Figure 4: Feature Transfer */}
             <figure id="figure-4" className="scroll-mt-24">
-              <div className="mx-auto w-full max-w-2xl rounded-xl overflow-hidden border border-white/10">
+              <div className="mx-auto w-full max-w-2xl rounded-xl overflow-hidden border border-line">
                 <AutoplayVideo
                   aspectRatio="552 / 281"
                   poster="/portfolio/sonoguide/v-net-feature-transfer-poster.webp"
@@ -454,7 +454,7 @@ export default function ProjectPage() {
                 <AutoplayVideo
                   aspectRatio="489 / 428"
                   controls
-                  className="w-full rounded-lg border border-white/10"
+                  className="w-full rounded-lg border border-line"
                 >
                   <source
                     src="/portfolio/sonoguide/segmentation-of-a-static-3d-series.mp4"
@@ -472,7 +472,7 @@ export default function ProjectPage() {
                 <AutoplayVideo
                   aspectRatio="489 / 428"
                   controls
-                  className="w-full rounded-lg border border-white/10"
+                  className="w-full rounded-lg border border-line"
                 >
                   <source
                     src="/portfolio/sonoguide/segmentation-of-a-dynamic-3d-series.mp4"

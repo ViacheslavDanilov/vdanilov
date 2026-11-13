@@ -92,7 +92,7 @@ const FeaturedProjects = () => {
                   href={project.link}
                   className="block mb-4 sm:mb-0 sm:flex-shrink-0"
                 >
-                  <div className="relative w-48 h-48 sm:w-40 sm:h-40 rounded-lg overflow-hidden bg-neutral-800 border border-white/10">
+                  <div className="relative w-48 h-48 sm:w-40 sm:h-40 rounded-lg overflow-hidden bg-legacy-neutral-800 border border-line">
                     <Image
                       src={project.image}
                       alt={project.title}
@@ -144,7 +144,7 @@ const FeaturedProjects = () => {
                 {project.stack.map((tech) => (
                   <span
                     key={tech}
-                    className="px-3 py-1 text-xs font-medium rounded-full bg-white/5 text-legacy-neutral-300 border border-white/10"
+                    className="px-3 py-1 text-xs font-medium rounded-full bg-ink/5 text-legacy-neutral-300 border border-line"
                   >
                     {tech}
                   </span>

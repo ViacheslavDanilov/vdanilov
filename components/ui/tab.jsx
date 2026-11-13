@@ -29,8 +29,8 @@ export function Tab({
           "hover:text-strong before:absolute before:inset-x-0 before:inset-y-1 before:rounded-full",
         !selected &&
           (outlined
-            ? "before:border before:border-white/20 before:bg-white/5 before:transition-colors hover:before:bg-white/10"
-            : "before:bg-white/5 before:opacity-0 before:transition-opacity hover:before:opacity-100"),
+            ? "before:border before:border-ink/20 before:bg-ink/5 before:transition-colors hover:before:bg-ink/10"
+            : "before:bg-ink/5 before:opacity-0 before:transition-opacity hover:before:opacity-100"),
       )}
       {...props}
     >
