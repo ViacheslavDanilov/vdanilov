@@ -18,7 +18,6 @@ const CertificateCard = ({ certificate }) => {
           <div className="contents md:flex md:flex-row md:items-start md:gap-5 md:w-full">
             <CompanyLogo
               logo={certificate.logo}
-              logoLight={certificate.logoLight}
               company={certificate.organization}
               url={certificate.organizationUrl || certificate.url}
               brightness={certificate.logoBrightness || 1}
