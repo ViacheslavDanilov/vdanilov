@@ -323,7 +323,10 @@ const ExperienceCard = ({ experience }) => {
       : { variant: "teal", icon: faBriefcase, label: "Industry" };
 
   return (
-    <article ref={cardRef} className="self-start w-full">
+    <article
+      ref={cardRef}
+      className="self-start w-full animate-card-in motion-reduce:animate-card-fade-in"
+    >
       <GlowCard className="w-full h-full p-5" spotlightSize={300}>
         {/* Header: stacked and centred on phones, a row from md */}
         <div className="max-md:relative mb-4 flex flex-col gap-3 md:flex-row md:items-start md:gap-6">
