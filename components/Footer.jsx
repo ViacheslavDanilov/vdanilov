@@ -83,7 +83,7 @@ function Footer() {
               height={32}
               quality={100}
               priority
-              className="h-8 w-auto"
+              className="h-8 w-auto light:invert"
             />
           </Link>
           <p className="text-sm text-muted mx-auto max-w-sm lg:mx-0 lg:max-w-xs lg:leading-relaxed">

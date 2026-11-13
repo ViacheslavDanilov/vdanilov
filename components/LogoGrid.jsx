@@ -24,12 +24,14 @@ const logos = [
   {
     name: "Beth Israel Deaconess Medical Center",
     src: "/clients/bidmc-mono.svg",
+    onDark: true,
     brighten: "brightness(1.2) saturate(1.1)",
     href: "https://www.bidmc.org/",
   },
   {
     name: "Institute of Image-Guided Surgery",
     src: "/clients/ihu-mono.svg",
+    onDark: true,
     brighten: "saturate(1.4)",
     href: "https://www.ihu-strasbourg.eu/",
   },
@@ -41,6 +43,7 @@ const logos = [
   {
     name: "Vall d'Hebron Barcelona Hospital Campus",
     src: "/clients/vhir-mono.svg",
+    onDark: true,
     href: "https://www.vhir.org/",
   },
   {
@@ -69,6 +72,7 @@ const logos = [
   {
     name: "Huawei",
     src: "/clients/huawei-mono.svg",
+    onDark: true,
     size: "max-h-7 md:max-h-10",
     href: "https://www.huawei.com/",
   },
@@ -118,7 +122,11 @@ const LogoGrid = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`${logo.name} (opens in a new tab)`}
-              className="relative flex h-24 md:h-28 items-center justify-center px-6 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-focus"
+              className={`relative flex h-24 md:h-28 items-center justify-center px-6 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-focus ${
+                logo.onDark
+                  ? "motion-safe:transition-colors motion-safe:duration-300 light:group-hover/cell:bg-island light:group-has-[:focus-visible]/cell:bg-island"
+                  : ""
+              }`}
             >
               <Image
                 src={logo.src}
@@ -126,7 +134,7 @@ const LogoGrid = () => {
                 width={320}
                 height={160}
                 style={{ width: "auto", height: "auto" }}
-                className={`${logo.size ?? "max-h-9 md:max-h-[3.25rem]"} max-w-[7.5rem] md:max-w-[11rem] object-contain brightness-[.96] motion-safe:transition-opacity motion-safe:duration-300 group-hover/cell:opacity-0 group-has-[:focus-visible]/cell:opacity-0`}
+                className={`${logo.size ?? "max-h-9 md:max-h-[3.25rem]"} max-w-[7.5rem] md:max-w-[11rem] object-contain brightness-[.96] light:invert-[.75] motion-safe:transition-opacity motion-safe:duration-300 group-hover/cell:opacity-0 group-has-[:focus-visible]/cell:opacity-0`}
               />
               <Image
                 src={logo.src.replace("-mono", "")}
@@ -139,7 +147,7 @@ const LogoGrid = () => {
                   height: "auto",
                   filter: logo.brighten,
                 }}
-                className={`${logo.size ?? "max-h-9 md:max-h-[3.25rem]"} max-w-[min(7.5rem,calc(100%-3rem))] md:max-w-[min(11rem,calc(100%-3rem))] object-contain absolute inset-0 m-auto opacity-0 motion-safe:transition-opacity motion-safe:duration-300 group-hover/cell:opacity-100 group-has-[:focus-visible]/cell:opacity-100`}
+                className={`${logo.size ?? "max-h-9 md:max-h-[3.25rem]"} max-w-[min(7.5rem,calc(100%-3rem))] md:max-w-[min(11rem,calc(100%-3rem))] object-contain absolute inset-0 m-auto light:filter-none! opacity-0 motion-safe:transition-opacity motion-safe:duration-300 group-hover/cell:opacity-100 group-has-[:focus-visible]/cell:opacity-100`}
               />
             </Link>
             {inner(i, 2, 6) && <PlusMark className="md:hidden" />}

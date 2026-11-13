@@ -137,7 +137,7 @@ function Navbar() {
             height={32}
             quality={100}
             priority
-            className="h-8 w-auto"
+            className="h-8 w-auto light:invert"
           />
         </Link>
 

@@ -51,6 +51,7 @@
 /* Semantic colours: components use these names, the values live in :root */
 @theme {
   --color-on-accent: #0a0e14;
+  --color-island: #0a0e14;
   --color-scrim: #000;
 }
 
@@ -105,8 +106,16 @@
     --text-strong: #0b121b;
     --text: #2c3645;
     --text-muted: #556072;
-    --accent-text: #0b72b5;
+    --accent-text: #08649f;
     --card-shadow: 0 0 #0000;
+    --liquid-shadow:
+      0 1px 2px rgba(11, 18, 27, 0.08),
+      inset 0 1px 1px rgba(255, 255, 255, 0.9),
+      inset 0 0 0 1px rgba(11, 18, 27, 0.06);
+    --legend-lumen: #b80a95;
+    --legend-cap: #1c6aa8;
+    --legend-lipid: #00794a;
+    --legend-vasa: #c4121e;
   }
 }
 

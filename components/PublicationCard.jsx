@@ -34,15 +34,18 @@ const cityAndFlag = (location) => {
 const AUTHOR_POSITION = {
   first: {
     label: "First author",
-    className: "bg-emerald-400/12 text-emerald-400/85 border-emerald-400/30",
+    className:
+      "bg-emerald-400/12 text-emerald-400/85 border-emerald-400/30 light:bg-emerald-600/10 light:text-emerald-700 light:border-emerald-600/30",
   },
   senior: {
     label: "Senior author",
-    className: "bg-red-300/12 text-red-300/85 border-red-300/30",
+    className:
+      "bg-red-300/12 text-red-300/85 border-red-300/30 light:bg-red-600/10 light:text-red-700 light:border-red-600/30",
   },
   middle: {
     label: "Co-author",
-    className: "bg-violet-300/12 text-violet-300/85 border-violet-300/30",
+    className:
+      "bg-violet-300/12 text-violet-300/85 border-violet-300/30 light:bg-violet-600/10 light:text-violet-700 light:border-violet-600/30",
   },
 };
 

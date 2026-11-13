@@ -135,7 +135,10 @@ const TECH_STACK = [
 
 // A caption chip laid over one cell of a video that tiles several streams
 const StreamLabel = ({ children }) => (
-  <span className="m-1 self-end justify-self-start rounded bg-scrim/60 px-1.5 py-0.5 text-[10px] leading-tight text-strong backdrop-blur-sm sm:m-2 sm:rounded-md sm:px-2 sm:text-xs">
+  <span
+    data-theme="dark"
+    className="m-1 self-end justify-self-start rounded bg-scrim/60 px-1.5 py-0.5 text-[10px] leading-tight text-strong backdrop-blur-sm sm:m-2 sm:rounded-md sm:px-2 sm:text-xs"
+  >
     {children}
   </span>
 );
