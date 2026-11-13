@@ -1063,12 +1063,12 @@ test.describe("Small polish", () => {
   }) => {
     const html = await (await request.get("/")).text();
 
-    expect(html).toMatch(
-      /<meta name="theme-color" content="#0a0e14" media="\(prefers-color-scheme: dark\)"\/?>/i,
-    );
-    expect(html).toMatch(
-      /<meta name="theme-color" content="#f4f6f9" media="\(prefers-color-scheme: light\)"\/?>/i,
-    );
+    const tags = html.match(/<meta name="theme-color"[^>]*>/gi) ?? [];
+    const colour = (scheme: string) =>
+      tags.find((tag) => tag.includes(`prefers-color-scheme: ${scheme}`));
+
+    expect(colour("dark")).toContain('content="#0a0e14"');
+    expect(colour("light")).toContain('content="#f4f6f9"');
   });
 });
 

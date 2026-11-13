@@ -157,7 +157,7 @@ function Navbar() {
                 onClick={() => window.scrollTo(0, 0)}
                 className={`px-4 py-2 rounded-full text-md font-normal transition-all duration-300 cursor-pointer ${
                   isActive
-                    ? "bg-accent/15 text-accent"
+                    ? "bg-accent/15 text-accent light:bg-surface/80"
                     : "text-body hover:text-strong hover:bg-strong/10"
                 }`}
               >
