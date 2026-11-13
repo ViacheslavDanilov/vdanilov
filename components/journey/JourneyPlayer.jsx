@@ -18,6 +18,7 @@ import {
 } from "@/lib/journey";
 
 const DURATION_MS = 60000;
+const MAX_STEP_MS = 100;
 const REDUCED_QUERY = "(prefers-reduced-motion: reduce)";
 const WIDE_QUERY = "(min-width: 768px)";
 
@@ -213,7 +214,8 @@ export default function JourneyPlayer({ label }) {
     let frame;
     let last = performance.now();
     const tick = (now) => {
-      const next = progressRef.current + (now - last) / DURATION_MS;
+      const next =
+        progressRef.current + Math.min(now - last, MAX_STEP_MS) / DURATION_MS;
       last = now;
       if (next >= 1) {
         update(1);
