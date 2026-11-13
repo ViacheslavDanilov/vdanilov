@@ -124,7 +124,7 @@ function Navbar() {
       }}
     >
       {/* Glassmorphism Pill Container */}
-      <div className="flex items-center justify-between gap-8 px-6 lg:px-6 h-14 rounded-full bg-ink/10 backdrop-blur-xl border border-ink/20 shadow-lg max-w-4xl w-full">
+      <div className="flex items-center justify-between gap-8 px-6 lg:px-6 h-14 rounded-full bg-ink/10 light:bg-page/85 backdrop-blur-xl border border-ink/20 shadow-lg max-w-4xl w-full">
         {/* Logo */}
         <Link
           href="/"
@@ -197,7 +197,7 @@ function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden fixed top-20 left-6 right-6 bg-page/60 backdrop-blur-lg border border-line shadow-lg rounded-2xl"
+            className="lg:hidden fixed top-20 left-6 right-6 bg-page/60 light:bg-surface/95 backdrop-blur-lg border border-line shadow-lg rounded-2xl"
           >
             <div className="px-6 py-4">
               <ul className="space-y-2">
