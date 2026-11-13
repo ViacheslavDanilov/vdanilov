@@ -88,7 +88,10 @@
     inset -1px -1px 1px -0.5px rgba(255, 255, 255, 0.6),
     inset 0 0 6px 6px rgba(255, 255, 255, 0.12),
     inset 0 0 2px 2px rgba(255, 255, 255, 0.06), 0 0 12px rgba(0, 0, 0, 0.15);
-  --glow-backdrop-alpha: 0.06;
+  --glow-fill: hsl(0 0% 60% / 0.06);
+  --glow-line: hsl(0 0% 60% / 0.06);
+  --glow-spot: 0.3;
+  --glow-outer: 1;
   --legend-lumen: #ff17cd;
   --legend-cap: #5eade6;
   --legend-lipid: #00e379;
@@ -105,8 +108,12 @@
     --text-strong: #0b121b;
     --text: #2c3645;
     --text-muted: #556072;
-    --accent-text: #08649f;
+    --accent-text: #0067c0;
     --card-shadow: 0 0 #0000;
+    --glow-fill: var(--surface);
+    --glow-line: var(--line);
+    --glow-spot: 0.5;
+    --glow-outer: 0.35;
     --liquid-shadow:
       0 1px 2px rgba(11, 18, 27, 0.08),
       inset 0 1px 1px rgba(255, 255, 255, 0.9),
