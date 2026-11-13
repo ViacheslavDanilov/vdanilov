@@ -77,6 +77,27 @@ const themeSwitch = (page: Page) =>
   page.getByRole("switch", { name: "Dark theme" });
 
 test.describe("Theme switch", () => {
+  test("a mouse click during the fade still lands", async ({ page }) => {
+    await page.goto("/");
+    const box = (await themeSwitch(page).boundingBox())!;
+    const x = box.x + box.width / 2;
+    const y = box.y + box.height / 2;
+    // Raw clicks: a locator click would wait for the fade to end
+    await page.mouse.click(x, y);
+    await page.waitForTimeout(80);
+    await page.mouse.click(x, y);
+    await expect(themeSwitch(page)).toHaveAttribute("aria-checked", "true");
+    await expect.poll(() => bodyBg(page)).toBe(DARK_BG);
+    await page.mouse.click(x, y);
+    await page.waitForTimeout(80);
+    const link = (await page
+      .locator('nav a[href="/experience/"]')
+      .first()
+      .boundingBox())!;
+    await page.mouse.click(link.x + link.width / 2, link.y + link.height / 2);
+    await page.waitForURL(/\/experience\/$/);
+  });
+
   test("a click flips the theme, stores it and survives a reload", async ({
     page,
   }) => {

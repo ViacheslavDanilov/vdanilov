@@ -115,10 +115,32 @@ export default function ThemeToggle() {
     ) {
       switchTheme(next);
     } else {
+      const fade = document.startViewTransition(() => switchTheme(next));
       // A second flip skips this fade, which rejects its ready promise
-      document
-        .startViewTransition(() => switchTheme(next))
-        .ready.catch(() => {});
+      fade.ready.catch(() => {});
+      // During the fade every click lands on the page root: end the fade and pass the click on
+      const passOn = (event) => {
+        if (event.target !== document.documentElement) return;
+        event.preventDefault();
+        event.stopPropagation();
+        const { clientX, clientY } = event;
+        fade.skipTransition();
+        fade.finished.then(() =>
+          document.elementFromPoint(clientX, clientY)?.dispatchEvent(
+            new MouseEvent("click", {
+              bubbles: true,
+              cancelable: true,
+              clientX,
+              clientY,
+              view: window,
+            }),
+          ),
+        );
+      };
+      document.addEventListener("click", passOn, true);
+      fade.finished
+        .finally(() => document.removeEventListener("click", passOn, true))
+        .catch(() => {});
     }
   };
 
