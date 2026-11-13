@@ -1,4 +1,4 @@
-import JourneyCompare from "./JourneyCompare";
+import JourneyPlayer from "@/components/journey/JourneyPlayer";
 
 export const metadata = {
   title: "Journey prototype",
@@ -14,7 +14,9 @@ export default function JourneyPage() {
           Prototype of an animated career route. Desktop only.
         </p>
       </div>
-      <JourneyCompare />
+      <div className="mt-10 flex flex-col items-center">
+        <JourneyPlayer label="Journey" />
+      </div>
     </div>
   );
 }

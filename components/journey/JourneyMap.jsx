@@ -29,7 +29,7 @@ const SURFACE = "var(--surface, #151a1f)";
 const PLANE_D =
   "M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z";
 
-// Easing curves from the animate skill, evaluated for progress-driven motion
+// Cubic-bezier easing for progress-driven motion
 const cubicBezier = (x1, y1, x2, y2) => {
   const axis = (a, b, t) =>
     3 * a * (1 - t) * (1 - t) * t + 3 * b * (1 - t) * t * t + t * t * t;
@@ -57,8 +57,7 @@ const POS = Object.fromEntries(
   Object.entries(PLACES).map(([key, p]) => [key, projection([p.lon, p.lat])]),
 );
 
-// Land as a lattice of dots in map space. Level n holds the dots that sit on a
-// lattice 2^n times coarser, so zooming out only drops dots and never moves one.
+// Land dots on nested lattices, so a zoom adds or drops dots without moving any
 const DOTS = (() => {
   const step = PITCH / K_STAY;
   const cols = Math.ceil(W / step);

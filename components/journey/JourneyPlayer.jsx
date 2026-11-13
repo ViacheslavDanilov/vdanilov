@@ -2,6 +2,7 @@
 
 import { memo, useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { AnimatePresence, motion } from "motion/react";
 import {
   JOURNEY_END_MS,
@@ -18,6 +19,11 @@ import {
 
 const DURATION_MS = 60000;
 const REDUCED_QUERY = "(prefers-reduced-motion: reduce)";
+const WIDE_QUERY = "(min-width: 768px)";
+
+const JourneyMap = dynamic(() => import("@/components/journey/JourneyMap"), {
+  ssr: false,
+});
 const MIN_LABEL_GAP_PX = 36;
 const EASE_OUT = [0.23, 1, 0.32, 1];
 
@@ -63,16 +69,16 @@ const BAR_IDLE =
 const BAR_LIVE =
   "border-[var(--accent-text,#03b1fb)] bg-[color-mix(in_srgb,var(--accent-text,#03b1fb)_65%,transparent)]";
 
-const useReducedMotion = () => {
-  const [reduced, setReduced] = useState(false);
+const useMediaQuery = (media) => {
+  const [matches, setMatches] = useState(false);
   useEffect(() => {
-    const query = window.matchMedia(REDUCED_QUERY);
-    const update = () => setReduced(query.matches);
+    const query = window.matchMedia(media);
+    const update = () => setMatches(query.matches);
     update();
     query.addEventListener("change", update);
     return () => query.removeEventListener("change", update);
-  }, []);
-  return reduced;
+  }, [media]);
+  return matches;
 };
 
 const useWidth = (ref) => {
@@ -158,9 +164,9 @@ const Lanes = memo(function Lanes({ active, labelled }) {
   );
 });
 
-// View is the visual: it receives progress (0 to 1) and fills its parent
-export default function JourneyPlayer({ View, label }) {
-  const reducedMotion = useReducedMotion();
+export default function JourneyPlayer({ label }) {
+  const reducedMotion = useMediaQuery(REDUCED_QUERY);
+  const wide = useMediaQuery(WIDE_QUERY);
   const [progress, setProgress] = useState(0);
   const [playing, setPlaying] = useState(false);
   const progressRef = useRef(0);
@@ -247,7 +253,7 @@ export default function JourneyPlayer({ View, label }) {
       className="hidden w-full max-w-6xl flex-col gap-4 px-6 text-[var(--text,#d1d5db)] md:flex"
     >
       <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl border border-[var(--line,rgba(255,255,255,0.1))] bg-[var(--surface,#151a1f)]">
-        <View progress={progress} />
+        {wide && <JourneyMap progress={progress} />}
         <div className="pointer-events-none absolute left-4 top-4 text-xs uppercase tracking-widest text-[var(--text-muted,#9ca3af)]">
           {label}
         </div>
