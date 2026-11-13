@@ -4,10 +4,10 @@ description: A dark-first, glass-and-glow professional record for a researcher a
 colors:
   ink: "#0a0e14"
   card-slate: "#151a1f"
-  paper-light: "#f5f5f5"
+  paper-light: "#f1f4f8"
   signal-cyan: "#03b1fb"
-  text-soft: "#d1d5db"
-  text-muted: "#9ca3af"
+  text-soft: "#c4ccd8"
+  text-muted: "#9aa5b4"
   badge-blue: "#51a2ff"
   badge-violet: "#a684ff"
   badge-teal: "#00d5be"
@@ -125,9 +125,9 @@ A restrained dark palette: ink ground, slate cards, one cyan accent, and a cool 
 
 - **Ink** (#0a0e14): page background.
 - **Card Slate** (#151a1f): card and logo-tile fill, often at 30% or 50% opacity.
-- **Paper Light** (#f5f5f5): primary text, headings, button text.
-- **Text Soft** (#d1d5db): inactive nav, the hero roles and paragraph. Body copy mostly uses the Tailwind 200 and 300 greys.
-- **Text Muted** (#9ca3af): dates, locations, secondary lines.
+- **Paper Light** (#f1f4f8): primary text, headings, button text.
+- **Text Soft** (#c4ccd8): inactive nav, the hero roles and paragraph. Body copy uses the same body token (`text-body`).
+- **Text Muted** (#9aa5b4): dates, locations, secondary lines.
 - **Glass lines**: the glow card border is 1.5px in the same 6% grey as its fill. Logo tiles and tab rails use Paper Light at 10%, the mobile menu white at 10%, and the nav pill white at 20%.
 
 ### Light theme
@@ -168,7 +168,7 @@ Chosen with the switch in the navbar, never by the system setting: a page withou
 - **Display** (600, 1.875rem to 3rem, tight tracking, balanced wrapping): the page name in the home hero.
 - **Headline** (700, 1.875rem to 2.25rem): home section headings.
 - **Title** (600, 1.25rem): project page section headings, with the accent bar.
-- **Body** (400, 0.875rem to 1rem, line height 1.625): card and prose text in the grey tiers. Most body copy uses `leading-relaxed`, so 1.625 is the recorded value. Prose blocks cap at max-w-5xl or narrower.
+- **Body** (400, 0.875rem to 1rem, line height 1.625): card and prose text in the body token. Most body copy uses `leading-relaxed`, so 1.625 is the recorded value. Prose blocks cap at max-w-5xl or narrower.
 - **Label** (600, 0.75rem, 0.05em, uppercase): footer column heads. Experience and education card titles are bold uppercase with 0.05em tracking. Company names are 0.875rem, 500, uppercase. Glass button text is 0.875rem, 500, in normal case.
 
 ### Named Rules
@@ -177,7 +177,7 @@ Chosen with the switch in the navbar, never by the system setting: a page withou
 
 ## Layout
 
-Centred containers: max-w-7xl for the home sections (max-w-5xl for the client logos) and the list pages (experience, education, publications, references, portfolio), max-w-5xl for project pages, 24px side padding. Home sections have 48px of padding above and below (below lg the hero has none above it) and no gap between them, so below lg the content of neighbours sits 96px apart. From lg each home screen, except the expertise list, is at least one screen tall (`svh`, capped at 72rem so a very tall screen is not left empty) with its content centred. The hero is shorter by the page's 96px top padding, so it fills the first screen under the navbar. The client logos sit in a bordered grid with plus marks at the inner corners: four columns from md, two on phones, in cells 112px tall (96px on phones) with logos at most 52px tall. They are white monochrome files (`public/clients/*-mono.svg`) at `brightness-[.96]`, the same near-white as the section heading (`#f5f5f5`). On hover (on devices that can hover) and on keyboard focus, the colour file (`public/clients/*.svg`) fades in over the white one in 300ms, on top of the cell tint. Some colour logos carry a per-logo brightness and saturation filter so they hold up on the dark tile. Touch devices keep the white logos. Card grids are one column on phones. Experience, education, publications and the home project row go to two columns from lg. References and portfolio go to two from md and three from lg. Education certificates go to two from lg and three from xl. Gaps are 32px on experience, education and publications, and 24px on references, portfolio, certificates and the home grids. The hero is stacked below lg and a video and text row from lg (see Hero). Experience, education and certificate cards centre their text on phones and left-align it from md. Reference and team cards stay centred at every width, and home project cards switch at sm. Breakpoints are Tailwind defaults (sm 640px, md 768px, lg 1024px, xl 1280px). Body text is justified by owner decision.
+Centred containers: max-w-7xl for the home sections (max-w-5xl for the client logos) and the list pages (experience, education, publications, references, portfolio), max-w-5xl for project pages, 24px side padding. Home sections have 48px of padding above and below (below lg the hero has none above it) and no gap between them, so below lg the content of neighbours sits 96px apart. From lg each home screen, except the expertise list, is at least one screen tall (`svh`, capped at 72rem so a very tall screen is not left empty) with its content centred. The hero is shorter by the page's 96px top padding, so it fills the first screen under the navbar. The client logos sit in a bordered grid with plus marks at the inner corners: four columns from md, two on phones, in cells 112px tall (96px on phones) with logos at most 52px tall. They are white monochrome files (`public/clients/*-mono.svg`) at `brightness-[.96]`, close to the section heading (`#f1f4f8`). On hover (on devices that can hover) and on keyboard focus, the colour file (`public/clients/*.svg`) fades in over the white one in 300ms, on top of the cell tint. Some colour logos carry a per-logo brightness and saturation filter so they hold up on the dark tile. Touch devices keep the white logos. Card grids are one column on phones. Experience, education, publications and the home project row go to two columns from lg. References and portfolio go to two from md and three from lg. Education certificates go to two from lg and three from xl. Gaps are 32px on experience, education and publications, and 24px on references, portfolio, certificates and the home grids. The hero is stacked below lg and a video and text row from lg (see Hero). Experience, education and certificate cards centre their text on phones and left-align it from md. Reference and team cards stay centred at every width, and home project cards switch at sm. Breakpoints are Tailwind defaults (sm 640px, md 768px, lg 1024px, xl 1280px). Body text is justified by owner decision.
 
 ## Elevation & Depth
 
@@ -210,7 +210,7 @@ Pills for anything clickable and small (nav, buttons, badges, tabs, accent bar).
 ### Chips
 
 - **Badge:** 12px text, weight 500, pill, tinted fill plus border in one of five hues, optional 12px icon.
-- **Keyword highlight:** cyan 10% fill, cyan text, weight 600, 8px by 3px padding and a 12px radius. `highlightKeywords` renders it in responsibility lines and education content. The home hero paragraph does not use it: its two roles are semibold white. Experience summaries are plain Tailwind 300 grey text with a 2px cyan 40% left border and 12px of left padding.
+- **Keyword highlight:** cyan 10% fill, cyan text, weight 600, 8px by 3px padding and a 12px radius. `highlightKeywords` renders it in responsibility lines and education content. The home hero paragraph does not use it: its two roles are semibold white. Experience summaries are plain body-colour text with a 2px cyan 40% left border and 12px of left padding.
 
 ### Cards / Containers
 
@@ -224,7 +224,7 @@ Pills for anything clickable and small (nav, buttons, badges, tabs, accent bar).
 - The home hero is two columns from lg, a video column and a text column of at most 36rem, centred together on the page so the margins either side match. The left column is the round video with the six profile icons centred under it (20px glyphs in 44px targets 32px apart, each with a tooltip and a cyan focus ring). The right column is the page name (Display), one of the three roles in grey, flipped to the next one on a 3D hinge about every 3.5 seconds (Depth Flip Text, built on GSAP and loaded after the page), the paragraph about the owner and two glass buttons (Download CV, Contact me). The name, roles and buttons are centred on the column, and the paragraph is justified and hyphenated. The video is 16rem across on phones and 24rem from 768px. At 1440x900 the two columns differ in height by about 20px.
 - Below lg everything is one centred column in this order: name, roles, video, icons, buttons, paragraph, so that both buttons show on the first screen of a 360px phone, with at least 8px to spare. The page wrapper adds only 16px above the hero on phones, and the icons sit 24px under the video. The next role sits over the current one on one line, so the slot never wraps and never moves the layout. Each cycle holds 2 seconds and flips for about 1.5. Hovering pauses the flip. Screen readers get the three roles as one list and the changing slot is hidden from them. With reduced motion all three show, stacked, and never change.
 - The blocks of the hero (name, roles, video, icons, buttons, paragraph) are 24px apart edge to edge on phones and tablets and 32px apart from lg, within about 3px, because the name, roles and paragraph have tight line heights that keep the box gaps equal to the visible ones.
-- The paragraph is Tailwind 300 grey and names the two roles in semibold white, with no chip and no colour, so the tone and weight set them apart and the first line starts flush with the text below it.
+- The paragraph is in the body colour and names the two roles in semibold white, with no chip and no colour, so the tone and weight set them apart and the first line starts flush with the text below it.
 - The one h1 on the page is the name. Download CV opens the CV in the Drive viewer in a new tab, where it can be downloaded, and Contact me opens an email. The profile icons are 44px targets. The glass buttons are 48px tall with 14px side padding below 640px, so both fit one row on a 360px phone, and 56px tall with 40px padding from 640px.
 
 ### Navigation
@@ -250,7 +250,7 @@ Pills for anything clickable and small (nav, buttons, badges, tabs, accent bar).
 - **Do** use Signal Cyan (#03b1fb) as the only accent, as a tint for fills behind text.
 - **Do** build floating surfaces from a translucent fill, blur and a hairline border: white at 10 to 20%, or the fill's own grey on glow cards.
 - **Do** make small controls full pills and cards 16px.
-- **Do** keep grey tiers: Paper Light for headings, Text Soft or 200 to 300 for body, Text Muted for metadata.
+- **Do** keep grey tiers: Paper Light for headings, Text Soft for body, Text Muted for metadata.
 - **Do** disable pointer glow below 768px and keep touch panning and pinch zoom intact.
 - **Do** wrap every hover, focus or press effect that moves, scales or turns in `motion-safe:`, so a visitor who asks for less motion keeps the colour change and loses the movement. `npm run check` fails on one that is not wrapped.
 - **Do** give every link and button a 44px tap target at 360px, except links inside running text, the link lists in an Experience card's Links tab, and the skip link. Where neighbours sit closer than 44px (icon rows, footer lists) the areas share the space. The visible size stays small: the extra area is padding offset by a negative margin, or a pseudo-element where a parent's spacing would clash.

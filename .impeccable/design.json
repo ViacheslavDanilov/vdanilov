@@ -37,7 +37,7 @@
       "paper-light": {
         "role": "neutral",
         "displayName": "Paper Light",
-        "canonical": "#f5f5f5",
+        "canonical": "#f1f4f8",
         "tonalRamp": [
           "#3a3a3a",
           "#575757",
@@ -46,7 +46,7 @@
           "#b3b3b3",
           "#cfcfcf",
           "#e6e6e6",
-          "#f5f5f5"
+          "#f1f4f8"
         ]
       },
       "signal-cyan": {
@@ -67,14 +67,14 @@
       "text-soft": {
         "role": "neutral",
         "displayName": "Text Soft",
-        "canonical": "#d1d5db",
+        "canonical": "#c4ccd8",
         "tonalRamp": [
           "#3b3e43",
           "#575b62",
           "#767a82",
           "#969aa2",
           "#b0b4bb",
-          "#d1d5db",
+          "#c4ccd8",
           "#e4e7eb",
           "#f3f4f6"
         ]
@@ -82,13 +82,13 @@
       "text-muted": {
         "role": "neutral",
         "displayName": "Text Muted",
-        "canonical": "#9ca3af",
+        "canonical": "#9aa5b4",
         "tonalRamp": [
           "#2f343b",
           "#454b55",
           "#5f6672",
           "#7b8290",
-          "#9ca3af",
+          "#9aa5b4",
           "#b6bcc6",
           "#d0d4db",
           "#e8eaee"
@@ -172,7 +172,7 @@
       "refersTo": "button-glass",
       "description": "Pill button for the main calls to action.",
       "html": "<a class=\"ds-btn\" href=\"#\">Download CV</a>",
-      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;height:56px;padding:0 40px;border-radius:9999px;border:1px solid rgba(255,255,255,0.1);background:transparent;backdrop-filter:blur(12px);color:#f5f5f5;font-size:14px;font-weight:500;text-decoration:none;position:relative;box-shadow:0 0 8px rgba(0,0,0,0.03),0 2px 6px rgba(0,0,0,0.08),inset 3px 3px 0.5px -3.5px rgba(255,255,255,0.09),inset -3px -3px 0.5px -3.5px rgba(255,255,255,0.85),inset 1px 1px 1px -0.5px rgba(255,255,255,0.6),inset -1px -1px 1px -0.5px rgba(255,255,255,0.6),inset 0 0 6px 6px rgba(255,255,255,0.12),inset 0 0 2px 2px rgba(255,255,255,0.06),0 0 12px rgba(0,0,0,0.15);transition:transform .3s}.ds-btn::before{content:\"\";position:absolute;inset:0;border-radius:inherit;background:rgba(255,255,255,0.1);opacity:0;transition:opacity .3s;pointer-events:none}.ds-btn:hover::before,.ds-btn:focus-visible::before{opacity:1}.ds-btn:active{transform:scale(.975)}.ds-btn:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(3,177,251,1)}"
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;height:56px;padding:0 40px;border-radius:9999px;border:1px solid rgba(255,255,255,0.1);background:transparent;backdrop-filter:blur(12px);color:#f1f4f8;font-size:14px;font-weight:500;text-decoration:none;position:relative;box-shadow:0 0 8px rgba(0,0,0,0.03),0 2px 6px rgba(0,0,0,0.08),inset 3px 3px 0.5px -3.5px rgba(255,255,255,0.09),inset -3px -3px 0.5px -3.5px rgba(255,255,255,0.85),inset 1px 1px 1px -0.5px rgba(255,255,255,0.6),inset -1px -1px 1px -0.5px rgba(255,255,255,0.6),inset 0 0 6px 6px rgba(255,255,255,0.12),inset 0 0 2px 2px rgba(255,255,255,0.06),0 0 12px rgba(0,0,0,0.15);transition:transform .3s}.ds-btn::before{content:\"\";position:absolute;inset:0;border-radius:inherit;background:rgba(255,255,255,0.1);opacity:0;transition:opacity .3s;pointer-events:none}.ds-btn:hover::before,.ds-btn:focus-visible::before{opacity:1}.ds-btn:active{transform:scale(.975)}.ds-btn:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(3,177,251,1)}"
     },
     {
       "name": "Nav Pill",
@@ -180,7 +180,7 @@
       "refersTo": "nav-pill",
       "description": "Floating glass navigation with a cyan active link. The 42 by 32px logo image is shown as an empty placeholder box.",
       "html": "<nav class=\"ds-nav\"><span class=\"ds-logo\" aria-hidden=\"true\"></span><div class=\"ds-links\"><a class=\"ds-nav-a ds-on\" href=\"#\">Home</a><a class=\"ds-nav-a\" href=\"#\">Experience</a><a class=\"ds-nav-a\" href=\"#\">Portfolio</a></div></nav>",
-      "css": ".ds-nav{display:flex;justify-content:space-between;gap:32px;align-items:center;height:56px;padding:0 24px;border-radius:9999px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);backdrop-filter:blur(24px);box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1)}.ds-logo{display:block;width:42px;height:32px;border-radius:8px;background:rgba(245,245,245,0.1)}.ds-links{display:flex;gap:4px;align-items:center}.ds-nav-a{padding:8px 16px;border-radius:9999px;color:#d1d5db;text-decoration:none;transition:all .3s}.ds-nav-a:hover{color:#f5f5f5;background:rgba(245,245,245,0.1)}.ds-nav-a.ds-on{background:rgba(3,177,251,0.15);color:#03b1fb}"
+      "css": ".ds-nav{display:flex;justify-content:space-between;gap:32px;align-items:center;height:56px;padding:0 24px;border-radius:9999px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);backdrop-filter:blur(24px);box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1)}.ds-logo{display:block;width:42px;height:32px;border-radius:8px;background:rgba(245,245,245,0.1)}.ds-links{display:flex;gap:4px;align-items:center}.ds-nav-a{padding:8px 16px;border-radius:9999px;color:#c4ccd8;text-decoration:none;transition:all .3s}.ds-nav-a:hover{color:#f1f4f8;background:rgba(245,245,245,0.1)}.ds-nav-a.ds-on{background:rgba(3,177,251,0.15);color:#03b1fb}"
     },
     {
       "name": "Badge",
@@ -204,7 +204,7 @@
       "refersTo": "glow-card",
       "description": "Glass card; the pointer spotlight is added by script on desktop.",
       "html": "<div class=\"ds-card\"><h3>SENIOR ENGINEER</h3><p>Dates and location in muted grey.</p></div>",
-      "css": ".ds-card{padding:20px;border-radius:16px;background:rgba(153,153,153,0.06);border:1.5px solid rgba(153,153,153,0.06);backdrop-filter:blur(2px);box-shadow:0 .5rem 1rem -.5rem rgba(0,0,0,.3);color:#f5f5f5;font-family:Poppins,system-ui,sans-serif}.ds-card h3{margin:0 0 8px;font-weight:700;letter-spacing:.05em;text-transform:uppercase}.ds-card p{margin:0;font-size:14px;color:#9ca3af}"
+      "css": ".ds-card{padding:20px;border-radius:16px;background:rgba(153,153,153,0.06);border:1.5px solid rgba(153,153,153,0.06);backdrop-filter:blur(2px);box-shadow:0 .5rem 1rem -.5rem rgba(0,0,0,.3);color:#f1f4f8;font-family:Poppins,system-ui,sans-serif}.ds-card h3{margin:0 0 8px;font-weight:700;letter-spacing:.05em;text-transform:uppercase}.ds-card p{margin:0;font-size:14px;color:#9aa5b4}"
     },
     {
       "name": "Section Heading",
@@ -212,7 +212,7 @@
       "refersTo": "title",
       "description": "Project page heading with the cyan accent bar.",
       "html": "<h2 class=\"ds-h\"><span></span>Results</h2>",
-      "css": ".ds-h{display:flex;align-items:center;gap:12px;margin:0 0 16px;font-size:20px;font-weight:600;color:#f5f5f5}.ds-h span{width:4px;height:24px;border-radius:9999px;background:#03b1fb}"
+      "css": ".ds-h{display:flex;align-items:center;gap:12px;margin:0 0 16px;font-size:20px;font-weight:600;color:#f1f4f8}.ds-h span{width:4px;height:24px;border-radius:9999px;background:#03b1fb}"
     }
   ],
   "narrative": {
