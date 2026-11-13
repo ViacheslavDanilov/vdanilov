@@ -125,6 +125,17 @@
   }
 }
 
+/* The theme cross-fade; the switch thumb slides as its own layer */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.3s;
+  animation-timing-function: cubic-bezier(0.2, 0, 0, 1);
+}
+
+::view-transition-group(theme-thumb) {
+  animation-duration: 0.2s;
+}
+
 /* A theme switch changes every colour in one frame */
 .theme-switching :not([data-keep-motion]) {
   transition: none !important;

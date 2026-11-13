@@ -9,14 +9,14 @@ const bodyBg = (page: Page) =>
 test.describe("Theme bootstrap", () => {
   test("a dark system shows the dark theme", async ({ page }) => {
     await page.goto("/");
-    expect(await bodyBg(page)).toBe(DARK_BG);
+    await expect.poll(() => bodyBg(page)).toBe(DARK_BG);
   });
 
   test("a light system shows the light theme", async ({ browser }) => {
     const context = await browser.newContext({ colorScheme: "light" });
     const page = await context.newPage();
     await page.goto("/");
-    expect(await bodyBg(page)).toBe(LIGHT_BG);
+    await expect.poll(() => bodyBg(page)).toBe(LIGHT_BG);
     await context.close();
   });
 
@@ -29,7 +29,7 @@ test.describe("Theme bootstrap", () => {
     expect(
       await page.evaluate(() => document.documentElement.dataset.theme),
     ).toBe("light");
-    expect(await bodyBg(page)).toBe(LIGHT_BG);
+    await expect.poll(() => bodyBg(page)).toBe(LIGHT_BG);
   });
 
   test("a stored dark choice wins over a light system", async ({ browser }) => {
@@ -37,7 +37,7 @@ test.describe("Theme bootstrap", () => {
     const page = await context.newPage();
     await page.addInitScript(() => localStorage.setItem("theme", "dark"));
     await page.goto("/");
-    expect(await bodyBg(page)).toBe(DARK_BG);
+    await expect.poll(() => bodyBg(page)).toBe(DARK_BG);
     await context.close();
   });
 
@@ -47,7 +47,7 @@ test.describe("Theme bootstrap", () => {
     expect(
       await page.evaluate(() => document.documentElement.dataset.theme),
     ).toBeUndefined();
-    expect(await bodyBg(page)).toBe(DARK_BG);
+    await expect.poll(() => bodyBg(page)).toBe(DARK_BG);
   });
 
   test("storage that throws leaves the system theme and the switch working", async ({
@@ -65,9 +65,9 @@ test.describe("Theme bootstrap", () => {
       });
     });
     await page.goto("/");
-    expect(await bodyBg(page)).toBe(LIGHT_BG);
+    await expect.poll(() => bodyBg(page)).toBe(LIGHT_BG);
     await page.getByRole("switch", { name: "Dark theme" }).click();
-    expect(await bodyBg(page)).toBe(DARK_BG);
+    await expect.poll(() => bodyBg(page)).toBe(DARK_BG);
     expect(errors).toEqual([]);
     await context.close();
   });
@@ -84,12 +84,12 @@ test.describe("Theme switch", () => {
     await expect(themeSwitch(page)).toHaveAttribute("aria-checked", "true");
     await themeSwitch(page).click();
     await expect(themeSwitch(page)).toHaveAttribute("aria-checked", "false");
-    expect(await bodyBg(page)).toBe(LIGHT_BG);
-    expect(await page.evaluate(() => localStorage.getItem("theme"))).toBe(
-      "light",
-    );
+    await expect.poll(() => bodyBg(page)).toBe(LIGHT_BG);
+    await expect
+      .poll(() => page.evaluate(() => localStorage.getItem("theme")))
+      .toBe("light");
     await page.reload();
-    expect(await bodyBg(page)).toBe(LIGHT_BG);
+    await expect.poll(() => bodyBg(page)).toBe(LIGHT_BG);
     await expect(themeSwitch(page)).toHaveAttribute("aria-checked", "false");
   });
 
@@ -99,11 +99,13 @@ test.describe("Theme switch", () => {
     await page.goto("/");
     await themeSwitch(page).click();
     await themeSwitch(page).click();
-    expect(await page.evaluate(() => localStorage.getItem("theme"))).toBeNull();
-    expect(
-      await page.evaluate(() => document.documentElement.dataset.theme),
-    ).toBeUndefined();
-    expect(await bodyBg(page)).toBe(DARK_BG);
+    await expect
+      .poll(() => page.evaluate(() => localStorage.getItem("theme")))
+      .toBeNull();
+    await expect
+      .poll(() => page.evaluate(() => document.documentElement.dataset.theme))
+      .toBeUndefined();
+    await expect.poll(() => bodyBg(page)).toBe(DARK_BG);
   });
 
   test("without a stored choice the page follows the system live", async ({
@@ -112,7 +114,7 @@ test.describe("Theme switch", () => {
     await page.goto("/");
     await page.emulateMedia({ colorScheme: "light" });
     await expect(themeSwitch(page)).toHaveAttribute("aria-checked", "false");
-    expect(await bodyBg(page)).toBe(LIGHT_BG);
+    await expect.poll(() => bodyBg(page)).toBe(LIGHT_BG);
   });
 
   test("Space and Enter flip it from the keyboard", async ({ page }) => {
@@ -129,12 +131,15 @@ test.describe("Theme switch", () => {
   }) => {
     await page.goto("/");
     await themeSwitch(page).click();
-    const colours = await page.evaluate(() =>
-      [...document.querySelectorAll('meta[name="theme-color"]')].map((m) =>
-        m.getAttribute("content"),
-      ),
-    );
-    expect(colours).toEqual(["#f4f6f9", "#f4f6f9"]);
+    await expect
+      .poll(() =>
+        page.evaluate(() =>
+          [...document.querySelectorAll('meta[name="theme-color"]')].map((m) =>
+            m.getAttribute("content"),
+          ),
+        ),
+      )
+      .toEqual(["#f4f6f9", "#f4f6f9"]);
   });
 
   test("the browser bar colour survives a client-side navigation", async ({
@@ -206,7 +211,7 @@ test.describe("Dark islands", () => {
         getComputedStyle(el).getPropertyValue("--bg").trim(),
       ),
     ).toBe("#0a0e14");
-    expect(await bodyBg(page)).toBe(LIGHT_BG);
+    await expect.poll(() => bodyBg(page)).toBe(LIGHT_BG);
     await context.close();
   });
 });

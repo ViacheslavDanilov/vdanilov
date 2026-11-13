@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   THEME_KEY,
   applyThemeColor,
@@ -42,6 +42,7 @@ const Moon = () => (
 // The thumb position comes from CSS alone, so the first paint is right before any script runs
 export default function ThemeToggle() {
   const [isDark, setIsDark] = useState(true);
+  const pending = useRef(null);
 
   useEffect(() => {
     const sync = () => {
@@ -79,9 +80,8 @@ export default function ThemeToggle() {
     };
   }, []);
 
-  const toggle = () => {
+  const switchTheme = (next) => {
     const root = document.documentElement;
-    const next = currentTheme() === "dark" ? "light" : "dark";
     // One frame without transitions, so every colour changes together
     root.classList.add("theme-switching");
     try {
@@ -96,10 +96,27 @@ export default function ThemeToggle() {
       root.dataset.theme = next;
     }
     applyThemeColor(root.dataset.theme ?? null);
-    setIsDark(next === "dark");
+    if (pending.current === next) pending.current = null;
     requestAnimationFrame(() =>
       requestAnimationFrame(() => root.classList.remove("theme-switching")),
     );
+  };
+
+  // A short cross-fade where the browser has view transitions and motion is welcome
+  const toggle = () => {
+    // A second click before the fade ends flips the theme it asked for, not the one on screen
+    const next =
+      (pending.current ?? currentTheme()) === "dark" ? "light" : "dark";
+    pending.current = next;
+    setIsDark(next === "dark");
+    if (
+      !document.startViewTransition ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      switchTheme(next);
+    } else {
+      document.startViewTransition(() => switchTheme(next));
+    }
   };
 
   return (
@@ -114,7 +131,7 @@ export default function ThemeToggle() {
       <span className="relative block h-7 w-[3.25rem] rounded-full border border-ink/20 bg-ink/10 transition-colors group-hover/theme:bg-ink/20">
         <span
           data-keep-motion
-          className="absolute top-px left-px flex size-6 translate-x-6 items-center justify-center rounded-full bg-strong text-page motion-safe:transition-transform motion-safe:duration-200 light:translate-x-0"
+          className="absolute top-px left-px flex size-6 translate-x-6 [view-transition-name:theme-thumb] items-center justify-center rounded-full bg-strong text-page motion-safe:transition-transform motion-safe:duration-200 light:translate-x-0"
         >
           <Sun />
           <Moon />
