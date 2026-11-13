@@ -166,7 +166,7 @@ function Navbar() {
                 onClick={() => window.scrollTo(0, 0)}
                 className={`px-4 py-2 rounded-full text-md font-normal transition-all duration-300 cursor-pointer ${
                   isActive
-                    ? "bg-accent/15 text-accent light:ring-1 light:ring-inset light:ring-accent/30"
+                    ? "bg-accent/15 text-accent light:bg-[color-mix(in_srgb,var(--color-accent)_15%,var(--bg))] light:ring-1 light:ring-inset light:ring-accent/30"
                     : "text-body hover:text-strong hover:bg-strong/10"
                 }`}
               >
@@ -224,7 +224,7 @@ function Navbar() {
                         onClick={handleNavClick}
                         className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all ${
                           isActive
-                            ? "bg-accent/20 text-accent"
+                            ? "bg-accent/20 text-accent light:bg-[color-mix(in_srgb,var(--color-accent)_20%,var(--surface))]"
                             : "text-muted hover:bg-strong/10 hover:text-strong"
                         }`}
                       >

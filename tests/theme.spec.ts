@@ -294,6 +294,50 @@ test.describe("Light polish", () => {
     await context.close();
   });
 
+  // An opaque pill keeps its contrast when a dark picture scrolls under the bar
+  for (const [width, selector] of [
+    [1440, 'nav a[aria-current="page"]'],
+    [360, '#mobile-menu a[aria-current="page"]'],
+  ] as const) {
+    test(`the current page label keeps 4.5:1 on an opaque pill at ${width}px in light`, async ({
+      browser,
+    }) => {
+      const context = await browser.newContext({
+        colorScheme: "light",
+        viewport: { width, height: 900 },
+      });
+      const page = await context.newPage();
+      await page.goto("/portfolio/deep-anatomy/");
+      if (width === 360) await page.getByLabel("Toggle menu").click();
+      const { text, fill } = await page
+        .locator(selector)
+        .first()
+        .evaluate((el) => {
+          const rgba = (css: string) => {
+            const ctx = document.createElement("canvas").getContext("2d")!;
+            ctx.fillStyle = css;
+            ctx.fillRect(0, 0, 1, 1);
+            return Array.from(ctx.getImageData(0, 0, 1, 1).data);
+          };
+          const style = getComputedStyle(el);
+          return { text: rgba(style.color), fill: rgba(style.backgroundColor) };
+        });
+      const luminance = (rgb: number[]) => {
+        const [r, g, b] = rgb.map((c) =>
+          c / 255 <= 0.03928
+            ? c / 255 / 12.92
+            : ((c / 255 + 0.055) / 1.055) ** 2.4,
+        );
+        return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+      };
+      expect(fill[3]).toBe(255);
+      expect(
+        (luminance(fill) + 0.05) / (luminance(text) + 0.05),
+      ).toBeGreaterThanOrEqual(4.5);
+      await context.close();
+    });
+  }
+
   test("experience and education cards fade in like the portfolio cards", async ({
     page,
   }) => {
