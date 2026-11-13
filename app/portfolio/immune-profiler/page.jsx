@@ -235,22 +235,22 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">Patches:</strong> 5.7
-                  million patches generated, 2.7 million tissue-rich patches
-                  selected for analysis
+                  <strong className="text-strong">Patches:</strong> 5.7 million
+                  patches generated, 2.7 million tissue-rich patches selected
+                  for analysis
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">Annotations:</strong>{" "}
-                  527 tissue-rich patches manually annotated with 7,318 nuclei
+                  <strong className="text-strong">Annotations:</strong> 527
+                  tissue-rich patches manually annotated with 7,318 nuclei
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">Cell Types:</strong>{" "}
+                  <strong className="text-strong">Cell Types:</strong>{" "}
                   Tumor-infiltrating lymphocytes (TIL), tumor cells, and stromal
                   cells
                 </span>
@@ -258,8 +258,8 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">Labeling:</strong>{" "}
-                  Weakly supervised methods were employed to ensure high-quality
+                  <strong className="text-strong">Labeling:</strong> Weakly
+                  supervised methods were employed to ensure high-quality
                   labeling of TIL, tumor, and stromal cell populations.
                 </span>
               </li>
@@ -277,32 +277,26 @@ export default function ProjectPage() {
 
             <ul className="space-y-4 text-body mb-6 text-justify">
               <li>
-                <strong className="text-legacy-gray-200">WSI Slicing:</strong>{" "}
-                Whole slide images were divided into smaller high-resolution
-                patches using a custom slicing algorithm (
+                <strong className="text-strong">WSI Slicing:</strong> Whole
+                slide images were divided into smaller high-resolution patches
+                using a custom slicing algorithm (
                 <a href="#figure-2" className="text-accent hover:underline">
                   Figure 2
                 </a>
                 ).
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
-                  Nucleus Segmentation:
-                </strong>{" "}
+                <strong className="text-strong">Nucleus Segmentation:</strong>{" "}
                 HoVer-Net, a state-of-the-art deep learning model, was used to
                 segment nuclei.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
-                  Feature Extraction:
-                </strong>{" "}
+                <strong className="text-strong">Feature Extraction:</strong>{" "}
                 Detailed features such as shape, texture, and intensity were
                 extracted from segmented nuclei for downstream analysis.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
-                  Nucleus Classification:
-                </strong>{" "}
+                <strong className="text-strong">Nucleus Classification:</strong>{" "}
                 An AutoML-based approach using the{" "}
                 <a
                   href="https://mljar.com/"
@@ -316,7 +310,7 @@ export default function ProjectPage() {
                 stromal cells, or others.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
+                <strong className="text-strong">
                   Immune Archetype Assignment:
                 </strong>{" "}
                 Cells were clustered based on type and spatial arrangement to
@@ -369,18 +363,15 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">WSI Slicing:</strong>{" "}
-                  From 5.7 million patches generated, only 2.7 million
-                  containing tissue were retained, ensuring efficient downstream
-                  processing.
+                  <strong className="text-strong">WSI Slicing:</strong> From 5.7
+                  million patches generated, only 2.7 million containing tissue
+                  were retained, ensuring efficient downstream processing.
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
-                    Nucleus Segmentation:
-                  </strong>{" "}
+                  <strong className="text-strong">Nucleus Segmentation:</strong>{" "}
                   HoVer-Net achieved a Dice Similarity Coefficient of{" "}
                   <span className="font-semibold">90%</span> on validation and{" "}
                   <span className="font-semibold">75%</span> on test subset.
@@ -389,7 +380,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
+                  <strong className="text-strong">
                     Nucleus Classification:
                   </strong>{" "}
                   The AutoML classifier achieved a weighted F1-score of{" "}
@@ -400,7 +391,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
+                  <strong className="text-strong">
                     Immune Archetype Determination:
                   </strong>{" "}
                   The pipeline assigned archetypes with high reproducibility,

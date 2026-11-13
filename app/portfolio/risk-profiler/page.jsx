@@ -162,7 +162,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
+                  <strong className="text-strong">
                     Travelers NESS Statathon:
                   </strong>{" "}
                   Open 2023 Kaggle competition data with labeled fraudulent and
@@ -173,10 +173,8 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
-                    Claim Features:
-                  </strong>{" "}
-                  The 10 most impactful signals by SHAP: annual income, age of
+                  <strong className="text-strong">Claim Features:</strong> The
+                  10 most impactful signals by SHAP: annual income, age of
                   driver, claim day of week, higher education, past number of
                   claims, safety rating, witness present, gender, estimated
                   payout, and living status.
@@ -200,15 +198,13 @@ export default function ProjectPage() {
 
             <ul className="space-y-4 text-body mb-6 text-justify">
               <li>
-                <strong className="text-legacy-gray-200">
-                  Stage 1 (Prediction):
-                </strong>{" "}
+                <strong className="text-strong">Stage 1 (Prediction):</strong>{" "}
                 An AutoGluon TabularPredictor (NeuralNetTorch ensemble) outputs
                 a fraud probability and a binary decision against the
                 configurable threshold.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
+                <strong className="text-strong">
                   Stage 2 (Explainability):
                 </strong>
                 <ul className="mt-2 ml-4 space-y-1">
@@ -232,7 +228,7 @@ export default function ProjectPage() {
                 </ul>
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
+                <strong className="text-strong">
                   Stage 3 (Summary &amp; UI):
                 </strong>{" "}
                 An OpenAI model (GPT-4o-mini, configurable) generates a natural
@@ -254,19 +250,15 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
-                    Review Speed:
-                  </strong>{" "}
-                  Instant fraud probability and explanations replace full manual
-                  scoring and analysis.
+                  <strong className="text-strong">Review Speed:</strong> Instant
+                  fraud probability and explanations replace full manual scoring
+                  and analysis.
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
-                    Analyst Focus:
-                  </strong>{" "}
+                  <strong className="text-strong">Analyst Focus:</strong>{" "}
                   Reviewers concentrate on high-risk and edge cases instead of
                   examining every claim.
                 </span>
@@ -274,7 +266,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">Consistency:</strong>{" "}
+                  <strong className="text-strong">Consistency:</strong>{" "}
                   Standardized scoring and reasoning remove reviewer-to-reviewer
                   variance.
                 </span>
@@ -282,11 +274,9 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
-                    Explainability:
-                  </strong>{" "}
-                  SHAP contributions and an LLM summary replace hand-written
-                  notes with auditable reasoning.
+                  <strong className="text-strong">Explainability:</strong> SHAP
+                  contributions and an LLM summary replace hand-written notes
+                  with auditable reasoning.
                 </span>
               </li>
             </ul>

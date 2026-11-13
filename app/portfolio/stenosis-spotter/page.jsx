@@ -222,34 +222,32 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">Acquisition:</strong>{" "}
-                  Images acquired using Coroscop (Siemens) and Innova (GE
-                  Healthcare) systems at the Kemerovo Cardiology Center
+                  <strong className="text-strong">Acquisition:</strong> Images
+                  acquired using Coroscop (Siemens) and Innova (GE Healthcare)
+                  systems at the Kemerovo Cardiology Center
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
-                    Patient Criteria:
-                  </strong>{" "}
-                  All patients had either angiographically confirmed ≥70%
-                  stenosis or functionally verified ischemia
+                  <strong className="text-strong">Patient Criteria:</strong> All
+                  patients had either angiographically confirmed ≥70% stenosis
+                  or functionally verified ischemia
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">Data Split:</strong>{" "}
-                  Training (80%), validation (10%), and test (10%) sets split by
-                  patient to preserve clinical independence
+                  <strong className="text-strong">Data Split:</strong> Training
+                  (80%), validation (10%), and test (10%) sets split by patient
+                  to preserve clinical independence
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">Annotation:</strong>{" "}
-                  Manual labeling performed by trained cardiologists using the{" "}
+                  <strong className="text-strong">Annotation:</strong> Manual
+                  labeling performed by trained cardiologists using the{" "}
                   <a
                     href="https://labelbox.com/"
                     target="_blank"
@@ -272,22 +270,18 @@ export default function ProjectPage() {
 
             <ul className="space-y-4 text-body mb-6 text-justify">
               <li>
-                <strong className="text-legacy-gray-200">
-                  Model Architectures:
-                </strong>{" "}
+                <strong className="text-strong">Model Architectures:</strong>{" "}
                 SSD MobileNet V1/V2, SSD ResNet-50, Faster-RCNN ResNet-50/101,
                 RFCN ResNet-101, Faster-RCNN Inception ResNet, and NASNet were
                 tested for their complementary strengths.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
-                  Transfer Learning:
-                </strong>{" "}
-                All models were pretrained on the COCO dataset and fine-tuned on
-                the medical angiographic dataset.
+                <strong className="text-strong">Transfer Learning:</strong> All
+                models were pretrained on the COCO dataset and fine-tuned on the
+                medical angiographic dataset.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
+                <strong className="text-strong">
                   Training Infrastructure:
                 </strong>{" "}
                 Amazon SageMaker with Bayesian optimization for hyperparameter
@@ -295,14 +289,12 @@ export default function ProjectPage() {
                 rate.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
-                  Loss Functions:
-                </strong>{" "}
-                Smooth L1 for localization and Focal Loss for classification to
-                handle class imbalance effectively.
+                <strong className="text-strong">Loss Functions:</strong> Smooth
+                L1 for localization and Focal Loss for classification to handle
+                class imbalance effectively.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
+                <strong className="text-strong">
                   Optimization Strategies:
                 </strong>{" "}
                 Hard example mining (used in MobileNet V2) and architectural
@@ -323,7 +315,7 @@ export default function ProjectPage() {
 
             <ul className="space-y-4 text-body mb-6 text-justify">
               <li>
-                <strong className="text-legacy-gray-200">
+                <strong className="text-strong">
                   Faster-RCNN Inception ResNet
                 </strong>{" "}
                 (highest accuracy): mAP 0.95, F1-score 0.96, inference speed 3
@@ -331,18 +323,14 @@ export default function ProjectPage() {
                 complex or borderline stenotic cases.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
-                  SSD MobileNet V2
-                </strong>{" "}
+                <strong className="text-strong">SSD MobileNet V2</strong>{" "}
                 (fastest): mAP 0.83, F1-score 0.80, inference speed 38 FPS.
                 Well-suited for real-time use in high-throughput settings or
                 emergency diagnostics.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
-                  RFCN ResNet-101
-                </strong>{" "}
-                (best balance): mAP 0.94, F1-score 0.96, inference speed 10 FPS.
+                <strong className="text-strong">RFCN ResNet-101</strong> (best
+                balance): mAP 0.94, F1-score 0.96, inference speed 10 FPS.
                 Particularly well-suited for live clinical workflows, offering a
                 practical compromise for quasi-real-time surgical environments.
               </li>

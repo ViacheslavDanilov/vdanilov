@@ -159,7 +159,7 @@ const LinksList = ({ links }) => (
         <BulletPoint />
         <div className="flex-1">
           {pub.type && (
-            <span className="inline-block px-2 py-0.5 text-xs font-medium rounded-full bg-ink/5 text-legacy-neutral-300 border border-line mr-2 align-top">
+            <span className="inline-block px-2 py-0.5 text-xs font-medium rounded-full bg-ink/5 text-body border border-line mr-2 align-top">
               {pub.type}
             </span>
           )}

@@ -135,7 +135,7 @@ const TECH_STACK = [
 
 // A caption chip laid over one cell of a video that tiles several streams
 const StreamLabel = ({ children }) => (
-  <span className="m-1 self-end justify-self-start rounded bg-scrim/60 px-1.5 py-0.5 text-[10px] leading-tight text-legacy-gray-200 backdrop-blur-sm sm:m-2 sm:rounded-md sm:px-2 sm:text-xs">
+  <span className="m-1 self-end justify-self-start rounded bg-scrim/60 px-1.5 py-0.5 text-[10px] leading-tight text-strong backdrop-blur-sm sm:m-2 sm:rounded-md sm:px-2 sm:text-xs">
     {children}
   </span>
 );
@@ -235,27 +235,26 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">Foregrounds:</strong>{" "}
-                  8,586 generated cut-outs from MAGICK with high-quality alpha
-                  mattes, 7,727 in the train split and 859 in the test split.
+                  <strong className="text-strong">Foregrounds:</strong> 8,586
+                  generated cut-outs from MAGICK with high-quality alpha mattes,
+                  7,727 in the train split and 859 in the test split.
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">Backgrounds:</strong>{" "}
-                  20,000 photographs from BG-20k, 15,000 in the train split and
-                  5,000 in the test split, following the dataset&apos;s own
-                  split.
+                  <strong className="text-strong">Backgrounds:</strong> 20,000
+                  photographs from BG-20k, 15,000 in the train split and 5,000
+                  in the test split, following the dataset&apos;s own split.
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">Fixed set:</strong>{" "}
-                  300 sequences written once from the test split, with the
-                  settings and seeds recorded, so a network trained on the train
-                  split can be evaluated on assets it never saw.
+                  <strong className="text-strong">Fixed set:</strong> 300
+                  sequences written once from the test split, with the settings
+                  and seeds recorded, so a network trained on the train split
+                  can be evaluated on assets it never saw.
                 </span>
               </li>
             </ul>
@@ -335,18 +334,14 @@ export default function ProjectPage() {
             </p>
             <ul className="space-y-4 text-body mb-6 text-justify">
               <li>
-                <strong className="text-legacy-gray-200">
-                  Stage A (Library):
-                </strong>{" "}
-                A monocular depth estimator, Depth Anything V2 by default, gives
+                <strong className="text-strong">Stage A (Library):</strong> A
+                monocular depth estimator, Depth Anything V2 by default, gives
                 each foreground and background a disparity map, once and
                 offline. Each foreground&apos;s matte replaces the unreliable
                 estimate at its soft edge with disparity from inside the object.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
-                  Stage B (Sequences):
-                </strong>{" "}
+                <strong className="text-strong">Stage B (Sequences):</strong>{" "}
                 Objects move over a background that a 2D camera motion warps. An
                 object that approaches or recedes changes its size on screen and
                 its disparity by the same factor, and the disparity inside it
@@ -392,32 +387,29 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">Speed:</strong> About
-                  5 ms per frame at 1024 × 1024 pixels on one NVIDIA GeForce RTX
-                  5090. Of the renderers that take layers, it is more than ten
-                  times faster than the others at every width, and on the CPU it
-                  takes under a second per frame.
+                  <strong className="text-strong">Speed:</strong> About 5 ms per
+                  frame at 1024 × 1024 pixels on one NVIDIA GeForce RTX 5090. Of
+                  the renderers that take layers, it is more than ten times
+                  faster than the others at every width, and on the CPU it takes
+                  under a second per frame.
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
-                    Edge accuracy:
-                  </strong>{" "}
-                  Near object edges it is on average the closest to the
-                  reference in every subset, ahead of BokehMe by 1.3 dB on smoke
-                  to 7.0 dB on hair. The lead comes from sequences with one
-                  object, and the order depends on how the reference composites.
+                  <strong className="text-strong">Edge accuracy:</strong> Near
+                  object edges it is on average the closest to the reference in
+                  every subset, ahead of BokehMe by 1.3 dB on smoke to 7.0 dB on
+                  hair. The lead comes from sequences with one object, and the
+                  order depends on how the reference composites.
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">Generation:</strong>{" "}
-                  Writing a fixed-set sequence of 80 frames took 75 s on
-                  average, with bokeh rendered on the GPU and every stream
-                  written.
+                  <strong className="text-strong">Generation:</strong> Writing a
+                  fixed-set sequence of 80 frames took 75 s on average, with
+                  bokeh rendered on the GPU and every stream written.
                 </span>
               </li>
             </ul>

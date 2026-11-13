@@ -246,44 +246,38 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">CBF Source:</strong>{" "}
-                  DCS optical probe (785 nm, frontal lobes, 40 Hz)
+                  <strong className="text-strong">CBF Source:</strong> DCS
+                  optical probe (785 nm, frontal lobes, 40 Hz)
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">ICP Source:</strong>{" "}
-                  Invasive subdural sensors (Raumedic Neurodur-P)
+                  <strong className="text-strong">ICP Source:</strong> Invasive
+                  subdural sensors (Raumedic Neurodur-P)
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
-                    Preprocessing:
-                  </strong>{" "}
-                  Signal normalization, artifact filtering, statistical outlier
-                  removal (Tukey fence, Kolmogorov–Smirnov distance)
+                  <strong className="text-strong">Preprocessing:</strong> Signal
+                  normalization, artifact filtering, statistical outlier removal
+                  (Tukey fence, Kolmogorov–Smirnov distance)
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
-                    Time Windowing:
-                  </strong>{" "}
+                  <strong className="text-strong">Time Windowing:</strong>{" "}
                   600-sample segments (~15-second windows)
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
-                    Dataset Size:
-                  </strong>{" "}
-                  64 subjects for training/validation (5-fold, 80/20 split) and
-                  15 subjects held out for testing
+                  <strong className="text-strong">Dataset Size:</strong> 64
+                  subjects for training/validation (5-fold, 80/20 split) and 15
+                  subjects held out for testing
                 </span>
               </li>
             </ul>
@@ -324,31 +318,27 @@ export default function ProjectPage() {
 
             <ul className="space-y-4 text-body mb-6 text-justify">
               <li>
-                <strong className="text-legacy-gray-200">
-                  Model Benchmarking:
-                </strong>{" "}
+                <strong className="text-strong">Model Benchmarking:</strong>{" "}
                 mWDN was compared against 9 state-of-the-art architectures
                 including ResCNN, InceptionTime, XceptionTime, LSTM-FCN,
                 GRU-FCN, TST, TCN, MultiRocket, and XCM.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
+                <strong className="text-strong">
                   Sliding Window Modeling:
                 </strong>{" "}
                 Each 600-sample CBF window (15 seconds) is mapped to the
                 corresponding mean ICP value over the same interval.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">Loss Tuning:</strong>{" "}
-                Models were trained using multiple loss functions (MAE, MSE,
-                Huber, and Log-Cosh) to assess robustness to outliers and
-                physiological variability.
+                <strong className="text-strong">Loss Tuning:</strong> Models
+                were trained using multiple loss functions (MAE, MSE, Huber, and
+                Log-Cosh) to assess robustness to outliers and physiological
+                variability.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
-                  Cross-Validation:
-                </strong>{" "}
-                A two-level scheme was used (5-fold intra-subject validation and
+                <strong className="text-strong">Cross-Validation:</strong> A
+                two-level scheme was used (5-fold intra-subject validation and
                 inter-subject hold-out evaluation) to prevent data leakage and
                 test generalization.
               </li>
@@ -379,29 +369,23 @@ export default function ProjectPage() {
 
             <ul className="space-y-2 text-body mb-4">
               <li>
-                <strong className="text-legacy-gray-200">
-                  Validation MAE:
-                </strong>{" "}
+                <strong className="text-strong">Validation MAE:</strong>{" "}
                 <span className="text-strong font-semibold">2.6 mmHg</span>,
                 aligning with international clinical accuracy standards.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">Test MAE:</strong>{" "}
+                <strong className="text-strong">Test MAE:</strong>{" "}
                 <span className="font-semibold">5.3 mmHg</span> with the mWDN
                 model on unseen subjects.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
-                  Hemisphere Breakdown:
-                </strong>{" "}
+                <strong className="text-strong">Hemisphere Breakdown:</strong>{" "}
                 <span className="font-semibold">5.3 mmHg</span> on the right
                 hemisphere and <span className="font-semibold">6.3 mmHg</span>{" "}
                 on the left.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
-                  Clinical Accuracy:
-                </strong>{" "}
+                <strong className="text-strong">Clinical Accuracy:</strong>{" "}
                 <span className="text-strong font-semibold">52%</span> of
                 predictions within 4 mmHg of the invasive ground truth.
               </li>
@@ -417,19 +401,15 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
-                    ±2 mmHg accuracy
-                  </strong>{" "}
-                  for true ICP values in the 0–20 mmHg range
+                  <strong className="text-strong">±2 mmHg accuracy</strong> for
+                  true ICP values in the 0–20 mmHg range
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
-                    ±10% accuracy
-                  </strong>{" "}
-                  for ICP values above 20 mmHg
+                  <strong className="text-strong">±10% accuracy</strong> for ICP
+                  values above 20 mmHg
                 </span>
               </li>
             </ul>

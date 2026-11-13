@@ -92,7 +92,7 @@ const FeaturedProjects = () => {
                   href={project.link}
                   className="block mb-4 sm:mb-0 sm:flex-shrink-0"
                 >
-                  <div className="relative w-48 h-48 sm:w-40 sm:h-40 rounded-lg overflow-hidden bg-legacy-neutral-800 border border-line">
+                  <div className="relative w-48 h-48 sm:w-40 sm:h-40 rounded-lg overflow-hidden bg-surface border border-line">
                     <Image
                       src={project.image}
                       alt={project.title}
@@ -109,7 +109,7 @@ const FeaturedProjects = () => {
                     href={project.link}
                     className="group/title relative after:absolute after:-inset-y-2 after:inset-x-0 focus-visible:after:hidden inline-block"
                   >
-                    <h3 className="text-sm font-bold text-ink group-hover:text-accent uppercase leading-tight tracking-wider mb-3 text-center sm:text-left transition-colors flex items-center justify-center sm:justify-start gap-2">
+                    <h3 className="text-sm font-bold text-strong group-hover:text-accent uppercase leading-tight tracking-wider mb-3 text-center sm:text-left transition-colors flex items-center justify-center sm:justify-start gap-2">
                       {project.title}
                       <span
                         className="inline-block transition-transform duration-300 motion-safe:group-hover/title:translate-x-1"
@@ -127,7 +127,7 @@ const FeaturedProjects = () => {
                       </span>
                     </h3>
                   </Link>
-                  <div className="text-sm font-light text-ink uppercase tracking-wide text-center sm:text-left mb-2">
+                  <div className="text-sm font-light text-strong uppercase tracking-wide text-center sm:text-left mb-2">
                     {project.client}
                   </div>
                   <div className="text-sm text-muted mt-1 text-center sm:text-left">
@@ -136,7 +136,7 @@ const FeaturedProjects = () => {
                 </div>
               </div>
 
-              <p className="text-legacy-neutral-400 mb-6 flex-grow text-sm leading-relaxed text-justify">
+              <p className="text-muted mb-6 flex-grow text-sm leading-relaxed text-justify">
                 {project.description}
               </p>
 
@@ -144,7 +144,7 @@ const FeaturedProjects = () => {
                 {project.stack.map((tech) => (
                   <span
                     key={tech}
-                    className="px-3 py-1 text-xs font-medium rounded-full bg-ink/5 text-legacy-neutral-300 border border-line"
+                    className="px-3 py-1 text-xs font-medium rounded-full bg-ink/5 text-body border border-line"
                   >
                     {tech}
                   </span>

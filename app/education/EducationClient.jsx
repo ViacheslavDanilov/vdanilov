@@ -327,7 +327,7 @@ export default function Education() {
                 <EducationCard key={edu.id} education={edu} />
               ))
             ) : (
-              <p className="col-span-full text-center text-legacy-gray-500 italic">
+              <p className="col-span-full text-center text-muted italic">
                 Coming soon...
               </p>
             )}
@@ -353,7 +353,7 @@ export default function Education() {
                 <CertificateCard key={cert.id} certificate={cert} />
               ))
             ) : (
-              <p className="col-span-full text-center text-legacy-gray-500 italic">
+              <p className="col-span-full text-center text-muted italic">
                 Coming soon...
               </p>
             )}

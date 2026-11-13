@@ -83,7 +83,7 @@ export default function Portfolio() {
               >
                 <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-surface border border-line flex items-center justify-center">
                   <svg
-                    className="w-8 h-8 text-legacy-gray-500"
+                    className="w-8 h-8 text-muted"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -99,7 +99,7 @@ export default function Portfolio() {
                 <p className="text-muted text-lg">
                   No projects in this category yet.
                 </p>
-                <p className="text-legacy-gray-500 text-sm mt-2">
+                <p className="text-muted text-sm mt-2">
                   Check back soon for updates!
                 </p>
               </motion.div>

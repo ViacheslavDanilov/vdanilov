@@ -304,27 +304,21 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
-                    Regular window shift:
-                  </strong>{" "}
+                  <strong className="text-strong">Regular window shift:</strong>{" "}
                   Divides the image into uniform tiles
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
-                    Window padding:
-                  </strong>{" "}
-                  Adds zero-padding to retain context
+                  <strong className="text-strong">Window padding:</strong> Adds
+                  zero-padding to retain context
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
-                    Unfixed-size windows:
-                  </strong>{" "}
+                  <strong className="text-strong">Unfixed-size windows:</strong>{" "}
                   Adapts to cell density variations
                 </span>
               </li>
@@ -403,16 +397,15 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">85% mAP</strong> for
-                  primary nuclei, indicating excellent capability in identifying
-                  and counting these dominant and morphologically clear
-                  structures
+                  <strong className="text-strong">85% mAP</strong> for primary
+                  nuclei, indicating excellent capability in identifying and
+                  counting these dominant and morphologically clear structures
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">66% mAP</strong> for
+                  <strong className="text-strong">66% mAP</strong> for
                   micronuclei, a more challenging target due to their small
                   size, lower contrast, and morphological variability
                 </span>

@@ -117,11 +117,11 @@ const Hero = () => {
           </div>
 
           <p className="order-4 lg:order-none -my-0.5 max-w-2xl text-body text-base xl:text-lg leading-relaxed text-justify hyphens-auto text-pretty">
-            <strong className="font-semibold text-ink">
+            <strong className="font-semibold text-strong">
               Lead AI/ML Engineer
             </strong>{" "}
             and{" "}
-            <strong className="font-semibold text-ink">
+            <strong className="font-semibold text-strong">
               Senior Research Scientist
             </strong>{" "}
             with a PhD in Computer Science and over 10 years in academia and

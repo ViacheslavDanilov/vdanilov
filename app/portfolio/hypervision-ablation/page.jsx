@@ -234,16 +234,14 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
-                    Pre-laparotomy:
-                  </strong>{" "}
+                  <strong className="text-strong">Pre-laparotomy:</strong>{" "}
                   Baseline measurements before laser application.
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
+                  <strong className="text-strong">
                     Temperature escalation:
                   </strong>{" "}
                   Imaging during laser-induced heating, with recorded
@@ -253,9 +251,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
-                    Post-ablation:
-                  </strong>{" "}
+                  <strong className="text-strong">Post-ablation:</strong>{" "}
                   Imaging of tissue post-treatment to assess residual thermal
                   damage.
                 </span>
@@ -325,26 +321,24 @@ export default function ProjectPage() {
 
             <ul className="space-y-4 text-body mb-6 text-justify">
               <li>
-                <strong className="text-legacy-gray-200">
+                <strong className="text-strong">
                   Dimensionality Reduction:
                 </strong>{" "}
                 PCA and t-SNE were used to reduce the complexity of
                 hyperspectral data, preserving key spectral features.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
-                  Object Detection:
-                </strong>{" "}
-                A Faster R-CNN model was trained to detect and localize ablation
+                <strong className="text-strong">Object Detection:</strong> A
+                Faster R-CNN model was trained to detect and localize ablation
                 regions in reflectance and absorbance images.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">Segmentation:</strong>{" "}
-                To segment thermal damage zones in hyperspectral images,
-                multiple clustering algorithms were evaluated, including
-                k-means, DBSCAN, OPTICS, BIRCH, Mean Shift and others. These
-                algorithms were chosen for their ability to handle
-                high-dimensional data and varying cluster characteristics.
+                <strong className="text-strong">Segmentation:</strong> To
+                segment thermal damage zones in hyperspectral images, multiple
+                clustering algorithms were evaluated, including k-means, DBSCAN,
+                OPTICS, BIRCH, Mean Shift and others. These algorithms were
+                chosen for their ability to handle high-dimensional data and
+                varying cluster characteristics.
               </li>
             </ul>
 
@@ -376,7 +370,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
+                  <strong className="text-strong">
                     Dimensionality Reduction:
                   </strong>{" "}
                   PCA and t-SNE preserved critical spectral features while
@@ -387,9 +381,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
-                    Object Detection:
-                  </strong>{" "}
+                  <strong className="text-strong">Object Detection:</strong>{" "}
                   Faster R-CNN achieved a mean Average Precision of{" "}
                   <span className="font-semibold">0.744</span> on
                   PCA-transformed reflectance data, accurately localizing
@@ -399,7 +391,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
+                  <strong className="text-strong">
                     Segmentation Evaluation:
                   </strong>{" "}
                   Mean Shift provided the best results, delivering high-quality
@@ -414,9 +406,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
-                    Spectral Insights:
-                  </strong>{" "}
+                  <strong className="text-strong">Spectral Insights:</strong>{" "}
                   Cluster numbers varied significantly between reflectance and
                   absorbance modes (
                   <a href="#figure-3" className="text-accent hover:underline">

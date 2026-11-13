@@ -188,8 +188,8 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">Left Atrium:</strong>{" "}
-                  30 MRI scans from{" "}
+                  <strong className="text-strong">Left Atrium:</strong> 30 MRI
+                  scans from{" "}
                   <a
                     href="https://www.kcl.ac.uk/"
                     target="_blank"
@@ -203,8 +203,8 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">Pancreas:</strong>{" "}
-                  420 CT scans from{" "}
+                  <strong className="text-strong">Pancreas:</strong> 420 CT
+                  scans from{" "}
                   <a
                     href="https://www.mskcc.org/"
                     target="_blank"
@@ -218,8 +218,8 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">Spleen:</strong> 190
-                  CT scans from{" "}
+                  <strong className="text-strong">Spleen:</strong> 190 CT scans
+                  from{" "}
                   <a
                     href="https://www.mskcc.org/"
                     target="_blank"
@@ -233,8 +233,8 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">Hippocampus:</strong>{" "}
-                  394 MRI scans from{" "}
+                  <strong className="text-strong">Hippocampus:</strong> 394 MRI
+                  scans from{" "}
                   <a
                     href="https://www.vumc.org/main/home"
                     target="_blank"
@@ -248,8 +248,8 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">Liver:</strong> 201
-                  CT scans from{" "}
+                  <strong className="text-strong">Liver:</strong> 201 CT scans
+                  from{" "}
                   <a
                     href="https://www.ircad.fr/"
                     target="_blank"
@@ -350,25 +350,19 @@ export default function ProjectPage() {
 
             <ul className="space-y-4 text-body mb-6 text-justify">
               <li>
-                <strong className="text-legacy-gray-200">
-                  Training Strategy:
-                </strong>{" "}
+                <strong className="text-strong">Training Strategy:</strong>{" "}
                 Training used a cyclical learning rate schedule and a variable
                 batch size strategy based on the Fibonacci sequence,
                 accelerating convergence while avoiding overfitting.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
-                  Hyperparameter Tuning:
-                </strong>{" "}
+                <strong className="text-strong">Hyperparameter Tuning:</strong>{" "}
                 We applied a t-test-based selection method, reducing the search
                 space from millions of combinations to a few hundred,
                 significantly improving efficiency.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
-                  Test-Time Augmentation:
-                </strong>{" "}
+                <strong className="text-strong">Test-Time Augmentation:</strong>{" "}
                 At inference, test-time augmentation was used to enhance
                 segmentation stability, averaging predictions over several
                 transformed versions of each input.
@@ -403,35 +397,35 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">Liver:</strong>{" "}
+                  <strong className="text-strong">Liver:</strong>{" "}
                   <span className="font-semibold">95.9 ± 1.0%</span>
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">Hippocampus:</strong>{" "}
+                  <strong className="text-strong">Hippocampus:</strong>{" "}
                   <span className="font-semibold">94.9 ± 1.5%</span>
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">Spleen:</strong>{" "}
+                  <strong className="text-strong">Spleen:</strong>{" "}
                   <span className="font-semibold">93.6 ± 1.6%</span>
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">Left Atrium:</strong>{" "}
+                  <strong className="text-strong">Left Atrium:</strong>{" "}
                   <span className="font-semibold">92.2 ± 2.7%</span>
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">Pancreas:</strong>{" "}
+                  <strong className="text-strong">Pancreas:</strong>{" "}
                   <span className="font-semibold">82.9 ± 5.8%</span>
                 </span>
               </li>

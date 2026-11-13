@@ -211,9 +211,9 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">Patches:</strong>{" "}
-                  WSIs were automatically sliced into 99,831 patches, of which
-                  1,401 were annotated by pathologists (
+                  <strong className="text-strong">Patches:</strong> WSIs were
+                  automatically sliced into 99,831 patches, of which 1,401 were
+                  annotated by pathologists (
                   <a href="#figure-1" className="text-accent hover:underline">
                     Figure 1
                   </a>
@@ -223,22 +223,19 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">Features:</strong>{" "}
-                  Nine histological features: arteriole lumen (AL), arteriole
-                  media (AM), arteriole adventitia (AA), venule lumen (VL),
-                  venule wall (VW), capillary lumen (CL), capillary wall (CW),
-                  immune cells (IC), and nerve trunks (NT).
+                  <strong className="text-strong">Features:</strong> Nine
+                  histological features: arteriole lumen (AL), arteriole media
+                  (AM), arteriole adventitia (AA), venule lumen (VL), venule
+                  wall (VW), capillary lumen (CL), capillary wall (CW), immune
+                  cells (IC), and nerve trunks (NT).
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
-                    Verification:
-                  </strong>{" "}
-                  A lead pathologist verified all annotations to ensure
-                  high-quality ground truth data for model training and
-                  evaluation.
+                  <strong className="text-strong">Verification:</strong> A lead
+                  pathologist verified all annotations to ensure high-quality
+                  ground truth data for model training and evaluation.
                 </span>
               </li>
             </ul>
@@ -270,29 +267,23 @@ export default function ProjectPage() {
 
             <ul className="space-y-4 text-body mb-6 text-justify">
               <li>
-                <strong className="text-legacy-gray-200">
-                  Patch Generation:
-                </strong>{" "}
-                Whole slide images were divided into smaller, high-resolution
-                patches to enable efficient processing.
+                <strong className="text-strong">Patch Generation:</strong> Whole
+                slide images were divided into smaller, high-resolution patches
+                to enable efficient processing.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
-                  Model Optimization:
-                </strong>{" "}
-                Six deep learning models (U-Net, MA-Net, DeepLabV3, PSPNet, FPN,
+                <strong className="text-strong">Model Optimization:</strong> Six
+                deep learning models (U-Net, MA-Net, DeepLabV3, PSPNet, FPN,
                 LinkNet) were optimized using Bayesian hyperparameter tuning and
                 HyperBand early stopping strategies.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
-                  Cross-Validation:
-                </strong>{" "}
-                A 5-fold cross-validation approach was applied to ensure robust
+                <strong className="text-strong">Cross-Validation:</strong> A
+                5-fold cross-validation approach was applied to ensure robust
                 evaluation while preventing data leakage.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
+                <strong className="text-strong">
                   Augmentation Techniques:
                 </strong>{" "}
                 Training datasets were enhanced using augmentation methods,
@@ -300,9 +291,7 @@ export default function ProjectPage() {
                 improve generalization and mitigate overfitting.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
-                  Ensemble Model:
-                </strong>{" "}
+                <strong className="text-strong">Ensemble Model:</strong>{" "}
                 Predictions from the top-performing models were combined into an
                 ensemble model to maximize segmentation accuracy.
               </li>
@@ -321,9 +310,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
-                    Best Individual:
-                  </strong>{" "}
+                  <strong className="text-strong">Best Individual:</strong>{" "}
                   MA-Net achieved the highest individual performance with a mean
                   DSC of <span className="font-semibold">0.875</span>, excelling
                   in arteriole segmentation (
@@ -336,9 +323,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
-                    Ensemble Model:
-                  </strong>{" "}
+                  <strong className="text-strong">Ensemble Model:</strong>{" "}
                   Outperformed all individual networks, achieving a mean DSC of{" "}
                   <span className="text-strong font-semibold">0.889</span>, with
                   significant improvements in venule, capillary, and immune cell
@@ -348,9 +333,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
-                    Feature Accuracy:
-                  </strong>{" "}
+                  <strong className="text-strong">Feature Accuracy:</strong>{" "}
                   High precision for critical elements like arteriole lumen
                   (DSC: 0.939) and nerve trunks (DSC: 0.978).
                 </span>

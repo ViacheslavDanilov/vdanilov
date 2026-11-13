@@ -190,24 +190,22 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">Resolution:</strong>{" "}
+                  <strong className="text-strong">Resolution:</strong>{" "}
                   176×176×208 voxels per volume
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">Challenges:</strong>{" "}
-                  Speckle noise and low contrast posing significant segmentation
+                  <strong className="text-strong">Challenges:</strong> Speckle
+                  noise and low contrast posing significant segmentation
                   difficulties
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
-                    Augmentation:
-                  </strong>{" "}
+                  <strong className="text-strong">Augmentation:</strong>{" "}
                   Synthetic data generation using kinematics of flexible robots
                 </span>
               </li>
@@ -268,28 +266,24 @@ export default function ProjectPage() {
 
             <ul className="space-y-4 text-body mb-6 text-justify">
               <li>
-                <strong className="text-legacy-gray-200">Architecture:</strong>{" "}
-                The V-net employs a symmetric encoder-decoder structure with
-                dense skip-connections, dilated convolutions, instance
-                normalization, ELU activations, and dropout.
+                <strong className="text-strong">Architecture:</strong> The V-net
+                employs a symmetric encoder-decoder structure with dense
+                skip-connections, dilated convolutions, instance normalization,
+                ELU activations, and dropout.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
-                  Training Strategy:
-                </strong>{" "}
+                <strong className="text-strong">Training Strategy:</strong>{" "}
                 Cyclical learning rate schedule and variable batch size strategy
                 based on the Fibonacci sequence.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
-                  Hyperparameter Tuning:
-                </strong>{" "}
+                <strong className="text-strong">Hyperparameter Tuning:</strong>{" "}
                 T-test-based selection method reducing the search space from
                 millions to a few hundred combinations.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">Inference:</strong>{" "}
-                Test-time augmentation (TTA) to enhance segmentation stability.
+                <strong className="text-strong">Inference:</strong> Test-time
+                augmentation (TTA) to enhance segmentation stability.
               </li>
             </ul>
 
@@ -355,20 +349,18 @@ export default function ProjectPage() {
 
             <ul className="space-y-2 text-body mb-4">
               <li>
-                <strong className="text-legacy-gray-200">V-net (TTA):</strong>{" "}
+                <strong className="text-strong">V-net (TTA):</strong>{" "}
                 <span className="font-semibold text-strong">
                   93.6 ± 2.4% DSC
                 </span>
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
-                  Standard U-net:
-                </strong>{" "}
-                80.5 ± 5.8% DSC
+                <strong className="text-strong">Standard U-net:</strong> 80.5 ±
+                5.8% DSC
               </li>
               <li>
-                <strong className="text-legacy-gray-200">SegNet / FCN:</strong>{" "}
-                &lt;25% DSC on average
+                <strong className="text-strong">SegNet / FCN:</strong> &lt;25%
+                DSC on average
               </li>
             </ul>
 

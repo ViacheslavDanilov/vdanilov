@@ -163,9 +163,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
-                    OSHA SIR (demo):
-                  </strong>{" "}
+                  <strong className="text-strong">OSHA SIR (demo):</strong>{" "}
                   Public severe-injury reports ingested and normalized to the
                   dashboard schema via dedicated ingest scripts.
                 </span>
@@ -173,10 +171,8 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
-                    Merged demo table:
-                  </strong>{" "}
-                  A single CSV of all segments × months (month, state, industry,
+                  <strong className="text-strong">Merged demo table:</strong> A
+                  single CSV of all segments × months (month, state, industry,
                   claim type, counts, and baseline average cost), loaded by the
                   API at startup.
                 </span>
@@ -184,10 +180,8 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
-                    Synthetic fill:
-                  </strong>{" "}
-                  An optional step completes coverage for demo segments when a
+                  <strong className="text-strong">Synthetic fill:</strong> An
+                  optional step completes coverage for demo segments when a
                   series has gaps.
                 </span>
               </li>
@@ -207,23 +201,18 @@ export default function ProjectPage() {
 
             <ul className="space-y-4 text-body mb-6 text-justify">
               <li>
-                <strong className="text-legacy-gray-200">
-                  Seasonal Modeling:
-                </strong>{" "}
-                Each segment&apos;s monthly series is fit with a SARIMAX
+                <strong className="text-strong">Seasonal Modeling:</strong> Each
+                segment&apos;s monthly series is fit with a SARIMAX
                 (1,1,1)×(1,1,1,12) model, capturing trend and 12-month
                 seasonality.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
-                  Robust Fallbacks:
-                </strong>{" "}
-                When a series is too short or noisy for SARIMAX to fit, the
-                system automatically falls back to ARIMA or a seasonal-naive
-                method.
+                <strong className="text-strong">Robust Fallbacks:</strong> When
+                a series is too short or noisy for SARIMAX to fit, the system
+                automatically falls back to ARIMA or a seasonal-naive method.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
+                <strong className="text-strong">
                   Forecasts with Uncertainty:
                 </strong>{" "}
                 Point forecasts are produced with 95% prediction intervals and a
@@ -231,20 +220,16 @@ export default function ProjectPage() {
                 cost per claim.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
-                  Scenario Recalculation:
-                </strong>{" "}
+                <strong className="text-strong">Scenario Recalculation:</strong>{" "}
                 A scenario endpoint applies severity-inflation and
                 frequency-shock adjustments, refreshing the forecast segment on
                 demand.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
-                  Aligned AI Summary:
-                </strong>{" "}
-                An OpenAI-generated narrative (with a deterministic fallback
-                when no key is configured) describes the selected window using
-                the exact rows the charts consume.
+                <strong className="text-strong">Aligned AI Summary:</strong> An
+                OpenAI-generated narrative (with a deterministic fallback when
+                no key is configured) describes the selected window using the
+                exact rows the charts consume.
               </li>
             </ul>
           </Section>
@@ -259,9 +244,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
-                    Planning Cycle:
-                  </strong>{" "}
+                  <strong className="text-strong">Planning Cycle:</strong>{" "}
                   Refresh views by segment and horizon in one UI instead of
                   manually rebuilding them per question.
                 </span>
@@ -269,25 +252,23 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">Consistency:</strong>{" "}
-                  One API and one merged definition of "forecast" replace
-                  scattered spreadsheets and divergent assumptions.
+                  <strong className="text-strong">Consistency:</strong> One API
+                  and one merged definition of "forecast" replace scattered
+                  spreadsheets and divergent assumptions.
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">Scenarios:</strong>{" "}
-                  Severity and frequency shocks update the charts and table
-                  immediately, making side-by-side comparison easy.
+                  <strong className="text-strong">Scenarios:</strong> Severity
+                  and frequency shocks update the charts and table immediately,
+                  making side-by-side comparison easy.
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
-                    Communication:
-                  </strong>{" "}
+                  <strong className="text-strong">Communication:</strong>{" "}
                   Chart-aligned summary text replaces static slides, keeping the
                   narrative tied to the numbers.
                 </span>

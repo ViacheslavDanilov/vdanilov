@@ -113,13 +113,13 @@ const PublicationCard = ({ publication }) => {
               <span className="italic">{venue}</span>
               {publication.location && (
                 <>
-                  <span className="text-legacy-gray-500 mx-2">•</span>
+                  <span className="text-muted mx-2">•</span>
                   <span>{cityAndFlag(publication.location)}</span>
                 </>
               )}
               {year && (
                 <>
-                  <span className="text-legacy-gray-500 mx-2">•</span>
+                  <span className="text-muted mx-2">•</span>
                   <span>{year}</span>
                 </>
               )}
@@ -133,7 +133,7 @@ const PublicationCard = ({ publication }) => {
               {tags?.map((tag) => (
                 <span
                   key={tag}
-                  className="px-2.5 py-0.5 text-xs font-medium rounded-full bg-ink/5 text-legacy-neutral-300 border border-line"
+                  className="px-2.5 py-0.5 text-xs font-medium rounded-full bg-ink/5 text-body border border-line"
                 >
                   {tag}
                 </span>

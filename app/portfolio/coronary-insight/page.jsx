@@ -323,9 +323,7 @@ export default function ProjectPage() {
 
             <ul className="space-y-4 text-body mb-6 text-justify">
               <li>
-                <strong className="text-legacy-gray-200">
-                  Model Architectures:
-                </strong>{" "}
+                <strong className="text-strong">Model Architectures:</strong>{" "}
                 Nine state-of-the-art segmentation networks were tested,
                 including{" "}
                 <span className="text-body">
@@ -336,18 +334,14 @@ export default function ProjectPage() {
                 segmentation and complementary design philosophies.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
-                  Hybrid Strategy:
-                </strong>{" "}
-                Lumen and vasa vasorum were trained using single-class models
-                due to their dominance (lumen) or rarity (vasa vasorum). Fibrous
-                cap and lipid core were trained with a two-class model due to
+                <strong className="text-strong">Hybrid Strategy:</strong> Lumen
+                and vasa vasorum were trained using single-class models due to
+                their dominance (lumen) or rarity (vasa vasorum). Fibrous cap
+                and lipid core were trained with a two-class model due to
                 overlapping morphology.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
-                  Hyperparameter Tuning:
-                </strong>{" "}
+                <strong className="text-strong">Hyperparameter Tuning:</strong>{" "}
                 Over 1,000 configurations were tested using Bayesian
                 Optimization and HyperBand early stopping, focusing on encoder
                 type, input size, optimizer, and learning rate. This tuning was
@@ -355,9 +349,7 @@ export default function ProjectPage() {
                 compute time.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
-                  Data Augmentation:
-                </strong>{" "}
+                <strong className="text-strong">Data Augmentation:</strong>{" "}
                 Applied using{" "}
                 <a
                   href="https://albumentations.ai/"
@@ -372,9 +364,7 @@ export default function ProjectPage() {
                 generalization.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
-                  Validation Strategy:
-                </strong>{" "}
+                <strong className="text-strong">Validation Strategy:</strong>{" "}
                 Employed 5-fold cross-validation without patient overlap to
                 prevent data leakage. Training and testing progress was
                 monitored through loss and DSC evolution (
@@ -384,9 +374,7 @@ export default function ProjectPage() {
                 ).
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
-                  Explainability Tools:
-                </strong>{" "}
+                <strong className="text-strong">Explainability Tools:</strong>{" "}
                 Class activation maps (CAM) like GradCAM, LayerCAM, and HiResCAM
                 were used to visualize model attention, especially for the
                 fibrous cap and vasa vasorum features.
@@ -418,33 +406,31 @@ export default function ProjectPage() {
 
             <ul className="space-y-2 text-body mb-4">
               <li>
-                <strong className="text-legacy-gray-200">Lumen</strong> (
+                <strong className="text-strong">Lumen</strong> (
                 <span style={{ color: "var(--legend-lumen)" }}>magenta</span>):
                 DSC of <span className="font-semibold">0.987</span>, indicating
                 nearly perfect agreement with expert annotations.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">Fibrous Cap</strong> (
+                <strong className="text-strong">Fibrous Cap</strong> (
                 <span style={{ color: "var(--legend-cap)" }}>blue</span>): DSC
                 of <span className="font-semibold">0.736</span>, strong
                 performance despite thin, complex structure.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">Lipid Core</strong> (
+                <strong className="text-strong">Lipid Core</strong> (
                 <span style={{ color: "var(--legend-lipid)" }}>green</span>):
                 DSC of <span className="font-semibold">0.751</span>, reliable
                 detection despite challenging textures.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">Vasa Vasorum</strong> (
+                <strong className="text-strong">Vasa Vasorum</strong> (
                 <span style={{ color: "var(--legend-vasa)" }}>red</span>): DSC
                 of <span className="font-semibold">0.610</span>, moderate
                 performance for a rare, fine-grained feature.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
-                  Ensemble Weighted DSC:
-                </strong>{" "}
+                <strong className="text-strong">Ensemble Weighted DSC:</strong>{" "}
                 <span className="text-strong font-semibold">0.882</span>,
                 demonstrating the synergy of combined models.
               </li>

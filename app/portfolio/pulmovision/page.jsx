@@ -208,8 +208,8 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">Source:</strong>{" "}
-                  Chest X-rays were sourced from the{" "}
+                  <strong className="text-strong">Source:</strong> Chest X-rays
+                  were sourced from the{" "}
                   <a
                     href="https://physionet.org/content/mimic-cxr-jpg/2.1.0/"
                     target="_blank"
@@ -224,17 +224,15 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
-                    Dataset Size:
-                  </strong>{" "}
-                  1,000 annotated chest X-rays representing 741 patients with
+                  <strong className="text-strong">Dataset Size:</strong> 1,000
+                  annotated chest X-rays representing 741 patients with
                   suspected pulmonary edema.
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">Features:</strong>{" "}
+                  <strong className="text-strong">Features:</strong>{" "}
                   Cephalization, Kerley lines, pleural effusion, bat wings, and
                   infiltrates.
                 </span>
@@ -242,9 +240,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
-                    Annotation Method:
-                  </strong>{" "}
+                  <strong className="text-strong">Annotation Method:</strong>{" "}
                   Cephalization and Kerley lines were delineated using
                   polylines; pleural effusion, bat wings, and infiltrates were
                   marked with binary segmentation masks.
@@ -253,9 +249,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-legacy-gray-200">
-                    Annotation Platform:
-                  </strong>{" "}
+                  <strong className="text-strong">Annotation Platform:</strong>{" "}
                   The{" "}
                   <a
                     href="https://supervisely.com/"
@@ -308,34 +302,26 @@ export default function ProjectPage() {
 
             <ul className="space-y-4 text-body mb-6 text-justify">
               <li>
-                <strong className="text-legacy-gray-200">
-                  Lung Segmentation:
-                </strong>{" "}
+                <strong className="text-strong">Lung Segmentation:</strong>{" "}
                 Combined predictions from three segmentation models (DeepLabV3,
                 MA-Net, and FPN) in an ensemble approach. Achieved Dice
                 Similarity Coefficients exceeding 94%, ensuring precise lung
                 boundary delineation.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
-                  Feature Detection:
-                </strong>{" "}
+                <strong className="text-strong">Feature Detection:</strong>{" "}
                 Eight object detection networks were trained to specialize in
                 detecting individual features, including SABL, TOOD, Cascade
                 RPN, PAA, Faster R-CNN, GFL, FSAF, and ATSS.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
-                  Training Strategy:
-                </strong>{" "}
-                Each network was configured to address imbalances in feature
+                <strong className="text-strong">Training Strategy:</strong> Each
+                network was configured to address imbalances in feature
                 representation, with tailored confidence thresholds to optimize
                 F1 scores.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
-                  Evaluation Metrics:
-                </strong>{" "}
+                <strong className="text-strong">Evaluation Metrics:</strong>{" "}
                 Used average precision (AP), mean average precision (mAP), and
                 latency to assess network performance across all feature
                 classes.
@@ -375,30 +361,26 @@ export default function ProjectPage() {
 
             <ul className="space-y-2 text-body mb-4">
               <li>
-                <strong className="text-legacy-gray-200">SABL:</strong> Achieved
-                the highest mAP of{" "}
+                <strong className="text-strong">SABL:</strong> Achieved the
+                highest mAP of{" "}
                 <span className="font-semibold text-strong">0.568</span> and
                 excelled in detecting pleural effusion (AP: 0.599), infiltrates
                 (AP: 0.395), and bat wings (AP: 0.926).
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
-                  TOOD & Cascade RPN:
-                </strong>{" "}
+                <strong className="text-strong">TOOD & Cascade RPN:</strong>{" "}
                 Showed strong capabilities in detecting bat wings (AP: 0.918)
                 and cephalization (AP: 0.532).
               </li>
               <li>
-                <strong className="text-legacy-gray-200">Faster R-CNN:</strong>{" "}
-                Delivered the shortest processing time of{" "}
+                <strong className="text-strong">Faster R-CNN:</strong> Delivered
+                the shortest processing time of{" "}
                 <span className="font-semibold text-strong">42 ms</span> per
                 image, demonstrating suitability for high-throughput clinical
                 workflows.
               </li>
               <li>
-                <strong className="text-legacy-gray-200">
-                  Bat Wings Detection:
-                </strong>{" "}
+                <strong className="text-strong">Bat Wings Detection:</strong>{" "}
                 All networks demonstrated exceptional accuracy with average
                 precision scores exceeding 0.90.
               </li>
