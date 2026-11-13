@@ -98,6 +98,26 @@ test.describe("Theme switch", () => {
     await page.waitForURL(/\/experience\/$/);
   });
 
+  test("a modified click during the fade keeps its modifier", async ({
+    page,
+    context,
+  }) => {
+    await page.goto("/");
+    const box = (await themeSwitch(page).boundingBox())!;
+    await page.mouse.click(box.x + box.width / 2, box.y + box.height / 2);
+    await page.waitForTimeout(80);
+    const link = (await page
+      .locator('nav a[href="/experience/"]')
+      .first()
+      .boundingBox())!;
+    const opened = context.waitForEvent("page");
+    await page.keyboard.down("ControlOrMeta");
+    await page.mouse.click(link.x + link.width / 2, link.y + link.height / 2);
+    await page.keyboard.up("ControlOrMeta");
+    await opened;
+    expect(new URL(page.url()).pathname).toBe("/");
+  });
+
   test("a click flips the theme, stores it and survives a reload", async ({
     page,
   }) => {

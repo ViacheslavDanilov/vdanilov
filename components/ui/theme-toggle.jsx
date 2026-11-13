@@ -128,7 +128,8 @@ export default function ThemeToggle() {
         if (event.target !== document.documentElement) return;
         event.preventDefault();
         event.stopPropagation();
-        const { clientX, clientY } = event;
+        const { clientX, clientY, button, ctrlKey, metaKey, shiftKey, altKey } =
+          event;
         fade.skipTransition();
         fade.finished.then(() =>
           document.elementFromPoint(clientX, clientY)?.dispatchEvent(
@@ -137,6 +138,11 @@ export default function ThemeToggle() {
               cancelable: true,
               clientX,
               clientY,
+              button,
+              ctrlKey,
+              metaKey,
+              shiftKey,
+              altKey,
               view: window,
             }),
           ),
