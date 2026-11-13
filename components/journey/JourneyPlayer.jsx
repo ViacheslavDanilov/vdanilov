@@ -265,7 +265,7 @@ export default function JourneyPlayer({ label }) {
           <AnimatePresence initial={false} mode="popLayout">
             <motion.div
               key={state.stopIndex}
-              className="p-4"
+              className="px-4 pt-4"
               initial={{ opacity: 0, y: reducedMotion ? 0 : 6 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0 }}
@@ -283,14 +283,16 @@ export default function JourneyPlayer({ label }) {
               <div className="text-sm text-[var(--text-muted,#9ca3af)]">
                 {stop.org}
               </div>
-              <Link
-                href="/experience"
-                className="mt-2 inline-block text-sm text-[var(--accent-text,#03b1fb)] hover:underline"
-              >
-                See on Experience
-              </Link>
             </motion.div>
           </AnimatePresence>
+          <div className="px-4 pb-4">
+            <Link
+              href="/experience"
+              className="mt-2 inline-block text-sm text-[var(--accent-text,#03b1fb)] hover:underline"
+            >
+              See on Experience
+            </Link>
+          </div>
         </div>
       </div>
 
