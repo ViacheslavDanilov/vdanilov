@@ -263,6 +263,21 @@ Cards on `/references` are sorted in code: by category (Research, Medicine, Indu
 then by name as written on the card. A new entry goes anywhere in `REFERENCES_DATA` and lands in
 its place. The filter tabs list the categories in the same order.
 
+## Publications data
+
+The publications come from the private repository `research-record`
+(`/Users/viacheslav/projects/personal/research-record`), which is the source of record. It is not
+edited from here, and the site cannot read it at build time.
+
+- `npm run publications:sync -- <path to research-record>` writes `lib/publications.generated.json`
+  from `data/publications.json`. Only records with `"public": true` pass, and only the fields the
+  site shows. Never add `score`, `note` or `metrics`, and never read `private/`
+- Run it after the record changes, and commit the result. Never edit the generated file by hand
+- `lib/publications-site.json` holds what the record does not have, keyed by record `id`: `tags`,
+  `featured`, and `location` for a conference. `npm run check` fails when a record has no entry
+  or an entry has no record
+- A title, venue, year or link is changed in the record, not here
+
 ## Portfolio project pages
 
 Project pages live in `app/portfolio/<project-name>/page.jsx`. Each page keeps its own data

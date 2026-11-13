@@ -1,0 +1,148 @@
+{
+  "laptev-2026-joint": {
+    "tags": ["TAVI", "Medical Imaging", "Segmentation"],
+    "featured": false
+  },
+  "laptev-2025-optimized": {
+    "tags": ["Segmentation", "Medical Imaging", "Cardiology"],
+    "featured": false
+  },
+  "danilov-2025-segmentation": {
+    "tags": ["Computer Vision", "Medical Imaging", "Deep Learning"],
+    "featured": true
+  },
+  "danilov-2024-advancing": {
+    "tags": ["Machine Learning", "Hyperspectral Imaging", "Medical Imaging"],
+    "featured": false
+  },
+  "danilov-2024-driven": {
+    "tags": ["Machine Learning", "Bioengineering", "Histology"],
+    "featured": false
+  },
+  "danilov-2024-explainable": {
+    "tags": ["Explainable AI", "Radiology", "Deep Learning"],
+    "featured": false
+  },
+  "danilov-2023-perfect": {
+    "tags": ["Generative Design", "Optimization", "Biomedical Engineering"],
+    "featured": false
+  },
+  "danilov-2023-use": {
+    "tags": ["Data Augmentation", "Medical Imaging", "Segmentation"],
+    "featured": false
+  },
+  "ovcharenko-2023-cardiovascular": {
+    "tags": ["Neural Networks", "COVID-19", "Clinical Prediction"],
+    "featured": false
+  },
+  "kolpashchikov-2022-fabrikx": {
+    "tags": ["Robotics", "Inverse Kinematics", "Algorithms"],
+    "featured": false
+  },
+  "danilov-2022-automatic": {
+    "tags": ["Deep Learning", "COVID-19", "Medical Imaging"],
+    "featured": false
+  },
+  "danilov-2022-indirect": {
+    "tags": ["Weakly Supervised Learning", "COVID-19", "Classification"],
+    "featured": false
+  },
+  "danilov-2021-aortography-2": {
+    "tags": ["Multi-Task Learning", "Medical Imaging", "Keypoint Detection"],
+    "featured": false
+  },
+  "danilov-2021-real": {
+    "tags": ["Real-Time Detection", "Neural Networks", "Cardiology"],
+    "featured": true
+  },
+  "danilov-2020-feature": {
+    "tags": ["Feature Selection", "Signal Processing", "Algorithms"],
+    "featured": false
+  },
+  "danilov-2025-non": {
+    "tags": ["Biophotonics", "Deep Learning", "Medical Devices"],
+    "featured": true,
+    "location": "Munich, Germany 🇩🇪"
+  },
+  "fajardo-vega-2025-intracranial": {
+    "tags": ["Biophotonics", "Clinical Study", "Hydrocephalus"],
+    "featured": false,
+    "location": "Munich, Germany 🇩🇪"
+  },
+  "vall-llossera-2024-hybrid": {
+    "tags": ["Time Series", "Deep Learning", "Biomedical Optics"],
+    "featured": false,
+    "location": "Miami, United States 🇺🇸"
+  },
+  "danilov-2021-boosting": {
+    "tags": ["Synthetic Data", "Deep Learning", "Medical Imaging"],
+    "featured": true,
+    "location": "Moscow, Russia 🇷🇺"
+  },
+  "danilov-2020-comparative": {
+    "tags": ["Deep Learning", "Medical Imaging", "Stenosis Detection"],
+    "featured": false,
+    "location": "Saint Petersburg, Russia 🇷🇺"
+  },
+  "kolpashchikov-2019-fabrik": {
+    "tags": ["Robotics", "Inverse Kinematics", "Continuum Robots"],
+    "featured": false,
+    "location": "Brno, Czech Republic 🇨🇿"
+  },
+  "danilov-2025-testing": {
+    "tags": ["AI Tools", "Low-Code", "Product Development"],
+    "featured": true
+  },
+  "danilov-2025-future": {
+    "tags": ["AI Development", "Leadership", "Digital Transformation"],
+    "featured": false
+  },
+  "danilov-2025-freelance": {
+    "tags": ["Data Analysis", "Tech Trends", "Market Research"],
+    "featured": false
+  },
+  "danilov-2025-freelance-2": {
+    "tags": ["Data Analysis", "Tech Trends", "Market Research"],
+    "featured": false
+  },
+  "danilov-2024-transforming": {
+    "tags": ["Data Engineering", "ETL Pipeline", "Data Science"],
+    "featured": false
+  },
+  "danilov-2024-harnessing": {
+    "tags": ["Digital Pathology", "Precision Medicine", "Medical AI"],
+    "featured": true
+  },
+  "danilov-2025-oct": {
+    "tags": ["OCT Imaging", "Atherosclerosis", "Segmentation"],
+    "featured": false
+  },
+  "danilov-2024-histological": {
+    "tags": ["Histology", "Vascular Grafts", "Segmentation"],
+    "featured": false
+  },
+  "danilov-2023-hyperspectral": {
+    "tags": ["Hyperspectral Imaging", "Laser Ablation", "Medical Imaging"],
+    "featured": false
+  },
+  "danilov-2023-dataset": {
+    "tags": ["Chest X-ray", "Pulmonary Edema", "Segmentation"],
+    "featured": false
+  },
+  "danilov-2022-dataset": {
+    "tags": ["COVID-19", "Chest X-ray", "Severity Scoring"],
+    "featured": false
+  },
+  "danilov-2022-chest": {
+    "tags": ["Chest X-ray", "Lung Segmentation", "Medical Imaging"],
+    "featured": true
+  },
+  "danilov-2021-angiographic": {
+    "tags": ["Angiography", "Stenosis Detection", "Cardiology"],
+    "featured": true
+  },
+  "danilov-2021-aortography": {
+    "tags": ["Aortography", "TAVI", "Keypoint Tracking"],
+    "featured": false
+  }
+}
