@@ -144,10 +144,10 @@ Chosen with the switch in the navbar, never by the system setting: a page withou
 | Muted text      | #9aa5b4 | #556072 |
 | Accent text     | #03b1fb | #0067c0 |
 
-- The solid button fill stays Signal Cyan with dark text in both themes. In light the accent text is #0067c0, which holds 4.6:1 on the page where cyan would not.
+- The solid button fill stays Signal Cyan with dark text in both themes. In light the accent text is #0067c0, which holds at least 4.6:1 on every surface it sits on (5.2:1 on the page, where cyan gives 2.2:1).
 - Light cards are white with a hairline border and no shadow. The glow spotlight is softer.
-- Pictures made for a dark ground (hero video and poster, Expertise pictures, project previews, some figures) stay dark in a framed block. Category badges and image overlays keep their dark surface as islands.
-- Logos have one file where it works on both grounds. White-lettered logos (BIDMC, Huawei, IHU, VHIR, Quantori, Trento) and the site logo have an `-on-light` file or a darker ribbon for light. The Politecnico di Milano logo is a single file, #12305b, on both.
+- Pictures made for a dark ground (hero video and poster, Expertise pictures, project previews, some figures) stay dark in a framed block. The `teal-blur` badge on portfolio card images, the gradients over images, the video caption chips and the lightbox stay dark in both themes, as islands marked `data-theme="dark"`. The other category badges switch to a 14% tint of their 500 step with darker text.
+- Logos have one file where it works on both grounds. Logos with white lettering or white parts (BIDMC, Huawei, IHU, VHIR, Quantori, Trento) have an `-on-light` file for light, and the site logo has `logo-light.webp`, a dark version whose ribbon fold stays a shadow. The Politecnico di Milano logo is a single file, #12305b, on both.
 - The theme changes with a 300ms cross-fade, and instantly with reduced motion.
 
 ### Named Rules
