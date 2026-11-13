@@ -180,7 +180,7 @@
       "refersTo": "nav-pill",
       "description": "Floating glass navigation with a cyan active link. The 42 by 32px logo image is shown as an empty placeholder box.",
       "html": "<nav class=\"ds-nav\"><span class=\"ds-logo\" aria-hidden=\"true\"></span><div class=\"ds-links\"><a class=\"ds-nav-a ds-on\" href=\"#\">Home</a><a class=\"ds-nav-a\" href=\"#\">Experience</a><a class=\"ds-nav-a\" href=\"#\">Portfolio</a></div></nav>",
-      "css": ".ds-nav{display:flex;justify-content:space-between;gap:32px;align-items:center;height:56px;padding:0 24px;border-radius:9999px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);backdrop-filter:blur(24px);box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1)}.ds-logo{display:block;width:42px;height:32px;border-radius:8px;background:rgba(245,245,245,0.1)}.ds-links{display:flex;gap:4px;align-items:center}.ds-nav-a{padding:8px 16px;border-radius:9999px;color:#c4ccd8;text-decoration:none;transition:all .3s}.ds-nav-a:hover{color:#f1f4f8;background:rgba(245,245,245,0.1)}.ds-nav-a.ds-on{background:rgba(3,177,251,0.15);color:#03b1fb}"
+      "css": ".ds-nav{display:flex;justify-content:space-between;gap:32px;align-items:center;height:56px;padding:0 24px;border-radius:9999px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);backdrop-filter:blur(24px);box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1)}.ds-logo{display:block;width:42px;height:32px;border-radius:8px;background:rgba(241,244,248,0.1)}.ds-links{display:flex;gap:4px;align-items:center}.ds-nav-a{padding:8px 16px;border-radius:9999px;color:#c4ccd8;text-decoration:none;transition:all .3s}.ds-nav-a:hover{color:#f1f4f8;background:rgba(241,244,248,0.1)}.ds-nav-a.ds-on{background:rgba(3,177,251,0.15);color:#03b1fb}"
     },
     {
       "name": "Badge",
@@ -251,7 +251,7 @@
       "Do use Signal Cyan (#03b1fb) as the only accent, as a tint for fills behind text.",
       "Do build floating surfaces from a translucent fill, blur and a hairline border: white at 10 to 20%, or the fill's own grey on glow cards.",
       "Do make small controls full pills and cards 16px.",
-      "Do keep grey tiers: Paper Light for headings, Text Soft or 200 to 300 for body, Text Muted for metadata.",
+      "Do keep grey tiers: Paper Light for headings, Text Soft for body, Text Muted for metadata.",
       "Do disable pointer glow below 768px and keep touch panning and pinch zoom intact.",
       "Do wrap every hover, focus or press effect that moves, scales or turns in motion-safe:, so a visitor who asks for less motion keeps the colour change and loses the movement. npm run check fails on one that is not wrapped.",
       "Do give every link and button a 44px tap target at 360px, except links inside running text, the link lists in an Experience card's Links tab, and the skip link. Where neighbours sit closer than 44px (icon rows, footer lists) the areas share the space. The visible size stays small: the extra area is padding offset by a negative margin, or a pseudo-element where a parent's spacing would clash.",
