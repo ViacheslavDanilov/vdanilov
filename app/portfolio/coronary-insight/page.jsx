@@ -301,10 +301,14 @@ export default function ProjectPage() {
                 <span className="text-body">Figure 1.</span> OCT annotation
                 methodology showing the segmentation workflow and plaque feature
                 identification. Color legend:{" "}
-                <span style={{ color: "#ff17cd" }}>lumen</span>,{" "}
-                <span style={{ color: "#5eade6" }}>fibrous cap</span>,{" "}
-                <span style={{ color: "#00e379" }}>lipid core</span>,{" "}
-                <span style={{ color: "#f30f1e" }}>vasa vasorum</span>.
+                <span style={{ color: "var(--legend-lumen)" }}>lumen</span>,{" "}
+                <span style={{ color: "var(--legend-cap)" }}>fibrous cap</span>,{" "}
+                <span style={{ color: "var(--legend-lipid)" }}>lipid core</span>
+                ,{" "}
+                <span style={{ color: "var(--legend-vasa)" }}>
+                  vasa vasorum
+                </span>
+                .
               </figcaption>
             </figure>
           </Section>
@@ -415,26 +419,26 @@ export default function ProjectPage() {
             <ul className="space-y-2 text-body mb-4">
               <li>
                 <strong className="text-legacy-gray-200">Lumen</strong> (
-                <span style={{ color: "#ff17cd" }}>magenta</span>): DSC of{" "}
-                <span className="font-semibold">0.987</span>, indicating nearly
-                perfect agreement with expert annotations.
+                <span style={{ color: "var(--legend-lumen)" }}>magenta</span>):
+                DSC of <span className="font-semibold">0.987</span>, indicating
+                nearly perfect agreement with expert annotations.
               </li>
               <li>
                 <strong className="text-legacy-gray-200">Fibrous Cap</strong> (
-                <span style={{ color: "#5eade6" }}>blue</span>): DSC of{" "}
-                <span className="font-semibold">0.736</span>, strong performance
-                despite thin, complex structure.
+                <span style={{ color: "var(--legend-cap)" }}>blue</span>): DSC
+                of <span className="font-semibold">0.736</span>, strong
+                performance despite thin, complex structure.
               </li>
               <li>
                 <strong className="text-legacy-gray-200">Lipid Core</strong> (
-                <span style={{ color: "#00e379" }}>green</span>): DSC of{" "}
-                <span className="font-semibold">0.751</span>, reliable detection
-                despite challenging textures.
+                <span style={{ color: "var(--legend-lipid)" }}>green</span>):
+                DSC of <span className="font-semibold">0.751</span>, reliable
+                detection despite challenging textures.
               </li>
               <li>
                 <strong className="text-legacy-gray-200">Vasa Vasorum</strong> (
-                <span style={{ color: "#f30f1e" }}>red</span>): DSC of{" "}
-                <span className="font-semibold">0.610</span>, moderate
+                <span style={{ color: "var(--legend-vasa)" }}>red</span>): DSC
+                of <span className="font-semibold">0.610</span>, moderate
                 performance for a rare, fine-grained feature.
               </li>
               <li>

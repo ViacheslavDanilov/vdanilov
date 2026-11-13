@@ -55,6 +55,8 @@
   --color-strong: var(--text-strong);
   --color-focus: var(--accent-text);
   --color-legacy-neutral-800: var(--legacy-neutral-800);
+  --shadow-card: var(--card-shadow);
+  --shadow-liquid: var(--liquid-shadow);
   --text-color-body: var(--text);
   --text-color-muted: var(--text-muted);
   --text-color-accent: var(--accent-text);
@@ -78,6 +80,20 @@
   --legacy-neutral-300: oklch(87% 0 0);
   --legacy-neutral-400: oklch(70.8% 0 0);
   --legacy-neutral-800: oklch(26.9% 0 0);
+  --card-shadow: 0 0.5rem 1rem -0.5rem rgba(0, 0, 0, 0.3);
+  --liquid-shadow:
+    0 0 8px rgba(0, 0, 0, 0.03), 0 2px 6px rgba(0, 0, 0, 0.08),
+    inset 3px 3px 0.5px -3.5px rgba(255, 255, 255, 0.09),
+    inset -3px -3px 0.5px -3.5px rgba(255, 255, 255, 0.85),
+    inset 1px 1px 1px -0.5px rgba(255, 255, 255, 0.6),
+    inset -1px -1px 1px -0.5px rgba(255, 255, 255, 0.6),
+    inset 0 0 6px 6px rgba(255, 255, 255, 0.12),
+    inset 0 0 2px 2px rgba(255, 255, 255, 0.06), 0 0 12px rgba(0, 0, 0, 0.15);
+  --glow-backdrop-alpha: 0.06;
+  --legend-lumen: #ff17cd;
+  --legend-cap: #5eade6;
+  --legend-lipid: #00e379;
+  --legend-vasa: #f30f1e;
 }
 
 /* Portrait backdrop: one place to change it for every person */
