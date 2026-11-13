@@ -130,6 +130,24 @@ test.describe("Theme switch", () => {
     expect(colours).toEqual(["#f4f6f9", "#f4f6f9"]);
   });
 
+  test("the browser bar colour survives a client-side navigation", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    await themeSwitch(page).click();
+    await page.locator('nav a[href="/portfolio/"]').first().click();
+    await page.waitForURL(/\/portfolio\/$/);
+    await expect
+      .poll(() =>
+        page.evaluate(() =>
+          [...document.querySelectorAll('meta[name="theme-color"]')].map((m) =>
+            m.getAttribute("content"),
+          ),
+        ),
+      )
+      .toEqual(["#f4f6f9", "#f4f6f9"]);
+  });
+
   test("the thumb does not slide with reduced motion", async ({ browser }) => {
     const context = await browser.newContext({ reducedMotion: "reduce" });
     const page = await context.newPage();

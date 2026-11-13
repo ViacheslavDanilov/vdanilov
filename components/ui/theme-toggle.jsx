@@ -60,9 +60,20 @@ export default function ThemeToggle() {
       }
       sync();
     };
+    // Client navigation swaps the theme-color tags back to their defaults
+    const head = new MutationObserver(() =>
+      applyThemeColor(document.documentElement.dataset.theme ?? null),
+    );
+    head.observe(document.head, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ["content"],
+    });
     media.addEventListener("change", sync);
     window.addEventListener("storage", onStorage);
     return () => {
+      head.disconnect();
       media.removeEventListener("change", sync);
       window.removeEventListener("storage", onStorage);
     };
