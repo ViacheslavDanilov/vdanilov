@@ -1077,11 +1077,9 @@ test.describe("Small polish", () => {
     const html = await (await request.get("/")).text();
 
     const tags = html.match(/<meta name="theme-color"[^>]*>/gi) ?? [];
-    const colour = (scheme: string) =>
-      tags.find((tag) => tag.includes(`prefers-color-scheme: ${scheme}`));
 
-    expect(colour("dark")).toContain('content="#0a0e14"');
-    expect(colour("light")).toContain('content="#f4f6f9"');
+    expect(tags).toHaveLength(1);
+    expect(tags[0]).toContain('content="#0a0e14"');
   });
 });
 
@@ -1957,7 +1955,8 @@ test.describe("Client logos", () => {
   test("in light a logo with white lettering shows its light file", async ({
     browser,
   }) => {
-    const context = await browser.newContext({ colorScheme: "light" });
+    const context = await browser.newContext();
+    await context.addInitScript(() => localStorage.setItem("theme", "light"));
     const page = await context.newPage();
     await page.goto("/");
     const cell = page.getByRole("link", { name: /^Huawei/ });

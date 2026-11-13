@@ -2,24 +2,24 @@
 
 import { useEffect, useRef, useState } from "react";
 import {
+  DEFAULT_THEME,
   THEME_KEY,
   applyThemeColor,
   currentTheme,
-  systemTheme,
 } from "@/lib/theme";
 
 const Sun = () => (
   <svg
     viewBox="0 0 24 24"
     aria-hidden="true"
-    className="size-3.5 hidden light:block"
+    className="size-4 hidden light:block text-[#f2a50c]"
     fill="none"
     stroke="currentColor"
     strokeWidth="2"
     strokeLinecap="round"
     strokeLinejoin="round"
   >
-    <circle cx="12" cy="12" r="4" />
+    <circle cx="12" cy="12" r="4.2" fill="currentColor" />
     <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
   </svg>
 );
@@ -28,8 +28,8 @@ const Moon = () => (
   <svg
     viewBox="0 0 24 24"
     aria-hidden="true"
-    className="size-3.5 light:hidden"
-    fill="none"
+    className="size-4 light:hidden text-[#2f7de1]"
+    fill="currentColor"
     stroke="currentColor"
     strokeWidth="2"
     strokeLinecap="round"
@@ -52,7 +52,6 @@ export default function ThemeToggle() {
       applyThemeColor(document.documentElement.dataset.theme ?? null);
     };
     sync();
-    const media = window.matchMedia("(prefers-color-scheme: light)");
     const onStorage = (event) => {
       if (event.key !== THEME_KEY) return;
       const stored = event.newValue;
@@ -73,11 +72,9 @@ export default function ThemeToggle() {
       attributes: true,
       attributeFilter: ["content"],
     });
-    media.addEventListener("change", sync);
     window.addEventListener("storage", onStorage);
     return () => {
       head.disconnect();
-      media.removeEventListener("change", sync);
       window.removeEventListener("storage", onStorage);
     };
   }, []);
@@ -87,7 +84,7 @@ export default function ThemeToggle() {
     // One frame without transitions, so every colour changes together
     root.classList.add("theme-switching");
     try {
-      if (next === systemTheme()) {
+      if (next === DEFAULT_THEME) {
         delete root.dataset.theme;
         localStorage.removeItem(THEME_KEY);
       } else {
@@ -168,11 +165,11 @@ export default function ThemeToggle() {
       onClick={toggle}
       className="group/theme flex h-11 w-[3.25rem] flex-shrink-0 cursor-pointer items-center justify-center rounded-full focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-focus"
     >
-      <span className="relative block h-7 w-[3.25rem] rounded-full border border-ink/20 bg-ink/10 transition-colors group-hover/theme:bg-ink/20">
+      <span className="relative block h-7 w-[3.25rem] rounded-full border border-ink/15 bg-gradient-to-br from-[#0e1b36] to-[#1d3566] shadow-[inset_0_1px_3px_rgba(0,0,0,0.5)] transition-[filter] group-hover/theme:brightness-125 light:border-[#7fb8e8]/70 light:from-[#d3ebff] light:to-[#8ccaff] light:shadow-[inset_0_1px_3px_rgba(0,60,120,0.25)]">
         <span
           ref={thumb}
           data-keep-motion
-          className="absolute top-px left-px flex size-6 translate-x-6 items-center justify-center rounded-full bg-strong text-page motion-safe:transition-transform motion-safe:duration-200 light:translate-x-0"
+          className="absolute top-px left-px flex size-6 translate-x-6 items-center justify-center rounded-full bg-[#e8f1ff] bg-[image:radial-gradient(120%_140%_at_30%_0%,#fff,transparent_60%)] shadow-[inset_0_1px_1px_#fff,0_2px_5px_rgba(0,20,60,0.45)] motion-safe:transition-transform motion-safe:duration-200 light:translate-x-0 light:bg-surface"
         >
           <Sun />
           <Moon />

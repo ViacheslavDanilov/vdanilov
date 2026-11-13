@@ -34,17 +34,12 @@
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
-/* light: no theme attribute follows the system, an explicit data-theme wins */
+/* light: only an explicit data-theme="light" turns it on, dark is the default */
 @custom-variant light {
   &:where([data-theme="light"], [data-theme="light"] *):not(
       :where([data-theme="dark"], [data-theme="dark"] *)
     ) {
     @slot;
-  }
-  @media (prefers-color-scheme: light) {
-    &:where(:not([data-theme="dark"], [data-theme="dark"] *)) {
-      @slot;
-    }
   }
 }
 

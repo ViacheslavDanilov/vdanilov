@@ -1,7 +1,23 @@
-import { expect, test, type Page } from "@playwright/test";
+import {
+  expect,
+  test,
+  type Browser,
+  type BrowserContextOptions,
+  type Page,
+} from "@playwright/test";
 
 const LIGHT_BG = "rgb(244, 246, 249)";
 const DARK_BG = "rgb(10, 14, 20)";
+
+// Light is a stored choice, so a context starts with it saved
+const lightContext = async (
+  browser: Browser,
+  options: BrowserContextOptions = {},
+) => {
+  const context = await browser.newContext(options);
+  await context.addInitScript(() => localStorage.setItem("theme", "light"));
+  return context;
+};
 
 const bodyBg = (page: Page) =>
   page.evaluate(() => getComputedStyle(document.body).backgroundColor);
@@ -12,17 +28,15 @@ test.describe("Theme bootstrap", () => {
     await expect.poll(() => bodyBg(page)).toBe(DARK_BG);
   });
 
-  test("a light system shows the light theme", async ({ browser }) => {
-    const context = await browser.newContext({ colorScheme: "light" });
+  test("a stored light choice shows the light theme", async ({ browser }) => {
+    const context = await lightContext(browser);
     const page = await context.newPage();
     await page.goto("/");
     await expect.poll(() => bodyBg(page)).toBe(LIGHT_BG);
     await context.close();
   });
 
-  test("a stored light choice wins over a dark system before first paint", async ({
-    page,
-  }) => {
+  test("a stored light choice shows before first paint", async ({ page }) => {
     await page.addInitScript(() => localStorage.setItem("theme", "light"));
     await page.goto("/", { waitUntil: "commit" });
     await page.waitForFunction(() => document.body !== null);
@@ -32,12 +46,16 @@ test.describe("Theme bootstrap", () => {
     await expect.poll(() => bodyBg(page)).toBe(LIGHT_BG);
   });
 
-  test("a stored dark choice wins over a light system", async ({ browser }) => {
+  test("a light system still shows the dark theme by default", async ({
+    browser,
+  }) => {
     const context = await browser.newContext({ colorScheme: "light" });
     const page = await context.newPage();
-    await page.addInitScript(() => localStorage.setItem("theme", "dark"));
     await page.goto("/");
     await expect.poll(() => bodyBg(page)).toBe(DARK_BG);
+    expect(
+      await page.evaluate(() => document.documentElement.dataset.theme),
+    ).toBeUndefined();
     await context.close();
   });
 
@@ -50,10 +68,10 @@ test.describe("Theme bootstrap", () => {
     await expect.poll(() => bodyBg(page)).toBe(DARK_BG);
   });
 
-  test("storage that throws leaves the system theme and the switch working", async ({
+  test("storage that throws leaves the dark theme and the switch working", async ({
     browser,
   }) => {
-    const context = await browser.newContext({ colorScheme: "light" });
+    const context = await browser.newContext();
     const page = await context.newPage();
     const errors: string[] = [];
     page.on("pageerror", (error) => errors.push(error.message));
@@ -65,9 +83,9 @@ test.describe("Theme bootstrap", () => {
       });
     });
     await page.goto("/");
-    await expect.poll(() => bodyBg(page)).toBe(LIGHT_BG);
-    await page.getByRole("switch", { name: "Dark theme" }).click();
     await expect.poll(() => bodyBg(page)).toBe(DARK_BG);
+    await page.getByRole("switch", { name: "Dark theme" }).click();
+    await expect.poll(() => bodyBg(page)).toBe(LIGHT_BG);
     expect(errors).toEqual([]);
     await context.close();
   });
@@ -134,9 +152,7 @@ test.describe("Theme switch", () => {
     await expect(themeSwitch(page)).toHaveAttribute("aria-checked", "false");
   });
 
-  test("flipping back to the system theme clears the stored choice", async ({
-    page,
-  }) => {
+  test("flipping back to dark clears the stored choice", async ({ page }) => {
     await page.goto("/");
     await themeSwitch(page).click();
     await themeSwitch(page).click();
@@ -165,13 +181,13 @@ test.describe("Theme switch", () => {
     expect(errors).toEqual([]);
   });
 
-  test("without a stored choice the page follows the system live", async ({
+  test("without a stored choice a light system does not change the page", async ({
     page,
   }) => {
     await page.goto("/");
     await page.emulateMedia({ colorScheme: "light" });
-    await expect(themeSwitch(page)).toHaveAttribute("aria-checked", "false");
-    await expect.poll(() => bodyBg(page)).toBe(LIGHT_BG);
+    await expect(themeSwitch(page)).toHaveAttribute("aria-checked", "true");
+    await expect.poll(() => bodyBg(page)).toBe(DARK_BG);
   });
 
   test("Space and Enter flip it from the keyboard", async ({ page }) => {
@@ -196,7 +212,7 @@ test.describe("Theme switch", () => {
           ),
         ),
       )
-      .toEqual(["#f4f6f9", "#f4f6f9"]);
+      .toEqual(["#f4f6f9"]);
   });
 
   test("the browser bar colour survives a client-side navigation", async ({
@@ -214,7 +230,7 @@ test.describe("Theme switch", () => {
           ),
         ),
       )
-      .toEqual(["#f4f6f9", "#f4f6f9"]);
+      .toEqual(["#f4f6f9"]);
   });
 
   test("the thumb does not slide with reduced motion", async ({ browser }) => {
@@ -258,7 +274,7 @@ test.describe("Dark islands", () => {
   test("the portfolio category badge keeps its dark surface in light", async ({
     browser,
   }) => {
-    const context = await browser.newContext({ colorScheme: "light" });
+    const context = await lightContext(browser);
     const page = await context.newPage();
     await page.goto("/portfolio/");
     const badge = page.locator('span[data-theme="dark"]').first();
@@ -277,8 +293,7 @@ test.describe("Light polish", () => {
   test("the current page in the navbar is tinted blue in light", async ({
     browser,
   }) => {
-    const context = await browser.newContext({
-      colorScheme: "light",
+    const context = await lightContext(browser, {
       viewport: { width: 1440, height: 900 },
     });
     const page = await context.newPage();
@@ -302,8 +317,7 @@ test.describe("Light polish", () => {
     test(`the current page label keeps 4.5:1 on an opaque pill at ${width}px in light`, async ({
       browser,
     }) => {
-      const context = await browser.newContext({
-        colorScheme: "light",
+      const context = await lightContext(browser, {
         viewport: { width, height: 900 },
       });
       const page = await context.newPage();
