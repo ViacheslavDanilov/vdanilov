@@ -43,6 +43,18 @@ const entranceOf = async (page: Page, path: string) => {
   return (await read()) as Entrance;
 };
 
+// A card still growing in is scaled down, which shrinks its tap area
+const cardsSettled = (page: Page) =>
+  page.waitForFunction(() =>
+    document
+      .getAnimations()
+      .every(
+        (a) =>
+          !(a as CSSAnimation).animationName?.startsWith("card-") ||
+          a.playState === "finished",
+      ),
+  );
+
 test.describe("Experience dates west of UTC", () => {
   test.use({ timezoneId: "America/Los_Angeles" });
 
@@ -899,6 +911,7 @@ test.describe("Touch targets at 360px", () => {
     page,
   }) => {
     await page.goto("/experience/");
+    await cardsSettled(page);
     const misses = await page
       .locator('main a[aria-label$="website"]:not(:has(img))')
       .evaluateAll((links) =>
@@ -1130,16 +1143,7 @@ test.describe("Last small tap targets at 360px", () => {
   for (const [name, path, selector] of targets) {
     test(`${name} take a tap in a 44px area`, async ({ page }) => {
       await page.goto(path, { waitUntil: "domcontentloaded" });
-      // A card still growing in is scaled down, which shrinks its tap area
-      await page.waitForFunction(() =>
-        document
-          .getAnimations()
-          .every(
-            (a) =>
-              !(a as CSSAnimation).animationName?.startsWith("card-") ||
-              a.playState === "finished",
-          ),
-      );
+      await cardsSettled(page);
       const areas = await page.locator(selector).evaluateAll((links) =>
         links.map((link) => {
           link.scrollIntoView({ block: "center" });
