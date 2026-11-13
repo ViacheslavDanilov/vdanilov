@@ -12,8 +12,8 @@ const VARIANTS = {
   blue: "bg-blue-600/20 text-blue-400 border-blue-600/40 light:bg-blue-600/10 light:text-blue-700 light:border-blue-600/30",
   violet:
     "bg-violet-600/20 text-violet-400 border-violet-600/40 light:bg-violet-600/10 light:text-violet-700 light:border-violet-600/30",
-  teal: "bg-teal-600/20 text-teal-400 border-teal-600/40 light:bg-teal-600/10 light:text-teal-700 light:border-teal-600/30",
-  cyan: "bg-cyan-600/20 text-cyan-400 border-cyan-600/40 light:bg-cyan-600/10 light:text-cyan-700 light:border-cyan-600/30",
+  teal: "bg-teal-600/20 text-teal-400 border-teal-600/40 light:bg-teal-600/10 light:text-teal-800 light:border-teal-600/30",
+  cyan: "bg-cyan-600/20 text-cyan-400 border-cyan-600/40 light:bg-cyan-600/10 light:text-cyan-800 light:border-cyan-600/30",
   sky: "bg-sky-500/20 text-sky-400 border-sky-500/40 light:bg-sky-600/10 light:text-sky-700 light:border-sky-600/30",
 
   "teal-blur": "bg-page/30 backdrop-blur-sm text-teal-400 border-teal-500/30",

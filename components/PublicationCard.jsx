@@ -35,7 +35,7 @@ const AUTHOR_POSITION = {
   first: {
     label: "First author",
     className:
-      "bg-emerald-400/12 text-emerald-400/85 border-emerald-400/30 light:bg-emerald-600/10 light:text-emerald-700 light:border-emerald-600/30",
+      "bg-emerald-400/12 text-emerald-400/85 border-emerald-400/30 light:bg-emerald-600/10 light:text-emerald-800 light:border-emerald-600/30",
   },
   senior: {
     label: "Senior author",
