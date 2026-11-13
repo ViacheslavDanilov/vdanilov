@@ -1,6 +1,6 @@
 ---
 name: Viacheslav Danilov Portfolio
-description: A dark, glass-and-glow professional record for a researcher and engineering lead.
+description: A dark-first, glass-and-glow professional record for a researcher and engineering lead, with a light theme.
 colors:
   ink: "#0a0e14"
   card-slate: "#151a1f"
@@ -97,7 +97,7 @@ components:
 
 **Creative North Star: "The Night Ledger"**
 
-A near-black page with one cool cyan signal. Content sits on faint glass panels that light up under the pointer, the way a ledger page answers a finger running down it. The site is dark-only. Colour roles below are named by role, not by "dark".
+A near-black page with one cool cyan signal. Content sits on faint glass panels that light up under the pointer, the way a ledger page answers a finger running down it. Dark is the default theme and a light one sits behind a switch in the navbar. Colour roles below are named by role, not by "dark", and the values are the dark ones unless the Light theme section says otherwise.
 
 The tone is calm and exact. Text is dense and factual, because readers come to check a record: publications, roles, references. Decoration is limited to glass, a soft glow, and one accent. Nothing competes with the facts.
 
@@ -111,7 +111,7 @@ The tone is calm and exact. Text is dense and factual, because readers come to c
 
 ## Colors
 
-A restrained dark palette: ink ground, slate cards, one cyan accent, and a cool badge set for category tags.
+A restrained dark palette: ink ground, slate cards, one cyan accent, and a cool badge set for category tags. A light palette of the same roles follows the dark one.
 
 ### Primary
 
@@ -129,6 +129,26 @@ A restrained dark palette: ink ground, slate cards, one cyan accent, and a cool 
 - **Text Soft** (#d1d5db): inactive nav, the hero roles and paragraph. Body copy mostly uses the Tailwind 200 and 300 greys.
 - **Text Muted** (#9ca3af): dates, locations, secondary lines.
 - **Glass lines**: the glow card border is 1.5px in the same 6% grey as its fill. Logo tiles and tab rails use Paper Light at 10%, the mobile menu white at 10%, and the nav pill white at 20%.
+
+### Light theme
+
+Chosen with the switch in the navbar, never by the system setting: a page without a stored choice is dark. The choice sits in `localStorage` under `theme`, and an inline script in `<head>` sets `data-theme` before first paint. Components use role tokens (`page`, `surface`, `line`, `ink`, `strong`, body, muted, accent text) whose values live in `app/globals.css`, so a new colour is a token, not a palette class.
+
+| Role | Dark | Light |
+|---|---|---|
+| Page | #0a0e14 | #f4f6f9 |
+| Surface (cards) | #151a1f | #ffffff |
+| Line | #232a33 | #dfe4ea |
+| Strong text | #f1f4f8 | #0b121b |
+| Body text | #c4ccd8 | #2c3645 |
+| Muted text | #9aa5b4 | #556072 |
+| Accent text | #03b1fb | #0067c0 |
+
+- The solid button fill stays Signal Cyan with dark text in both themes. In light the accent text is #0067c0, which holds 4.6:1 on the page where cyan would not.
+- Light cards are white with a hairline border and no shadow. The glow spotlight is softer.
+- Pictures made for a dark ground (hero video and poster, Expertise pictures, project previews, some figures) stay dark in a framed block. Category badges and image overlays keep their dark surface as islands.
+- Logos have one file where it works on both grounds. White-lettered logos (BIDMC, Huawei, IHU, VHIR, Quantori, Trento) and the site logo have an `-on-light` file or a darker ribbon for light. The Politecnico di Milano logo is a single file, #12305b, on both.
+- The theme changes with a 300ms cross-fade, and instantly with reduced motion.
 
 ### Named Rules
 
@@ -205,11 +225,11 @@ Pills for anything clickable and small (nav, buttons, badges, tabs, accent bar).
 - Below lg everything is one centred column in this order: name, roles, video, icons, buttons, paragraph, so that both buttons show on the first screen of a 360px phone, with at least 8px to spare. The page wrapper adds only 16px above the hero on phones, and the icons sit 24px under the video. The next role sits over the current one on one line, so the slot never wraps and never moves the layout. Each cycle holds 2 seconds and flips for about 1.5. Hovering pauses the flip. Screen readers get the three roles as one list and the changing slot is hidden from them. With reduced motion all three show, stacked, and never change.
 - The blocks of the hero (name, roles, video, icons, buttons, paragraph) are 24px apart edge to edge on phones and tablets and 32px apart from lg, within about 3px, because the name, roles and paragraph have tight line heights that keep the box gaps equal to the visible ones.
 - The paragraph is Tailwind 300 grey and names the two roles in semibold white, with no chip and no colour, so the tone and weight set them apart and the first line starts flush with the text below it.
-- The one h1 on the page is the name. Download CV downloads the Drive file directly and Contact me opens an email. The profile icons are 44px targets. The glass buttons are 48px tall with 14px side padding below 640px, so both fit one row on a 360px phone, and 56px tall with 40px padding from 640px.
+- The one h1 on the page is the name. Download CV opens the CV in the Drive viewer in a new tab, where it can be downloaded, and Contact me opens an email. The profile icons are 44px targets. The glass buttons are 48px tall with 14px side padding below 640px, so both fit one row on a 360px phone, and 56px tall with 40px padding from 640px.
 
 ### Navigation
 
-- Floating glass pill, 56px tall, max 896px wide, 16px from top. Hides when scrolling down, returns on scroll up or focus. A skip link sits top left, visible only while focused. Links are pills; active is cyan text on cyan 15% (20% in the mobile menu). Under lg, a menu toggle opens a panel of Ink at 60% with a blur, a white 10% border and 12px-radius items.
+- Floating glass pill, 56px tall, max 896px wide, 16px from top. Hides when scrolling down, returns on scroll up or focus. A skip link sits top left, visible only while focused. Links are pills; active is cyan text on cyan 15% (20% in the mobile menu). Under lg, a menu toggle opens a panel of Ink at 60% with a blur, a white 10% border and 12px-radius items. In light the pill and the panel are near opaque and the active item is a blue tint, so its label holds 4.5:1 over any picture. The theme switch sits left of the menu button: a 52 by 28px track in a sky blue (light) or navy (dark) tint, a round glass thumb with an amber sun or a blue moon, a 44px tap area, and a focus ring around the track. Hover and press add a layer in the track hue (about the same colour change in both themes).
 
 ### Tabs
 
