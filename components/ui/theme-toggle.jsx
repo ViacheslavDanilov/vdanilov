@@ -115,7 +115,10 @@ export default function ThemeToggle() {
     ) {
       switchTheme(next);
     } else {
-      document.startViewTransition(() => switchTheme(next));
+      // A second flip skips this fade, which rejects its ready promise
+      document
+        .startViewTransition(() => switchTheme(next))
+        .ready.catch(() => {});
     }
   };
 

@@ -108,6 +108,22 @@ test.describe("Theme switch", () => {
     await expect.poll(() => bodyBg(page)).toBe(DARK_BG);
   });
 
+  test("two flips in one frame raise no error", async ({ page }) => {
+    const errors: string[] = [];
+    page.on("pageerror", (error) => errors.push(error.message));
+    await page.goto("/");
+    await themeSwitch(page).click();
+    await expect.poll(() => bodyBg(page)).toBe(LIGHT_BG);
+    await page.waitForTimeout(500);
+    await themeSwitch(page).evaluate((button: HTMLElement) => {
+      button.click();
+      button.click();
+    });
+    await expect.poll(() => bodyBg(page)).toBe(LIGHT_BG);
+    await page.waitForTimeout(500);
+    expect(errors).toEqual([]);
+  });
+
   test("without a stored choice the page follows the system live", async ({
     page,
   }) => {
