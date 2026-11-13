@@ -190,7 +190,7 @@ test.describe("Theme switch", () => {
     await expect.poll(() => bodyBg(page)).toBe(DARK_BG);
   });
 
-  test("hover and press tint the switch by the same amount in both themes", async ({
+  test("hover and press deepen the track hue in both themes", async ({
     page,
   }) => {
     await page.goto("/");
@@ -203,7 +203,7 @@ test.describe("Theme switch", () => {
         .evaluate((el) => getComputedStyle(el).filter);
     for (let i = 0; i < 2; i++) {
       await themeSwitch(page).hover();
-      await expect.poll(opacity).toBe("0.08");
+      await expect.poll(opacity).toBe(i === 0 ? "0.09" : "0.1");
       expect(await filter()).toBe("none");
       await page.mouse.move(5, 300);
       await expect.poll(opacity).toBe("0");

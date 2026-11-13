@@ -165,11 +165,11 @@ export default function ThemeToggle() {
       onClick={toggle}
       className="group/theme flex h-11 w-[3.25rem] flex-shrink-0 cursor-pointer items-center justify-center rounded-full outline-none"
     >
-      <span className="relative block h-7 w-[3.25rem] rounded-full border border-ink/30 bg-gradient-to-br from-[#0e1b36] to-[#1d3566] shadow-[inset_0_1px_3px_rgba(0,0,0,0.5)] group-focus-visible/theme:outline-2 group-focus-visible/theme:outline-offset-2 group-focus-visible/theme:outline-focus light:border-[#3b8fd9] light:from-[#d3ebff] light:to-[#8ccaff] light:shadow-[inset_0_1px_3px_rgba(0,60,120,0.25)]">
-        {/* The same 8% ink layer on hover and 10% on press in both themes */}
+      <span className="relative block h-7 w-[3.25rem] rounded-full border border-[#78a0ff]/[0.06] bg-origin-border bg-gradient-to-br from-[#0e1b36] to-[#1d3566] shadow-[inset_0_1px_3px_rgba(0,0,0,0.5)] group-focus-visible/theme:outline-2 group-focus-visible/theme:outline-offset-2 group-focus-visible/theme:outline-focus light:border-[#8cc3f0] light:from-[#d3ebff] light:to-[#8ccaff] light:shadow-[inset_0_1px_3px_rgba(0,60,120,0.25)]">
+        {/* A layer in the track hue: it deepens the blue on hover and press instead of greying it */}
         <span
           aria-hidden="true"
-          className="absolute inset-0 rounded-full bg-ink opacity-0 transition-opacity duration-150 group-hover/theme:opacity-[0.08] group-active/theme:opacity-10 motion-reduce:transition-none"
+          className="absolute inset-0 rounded-full bg-[#508cff] opacity-0 transition-opacity duration-150 group-hover/theme:opacity-[0.09] group-active/theme:opacity-[0.13] light:bg-[#146edc] light:group-hover/theme:opacity-10 light:group-active/theme:opacity-15 motion-reduce:transition-none"
         />
         <span
           ref={thumb}
