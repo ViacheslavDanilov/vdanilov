@@ -206,7 +206,6 @@ const EXPERIENCES_DATA = [
     endDate: "2024-09-01",
     location: "Milan • Italy 🇮🇹",
     logo: "/experience/core-roles/polimi.svg",
-    logoLight: "/experience/core-roles/polimi-on-light.svg",
     summary:
       "Built hyperspectral ML that detects and segments laser ablation zones for the ERC project LASER OPTIMAL, and turned prosthetic heart valve design into an optimization search",
     responsibilities: [
@@ -238,7 +237,7 @@ const EXPERIENCES_DATA = [
         type: "ERC Project",
       },
     ],
-    logoBrightness: 1.1,
+    logoBrightness: 1.0,
   },
   {
     id: "intelerad-senior-ml",
