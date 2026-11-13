@@ -43,6 +43,8 @@ const Moon = () => (
 export default function ThemeToggle() {
   const [isDark, setIsDark] = useState(true);
   const pending = useRef(null);
+  const thumb = useRef(null);
+  const fading = useRef(0);
 
   useEffect(() => {
     const sync = () => {
@@ -115,6 +117,9 @@ export default function ThemeToggle() {
     ) {
       switchTheme(next);
     } else {
+      // The thumb slides in its own layer, named only while a fade runs
+      thumb.current.style.viewTransitionName = "theme-thumb";
+      fading.current += 1;
       const fade = document.startViewTransition(() => switchTheme(next));
       // A second flip skips this fade, which rejects its ready promise
       fade.ready.catch(() => {});
@@ -139,7 +144,11 @@ export default function ThemeToggle() {
       };
       document.addEventListener("click", passOn, true);
       fade.finished
-        .finally(() => document.removeEventListener("click", passOn, true))
+        .finally(() => {
+          document.removeEventListener("click", passOn, true);
+          fading.current -= 1;
+          if (!fading.current) thumb.current.style.viewTransitionName = "";
+        })
         .catch(() => {});
     }
   };
@@ -155,8 +164,9 @@ export default function ThemeToggle() {
     >
       <span className="relative block h-7 w-[3.25rem] rounded-full border border-ink/20 bg-ink/10 transition-colors group-hover/theme:bg-ink/20">
         <span
+          ref={thumb}
           data-keep-motion
-          className="absolute top-px left-px flex size-6 translate-x-6 [view-transition-name:theme-thumb] items-center justify-center rounded-full bg-strong text-page motion-safe:transition-transform motion-safe:duration-200 light:translate-x-0"
+          className="absolute top-px left-px flex size-6 translate-x-6 items-center justify-center rounded-full bg-strong text-page motion-safe:transition-transform motion-safe:duration-200 light:translate-x-0"
         >
           <Sun />
           <Moon />
