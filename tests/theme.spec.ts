@@ -190,16 +190,39 @@ test.describe("Theme switch", () => {
     await expect.poll(() => bodyBg(page)).toBe(DARK_BG);
   });
 
-  test("hovering the switch brightens it in dark and never in light", async ({
+  test("hover and press tint the switch by the same amount in both themes", async ({
     page,
   }) => {
     await page.goto("/");
+    const layer = themeSwitch(page).locator("span span").first();
+    const opacity = () => layer.evaluate((el) => getComputedStyle(el).opacity);
+    const filter = () =>
+      themeSwitch(page)
+        .locator("span")
+        .first()
+        .evaluate((el) => getComputedStyle(el).filter);
+    for (let i = 0; i < 2; i++) {
+      await themeSwitch(page).hover();
+      await expect.poll(opacity).toBe("0.08");
+      expect(await filter()).toBe("none");
+      await page.mouse.move(5, 300);
+      await expect.poll(opacity).toBe("0");
+      await themeSwitch(page).click();
+      await page.waitForTimeout(400);
+    }
+  });
+
+  test("the focus ring sits on the track, not on the tap area", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    await page.keyboard.press("Tab");
+    await themeSwitch(page).focus();
+    await page.keyboard.press("Shift+Tab");
+    await page.keyboard.press("Tab");
     const track = themeSwitch(page).locator("span").first();
-    const filter = () => track.evaluate((el) => getComputedStyle(el).filter);
-    await themeSwitch(page).hover();
-    await expect.poll(filter).toBe("brightness(1.25)");
-    await themeSwitch(page).click();
-    await expect.poll(filter).not.toContain("brightness(1.");
+    await expect(track).toHaveCSS("outline-style", "solid");
+    await expect(themeSwitch(page)).toHaveCSS("outline-style", "none");
   });
 
   test("Space and Enter flip it from the keyboard", async ({ page }) => {

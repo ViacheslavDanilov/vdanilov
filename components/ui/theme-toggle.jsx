@@ -12,14 +12,14 @@ const Sun = () => (
   <svg
     viewBox="0 0 24 24"
     aria-hidden="true"
-    className="size-4 hidden light:block text-[#f2a50c]"
+    className="size-4 hidden light:block text-[#d97706]"
     fill="none"
     stroke="currentColor"
     strokeWidth="2"
     strokeLinecap="round"
     strokeLinejoin="round"
   >
-    <circle cx="12" cy="12" r="4.2" fill="currentColor" />
+    <circle cx="12" cy="12" r="4.2" fill="#fbbf24" />
     <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
   </svg>
 );
@@ -28,8 +28,8 @@ const Moon = () => (
   <svg
     viewBox="0 0 24 24"
     aria-hidden="true"
-    className="size-4 light:hidden text-[#2f7de1]"
-    fill="currentColor"
+    className="size-4 light:hidden text-[#2563eb]"
+    fill="#93c5fd"
     stroke="currentColor"
     strokeWidth="2"
     strokeLinecap="round"
@@ -163,13 +163,18 @@ export default function ThemeToggle() {
       aria-checked={isDark}
       aria-label="Dark theme"
       onClick={toggle}
-      className="group/theme flex h-11 w-[3.25rem] flex-shrink-0 cursor-pointer items-center justify-center rounded-full focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-focus"
+      className="group/theme flex h-11 w-[3.25rem] flex-shrink-0 cursor-pointer items-center justify-center rounded-full outline-none"
     >
-      <span className="relative block h-7 w-[3.25rem] rounded-full border border-ink/15 bg-gradient-to-br from-[#0e1b36] to-[#1d3566] shadow-[inset_0_1px_3px_rgba(0,0,0,0.5)] transition-[filter] group-hover/theme:brightness-125 light:group-hover/theme:brightness-95 light:group-hover/theme:saturate-150 light:border-[#7fb8e8]/70 light:from-[#d3ebff] light:to-[#8ccaff] light:shadow-[inset_0_1px_3px_rgba(0,60,120,0.25)]">
+      <span className="relative block h-7 w-[3.25rem] rounded-full border border-ink/30 bg-gradient-to-br from-[#0e1b36] to-[#1d3566] shadow-[inset_0_1px_3px_rgba(0,0,0,0.5)] group-focus-visible/theme:outline-2 group-focus-visible/theme:outline-offset-2 group-focus-visible/theme:outline-focus light:border-[#3b8fd9] light:from-[#d3ebff] light:to-[#8ccaff] light:shadow-[inset_0_1px_3px_rgba(0,60,120,0.25)]">
+        {/* The same 8% ink layer on hover and 10% on press in both themes */}
+        <span
+          aria-hidden="true"
+          className="absolute inset-0 rounded-full bg-ink opacity-0 transition-opacity duration-150 group-hover/theme:opacity-[0.08] group-active/theme:opacity-10 motion-reduce:transition-none"
+        />
         <span
           ref={thumb}
           data-keep-motion
-          className="absolute top-px left-px flex size-6 translate-x-6 items-center justify-center rounded-full bg-[#e8f1ff] bg-[image:radial-gradient(120%_140%_at_30%_0%,#fff,transparent_60%)] shadow-[inset_0_1px_1px_#fff,0_2px_5px_rgba(0,20,60,0.45)] motion-safe:transition-transform motion-safe:duration-200 light:translate-x-0 light:bg-surface"
+          className="absolute top-px left-px flex size-6 translate-x-6 items-center justify-center rounded-full bg-[#e8f1ff] bg-[image:radial-gradient(120%_140%_at_30%_0%,#fff,transparent_60%)] shadow-[inset_0_1px_1px_#fff,0_2px_5px_rgba(0,20,60,0.45)] motion-safe:transition-transform motion-safe:duration-200 motion-safe:ease-[cubic-bezier(0.22,1,0.36,1)] motion-safe:group-active/theme:scale-95 light:translate-x-0 light:bg-surface"
         >
           <Sun />
           <Moon />
