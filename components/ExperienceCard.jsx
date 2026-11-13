@@ -140,7 +140,7 @@ const ResponsibilitiesList = ({ items }) => (
     {items.map((item, index) => (
       <li key={index} className="flex items-start gap-3">
         <BulletPoint />
-        <p className="text-sm text-gray-300 leading-relaxed text-justify">
+        <p className="text-sm text-body leading-relaxed text-justify">
           {highlightKeywords(item)}
         </p>
       </li>
@@ -159,19 +159,19 @@ const LinksList = ({ links }) => (
         <BulletPoint />
         <div className="flex-1">
           {pub.type && (
-            <span className="inline-block px-2 py-0.5 text-xs font-medium rounded-full bg-white/5 text-neutral-300 border border-white/10 mr-2 align-top">
+            <span className="inline-block px-2 py-0.5 text-xs font-medium rounded-full bg-white/5 text-legacy-neutral-300 border border-white/10 mr-2 align-top">
               {pub.type}
             </span>
           )}
           {/* An entry without a url prints as plain text */}
           {!pub.url ? (
-            <span className="text-sm text-gray-300 leading-relaxed break-words align-top">
+            <span className="text-sm text-body leading-relaxed break-words align-top">
               {pub.title}
             </span>
           ) : isSitePage(pub.url) ? (
             <Link
               href={pub.url}
-              className="text-sm text-accent hover:text-light transition-colors inline gap-2 group align-top"
+              className="text-sm text-accent hover:text-strong transition-colors inline gap-2 group align-top"
               aria-label={`${pub.type}: ${pub.title}`}
             >
               <span className="leading-relaxed break-words">{pub.title}</span>
@@ -181,7 +181,7 @@ const LinksList = ({ links }) => (
               href={pub.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm text-accent hover:text-light transition-colors inline gap-2 group align-top"
+              className="text-sm text-accent hover:text-strong transition-colors inline gap-2 group align-top"
               aria-label={`${pub.type}: ${pub.title}`}
             >
               <span className="leading-relaxed break-words">{pub.title}</span>
@@ -240,24 +240,24 @@ const JobInfo = ({
   <div
     className={`flex flex-col items-center text-center md:items-start md:text-left gap-2 ${className}`}
   >
-    <h3 className="text-md font-bold uppercase tracking-wider text-light">
+    <h3 className="text-md font-bold uppercase tracking-wider text-strong">
       {title}
     </h3>
     <a
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className="relative after:absolute after:-inset-3 text-sm font-medium text-light md:hover:text-accent uppercase cursor-pointer transition-colors"
+      className="relative after:absolute after:-inset-3 text-sm font-medium text-strong md:hover:text-accent uppercase cursor-pointer transition-colors"
       aria-label={`${company} website`}
     >
       {company}
     </a>
-    <div className="flex flex-wrap gap-2 text-sm text-gray-400 justify-center md:justify-start">
+    <div className="flex flex-wrap gap-2 text-sm text-muted justify-center md:justify-start">
       <span>{period}</span>
       <span aria-hidden="true">•</span>
       <span>{duration}</span>
     </div>
-    <p className="text-sm text-gray-400 mb-0">{location}</p>
+    <p className="text-sm text-muted mb-0">{location}</p>
   </div>
 );
 
@@ -347,7 +347,7 @@ const ExperienceCard = ({ experience }) => {
 
         {/* Summary */}
         {experience.summary && (
-          <p className="mb-4 border-l-2 border-accent/40 pl-3 text-sm leading-relaxed text-gray-300">
+          <p className="mb-4 border-l-2 border-accent/40 pl-3 text-sm leading-relaxed text-body">
             {experience.summary}
           </p>
         )}

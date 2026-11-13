@@ -87,7 +87,7 @@ const Hero = () => {
                 }
                 aria-label={social.name}
                 title={social.name}
-                className="p-3 -m-3 rounded-full text-gray-400 transition-all duration-300 transform motion-safe:hover:scale-110 hover:text-light focus-visible:outline-2 focus-visible:outline-accent"
+                className="p-3 -m-3 rounded-full text-muted transition-all duration-300 transform motion-safe:hover:scale-110 hover:text-strong focus-visible:outline-2 focus-visible:outline-accent"
                 style={{ display: "inline-block" }}
               >
                 <FontAwesomeIcon
@@ -107,21 +107,21 @@ const Hero = () => {
         {/* Below lg the icons follow the video and the buttons come before the paragraph, so the buttons show on the first screen */}
         <div className="contents lg:flex lg:flex-col lg:gap-8">
           <div className="space-y-5 lg:space-y-6 text-center">
-            <h1 className="text-3xl sm:text-4xl lg:text-4xl xl:text-5xl text-balance font-semibold leading-[1.1] text-light tracking-tight">
+            <h1 className="text-3xl sm:text-4xl lg:text-4xl xl:text-5xl text-balance font-semibold leading-[1.1] text-strong tracking-tight">
               Viacheslav Danilov, PhD
             </h1>
             <DepthFlipText
               phrases={roles}
-              className="text-lg md:text-xl leading-none text-gray-300"
+              className="text-lg md:text-xl leading-none text-body"
             />
           </div>
 
-          <p className="order-4 lg:order-none -my-0.5 max-w-2xl text-gray-300 text-base xl:text-lg leading-relaxed text-justify hyphens-auto text-pretty">
-            <strong className="font-semibold text-white">
+          <p className="order-4 lg:order-none -my-0.5 max-w-2xl text-body text-base xl:text-lg leading-relaxed text-justify hyphens-auto text-pretty">
+            <strong className="font-semibold text-ink">
               Lead AI/ML Engineer
             </strong>{" "}
             and{" "}
-            <strong className="font-semibold text-white">
+            <strong className="font-semibold text-ink">
               Senior Research Scientist
             </strong>{" "}
             with a PhD in Computer Science and over 10 years in academia and

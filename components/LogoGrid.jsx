@@ -84,7 +84,7 @@ const PlusMark = ({ className }) => (
   <svg
     aria-hidden="true"
     viewBox="0 0 24 24"
-    className={`pointer-events-none absolute -right-3 -bottom-3 z-10 size-6 text-white/40 ${className}`}
+    className={`pointer-events-none absolute -right-3 -bottom-3 z-10 size-6 text-ink/40 ${className}`}
     fill="none"
     stroke="currentColor"
     strokeWidth="1"
@@ -97,10 +97,10 @@ const LogoGrid = () => {
   return (
     <section className="w-full max-w-5xl mx-auto px-6 py-12 lg:min-h-[min(100svh,72rem)] lg:flex lg:flex-col lg:justify-center">
       <div className="mb-12 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-light mb-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-strong mb-4">
           Selected Clients
         </h2>
-        <p className="text-gray-400 mt-3 max-w-2xl mx-auto text-balance">
+        <p className="text-muted mt-3 max-w-2xl mx-auto text-balance">
           Helping companies build better software and scale their research and
           engineering teams
         </p>

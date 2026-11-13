@@ -6,7 +6,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 const BUTTON_CLASSES =
-  "inline-flex items-center transition-colors justify-center cursor-pointer gap-2 whitespace-nowrap rounded-full font-medium transition-[color,box-shadow,transform] disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:ring-accent focus-visible:ring-[3px] border border-white/10 bg-transparent motion-safe:active:scale-[0.975] duration-300 transition text-light h-12 rounded-full px-8 has-[>svg]:px-6";
+  "inline-flex items-center transition-colors justify-center cursor-pointer gap-2 whitespace-nowrap rounded-full font-medium transition-[color,box-shadow,transform] disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:ring-accent focus-visible:ring-[3px] border border-white/10 bg-transparent motion-safe:active:scale-[0.975] duration-300 transition text-strong h-12 rounded-full px-8 has-[>svg]:px-6";
 
 // Link variant for <a> tags
 export function LiquidButtonLink({

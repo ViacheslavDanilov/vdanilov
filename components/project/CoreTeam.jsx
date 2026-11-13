@@ -18,10 +18,12 @@ function TeamMemberCard({ member }) {
             className="object-cover"
           />
         </div>
-        <h3 className="text-base font-bold text-light mb-1.5">{member.name}</h3>
+        <h3 className="text-base font-bold text-strong mb-1.5">
+          {member.name}
+        </h3>
         <p className="text-sm font-medium text-accent mb-2">{member.role}</p>
-        <p className="text-sm text-gray-300 mb-2">{member.organization}</p>
-        <p className="text-sm text-gray-400 mb-4">{member.location}</p>
+        <p className="text-sm text-body mb-2">{member.organization}</p>
+        <p className="text-sm text-muted mb-4">{member.location}</p>
         <div className="flex flex-wrap items-center justify-center gap-4 mt-auto">
           {orderedPersonLinks(member.links).map(
             ({ key, label, icon, href, external }) => (
@@ -30,7 +32,7 @@ function TeamMemberCard({ member }) {
                 href={href}
                 target={external ? "_blank" : undefined}
                 rel={external ? "noopener noreferrer" : undefined}
-                className="p-3.5 -m-3.5 text-gray-400 hover:text-light transition-all duration-300 transform motion-safe:hover:scale-110"
+                className="p-3.5 -m-3.5 text-muted hover:text-strong transition-all duration-300 transform motion-safe:hover:scale-110"
                 aria-label={`${member.name}'s ${label}`}
               >
                 <FontAwesomeIcon

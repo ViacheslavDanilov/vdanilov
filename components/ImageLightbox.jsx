@@ -113,13 +113,16 @@ export default function ImageLightbox({
         />
         {/* Touch cue */}
         <div className="hidden pointer-coarse:flex absolute bottom-2 right-2 w-8 h-8 rounded-full bg-black/60 items-center justify-center">
-          <FontAwesomeIcon icon={faExpand} className="w-4 h-4 text-light" />
+          <FontAwesomeIcon icon={faExpand} className="w-4 h-4 text-strong" />
         </div>
         {/* Hover overlay */}
         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
           <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <div className="w-12 h-12 rounded-full bg-accent/90 flex items-center justify-center shadow-lg">
-              <FontAwesomeIcon icon={faExpand} className="w-5 h-5 text-light" />
+              <FontAwesomeIcon
+                icon={faExpand}
+                className="w-5 h-5 text-strong"
+              />
             </div>
           </div>
         </div>
@@ -154,14 +157,13 @@ export default function ImageLightbox({
               }}
               aria-label="Close (Esc)"
             >
-              <FontAwesomeIcon icon={faXmark} className="w-6 h-6 text-light" />
+              <FontAwesomeIcon icon={faXmark} className="w-6 h-6 text-strong" />
             </button>
 
             {/* Keyboard hint */}
             <div className="absolute top-4 left-4 z-10 pointer-coarse:hidden">
-              <span className="text-gray-400 text-xs bg-black/50 px-3 py-1.5 rounded-md">
-                Press <kbd className="text-gray-400 font-mono">Esc</kbd> to
-                close
+              <span className="text-muted text-xs bg-black/50 px-3 py-1.5 rounded-md">
+                Press <kbd className="text-muted font-mono">Esc</kbd> to close
               </span>
             </div>
 
@@ -189,7 +191,7 @@ export default function ImageLightbox({
 
             {/* Caption */}
             <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-center pointer-events-none">
-              <p className="text-gray-300 text-sm bg-black/60 px-4 py-2 rounded-lg backdrop-blur-sm">
+              <p className="text-body text-sm bg-black/60 px-4 py-2 rounded-lg backdrop-blur-sm">
                 {alt}
               </p>
             </div>

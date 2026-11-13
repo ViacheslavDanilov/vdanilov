@@ -86,7 +86,7 @@ function Footer() {
               className="h-8 w-auto"
             />
           </Link>
-          <p className="text-sm text-gray-400 mx-auto max-w-sm lg:mx-0 lg:max-w-xs lg:leading-relaxed">
+          <p className="text-sm text-muted mx-auto max-w-sm lg:mx-0 lg:max-w-xs lg:leading-relaxed">
             Bridging scientific research and industrial innovation through
             advanced AI and machine learning solutions
           </p>
@@ -97,7 +97,7 @@ function Footer() {
           <div className="grid grid-cols-2 gap-x-8 sm:gap-x-12 lg:contents">
             <div className="lg:flex lg:justify-center lg:col-start-2 lg:row-start-1 lg:row-span-2">
               <div>
-                <h3 className="text-xs uppercase tracking-wider text-light font-semibold mb-4">
+                <h3 className="text-xs uppercase tracking-wider text-strong font-semibold mb-4">
                   Quick Links
                 </h3>
                 <ul className="space-y-2 text-sm">
@@ -105,7 +105,7 @@ function Footer() {
                     <li key={link.title}>
                       <Link
                         href={link.href}
-                        className="text-gray-400 hover:text-accent inline-flex items-center transition-colors duration-300 h-11 -my-2.5"
+                        className="text-muted hover:text-accent inline-flex items-center transition-colors duration-300 h-11 -my-2.5"
                       >
                         <FontAwesomeIcon
                           icon={link.icon}
@@ -125,7 +125,7 @@ function Footer() {
             </div>
 
             <div className="lg:col-start-3 lg:row-start-1 lg:row-span-2">
-              <h3 className="text-xs uppercase tracking-wider text-light font-semibold mb-4">
+              <h3 className="text-xs uppercase tracking-wider text-strong font-semibold mb-4">
                 Connect
               </h3>
               <ul className="space-y-2 text-sm">
@@ -141,7 +141,7 @@ function Footer() {
                           ? undefined
                           : "noopener noreferrer"
                       }
-                      className="text-gray-400 hover:text-accent inline-flex items-center transition-colors duration-300 h-11 -my-2.5"
+                      className="text-muted hover:text-accent inline-flex items-center transition-colors duration-300 h-11 -my-2.5"
                     >
                       <FontAwesomeIcon
                         icon={link.icon}
@@ -162,7 +162,7 @@ function Footer() {
         </div>
 
         <div className="pt-6 border-t border-light/10 text-center lg:col-start-1 lg:row-start-2 lg:pt-8 lg:border-t-0 lg:text-left">
-          <p className="text-sm text-gray-400">
+          <p className="text-sm text-muted">
             © {year} Viacheslav Danilov • All rights reserved
           </p>
         </div>

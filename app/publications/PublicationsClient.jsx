@@ -476,10 +476,10 @@ export default function Publications() {
         {/* Header Section */}
         <section className="w-full max-w-7xl mx-auto px-6">
           <header className="mb-8 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-light mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold text-strong mb-4">
               Publications
             </h1>
-            <p className="text-gray-400 mt-3 max-w-3xl mx-auto leading-relaxed text-balance">
+            <p className="text-muted mt-3 max-w-3xl mx-auto leading-relaxed text-balance">
               Selected from 48 peer-reviewed publications and 8 open datasets:
               first author on 32, senior author on 4, 14 in Q1 journals
             </p>
@@ -495,7 +495,7 @@ export default function Publications() {
               <PublicationCard publication={publication} />
             )}
             empty={
-              <p className="text-center text-gray-500 italic py-12">
+              <p className="text-center text-legacy-gray-500 italic py-12">
                 No publications found for this category.
               </p>
             }

@@ -160,7 +160,7 @@ export default function ProjectPage() {
 
           <Section title="Overview">
             <div className="prose prose-invert max-w-none">
-              <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+              <p className="text-body leading-relaxed mb-4 text-justify">
                 Sales Pilot is an AI-powered system that transforms manual lead
                 generation into a streamlined, scalable, and data-driven
                 process. Designed to target freelance and consulting
@@ -169,7 +169,7 @@ export default function ProjectPage() {
                 contacts, and evaluates associated companies to prioritize
                 high-quality leads.
               </p>
-              <p className="text-gray-300 leading-relaxed text-justify">
+              <p className="text-body leading-relaxed text-justify">
                 The innovation lies in its component-based scoring architecture.
                 It evaluates each lead across three pillars (job description,
                 contact profile, and company fit) using both deterministic
@@ -184,23 +184,25 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Data">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               The system integrates and processes diverse datasets from several
               public and third-party platforms:
             </p>
-            <ul className="space-y-2 text-gray-300 mb-6 text-justify">
+            <ul className="space-y-2 text-body mb-6 text-justify">
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Job Data:</strong> Pulled
-                  from Upwork&apos;s public API, including metadata like job
-                  descriptions, client spending history, and ratings.
+                  <strong className="text-legacy-gray-200">Job Data:</strong>{" "}
+                  Pulled from Upwork&apos;s public API, including metadata like
+                  job descriptions, client spending history, and ratings.
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Company Data:</strong>{" "}
+                  <strong className="text-legacy-gray-200">
+                    Company Data:
+                  </strong>{" "}
                   Enriched via Apollo and other business intelligence sources,
                   including industry, size, location, and revenue signals.
                 </span>
@@ -208,13 +210,15 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Contact Data:</strong>{" "}
+                  <strong className="text-legacy-gray-200">
+                    Contact Data:
+                  </strong>{" "}
                   Retrieved via LinkedIn scraping and profile parsing.
                 </span>
               </li>
             </ul>
 
-            <p className="text-gray-300 leading-relaxed mb-6 text-justify">
+            <p className="text-body leading-relaxed mb-6 text-justify">
               The data is stored in a dedicated MongoDB database, normalized
               using a custom feature labeling scheme (0–4 scale) to ensure
               consistency across structured and unstructured fields. Features
@@ -233,15 +237,15 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Methods">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               The project employs a hybrid evaluation model combining
               explainable heuristic-based logic with semantic vector scoring.
               Key techniques include:
             </p>
 
-            <ul className="space-y-4 text-gray-300 mb-6 text-justify">
+            <ul className="space-y-4 text-body mb-6 text-justify">
               <li>
-                <strong className="text-gray-200">
+                <strong className="text-legacy-gray-200">
                   Heuristic-based scoring:
                 </strong>{" "}
                 Deterministic scoring of structured data fields (e.g., location,
@@ -249,37 +253,37 @@ export default function ProjectPage() {
                 across components.
               </li>
               <li>
-                <strong className="text-gray-200">
+                <strong className="text-legacy-gray-200">
                   Component-based lead modeling:
                 </strong>
                 <ul className="mt-2 ml-4 space-y-1">
                   <li className="flex items-start gap-2">
                     <span className="text-accent mt-1">•</span>
                     <span>
-                      <strong className="text-gray-300">Job:</strong> Assessed
-                      by employer rating, money spent, description quality, and
+                      <strong className="text-body">Job:</strong> Assessed by
+                      employer rating, money spent, description quality, and
                       payment verification.
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-accent mt-1">•</span>
                     <span>
-                      <strong className="text-gray-300">Contact:</strong>{" "}
-                      Evaluated by seniority (title), location, education, and
-                      past employment.
+                      <strong className="text-body">Contact:</strong> Evaluated
+                      by seniority (title), location, education, and past
+                      employment.
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-accent mt-1">•</span>
                     <span>
-                      <strong className="text-gray-300">Company:</strong> Scored
-                      by size, revenue, industry alignment, and geography.
+                      <strong className="text-body">Company:</strong> Scored by
+                      size, revenue, industry alignment, and geography.
                     </span>
                   </li>
                 </ul>
               </li>
               <li>
-                <strong className="text-gray-200">
+                <strong className="text-legacy-gray-200">
                   OpenAI embedding class assignment:
                 </strong>{" "}
                 For unstructured text fields, the system embeds input into
@@ -287,7 +291,9 @@ export default function ProjectPage() {
                 pre-labeled centroids (0–4 score classes).
               </li>
               <li>
-                <strong className="text-gray-200">Weighted aggregation:</strong>{" "}
+                <strong className="text-legacy-gray-200">
+                  Weighted aggregation:
+                </strong>{" "}
                 Final lead score = 0.10 × Job + 0.40 × Contact + 0.50 × Company.
                 This ensures relevance filtering tailored to different business
                 priorities.
@@ -303,25 +309,25 @@ export default function ProjectPage() {
                 height={2443}
                 maxWidth="2xl"
               />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 1.</span> Sales Pilot
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 1.</span> Sales Pilot
                 workflow showing the component-based lead scoring architecture.
               </figcaption>
             </figure>
           </Section>
 
           <Section title="Results">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               The system enables proactive engagement with high-quality
               prospects, yielding better conversion rates and streamlined
               workflows:
             </p>
 
-            <ul className="space-y-2 text-gray-300 mb-6 text-justify">
+            <ul className="space-y-2 text-body mb-6 text-justify">
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">
+                  <strong className="text-legacy-gray-200">
                     Lead Filtering Accuracy:
                   </strong>{" "}
                   Only leads scoring above 2.5 (on a 0–4 scale) are passed to
@@ -331,7 +337,9 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Efficiency Gains:</strong>{" "}
+                  <strong className="text-legacy-gray-200">
+                    Efficiency Gains:
+                  </strong>{" "}
                   Reduced manual lead sourcing time from hours/days to minutes,
                   automating the full funnel from job discovery to contact
                   personalization.
@@ -340,7 +348,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">
+                  <strong className="text-legacy-gray-200">
                     Semantic Robustness:
                   </strong>{" "}
                   Embedding-based scoring proved effective across varied job
@@ -352,7 +360,7 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Conclusion">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               Sales Pilot demonstrates how AI and ML can transform outbound lead
               generation from a time-intensive, manual task into a strategic and
               scalable advantage. By integrating heuristic scoring with
@@ -360,7 +368,7 @@ export default function ProjectPage() {
               opportunities for outreach, tailored to different operational
               strategies.
             </p>
-            <p className="text-gray-300 leading-relaxed text-justify">
+            <p className="text-body leading-relaxed text-justify">
               Future enhancements could include continuous retraining of
               embeddings with feedback loops, expansion to other platforms
               beyond Upwork and LinkedIn, and integration with CRM systems for

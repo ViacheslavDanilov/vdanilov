@@ -86,7 +86,7 @@ export default function ExpertiseList({ items }) {
                 className="object-cover"
               />
             </div>
-            <div className="flex items-center gap-2 text-white/70">
+            <div className="flex items-center gap-2 text-ink/70">
               <FontAwesomeIcon
                 icon={item.icon}
                 className="h-3.5 w-3.5"
@@ -100,11 +100,11 @@ export default function ExpertiseList({ items }) {
                 {item.label}
               </span>
             </div>
-            <h3 className="text-lg font-bold text-light">{item.title}</h3>
-            <p className="text-sm leading-relaxed text-light/80 text-justify">
+            <h3 className="text-lg font-bold text-strong">{item.title}</h3>
+            <p className="text-sm leading-relaxed text-strong/80 text-justify">
               {item.parts.map((part) =>
                 part.highlight ? (
-                  <span key={part.key} className="font-semibold text-light/90">
+                  <span key={part.key} className="font-semibold text-strong/90">
                     {part.text}
                   </span>
                 ) : (

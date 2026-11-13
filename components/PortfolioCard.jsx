@@ -85,7 +85,7 @@ const PortfolioCard = ({
         {/* Title with Arrow - Clickable */}
         <div className="mb-2">
           <Link href={projectUrl} className="group/title inline py-3.5">
-            <Title className="text-lg font-semibold text-light transition-colors duration-300 group-hover:text-accent inline">
+            <Title className="text-lg font-semibold text-strong transition-colors duration-300 group-hover:text-accent inline">
               {title}
               <span
                 className="inline-block ml-1.5 align-baseline transition-transform duration-300 motion-safe:group-hover/title:translate-x-1"
@@ -105,7 +105,7 @@ const PortfolioCard = ({
             </Title>
           </Link>
         </div>
-        <p className="text-sm text-gray-400 line-clamp-3 leading-relaxed">
+        <p className="text-sm text-muted line-clamp-3 leading-relaxed">
           {description}
         </p>
 
@@ -113,7 +113,7 @@ const PortfolioCard = ({
         <div className="mt-4 flex items-center justify-between">
           {/* Date */}
           {formattedDate && (
-            <div className="flex items-center gap-1.5 text-xs text-gray-400">
+            <div className="flex items-center gap-1.5 text-xs text-muted">
               <FontAwesomeIcon
                 icon={faCalendarAlt}
                 className="w-3 h-3"

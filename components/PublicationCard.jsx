@@ -81,7 +81,7 @@ const PublicationCard = ({ publication }) => {
                 rel="noopener noreferrer"
                 className="group/link inline"
               >
-                <h2 className="text-base font-semibold text-light leading-snug group-hover:text-accent transition-colors inline">
+                <h2 className="text-base font-semibold text-strong leading-snug group-hover:text-accent transition-colors inline">
                   {title}
                   <span
                     className="inline-block ml-1.5 align-baseline transition-transform duration-300 motion-safe:group-hover/link:translate-x-1"
@@ -101,7 +101,7 @@ const PublicationCard = ({ publication }) => {
                 </h2>
               </a>
             ) : (
-              <h2 className="text-base font-semibold text-light leading-snug">
+              <h2 className="text-base font-semibold text-strong leading-snug">
                 {title}
               </h2>
             )}
@@ -109,17 +109,17 @@ const PublicationCard = ({ publication }) => {
 
           {/* Venue, Location, and Year */}
           {venue && (
-            <p className="text-sm text-gray-300 font-medium">
+            <p className="text-sm text-body font-medium">
               <span className="italic">{venue}</span>
               {publication.location && (
                 <>
-                  <span className="text-gray-500 mx-2">•</span>
+                  <span className="text-legacy-gray-500 mx-2">•</span>
                   <span>{cityAndFlag(publication.location)}</span>
                 </>
               )}
               {year && (
                 <>
-                  <span className="text-gray-500 mx-2">•</span>
+                  <span className="text-legacy-gray-500 mx-2">•</span>
                   <span>{year}</span>
                 </>
               )}
@@ -133,7 +133,7 @@ const PublicationCard = ({ publication }) => {
               {tags?.map((tag) => (
                 <span
                   key={tag}
-                  className="px-2.5 py-0.5 text-xs font-medium rounded-full bg-white/5 text-neutral-300 border border-white/10"
+                  className="px-2.5 py-0.5 text-xs font-medium rounded-full bg-white/5 text-legacy-neutral-300 border border-white/10"
                 >
                   {tag}
                 </span>

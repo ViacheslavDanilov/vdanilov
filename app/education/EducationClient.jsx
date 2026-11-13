@@ -291,10 +291,10 @@ export default function Education() {
         {/* Section 1: Core Education */}
         <section className="w-full max-w-7xl mx-auto px-6">
           <header className="mb-12 text-center">
-            <h2 className="text-4xl md:text-5xl font-bold text-light mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-strong mb-4">
               Core Education
             </h2>
-            <p className="text-gray-400 mt-3 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-muted mt-3 max-w-3xl mx-auto leading-relaxed">
               Academic foundation combining a PhD in Computer Science, technical
               Master's in engineering, and business Master's in management,
               offering a blend of technical and strategic expertise
@@ -311,10 +311,10 @@ export default function Education() {
         {/* Section 2: Additional Education */}
         <section className="w-full max-w-7xl mx-auto px-6">
           <header className="mb-12 text-center">
-            <h2 className="text-4xl md:text-5xl font-bold text-light mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-strong mb-4">
               Additional Education
             </h2>
-            <p className="text-gray-400 mt-3 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-muted mt-3 max-w-3xl mx-auto leading-relaxed">
               International research experience through visiting PhD positions
               in the UK, Spain, Italy, and Portugal, deepening expertise in
               machine learning, biomedical imaging, and intelligent systems
@@ -327,7 +327,7 @@ export default function Education() {
                 <EducationCard key={edu.id} education={edu} />
               ))
             ) : (
-              <p className="col-span-full text-center text-gray-500 italic">
+              <p className="col-span-full text-center text-legacy-gray-500 italic">
                 Coming soon...
               </p>
             )}
@@ -337,10 +337,10 @@ export default function Education() {
         {/* Section 3: Certifications */}
         <section className="w-full max-w-7xl mx-auto px-6">
           <header className="mb-12 text-center">
-            <h2 className="text-4xl md:text-5xl font-bold text-light mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-strong mb-4">
               Certifications
             </h2>
-            <p className="text-gray-400 mt-3 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-muted mt-3 max-w-3xl mx-auto leading-relaxed">
               Professional certifications in computer science, advanced data
               science, and machine learning, reinforcing a commitment to
               continuous learning and practical skill development
@@ -353,7 +353,7 @@ export default function Education() {
                 <CertificateCard key={cert.id} certificate={cert} />
               ))
             ) : (
-              <p className="col-span-full text-center text-gray-500 italic">
+              <p className="col-span-full text-center text-legacy-gray-500 italic">
                 Coming soon...
               </p>
             )}

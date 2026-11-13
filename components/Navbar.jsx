@@ -157,7 +157,7 @@ function Navbar() {
                 className={`px-4 py-2 rounded-full text-md font-normal transition-all duration-300 cursor-pointer ${
                   isActive
                     ? "bg-accent/15 text-accent"
-                    : "text-gray-300 hover:text-light hover:bg-light/10"
+                    : "text-body hover:text-strong hover:bg-light/10"
                 }`}
               >
                 {item.label}
@@ -170,7 +170,7 @@ function Navbar() {
         <button
           ref={toggleRef}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="lg:hidden p-1.5 -m-1.5 text-light hover:text-accent transition-colors flex-shrink-0"
+          className="lg:hidden p-1.5 -m-1.5 text-strong hover:text-accent transition-colors flex-shrink-0"
           aria-label="Toggle menu"
           aria-expanded={isMenuOpen}
           aria-controls={isMenuOpen ? "mobile-menu" : undefined}
@@ -211,7 +211,7 @@ function Navbar() {
                         className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all ${
                           isActive
                             ? "bg-accent/20 text-accent"
-                            : "text-gray-400 hover:bg-light/10 hover:text-light"
+                            : "text-muted hover:bg-light/10 hover:text-strong"
                         }`}
                       >
                         <FontAwesomeIcon

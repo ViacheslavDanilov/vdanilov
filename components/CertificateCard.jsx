@@ -28,7 +28,7 @@ const CertificateCard = ({ certificate }) => {
                 href={certificate.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group/title relative after:absolute after:-top-4 after:-bottom-1 after:-inset-x-3 focus-visible:after:hidden block md:whitespace-nowrap text-md font-bold text-light group-hover:text-accent transition-colors w-fit"
+                className="group/title relative after:absolute after:-top-4 after:-bottom-1 after:-inset-x-3 focus-visible:after:hidden block md:whitespace-nowrap text-md font-bold text-strong group-hover:text-accent transition-colors w-fit"
               >
                 <span className="uppercase tracking-wide">
                   {words.length > 0 && `${words.join(" ")} `}
@@ -56,13 +56,13 @@ const CertificateCard = ({ certificate }) => {
                 href={certificate.organizationUrl || certificate.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative after:absolute after:-top-1 after:-bottom-5 after:-inset-x-3 focus-visible:after:hidden text-sm font-medium text-light md:hover:text-accent uppercase tracking-wider transition-colors cursor-pointer w-fit md:truncate"
+                className="relative after:absolute after:-top-1 after:-bottom-5 after:-inset-x-3 focus-visible:after:hidden text-sm font-medium text-strong md:hover:text-accent uppercase tracking-wider transition-colors cursor-pointer w-fit md:truncate"
               >
                 {certificate.organization}
               </a>
 
               {certificate.date && (
-                <div className="text-sm text-gray-400">{certificate.date}</div>
+                <div className="text-sm text-muted">{certificate.date}</div>
               )}
             </div>
           </div>

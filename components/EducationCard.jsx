@@ -28,7 +28,7 @@ const ContentList = ({ items }) => (
     {items.map((item, index) => (
       <li key={index} className="flex items-start gap-3">
         <BulletPoint />
-        <p className="text-sm text-gray-300 leading-relaxed text-justify">
+        <p className="text-sm text-body leading-relaxed text-justify">
           {highlightKeywords(item)}
         </p>
       </li>
@@ -89,7 +89,7 @@ const EducationCard = ({ education }) => {
         return (
           <div className="flex items-start gap-3">
             <BulletPoint />
-            <p className="text-sm text-gray-300 leading-relaxed text-justify">
+            <p className="text-sm text-body leading-relaxed text-justify">
               <span className="font-semibold text-accent">Thesis: </span>
               {highlightKeywords(education.thesis)}
             </p>
@@ -123,7 +123,7 @@ const EducationCard = ({ education }) => {
             className="self-center md:self-auto"
           />
           <div className="flex flex-col items-center text-center gap-2 md:flex-1 md:items-stretch md:text-left">
-            <h3 className="text-md font-bold uppercase tracking-wider text-light">
+            <h3 className="text-md font-bold uppercase tracking-wider text-strong">
               {education.degree}
             </h3>
 
@@ -131,22 +131,22 @@ const EducationCard = ({ education }) => {
               href={education.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="relative after:absolute after:-inset-3 focus-visible:after:hidden text-sm font-medium text-light md:hover:text-accent uppercase cursor-pointer transition-colors max-w-full"
+              className="relative after:absolute after:-inset-3 focus-visible:after:hidden text-sm font-medium text-strong md:hover:text-accent uppercase cursor-pointer transition-colors max-w-full"
               aria-label={`${education.institution} website`}
             >
               {education.institution}
             </a>
 
             {education.field && (
-              <div className="text-sm text-gray-400 font-medium normal-case">
+              <div className="text-sm text-muted font-medium normal-case">
                 {education.field}
               </div>
             )}
 
-            <div className="flex flex-wrap gap-2 text-sm text-gray-400 justify-center md:justify-start">
+            <div className="flex flex-wrap gap-2 text-sm text-muted justify-center md:justify-start">
               <span>{education.period}</span>
             </div>
-            <p className="text-sm text-gray-400 mb-0">{education.location}</p>
+            <p className="text-sm text-muted mb-0">{education.location}</p>
           </div>
         </div>
 

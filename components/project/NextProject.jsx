@@ -23,7 +23,7 @@ export default function NextProject({ id }) {
       <div className="mt-8 flex justify-center">
         <Link
           href="/portfolio"
-          className="group relative inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-5 py-2 text-sm font-semibold text-light transition-colors duration-300 hover:bg-white/10 hover:border-white/30 after:absolute after:-inset-y-1.5 after:inset-x-0 focus-visible:after:hidden"
+          className="group relative inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-5 py-2 text-sm font-semibold text-strong transition-colors duration-300 hover:bg-white/10 hover:border-white/30 after:absolute after:-inset-y-1.5 after:inset-x-0 focus-visible:after:hidden"
         >
           All {PROJECTS.length} projects
           <FontAwesomeIcon

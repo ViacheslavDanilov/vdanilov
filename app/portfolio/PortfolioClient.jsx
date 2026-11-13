@@ -57,10 +57,10 @@ export default function Portfolio() {
         {/* Header Section */}
         <section className="w-full max-w-7xl mx-auto px-6">
           <header className="mb-12 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-light mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold text-strong mb-4">
               Portfolio
             </h1>
-            <p className="text-gray-400 mt-3 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-muted mt-3 max-w-3xl mx-auto leading-relaxed">
               A curated collection of projects showcasing expertise in machine
               learning, artificial intelligence, and data-driven solutions
             </p>
@@ -83,7 +83,7 @@ export default function Portfolio() {
               >
                 <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-card border border-white/10 flex items-center justify-center">
                   <svg
-                    className="w-8 h-8 text-gray-500"
+                    className="w-8 h-8 text-legacy-gray-500"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -96,10 +96,10 @@ export default function Portfolio() {
                     />
                   </svg>
                 </div>
-                <p className="text-gray-400 text-lg">
+                <p className="text-muted text-lg">
                   No projects in this category yet.
                 </p>
-                <p className="text-gray-500 text-sm mt-2">
+                <p className="text-legacy-gray-500 text-sm mt-2">
                   Check back soon for updates!
                 </p>
               </motion.div>
