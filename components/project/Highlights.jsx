@@ -17,18 +17,18 @@ export default function Highlights({ items }) {
               <div className="flex items-center gap-2">
                 <FontAwesomeIcon
                   icon={item.icon}
-                  className="w-3.5 h-3.5 text-white/70 transition-colors duration-300 group-hover:text-accent"
+                  className="w-3.5 h-3.5 text-ink/70 transition-colors duration-300 group-hover:text-accent"
                   style={{
                     width: "0.875rem",
                     height: "0.875rem",
                     display: "inline-block",
                   }}
                 />
-                <span className="text-xs uppercase tracking-wider text-light transition-colors duration-300 group-hover:text-accent font-semibold">
+                <span className="text-xs uppercase tracking-wider text-strong transition-colors duration-300 group-hover:text-accent font-semibold">
                   {item.label}
                 </span>
               </div>
-              <p className="text-sm text-light/80 leading-relaxed text-justify">
+              <p className="text-sm text-strong/80 leading-relaxed text-justify">
                 {item.text}
               </p>
             </div>

@@ -129,7 +129,7 @@ export default function ProjectPage() {
 
           <Section title="Overview">
             <div className="prose prose-invert max-w-none">
-              <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+              <p className="text-body leading-relaxed mb-4 text-justify">
                 Insurance Pricing is a full-stack machine learning application
                 that estimates annual insurance charges from demographic and
                 health factors, then explains how it reached each number.
@@ -138,7 +138,7 @@ export default function ProjectPage() {
                 trust by making every prediction transparent and every metric
                 interpretable.
               </p>
-              <p className="text-gray-300 leading-relaxed text-justify">
+              <p className="text-body leading-relaxed text-justify">
                 Under the hood, an AutoGluon tabular regressor produces the
                 estimate, SHAP computes the per-prediction feature
                 contributions, and an OpenAI model turns those contributions
@@ -152,38 +152,39 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Data">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               The model is trained on the public US Health Insurance Dataset,
               1,300 records of individual policy attributes paired with annual
               charges:
             </p>
-            <ul className="space-y-2 text-gray-300 mb-6 text-justify">
+            <ul className="space-y-2 text-body mb-6 text-justify">
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Features:</strong> Age, sex,
-                  BMI, number of children/dependents, smoker status, and US
-                  region.
+                  <strong className="text-legacy-gray-200">Features:</strong>{" "}
+                  Age, sex, BMI, number of children/dependents, smoker status,
+                  and US region.
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Target:</strong> Annual
-                  insurance charges, modeled as a tabular regression problem.
+                  <strong className="text-legacy-gray-200">Target:</strong>{" "}
+                  Annual insurance charges, modeled as a tabular regression
+                  problem.
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Guardrails:</strong>{" "}
+                  <strong className="text-legacy-gray-200">Guardrails:</strong>{" "}
                   Training-distribution bounds are stored so the app can warn
                   when a query extrapolates beyond what the model has seen.
                 </span>
               </li>
             </ul>
 
-            <p className="text-gray-300 leading-relaxed mb-6 text-justify">
+            <p className="text-body leading-relaxed mb-6 text-justify">
               The deployment is databaseless: predictions are served entirely
               from the trained model artifact, with no external data store
               dependency.
@@ -191,39 +192,45 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Methods">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               The system is a modular prediction-and-interpretation pipeline,
               where each stage is independently callable through the API:
             </p>
 
-            <ul className="space-y-4 text-gray-300 mb-6 text-justify">
+            <ul className="space-y-4 text-body mb-6 text-justify">
               <li>
-                <strong className="text-gray-200">
+                <strong className="text-legacy-gray-200">
                   Feature Input &amp; Preprocessing:
                 </strong>{" "}
                 User-provided insurance attributes are validated with Pydantic
                 and transformed for model consumption.
               </li>
               <li>
-                <strong className="text-gray-200">Model Inference:</strong> A
-                trained AutoGluon TabularPredictor artifact predicts the annual
-                charge and checks the query against training-distribution
+                <strong className="text-legacy-gray-200">
+                  Model Inference:
+                </strong>{" "}
+                A trained AutoGluon TabularPredictor artifact predicts the
+                annual charge and checks the query against training-distribution
                 bounds.
               </li>
               <li>
-                <strong className="text-gray-200">
+                <strong className="text-legacy-gray-200">
                   SHAP Value Computation:
                 </strong>{" "}
                 A TreeExplainer generates per-prediction feature contributions,
                 ranking how each input pushes the estimate up or down.
               </li>
               <li>
-                <strong className="text-gray-200">LLM Interpretation:</strong>{" "}
+                <strong className="text-legacy-gray-200">
+                  LLM Interpretation:
+                </strong>{" "}
                 GPT-4o-mini translates the SHAP output into a structured,
                 plain-language explanation: headline, key drivers, and caveats.
               </li>
               <li>
-                <strong className="text-gray-200">Evaluation Reporting:</strong>{" "}
+                <strong className="text-legacy-gray-200">
+                  Evaluation Reporting:
+                </strong>{" "}
                 Model quality is summarized with R², MAPE, and SMAPE, with
                 LLM-based interpretation that puts those metrics into business
                 context.
@@ -232,17 +239,19 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Results">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               By pairing accurate predictions with explainability, the
               application reframes insurance pricing from a black box into a
               transparent, auditable quote:
             </p>
 
-            <ul className="space-y-2 text-gray-300 mb-6 text-justify">
+            <ul className="space-y-2 text-body mb-6 text-justify">
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Interpretability:</strong>{" "}
+                  <strong className="text-legacy-gray-200">
+                    Interpretability:
+                  </strong>{" "}
                   Every prediction ships with SHAP contributions plus an LLM
                   explanation, replacing a low-transparency black box.
                 </span>
@@ -250,7 +259,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">
+                  <strong className="text-legacy-gray-200">
                     Per-Prediction Transparency:
                   </strong>{" "}
                   Local SHAP explanations show the cost drivers behind each
@@ -260,7 +269,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">
+                  <strong className="text-legacy-gray-200">
                     Business-Readable Evaluation:
                   </strong>{" "}
                   Static R²/MAPE/SMAPE metrics become a human-interpreted
@@ -270,14 +279,16 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Stakeholder Trust:</strong>{" "}
+                  <strong className="text-legacy-gray-200">
+                    Stakeholder Trust:
+                  </strong>{" "}
                   Explainability and extrapolation warnings make results
                   defensible across technical and non-technical teams.
                 </span>
               </li>
             </ul>
 
-            <p className="text-gray-300 leading-relaxed mb-6 text-justify">
+            <p className="text-body leading-relaxed mb-6 text-justify">
               A walkthrough of quoting an applicant, inspecting the SHAP cost
               drivers and plain-language explanation, and running a what-if
               comparison when smoking status changes is shown in{" "}
@@ -293,7 +304,7 @@ export default function ProjectPage() {
 
             {/* Figure 1: Demo Video */}
             <figure id="figure-1" className="scroll-mt-24 mb-8">
-              <div className="mx-auto w-full max-w-2xl rounded-xl overflow-hidden border border-white/10">
+              <div className="mx-auto w-full max-w-2xl rounded-xl overflow-hidden border border-line">
                 <AutoplayVideo
                   aspectRatio="16 / 9"
                   poster="/portfolio/insurance-pricing/demo-insurance-pricing-poster.webp"
@@ -308,8 +319,8 @@ export default function ProjectPage() {
                   Your browser does not support the video tag.
                 </AutoplayVideo>
               </div>
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 1.</span> Walkthrough of
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 1.</span> Walkthrough of
                 quoting an applicant, inspecting SHAP feature impacts and the AI
                 interpretation, and comparing a non-smoker what-if scenario.
               </figcaption>
@@ -324,9 +335,9 @@ export default function ProjectPage() {
                 height={1835}
                 maxWidth="xl"
               />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 2.</span> Insurance
-                Pricing dashboard: input panel, estimated annual charge, a
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 2.</span> Insurance Pricing
+                dashboard: input panel, estimated annual charge, a
                 plain-language interpretation of the main drivers, and the SHAP
                 feature-impact chart.
               </figcaption>
@@ -334,7 +345,7 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Conclusion">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               Insurance Pricing demonstrates an explainability-first approach to
               ML pricing: accurate AutoGluon predictions, SHAP-based local
               explanations, and LLM interpretation combine to make every quote
@@ -342,7 +353,7 @@ export default function ProjectPage() {
               databaseless architecture keeps each pipeline stage independently
               callable and simple to deploy.
             </p>
-            <p className="text-gray-300 leading-relaxed text-justify">
+            <p className="text-body leading-relaxed text-justify">
               As an end-to-end prototype, it is positioned to grow: planned
               extensions include advanced calibration analysis and ongoing model
               monitoring to keep predictions reliable as data shifts over time.

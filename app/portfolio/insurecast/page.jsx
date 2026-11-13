@@ -132,7 +132,7 @@ export default function ProjectPage() {
 
           <Section title="Overview">
             <div className="prose prose-invert max-w-none">
-              <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+              <p className="text-body leading-relaxed mb-4 text-justify">
                 InsureCast is a time-series forecasting dashboard that projects
                 monthly insurance claims and paid amounts, giving teams that
                 plan reserves and operations a consistent, reproducible forward
@@ -141,7 +141,7 @@ export default function ProjectPage() {
                 confidence-style bands, a monthly data table, and a short
                 narrative aligned to the very same numbers shown on the charts.
               </p>
-              <p className="text-gray-300 leading-relaxed text-justify">
+              <p className="text-body leading-relaxed text-justify">
                 Built as a FastAPI backend and Next.js frontend over shared demo
                 data, it fits per-segment SARIMAX seasonal models with automatic
                 fallbacks, and exposes a scenario API for stress-testing. A
@@ -154,16 +154,18 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Data">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               The demo is built on public OSHA Severe Injury Report (SIR) data,
               normalized into monthly aggregates the dashboard can serve
               directly:
             </p>
-            <ul className="space-y-2 text-gray-300 mb-6 text-justify">
+            <ul className="space-y-2 text-body mb-6 text-justify">
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">OSHA SIR (demo):</strong>{" "}
+                  <strong className="text-legacy-gray-200">
+                    OSHA SIR (demo):
+                  </strong>{" "}
                   Public severe-injury reports ingested and normalized to the
                   dashboard schema via dedicated ingest scripts.
                 </span>
@@ -171,7 +173,9 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Merged demo table:</strong>{" "}
+                  <strong className="text-legacy-gray-200">
+                    Merged demo table:
+                  </strong>{" "}
                   A single CSV of all segments × months (month, state, industry,
                   claim type, counts, and baseline average cost), loaded by the
                   API at startup.
@@ -180,40 +184,46 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Synthetic fill:</strong> An
-                  optional step completes coverage for demo segments when a
+                  <strong className="text-legacy-gray-200">
+                    Synthetic fill:
+                  </strong>{" "}
+                  An optional step completes coverage for demo segments when a
                   series has gaps.
                 </span>
               </li>
             </ul>
 
-            <p className="text-gray-300 leading-relaxed mb-6 text-justify">
+            <p className="text-body leading-relaxed mb-6 text-justify">
               Segments are defined by state, industry, and claim type, each
               modeled as its own monthly time series.
             </p>
           </Section>
 
           <Section title="Methods">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               The pipeline fits a seasonal model per segment and serves
               forecasts, scenarios, and summaries from the same underlying rows:
             </p>
 
-            <ul className="space-y-4 text-gray-300 mb-6 text-justify">
+            <ul className="space-y-4 text-body mb-6 text-justify">
               <li>
-                <strong className="text-gray-200">Seasonal Modeling:</strong>{" "}
+                <strong className="text-legacy-gray-200">
+                  Seasonal Modeling:
+                </strong>{" "}
                 Each segment&apos;s monthly series is fit with a SARIMAX
                 (1,1,1)×(1,1,1,12) model, capturing trend and 12-month
                 seasonality.
               </li>
               <li>
-                <strong className="text-gray-200">Robust Fallbacks:</strong>{" "}
+                <strong className="text-legacy-gray-200">
+                  Robust Fallbacks:
+                </strong>{" "}
                 When a series is too short or noisy for SARIMAX to fit, the
                 system automatically falls back to ARIMA or a seasonal-naive
                 method.
               </li>
               <li>
-                <strong className="text-gray-200">
+                <strong className="text-legacy-gray-200">
                   Forecasts with Uncertainty:
                 </strong>{" "}
                 Point forecasts are produced with 95% prediction intervals and a
@@ -221,7 +231,7 @@ export default function ProjectPage() {
                 cost per claim.
               </li>
               <li>
-                <strong className="text-gray-200">
+                <strong className="text-legacy-gray-200">
                   Scenario Recalculation:
                 </strong>{" "}
                 A scenario endpoint applies severity-inflation and
@@ -229,7 +239,9 @@ export default function ProjectPage() {
                 demand.
               </li>
               <li>
-                <strong className="text-gray-200">Aligned AI Summary:</strong>{" "}
+                <strong className="text-legacy-gray-200">
+                  Aligned AI Summary:
+                </strong>{" "}
                 An OpenAI-generated narrative (with a deterministic fallback
                 when no key is configured) describes the selected window using
                 the exact rows the charts consume.
@@ -238,16 +250,18 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Results">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               By unifying forecasting, scenarios, and reporting behind one API,
               InsureCast streamlines the planning loop:
             </p>
 
-            <ul className="space-y-2 text-gray-300 mb-6 text-justify">
+            <ul className="space-y-2 text-body mb-6 text-justify">
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Planning Cycle:</strong>{" "}
+                  <strong className="text-legacy-gray-200">
+                    Planning Cycle:
+                  </strong>{" "}
                   Refresh views by segment and horizon in one UI instead of
                   manually rebuilding them per question.
                 </span>
@@ -255,30 +269,32 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Consistency:</strong> One
-                  API and one merged definition of "forecast" replace scattered
-                  spreadsheets and divergent assumptions.
+                  <strong className="text-legacy-gray-200">Consistency:</strong>{" "}
+                  One API and one merged definition of "forecast" replace
+                  scattered spreadsheets and divergent assumptions.
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Scenarios:</strong> Severity
-                  and frequency shocks update the charts and table immediately,
-                  making side-by-side comparison easy.
+                  <strong className="text-legacy-gray-200">Scenarios:</strong>{" "}
+                  Severity and frequency shocks update the charts and table
+                  immediately, making side-by-side comparison easy.
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Communication:</strong>{" "}
+                  <strong className="text-legacy-gray-200">
+                    Communication:
+                  </strong>{" "}
                   Chart-aligned summary text replaces static slides, keeping the
                   narrative tied to the numbers.
                 </span>
               </li>
             </ul>
 
-            <p className="text-gray-300 leading-relaxed mb-6 text-justify">
+            <p className="text-body leading-relaxed mb-6 text-justify">
               A walkthrough of selecting a segment, generating monthly claims
               and cost forecasts with prediction bands, and stress-testing the
               outlook under severity and frequency shocks is shown in{" "}
@@ -294,7 +310,7 @@ export default function ProjectPage() {
 
             {/* Figure 1: Demo Video */}
             <figure id="figure-1" className="scroll-mt-24 mb-8">
-              <div className="mx-auto w-full max-w-2xl rounded-xl overflow-hidden border border-white/10">
+              <div className="mx-auto w-full max-w-2xl rounded-xl overflow-hidden border border-line">
                 <AutoplayVideo
                   aspectRatio="16 / 9"
                   poster="/portfolio/insurecast/demo-insurecast-poster.webp"
@@ -309,8 +325,8 @@ export default function ProjectPage() {
                   Your browser does not support the video tag.
                 </AutoplayVideo>
               </div>
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 1.</span> Walkthrough of
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 1.</span> Walkthrough of
                 segment selection, SARIMAX claims and cost forecasting with
                 prediction intervals, aligned AI summary generation, and what-if
                 scenario recalculation.
@@ -326,8 +342,8 @@ export default function ProjectPage() {
                 height={2896}
                 maxWidth="2xl"
               />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 2.</span> InsureCast
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 2.</span> InsureCast
                 dashboard: segment and scenario controls, historical-vs-forecast
                 charts with prediction bands for claims and average cost, an
                 aligned AI summary, and the monthly values table.
@@ -336,7 +352,7 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Conclusion">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               InsureCast shows how classical time-series modeling, an
               interactive scenario loop, and an aligned AI narrative can come
               together into a single, reproducible forecasting tool. Its
@@ -344,7 +360,7 @@ export default function ProjectPage() {
               robust fallbacks) and API-first architecture make claims and cost
               projections consistent, segmentable, and easy to stress-test.
             </p>
-            <p className="text-gray-300 leading-relaxed text-justify">
+            <p className="text-body leading-relaxed text-justify">
               As a prototype, it is positioned to grow toward production:
               roadmap items include live production data feeds and
               authentication, per-tenant configurable models and horizons, and

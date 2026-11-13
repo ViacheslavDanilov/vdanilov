@@ -348,10 +348,10 @@ export default function References() {
         {/* Header Section */}
         <section className="w-full max-w-7xl mx-auto px-6">
           <header className="mb-8 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-light mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold text-strong mb-4">
               References
             </h1>
-            <p className="text-gray-400 mt-3 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-muted mt-3 max-w-3xl mx-auto leading-relaxed">
               Collaborations with leading experts in machine learning, data
               science, and biomedicine have shaped my technical expertise and
               strategic perspective
@@ -368,7 +368,7 @@ export default function References() {
               <ReferenceCard reference={reference} priority={index === 0} />
             )}
             empty={
-              <p className="text-center text-gray-500 italic py-12">
+              <p className="text-center text-legacy-gray-500 italic py-12">
                 No references found for this category.
               </p>
             }

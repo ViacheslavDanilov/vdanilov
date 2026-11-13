@@ -24,12 +24,12 @@ export default function NotFound() {
           </div>
 
           {/* Title */}
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-light">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-strong">
             Page Not Found
           </h1>
 
           {/* Description */}
-          <p className="text-base sm:text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed px-4 sm:px-0">
+          <p className="text-base sm:text-lg text-muted max-w-2xl mx-auto leading-relaxed px-4 sm:px-0">
             The page you're looking for seems to have wandered off into the
             digital wilderness. Don't worry, it happens to the best of us!
           </p>
@@ -39,7 +39,7 @@ export default function NotFound() {
             <Link
               href="/"
               className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 
-                         px-6 py-3 rounded-full bg-accent text-dark font-medium
+                         px-6 py-3 rounded-full bg-accent text-on-accent font-medium
                          hover:bg-accent/90 transition-all duration-300 motion-safe:hover:scale-[1.02]"
             >
               <FontAwesomeIcon icon={faHouse} className="w-4 h-4" />
@@ -49,8 +49,8 @@ export default function NotFound() {
             <button
               onClick={() => router.back()}
               className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 
-                         px-6 py-3 rounded-full bg-transparent text-light font-medium
-                         border border-white/20 hover:bg-white/5 cursor-pointer
+                         px-6 py-3 rounded-full bg-transparent text-strong font-medium
+                         border border-ink/20 hover:bg-ink/5 cursor-pointer
                          transition-all duration-300 motion-safe:hover:scale-[1.02]"
             >
               <FontAwesomeIcon
@@ -62,7 +62,7 @@ export default function NotFound() {
           </div>
 
           {/* Contact link */}
-          <p className="text-sm text-gray-400 px-4 sm:px-0">
+          <p className="text-sm text-muted px-4 sm:px-0">
             If you think this is a mistake, please{" "}
             <a
               href="mailto:viacheslav.v.danilov@gmail.com"

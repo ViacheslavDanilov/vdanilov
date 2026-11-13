@@ -200,14 +200,14 @@ export default function ProjectPage() {
 
           <Section title="Overview">
             <div className="prose prose-invert max-w-none">
-              <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+              <p className="text-body leading-relaxed mb-4 text-justify">
                 Intracranial pressure (ICP) monitoring is vital in diagnosing
                 conditions such as traumatic brain injury and hydrocephalus, but
                 the current gold standard is invasive and risky. This project
                 leverages biophotonics and machine learning to provide an
                 accurate, non-invasive alternative.
               </p>
-              <p className="text-gray-300 leading-relaxed text-justify">
+              <p className="text-body leading-relaxed text-justify">
                 We used cerebral blood flow (CBF) measurements acquired via{" "}
                 <a
                   href="https://en.wikipedia.org/wiki/Diffuse_correlation_spectrometry"
@@ -229,7 +229,7 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Data">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               This study utilized synchronized, high-resolution recordings of
               CBF and ground-truth ICP from 79 subjects across two clinical
               cohorts: 60 with iNPH and 19 from the Katzman cohort. The CBF
@@ -242,25 +242,27 @@ export default function ProjectPage() {
               ).
             </p>
 
-            <ul className="space-y-2 text-gray-300 mb-6 text-justify">
+            <ul className="space-y-2 text-body mb-6 text-justify">
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">CBF Source:</strong> DCS
-                  optical probe (785 nm, frontal lobes, 40 Hz)
+                  <strong className="text-legacy-gray-200">CBF Source:</strong>{" "}
+                  DCS optical probe (785 nm, frontal lobes, 40 Hz)
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">ICP Source:</strong>{" "}
+                  <strong className="text-legacy-gray-200">ICP Source:</strong>{" "}
                   Invasive subdural sensors (Raumedic Neurodur-P)
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Preprocessing:</strong>{" "}
+                  <strong className="text-legacy-gray-200">
+                    Preprocessing:
+                  </strong>{" "}
                   Signal normalization, artifact filtering, statistical outlier
                   removal (Tukey fence, Kolmogorov–Smirnov distance)
                 </span>
@@ -268,21 +270,25 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Time Windowing:</strong>{" "}
+                  <strong className="text-legacy-gray-200">
+                    Time Windowing:
+                  </strong>{" "}
                   600-sample segments (~15-second windows)
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Dataset Size:</strong> 64
-                  subjects for training/validation (5-fold, 80/20 split) and 15
-                  subjects held out for testing
+                  <strong className="text-legacy-gray-200">
+                    Dataset Size:
+                  </strong>{" "}
+                  64 subjects for training/validation (5-fold, 80/20 split) and
+                  15 subjects held out for testing
                 </span>
               </li>
             </ul>
 
-            <p className="text-gray-300 leading-relaxed mb-6 text-justify">
+            <p className="text-body leading-relaxed mb-6 text-justify">
               The test set reflects real-world deployment conditions with no
               data leakage, ensuring robust generalization.
             </p>
@@ -296,8 +302,8 @@ export default function ProjectPage() {
                 height={1129}
                 maxWidth="2xl"
               />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 1.</span> Simultaneous
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 1.</span> Simultaneous
                 acquisition setup showing both invasive (subdural catheter) and
                 non-invasive (DCS probe) modalities.
               </figcaption>
@@ -305,7 +311,7 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Methods">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               The proposed approach frames ICP prediction as a supervised
               regression problem using short segments of CBF signals as input (
               <a href="#figure-2" className="text-accent hover:underline">
@@ -316,29 +322,33 @@ export default function ProjectPage() {
               CBF signals.
             </p>
 
-            <ul className="space-y-4 text-gray-300 mb-6 text-justify">
+            <ul className="space-y-4 text-body mb-6 text-justify">
               <li>
-                <strong className="text-gray-200">Model Benchmarking:</strong>{" "}
+                <strong className="text-legacy-gray-200">
+                  Model Benchmarking:
+                </strong>{" "}
                 mWDN was compared against 9 state-of-the-art architectures
                 including ResCNN, InceptionTime, XceptionTime, LSTM-FCN,
                 GRU-FCN, TST, TCN, MultiRocket, and XCM.
               </li>
               <li>
-                <strong className="text-gray-200">
+                <strong className="text-legacy-gray-200">
                   Sliding Window Modeling:
                 </strong>{" "}
                 Each 600-sample CBF window (15 seconds) is mapped to the
                 corresponding mean ICP value over the same interval.
               </li>
               <li>
-                <strong className="text-gray-200">Loss Tuning:</strong> Models
-                were trained using multiple loss functions (MAE, MSE, Huber, and
-                Log-Cosh) to assess robustness to outliers and physiological
-                variability.
+                <strong className="text-legacy-gray-200">Loss Tuning:</strong>{" "}
+                Models were trained using multiple loss functions (MAE, MSE,
+                Huber, and Log-Cosh) to assess robustness to outliers and
+                physiological variability.
               </li>
               <li>
-                <strong className="text-gray-200">Cross-Validation:</strong> A
-                two-level scheme was used (5-fold intra-subject validation and
+                <strong className="text-legacy-gray-200">
+                  Cross-Validation:
+                </strong>{" "}
+                A two-level scheme was used (5-fold intra-subject validation and
                 inter-subject hold-out evaluation) to prevent data leakage and
                 test generalization.
               </li>
@@ -353,68 +363,78 @@ export default function ProjectPage() {
                 height={959}
                 maxWidth="full"
               />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 2.</span> High-level
-                overview of the prediction pipeline from CBF signal ingestion to
-                ICP estimation and error metric computation.
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 2.</span> High-level overview
+                of the prediction pipeline from CBF signal ingestion to ICP
+                estimation and error metric computation.
               </figcaption>
             </figure>
           </Section>
 
           <Section title="Results">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               The proposed model demonstrated robust performance in predicting
               ICP across clinically meaningful ranges:
             </p>
 
-            <ul className="space-y-2 text-gray-300 mb-4">
+            <ul className="space-y-2 text-body mb-4">
               <li>
-                <strong className="text-gray-200">Validation MAE:</strong>{" "}
-                <span className="text-light font-semibold">2.6 mmHg</span>,
+                <strong className="text-legacy-gray-200">
+                  Validation MAE:
+                </strong>{" "}
+                <span className="text-strong font-semibold">2.6 mmHg</span>,
                 aligning with international clinical accuracy standards.
               </li>
               <li>
-                <strong className="text-gray-200">Test MAE:</strong>{" "}
+                <strong className="text-legacy-gray-200">Test MAE:</strong>{" "}
                 <span className="font-semibold">5.3 mmHg</span> with the mWDN
                 model on unseen subjects.
               </li>
               <li>
-                <strong className="text-gray-200">Hemisphere Breakdown:</strong>{" "}
+                <strong className="text-legacy-gray-200">
+                  Hemisphere Breakdown:
+                </strong>{" "}
                 <span className="font-semibold">5.3 mmHg</span> on the right
                 hemisphere and <span className="font-semibold">6.3 mmHg</span>{" "}
                 on the left.
               </li>
               <li>
-                <strong className="text-gray-200">Clinical Accuracy:</strong>{" "}
-                <span className="text-light font-semibold">52%</span> of
+                <strong className="text-legacy-gray-200">
+                  Clinical Accuracy:
+                </strong>{" "}
+                <span className="text-strong font-semibold">52%</span> of
                 predictions within 4 mmHg of the invasive ground truth.
               </li>
             </ul>
 
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               According to standards set by the American National Standards
               Institute and the Association for the Advancement of Medical
               Instrumentation, non-invasive ICP monitoring must achieve:
             </p>
 
-            <ul className="space-y-2 text-gray-300 mb-6 text-justify">
+            <ul className="space-y-2 text-body mb-6 text-justify">
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">±2 mmHg accuracy</strong>{" "}
+                  <strong className="text-legacy-gray-200">
+                    ±2 mmHg accuracy
+                  </strong>{" "}
                   for true ICP values in the 0–20 mmHg range
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">±10% accuracy</strong> for
-                  ICP values above 20 mmHg
+                  <strong className="text-legacy-gray-200">
+                    ±10% accuracy
+                  </strong>{" "}
+                  for ICP values above 20 mmHg
                 </span>
               </li>
             </ul>
 
-            <p className="text-gray-300 leading-relaxed mb-6 text-justify">
+            <p className="text-body leading-relaxed mb-6 text-justify">
               While the test MAE exceeds the strict ±2 mmHg threshold, the model
               remains clinically actionable in the most relevant range for iNPH
               patients: 0–15 mmHg. The error distribution (
@@ -433,14 +453,14 @@ export default function ProjectPage() {
                 height={2500}
                 maxWidth="lg"
               />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 3.</span> Error
-                distribution of the mWDN model showing prediction accuracy
-                across different ICP ranges.
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 3.</span> Error distribution
+                of the mWDN model showing prediction accuracy across different
+                ICP ranges.
               </figcaption>
             </figure>
 
-            <p className="text-gray-300 leading-relaxed mb-6 text-justify">
+            <p className="text-body leading-relaxed mb-6 text-justify">
               To visualize model behavior,{" "}
               <a href="#figure-4" className="text-accent hover:underline">
                 Figure 4
@@ -457,7 +477,7 @@ export default function ProjectPage() {
 
             {/* Figure 4 - Validation Video */}
             <figure id="figure-4" className="scroll-mt-24 mb-8">
-              <div className="relative rounded-xl overflow-hidden border border-white/10">
+              <div className="relative rounded-xl overflow-hidden border border-line">
                 <AutoplayVideo
                   aspectRatio="324 / 79"
                   className="w-full"
@@ -471,16 +491,16 @@ export default function ProjectPage() {
                   Your browser does not support the video tag.
                 </AutoplayVideo>
               </div>
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 4.</span> Predicted vs.
-                true ICP values on the validation set. Red regions indicate
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 4.</span> Predicted vs. true
+                ICP values on the validation set. Red regions indicate
                 validation intervals.
               </figcaption>
             </figure>
 
             {/* Figure 5 - Test Video */}
             <figure id="figure-5" className="scroll-mt-24">
-              <div className="relative rounded-xl overflow-hidden border border-white/10">
+              <div className="relative rounded-xl overflow-hidden border border-line">
                 <AutoplayVideo
                   aspectRatio="324 / 79"
                   className="w-full"
@@ -494,15 +514,15 @@ export default function ProjectPage() {
                   Your browser does not support the video tag.
                 </AutoplayVideo>
               </div>
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 5.</span> Predicted vs.
-                true ICP values on the held-out test subject.
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 5.</span> Predicted vs. true
+                ICP values on the held-out test subject.
               </figcaption>
             </figure>
           </Section>
 
           <Section title="Conclusion">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               This work presents a clinically viable, non-invasive method for
               ICP estimation using deep learning on CBF signals acquired via
               diffuse correlation spectroscopy. By training a wavelet-based
@@ -512,7 +532,7 @@ export default function ProjectPage() {
               accurately predicted from CBF dynamics without the need for
               surgical monitoring.
             </p>
-            <p className="text-gray-300 leading-relaxed text-justify">
+            <p className="text-body leading-relaxed text-justify">
               The model achieved a mean absolute error of 2.6 mmHg on validation
               data, aligning with the ±2 mmHg accuracy target. On a held-out
               test set, performance remained robust (MAE: 5.3 mmHg), with 52% of

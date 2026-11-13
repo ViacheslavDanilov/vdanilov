@@ -15,7 +15,7 @@ const VARIANTS = {
   cyan: "bg-cyan-600/20 text-cyan-400 border-cyan-600/40",
   sky: "bg-sky-500/20 text-sky-400 border-sky-500/40",
 
-  "teal-blur": "bg-dark/30 backdrop-blur-sm text-teal-400 border-teal-500/30",
+  "teal-blur": "bg-page/30 backdrop-blur-sm text-teal-400 border-teal-500/30",
 };
 
 /**

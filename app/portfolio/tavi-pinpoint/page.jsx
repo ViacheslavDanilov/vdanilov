@@ -183,7 +183,7 @@ export default function ProjectPage() {
 
           <Section title="Overview">
             <div className="prose prose-invert max-w-none">
-              <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+              <p className="text-body leading-relaxed mb-4 text-justify">
                 This project addresses one of the most critical challenges in
                 modern cardiovascular intervention: accurately positioning the
                 valve during{" "}
@@ -198,7 +198,7 @@ export default function ProjectPage() {
                 (TAVI). Traditional imaging methods offer limited intraoperative
                 guidance, risking misplacement and complications.
               </p>
-              <p className="text-gray-300 leading-relaxed text-justify">
+              <p className="text-body leading-relaxed text-justify">
                 To overcome this, we developed a deep learning-based visual
                 assistance system using{" "}
                 <a
@@ -222,33 +222,35 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Data">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               The solution was developed and validated using real-world surgical
               imaging data, making its outputs directly relevant for clinical
               applications. The dataset included:
             </p>
-            <ul className="space-y-2 text-gray-300 mb-6 text-justify">
+            <ul className="space-y-2 text-body mb-6 text-justify">
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Source:</strong> Original
-                  aortography imaging series from 14 patients undergoing TAVI
-                  procedures (2015 – 2018) at the Kemerovo Cardiology Center
+                  <strong className="text-legacy-gray-200">Source:</strong>{" "}
+                  Original aortography imaging series from 14 patients
+                  undergoing TAVI procedures (2015 – 2018) at the Kemerovo
+                  Cardiology Center
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Images:</strong> 3,730
-                  grayscale images (1,000×1,000 pixels), labeled with up to 11
-                  anatomical and device-related keypoints
+                  <strong className="text-legacy-gray-200">Images:</strong>{" "}
+                  3,730 grayscale images (1,000×1,000 pixels), labeled with up
+                  to 11 anatomical and device-related keypoints
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Annotation:</strong> Image
-                  annotation was conducted by expert cardiologists using the{" "}
+                  <strong className="text-legacy-gray-200">Annotation:</strong>{" "}
+                  Image annotation was conducted by expert cardiologists using
+                  the{" "}
                   <a
                     href="https://supervisely.com/"
                     target="_blank"
@@ -263,21 +265,22 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Split:</strong> Training
-                  (80%, 2,984 images) and validation (20%, 746 images) sets
+                  <strong className="text-legacy-gray-200">Split:</strong>{" "}
+                  Training (80%, 2,984 images) and validation (20%, 746 images)
+                  sets
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Coverage:</strong> Three
-                  critical surgical stages: delivery system positioning,
+                  <strong className="text-legacy-gray-200">Coverage:</strong>{" "}
+                  Three critical surgical stages: delivery system positioning,
                   prosthesis deployment initiation, and partial valve release
                 </span>
               </li>
             </ul>
 
-            <p className="text-gray-300 leading-relaxed mb-6 text-justify">
+            <p className="text-body leading-relaxed mb-6 text-justify">
               These images captured three critical surgical stages providing a
               diverse and representative training ground for keypoint detection
               (
@@ -296,16 +299,16 @@ export default function ProjectPage() {
                 height={2418}
                 maxWidth="2xl"
               />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 1.</span> Visual workflow
-                for intraoperative landmark labeling showing the annotation
-                process and keypoint identification across surgical stages.
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 1.</span> Visual workflow for
+                intraoperative landmark labeling showing the annotation process
+                and keypoint identification across surgical stages.
               </figcaption>
             </figure>
           </Section>
 
           <Section title="Methods">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               The project implemented a multi-task learning architecture to
               simultaneously classify the presence and regress the coordinates
               of keypoints in angiographic images (
@@ -316,26 +319,32 @@ export default function ProjectPage() {
               compared to single-task methods.
             </p>
 
-            <ul className="space-y-4 text-gray-300 mb-6 text-justify">
+            <ul className="space-y-4 text-body mb-6 text-justify">
               <li>
-                <strong className="text-gray-200">Architecture:</strong> A
-                shared feature extractor that reduced image dimensionality while
-                preserving semantic detail, combined with a classifier for
+                <strong className="text-legacy-gray-200">Architecture:</strong>{" "}
+                A shared feature extractor that reduced image dimensionality
+                while preserving semantic detail, combined with a classifier for
                 multi-label keypoint detection and a regressor for (x, y)
                 coordinate prediction.
               </li>
               <li>
-                <strong className="text-gray-200">Backbones Tested:</strong>{" "}
+                <strong className="text-legacy-gray-200">
+                  Backbones Tested:
+                </strong>{" "}
                 Five architectures were evaluated: MobileNet V2, ResNet V2,
                 Inception V3, Inception ResNet V2, and EfficientNet B5.
               </li>
               <li>
-                <strong className="text-gray-200">Training Strategy:</strong>{" "}
+                <strong className="text-legacy-gray-200">
+                  Training Strategy:
+                </strong>{" "}
                 Fine-tuning and early stopping were employed to boost
                 generalization and prevent overfitting.
               </li>
               <li>
-                <strong className="text-gray-200">Loss Functions:</strong>{" "}
+                <strong className="text-legacy-gray-200">
+                  Loss Functions:
+                </strong>{" "}
                 Log-Cosh loss for regression and binary cross-entropy for
                 classification, balanced via weighted sum.
               </li>
@@ -350,25 +359,25 @@ export default function ProjectPage() {
                 height={1952}
                 maxWidth="2xl"
               />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 2.</span> Multi-task
-                learning workflow showing the shared feature extractor with
-                parallel classification and regression heads.
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 2.</span> Multi-task learning
+                workflow showing the shared feature extractor with parallel
+                classification and regression heads.
               </figcaption>
             </figure>
           </Section>
 
           <Section title="Results">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               The system achieved real-time performance with high accuracy in
               both keypoint detection and localization. Key outcomes included:
             </p>
 
-            <ul className="space-y-2 text-gray-300 mb-4">
+            <ul className="space-y-2 text-body mb-4">
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">
+                  <strong className="text-legacy-gray-200">
                     ResNet V2 (fine-tuned):
                   </strong>{" "}
                   Reached <span className="font-semibold">97%</span>{" "}
@@ -379,7 +388,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">
+                  <strong className="text-legacy-gray-200">
                     MobileNet V2 (fine-tuned):
                   </strong>{" "}
                   Achieved <span className="font-semibold">96%</span> accuracy
@@ -391,7 +400,9 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Model Convergence:</strong>{" "}
+                  <strong className="text-legacy-gray-200">
+                    Model Convergence:
+                  </strong>{" "}
                   Rapid convergence with early stopping applied around 22–76
                   epochs depending on architecture
                 </span>
@@ -399,14 +410,16 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Performance Gain:</strong>{" "}
+                  <strong className="text-legacy-gray-200">
+                    Performance Gain:
+                  </strong>{" "}
                   Fine-tuned models outperformed their non-tuned counterparts
                   across all metrics (F1-score, MAE, RMSE)
                 </span>
               </li>
             </ul>
 
-            <p className="text-gray-300 leading-relaxed mb-6 text-justify">
+            <p className="text-body leading-relaxed mb-6 text-justify">
               The analysis also highlighted challenges from class imbalance,
               particularly with underrepresented keypoints (e.g., aortic annulus
               landmarks), which the model handled well despite data limitations.
@@ -431,7 +444,7 @@ export default function ProjectPage() {
                     controls
                     className="w-full h-auto"
                   />
-                  <p className="text-center text-xs text-gray-500 mt-2">
+                  <p className="text-center text-xs text-legacy-gray-500 mt-2">
                     MobileNet V2
                   </p>
                 </div>
@@ -442,7 +455,7 @@ export default function ProjectPage() {
                     controls
                     className="w-full h-auto"
                   />
-                  <p className="text-center text-xs text-gray-500 mt-2">
+                  <p className="text-center text-xs text-legacy-gray-500 mt-2">
                     ResNet V2
                   </p>
                 </div>
@@ -453,13 +466,13 @@ export default function ProjectPage() {
                     controls
                     className="w-full h-auto"
                   />
-                  <p className="text-center text-xs text-gray-500 mt-2">
+                  <p className="text-center text-xs text-legacy-gray-500 mt-2">
                     Inception V3
                   </p>
                 </div>
               </div>
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 3.</span> Training
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 3.</span> Training
                 convergence of selected neural network architectures showing
                 prediction quality evolution during training.
               </figcaption>
@@ -474,8 +487,8 @@ export default function ProjectPage() {
                 height={1750}
                 maxWidth="2xl"
               />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 4.</span> Comparison of
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 4.</span> Comparison of
                 prediction quality at the beginning versus end of training,
                 demonstrating significant improvement in keypoint localization.
               </figcaption>
@@ -483,13 +496,13 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Conclusion">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               This project successfully demonstrates a real-time AI-based system
               for intraoperative landmark tracking during TAVI, offering a
               significant step toward safer, more precise cardiovascular
               surgery. The system&apos;s main contributions are:
             </p>
-            <ul className="space-y-2 text-gray-300 mb-4 text-justify">
+            <ul className="space-y-2 text-body mb-4 text-justify">
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
@@ -512,7 +525,7 @@ export default function ProjectPage() {
                 </span>
               </li>
             </ul>
-            <p className="text-gray-300 leading-relaxed text-justify">
+            <p className="text-body leading-relaxed text-justify">
               Future directions include expanding the dataset to cover more
               valve models, optimizing for class imbalance, and integrating with
               surgical robotics for semi-automated procedures.

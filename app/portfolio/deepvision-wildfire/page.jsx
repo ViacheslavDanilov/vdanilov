@@ -173,14 +173,14 @@ export default function ProjectPage() {
 
           <Section title="Overview">
             <div className="prose prose-invert max-w-none">
-              <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+              <p className="text-body leading-relaxed mb-4 text-justify">
                 In response to the devastating 2019 Siberian wildfires, this
                 project developed a high-accuracy wildfire detection system
                 based on object detection and neural networks. The goal was to
                 detect smoke in video footage and alert forest protection
                 services in real-time.
               </p>
-              <p className="text-gray-300 leading-relaxed text-justify">
+              <p className="text-body leading-relaxed text-justify">
                 The project combined EfficientDet object detectors with custom
                 pre-processing and a novel CNN-RNN hybrid classifier. Not only
                 did it outperform existing systems in classification and
@@ -193,12 +193,12 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Data">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               The system was trained on a diverse dataset of 550 video
               recordings (350 fire, 200 non-fire), sourced from multiple
               international wildfire monitoring centers:
             </p>
-            <ul className="space-y-2 text-gray-300 mb-6 text-justify">
+            <ul className="space-y-2 text-body mb-6 text-justify">
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
@@ -257,7 +257,7 @@ export default function ProjectPage() {
               </li>
             </ul>
 
-            <p className="text-gray-300 leading-relaxed mb-6 text-justify">
+            <p className="text-body leading-relaxed mb-6 text-justify">
               From each video, frames were extracted, preprocessed, and
               annotated using{" "}
               <a
@@ -298,8 +298,8 @@ export default function ProjectPage() {
                   sizes="(max-width: 768px) 100vw, 480px"
                 />
               </div>
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 1.</span> Sample wildfire
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 1.</span> Sample wildfire
                 detection from Nevada Seismological Laboratory video feed
                 showing smoke plume identification.
               </figcaption>
@@ -307,28 +307,30 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Methods">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               The detection pipeline used a three-stage architecture designed
               for robust smoke detection across varied terrain and weather
               conditions:
             </p>
 
-            <ul className="space-y-4 text-gray-300 mb-6 text-justify">
+            <ul className="space-y-4 text-body mb-6 text-justify">
               <li>
-                <strong className="text-gray-200">
+                <strong className="text-legacy-gray-200">
                   Dynamic Feature Extraction:
                 </strong>{" "}
                 Frame differencing and adaptive thresholding to isolate motion
                 patterns typical of smoke.
               </li>
               <li>
-                <strong className="text-gray-200">Object Detection:</strong>{" "}
+                <strong className="text-legacy-gray-200">
+                  Object Detection:
+                </strong>{" "}
                 Multiple models were evaluated (EfficientDet-D0/D1/D2, Faster
                 R-CNN, SSD MobileNet), with EfficientDet-D1 chosen for best
                 localization and speed.
               </li>
               <li>
-                <strong className="text-gray-200">
+                <strong className="text-legacy-gray-200">
                   Hybrid Classification:
                 </strong>{" "}
                 A CNN-RNN model combining InceptionV3 for spatial features and
@@ -336,14 +338,16 @@ export default function ProjectPage() {
                 frames.
               </li>
               <li>
-                <strong className="text-gray-200">Clustering Algorithm:</strong>{" "}
+                <strong className="text-legacy-gray-200">
+                  Clustering Algorithm:
+                </strong>{" "}
                 A unique clustering algorithm aggregated detection results
                 across frames using intersection-over-union (IoU) similarity,
                 improving localization by 6% and reducing false positives.
               </li>
             </ul>
 
-            <p className="text-gray-300 leading-relaxed mb-6 text-justify">
+            <p className="text-body leading-relaxed mb-6 text-justify">
               The Siberian Forest Protection Service deployment scenario
               demonstrates the system&apos;s capability to detect smoke in
               challenging conditions (
@@ -373,16 +377,16 @@ export default function ProjectPage() {
                   sizes="(max-width: 768px) 100vw, 480px"
                 />
               </div>
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 2.</span> Wildfire
-                detection in Siberian forest region demonstrating the
-                system&apos;s real-time smoke identification capabilities.
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 2.</span> Wildfire detection
+                in Siberian forest region demonstrating the system&apos;s
+                real-time smoke identification capabilities.
               </figcaption>
             </figure>
           </Section>
 
           <Section title="Results">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               The wildfire detection system demonstrated robust performance
               across multiple evaluation metrics and test scenarios. The
               combination of advanced object detection, custom pre-processing,
@@ -390,9 +394,9 @@ export default function ProjectPage() {
               results.
             </p>
 
-            <ul className="space-y-2 text-gray-300 mb-4">
+            <ul className="space-y-2 text-body mb-4">
               <li>
-                <strong className="text-gray-200">
+                <strong className="text-legacy-gray-200">
                   Classification Accuracy:
                 </strong>{" "}
                 <span className="font-semibold">95.6%</span>, reflecting the
@@ -400,43 +404,45 @@ export default function ProjectPage() {
                 non-fire instances.
               </li>
               <li>
-                <strong className="text-gray-200">F1-score:</strong>{" "}
+                <strong className="text-legacy-gray-200">F1-score:</strong>{" "}
                 <span className="font-semibold">94%</span>, indicating a strong
                 balance between precision and recall – critical for minimizing
                 missed fires and false alarms.
               </li>
               <li>
-                <strong className="text-gray-200">Recall:</strong>{" "}
+                <strong className="text-legacy-gray-200">Recall:</strong>{" "}
                 <span className="font-semibold">97.2%</span>, showing the
                 system&apos;s excellent capability to detect almost all actual
                 fire events.
               </li>
               <li>
-                <strong className="text-gray-200">Precision:</strong>{" "}
+                <strong className="text-legacy-gray-200">Precision:</strong>{" "}
                 <span className="font-semibold">93%</span>, indicating that the
                 majority of alerts corresponded to real fire-related events.
               </li>
               <li>
-                <strong className="text-gray-200">
+                <strong className="text-legacy-gray-200">
                   Localization Accuracy (IoU):
                 </strong>{" "}
                 <span className="font-semibold">62%</span>, measuring how well
                 the system identified the precise region of the fire.
               </li>
               <li>
-                <strong className="text-gray-200">Processing Speed:</strong>{" "}
+                <strong className="text-legacy-gray-200">
+                  Processing Speed:
+                </strong>{" "}
                 Approximately <span className="font-semibold">9 FPS</span> on a
                 GeForce RTX 2080 Ti GPU, ensuring quasi-real-time deployment.
               </li>
             </ul>
 
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               Notably, the application of dynamic feature extraction and
               temporal sequence modeling contributed to significant performance
               improvements:
             </p>
 
-            <ul className="space-y-2 text-gray-300 mb-4 text-justify">
+            <ul className="space-y-2 text-body mb-4 text-justify">
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
@@ -461,7 +467,7 @@ export default function ProjectPage() {
               </li>
             </ul>
 
-            <p className="text-gray-300 leading-relaxed text-justify">
+            <p className="text-body leading-relaxed text-justify">
               These results place the system ahead of comparable wildfire
               detection technologies such as{" "}
               <a
@@ -487,7 +493,7 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Conclusion">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               This project showcases a scalable and robust wildfire detection
               system, outperforming current methods in both accuracy and speed.
               Its modular pipeline, spanning image pre-processing, real-time
@@ -495,7 +501,7 @@ export default function ProjectPage() {
               various dynamic-object detection tasks, from medical diagnostics
               to robotics.
             </p>
-            <p className="text-gray-300 leading-relaxed text-justify">
+            <p className="text-body leading-relaxed text-justify">
               Future improvements could include edge deployment, drone
               integration, and domain adaptation for wildfire detection in
               different geographies and climates. The project has been

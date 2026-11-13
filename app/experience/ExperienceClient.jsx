@@ -620,10 +620,10 @@ export default function Experience() {
       <div className="flex flex-col items-center pt-12 md:pt-24 gap-36 pb-48">
         <section className="w-full max-w-7xl mx-auto px-6">
           <header className="mb-12 text-center">
-            <h2 className="text-4xl md:text-5xl font-bold text-light mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-strong mb-4">
               Core Positions
             </h2>
-            <p className="text-gray-400 mt-3 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-muted mt-3 max-w-3xl mx-auto leading-relaxed">
               Leadership and engineering roles spanning AI, machine learning,
               data science, computer vision, and biomedical imaging across
               research and industry
@@ -640,10 +640,10 @@ export default function Experience() {
         {/* Visiting Positions Section */}
         <section className="w-full max-w-7xl mx-auto px-6">
           <header className="mb-12 text-center">
-            <h2 className="text-4xl md:text-5xl font-bold text-light mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-strong mb-4">
               Visiting Positions
             </h2>
-            <p className="text-gray-400 mt-3 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-muted mt-3 max-w-3xl mx-auto leading-relaxed">
               Collaborative research contributions in machine learning, AI, and
               biomedical imaging through short- and mid-term academic
               engagements

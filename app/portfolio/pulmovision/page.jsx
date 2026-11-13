@@ -170,7 +170,7 @@ export default function ProjectPage() {
 
           <Section title="Overview">
             <div className="prose prose-invert max-w-none">
-              <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+              <p className="text-body leading-relaxed mb-4 text-justify">
                 <a
                   href="https://en.wikipedia.org/wiki/Pulmonary_edema"
                   target="_blank"
@@ -185,7 +185,7 @@ export default function ProjectPage() {
                 solution to assist in the identification and severity assessment
                 of pulmonary edema using chest X-rays.
               </p>
-              <p className="text-gray-300 leading-relaxed text-justify">
+              <p className="text-body leading-relaxed text-justify">
                 We implemented a two-stage deep learning framework: lung
                 segmentation and edema feature localization. The segmentation
                 stage focused on isolating lung regions, while the detection
@@ -200,16 +200,16 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Data">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               This study leveraged a robust and clinically relevant dataset to
               ensure precise model training and evaluation:
             </p>
-            <ul className="space-y-2 text-gray-300 mb-6 text-justify">
+            <ul className="space-y-2 text-body mb-6 text-justify">
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Source:</strong> Chest
-                  X-rays were sourced from the{" "}
+                  <strong className="text-legacy-gray-200">Source:</strong>{" "}
+                  Chest X-rays were sourced from the{" "}
                   <a
                     href="https://physionet.org/content/mimic-cxr-jpg/2.1.0/"
                     target="_blank"
@@ -224,15 +224,17 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Dataset Size:</strong> 1,000
-                  annotated chest X-rays representing 741 patients with
+                  <strong className="text-legacy-gray-200">
+                    Dataset Size:
+                  </strong>{" "}
+                  1,000 annotated chest X-rays representing 741 patients with
                   suspected pulmonary edema.
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Features:</strong>{" "}
+                  <strong className="text-legacy-gray-200">Features:</strong>{" "}
                   Cephalization, Kerley lines, pleural effusion, bat wings, and
                   infiltrates.
                 </span>
@@ -240,7 +242,9 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Annotation Method:</strong>{" "}
+                  <strong className="text-legacy-gray-200">
+                    Annotation Method:
+                  </strong>{" "}
                   Cephalization and Kerley lines were delineated using
                   polylines; pleural effusion, bat wings, and infiltrates were
                   marked with binary segmentation masks.
@@ -249,7 +253,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">
+                  <strong className="text-legacy-gray-200">
                     Annotation Platform:
                   </strong>{" "}
                   The{" "}
@@ -267,7 +271,7 @@ export default function ProjectPage() {
               </li>
             </ul>
 
-            <p className="text-gray-300 leading-relaxed mb-6 text-justify">
+            <p className="text-body leading-relaxed mb-6 text-justify">
               Radiological features such as cephalization, Kerley lines, pleural
               effusion, bat wings, and infiltrates were labeled by an
               experienced radiologist (
@@ -286,8 +290,8 @@ export default function ProjectPage() {
                 height={2124}
                 maxWidth="full"
               />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 1.</span> Chest X-ray
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 1.</span> Chest X-ray
                 annotation methodology showing the radiographic features of
                 pulmonary edema: cephalization, Kerley lines, pleural effusion,
                 bat wings, and infiltrates.
@@ -296,41 +300,49 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Methods">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               The project implemented a comprehensive two-stage methodology
               tailored for the detection and localization of pulmonary edema
               features:
             </p>
 
-            <ul className="space-y-4 text-gray-300 mb-6 text-justify">
+            <ul className="space-y-4 text-body mb-6 text-justify">
               <li>
-                <strong className="text-gray-200">Lung Segmentation:</strong>{" "}
+                <strong className="text-legacy-gray-200">
+                  Lung Segmentation:
+                </strong>{" "}
                 Combined predictions from three segmentation models (DeepLabV3,
                 MA-Net, and FPN) in an ensemble approach. Achieved Dice
                 Similarity Coefficients exceeding 94%, ensuring precise lung
                 boundary delineation.
               </li>
               <li>
-                <strong className="text-gray-200">Feature Detection:</strong>{" "}
+                <strong className="text-legacy-gray-200">
+                  Feature Detection:
+                </strong>{" "}
                 Eight object detection networks were trained to specialize in
                 detecting individual features, including SABL, TOOD, Cascade
                 RPN, PAA, Faster R-CNN, GFL, FSAF, and ATSS.
               </li>
               <li>
-                <strong className="text-gray-200">Training Strategy:</strong>{" "}
+                <strong className="text-legacy-gray-200">
+                  Training Strategy:
+                </strong>{" "}
                 Each network was configured to address imbalances in feature
                 representation, with tailored confidence thresholds to optimize
                 F1 scores.
               </li>
               <li>
-                <strong className="text-gray-200">Evaluation Metrics:</strong>{" "}
+                <strong className="text-legacy-gray-200">
+                  Evaluation Metrics:
+                </strong>{" "}
                 Used average precision (AP), mean average precision (mAP), and
                 latency to assess network performance across all feature
                 classes.
               </li>
             </ul>
 
-            <p className="text-gray-300 leading-relaxed mb-6 text-justify">
+            <p className="text-body leading-relaxed mb-6 text-justify">
               The two-stage detection workflow is illustrated in{" "}
               <a href="#figure-2" className="text-accent hover:underline">
                 Figure 2
@@ -347,48 +359,52 @@ export default function ProjectPage() {
                 height={1156}
                 maxWidth="full"
               />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 2.</span> Two-stage
-                feature detection workflow: lung segmentation using ensemble
-                models followed by object detection for edema features.
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 2.</span> Two-stage feature
+                detection workflow: lung segmentation using ensemble models
+                followed by object detection for edema features.
               </figcaption>
             </figure>
           </Section>
 
           <Section title="Results">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               The developed framework demonstrated high precision and efficiency
               in localizing radiographic features of pulmonary edema:
             </p>
 
-            <ul className="space-y-2 text-gray-300 mb-4">
+            <ul className="space-y-2 text-body mb-4">
               <li>
-                <strong className="text-gray-200">SABL:</strong> Achieved the
-                highest mAP of{" "}
-                <span className="font-semibold text-light">0.568</span> and
+                <strong className="text-legacy-gray-200">SABL:</strong> Achieved
+                the highest mAP of{" "}
+                <span className="font-semibold text-strong">0.568</span> and
                 excelled in detecting pleural effusion (AP: 0.599), infiltrates
                 (AP: 0.395), and bat wings (AP: 0.926).
               </li>
               <li>
-                <strong className="text-gray-200">TOOD & Cascade RPN:</strong>{" "}
+                <strong className="text-legacy-gray-200">
+                  TOOD & Cascade RPN:
+                </strong>{" "}
                 Showed strong capabilities in detecting bat wings (AP: 0.918)
                 and cephalization (AP: 0.532).
               </li>
               <li>
-                <strong className="text-gray-200">Faster R-CNN:</strong>{" "}
+                <strong className="text-legacy-gray-200">Faster R-CNN:</strong>{" "}
                 Delivered the shortest processing time of{" "}
-                <span className="font-semibold text-light">42 ms</span> per
+                <span className="font-semibold text-strong">42 ms</span> per
                 image, demonstrating suitability for high-throughput clinical
                 workflows.
               </li>
               <li>
-                <strong className="text-gray-200">Bat Wings Detection:</strong>{" "}
+                <strong className="text-legacy-gray-200">
+                  Bat Wings Detection:
+                </strong>{" "}
                 All networks demonstrated exceptional accuracy with average
                 precision scores exceeding 0.90.
               </li>
             </ul>
 
-            <p className="text-gray-300 leading-relaxed mb-6 text-justify">
+            <p className="text-body leading-relaxed mb-6 text-justify">
               The integration of segmentation and detection networks provides a
               scalable solution for automating radiographic assessments, with
               applications in real-time diagnostic workflows and severity
@@ -408,14 +424,14 @@ export default function ProjectPage() {
                 height={4000}
                 maxWidth="2xl"
               />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 3.</span> Comparison of
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 3.</span> Comparison of
                 detection networks showing mAP scores, latency, and number of
                 parameters for each model.
               </figcaption>
             </figure>
 
-            <p className="text-gray-300 leading-relaxed mb-6 text-justify">
+            <p className="text-body leading-relaxed mb-6 text-justify">
               Visual assessment of network predictions for bat wings (
               <a href="#figure-4" className="text-accent hover:underline">
                 Figure 4
@@ -437,11 +453,10 @@ export default function ProjectPage() {
                 height={5440}
                 maxWidth="md"
               />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 4.</span> Comparison of
-                bat wing predictions across all detection networks,
-                demonstrating exceptional accuracy with AP scores exceeding
-                0.90.
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 4.</span> Comparison of bat
+                wing predictions across all detection networks, demonstrating
+                exceptional accuracy with AP scores exceeding 0.90.
               </figcaption>
             </figure>
 
@@ -454,8 +469,8 @@ export default function ProjectPage() {
                 height={5440}
                 maxWidth="md"
               />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 5.</span> Comparison of
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 5.</span> Comparison of
                 pleural effusion predictions showing varying performance across
                 networks, with TOOD identifying both effusions.
               </figcaption>
@@ -463,7 +478,7 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Conclusion">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               This project demonstrated the effectiveness of an explainable AI
               framework in accurately detecting pulmonary edema features from
               chest X-rays, offering enhanced diagnostic support for clinicians.
@@ -471,7 +486,7 @@ export default function ProjectPage() {
               specialized object detection networks achieved high precision
               while maintaining interpretability.
             </p>
-            <p className="text-gray-300 leading-relaxed text-justify">
+            <p className="text-body leading-relaxed text-justify">
               The results highlight the potential for integrating such models
               into clinical workflows, with future improvements focusing on
               severity grading, larger datasets, and real-time implementation in

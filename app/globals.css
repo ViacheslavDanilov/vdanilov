@@ -4,18 +4,11 @@
 
 @theme {
   /* Core colors - generate Tailwind classes */
-  --color-dark: #0a0e14;
-  --color-light: #f5f5f5;
   --color-accent: #03b1fb;
-  --color-card: #151a1f;
 
   /* Backdrop behind the transparent portraits in public/people */
   --color-photo-from: #e2e8f0;
   --color-photo-to: #94a3b8;
-
-  /* Gray colors for text */
-  --color-gray-300: #d1d5db;
-  --color-gray-400: #9ca3af;
 
   /* Cards fade in and grow on first paint; the final state is in the HTML */
   --animate-card-in: card-in 0.3s ease-out backwards;
@@ -41,6 +34,61 @@
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
+/* Semantic colours: components use these names, the values live in :root */
+@theme {
+  --color-on-accent: #0a0e14;
+  --color-scrim: #000;
+}
+
+@theme inline {
+  --color-page: var(--bg);
+  --color-surface: var(--surface);
+  --color-line: var(--line);
+  --color-ink: var(--ink);
+  --color-strong: var(--text-strong);
+  --color-focus: var(--accent-text);
+  --color-legacy-neutral-800: var(--legacy-neutral-800);
+  --shadow-card: var(--card-shadow);
+  --shadow-liquid: var(--liquid-shadow);
+  --text-color-body: var(--text);
+  --text-color-muted: var(--text-muted);
+  --text-color-accent: var(--accent-text);
+  --text-color-legacy-gray-200: var(--legacy-gray-200);
+  --text-color-legacy-gray-500: var(--legacy-gray-500);
+  --text-color-legacy-neutral-300: var(--legacy-neutral-300);
+  --text-color-legacy-neutral-400: var(--legacy-neutral-400);
+}
+
+:root {
+  --bg: #0a0e14;
+  --surface: #151a1f;
+  --ink: #fff;
+  --line: color-mix(in oklab, var(--ink) 10%, transparent);
+  --text-strong: #f5f5f5;
+  --text: #d1d5db;
+  --text-muted: #9ca3af;
+  --accent-text: #03b1fb;
+  --legacy-gray-200: oklch(92.8% 0.006 264.531);
+  --legacy-gray-500: oklch(55.1% 0.027 264.364);
+  --legacy-neutral-300: oklch(87% 0 0);
+  --legacy-neutral-400: oklch(70.8% 0 0);
+  --legacy-neutral-800: oklch(26.9% 0 0);
+  --card-shadow: 0 0.5rem 1rem -0.5rem rgba(0, 0, 0, 0.3);
+  --liquid-shadow:
+    0 0 8px rgba(0, 0, 0, 0.03), 0 2px 6px rgba(0, 0, 0, 0.08),
+    inset 3px 3px 0.5px -3.5px rgba(255, 255, 255, 0.09),
+    inset -3px -3px 0.5px -3.5px rgba(255, 255, 255, 0.85),
+    inset 1px 1px 1px -0.5px rgba(255, 255, 255, 0.6),
+    inset -1px -1px 1px -0.5px rgba(255, 255, 255, 0.6),
+    inset 0 0 6px 6px rgba(255, 255, 255, 0.12),
+    inset 0 0 2px 2px rgba(255, 255, 255, 0.06), 0 0 12px rgba(0, 0, 0, 0.15);
+  --glow-backdrop-alpha: 0.06;
+  --legend-lumen: #ff17cd;
+  --legend-cap: #5eade6;
+  --legend-lipid: #00e379;
+  --legend-vasa: #f30f1e;
+}
+
 /* Portrait backdrop: one place to change it for every person */
 @utility bg-photo {
   background-clip: padding-box;
@@ -54,8 +102,8 @@
 /* Apply typography to body */
 body {
   font-family: var(--font-family-sans);
-  background-color: var(--color-dark);
-  color: var(--color-light);
+  background-color: var(--bg);
+  color: var(--text-strong);
 }
 
 /* GlowCard spotlight and border glow */

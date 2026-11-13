@@ -174,7 +174,7 @@ export default function ProjectPage() {
 
           <Section title="Overview">
             <div className="prose prose-invert max-w-none">
-              <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+              <p className="text-body leading-relaxed mb-4 text-justify">
                 Valvular heart disease affects millions globally, and{" "}
                 <a
                   href="https://en.wikipedia.org/wiki/Artificial_heart_valve"
@@ -206,7 +206,7 @@ export default function ProjectPage() {
                 (FEM), are time-intensive and limited in exploring large design
                 spaces.
               </p>
-              <p className="text-gray-300 leading-relaxed text-justify">
+              <p className="text-body leading-relaxed text-justify">
                 This project introduces a generative design framework that
                 integrates machine learning models and optimization algorithms
                 to accelerate and improve PHV design. The framework achieves 95%
@@ -218,38 +218,41 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Data">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               The dataset comprised 11,565 prosthetic heart valve designs, each
               generated using a parametric model with six critical parameters:
             </p>
-            <ul className="space-y-2 text-gray-300 mb-6 text-justify">
+            <ul className="space-y-2 text-body mb-6 text-justify">
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Parameters:</strong> Height
-                  (HGT), diameter (DIA), leaflet thickness (THK), curvature
-                  (CVT), elevation angle (ANG), and material stiffness (ELM).
+                  <strong className="text-legacy-gray-200">Parameters:</strong>{" "}
+                  Height (HGT), diameter (DIA), leaflet thickness (THK),
+                  curvature (CVT), elevation angle (ANG), and material stiffness
+                  (ELM).
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Simulations:</strong> FEM
-                  simulations were performed for each design to evaluate
+                  <strong className="text-legacy-gray-200">Simulations:</strong>{" "}
+                  FEM simulations were performed for each design to evaluate
                   mechanical performance under physiological conditions.
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Output Metrics:</strong>{" "}
+                  <strong className="text-legacy-gray-200">
+                    Output Metrics:
+                  </strong>{" "}
                   Leaflet opening area (LMN) and peak stress (STS), critical
                   indicators of PHV functionality and durability.
                 </span>
               </li>
             </ul>
 
-            <p className="text-gray-300 leading-relaxed mb-6 text-justify">
+            <p className="text-body leading-relaxed mb-6 text-justify">
               The valve structure and parametric model are illustrated in{" "}
               <a href="#figure-1" className="text-accent hover:underline">
                 Figure 1
@@ -266,23 +269,23 @@ export default function ProjectPage() {
                 height={3545}
                 maxWidth="xl"
               />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 1.</span> Prosthetic
-                heart valve structure showing the parametric model with six
-                critical design parameters.
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 1.</span> Prosthetic heart
+                valve structure showing the parametric model with six critical
+                design parameters.
               </figcaption>
             </figure>
           </Section>
 
           <Section title="Methods">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               The methodology integrates machine learning and optimization
               algorithms to enable efficient exploration of the design space:
             </p>
 
-            <ul className="space-y-4 text-gray-300 mb-6 text-justify">
+            <ul className="space-y-4 text-body mb-6 text-justify">
               <li>
-                <strong className="text-gray-200">
+                <strong className="text-legacy-gray-200">
                   Parametric Modeling and Simulation:
                 </strong>{" "}
                 PHV geometries were generated algorithmically using a
@@ -290,7 +293,7 @@ export default function ProjectPage() {
                 simulate mechanical performance under physiological conditions.
               </li>
               <li>
-                <strong className="text-gray-200">
+                <strong className="text-legacy-gray-200">
                   Machine Learning Model Training:
                 </strong>{" "}
                 Using the dataset of 11,565 FEM-evaluated designs, we trained
@@ -298,7 +301,7 @@ export default function ProjectPage() {
                 ensemble methods. Models predicted LMN and STS with R² &gt; 96%.
               </li>
               <li>
-                <strong className="text-gray-200">
+                <strong className="text-legacy-gray-200">
                   Optimization Algorithms:
                 </strong>{" "}
                 Six state-of-the-art algorithms were deployed: Random Search
@@ -306,14 +309,16 @@ export default function ProjectPage() {
                 NSGA-II, MOTPE, and Quasi-Monte Carlo (QMC).
               </li>
               <li>
-                <strong className="text-gray-200">Hybrid Approach:</strong> By
-                combining ML predictions with optimization algorithms, we
+                <strong className="text-legacy-gray-200">
+                  Hybrid Approach:
+                </strong>{" "}
+                By combining ML predictions with optimization algorithms, we
                 accelerated the search for optimal designs while reducing
                 reliance on computationally expensive FEM simulations.
               </li>
             </ul>
 
-            <p className="text-gray-300 leading-relaxed mb-6 text-justify">
+            <p className="text-body leading-relaxed mb-6 text-justify">
               The complete generative design workflow integrating parametric
               modeling, ML predictions, and optimization is shown in{" "}
               <a href="#figure-2" className="text-accent hover:underline">
@@ -331,42 +336,48 @@ export default function ProjectPage() {
                 height={2096}
                 maxWidth="3xl"
               />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 2.</span> Generative
-                design workflow showing the integration of parametric modeling,
-                machine learning, and optimization algorithms.
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 2.</span> Generative design
+                workflow showing the integration of parametric modeling, machine
+                learning, and optimization algorithms.
               </figcaption>
             </figure>
           </Section>
 
           <Section title="Results">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               The proposed framework demonstrated significant improvements in
               PHV design efficiency:
             </p>
 
-            <ul className="space-y-2 text-gray-300 mb-4">
+            <ul className="space-y-2 text-body mb-4">
               <li>
-                <strong className="text-gray-200">Model Accuracy:</strong>{" "}
+                <strong className="text-legacy-gray-200">
+                  Model Accuracy:
+                </strong>{" "}
                 Trained ML models achieved R² values exceeding{" "}
-                <span className="font-semibold text-light">96%</span> with MAPE
+                <span className="font-semibold text-strong">96%</span> with MAPE
                 of 11.8% and 10.2% for opening area and peak stress.
               </li>
               <li>
-                <strong className="text-gray-200">Design Efficacy:</strong> TPE
-                and NSGA-II achieved efficacy scores exceeding{" "}
-                <span className="font-semibold text-light">95%</span>,
+                <strong className="text-legacy-gray-200">
+                  Design Efficacy:
+                </strong>{" "}
+                TPE and NSGA-II achieved efficacy scores exceeding{" "}
+                <span className="font-semibold text-strong">95%</span>,
                 identifying superior designs in fewer iterations.
               </li>
               <li>
-                <strong className="text-gray-200">Parameter Trends:</strong>{" "}
+                <strong className="text-legacy-gray-200">
+                  Parameter Trends:
+                </strong>{" "}
                 Algorithms favored thinner leaflets and larger diameters,
                 contributing to higher opening areas while maintaining
                 acceptable stress levels.
               </li>
             </ul>
 
-            <p className="text-gray-300 leading-relaxed mb-6 text-justify">
+            <p className="text-body leading-relaxed mb-6 text-justify">
               Examples of optimized valve designs in the open state are shown in{" "}
               <a href="#figure-3" className="text-accent hover:underline">
                 Figure 3
@@ -383,15 +394,15 @@ export default function ProjectPage() {
                 height={4518}
                 maxWidth="xl"
               />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 3.</span> Examples of
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 3.</span> Examples of
                 optimized valve designs generated by different optimization
                 algorithms, showing variations in opening area and stress
                 distribution.
               </figcaption>
             </figure>
 
-            <p className="text-gray-300 leading-relaxed mb-6 text-justify">
+            <p className="text-body leading-relaxed mb-6 text-justify">
               The videos below demonstrate the valve opening behavior for
               designs generated by the following optimization algorithms:
             </p>
@@ -403,7 +414,7 @@ export default function ProjectPage() {
                 <AutoplayVideo
                   aspectRatio="16 / 9"
                   controls
-                  className="w-full rounded-lg border border-white/10"
+                  className="w-full rounded-lg border border-line"
                 >
                   <source
                     src="/portfolio/provalve-design/valve-opening-rs.mp4"
@@ -411,7 +422,7 @@ export default function ProjectPage() {
                   />
                   Your browser does not support the video tag.
                 </AutoplayVideo>
-                <figcaption className="text-center text-sm text-gray-400 mt-2">
+                <figcaption className="text-center text-sm text-muted mt-2">
                   Random Search
                 </figcaption>
               </figure>
@@ -421,7 +432,7 @@ export default function ProjectPage() {
                 <AutoplayVideo
                   aspectRatio="16 / 9"
                   controls
-                  className="w-full rounded-lg border border-white/10"
+                  className="w-full rounded-lg border border-line"
                 >
                   <source
                     src="/portfolio/provalve-design/valve-opening-tpe.mp4"
@@ -429,7 +440,7 @@ export default function ProjectPage() {
                   />
                   Your browser does not support the video tag.
                 </AutoplayVideo>
-                <figcaption className="text-center text-sm text-gray-400 mt-2">
+                <figcaption className="text-center text-sm text-muted mt-2">
                   Tree-structured Parzen Estimator
                 </figcaption>
               </figure>
@@ -437,14 +448,14 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Conclusion">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               This generative design framework demonstrates the transformative
               potential of combining machine learning and optimization for
               medical device development. It enables faster, more efficient
               design iterations, significantly reducing the time and cost of
               prototyping.
             </p>
-            <p className="text-gray-300 leading-relaxed text-justify">
+            <p className="text-body leading-relaxed text-justify">
               Future work will expand this approach to incorporate advanced
               material modeling and fluid-structure interactions, further
               refining prosthetic heart valve designs for improved patient

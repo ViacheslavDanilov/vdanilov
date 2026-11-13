@@ -131,9 +131,7 @@ export default function ProjectPage() {
 
           <Section title="Overview">
             <div className="prose prose-invert max-w-none">
-              <p className="text-gray-300 leading-relaxed mb-4 text-justify">
-                ...
-              </p>
+              <p className="text-body leading-relaxed mb-4 text-justify">...</p>
             </div>
           </Section>
 
@@ -158,8 +156,8 @@ export default function ProjectPage() {
 ```jsx
 <figure id="figure-N" className="scroll-mt-24">
   <ImageLightbox src="..." alt="..." width={W} height={H} maxWidth="..." />
-  <figcaption className="text-center text-sm text-gray-400 mt-3">
-    <span className="text-gray-300">Figure N.</span> Description...
+  <figcaption className="text-center text-sm text-muted mt-3">
+    <span className="text-body">Figure N.</span> Description...
   </figcaption>
 </figure>
 ```
@@ -177,17 +175,17 @@ export default function ProjectPage() {
 ### Paragraph
 
 ```jsx
-<p className="text-gray-300 leading-relaxed mb-4 text-justify">
+<p className="text-body leading-relaxed mb-4 text-justify">
 ```
 
 ### Bullet List
 
 ```jsx
-<ul className="space-y-2 text-gray-300 mb-6 text-justify">
+<ul className="space-y-2 text-body mb-6 text-justify">
   <li className="flex items-start gap-2">
     <span className="text-accent mt-1">•</span>
     <span>
-      <strong className="text-gray-200">Label:</strong> Description
+      <strong className="text-legacy-gray-200">Label:</strong> Description
     </span>
   </li>
 </ul>
@@ -200,7 +198,7 @@ export default function ProjectPage() {
 ```jsx
 <figure id="figure-N" className="scroll-mt-24">
   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-    <div className="rounded-xl overflow-hidden border border-white/10">
+    <div className="rounded-xl overflow-hidden border border-line">
       <AutoplayVideo
         src="/portfolio/[slug]/video-file.mp4"
         controls
@@ -208,8 +206,8 @@ export default function ProjectPage() {
       />
     </div>
   </div>
-  <figcaption className="text-center text-sm text-gray-400 mt-3">
-    <span className="text-gray-300">Figure N.</span> Description...
+  <figcaption className="text-center text-sm text-muted mt-3">
+    <span className="text-body">Figure N.</span> Description...
   </figcaption>
 </figure>
 ```

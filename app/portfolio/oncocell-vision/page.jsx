@@ -161,7 +161,7 @@ export default function ProjectPage() {
 
           <Section title="Overview">
             <div className="prose prose-invert max-w-none">
-              <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+              <p className="text-body leading-relaxed mb-4 text-justify">
                 In collaboration with{" "}
                 <a
                   href="https://www.volastratx.com/"
@@ -177,7 +177,7 @@ export default function ProjectPage() {
                 images. These structures serve as biomarkers for cancer
                 diagnosis and treatment efficacy.
               </p>
-              <p className="text-gray-300 leading-relaxed text-justify">
+              <p className="text-body leading-relaxed text-justify">
                 Utilizing the{" "}
                 <a
                   href="https://doi.org/10.1109/CVPR42600.2020.01079"
@@ -206,11 +206,11 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Data">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               The dataset comprised 1,664 microscopy images from 36 different
               cancer cell lines, sourced from:
             </p>
-            <ul className="space-y-2 text-gray-300 mb-6 text-justify">
+            <ul className="space-y-2 text-body mb-6 text-justify">
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>Volastra&apos;s internal database</span>
@@ -243,7 +243,7 @@ export default function ProjectPage() {
               </li>
             </ul>
 
-            <p className="text-gray-300 leading-relaxed text-justify">
+            <p className="text-body leading-relaxed text-justify">
               The data was split into 1,004 images for training, 460 for
               validation, and 200 for testing. Pre-processing steps included
               image tiling with various strategies, such as regular window
@@ -253,7 +253,7 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Methods">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               To detect and count various types of cell nuclei in microscopy
               images, we adopted an object detection approach centered on the
               EfficientDet architecture (
@@ -265,7 +265,7 @@ export default function ProjectPage() {
               making it suitable for high-throughput biomedical imaging tasks.
             </p>
 
-            <p className="text-gray-300 leading-relaxed mb-6 text-justify">
+            <p className="text-body leading-relaxed mb-6 text-justify">
               The backbone of the architecture is EfficientNet, a family of
               convolutional neural networks that scales depth, width, and
               resolution in a compound manner for improved performance. On top
@@ -285,14 +285,14 @@ export default function ProjectPage() {
                 height={428}
                 maxWidth="2xl"
               />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 1.</span> EfficientDet
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 1.</span> EfficientDet
                 architecture with EfficientNet backbone and BiFPN for
                 multi-scale feature extraction.
               </figcaption>
             </figure>
 
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               To optimize performance on high-resolution microscopy images, we
               implemented a tiling strategy. Large images were divided into
               smaller overlapping or non-overlapping tiles to enable manageable
@@ -300,11 +300,11 @@ export default function ProjectPage() {
               Three strategies were evaluated:
             </p>
 
-            <ul className="space-y-2 text-gray-300 mb-6 text-justify">
+            <ul className="space-y-2 text-body mb-6 text-justify">
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">
+                  <strong className="text-legacy-gray-200">
                     Regular window shift:
                   </strong>{" "}
                   Divides the image into uniform tiles
@@ -313,14 +313,16 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Window padding:</strong>{" "}
+                  <strong className="text-legacy-gray-200">
+                    Window padding:
+                  </strong>{" "}
                   Adds zero-padding to retain context
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">
+                  <strong className="text-legacy-gray-200">
                     Unfixed-size windows:
                   </strong>{" "}
                   Adapts to cell density variations
@@ -331,7 +333,7 @@ export default function ProjectPage() {
             {/* Figure 2: Tiling Strategies */}
             <figure id="figure-2" className="mb-6 scroll-mt-24">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="rounded-xl overflow-hidden border border-white/10">
+                <div className="rounded-xl overflow-hidden border border-line">
                   <AutoplayVideo
                     aspectRatio="1 / 1"
                     src="/portfolio/oncocell-vision/tiling-with-regular-window-shift.mp4"
@@ -340,11 +342,11 @@ export default function ProjectPage() {
                   >
                     Your browser does not support the video tag.
                   </AutoplayVideo>
-                  <p className="text-center text-xs text-gray-400 py-2 bg-dark/50">
+                  <p className="text-center text-xs text-muted py-2 bg-page/50">
                     (a) Regular window shift
                   </p>
                 </div>
-                <div className="rounded-xl overflow-hidden border border-white/10">
+                <div className="rounded-xl overflow-hidden border border-line">
                   <AutoplayVideo
                     aspectRatio="1 / 1"
                     src="/portfolio/oncocell-vision/tiling-with-padding.mp4"
@@ -353,11 +355,11 @@ export default function ProjectPage() {
                   >
                     Your browser does not support the video tag.
                   </AutoplayVideo>
-                  <p className="text-center text-xs text-gray-400 py-2 bg-dark/50">
+                  <p className="text-center text-xs text-muted py-2 bg-page/50">
                     (b) Window padding
                   </p>
                 </div>
-                <div className="rounded-xl overflow-hidden border border-white/10">
+                <div className="rounded-xl overflow-hidden border border-line">
                   <AutoplayVideo
                     aspectRatio="1 / 1"
                     src="/portfolio/oncocell-vision/tiling-with-unfixed-size-window.mp4"
@@ -366,20 +368,20 @@ export default function ProjectPage() {
                   >
                     Your browser does not support the video tag.
                   </AutoplayVideo>
-                  <p className="text-center text-xs text-gray-400 py-2 bg-dark/50">
+                  <p className="text-center text-xs text-muted py-2 bg-page/50">
                     (c) Unfixed-size windows
                   </p>
                 </div>
               </div>
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 2.</span> Comparison of
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 2.</span> Comparison of
                 tiling strategies for processing high-resolution microscopy
                 images: (a) regular window shift, (b) window padding, and (c)
                 unfixed-size windows.
               </figcaption>
             </figure>
 
-            <p className="text-gray-300 leading-relaxed text-justify">
+            <p className="text-body leading-relaxed text-justify">
               The model was trained on 1,004 images, validated on 460, and
               tested on 200 from a dataset comprising 36 cell lines. Labeling
               included annotations for primary nuclei, micronuclei, mitotic
@@ -391,32 +393,33 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Results">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               The trained EfficientDet model demonstrated high accuracy in
               detecting and localizing cancer cell substructures across a range
               of cell lines and magnifications. The model achieved:
             </p>
 
-            <ul className="space-y-2 text-gray-300 mb-4">
+            <ul className="space-y-2 text-body mb-4">
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">85% mAP</strong> for primary
-                  nuclei, indicating excellent capability in identifying and
-                  counting these dominant and morphologically clear structures
+                  <strong className="text-legacy-gray-200">85% mAP</strong> for
+                  primary nuclei, indicating excellent capability in identifying
+                  and counting these dominant and morphologically clear
+                  structures
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">66% mAP</strong> for
+                  <strong className="text-legacy-gray-200">66% mAP</strong> for
                   micronuclei, a more challenging target due to their small
                   size, lower contrast, and morphological variability
                 </span>
               </li>
             </ul>
 
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               These results show a strong performance relative to the complexity
               of the task, particularly for detecting micronuclei, which are
               critical indicators of genomic instability – a hallmark of cancer
@@ -425,7 +428,7 @@ export default function ProjectPage() {
               potential for further model refinement.
             </p>
 
-            <p className="text-gray-300 leading-relaxed mb-6 text-justify">
+            <p className="text-body leading-relaxed mb-6 text-justify">
               Visual inspections of predictions across cell lines (MB-231 at
               63X, HeLa, and CAL51) demonstrated that the model generalizes well
               to different imaging resolutions and biological conditions (
@@ -448,10 +451,10 @@ export default function ProjectPage() {
                 height={1500}
                 maxWidth="3xl"
               />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 3.</span> Detection
-                results on MB-231 cell line (63X magnification) showing
-                identification of primary nuclei and micronuclei.
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 3.</span> Detection results
+                on MB-231 cell line (63X magnification) showing identification
+                of primary nuclei and micronuclei.
               </figcaption>
             </figure>
 
@@ -464,10 +467,10 @@ export default function ProjectPage() {
                 height={1500}
                 maxWidth="3xl"
               />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 4.</span> Detection
-                results on HeLa cell line showing identification of primary
-                nuclei and micronuclei.
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 4.</span> Detection results
+                on HeLa cell line showing identification of primary nuclei and
+                micronuclei.
               </figcaption>
             </figure>
 
@@ -480,22 +483,22 @@ export default function ProjectPage() {
                 height={1500}
                 maxWidth="3xl"
               />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 5.</span> Detection
-                results on CAL51 cell line showing identification of primary
-                nuclei and micronuclei.
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 5.</span> Detection results
+                on CAL51 cell line showing identification of primary nuclei and
+                micronuclei.
               </figcaption>
             </figure>
           </Section>
 
           <Section title="Conclusion">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               This project successfully developed a deep learning pipeline for
               detecting and quantifying key cancer cell structures in microscopy
               images. The high accuracy achieved underscores the potential of AI
               in enhancing cancer diagnostics and treatment monitoring.
             </p>
-            <p className="text-gray-300 leading-relaxed text-justify">
+            <p className="text-body leading-relaxed text-justify">
               Future work may involve expanding the dataset to include more
               diverse cell lines and further refining the model to improve
               detection of less prevalent structures like micronuclei. The

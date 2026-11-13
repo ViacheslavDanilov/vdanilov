@@ -7,7 +7,7 @@ export default function Section({
   return (
     <section>
       <h2
-        className={`text-xl font-semibold text-light ${headingClassName} flex items-center gap-3`}
+        className={`text-xl font-semibold text-strong ${headingClassName} flex items-center gap-3`}
       >
         <span className="w-1 h-6 bg-accent rounded-full"></span>
         {title}

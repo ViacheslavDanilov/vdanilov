@@ -151,7 +151,7 @@ export default function ProjectPage() {
 
           <Section title="Overview">
             <div className="prose prose-invert max-w-none">
-              <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+              <p className="text-body leading-relaxed mb-4 text-justify">
                 Minimally invasive cardiac procedures demand real-time,
                 high-fidelity imaging of surgical tools like catheters. However,
                 3D{" "}
@@ -166,7 +166,7 @@ export default function ProjectPage() {
                 , a cost-effective modality, suffers from speckle noise and low
                 resolution, making device localization challenging.
               </p>
-              <p className="text-gray-300 leading-relaxed text-justify">
+              <p className="text-body leading-relaxed text-justify">
                 This project addressed this limitation by designing a custom
                 deep learning solution based on a modified U-net, termed V-net,
                 tailored for medical image segmentation under noisy conditions.
@@ -178,7 +178,7 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Data">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               This study used a specialized dataset consisting of 75
               three-dimensional grayscale ultrasound volumes collected during
               minimally invasive cardiac procedures on three Yorkshire pigs. The
@@ -186,32 +186,34 @@ export default function ProjectPage() {
               Philips iE33 ultrasound system.
             </p>
 
-            <ul className="space-y-2 text-gray-300 mb-6 text-justify">
+            <ul className="space-y-2 text-body mb-6 text-justify">
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Resolution:</strong>{" "}
+                  <strong className="text-legacy-gray-200">Resolution:</strong>{" "}
                   176×176×208 voxels per volume
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Challenges:</strong> Speckle
-                  noise and low contrast posing significant segmentation
+                  <strong className="text-legacy-gray-200">Challenges:</strong>{" "}
+                  Speckle noise and low contrast posing significant segmentation
                   difficulties
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Augmentation:</strong>{" "}
+                  <strong className="text-legacy-gray-200">
+                    Augmentation:
+                  </strong>{" "}
                   Synthetic data generation using kinematics of flexible robots
                 </span>
               </li>
             </ul>
 
-            <p className="text-gray-300 leading-relaxed mb-6 text-justify">
+            <p className="text-body leading-relaxed mb-6 text-justify">
               The catheter used in this study is shown in{" "}
               <a href="#figure-1" className="text-accent hover:underline">
                 Figure 1
@@ -233,10 +235,9 @@ export default function ProjectPage() {
                 height={319}
                 maxWidth="2xl"
               />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 1.</span> The catheter
-                with pigtail tip used during minimally invasive cardiac
-                procedures.
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 1.</span> The catheter with
+                pigtail tip used during minimally invasive cardiac procedures.
               </figcaption>
             </figure>
 
@@ -249,48 +250,50 @@ export default function ProjectPage() {
                 height={550}
                 maxWidth="3xl"
               />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 2.</span> Example of
-                catheter visibility in raw 3D ultrasound data across multiple
-                planes (highlighted in green circles and ellipses).
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 2.</span> Example of catheter
+                visibility in raw 3D ultrasound data across multiple planes
+                (highlighted in green circles and ellipses).
               </figcaption>
             </figure>
           </Section>
 
           <Section title="Methods">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               To address the challenges of catheter segmentation in noisy 3D
               ultrasound data, we developed V-net, a fully volumetric
               convolutional neural network based on the U-net architecture,
               enhanced for depth, gradient stability, and feature reuse.
             </p>
 
-            <ul className="space-y-4 text-gray-300 mb-6 text-justify">
+            <ul className="space-y-4 text-body mb-6 text-justify">
               <li>
-                <strong className="text-gray-200">Architecture:</strong> The
-                V-net employs a symmetric encoder-decoder structure with dense
-                skip-connections, dilated convolutions, instance normalization,
-                ELU activations, and dropout.
+                <strong className="text-legacy-gray-200">Architecture:</strong>{" "}
+                The V-net employs a symmetric encoder-decoder structure with
+                dense skip-connections, dilated convolutions, instance
+                normalization, ELU activations, and dropout.
               </li>
               <li>
-                <strong className="text-gray-200">Training Strategy:</strong>{" "}
+                <strong className="text-legacy-gray-200">
+                  Training Strategy:
+                </strong>{" "}
                 Cyclical learning rate schedule and variable batch size strategy
                 based on the Fibonacci sequence.
               </li>
               <li>
-                <strong className="text-gray-200">
+                <strong className="text-legacy-gray-200">
                   Hyperparameter Tuning:
                 </strong>{" "}
                 T-test-based selection method reducing the search space from
                 millions to a few hundred combinations.
               </li>
               <li>
-                <strong className="text-gray-200">Inference:</strong> Test-time
-                augmentation (TTA) to enhance segmentation stability.
+                <strong className="text-legacy-gray-200">Inference:</strong>{" "}
+                Test-time augmentation (TTA) to enhance segmentation stability.
               </li>
             </ul>
 
-            <p className="text-gray-300 leading-relaxed mb-6 text-justify">
+            <p className="text-body leading-relaxed mb-6 text-justify">
               The full V-net architecture is shown in{" "}
               <a href="#figure-3" className="text-accent hover:underline">
                 Figure 3
@@ -311,8 +314,8 @@ export default function ProjectPage() {
                 height={1266}
                 maxWidth="2xl"
               />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 3.</span> Full V-net
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 3.</span> Full V-net
                 architecture highlighting the layered structure and rich network
                 of skip-connections.
               </figcaption>
@@ -320,7 +323,7 @@ export default function ProjectPage() {
 
             {/* Figure 4: Feature Transfer */}
             <figure id="figure-4" className="scroll-mt-24">
-              <div className="mx-auto w-full max-w-2xl rounded-xl overflow-hidden border border-white/10">
+              <div className="mx-auto w-full max-w-2xl rounded-xl overflow-hidden border border-line">
                 <AutoplayVideo
                   aspectRatio="552 / 281"
                   poster="/portfolio/sonoguide/v-net-feature-transfer-poster.webp"
@@ -335,8 +338,8 @@ export default function ProjectPage() {
                   Your browser does not support the video tag.
                 </AutoplayVideo>
               </div>
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 4.</span> Dense feature
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 4.</span> Dense feature
                 transfer during encoding and decoding, allowing early-layer
                 features to influence deeper representations.
               </figcaption>
@@ -344,36 +347,38 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Results">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               In the PhD thesis, the V-net architecture achieved high spatial
               precision in localizing catheters despite strong speckle noise and
               anatomical occlusion:
             </p>
 
-            <ul className="space-y-2 text-gray-300 mb-4">
+            <ul className="space-y-2 text-body mb-4">
               <li>
-                <strong className="text-gray-200">V-net (TTA):</strong>{" "}
-                <span className="font-semibold text-light">
+                <strong className="text-legacy-gray-200">V-net (TTA):</strong>{" "}
+                <span className="font-semibold text-strong">
                   93.6 ± 2.4% DSC
                 </span>
               </li>
               <li>
-                <strong className="text-gray-200">Standard U-net:</strong> 80.5
-                ± 5.8% DSC
+                <strong className="text-legacy-gray-200">
+                  Standard U-net:
+                </strong>{" "}
+                80.5 ± 5.8% DSC
               </li>
               <li>
-                <strong className="text-gray-200">SegNet / FCN:</strong> &lt;25%
-                DSC on average
+                <strong className="text-legacy-gray-200">SegNet / FCN:</strong>{" "}
+                &lt;25% DSC on average
               </li>
             </ul>
 
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               The journal article reports a separate result: its network reaches
               92.6 ± 2.2% DSC when trained on real and semi-synthetic data,
               against 86.5 ± 3.6% on real data alone.
             </p>
 
-            <p className="text-gray-300 leading-relaxed mb-6 text-justify">
+            <p className="text-body leading-relaxed mb-6 text-justify">
               Segmentation accuracy on synthetic and real samples is shown in{" "}
               <a href="#figure-5" className="text-accent hover:underline">
                 Figure 5
@@ -398,8 +403,8 @@ export default function ProjectPage() {
                 height={1100}
                 maxWidth="2xl"
               />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 5.</span> Segmentation
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 5.</span> Segmentation
                 results on a synthetic sample showing network prediction (white)
                 vs ground truth (red).
               </figcaption>
@@ -414,8 +419,8 @@ export default function ProjectPage() {
                 height={1100}
                 maxWidth="2xl"
               />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 6.</span> Segmentation
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 6.</span> Segmentation
                 results on a real ultrasound sample across axial, sagittal, and
                 coronal planes.
               </figcaption>
@@ -430,14 +435,14 @@ export default function ProjectPage() {
                 height={1500}
                 maxWidth="2xl"
               />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 7.</span> Performance
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 7.</span> Performance
                 comparison of V-net against FCN, SegNet, Deep Medic, and U-net
                 variants.
               </figcaption>
             </figure>
 
-            <p className="text-gray-300 leading-relaxed mb-6 text-justify">
+            <p className="text-body leading-relaxed mb-6 text-justify">
               The videos below demonstrate 3D volumetric segmentation in static
               and dynamic series:
             </p>
@@ -449,7 +454,7 @@ export default function ProjectPage() {
                 <AutoplayVideo
                   aspectRatio="489 / 428"
                   controls
-                  className="w-full rounded-lg border border-white/10"
+                  className="w-full rounded-lg border border-line"
                 >
                   <source
                     src="/portfolio/sonoguide/segmentation-of-a-static-3d-series.mp4"
@@ -457,7 +462,7 @@ export default function ProjectPage() {
                   />
                   Your browser does not support the video tag.
                 </AutoplayVideo>
-                <figcaption className="text-center text-sm text-gray-400 mt-2">
+                <figcaption className="text-center text-sm text-muted mt-2">
                   Segmentation of a static 3D series
                 </figcaption>
               </figure>
@@ -467,7 +472,7 @@ export default function ProjectPage() {
                 <AutoplayVideo
                   aspectRatio="489 / 428"
                   controls
-                  className="w-full rounded-lg border border-white/10"
+                  className="w-full rounded-lg border border-line"
                 >
                   <source
                     src="/portfolio/sonoguide/segmentation-of-a-dynamic-3d-series.mp4"
@@ -475,7 +480,7 @@ export default function ProjectPage() {
                   />
                   Your browser does not support the video tag.
                 </AutoplayVideo>
-                <figcaption className="text-center text-sm text-gray-400 mt-2">
+                <figcaption className="text-center text-sm text-muted mt-2">
                   Segmentation of a dynamic 3D series
                 </figcaption>
               </figure>
@@ -483,7 +488,7 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Conclusion">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               This project showcases a robust, deployable solution for
               segmenting surgical instruments in noisy 3D ultrasound,
               significantly enhancing intraoperative navigation. The V-net
@@ -491,7 +496,7 @@ export default function ProjectPage() {
               data synthesis demonstrate both academic rigor and practical
               value.
             </p>
-            <p className="text-gray-300 leading-relaxed text-justify">
+            <p className="text-body leading-relaxed text-justify">
               Future work may include adapting the model for other
               low-resolution modalities, extending real-time capabilities, and
               integrating AR-based visualization during surgery. The methods are

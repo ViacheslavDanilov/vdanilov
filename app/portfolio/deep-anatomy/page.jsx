@@ -147,7 +147,7 @@ export default function ProjectPage() {
 
           <Section title="Overview">
             <div className="prose prose-invert max-w-none">
-              <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+              <p className="text-body leading-relaxed mb-4 text-justify">
                 The goal of this project was to develop an advanced machine
                 learning system capable of segmenting complex anatomical
                 structures in 3D medical imagery to assist in diagnostic and
@@ -156,7 +156,7 @@ export default function ProjectPage() {
                 critical for planning minimally invasive procedures and enabling
                 quantitative biomarker extraction.
               </p>
-              <p className="text-gray-300 leading-relaxed text-justify">
+              <p className="text-body leading-relaxed text-justify">
                 A novel V-net architecture was implemented, incorporating dense
                 skip connections to address challenges in training deep models,
                 especially the vanishing gradient problem. Trained and validated
@@ -180,16 +180,16 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Data">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               The training data consisted of de-identified, reformatted 3D
               medical imaging datasets from five prominent research centers:
             </p>
-            <ul className="space-y-2 text-gray-300 mb-6 text-justify">
+            <ul className="space-y-2 text-body mb-6 text-justify">
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Left Atrium:</strong> 30 MRI
-                  scans from{" "}
+                  <strong className="text-legacy-gray-200">Left Atrium:</strong>{" "}
+                  30 MRI scans from{" "}
                   <a
                     href="https://www.kcl.ac.uk/"
                     target="_blank"
@@ -203,8 +203,8 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Pancreas:</strong> 420 CT
-                  scans from{" "}
+                  <strong className="text-legacy-gray-200">Pancreas:</strong>{" "}
+                  420 CT scans from{" "}
                   <a
                     href="https://www.mskcc.org/"
                     target="_blank"
@@ -218,8 +218,8 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Spleen:</strong> 190 CT
-                  scans from{" "}
+                  <strong className="text-legacy-gray-200">Spleen:</strong> 190
+                  CT scans from{" "}
                   <a
                     href="https://www.mskcc.org/"
                     target="_blank"
@@ -233,8 +233,8 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Hippocampus:</strong> 394
-                  MRI scans from{" "}
+                  <strong className="text-legacy-gray-200">Hippocampus:</strong>{" "}
+                  394 MRI scans from{" "}
                   <a
                     href="https://www.vumc.org/main/home"
                     target="_blank"
@@ -248,8 +248,8 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Liver:</strong> 201 CT scans
-                  from{" "}
+                  <strong className="text-legacy-gray-200">Liver:</strong> 201
+                  CT scans from{" "}
                   <a
                     href="https://www.ircad.fr/"
                     target="_blank"
@@ -262,7 +262,7 @@ export default function ProjectPage() {
               </li>
             </ul>
 
-            <p className="text-gray-300 leading-relaxed text-justify">
+            <p className="text-body leading-relaxed text-justify">
               All datasets were converted to{" "}
               <a
                 href="https://nifti.nimh.nih.gov/background/index.html"
@@ -280,7 +280,7 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Methods">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               To address the challenges of organ segmentation in noisy 3D data,
               we developed V-net, a fully volumetric convolutional neural
               network based on the U-net architecture, enhanced for depth,
@@ -305,14 +305,14 @@ export default function ProjectPage() {
                 height={1266}
                 maxWidth="2xl"
               />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 1.</span> V-net
-                architecture with symmetric encoder-decoder structure and dense
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 1.</span> V-net architecture
+                with symmetric encoder-decoder structure and dense
                 skip-connections for multi-organ segmentation.
               </figcaption>
             </figure>
 
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               To further mitigate vanishing gradients and preserve low-level
               spatial cues, we introduced intra-block feature concatenation,
               allowing early-layer features to influence deeper representations.
@@ -326,7 +326,7 @@ export default function ProjectPage() {
 
             {/* Figure 2: Feature Transfer Animation */}
             <figure id="figure-2" className="mb-6 scroll-mt-24">
-              <div className="mx-auto w-full max-w-2xl rounded-xl overflow-hidden border border-white/10">
+              <div className="mx-auto w-full max-w-2xl rounded-xl overflow-hidden border border-line">
                 <AutoplayVideo
                   aspectRatio="552 / 281"
                   poster="/portfolio/deep-anatomy/v-net-feature-transfer-poster.webp"
@@ -341,22 +341,24 @@ export default function ProjectPage() {
                   Your browser does not support the video tag.
                 </AutoplayVideo>
               </div>
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 2.</span> Dense feature
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 2.</span> Dense feature
                 transfer mechanism showing intra-block concatenation during
                 encoding and decoding phases.
               </figcaption>
             </figure>
 
-            <ul className="space-y-4 text-gray-300 mb-6 text-justify">
+            <ul className="space-y-4 text-body mb-6 text-justify">
               <li>
-                <strong className="text-gray-200">Training Strategy:</strong>{" "}
+                <strong className="text-legacy-gray-200">
+                  Training Strategy:
+                </strong>{" "}
                 Training used a cyclical learning rate schedule and a variable
                 batch size strategy based on the Fibonacci sequence,
                 accelerating convergence while avoiding overfitting.
               </li>
               <li>
-                <strong className="text-gray-200">
+                <strong className="text-legacy-gray-200">
                   Hyperparameter Tuning:
                 </strong>{" "}
                 We applied a t-test-based selection method, reducing the search
@@ -364,7 +366,7 @@ export default function ProjectPage() {
                 significantly improving efficiency.
               </li>
               <li>
-                <strong className="text-gray-200">
+                <strong className="text-legacy-gray-200">
                   Test-Time Augmentation:
                 </strong>{" "}
                 At inference, test-time augmentation was used to enhance
@@ -375,7 +377,7 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Results">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               The proposed V-net model with Test-Time Augmentation (TTA)
               demonstrated consistently high segmentation performance across a
               variety of anatomical structures and imaging modalities, as
@@ -392,50 +394,50 @@ export default function ProjectPage() {
               challenge.
             </p>
 
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               Quantitative performance metrics on the test datasets were as
               follows:
             </p>
 
-            <ul className="space-y-2 text-gray-300 mb-6">
+            <ul className="space-y-2 text-body mb-6">
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Liver:</strong>{" "}
+                  <strong className="text-legacy-gray-200">Liver:</strong>{" "}
                   <span className="font-semibold">95.9 ± 1.0%</span>
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Hippocampus:</strong>{" "}
+                  <strong className="text-legacy-gray-200">Hippocampus:</strong>{" "}
                   <span className="font-semibold">94.9 ± 1.5%</span>
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Spleen:</strong>{" "}
+                  <strong className="text-legacy-gray-200">Spleen:</strong>{" "}
                   <span className="font-semibold">93.6 ± 1.6%</span>
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Left Atrium:</strong>{" "}
+                  <strong className="text-legacy-gray-200">Left Atrium:</strong>{" "}
                   <span className="font-semibold">92.2 ± 2.7%</span>
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Pancreas:</strong>{" "}
+                  <strong className="text-legacy-gray-200">Pancreas:</strong>{" "}
                   <span className="font-semibold">82.9 ± 5.8%</span>
                 </span>
               </li>
             </ul>
 
-            <p className="text-gray-300 leading-relaxed mb-6 text-justify">
+            <p className="text-body leading-relaxed mb-6 text-justify">
               These results are particularly remarkable considering the
               complexity and variability in organ morphology, as well as the
               different imaging modalities (MRI for brain and cardiac
@@ -457,11 +459,10 @@ export default function ProjectPage() {
                 height={1100}
                 maxWidth="2xl"
               />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 3.</span> Liver
-                segmentation results showing predicted masks (white) vs ground
-                truth (red) across axial, sagittal, and coronal views. DSC:
-                95.9%.
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 3.</span> Liver segmentation
+                results showing predicted masks (white) vs ground truth (red)
+                across axial, sagittal, and coronal views. DSC: 95.9%.
               </figcaption>
             </figure>
 
@@ -474,8 +475,8 @@ export default function ProjectPage() {
                 height={1100}
                 maxWidth="2xl"
               />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 4.</span> Hippocampus
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 4.</span> Hippocampus
                 segmentation results showing predicted masks (white) vs ground
                 truth (red) across axial, sagittal, and coronal views. DSC:
                 94.9%.
@@ -491,11 +492,10 @@ export default function ProjectPage() {
                 height={1100}
                 maxWidth="2xl"
               />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 5.</span> Spleen
-                segmentation results showing predicted masks (white) vs ground
-                truth (red) across axial, sagittal, and coronal views. DSC:
-                93.6%.
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 5.</span> Spleen segmentation
+                results showing predicted masks (white) vs ground truth (red)
+                across axial, sagittal, and coronal views. DSC: 93.6%.
               </figcaption>
             </figure>
 
@@ -508,8 +508,8 @@ export default function ProjectPage() {
                 height={1100}
                 maxWidth="2xl"
               />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 6.</span> Left atrium
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 6.</span> Left atrium
                 segmentation results showing predicted masks (white) vs ground
                 truth (red) across axial, sagittal, and coronal views. DSC:
                 92.2%.
@@ -525,15 +525,15 @@ export default function ProjectPage() {
                 height={1100}
                 maxWidth="2xl"
               />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 7.</span> Pancreas
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 7.</span> Pancreas
                 segmentation results showing predicted masks (white) vs ground
                 truth (red) across axial, sagittal, and coronal views. DSC:
                 82.9%.
               </figcaption>
             </figure>
 
-            <p className="text-gray-300 leading-relaxed text-justify">
+            <p className="text-body leading-relaxed text-justify">
               Even in anatomically challenging cases, such as the pancreas with
               its irregular shape and low-contrast boundaries, the model
               achieved strong performance, particularly benefiting from TTA,
@@ -542,7 +542,7 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Conclusion">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               This project showcases the successful deployment of a robust,
               scalable, and highly accurate deep learning system for 3D
               anatomical segmentation. By leveraging architectural and
@@ -552,7 +552,7 @@ export default function ProjectPage() {
               across imaging modalities and organ systems suggests broad utility
               in clinical diagnostics and surgical planning.
             </p>
-            <p className="text-gray-300 leading-relaxed text-justify">
+            <p className="text-body leading-relaxed text-justify">
               Future work could include real-time inference capabilities,
               integration into surgical navigation platforms, and expansion to
               other anatomical structures or multimodal datasets.

@@ -1,6 +1,6 @@
 // Checks the rules in AGENTS.md and DESIGN.md that a machine can decide: no em dash in
-// copy, asset names, asset references that point at a file, and motion-safe: on hover
-// movement. Run by `npm run check`.
+// copy, asset names, asset references that point at a file, motion-safe: on hover
+// movement, and semantic colour classes. Run by `npm run check`.
 import { execFileSync } from "node:child_process";
 import { existsSync, readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
@@ -93,6 +93,24 @@ for (const file of tracked("app", "components")) {
         ) {
           problems.push(
             `${file}:${index + 1}: ${token} moves on a state change, add motion-safe:`,
+          );
+        }
+      }
+    });
+}
+
+// Colour: components use the semantic tokens in globals.css, never a palette step
+const PALETTE_CLASS =
+  /^-?(?:text|bg|border(?:-[xytrblse])?|from|via|to|(?:inset-)?ring(?:-offset)?|outline|fill|stroke|divide|decoration|caret|placeholder|accent)-(?:white|black|(?:gray|slate|zinc|neutral|stone)(?:-\d+)?|dark|light|card)(?:\/[\w.[\]]+)?$/;
+for (const file of tracked("app", "components")) {
+  readFileSync(file, "utf8")
+    .split("\n")
+    .forEach((line, index) => {
+      for (const token of line.split(/[\s"'`{},]+/)) {
+        const utility = variantsOf(token.replace(/^!|!$/g, "")).pop();
+        if (PALETTE_CLASS.test(utility)) {
+          problems.push(
+            `${file}:${index + 1}: ${token} is a palette colour, use a token from globals.css`,
           );
         }
       }

@@ -67,7 +67,7 @@ const GlowCard = ({ children, className = "", spotlightSize = 180 }) => {
         "--border": "1.5",
         "--x": "-9999",
         "--y": "-9999",
-        "--backdrop": "hsl(0 0% 60% / 0.06)",
+        "--backdrop": "hsl(0 0% 60% / var(--glow-backdrop-alpha))",
         "--backup-border": "var(--backdrop)",
         "--size": spotlightSize.toString(),
         "--outer": "1",
@@ -92,7 +92,7 @@ const GlowCard = ({ children, className = "", spotlightSize = 180 }) => {
         touchAction: "pan-y pinch-zoom",
       }}
       className={cn(
-        "rounded-2xl relative grid grid-rows-[1fr_auto] shadow-[0_0.5rem_1rem_-0.5rem_rgba(0,0,0,0.3)] p-4 gap-4 backdrop-blur-[2px]",
+        "rounded-2xl relative grid grid-rows-[1fr_auto] shadow-card p-4 gap-4 backdrop-blur-[2px]",
         className,
       )}
     >

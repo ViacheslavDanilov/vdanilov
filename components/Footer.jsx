@@ -65,7 +65,7 @@ function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative w-full max-w-[1400px] mx-auto flex flex-col items-center justify-center rounded-t-xl border-t border-light/10 bg-[radial-gradient(35%_128px_at_50%_0%,theme(backgroundColor.accent/8%),transparent)] px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+    <footer className="relative w-full max-w-[1400px] mx-auto flex flex-col items-center justify-center rounded-t-xl border-t border-strong/10 bg-[radial-gradient(35%_128px_at_50%_0%,theme(backgroundColor.accent/8%),transparent)] px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
       <div className="bg-accent/20 absolute top-0 right-1/2 left-1/2 h-px w-1/3 -translate-x-1/2 -translate-y-1/2 rounded-full blur" />
 
       {/* Stacked below lg; from lg, three columns with the copyright under the brand */}
@@ -86,7 +86,7 @@ function Footer() {
               className="h-8 w-auto"
             />
           </Link>
-          <p className="text-sm text-gray-400 mx-auto max-w-sm lg:mx-0 lg:max-w-xs lg:leading-relaxed">
+          <p className="text-sm text-muted mx-auto max-w-sm lg:mx-0 lg:max-w-xs lg:leading-relaxed">
             Bridging scientific research and industrial innovation through
             advanced AI and machine learning solutions
           </p>
@@ -97,7 +97,7 @@ function Footer() {
           <div className="grid grid-cols-2 gap-x-8 sm:gap-x-12 lg:contents">
             <div className="lg:flex lg:justify-center lg:col-start-2 lg:row-start-1 lg:row-span-2">
               <div>
-                <h3 className="text-xs uppercase tracking-wider text-light font-semibold mb-4">
+                <h3 className="text-xs uppercase tracking-wider text-strong font-semibold mb-4">
                   Quick Links
                 </h3>
                 <ul className="space-y-2 text-sm">
@@ -105,7 +105,7 @@ function Footer() {
                     <li key={link.title}>
                       <Link
                         href={link.href}
-                        className="text-gray-400 hover:text-accent inline-flex items-center transition-colors duration-300 h-11 -my-2.5"
+                        className="text-muted hover:text-accent inline-flex items-center transition-colors duration-300 h-11 -my-2.5"
                       >
                         <FontAwesomeIcon
                           icon={link.icon}
@@ -125,7 +125,7 @@ function Footer() {
             </div>
 
             <div className="lg:col-start-3 lg:row-start-1 lg:row-span-2">
-              <h3 className="text-xs uppercase tracking-wider text-light font-semibold mb-4">
+              <h3 className="text-xs uppercase tracking-wider text-strong font-semibold mb-4">
                 Connect
               </h3>
               <ul className="space-y-2 text-sm">
@@ -141,7 +141,7 @@ function Footer() {
                           ? undefined
                           : "noopener noreferrer"
                       }
-                      className="text-gray-400 hover:text-accent inline-flex items-center transition-colors duration-300 h-11 -my-2.5"
+                      className="text-muted hover:text-accent inline-flex items-center transition-colors duration-300 h-11 -my-2.5"
                     >
                       <FontAwesomeIcon
                         icon={link.icon}
@@ -161,8 +161,8 @@ function Footer() {
           </div>
         </div>
 
-        <div className="pt-6 border-t border-light/10 text-center lg:col-start-1 lg:row-start-2 lg:pt-8 lg:border-t-0 lg:text-left">
-          <p className="text-sm text-gray-400">
+        <div className="pt-6 border-t border-strong/10 text-center lg:col-start-1 lg:row-start-2 lg:pt-8 lg:border-t-0 lg:text-left">
+          <p className="text-sm text-muted">
             © {year} Viacheslav Danilov • All rights reserved
           </p>
         </div>

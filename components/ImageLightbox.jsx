@@ -96,7 +96,7 @@ export default function ImageLightbox({
       <button
         ref={thumbnailRef}
         type="button"
-        className={`relative block w-full rounded-xl overflow-hidden border border-white/10 cursor-zoom-in group mx-auto ${widthClass} ${className}`}
+        className={`relative block w-full rounded-xl overflow-hidden border border-line cursor-zoom-in group mx-auto ${widthClass} ${className}`}
         onClick={() => setIsOpen(true)}
         aria-label={`View ${alt} in full size`}
       >
@@ -112,14 +112,17 @@ export default function ImageLightbox({
           style={{ display: "block" }}
         />
         {/* Touch cue */}
-        <div className="hidden pointer-coarse:flex absolute bottom-2 right-2 w-8 h-8 rounded-full bg-black/60 items-center justify-center">
-          <FontAwesomeIcon icon={faExpand} className="w-4 h-4 text-light" />
+        <div className="hidden pointer-coarse:flex absolute bottom-2 right-2 w-8 h-8 rounded-full bg-scrim/60 items-center justify-center">
+          <FontAwesomeIcon icon={faExpand} className="w-4 h-4 text-strong" />
         </div>
         {/* Hover overlay */}
-        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
+        <div className="absolute inset-0 bg-scrim/0 group-hover:bg-scrim/20 transition-all duration-300 flex items-center justify-center">
           <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <div className="w-12 h-12 rounded-full bg-accent/90 flex items-center justify-center shadow-lg">
-              <FontAwesomeIcon icon={faExpand} className="w-5 h-5 text-light" />
+              <FontAwesomeIcon
+                icon={faExpand}
+                className="w-5 h-5 text-strong"
+              />
             </div>
           </div>
         </div>
@@ -140,28 +143,27 @@ export default function ImageLightbox({
             aria-label={alt}
           >
             {/* Backdrop */}
-            <div className="absolute inset-0 bg-black/95 backdrop-blur-sm" />
+            <div className="absolute inset-0 bg-scrim/95 backdrop-blur-sm" />
 
             {/* Close button */}
             <button
               ref={closeRef}
-              className="absolute top-4 right-4 z-10 w-12 h-12 rounded-full bg-white/10 
-                         hover:bg-white/20 transition-colors flex items-center justify-center
-                         border border-white/20 cursor-pointer"
+              className="absolute top-4 right-4 z-10 w-12 h-12 rounded-full bg-ink/10 
+                         hover:bg-ink/20 transition-colors flex items-center justify-center
+                         border border-ink/20 cursor-pointer"
               onClick={(e) => {
                 e.stopPropagation();
                 setIsOpen(false);
               }}
               aria-label="Close (Esc)"
             >
-              <FontAwesomeIcon icon={faXmark} className="w-6 h-6 text-light" />
+              <FontAwesomeIcon icon={faXmark} className="w-6 h-6 text-strong" />
             </button>
 
             {/* Keyboard hint */}
             <div className="absolute top-4 left-4 z-10 pointer-coarse:hidden">
-              <span className="text-gray-400 text-xs bg-black/50 px-3 py-1.5 rounded-md">
-                Press <kbd className="text-gray-400 font-mono">Esc</kbd> to
-                close
+              <span className="text-muted text-xs bg-scrim/50 px-3 py-1.5 rounded-md">
+                Press <kbd className="text-muted font-mono">Esc</kbd> to close
               </span>
             </div>
 
@@ -189,7 +191,7 @@ export default function ImageLightbox({
 
             {/* Caption */}
             <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-center pointer-events-none">
-              <p className="text-gray-300 text-sm bg-black/60 px-4 py-2 rounded-lg backdrop-blur-sm">
+              <p className="text-body text-sm bg-scrim/60 px-4 py-2 rounded-lg backdrop-blur-sm">
                 {alt}
               </p>
             </div>

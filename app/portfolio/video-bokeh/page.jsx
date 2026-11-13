@@ -135,7 +135,7 @@ const TECH_STACK = [
 
 // A caption chip laid over one cell of a video that tiles several streams
 const StreamLabel = ({ children }) => (
-  <span className="m-1 self-end justify-self-start rounded bg-black/60 px-1.5 py-0.5 text-[10px] leading-tight text-gray-200 backdrop-blur-sm sm:m-2 sm:rounded-md sm:px-2 sm:text-xs">
+  <span className="m-1 self-end justify-self-start rounded bg-scrim/60 px-1.5 py-0.5 text-[10px] leading-tight text-legacy-gray-200 backdrop-blur-sm sm:m-2 sm:rounded-md sm:px-2 sm:text-xs">
     {children}
   </span>
 );
@@ -167,7 +167,7 @@ export default function ProjectPage() {
 
           <Section title="Overview">
             <div className="prose prose-invert max-w-none">
-              <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+              <p className="text-body leading-relaxed mb-4 text-justify">
                 Bokeh is the blur that a shallow depth of field gives a
                 photograph, and it is hardest to render at depth
                 discontinuities, where the blurred edge of a near object should
@@ -177,7 +177,7 @@ export default function ProjectPage() {
                 bokeh model trains on pairs of an all-in-focus video and a
                 defocused version of the same video.
               </p>
-              <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+              <p className="text-body leading-relaxed mb-4 text-justify">
                 Published real pairs are still images taken at two apertures,
                 and video pairs are hard to capture, so every video bokeh
                 dataset synthesizes its defocus. Video Bokeh is a pipeline that
@@ -189,7 +189,7 @@ export default function ProjectPage() {
                 at Pompeu Fabra University for Huawei&apos;s depth-aware video
                 bokeh research, and the code and the dataset are public.
               </p>
-              <p className="text-gray-300 leading-relaxed mb-6 text-justify">
+              <p className="text-body leading-relaxed mb-6 text-justify">
                 A web demo generates a sequence from a seed and plays its
                 streams side by side, in step, so a person can judge them
                 against each other. A walkthrough is shown in{" "}
@@ -202,7 +202,7 @@ export default function ProjectPage() {
 
             {/* Figure 1: Demo Video */}
             <figure id="figure-1" className="scroll-mt-24">
-              <div className="mx-auto w-full max-w-3xl rounded-xl overflow-hidden border border-white/10">
+              <div className="mx-auto w-full max-w-3xl rounded-xl overflow-hidden border border-line">
                 <AutoplayVideo
                   aspectRatio="16 / 9"
                   poster="/portfolio/video-bokeh/demo-video-bokeh-poster.webp"
@@ -217,49 +217,50 @@ export default function ProjectPage() {
                   Your browser does not support the video tag.
                 </AutoplayVideo>
               </div>
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 1.</span> Walkthrough of
-                the web demo: generating a sequence, comparing its streams side
-                by side, and changing the bokeh strength.
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 1.</span> Walkthrough of the
+                web demo: generating a sequence, comparing its streams side by
+                side, and changing the bokeh strength.
               </figcaption>
             </figure>
           </Section>
 
           <Section title="Data">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               The inputs are still images only, and a depth estimator gives each
               of them a disparity map once, so every later sequence reads a
               ready library:
             </p>
-            <ul className="space-y-2 text-gray-300 mb-6 text-justify">
+            <ul className="space-y-2 text-body mb-6 text-justify">
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Foregrounds:</strong> 8,586
-                  generated cut-outs from MAGICK with high-quality alpha mattes,
-                  7,727 in the train split and 859 in the test split.
+                  <strong className="text-legacy-gray-200">Foregrounds:</strong>{" "}
+                  8,586 generated cut-outs from MAGICK with high-quality alpha
+                  mattes, 7,727 in the train split and 859 in the test split.
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Backgrounds:</strong> 20,000
-                  photographs from BG-20k, 15,000 in the train split and 5,000
-                  in the test split, following the dataset&apos;s own split.
+                  <strong className="text-legacy-gray-200">Backgrounds:</strong>{" "}
+                  20,000 photographs from BG-20k, 15,000 in the train split and
+                  5,000 in the test split, following the dataset&apos;s own
+                  split.
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Fixed set:</strong> 300
-                  sequences written once from the test split, with the settings
-                  and seeds recorded, so a network trained on the train split
-                  can be evaluated on assets it never saw.
+                  <strong className="text-legacy-gray-200">Fixed set:</strong>{" "}
+                  300 sequences written once from the test split, with the
+                  settings and seeds recorded, so a network trained on the train
+                  split can be evaluated on assets it never saw.
                 </span>
               </li>
             </ul>
 
-            <p className="text-gray-300 leading-relaxed mb-6 text-justify">
+            <p className="text-body leading-relaxed mb-6 text-justify">
               The library and the fixed set are on Hugging Face, 115 GB and 79
               GB. Every sequence of the fixed set has 80 frames and 2.9 objects
               on average, and all but two of its 869 objects move in depth. The
@@ -276,7 +277,7 @@ export default function ProjectPage() {
 
             {/* Figure 2: Streams of one sequence */}
             <figure id="figure-2" className="scroll-mt-24 mb-8">
-              <div className="relative mx-auto w-full max-w-2xl rounded-xl overflow-hidden border border-white/10">
+              <div className="relative mx-auto w-full max-w-2xl rounded-xl overflow-hidden border border-line">
                 <AutoplayVideo
                   aspectRatio="3 / 2"
                   poster="/portfolio/video-bokeh/demo-video-bokeh-streams-poster.webp"
@@ -299,9 +300,9 @@ export default function ProjectPage() {
                   <StreamLabel>Occlusion</StreamLabel>
                 </div>
               </div>
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 2.</span> The streams of
-                one sequence, played in step: the sharp composite, its bokeh,
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 2.</span> The streams of one
+                sequence, played in step: the sharp composite, its bokeh,
                 disparity, alpha, optical flow and the occlusion mask.
               </figcaption>
             </figure>
@@ -315,9 +316,9 @@ export default function ProjectPage() {
                 height={2273}
                 maxWidth="2xl"
               />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 3.</span> Three sequences
-                at two frames each. From left to right: the all-in-focus frame,
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 3.</span> Three sequences at
+                two frames each. From left to right: the all-in-focus frame,
                 alpha masks, disparity, optical flow, the occlusion mask and
                 bokeh.
               </figcaption>
@@ -325,23 +326,27 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Methods">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               The pipeline has two stages, shown in{" "}
               <a href="#figure-4" className="text-accent hover:underline">
                 Figure 4
               </a>
               :
             </p>
-            <ul className="space-y-4 text-gray-300 mb-6 text-justify">
+            <ul className="space-y-4 text-body mb-6 text-justify">
               <li>
-                <strong className="text-gray-200">Stage A (Library):</strong> A
-                monocular depth estimator, Depth Anything V2 by default, gives
+                <strong className="text-legacy-gray-200">
+                  Stage A (Library):
+                </strong>{" "}
+                A monocular depth estimator, Depth Anything V2 by default, gives
                 each foreground and background a disparity map, once and
                 offline. Each foreground&apos;s matte replaces the unreliable
                 estimate at its soft edge with disparity from inside the object.
               </li>
               <li>
-                <strong className="text-gray-200">Stage B (Sequences):</strong>{" "}
+                <strong className="text-legacy-gray-200">
+                  Stage B (Sequences):
+                </strong>{" "}
                 Objects move over a background that a 2D camera motion warps. An
                 object that approaches or recedes changes its size on screen and
                 its disparity by the same factor, and the disparity inside it
@@ -350,7 +355,7 @@ export default function ProjectPage() {
                 optical flow and an occlusion mask in each direction.
               </li>
             </ul>
-            <p className="text-gray-300 leading-relaxed mb-6 text-justify">
+            <p className="text-body leading-relaxed mb-6 text-justify">
               Each object&apos;s alpha mask is soft, so a blurred edge mixes the
               object with what lies behind it, and amodal, so it includes the
               parts hidden by nearer objects. Stage B writes the sequences to
@@ -368,27 +373,27 @@ export default function ProjectPage() {
                 height={761}
                 maxWidth="full"
               />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 4.</span> Stage A builds
-                the library once. Stage B composites layers into a sequence,
-                with each object&apos;s trajectory, and renders its streams.
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 4.</span> Stage A builds the
+                library once. Stage B composites layers into a sequence, with
+                each object&apos;s trajectory, and renders its streams.
               </figcaption>
             </figure>
           </Section>
 
           <Section title="Results">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               The layered renderer was compared with four published ones on 120
               sequences of 24 frames at 1024 × 1024 pixels, against a layered
               ray tracer that composites the layers in display values, as the
               pipeline does:
             </p>
-            <ul className="space-y-2 text-gray-300 mb-6 text-justify">
+            <ul className="space-y-2 text-body mb-6 text-justify">
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Speed:</strong> About 5 ms
-                  per frame at 1024 × 1024 pixels on one NVIDIA GeForce RTX
+                  <strong className="text-legacy-gray-200">Speed:</strong> About
+                  5 ms per frame at 1024 × 1024 pixels on one NVIDIA GeForce RTX
                   5090. Of the renderers that take layers, it is more than ten
                   times faster than the others at every width, and on the CPU it
                   takes under a second per frame.
@@ -397,24 +402,27 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Edge accuracy:</strong> Near
-                  object edges it is on average the closest to the reference in
-                  every subset, ahead of BokehMe by 1.3 dB on smoke to 7.0 dB on
-                  hair. The lead comes from sequences with one object, and the
-                  order depends on how the reference composites.
+                  <strong className="text-legacy-gray-200">
+                    Edge accuracy:
+                  </strong>{" "}
+                  Near object edges it is on average the closest to the
+                  reference in every subset, ahead of BokehMe by 1.3 dB on smoke
+                  to 7.0 dB on hair. The lead comes from sequences with one
+                  object, and the order depends on how the reference composites.
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Generation:</strong> Writing
-                  a fixed-set sequence of 80 frames took 75 s on average, with
-                  bokeh rendered on the GPU and every stream written.
+                  <strong className="text-legacy-gray-200">Generation:</strong>{" "}
+                  Writing a fixed-set sequence of 80 frames took 75 s on
+                  average, with bokeh rendered on the GPU and every stream
+                  written.
                 </span>
               </li>
             </ul>
 
-            <p className="text-gray-300 leading-relaxed mb-6 text-justify">
+            <p className="text-body leading-relaxed mb-6 text-justify">
               The bokeh strength is a setting of the renderer, and the same
               sequence at three strengths is shown in{" "}
               <a href="#figure-5" className="text-accent hover:underline">
@@ -425,7 +433,7 @@ export default function ProjectPage() {
 
             {/* Figure 5: Bokeh strengths */}
             <figure id="figure-5" className="scroll-mt-24">
-              <div className="relative mx-auto w-full max-w-4xl rounded-xl overflow-hidden border border-white/10">
+              <div className="relative mx-auto w-full max-w-4xl rounded-xl overflow-hidden border border-line">
                 <AutoplayVideo
                   aspectRatio="4 / 1"
                   poster="/portfolio/video-bokeh/demo-video-bokeh-strengths-poster.webp"
@@ -455,8 +463,8 @@ export default function ProjectPage() {
                   </StreamLabel>
                 </div>
               </div>
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 5.</span> One sequence in
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 5.</span> One sequence in
                 focus and at bokeh strengths 8, 16 and 32, played in step. The
                 strength is the blur radius in pixels, at a width of 1024
                 pixels, for one unit of disparity from the focus.
@@ -465,7 +473,7 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Conclusion">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               Video Bokeh gives a depth-aware bokeh model exact supervision at
               object edges, where real data is hardest to get, and generates it
               cheaply enough to run inside a training loop. Its sequences are
@@ -473,7 +481,7 @@ export default function ProjectPage() {
               they have no camera parallax, shadows or refraction, and the
               disparity inside an object is estimated, not rendered.
             </p>
-            <p className="text-gray-300 leading-relaxed text-justify">
+            <p className="text-body leading-relaxed text-justify">
               The remaining limits are not fundamental: motion blur could be
               added along each layer&apos;s known motion, and the renderer can
               write the same scenes at other strengths. The data is for
