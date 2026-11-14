@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import AutoplayVideo from "@/components/AutoplayVideo";
+import { PEER_REVIEWED } from "@/lib/publications";
 import DepthFlipText from "@/components/ui/depth-flip-text";
 import { LiquidButtonLink } from "@/components/ui/liquid-button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -128,8 +129,8 @@ const Hero = () => {
             industry. I take machine learning from first experiment to
             production: medical signal and image analysis, computer vision, time
             series, and LLM and RAG systems. I led teams of developers and
-            researchers, supervised PhD students and postdocs, and published
-            nearly 50 peer-reviewed papers.
+            researchers, supervised PhD students and postdocs, and published{" "}
+            {PEER_REVIEWED} peer-reviewed papers.
           </p>
 
           <div className="order-3 lg:order-none flex flex-wrap items-center justify-center gap-2 sm:gap-3">

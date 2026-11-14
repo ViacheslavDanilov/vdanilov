@@ -3,7 +3,7 @@
 import CountUp from "@/components/CountUp";
 import { GlowCard } from "@/components/ui/glow-card";
 
-const Statistics = () => {
+const Statistics = ({ publications }) => {
   const stats = [
     {
       value: 10,
@@ -27,7 +27,7 @@ const Statistics = () => {
       delay: 0.2,
     },
     {
-      value: 48,
+      value: publications,
       suffix: "",
       label: "Research Publications",
       duration: 2,
