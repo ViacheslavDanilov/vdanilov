@@ -6,6 +6,7 @@ import PublicationCard from "@/components/PublicationCard";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import generated from "@/lib/publications.generated.json";
 import siteOnly from "@/lib/publications-site.json";
+import { publicationsSummary } from "@/lib/publications";
 
 // The record fields come from research-record, the site-only fields from publications-site.json
 const PUBLICATIONS_DATA = generated.publications.map((publication) => ({
@@ -34,8 +35,7 @@ export default function Publications() {
               Publications
             </h1>
             <p className="text-muted mt-3 max-w-3xl mx-auto leading-relaxed text-balance">
-              Selected from 48 peer-reviewed publications and 8 open datasets:
-              first author on 32, senior author on 4, 14 in Q1 journals
+              {publicationsSummary()}
             </p>
           </header>
 

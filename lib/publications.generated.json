@@ -1,4 +1,11 @@
 {
+  "stats": {
+    "peerReviewed": 48,
+    "datasets": 8,
+    "firstAuthor": 32,
+    "seniorAuthor": 4,
+    "q1Journals": 14
+  },
   "publications": [
     {
       "id": "laptev-2026-joint",

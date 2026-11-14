@@ -42,6 +42,24 @@ const records = JSON.parse(
   readFileSync(resolve(recordDir, "data/publications.json"), "utf8"),
 );
 
+// Counts over the whole record, public or not, which is what the page text says
+// ("selected from ..."). Only the totals leave the record, never a private entry
+const papers = records.filter((record) =>
+  ["Journal article", "Conference paper"].includes(record.kind),
+);
+const stats = {
+  peerReviewed: papers.length,
+  datasets: records.filter((record) => record.kind === "Dataset").length,
+  firstAuthor: papers.filter((record) => authorPosition(record) === "first")
+    .length,
+  seniorAuthor: papers.filter((record) => authorPosition(record) === "senior")
+    .length,
+  q1Journals: records.filter(
+    (record) =>
+      record.kind === "Journal article" && record.metrics?.scopus === "Q1",
+  ).length,
+};
+
 const publications = records
   .filter((record) => record.public === true)
   .map((record) => {
@@ -66,7 +84,7 @@ const publications = records
 const options = (await resolveConfig(output)) ?? {};
 writeFileSync(
   output,
-  await format(JSON.stringify({ publications }), {
+  await format(JSON.stringify({ stats, publications }), {
     ...options,
     filepath: output,
   }),
