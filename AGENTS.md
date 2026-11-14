@@ -283,6 +283,9 @@ edited from here, and the site cannot read it at build time.
   `featured`, and `location` for a conference. `npm run check` fails when a record has no entry
   or an entry has no record
 - A title, venue, year or link is changed in the record, not here
+- The record holds every work, the site shows the ones marked `public`, and the CV prints a
+  hand-picked part of those, so each count is the same or smaller than the one before it. A work
+  shown here or in the CV that the record lacks is added to the record first
 - The CV selects some of these works by hand in Figma. After a sync that changes a title, a link or
   a total, carry the change into the CV too
 
