@@ -2,7 +2,7 @@
 // private, so the site cannot read it at build time. Run by hand after the record changes:
 //   npm run publications:sync -- /path/to/research-record
 // The path may also come from RESEARCH_RECORD. Only records with "public": true pass, and
-// only the fields the site shows.
+// only the fields the site shows, plus the totals in stats.
 import { readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";

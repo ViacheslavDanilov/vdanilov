@@ -272,6 +272,8 @@ edited from here, and the site cannot read it at build time.
 - `npm run publications:sync -- <path to research-record>` writes `lib/publications.generated.json`
   from `data/publications.json`. Only records with `"public": true` pass, and only the fields the
   site shows. Never add `score`, `note` or `metrics`, and never read `private/`
+- `stats` in the same file holds the five totals the page text shows. They are counted over the
+  whole record, private entries too, and only the totals leave it
 - Run it after the record changes, and commit the result. Never edit the generated file by hand
 - `lib/publications-site.json` holds what the record does not have, keyed by record `id`: `tags`,
   `featured`, and `location` for a conference. `npm run check` fails when a record has no entry
