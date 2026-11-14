@@ -178,7 +178,7 @@ export default function ProjectPage() {
 
           <Section title="Overview">
             <div className="prose prose-invert max-w-none">
-              <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+              <p className="text-body leading-relaxed mb-4 text-justify">
                 This project advances the application of{" "}
                 <a
                   href="https://en.wikipedia.org/wiki/Hyperspectral_imaging"
@@ -194,7 +194,7 @@ export default function ProjectPage() {
                 object detection, and clustering for efficient analysis of
                 high-dimensional HSI data.
               </p>
-              <p className="text-gray-300 leading-relaxed text-justify">
+              <p className="text-body leading-relaxed text-justify">
                 Principal Component Analysis (PCA) and t-distributed stochastic
                 neighbour embedding (t-SNE) reveal critical spectral features,
                 while Faster R-CNN accurately detects ablated regions. Mean
@@ -208,7 +208,7 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Data">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               The dataset consists of 233 hyperspectral cubes (dimensions: 640 ×
               480 × 100 voxels) captured during laser ablation experiments on
               porcine liver, pancreas, and stomach tissues. These hypercubes
@@ -225,23 +225,23 @@ export default function ProjectPage() {
               bands for each image.
             </p>
 
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               Data collection was carried out under controlled experimental
               conditions across three distinct phases:
             </p>
 
-            <ul className="space-y-2 text-gray-300 mb-6 text-justify">
+            <ul className="space-y-2 text-body mb-6 text-justify">
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Pre-laparotomy:</strong>{" "}
+                  <strong className="text-strong">Pre-laparotomy:</strong>{" "}
                   Baseline measurements before laser application.
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">
+                  <strong className="text-strong">
                     Temperature escalation:
                   </strong>{" "}
                   Imaging during laser-induced heating, with recorded
@@ -251,14 +251,14 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Post-ablation:</strong>{" "}
+                  <strong className="text-strong">Post-ablation:</strong>{" "}
                   Imaging of tissue post-treatment to assess residual thermal
                   damage.
                 </span>
               </li>
             </ul>
 
-            <p className="text-gray-300 leading-relaxed mb-6 text-justify">
+            <p className="text-body leading-relaxed mb-6 text-justify">
               To ensure spectral accuracy and spatial consistency, the camera
               was positioned 40 cm vertically above the surgical field, with
               lighting provided by a 20 W halogen lamp. For spatial referencing,
@@ -276,7 +276,7 @@ export default function ProjectPage() {
                   controls
                   className="w-full rounded-lg"
                 />
-                <figcaption className="text-center text-sm text-gray-400 mt-2">
+                <figcaption className="text-center text-sm text-muted mt-2">
                   Absorbance modality
                 </figcaption>
               </figure>
@@ -287,7 +287,7 @@ export default function ProjectPage() {
                   controls
                   className="w-full rounded-lg"
                 />
-                <figcaption className="text-center text-sm text-gray-400 mt-2">
+                <figcaption className="text-center text-sm text-muted mt-2">
                   HSV modality
                 </figcaption>
               </figure>
@@ -298,7 +298,7 @@ export default function ProjectPage() {
                   controls
                   className="w-full rounded-lg"
                 />
-                <figcaption className="text-center text-sm text-gray-400 mt-2">
+                <figcaption className="text-center text-sm text-muted mt-2">
                   Reflectance modality
                 </figcaption>
               </figure>
@@ -306,7 +306,7 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Methods">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               This methodology employed a structured machine learning workflow
               to analyze hyperspectral imaging data for tissue ablation
               assessment. The workflow integrated dimensionality reduction for
@@ -319,21 +319,21 @@ export default function ProjectPage() {
               ):
             </p>
 
-            <ul className="space-y-4 text-gray-300 mb-6 text-justify">
+            <ul className="space-y-4 text-body mb-6 text-justify">
               <li>
-                <strong className="text-gray-200">
+                <strong className="text-strong">
                   Dimensionality Reduction:
                 </strong>{" "}
                 PCA and t-SNE were used to reduce the complexity of
                 hyperspectral data, preserving key spectral features.
               </li>
               <li>
-                <strong className="text-gray-200">Object Detection:</strong> A
+                <strong className="text-strong">Object Detection:</strong> A
                 Faster R-CNN model was trained to detect and localize ablation
                 regions in reflectance and absorbance images.
               </li>
               <li>
-                <strong className="text-gray-200">Segmentation:</strong> To
+                <strong className="text-strong">Segmentation:</strong> To
                 segment thermal damage zones in hyperspectral images, multiple
                 clustering algorithms were evaluated, including k-means, DBSCAN,
                 OPTICS, BIRCH, Mean Shift and others. These algorithms were
@@ -351,8 +351,8 @@ export default function ProjectPage() {
                 height={568}
                 maxWidth="full"
               />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 1.</span> HSI analysis
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 1.</span> HSI analysis
                 workflow integrating dimensionality reduction, object detection,
                 and clustering for tissue ablation assessment.
               </figcaption>
@@ -360,17 +360,17 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Results">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               The proposed workflow demonstrated strong performance in detecting
               and segmenting laser-induced ablation regions in hyperspectral
               images:
             </p>
 
-            <ul className="space-y-2 text-gray-300 mb-6 text-justify">
+            <ul className="space-y-2 text-body mb-6 text-justify">
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">
+                  <strong className="text-strong">
                     Dimensionality Reduction:
                   </strong>{" "}
                   PCA and t-SNE preserved critical spectral features while
@@ -381,7 +381,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Object Detection:</strong>{" "}
+                  <strong className="text-strong">Object Detection:</strong>{" "}
                   Faster R-CNN achieved a mean Average Precision of{" "}
                   <span className="font-semibold">0.744</span> on
                   PCA-transformed reflectance data, accurately localizing
@@ -391,7 +391,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">
+                  <strong className="text-strong">
                     Segmentation Evaluation:
                   </strong>{" "}
                   Mean Shift provided the best results, delivering high-quality
@@ -406,7 +406,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Spectral Insights:</strong>{" "}
+                  <strong className="text-strong">Spectral Insights:</strong>{" "}
                   Cluster numbers varied significantly between reflectance and
                   absorbance modes (
                   <a href="#figure-3" className="text-accent hover:underline">
@@ -427,8 +427,8 @@ export default function ProjectPage() {
                 height={2500}
                 maxWidth="lg"
               />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 2.</span> Comparison of
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 2.</span> Comparison of
                 clustering algorithms for thermal damage zone segmentation.
               </figcaption>
             </figure>
@@ -442,22 +442,22 @@ export default function ProjectPage() {
                 height={1250}
                 maxWidth="2xl"
               />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 3.</span> Cluster number
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 3.</span> Cluster number
                 comparison between reflectance and absorbance imaging modes.
               </figcaption>
             </figure>
           </Section>
 
           <Section title="Conclusion">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               This project introduced a robust pipeline for analyzing
               hyperspectral imaging data to detect and segment laser-induced
               tissue ablation. Combining dimensionality reduction, object
               detection, and clustering techniques, the workflow achieved
               high-quality and automated segmentation.
             </p>
-            <p className="text-gray-300 leading-relaxed text-justify">
+            <p className="text-body leading-relaxed text-justify">
               These advancements have significant implications for medical
               diagnostics, particularly in laser cancer therapy. Future work
               could involve refining the pipeline for real-time applications and

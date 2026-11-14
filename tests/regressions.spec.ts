@@ -43,6 +43,18 @@ const entranceOf = async (page: Page, path: string) => {
   return (await read()) as Entrance;
 };
 
+// A card still growing in is scaled down, which shrinks its tap area
+const cardsSettled = (page: Page) =>
+  page.waitForFunction(() =>
+    document
+      .getAnimations()
+      .every(
+        (a) =>
+          !(a as CSSAnimation).animationName?.startsWith("card-") ||
+          a.playState === "finished",
+      ),
+  );
+
 test.describe("Experience dates west of UTC", () => {
   test.use({ timezoneId: "America/Los_Angeles" });
 
@@ -899,6 +911,7 @@ test.describe("Touch targets at 360px", () => {
     page,
   }) => {
     await page.goto("/experience/");
+    await cardsSettled(page);
     const misses = await page
       .locator('main a[aria-label$="website"]:not(:has(img))')
       .evaluateAll((links) =>
@@ -1052,7 +1065,7 @@ test.describe("Small polish", () => {
   test("project tech chips use the 12px chip size", async ({ page }) => {
     await page.goto("/portfolio/deep-anatomy/");
     const chip = page
-      .locator('span[class*="rounded-full"][class*="bg-white/5"]')
+      .locator('span[class*="rounded-full"][class*="bg-ink/5"]')
       .first();
 
     await expect(chip).toHaveCSS("font-size", "12px");
@@ -1063,7 +1076,10 @@ test.describe("Small polish", () => {
   }) => {
     const html = await (await request.get("/")).text();
 
-    expect(html).toMatch(/<meta name="theme-color" content="#0a0e14"\/?>/i);
+    const tags = html.match(/<meta name="theme-color"[^>]*>/gi) ?? [];
+
+    expect(tags).toHaveLength(1);
+    expect(tags[0]).toContain('content="#0a0e14"');
   });
 });
 
@@ -1125,6 +1141,7 @@ test.describe("Last small tap targets at 360px", () => {
   for (const [name, path, selector] of targets) {
     test(`${name} take a tap in a 44px area`, async ({ page }) => {
       await page.goto(path, { waitUntil: "domcontentloaded" });
+      await cardsSettled(page);
       const areas = await page.locator(selector).evaluateAll((links) =>
         links.map((link) => {
           link.scrollIntoView({ block: "center" });
@@ -1384,7 +1401,7 @@ test.describe("Home hero", () => {
     await page.goto("/");
     const hero = page.locator("#hero");
     const video = (await hero.locator("video").boundingBox())!;
-    const bio = (await hero.getByText("published nearly 50").boundingBox())!;
+    const bio = (await hero.getByText("peer-reviewed papers").boundingBox())!;
     const name = (await hero.locator("h1").boundingBox())!;
     const icons = (await hero
       .getByRole("link", { name: "Email" })
@@ -1403,7 +1420,7 @@ test.describe("Home hero", () => {
     await page.setViewportSize({ width: 1440, height: 900 });
     await page.goto("/");
     const hero = page.locator("#hero");
-    const bio = (await hero.getByText("published nearly 50").boundingBox())!;
+    const bio = (await hero.getByText("peer-reviewed papers").boundingBox())!;
     const video = (await hero.locator("video").locator("..").boundingBox())!;
     const centre = (b: { x: number; width: number }) => b.x + b.width / 2;
     const first = (await hero
@@ -1546,7 +1563,9 @@ test.describe("Home hero", () => {
       await page.goto("/");
       const hero = page.locator("#hero");
       const video = (await hero.locator("video").locator("..").boundingBox())!;
-      const text = (await hero.getByText("published nearly 50").boundingBox())!;
+      const text = (await hero
+        .getByText("peer-reviewed papers")
+        .boundingBox())!;
       const left = video.x;
       const right = width - (text.x + text.width);
       expect(Math.abs(left - right)).toBeLessThanOrEqual(24);
@@ -1557,7 +1576,7 @@ test.describe("Home hero", () => {
     await page.goto("/");
     const style = await page
       .locator("#hero")
-      .getByText("published nearly 50")
+      .getByText("peer-reviewed papers")
       .evaluate((el) => {
         const s = getComputedStyle(el);
         return [s.hyphens, s.textAlign, el.closest("html")!.lang];
@@ -1639,7 +1658,7 @@ test.describe("Home hero", () => {
           rect(hero.querySelector('a[aria-label="Download CV"]')!),
           rect(
             [...hero.querySelectorAll("p")].find((p) =>
-              p.textContent!.includes("published nearly"),
+              p.textContent!.includes("peer-reviewed papers"),
             )!,
           ),
         ];
@@ -1660,7 +1679,7 @@ test.describe("Home hero", () => {
       await hero.locator("video").boundingBox(),
       await hero.getByRole("link", { name: "LinkedIn" }).boundingBox(),
       await hero.getByRole("link", { name: "Download CV" }).boundingBox(),
-      await hero.getByText("published nearly 50").boundingBox(),
+      await hero.getByText("peer-reviewed papers").boundingBox(),
     ].map((box) => box!.y);
     expect(tops).toEqual([...tops].sort((a, b) => a - b));
   });
@@ -1699,9 +1718,9 @@ test.describe("Home hero", () => {
       });
       expect(style).toEqual([
         "600",
-        "rgb(255, 255, 255)",
+        "rgb(241, 244, 248)",
         "rgba(0, 0, 0, 0)",
-        "rgb(209, 213, 219)",
+        "rgb(196, 204, 216)",
       ]);
     }
   });
@@ -1906,8 +1925,11 @@ test.describe("Client logos", () => {
       const links = page.locator('main a:has(img[src*="/clients/"])');
       for (const link of await links.all()) {
         const mono = link.locator('img[src$="-mono.svg"]');
-        const colour = link.locator('img:not([src$="-mono.svg"])');
-        await expect(colour).toHaveAttribute("aria-hidden", "true");
+        const colours = link.locator('img:not([src$="-mono.svg"])');
+        for (const img of await colours.all()) {
+          await expect(img).toHaveAttribute("aria-hidden", "true");
+        }
+        const colour = colours.locator("visible=true");
         await mono.scrollIntoViewIfNeeded();
         for (const img of [mono, colour]) {
           await expect
@@ -1930,6 +1952,22 @@ test.describe("Client logos", () => {
         ).toBeLessThan(0.5);
       }
     }
+  });
+
+  test("in light a logo with white lettering shows its light file", async ({
+    browser,
+  }) => {
+    const context = await browser.newContext();
+    await context.addInitScript(() => localStorage.setItem("theme", "light"));
+    const page = await context.newPage();
+    await page.goto("/");
+    const cell = page.getByRole("link", { name: /^Huawei/ });
+    await cell.scrollIntoViewIfNeeded();
+    await cell.hover();
+    await expect(
+      cell.locator('img:not([src$="-mono.svg"])').locator("visible=true"),
+    ).toHaveAttribute("src", /huawei-on-light\.svg/);
+    await context.close();
   });
 
   test("only one logo cell is highlighted while the pointer moves", async ({

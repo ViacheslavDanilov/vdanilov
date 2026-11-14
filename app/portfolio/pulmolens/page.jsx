@@ -169,7 +169,7 @@ export default function ProjectPage() {
 
           <Section title="Overview">
             <div className="prose prose-invert max-w-none">
-              <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+              <p className="text-body leading-relaxed mb-4 text-justify">
                 This project aimed to improve the diagnostic performance and
                 explainability of AI models for detecting COVID-19 and pneumonia
                 from chest X-ray images. The key innovation was the introduction
@@ -185,7 +185,7 @@ export default function ProjectPage() {
                 heatmaps guided convolutional neural networks during training to
                 focus on relevant lung regions.
               </p>
-              <p className="text-gray-300 leading-relaxed text-justify">
+              <p className="text-body leading-relaxed text-justify">
                 To overcome data scarcity and inconsistency, we harmonized and
                 relabeled data from five major public datasets. We trained and
                 evaluated multiple standard network architectures, progressively
@@ -209,11 +209,11 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Data">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               The dataset consisted of 2,631 chest X-ray images, sourced from
               five publicly available datasets:
             </p>
-            <ul className="space-y-2 text-gray-300 mb-6 text-justify">
+            <ul className="space-y-2 text-body mb-6 text-justify">
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
@@ -285,7 +285,7 @@ export default function ProjectPage() {
                 </span>
               </li>
             </ul>
-            <p className="text-gray-300 leading-relaxed text-justify">
+            <p className="text-body leading-relaxed text-justify">
               Images were manually labeled into three consistent classes:
               Normal, Pneumonia, and COVID-19. To ensure class balance,
               duplicates were removed and class-specific quotas were enforced.
@@ -296,16 +296,16 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Methods">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               The project&apos;s core innovation lies in a three-stage training
               pipeline that combines conventional transfer learning with
               indirect supervision, enabling more focused and interpretable AI
               predictions for medical imaging:
             </p>
 
-            <ul className="space-y-4 text-gray-300 mb-6 text-justify">
+            <ul className="space-y-4 text-body mb-6 text-justify">
               <li>
-                <strong className="text-gray-200">
+                <strong className="text-strong">
                   Stage I (Transfer Learning):
                 </strong>{" "}
                 We initialized ten convolutional neural networks (CNNs) such as
@@ -317,7 +317,7 @@ export default function ProjectPage() {
                 reduce overfitting.
               </li>
               <li>
-                <strong className="text-gray-200">
+                <strong className="text-strong">
                   Stage II (Full Fine-Tuning):
                 </strong>{" "}
                 The top-performing models from the first stage (VGG-16,
@@ -326,7 +326,7 @@ export default function ProjectPage() {
                 heads to be optimized together at a reduced learning rate.
               </li>
               <li>
-                <strong className="text-gray-200">
+                <strong className="text-strong">
                   Stage III (Indirect Supervision):
                 </strong>{" "}
                 This stage introduced the key novelty: an indirect supervision
@@ -351,8 +351,8 @@ export default function ProjectPage() {
                 height={1520}
                 maxWidth="full"
               />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 1.</span> Indirect
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 1.</span> Indirect
                 supervision workflow showing Grad-CAM attention map integration,
                 shared weights, and attention-based masking during
                 backpropagation.
@@ -361,16 +361,16 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Results">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               The evaluation of model performance proceeded in three distinct
               training stages, with each phase demonstrating progressive
               improvements in classification accuracy, robustness, and clinical
               relevance:
             </p>
 
-            <ul className="space-y-4 text-gray-300 mb-6 text-justify">
+            <ul className="space-y-4 text-body mb-6 text-justify">
               <li>
-                <strong className="text-gray-200">
+                <strong className="text-strong">
                   Stage I (Transfer Learning):
                 </strong>{" "}
                 MobileNet V2, VGG-16, and the EfficientNet B1/B3 models emerged
@@ -378,7 +378,7 @@ export default function ProjectPage() {
                 and testing accuracies of up to 78%.
               </li>
               <li>
-                <strong className="text-gray-200">
+                <strong className="text-strong">
                   Stage II (Full Fine-Tuning):
                 </strong>{" "}
                 VGG-16 and MobileNet V2 showed the most significant
@@ -387,13 +387,13 @@ export default function ProjectPage() {
                 accuracy.
               </li>
               <li>
-                <strong className="text-gray-200">
+                <strong className="text-strong">
                   Stage III (Indirect Supervision):
                 </strong>{" "}
                 Networks trained with attention masks demonstrated more
                 anatomically accurate focus on lung regions. VGG-16 achieved the
                 highest accuracy overall:{" "}
-                <span className="text-light font-semibold">
+                <span className="text-strong font-semibold">
                   88% validation and 84% test accuracy
                 </span>
                 , outperforming the best COVID-Net variant (CXR-4A) which peaked
@@ -401,21 +401,21 @@ export default function ProjectPage() {
               </li>
             </ul>
 
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
-              <strong className="text-gray-200">Performance Summary:</strong>
+            <p className="text-body leading-relaxed mb-4 text-justify">
+              <strong className="text-strong">Performance Summary:</strong>
             </p>
-            <ul className="space-y-2 text-gray-300 mb-6">
+            <ul className="space-y-2 text-body mb-6">
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">VGG-16 (Stage III):</strong>{" "}
+                  <strong className="text-strong">VGG-16 (Stage III):</strong>{" "}
                   88% validation, 84% test accuracy
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">
+                  <strong className="text-strong">
                     MobileNet V2 (Stage III):
                   </strong>{" "}
                   86% validation, 79% test accuracy
@@ -424,21 +424,21 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">CXR-4A (COVID-Net):</strong>{" "}
+                  <strong className="text-strong">CXR-4A (COVID-Net):</strong>{" "}
                   81% accuracy on both subsets
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Improvement:</strong> VGG-16
+                  <strong className="text-strong">Improvement:</strong> VGG-16
                   validation accuracy rose by 9 points across the three stages,
                   from 79% to 88%
                 </span>
               </li>
             </ul>
 
-            <p className="text-gray-300 leading-relaxed text-justify">
+            <p className="text-body leading-relaxed text-justify">
               The integration of Grad-CAM not only improved classification but
               also made the predictions interpretable. Attention maps confirmed
               that the networks were focusing on clinically relevant lung zones,
@@ -456,10 +456,10 @@ export default function ProjectPage() {
                 height={3442}
                 maxWidth="2xl"
               />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 2.</span> Grad-CAM
-                attention maps for COVID-19 detection showing model focus on
-                clinically relevant lung regions affected by the disease.
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 2.</span> Grad-CAM attention
+                maps for COVID-19 detection showing model focus on clinically
+                relevant lung regions affected by the disease.
               </figcaption>
             </figure>
 
@@ -472,16 +472,16 @@ export default function ProjectPage() {
                 height={3439}
                 maxWidth="2xl"
               />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 3.</span> Grad-CAM
-                attention maps for pneumonia detection demonstrating
-                anatomically accurate focus on affected lung areas.
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 3.</span> Grad-CAM attention
+                maps for pneumonia detection demonstrating anatomically accurate
+                focus on affected lung areas.
               </figcaption>
             </figure>
           </Section>
 
           <Section title="Conclusion">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               This project demonstrates that indirect supervision with attention
               guidance can substantially improve both performance and
               transparency in medical image classification. VGG-16, a standard
@@ -489,7 +489,7 @@ export default function ProjectPage() {
               chest X-rays, proving that smart supervision can outperform
               brute-force architecture scaling.
             </p>
-            <p className="text-gray-300 leading-relaxed text-justify">
+            <p className="text-body leading-relaxed text-justify">
               The method offers a scalable, interpretable AI solution for
               radiology, with future extensions possible for other diseases and
               imaging modalities.

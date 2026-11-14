@@ -156,7 +156,7 @@ export default function ProjectPage() {
 
           <Section title="Overview">
             <div className="prose prose-invert max-w-none">
-              <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+              <p className="text-body leading-relaxed mb-4 text-justify">
                 This project focuses on developing an end-to-end ML-driven
                 workflow to classify the immunological phenotype of human solid
                 tumors based on whole slide images (WSIs). The immunological
@@ -164,7 +164,7 @@ export default function ProjectPage() {
                 are essential for understanding tumor biology, predicting
                 disease progression, and tailoring immunotherapy.
               </p>
-              <p className="text-gray-300 leading-relaxed text-justify">
+              <p className="text-body leading-relaxed text-justify">
                 The workflow integrates advanced machine learning and deep
                 learning methods for nucleus segmentation, feature extraction,
                 and classification to identify stromal, lymphocyte, and cancer
@@ -176,7 +176,7 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Data">
-            <p className="text-gray-300 leading-relaxed mb-6 text-justify">
+            <p className="text-body leading-relaxed mb-6 text-justify">
               Tumor immune phenotypes (immune inflamed, excluded, and desert)
               are essential for advancing oncology and directly influence how
               well a patient may respond to immunotherapy. Inflamed tumors often
@@ -196,7 +196,7 @@ export default function ProjectPage() {
                   height={800}
                   maxWidth="full"
                 />
-                <p className="text-center text-sm text-gray-400 mt-2">
+                <p className="text-center text-sm text-muted mt-2">
                   Immune Inflamed
                 </p>
               </div>
@@ -208,7 +208,7 @@ export default function ProjectPage() {
                   height={800}
                   maxWidth="full"
                 />
-                <p className="text-center text-sm text-gray-400 mt-2">
+                <p className="text-center text-sm text-muted mt-2">
                   Immune Excluded
                 </p>
               </div>
@@ -220,37 +220,37 @@ export default function ProjectPage() {
                   height={800}
                   maxWidth="full"
                 />
-                <p className="text-center text-sm text-gray-400 mt-2">
+                <p className="text-center text-sm text-muted mt-2">
                   Immune Desert
                 </p>
               </div>
             </div>
 
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               The dataset comprised 76 WSIs of human solid tumors, including
               rectal, colorectal, and lung adenocarcinomas:
             </p>
 
-            <ul className="space-y-2 text-gray-300 mb-6 text-justify">
+            <ul className="space-y-2 text-body mb-6 text-justify">
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Patches:</strong> 5.7
-                  million patches generated, 2.7 million tissue-rich patches
-                  selected for analysis
+                  <strong className="text-strong">Patches:</strong> 5.7 million
+                  patches generated, 2.7 million tissue-rich patches selected
+                  for analysis
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Annotations:</strong> 527
+                  <strong className="text-strong">Annotations:</strong> 527
                   tissue-rich patches manually annotated with 7,318 nuclei
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Cell Types:</strong>{" "}
+                  <strong className="text-strong">Cell Types:</strong>{" "}
                   Tumor-infiltrating lymphocytes (TIL), tumor cells, and stromal
                   cells
                 </span>
@@ -258,7 +258,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Labeling:</strong> Weakly
+                  <strong className="text-strong">Labeling:</strong> Weakly
                   supervised methods were employed to ensure high-quality
                   labeling of TIL, tumor, and stromal cell populations.
                 </span>
@@ -267,7 +267,7 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Methods">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               The proposed solution comprises five main stages (
               <a href="#figure-1" className="text-accent hover:underline">
                 Figure 1
@@ -275,9 +275,9 @@ export default function ProjectPage() {
               ):
             </p>
 
-            <ul className="space-y-4 text-gray-300 mb-6 text-justify">
+            <ul className="space-y-4 text-body mb-6 text-justify">
               <li>
-                <strong className="text-gray-200">WSI Slicing:</strong> Whole
+                <strong className="text-strong">WSI Slicing:</strong> Whole
                 slide images were divided into smaller high-resolution patches
                 using a custom slicing algorithm (
                 <a href="#figure-2" className="text-accent hover:underline">
@@ -286,19 +286,17 @@ export default function ProjectPage() {
                 ).
               </li>
               <li>
-                <strong className="text-gray-200">Nucleus Segmentation:</strong>{" "}
+                <strong className="text-strong">Nucleus Segmentation:</strong>{" "}
                 HoVer-Net, a state-of-the-art deep learning model, was used to
                 segment nuclei.
               </li>
               <li>
-                <strong className="text-gray-200">Feature Extraction:</strong>{" "}
+                <strong className="text-strong">Feature Extraction:</strong>{" "}
                 Detailed features such as shape, texture, and intensity were
                 extracted from segmented nuclei for downstream analysis.
               </li>
               <li>
-                <strong className="text-gray-200">
-                  Nucleus Classification:
-                </strong>{" "}
+                <strong className="text-strong">Nucleus Classification:</strong>{" "}
                 An AutoML-based approach using the{" "}
                 <a
                   href="https://mljar.com/"
@@ -312,7 +310,7 @@ export default function ProjectPage() {
                 stromal cells, or others.
               </li>
               <li>
-                <strong className="text-gray-200">
+                <strong className="text-strong">
                   Immune Archetype Assignment:
                 </strong>{" "}
                 Cells were clustered based on type and spatial arrangement to
@@ -330,8 +328,8 @@ export default function ProjectPage() {
                 height={410}
                 maxWidth="full"
               />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 1.</span> End-to-end ML
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 1.</span> End-to-end ML
                 workflow for tumor immune phenotype classification from whole
                 slide images.
               </figcaption>
@@ -346,8 +344,8 @@ export default function ProjectPage() {
                 height={750}
                 maxWidth="full"
               />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 2.</span> Custom slicing
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 2.</span> Custom slicing
                 algorithm dividing whole slide images into high-resolution
                 patches for analysis.
               </figcaption>
@@ -355,28 +353,25 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Results">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               The results highlight the performance and scalability of the
               developed pipeline across segmentation, classification, and immune
               archetype determination:
             </p>
 
-            <ul className="space-y-2 text-gray-300 mb-6 text-justify">
+            <ul className="space-y-2 text-body mb-6 text-justify">
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">WSI Slicing:</strong> From
-                  5.7 million patches generated, only 2.7 million containing
-                  tissue were retained, ensuring efficient downstream
-                  processing.
+                  <strong className="text-strong">WSI Slicing:</strong> From 5.7
+                  million patches generated, only 2.7 million containing tissue
+                  were retained, ensuring efficient downstream processing.
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">
-                    Nucleus Segmentation:
-                  </strong>{" "}
+                  <strong className="text-strong">Nucleus Segmentation:</strong>{" "}
                   HoVer-Net achieved a Dice Similarity Coefficient of{" "}
                   <span className="font-semibold">90%</span> on validation and{" "}
                   <span className="font-semibold">75%</span> on test subset.
@@ -385,18 +380,18 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">
+                  <strong className="text-strong">
                     Nucleus Classification:
                   </strong>{" "}
                   The AutoML classifier achieved a weighted F1-score of{" "}
-                  <span className="text-light font-semibold">89%</span>, with
+                  <span className="text-strong font-semibold">89%</span>, with
                   high precision for lymphocytes (F1-score: 0.74).
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">
+                  <strong className="text-strong">
                     Immune Archetype Determination:
                   </strong>{" "}
                   The pipeline assigned archetypes with high reproducibility,
@@ -419,9 +414,9 @@ export default function ProjectPage() {
                 height={1240}
                 maxWidth="full"
               />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 3.</span> Visualization
-                of the pipeline output showing segmented cells and predicted
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 3.</span> Visualization of
+                the pipeline output showing segmented cells and predicted
                 archetypes on a whole slide image. The source WSI is available
                 for detailed viewing at the{" "}
                 <a
@@ -438,14 +433,14 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Conclusion">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               The hybrid deep and machine learning workflow successfully
               classified tumor immune phenotypes (immune inflamed, excluded, and
               desert) using whole slide images. This classification aids in
               predicting cancer progression and tailoring immunotherapy
               strategies.
             </p>
-            <p className="text-gray-300 leading-relaxed text-justify">
+            <p className="text-body leading-relaxed text-justify">
               The methodology showcased high accuracy and adaptability across
               different tumor types. Future enhancements could involve
               integrating multi-modal data such as gene expression profiles or

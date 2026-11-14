@@ -50,7 +50,7 @@ the team and the outcome.
 ## Capabilities and Constraints
 
 - Next.js on Vercel, static pages, no accounts or backend features.
-- The site is dark-only.
+- The site has a dark theme and a light one. Dark is the default and the system setting is ignored: a reader switches to light with the navbar switch, and the choice is kept in the browser.
 - Copy rules (prose, abbreviations, affiliations, link order) live in `AGENTS.md`.
 
 ## Evidence on Hand

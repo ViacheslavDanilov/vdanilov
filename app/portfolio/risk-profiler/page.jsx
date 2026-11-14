@@ -131,7 +131,7 @@ export default function ProjectPage() {
 
           <Section title="Overview">
             <div className="prose prose-invert max-w-none">
-              <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+              <p className="text-body leading-relaxed mb-4 text-justify">
                 Risk Profiler is a machine learning prototype that helps claims
                 analysts identify potentially fraudulent insurance claims,
                 prioritize investigations, and reduce financial losses. Rather
@@ -139,7 +139,7 @@ export default function ProjectPage() {
                 fraud probability for each case along with clear reasoning that
                 supports their decisions and regulatory compliance.
               </p>
-              <p className="text-gray-300 leading-relaxed text-justify">
+              <p className="text-body leading-relaxed text-justify">
                 The system pairs a trained AutoGluon ensemble with SHAP
                 explainability and optional LLM-generated summaries. Every
                 prediction is fully transparent: SHAP contributions show exactly
@@ -153,16 +153,16 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Data">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               The model is trained on the 2023 Travelers NESS Statathon dataset
               of synthetic insurance claim records with fraud labels, covering
               driver demographics, claim details, and vehicle information:
             </p>
-            <ul className="space-y-2 text-gray-300 mb-6 text-justify">
+            <ul className="space-y-2 text-body mb-6 text-justify">
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">
+                  <strong className="text-strong">
                     Travelers NESS Statathon:
                   </strong>{" "}
                   Open 2023 Kaggle competition data with labeled fraudulent and
@@ -173,7 +173,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Claim Features:</strong> The
+                  <strong className="text-strong">Claim Features:</strong> The
                   10 most impactful signals by SHAP: annual income, age of
                   driver, claim day of week, higher education, past number of
                   claims, safety rating, witness present, gender, estimated
@@ -182,7 +182,7 @@ export default function ProjectPage() {
               </li>
             </ul>
 
-            <p className="text-gray-300 leading-relaxed mb-6 text-justify">
+            <p className="text-body leading-relaxed mb-6 text-justify">
               Claims exceeding a configurable 65% fraud-probability threshold
               are flagged as high risk, focusing analyst attention where it
               matters most.
@@ -190,30 +190,28 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Methods">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               Risk Profiler runs a prediction pipeline that combines a trained
               AutoGluon model with SHAP explainability and optional LLM
               summaries:
             </p>
 
-            <ul className="space-y-4 text-gray-300 mb-6 text-justify">
+            <ul className="space-y-4 text-body mb-6 text-justify">
               <li>
-                <strong className="text-gray-200">Stage 1 (Prediction):</strong>{" "}
+                <strong className="text-strong">Stage 1 (Prediction):</strong>{" "}
                 An AutoGluon TabularPredictor (NeuralNetTorch ensemble) outputs
                 a fraud probability and a binary decision against the
                 configurable threshold.
               </li>
               <li>
-                <strong className="text-gray-200">
+                <strong className="text-strong">
                   Stage 2 (Explainability):
                 </strong>
                 <ul className="mt-2 ml-4 space-y-1">
                   <li className="flex items-start gap-2">
                     <span className="text-accent mt-1">•</span>
                     <span>
-                      <strong className="text-gray-300">
-                        SHAP Contributions:
-                      </strong>{" "}
+                      <strong className="text-body">SHAP Contributions:</strong>{" "}
                       A KernelExplainer with a 25-sample background computes
                       per-instance feature contributions.
                     </span>
@@ -221,9 +219,7 @@ export default function ProjectPage() {
                   <li className="flex items-start gap-2">
                     <span className="text-accent mt-1">•</span>
                     <span>
-                      <strong className="text-gray-300">
-                        Additive Scoring:
-                      </strong>{" "}
+                      <strong className="text-body">Additive Scoring:</strong>{" "}
                       Baseline plus the sum of feature impacts reconstructs the
                       risk score, so each input&apos;s push up or down is
                       explicit.
@@ -232,7 +228,7 @@ export default function ProjectPage() {
                 </ul>
               </li>
               <li>
-                <strong className="text-gray-200">
+                <strong className="text-strong">
                   Stage 3 (Summary &amp; UI):
                 </strong>{" "}
                 An OpenAI model (GPT-4o-mini, configurable) generates a natural
@@ -244,25 +240,25 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Results">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               By replacing manual scoring with explainable, on-demand
               predictions, the prototype delivers practical gains for fraud
               investigation workflows:
             </p>
 
-            <ul className="space-y-2 text-gray-300 mb-6 text-justify">
+            <ul className="space-y-2 text-body mb-6 text-justify">
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Review Speed:</strong>{" "}
-                  Instant fraud probability and explanations replace full manual
-                  scoring and analysis.
+                  <strong className="text-strong">Review Speed:</strong> Instant
+                  fraud probability and explanations replace full manual scoring
+                  and analysis.
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Analyst Focus:</strong>{" "}
+                  <strong className="text-strong">Analyst Focus:</strong>{" "}
                   Reviewers concentrate on high-risk and edge cases instead of
                   examining every claim.
                 </span>
@@ -270,7 +266,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Consistency:</strong>{" "}
+                  <strong className="text-strong">Consistency:</strong>{" "}
                   Standardized scoring and reasoning remove reviewer-to-reviewer
                   variance.
                 </span>
@@ -278,14 +274,14 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Explainability:</strong>{" "}
-                  SHAP contributions and an LLM summary replace hand-written
-                  notes with auditable reasoning.
+                  <strong className="text-strong">Explainability:</strong> SHAP
+                  contributions and an LLM summary replace hand-written notes
+                  with auditable reasoning.
                 </span>
               </li>
             </ul>
 
-            <p className="text-gray-300 leading-relaxed mb-6 text-justify">
+            <p className="text-body leading-relaxed mb-6 text-justify">
               A walkthrough of scoring an auto claim, adjusting claim signals to
               see the fraud probability cross the 65% threshold, and inspecting
               the SHAP drivers and summary is shown in{" "}
@@ -301,7 +297,7 @@ export default function ProjectPage() {
 
             {/* Figure 1: Demo Video */}
             <figure id="figure-1" className="scroll-mt-24 mb-8">
-              <div className="mx-auto w-full max-w-2xl rounded-xl overflow-hidden border border-white/10">
+              <div className="mx-auto w-full max-w-2xl rounded-xl overflow-hidden border border-line">
                 <AutoplayVideo
                   aspectRatio="16 / 9"
                   poster="/portfolio/risk-profiler/demo-risk-profiler-poster.webp"
@@ -316,8 +312,8 @@ export default function ProjectPage() {
                   Your browser does not support the video tag.
                 </AutoplayVideo>
               </div>
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 1.</span> Walkthrough of
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 1.</span> Walkthrough of
                 scoring a claim, updating claim features to trigger a high-risk
                 alert, and reviewing the additive SHAP feature effects and AI
                 summary.
@@ -333,8 +329,8 @@ export default function ProjectPage() {
                 height={2745}
                 maxWidth="lg"
               />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 2.</span> Risk Profiler
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 2.</span> Risk Profiler
                 dashboard: adjustable claim features, a risk-score gauge with
                 threshold, and a SHAP explainability panel showing each
                 feature&apos;s additive impact alongside an AI-generated
@@ -344,14 +340,14 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Conclusion">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               Risk Profiler shows how explainable machine learning can support,
               rather than replace, human fraud analysts. By pairing accurate
               AutoGluon predictions with transparent SHAP contributions and
               concise LLM summaries, it turns opaque risk scores into auditable,
               defensible decisions while keeping a human firmly in the loop.
             </p>
-            <p className="text-gray-300 leading-relaxed text-justify">
+            <p className="text-body leading-relaxed text-justify">
               As a prototype, it is built for extension: the decision threshold
               and the OpenAI summary model are both configurable, and the
               batch-ready API is positioned for integration into existing claims

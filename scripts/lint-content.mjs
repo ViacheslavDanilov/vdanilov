@@ -1,6 +1,6 @@
 // Checks the rules in AGENTS.md and DESIGN.md that a machine can decide: no em dash in
-// copy, asset names, asset references that point at a file, and motion-safe: on hover
-// movement. Run by `npm run check`.
+// copy, asset names, asset references that point at a file, motion-safe: on hover
+// movement, and semantic colour classes. Run by `npm run check`.
 import { execFileSync } from "node:child_process";
 import { existsSync, readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
@@ -97,6 +97,41 @@ for (const file of tracked("app", "components")) {
         }
       }
     });
+}
+
+// Colour: components use the semantic tokens in globals.css, never a palette step
+const PALETTE_CLASS =
+  /^-?(?:text|bg|border(?:-[xytrblse])?|from|via|to|(?:inset-)?ring(?:-offset)?|outline|fill|stroke|divide|decoration|caret|placeholder|accent)-(?:white|black|(?:gray|slate|zinc|neutral|stone)(?:-\d+)?|dark|light|card)(?:\/[\w.[\]]+)?$/;
+for (const file of tracked("app", "components")) {
+  readFileSync(file, "utf8")
+    .split("\n")
+    .forEach((line, index) => {
+      for (const token of line.split(/[\s"'`{},]+/)) {
+        const utility = variantsOf(token.replace(/^!|!$/g, "")).pop();
+        if (PALETTE_CLASS.test(utility)) {
+          problems.push(
+            `${file}:${index + 1}: ${token} is a palette colour, use a token from globals.css`,
+          );
+        }
+      }
+    });
+}
+
+// Publications: lib/publications-site.json holds the site-only fields, one entry for each
+// record in lib/publications.generated.json and none for a record that is no longer there
+const generated = JSON.parse(
+  readFileSync("lib/publications.generated.json", "utf8"),
+).publications.map((publication) => publication.id);
+const siteOnly = Object.keys(
+  JSON.parse(readFileSync("lib/publications-site.json", "utf8")),
+);
+for (const id of generated.filter((id) => !siteOnly.includes(id))) {
+  problems.push(`lib/publications-site.json: no entry for ${id}`);
+}
+for (const id of siteOnly.filter((id) => !generated.includes(id))) {
+  problems.push(
+    `lib/publications-site.json: ${id} is not in lib/publications.generated.json`,
+  );
 }
 
 if (problems.length > 0) {

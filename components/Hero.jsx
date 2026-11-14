@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import AutoplayVideo from "@/components/AutoplayVideo";
+import { PEER_REVIEWED } from "@/lib/publications";
 import DepthFlipText from "@/components/ui/depth-flip-text";
 import { LiquidButtonLink } from "@/components/ui/liquid-button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -58,7 +59,7 @@ const Hero = () => {
     >
       <div className="flex flex-col items-center gap-6 lg:grid lg:grid-cols-[auto_minmax(0,36rem)] lg:justify-center lg:gap-16">
         <div className="contents lg:flex lg:flex-col lg:items-center lg:gap-8">
-          <div className="order-1 lg:order-none relative size-64 md:size-96 rounded-full overflow-hidden border-4 border-accent/20 shadow-2xl bg-dark">
+          <div className="order-1 lg:order-none relative size-64 md:size-96 rounded-full overflow-hidden border-4 border-accent/20 shadow-2xl light:shadow-none bg-page">
             <Image
               src="/hero/hero-poster.webp"
               alt="Viacheslav Danilov portrait"
@@ -87,7 +88,7 @@ const Hero = () => {
                 }
                 aria-label={social.name}
                 title={social.name}
-                className="p-3 -m-3 rounded-full text-gray-400 transition-all duration-300 transform motion-safe:hover:scale-110 hover:text-light focus-visible:outline-2 focus-visible:outline-accent"
+                className="p-3 -m-3 rounded-full text-muted transition-all duration-300 transform motion-safe:hover:scale-110 hover:text-strong focus-visible:outline-2 focus-visible:outline-focus"
                 style={{ display: "inline-block" }}
               >
                 <FontAwesomeIcon
@@ -107,34 +108,35 @@ const Hero = () => {
         {/* Below lg the icons follow the video and the buttons come before the paragraph, so the buttons show on the first screen */}
         <div className="contents lg:flex lg:flex-col lg:gap-8">
           <div className="space-y-5 lg:space-y-6 text-center">
-            <h1 className="text-3xl sm:text-4xl lg:text-4xl xl:text-5xl text-balance font-semibold leading-[1.1] text-light tracking-tight">
+            <h1 className="text-3xl sm:text-4xl lg:text-4xl xl:text-5xl text-balance font-semibold leading-[1.1] text-strong tracking-tight">
               Viacheslav Danilov, PhD
             </h1>
             <DepthFlipText
               phrases={roles}
-              className="text-lg md:text-xl leading-none text-gray-300"
+              className="text-lg md:text-xl leading-none text-body"
             />
           </div>
 
-          <p className="order-4 lg:order-none -my-0.5 max-w-2xl text-gray-300 text-base xl:text-lg leading-relaxed text-justify hyphens-auto text-pretty">
-            <strong className="font-semibold text-white">
+          <p className="order-4 lg:order-none -my-0.5 max-w-2xl text-body text-base xl:text-lg leading-relaxed text-justify hyphens-auto text-pretty">
+            <strong className="font-semibold text-strong">
               Lead AI/ML Engineer
             </strong>{" "}
             and{" "}
-            <strong className="font-semibold text-white">
+            <strong className="font-semibold text-strong">
               Senior Research Scientist
             </strong>{" "}
             with a PhD in Computer Science and over 10 years in academia and
             industry. I take machine learning from first experiment to
             production: medical signal and image analysis, computer vision, time
             series, and LLM and RAG systems. I led teams of developers and
-            researchers, supervised PhD students and postdocs, and published
-            nearly 50 peer-reviewed papers.
+            researchers, supervised PhD students and postdocs, and published{" "}
+            {PEER_REVIEWED} peer-reviewed papers.
           </p>
 
           <div className="order-3 lg:order-none flex flex-wrap items-center justify-center gap-2 sm:gap-3">
             <LiquidButtonLink
-              href="https://drive.google.com/uc?export=download&id=1viI3o1RBDoreQcbCwe5zc2NTWpxU7ouk"
+              href="https://drive.google.com/file/d/1viI3o1RBDoreQcbCwe5zc2NTWpxU7ouk/view"
+              target="_blank"
               ariaLabel="Download CV"
               className="px-3.5 sm:h-14 sm:px-10 bg-accent/15 border-accent/40"
               hoverClassName="bg-accent/10"

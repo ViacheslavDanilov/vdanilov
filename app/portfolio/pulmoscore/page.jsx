@@ -131,11 +131,11 @@ const RESOURCES = [
   { label: "Models", url: "https://zenodo.org/doi/10.5281/zenodo.8393555" },
   {
     label: "Dataset 1",
-    url: "https://data.mendeley.com/datasets/8gf9vpkhgy/2",
+    url: "https://data.mendeley.com/datasets/8gf9vpkhgy",
   },
   {
     label: "Dataset 2",
-    url: "https://data.mendeley.com/datasets/36fjrg9s69/1",
+    url: "https://data.mendeley.com/datasets/36fjrg9s69",
   },
 ];
 
@@ -199,7 +199,7 @@ export default function ProjectPage() {
 
           <Section title="Overview">
             <div className="prose prose-invert max-w-none">
-              <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+              <p className="text-body leading-relaxed mb-4 text-justify">
                 This project developed a two-stage ML-driven workflow for
                 segmenting and scoring lung diseases on chest X-rays, with a
                 focus on COVID-19. The approach combined lung segmentation and
@@ -207,7 +207,7 @@ export default function ProjectPage() {
                 provide quantitative assessments aligned with radiological
                 practices.
               </p>
-              <p className="text-gray-300 leading-relaxed text-justify">
+              <p className="text-body leading-relaxed text-justify">
                 Using publicly available datasets, the best-performing solution
                 integrated DeepLabV3+ for lung segmentation and MA-Net for
                 disease segmentation, achieving a mean absolute error (MAE) of
@@ -238,16 +238,16 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Data">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               The dataset for this study was carefully curated to address both
               lung segmentation and disease-scoring tasks, drawing from diverse
               publicly available sources:
             </p>
-            <ul className="space-y-2 text-gray-300 mb-6 text-justify">
+            <ul className="space-y-2 text-body mb-6 text-justify">
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Lung Segmentation:</strong>{" "}
+                  <strong className="text-strong">Lung Segmentation:</strong>{" "}
                   6,810 X-rays from three datasets (Darwin, Montgomery,
                   Shenzhen) providing diverse examples of lung pathologies and
                   healthy subjects
@@ -256,9 +256,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">
-                    Disease Segmentation:
-                  </strong>{" "}
+                  <strong className="text-strong">Disease Segmentation:</strong>{" "}
                   1,364 X-rays from four COVID-19 datasets (ACCD, CRD, CCXD,
                   FCXD) and two normal datasets (CXN, RSNA) representing 580
                   COVID-19 and 784 normal cases
@@ -267,7 +265,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Source Diversity:</strong>{" "}
+                  <strong className="text-strong">Source Diversity:</strong>{" "}
                   Data sourced from over 40 institutions worldwide, ensuring
                   robust model generalization
                 </span>
@@ -276,7 +274,7 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Methods">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               The proposed workflow inherits the quantification and
               qualification of lung diseases from expert radiologists and
               fulfills the following processing steps (
@@ -286,16 +284,16 @@ export default function ProjectPage() {
               ):
             </p>
 
-            <ul className="space-y-4 text-gray-300 mb-6 text-justify">
+            <ul className="space-y-4 text-body mb-6 text-justify">
               <li>
-                <strong className="text-gray-200">
+                <strong className="text-strong">
                   Stage I (Lung Segmentation):
                 </strong>{" "}
                 Pixel-level localization of the lungs and removal of irrelevant
                 areas using DeepLabV3+ architecture.
               </li>
               <li>
-                <strong className="text-gray-200">
+                <strong className="text-strong">
                   Stage II (Disease Segmentation):
                 </strong>{" "}
                 Identification of infected lung regions with nine tested neural
@@ -303,7 +301,7 @@ export default function ProjectPage() {
                 PSPNet, PAN, and MA-Net.
               </li>
               <li>
-                <strong className="text-gray-200">
+                <strong className="text-strong">
                   Stage III (Severity Scoring):
                 </strong>{" "}
                 Quantification and qualification of infected regions to compute
@@ -321,8 +319,8 @@ export default function ProjectPage() {
                 height={916}
                 maxWidth="full"
               />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 1.</span> Two-stage COVID
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 1.</span> Two-stage COVID
                 severity scoring workflow showing lung segmentation, disease
                 detection, and severity quantification.
               </figcaption>
@@ -330,34 +328,34 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Results">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               The proposed workflow demonstrated high accuracy and efficiency in
               segmenting lungs, identifying infected regions, and computing
               severity scores for COVID-19 patients:
             </p>
 
-            <ul className="space-y-2 text-gray-300 mb-4">
+            <ul className="space-y-2 text-body mb-4">
               <li>
-                <strong className="text-gray-200">Best Accuracy:</strong>{" "}
+                <strong className="text-strong">Best Accuracy:</strong>{" "}
                 DeepLabV3+ (Stage I) + MA-Net (Stage II) achieved MAE of{" "}
                 <span className="font-semibold">0.30</span> out of 6.0,
                 significantly outperforming BS-net (MAE: 2.52) and COVID-Net-S
                 (MAE: 1.83).
               </li>
               <li>
-                <strong className="text-gray-200">Processing Speed:</strong> The
+                <strong className="text-strong">Processing Speed:</strong> The
                 fastest solution (DeepLabV3+ + PSPNet) processed{" "}
                 <span className="font-semibold">12.5 images/second</span>, while
                 the most accurate achieved 7.9 images/second.
               </li>
               <li>
-                <strong className="text-gray-200">Efficiency Gain:</strong>{" "}
-                <span className="text-light font-semibold">11× faster</span>{" "}
+                <strong className="text-strong">Efficiency Gain:</strong>{" "}
+                <span className="text-strong font-semibold">11× faster</span>{" "}
                 than BS-net and COVID-Net-S (0.7 and 0.6 images/s respectively).
               </li>
             </ul>
 
-            <p className="text-gray-300 leading-relaxed mb-6 text-justify">
+            <p className="text-body leading-relaxed mb-6 text-justify">
               The model comparison chart (
               <a href="#figure-2" className="text-accent hover:underline">
                 Figure 2
@@ -380,8 +378,8 @@ export default function ProjectPage() {
                 height={1499}
                 maxWidth="2xl"
               />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 2.</span> Performance
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 2.</span> Performance
                 comparison of tested neural network architectures showing MAE
                 and processing speed.
               </figcaption>
@@ -401,9 +399,9 @@ export default function ProjectPage() {
                       sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 320px"
                       className="rounded-lg"
                     />
-                    <p className="text-center text-sm text-gray-300 mt-2">
+                    <p className="text-center text-sm text-body mt-2">
                       <span className="font-medium">{item.model}</span>
-                      <span className="text-gray-500"> · Score: </span>
+                      <span className="text-muted"> · Score: </span>
                       <span className="text-accent font-semibold">
                         {item.score}
                       </span>
@@ -411,8 +409,8 @@ export default function ProjectPage() {
                   </div>
                 ))}
               </div>
-              <figcaption className="text-center text-sm text-gray-400 mt-4">
-                <span className="text-gray-300">Figure 3.</span> Segmentation
+              <figcaption className="text-center text-sm text-muted mt-4">
+                <span className="text-body">Figure 3.</span> Segmentation
                 results comparison across all tested architectures. Cyan
                 delineation: lung segmentation (Stage I); Red mask: disease
                 prediction (Stage II); Yellow mask: ground truth.
@@ -421,7 +419,7 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Conclusion">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               The proposed two-stage workflow accurately segmented lung regions
               and quantified infection severity, offering a significant
               improvement over existing methods in both accuracy and speed. By
@@ -429,7 +427,7 @@ export default function ProjectPage() {
               segmentation, the system provided reliable diagnostic support for
               COVID-19 and other respiratory diseases.
             </p>
-            <p className="text-gray-300 leading-relaxed text-justify">
+            <p className="text-body leading-relaxed text-justify">
               Future directions include adapting this workflow for real-time
               clinical deployment and expanding its application to other
               pulmonary conditions, such as pneumonia and tuberculosis.

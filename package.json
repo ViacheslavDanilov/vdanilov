@@ -12,7 +12,8 @@
     "check": "prettier --check . && node scripts/lint-content.mjs",
     "format": "prettier --write .",
     "test:e2e": "playwright test",
-    "assets:svg": "svgo --recursive --folder public"
+    "assets:svg": "svgo --recursive --folder public",
+    "publications:sync": "node scripts/sync-publications.mjs"
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"

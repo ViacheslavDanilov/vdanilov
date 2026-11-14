@@ -158,6 +158,7 @@ const EXPERIENCES_DATA = [
     endDate: "2025-11-01",
     location: "Cambridge • United States 🇺🇸",
     logo: "/experience/core-roles/quantori.svg",
+    logoLight: "/experience/core-roles/quantori-on-light.svg",
     summary:
       "Led 6 developers in ML and computer vision: tumor immune phenotyping for Boehringer Ingelheim, chromosomal instability for Volastra, and explainable chest radiography for Beth Israel",
     responsibilities: [
@@ -236,7 +237,7 @@ const EXPERIENCES_DATA = [
         type: "ERC Project",
       },
     ],
-    logoBrightness: 1.1,
+    logoBrightness: 1.0,
   },
   {
     id: "intelerad-senior-ml",
@@ -570,6 +571,7 @@ const VISITING_ROLES_DATA = [
     endDate: "2017-08-01",
     location: "Trento • Italy 🇮🇹",
     logo: "/experience/visiting-roles/uot.svg",
+    logoLight: "/experience/visiting-roles/uot-on-light.svg",
     summary:
       "Built catheter detection and segmentation in 3D ultrasound using support vector machines and texture features, and benchmarked a new feature selection method with Prof. Farid Melgani",
     responsibilities: [
@@ -620,10 +622,10 @@ export default function Experience() {
       <div className="flex flex-col items-center pt-12 md:pt-24 gap-36 pb-48">
         <section className="w-full max-w-7xl mx-auto px-6">
           <header className="mb-12 text-center">
-            <h2 className="text-4xl md:text-5xl font-bold text-light mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-strong mb-4">
               Core Positions
             </h2>
-            <p className="text-gray-400 mt-3 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-muted mt-3 max-w-3xl mx-auto leading-relaxed">
               Leadership and engineering roles spanning AI, machine learning,
               data science, computer vision, and biomedical imaging across
               research and industry
@@ -640,10 +642,10 @@ export default function Experience() {
         {/* Visiting Positions Section */}
         <section className="w-full max-w-7xl mx-auto px-6">
           <header className="mb-12 text-center">
-            <h2 className="text-4xl md:text-5xl font-bold text-light mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-strong mb-4">
               Visiting Positions
             </h2>
-            <p className="text-gray-400 mt-3 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-muted mt-3 max-w-3xl mx-auto leading-relaxed">
               Collaborative research contributions in machine learning, AI, and
               biomedical imaging through short- and mid-term academic
               engagements

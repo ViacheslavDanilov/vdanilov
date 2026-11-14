@@ -69,10 +69,10 @@ const FeaturedProjects = () => {
   return (
     <section className="w-full max-w-7xl mx-auto px-6 py-12 lg:min-h-[min(100svh,72rem)] lg:flex lg:flex-col lg:justify-center">
       <div className="mb-12 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-light mb-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-strong mb-4">
           Featured Projects
         </h2>
-        <p className="text-gray-400 mt-3 max-w-2xl mx-auto">
+        <p className="text-muted mt-3 max-w-2xl mx-auto">
           Delivering ML/AI systems and research tools that solve complex
           challenges in healthcare, life science, and enterprise
         </p>
@@ -92,7 +92,7 @@ const FeaturedProjects = () => {
                   href={project.link}
                   className="block mb-4 sm:mb-0 sm:flex-shrink-0"
                 >
-                  <div className="relative w-48 h-48 sm:w-40 sm:h-40 rounded-lg overflow-hidden bg-neutral-800 border border-white/10">
+                  <div className="relative w-48 h-48 sm:w-40 sm:h-40 rounded-lg overflow-hidden bg-surface border border-line">
                     <Image
                       src={project.image}
                       alt={project.title}
@@ -109,7 +109,7 @@ const FeaturedProjects = () => {
                     href={project.link}
                     className="group/title relative after:absolute after:-inset-y-2 after:inset-x-0 focus-visible:after:hidden inline-block"
                   >
-                    <h3 className="text-sm font-bold text-white group-hover:text-accent uppercase leading-tight tracking-wider mb-3 text-center sm:text-left transition-colors flex items-center justify-center sm:justify-start gap-2">
+                    <h3 className="text-sm font-bold text-strong group-hover:text-accent uppercase leading-tight tracking-wider mb-3 text-center sm:text-left transition-colors flex items-center justify-center sm:justify-start gap-2">
                       {project.title}
                       <span
                         className="inline-block transition-transform duration-300 motion-safe:group-hover/title:translate-x-1"
@@ -127,16 +127,16 @@ const FeaturedProjects = () => {
                       </span>
                     </h3>
                   </Link>
-                  <div className="text-sm font-light text-white uppercase tracking-wide text-center sm:text-left mb-2">
+                  <div className="text-sm font-light text-strong uppercase tracking-wide text-center sm:text-left mb-2">
                     {project.client}
                   </div>
-                  <div className="text-sm text-gray-400 mt-1 text-center sm:text-left">
+                  <div className="text-sm text-muted mt-1 text-center sm:text-left">
                     {project.location}
                   </div>
                 </div>
               </div>
 
-              <p className="text-neutral-400 mb-6 flex-grow text-sm leading-relaxed text-justify">
+              <p className="text-muted mb-6 flex-grow text-sm leading-relaxed text-justify">
                 {project.description}
               </p>
 
@@ -144,7 +144,7 @@ const FeaturedProjects = () => {
                 {project.stack.map((tech) => (
                   <span
                     key={tech}
-                    className="px-3 py-1 text-xs font-medium rounded-full bg-white/5 text-neutral-300 border border-white/10"
+                    className="px-3 py-1 text-xs font-medium rounded-full bg-ink/5 text-body border border-line"
                   >
                     {tech}
                   </span>

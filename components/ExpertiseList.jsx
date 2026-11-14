@@ -46,7 +46,7 @@ export default function ExpertiseList({ items }) {
         data-testid="expertise-picture"
         className="hidden lg:block lg:sticky lg:top-[max(6rem,calc(50svh-9rem))] lg:self-start"
       >
-        <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-white/10 bg-card">
+        <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-line bg-surface">
           {items.map((item, index) => (
             <Image
               key={item.title}
@@ -74,9 +74,9 @@ export default function ExpertiseList({ items }) {
               if (event.pointerType === "mouse") setActive(index);
             }}
             onFocus={() => setActive(index)}
-            className="flex flex-col gap-4 lg:border-l-2 lg:border-white/10 lg:pl-6 lg:opacity-75 lg:data-[active=true]:border-accent lg:data-[active=true]:opacity-100 motion-safe:lg:transition-[opacity,border-color] motion-safe:lg:duration-300"
+            className="flex flex-col gap-4 lg:border-l-2 lg:border-line lg:pl-6 lg:opacity-75 light:lg:opacity-90 lg:data-[active=true]:border-accent lg:data-[active=true]:opacity-100 motion-safe:lg:transition-[opacity,border-color] motion-safe:lg:duration-300"
           >
-            <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-white/10 bg-card lg:hidden">
+            <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-line bg-surface lg:hidden">
               <Image
                 src={item.image}
                 alt=""
@@ -86,7 +86,7 @@ export default function ExpertiseList({ items }) {
                 className="object-cover"
               />
             </div>
-            <div className="flex items-center gap-2 text-white/70">
+            <div className="flex items-center gap-2 text-strong/70">
               <FontAwesomeIcon
                 icon={item.icon}
                 className="h-3.5 w-3.5"
@@ -100,11 +100,11 @@ export default function ExpertiseList({ items }) {
                 {item.label}
               </span>
             </div>
-            <h3 className="text-lg font-bold text-light">{item.title}</h3>
-            <p className="text-sm leading-relaxed text-light/80 text-justify">
+            <h3 className="text-lg font-bold text-strong">{item.title}</h3>
+            <p className="text-sm leading-relaxed text-strong/80 text-justify">
               {item.parts.map((part) =>
                 part.highlight ? (
-                  <span key={part.key} className="font-semibold text-light/90">
+                  <span key={part.key} className="font-semibold text-strong/90">
                     {part.text}
                   </span>
                 ) : (
@@ -115,7 +115,7 @@ export default function ExpertiseList({ items }) {
             {item.link && (
               <Link
                 href={item.link.href}
-                className="group/link relative after:absolute after:-inset-y-3 after:inset-x-0 focus-visible:after:hidden inline-flex w-fit items-center gap-2 rounded text-sm font-medium text-accent outline-none hover:underline focus-visible:ring-[3px] focus-visible:ring-accent"
+                className="group/link relative after:absolute after:-inset-y-3 after:inset-x-0 focus-visible:after:hidden inline-flex w-fit items-center gap-2 rounded text-sm font-medium text-accent outline-none hover:underline focus-visible:ring-[3px] focus-visible:ring-focus"
               >
                 {item.link.label}
                 <FontAwesomeIcon

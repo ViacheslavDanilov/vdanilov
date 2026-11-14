@@ -94,10 +94,10 @@ const ExpertiseSection = () => {
   return (
     <section className="w-full max-w-7xl mx-auto px-6 py-12">
       <div className="mb-12 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-light mb-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-strong mb-4">
           Expertise & Leadership
         </h2>
-        <p className="text-gray-400 mt-3 max-w-2xl mx-auto">
+        <p className="text-muted mt-3 max-w-2xl mx-auto">
           Bridging the gap between academic research and industrial-scale
           engineering to build high-performing technical teams
         </p>

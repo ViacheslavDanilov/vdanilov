@@ -6,6 +6,7 @@ import MotionProvider from "@/components/MotionProvider";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/metadata";
+import { THEME_COLORS, themeScript } from "@/lib/theme";
 
 // FontAwesome CSS loads here; Navbar stops the client from injecting it again
 import "@fortawesome/fontawesome-svg-core/styles.css";
@@ -49,7 +50,7 @@ export const metadata = {
 };
 
 export const viewport = {
-  themeColor: "#0a0e14",
+  themeColor: THEME_COLORS.dark,
 };
 
 export default function RootLayout({ children }) {
@@ -59,11 +60,14 @@ export default function RootLayout({ children }) {
       className={`${poppins.variable} ${poppinsItalic.variable}`}
       suppressHydrationWarning
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body suppressHydrationWarning>
         <MotionProvider>
           <a
             href="#main"
-            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[60] focus:px-4 focus:py-2 focus:rounded-full focus:bg-dark focus:text-light focus:border focus:border-white/20"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[60] focus:px-4 focus:py-2 focus:rounded-full focus:bg-page focus:text-strong focus:border focus:border-ink/20"
           >
             Skip to content
           </a>

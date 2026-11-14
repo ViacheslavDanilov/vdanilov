@@ -41,7 +41,7 @@ const PortfolioCard = ({
 
   return (
     <article
-      className="group relative overflow-hidden rounded-2xl bg-card border border-white/10 
+      className="group relative overflow-hidden rounded-2xl bg-surface border border-line 
                  transition-all duration-300 hover:border-accent/30 hover:shadow-lg 
                  hover:shadow-accent/5 motion-safe:active:scale-[0.99]"
     >
@@ -64,7 +64,8 @@ const PortfolioCard = ({
           />
           {/* Gradient Overlay */}
           <div
-            className="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/20 to-transparent 
+            data-theme="dark"
+            className="absolute inset-0 bg-gradient-to-t from-page/90 via-page/20 to-transparent 
                       opacity-60 transition-opacity duration-300 group-hover:opacity-80 pointer-events-none"
           />
         </Link>
@@ -85,7 +86,7 @@ const PortfolioCard = ({
         {/* Title with Arrow - Clickable */}
         <div className="mb-2">
           <Link href={projectUrl} className="group/title inline py-3.5">
-            <Title className="text-lg font-semibold text-light transition-colors duration-300 group-hover:text-accent inline">
+            <Title className="text-lg font-semibold text-strong transition-colors duration-300 group-hover:text-accent inline">
               {title}
               <span
                 className="inline-block ml-1.5 align-baseline transition-transform duration-300 motion-safe:group-hover/title:translate-x-1"
@@ -105,7 +106,7 @@ const PortfolioCard = ({
             </Title>
           </Link>
         </div>
-        <p className="text-sm text-gray-400 line-clamp-3 leading-relaxed">
+        <p className="text-sm text-muted line-clamp-3 leading-relaxed">
           {description}
         </p>
 
@@ -113,7 +114,7 @@ const PortfolioCard = ({
         <div className="mt-4 flex items-center justify-between">
           {/* Date */}
           {formattedDate && (
-            <div className="flex items-center gap-1.5 text-xs text-gray-400">
+            <div className="flex items-center gap-1.5 text-xs text-muted">
               <FontAwesomeIcon
                 icon={faCalendarAlt}
                 className="w-3 h-3"

@@ -19,7 +19,7 @@ export default function ProjectHeader({
     <>
       <Link
         href="/portfolio"
-        className="relative after:absolute after:-inset-y-3 after:inset-x-0 focus-visible:after:hidden inline-flex items-center gap-2 text-gray-400 hover:text-accent transition-colors mb-8 group"
+        className="relative after:absolute after:-inset-y-3 after:inset-x-0 focus-visible:after:hidden inline-flex items-center gap-2 text-muted hover:text-accent transition-colors mb-8 group"
       >
         <FontAwesomeIcon
           icon={faArrowLeft}
@@ -30,16 +30,16 @@ export default function ProjectHeader({
 
       <ProjectBanner image={banner.image} alt={banner.alt} />
 
-      <header className="mb-16 p-6 rounded-2xl bg-light/[0.03]">
-        <h1 className="text-3xl md:text-4xl font-bold text-light mb-3">
+      <header className="mb-16 p-6 rounded-2xl bg-strong/[0.03] light:bg-surface light:ring-1 light:ring-inset light:ring-line">
+        <h1 className="text-3xl md:text-4xl font-bold text-strong mb-3">
           {title}
         </h1>
-        <p className="text-lg text-gray-400 leading-relaxed">{subtitle}</p>
+        <p className="text-lg text-muted leading-relaxed">{subtitle}</p>
 
-        <div className="h-px bg-light/10 my-8" />
+        <div className="h-px bg-strong/10 my-8" />
 
-        <div className="text-sm text-gray-400">
-          <span className="text-gray-400 font-medium">Client: </span>
+        <div className="text-sm text-muted">
+          <span className="text-muted font-medium">Client: </span>
           <a
             href={client.url}
             target="_blank"
@@ -48,21 +48,21 @@ export default function ProjectHeader({
           >
             {client.name}
           </a>
-          <span className="text-gray-400">{` · ${client.location}`}</span>
+          <span className="text-muted">{` · ${client.location}`}</span>
         </div>
 
         <div className="flex flex-wrap gap-1.5 mt-4">
           {techStack.map((tech) => (
             <span
               key={tech}
-              className="px-2.5 py-0.5 text-xs rounded-full bg-white/5 border border-white/10 text-gray-400"
+              className="px-2.5 py-0.5 text-xs rounded-full bg-ink/5 border border-line text-muted"
             >
               {tech}
             </span>
           ))}
         </div>
 
-        <div className="h-px bg-light/10 my-8" />
+        <div className="h-px bg-strong/10 my-8" />
 
         <div className="flex flex-wrap gap-x-2 gap-y-2.5">
           {resources.map((resource) => (

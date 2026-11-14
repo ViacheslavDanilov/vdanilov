@@ -127,7 +127,7 @@ export default function ProjectPage() {
 
           <Section title="Overview">
             <div className="prose prose-invert max-w-none">
-              <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+              <p className="text-body leading-relaxed mb-4 text-justify">
                 This project addresses the challenge of segmenting anatomical
                 structures in MRI images with high accuracy and low
                 computational cost. Leveraging a ray-casting technique, the
@@ -135,7 +135,7 @@ export default function ProjectPage() {
                 boundary points of target regions like the heart&apos;s left
                 ventricle and brain tumors.
               </p>
-              <p className="text-gray-300 leading-relaxed text-justify">
+              <p className="text-body leading-relaxed text-justify">
                 To overcome data imbalance, a common issue in pixel-based
                 classification, the approach incorporates ensemble learning
                 methods like AdaBoost.M2, SMOTEBoost, and UnderBagging. The
@@ -150,18 +150,16 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Data">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               This project utilized two publicly available, clinically annotated
               MRI datasets to evaluate the segmentation algorithm&apos;s
               performance on cardiac and brain anatomical structures.
             </p>
-            <ul className="space-y-2 text-gray-300 mb-6 text-justify">
+            <ul className="space-y-2 text-body mb-6 text-justify">
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">
-                    Cardiac MRI Dataset:
-                  </strong>{" "}
+                  <strong className="text-strong">Cardiac MRI Dataset:</strong>{" "}
                   Comprising 7,980 short-axis cardiac MRI images from 33
                   patients (York University). Each sequence includes 20 frames
                   with 8–15 slices per patient at 256×256 pixels resolution.
@@ -173,7 +171,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">
+                  <strong className="text-strong">
                     Brain Tumor MRI Dataset:
                   </strong>{" "}
                   Contains 3,064 T1-weighted contrast-enhanced MRI slices from
@@ -188,21 +186,21 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Methods">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               The segmentation algorithm follows a structured pipeline
               comprising five key stages: preprocessing, ray emission, data
               gathering, classifier training, and post-processing.
             </p>
 
-            <ul className="space-y-4 text-gray-300 mb-6 text-justify">
+            <ul className="space-y-4 text-body mb-6 text-justify">
               <li>
-                <strong className="text-gray-200">Preprocessing:</strong>{" "}
+                <strong className="text-strong">Preprocessing:</strong>{" "}
                 Histogram-based contrast enhancement using bimodal Gaussian
                 filtering, intensity normalization to reduce variability, and
                 resampling to ensure uniform resolution across datasets.
               </li>
               <li>
-                <strong className="text-gray-200">
+                <strong className="text-strong">
                   Ray Emission and Data Gathering:
                 </strong>{" "}
                 From a central point within the region of interest, rays are
@@ -215,14 +213,14 @@ export default function ProjectPage() {
                 ).
               </li>
               <li>
-                <strong className="text-gray-200">Classifier Training:</strong>{" "}
+                <strong className="text-strong">Classifier Training:</strong>{" "}
                 The extracted patches exhibit class imbalance, with boundary
                 points being underrepresented. Ensemble learning techniques such
                 as AdaBoost.M2, RUSBoost, UnderBagging, SMOTEBagging, and
                 SMOTEBoost were employed to improve boundary detection accuracy.
               </li>
               <li>
-                <strong className="text-gray-200">Post-Processing:</strong>{" "}
+                <strong className="text-strong">Post-Processing:</strong>{" "}
                 Detected boundary points are interpolated using cubic splines to
                 generate smooth, closed contours representing the segmented
                 anatomical structures.
@@ -238,8 +236,8 @@ export default function ProjectPage() {
                 height={650}
                 maxWidth="full"
               />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 1.</span> Ray-casting
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 1.</span> Ray-casting
                 segmentation workflow showing the step-by-step progression from
                 raw image to final mask via radial ray emission and boundary
                 detection.
@@ -248,17 +246,17 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Results">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               The algorithm produced high-quality segmentation results with low
               computational latency across both cardiac and brain tumor
               datasets.
             </p>
 
-            <ul className="space-y-2 text-gray-300 mb-6">
+            <ul className="space-y-2 text-body mb-6">
               <li>
-                <strong className="text-gray-200">Heart Segmentation:</strong>{" "}
+                <strong className="text-strong">Heart Segmentation:</strong>{" "}
                 Dice Score up to{" "}
-                <span className="font-semibold text-light">91.8%</span> (mean
+                <span className="font-semibold text-strong">91.8%</span> (mean
                 84.7–85.0% across ray configurations). Optimal trade-off at ∆φ =
                 π/8 with speed of 4.1–20.2 ms per slice (
                 <a href="#figure-2" className="text-accent hover:underline">
@@ -267,11 +265,11 @@ export default function ProjectPage() {
                 ).
               </li>
               <li>
-                <strong className="text-gray-200">
+                <strong className="text-strong">
                   Brain Tumor Segmentation:
                 </strong>{" "}
                 Dice Score up to{" "}
-                <span className="font-semibold text-light">89.5%</span> (mean
+                <span className="font-semibold text-strong">89.5%</span> (mean
                 82.2–83.0%). Consistent performance across tumor types with
                 speed of 5.1–16.0 ms per slice (
                 <a href="#figure-3" className="text-accent hover:underline">
@@ -280,7 +278,7 @@ export default function ProjectPage() {
                 ).
               </li>
               <li>
-                <strong className="text-gray-200">Best Classifiers:</strong>{" "}
+                <strong className="text-strong">Best Classifiers:</strong>{" "}
                 AdaBoost.M2 and SMOTEBoost offered the best trade-off between
                 recall and precision across classifiers.
               </li>
@@ -295,8 +293,8 @@ export default function ProjectPage() {
                 height={650}
                 maxWidth="full"
               />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 2.</span> Cardiac left
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 2.</span> Cardiac left
                 ventricle segmentation results showing ground truth contours and
                 ray-casting predictions across different configurations.
               </figcaption>
@@ -311,8 +309,8 @@ export default function ProjectPage() {
                 height={650}
                 maxWidth="full"
               />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 3.</span> Brain tumor
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 3.</span> Brain tumor
                 segmentation results demonstrating algorithm performance across
                 meningioma, glioma, and pituitary tumor types.
               </figcaption>
@@ -320,7 +318,7 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Conclusion">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               This project introduced a ray-casting segmentation algorithm that
               efficiently and accurately detects anatomical structures in MRI
               images. By reducing the task to one-dimensional boundary
@@ -328,7 +326,7 @@ export default function ProjectPage() {
               the heart and 89.5% for brain tumors) with millisecond-level
               processing times.
             </p>
-            <p className="text-gray-300 leading-relaxed text-justify">
+            <p className="text-body leading-relaxed text-justify">
               The approach proved especially effective for convex shapes and
               benefited from ensemble classifiers like AdaBoost.M2 and
               SMOTEBoost to handle class imbalance. With a balanced

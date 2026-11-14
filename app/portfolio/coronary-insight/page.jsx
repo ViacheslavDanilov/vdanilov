@@ -178,7 +178,7 @@ export default function ProjectPage() {
 
           <Section title="Overview">
             <div className="prose prose-invert max-w-none">
-              <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+              <p className="text-body leading-relaxed mb-4 text-justify">
                 Cardiovascular disease, often driven by atherosclerosis, remains
                 the leading cause of death globally. While{" "}
                 <a
@@ -195,7 +195,7 @@ export default function ProjectPage() {
                 machine learning framework trained on real-world OCT data from
                 103 patients.
               </p>
-              <p className="text-gray-300 leading-relaxed text-justify">
+              <p className="text-body leading-relaxed text-justify">
                 We evaluated nine deep learning architectures and designed a
                 hybrid strategy combining single-class and multi-class models to
                 account for class imbalance and feature complexity. The
@@ -217,36 +217,36 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Data">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               This project utilized a diverse and clinically representative
               multi-center, multi-scanner OCT dataset:
             </p>
-            <ul className="space-y-2 text-gray-300 mb-6 text-justify">
+            <ul className="space-y-2 text-body mb-6 text-justify">
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-300">Patients:</strong> 103
+                  <strong className="text-body">Patients:</strong> 103
                   individuals with stable coronary artery disease
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-300">Images:</strong> 25,698 RGB
+                  <strong className="text-body">Images:</strong> 25,698 RGB
                   slices capturing arterial cross-sections
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-300">Plaque Features:</strong>{" "}
-                  Lumen, fibrous cap, lipid core, and vasa vasorum
+                  <strong className="text-body">Plaque Features:</strong> Lumen,
+                  fibrous cap, lipid core, and vasa vasorum
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-300">Institutions:</strong> Data
+                  <strong className="text-body">Institutions:</strong> Data
                   sourced from two premier Russian cardiovascular centers
                   (Kemerovo and Tyumen)
                 </span>
@@ -254,25 +254,23 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-300">Scanners:</strong> Two
-                  vendors (St. Jude Medical and LightLab Imaging) ensured
-                  imaging heterogeneity
+                  <strong className="text-body">Scanners:</strong> Two vendors
+                  (St. Jude Medical and LightLab Imaging) ensured imaging
+                  heterogeneity
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-300">Image Properties:</strong>{" "}
-                  Sizes ranged from 704×704 to 1024×1024 pixels; 215–270 slices
-                  per image
+                  <strong className="text-body">Image Properties:</strong> Sizes
+                  ranged from 704×704 to 1024×1024 pixels; 215–270 slices per
+                  image
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-300">
-                    Annotation Workflow:
-                  </strong>{" "}
+                  <strong className="text-body">Annotation Workflow:</strong>{" "}
                   Two cardiologists annotated all slices using binary
                   segmentation masks via the Supervisely platform, with a third
                   reviewer confirming accuracy
@@ -280,7 +278,7 @@ export default function ProjectPage() {
               </li>
             </ul>
 
-            <p className="text-gray-300 leading-relaxed mb-6 text-justify">
+            <p className="text-body leading-relaxed mb-6 text-justify">
               These annotations captured key morphological features essential
               for cardiovascular diagnosis and formed the foundation for model
               training and evaluation (
@@ -299,32 +297,36 @@ export default function ProjectPage() {
                 height={900}
                 maxWidth="full"
               />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 1.</span> OCT annotation
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 1.</span> OCT annotation
                 methodology showing the segmentation workflow and plaque feature
                 identification. Color legend:{" "}
-                <span style={{ color: "#ff17cd" }}>lumen</span>,{" "}
-                <span style={{ color: "#5eade6" }}>fibrous cap</span>,{" "}
-                <span style={{ color: "#00e379" }}>lipid core</span>,{" "}
-                <span style={{ color: "#f30f1e" }}>vasa vasorum</span>.
+                <span style={{ color: "var(--legend-lumen)" }}>lumen</span>,{" "}
+                <span style={{ color: "var(--legend-cap)" }}>fibrous cap</span>,{" "}
+                <span style={{ color: "var(--legend-lipid)" }}>lipid core</span>
+                ,{" "}
+                <span style={{ color: "var(--legend-vasa)" }}>
+                  vasa vasorum
+                </span>
+                .
               </figcaption>
             </figure>
           </Section>
 
           <Section title="Methods">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               The project&apos;s methodology addressed both architectural
               optimization and class-specific learning strategies. The following
               techniques were applied to ensure both high performance and
               clinical relevance:
             </p>
 
-            <ul className="space-y-4 text-gray-300 mb-6 text-justify">
+            <ul className="space-y-4 text-body mb-6 text-justify">
               <li>
-                <strong className="text-gray-200">Model Architectures:</strong>{" "}
+                <strong className="text-strong">Model Architectures:</strong>{" "}
                 Nine state-of-the-art segmentation networks were tested,
                 including{" "}
-                <span className="text-gray-300">
+                <span className="text-body">
                   U-Net, U-Net++, DeepLabV3, DeepLabV3+, FPN, LinkNet, PSPNet,
                   PAN, and MA-Net
                 </span>
@@ -332,16 +334,14 @@ export default function ProjectPage() {
                 segmentation and complementary design philosophies.
               </li>
               <li>
-                <strong className="text-gray-200">Hybrid Strategy:</strong>{" "}
-                Lumen and vasa vasorum were trained using single-class models
-                due to their dominance (lumen) or rarity (vasa vasorum). Fibrous
-                cap and lipid core were trained with a two-class model due to
+                <strong className="text-strong">Hybrid Strategy:</strong> Lumen
+                and vasa vasorum were trained using single-class models due to
+                their dominance (lumen) or rarity (vasa vasorum). Fibrous cap
+                and lipid core were trained with a two-class model due to
                 overlapping morphology.
               </li>
               <li>
-                <strong className="text-gray-200">
-                  Hyperparameter Tuning:
-                </strong>{" "}
+                <strong className="text-strong">Hyperparameter Tuning:</strong>{" "}
                 Over 1,000 configurations were tested using Bayesian
                 Optimization and HyperBand early stopping, focusing on encoder
                 type, input size, optimizer, and learning rate. This tuning was
@@ -349,7 +349,7 @@ export default function ProjectPage() {
                 compute time.
               </li>
               <li>
-                <strong className="text-gray-200">Data Augmentation:</strong>{" "}
+                <strong className="text-strong">Data Augmentation:</strong>{" "}
                 Applied using{" "}
                 <a
                   href="https://albumentations.ai/"
@@ -364,7 +364,7 @@ export default function ProjectPage() {
                 generalization.
               </li>
               <li>
-                <strong className="text-gray-200">Validation Strategy:</strong>{" "}
+                <strong className="text-strong">Validation Strategy:</strong>{" "}
                 Employed 5-fold cross-validation without patient overlap to
                 prevent data leakage. Training and testing progress was
                 monitored through loss and DSC evolution (
@@ -374,7 +374,7 @@ export default function ProjectPage() {
                 ).
               </li>
               <li>
-                <strong className="text-gray-200">Explainability Tools:</strong>{" "}
+                <strong className="text-strong">Explainability Tools:</strong>{" "}
                 Class activation maps (CAM) like GradCAM, LayerCAM, and HiResCAM
                 were used to visualize model attention, especially for the
                 fibrous cap and vasa vasorum features.
@@ -390,56 +390,53 @@ export default function ProjectPage() {
                 height={2320}
                 maxWidth="2xl"
               />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 2.</span> Training
-                metrics showing loss convergence and DSC evolution across
-                epochs.
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 2.</span> Training metrics
+                showing loss convergence and DSC evolution across epochs.
               </figcaption>
             </figure>
           </Section>
 
           <Section title="Results">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               The hybrid deep learning framework showed consistent, high
               performance in accurately segmenting plaque components. Notable
               outcomes included:
             </p>
 
-            <ul className="space-y-2 text-gray-300 mb-4">
+            <ul className="space-y-2 text-body mb-4">
               <li>
-                <strong className="text-gray-200">Lumen</strong> (
-                <span style={{ color: "#ff17cd" }}>magenta</span>): DSC of{" "}
-                <span className="font-semibold">0.987</span>, indicating nearly
-                perfect agreement with expert annotations.
+                <strong className="text-strong">Lumen</strong> (
+                <span style={{ color: "var(--legend-lumen)" }}>magenta</span>):
+                DSC of <span className="font-semibold">0.987</span>, indicating
+                nearly perfect agreement with expert annotations.
               </li>
               <li>
-                <strong className="text-gray-200">Fibrous Cap</strong> (
-                <span style={{ color: "#5eade6" }}>blue</span>): DSC of{" "}
-                <span className="font-semibold">0.736</span>, strong performance
-                despite thin, complex structure.
+                <strong className="text-strong">Fibrous Cap</strong> (
+                <span style={{ color: "var(--legend-cap)" }}>blue</span>): DSC
+                of <span className="font-semibold">0.736</span>, strong
+                performance despite thin, complex structure.
               </li>
               <li>
-                <strong className="text-gray-200">Lipid Core</strong> (
-                <span style={{ color: "#00e379" }}>green</span>): DSC of{" "}
-                <span className="font-semibold">0.751</span>, reliable detection
-                despite challenging textures.
+                <strong className="text-strong">Lipid Core</strong> (
+                <span style={{ color: "var(--legend-lipid)" }}>green</span>):
+                DSC of <span className="font-semibold">0.751</span>, reliable
+                detection despite challenging textures.
               </li>
               <li>
-                <strong className="text-gray-200">Vasa Vasorum</strong> (
-                <span style={{ color: "#f30f1e" }}>red</span>): DSC of{" "}
-                <span className="font-semibold">0.610</span>, moderate
+                <strong className="text-strong">Vasa Vasorum</strong> (
+                <span style={{ color: "var(--legend-vasa)" }}>red</span>): DSC
+                of <span className="font-semibold">0.610</span>, moderate
                 performance for a rare, fine-grained feature.
               </li>
               <li>
-                <strong className="text-gray-200">
-                  Ensemble Weighted DSC:
-                </strong>{" "}
-                <span className="text-light font-semibold">0.882</span>,
+                <strong className="text-strong">Ensemble Weighted DSC:</strong>{" "}
+                <span className="text-strong font-semibold">0.882</span>,
                 demonstrating the synergy of combined models.
               </li>
             </ul>
 
-            <p className="text-gray-300 leading-relaxed mb-6 text-justify">
+            <p className="text-body leading-relaxed mb-6 text-justify">
               Visual evaluation of model predictions shows a high overlap with
               ground truth (
               <a href="#figure-3" className="text-accent hover:underline">
@@ -466,10 +463,10 @@ export default function ProjectPage() {
                 height={2550}
                 maxWidth="2xl"
               />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 3.</span> Comparison
-                between ground truth annotations and model predictions for
-                plaque segmentation.
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 3.</span> Comparison between
+                ground truth annotations and model predictions for plaque
+                segmentation.
               </figcaption>
             </figure>
 
@@ -482,16 +479,16 @@ export default function ProjectPage() {
                 height={2256}
                 maxWidth="2xl"
               />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 4.</span> Class
-                activation maps showing model attention focused on anatomically
-                relevant areas.
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 4.</span> Class activation
+                maps showing model attention focused on anatomically relevant
+                areas.
               </figcaption>
             </figure>
           </Section>
 
           <Section title="Conclusion">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               This project delivers a powerful ML framework for automating
               atherosclerotic plaque segmentation in OCT scans. The hybrid
               segmentation design, coupled with rigorous tuning and an ensemble
@@ -499,7 +496,7 @@ export default function ProjectPage() {
               features. The use of explainability techniques reinforces clinical
               trust in predictions.
             </p>
-            <p className="text-gray-300 leading-relaxed text-justify">
+            <p className="text-body leading-relaxed text-justify">
               Future enhancements will explore multimodal data fusion (e.g., OCT
               + IVUS), real-time deployment with lightweight models, and
               application across diverse populations through expanded datasets.

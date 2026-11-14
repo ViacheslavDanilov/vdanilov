@@ -22,6 +22,9 @@ export default defineConfig({
   use: {
     baseURL: `http://localhost:${PORT}`,
 
+    /* The suite asserts the dark theme; light has its own spec */
+    colorScheme: "dark",
+
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: "on-first-retry",
   },

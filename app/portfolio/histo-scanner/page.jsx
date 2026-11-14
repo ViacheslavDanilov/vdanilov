@@ -170,7 +170,7 @@ export default function ProjectPage() {
 
           <Section title="Overview">
             <div className="prose prose-invert max-w-none">
-              <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+              <p className="text-body leading-relaxed mb-4 text-justify">
                 This project focused on developing a deep learning-powered
                 pipeline for segmenting and quantifying histological features in{" "}
                 <a
@@ -186,7 +186,7 @@ export default function ProjectPage() {
                 patterns within biodegradable grafts implanted in sheep carotid
                 arteries.
               </p>
-              <p className="text-gray-300 leading-relaxed text-justify">
+              <p className="text-body leading-relaxed text-justify">
                 By optimizing six neural networks and creating an ensemble
                 model, the project achieved precise segmentation of key
                 microvascular features, including arterioles, venules,
@@ -200,18 +200,18 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Data">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               The study utilized a dataset comprising 104 Whole Slide Images
               (WSIs) obtained from biodegradable TEVGs implanted into the
               carotid arteries of 20 sheep. After six months, the sheep were
               euthanized to assess vascular tissue regeneration patterns.
             </p>
 
-            <ul className="space-y-2 text-gray-300 mb-6 text-justify">
+            <ul className="space-y-2 text-body mb-6 text-justify">
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Patches:</strong> WSIs were
+                  <strong className="text-strong">Patches:</strong> WSIs were
                   automatically sliced into 99,831 patches, of which 1,401 were
                   annotated by pathologists (
                   <a href="#figure-1" className="text-accent hover:underline">
@@ -223,7 +223,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Features:</strong> Nine
+                  <strong className="text-strong">Features:</strong> Nine
                   histological features: arteriole lumen (AL), arteriole media
                   (AM), arteriole adventitia (AA), venule lumen (VL), venule
                   wall (VW), capillary lumen (CL), capillary wall (CW), immune
@@ -233,10 +233,9 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Verification:</strong> A
-                  lead pathologist verified all annotations to ensure
-                  high-quality ground truth data for model training and
-                  evaluation.
+                  <strong className="text-strong">Verification:</strong> A lead
+                  pathologist verified all annotations to ensure high-quality
+                  ground truth data for model training and evaluation.
                 </span>
               </li>
             </ul>
@@ -250,8 +249,8 @@ export default function ProjectPage() {
                 height={1700}
                 maxWidth="3xl"
               />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 1.</span> Annotation
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 1.</span> Annotation
                 methodology showing the patch generation and manual labeling
                 workflow for nine histological features.
               </figcaption>
@@ -259,32 +258,32 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Methods">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               The methodology was designed to address the complexity of
               segmenting microvascular features in tissue-engineered vascular
               grafts by combining advanced deep learning techniques with
               rigorous evaluation protocols:
             </p>
 
-            <ul className="space-y-4 text-gray-300 mb-6 text-justify">
+            <ul className="space-y-4 text-body mb-6 text-justify">
               <li>
-                <strong className="text-gray-200">Patch Generation:</strong>{" "}
-                Whole slide images were divided into smaller, high-resolution
-                patches to enable efficient processing.
+                <strong className="text-strong">Patch Generation:</strong> Whole
+                slide images were divided into smaller, high-resolution patches
+                to enable efficient processing.
               </li>
               <li>
-                <strong className="text-gray-200">Model Optimization:</strong>{" "}
-                Six deep learning models (U-Net, MA-Net, DeepLabV3, PSPNet, FPN,
+                <strong className="text-strong">Model Optimization:</strong> Six
+                deep learning models (U-Net, MA-Net, DeepLabV3, PSPNet, FPN,
                 LinkNet) were optimized using Bayesian hyperparameter tuning and
                 HyperBand early stopping strategies.
               </li>
               <li>
-                <strong className="text-gray-200">Cross-Validation:</strong> A
+                <strong className="text-strong">Cross-Validation:</strong> A
                 5-fold cross-validation approach was applied to ensure robust
                 evaluation while preventing data leakage.
               </li>
               <li>
-                <strong className="text-gray-200">
+                <strong className="text-strong">
                   Augmentation Techniques:
                 </strong>{" "}
                 Training datasets were enhanced using augmentation methods,
@@ -292,7 +291,7 @@ export default function ProjectPage() {
                 improve generalization and mitigate overfitting.
               </li>
               <li>
-                <strong className="text-gray-200">Ensemble Model:</strong>{" "}
+                <strong className="text-strong">Ensemble Model:</strong>{" "}
                 Predictions from the top-performing models were combined into an
                 ensemble model to maximize segmentation accuracy.
               </li>
@@ -300,18 +299,18 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Results">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               The results demonstrate the effectiveness of the proposed pipeline
               in accurately segmenting microvascular features of TEVGs.
               Individual models performed well across various features, while
               the ensemble model significantly improved overall accuracy:
             </p>
 
-            <ul className="space-y-2 text-gray-300 mb-6 text-justify">
+            <ul className="space-y-2 text-body mb-6 text-justify">
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Best Individual:</strong>{" "}
+                  <strong className="text-strong">Best Individual:</strong>{" "}
                   MA-Net achieved the highest individual performance with a mean
                   DSC of <span className="font-semibold">0.875</span>, excelling
                   in arteriole segmentation (
@@ -324,9 +323,9 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Ensemble Model:</strong>{" "}
+                  <strong className="text-strong">Ensemble Model:</strong>{" "}
                   Outperformed all individual networks, achieving a mean DSC of{" "}
-                  <span className="text-light font-semibold">0.889</span>, with
+                  <span className="text-strong font-semibold">0.889</span>, with
                   significant improvements in venule, capillary, and immune cell
                   segmentation.
                 </span>
@@ -334,7 +333,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Feature Accuracy:</strong>{" "}
+                  <strong className="text-strong">Feature Accuracy:</strong>{" "}
                   High precision for critical elements like arteriole lumen
                   (DSC: 0.939) and nerve trunks (DSC: 0.978).
                 </span>
@@ -350,14 +349,14 @@ export default function ProjectPage() {
                 height={850}
                 maxWidth="3xl"
               />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 2.</span> Performance
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 2.</span> Performance
                 comparison of all models, highlighting MA-Net&apos;s superior
                 results.
               </figcaption>
             </figure>
 
-            <p className="text-gray-300 leading-relaxed mb-6 text-justify">
+            <p className="text-body leading-relaxed mb-6 text-justify">
               The ensemble of three models (MA-Net, DeepLabV3, and FPN) provided
               the optimal solution (
               <a href="#figure-3" className="text-accent hover:underline">
@@ -375,8 +374,8 @@ export default function ProjectPage() {
                 height={1630}
                 maxWidth="3xl"
               />
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 3.</span> Example patches
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 3.</span> Example patches
                 showcasing the segmentation of histologic features using the
                 ensemble model.
               </figcaption>
@@ -384,14 +383,14 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Conclusion">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               This project demonstrated the effectiveness of deep learning
               models in segmenting microvascular structures within
               tissue-engineered vascular grafts. By integrating advanced
               algorithms like MA-Net and DeepLabV3, the workflow achieved high
               precision in analyzing tissue regeneration patterns.
             </p>
-            <p className="text-gray-300 leading-relaxed text-justify">
+            <p className="text-body leading-relaxed text-justify">
               These findings pave the way for enhanced automation in tissue
               engineering research. Future work could explore extending this
               pipeline to analyze more complex vascular networks or

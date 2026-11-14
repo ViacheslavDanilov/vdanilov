@@ -26,11 +26,11 @@ export function Tab({
           ? "shrink-0 px-3.5 md:inline-flex md:align-top md:mx-1"
           : "-my-1 px-4",
         !selected &&
-          "hover:text-light before:absolute before:inset-x-0 before:inset-y-1 before:rounded-full",
+          "hover:text-strong before:absolute before:inset-x-0 before:inset-y-1 before:rounded-full",
         !selected &&
           (outlined
-            ? "before:border before:border-white/20 before:bg-white/5 before:transition-colors hover:before:bg-white/10"
-            : "before:bg-white/5 before:opacity-0 before:transition-opacity hover:before:opacity-100"),
+            ? "before:border before:border-ink/20 before:bg-ink/5 before:transition-colors hover:before:bg-ink/10"
+            : "before:bg-ink/5 before:opacity-0 before:transition-opacity hover:before:opacity-100"),
       )}
       {...props}
     >

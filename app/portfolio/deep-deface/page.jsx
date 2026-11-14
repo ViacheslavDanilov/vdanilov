@@ -136,7 +136,7 @@ export default function ProjectPage() {
 
           <Section title="Overview">
             <div className="prose prose-invert max-w-none">
-              <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+              <p className="text-body leading-relaxed mb-4 text-justify">
                 Modern rendering pipelines let anyone reconstruct a
                 patient&apos;s full head from standard CT or MRI data, making it
                 possible to re-identify individuals, even when metadata are
@@ -144,7 +144,7 @@ export default function ProjectPage() {
                 Conventional DICOM de-identification focuses on tags, leaving
                 pixel data exposed.
               </p>
-              <p className="text-gray-300 leading-relaxed text-justify">
+              <p className="text-body leading-relaxed text-justify">
                 Our team designed Deep Deface, a commercial-grade model that
                 detects face and both ears inside full 3D medical volumes and
                 applies either mosaicing or Gaussian blur to those regions only.
@@ -159,18 +159,18 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Data">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               To build a detector that generalizes across scanners and pulse
               sequences, we assembled a deliberately diverse corpus and applied
               careful, privacy-preserving preparation steps before any model
               training began.
             </p>
 
-            <ul className="space-y-2 text-gray-300 mb-6 text-justify">
+            <ul className="space-y-2 text-body mb-6 text-justify">
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">
+                  <strong className="text-strong">
                     Imaging Sources and Scale:
                   </strong>{" "}
                   551 head CT series and 555 head MRI series (210 T1-weighted,
@@ -189,7 +189,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">
+                  <strong className="text-strong">
                     Pre-processing Workflow:
                   </strong>{" "}
                   DICOM files were converted to NIfTI, CT intensities were
@@ -201,9 +201,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">
-                    Annotation Protocol:
-                  </strong>{" "}
+                  <strong className="text-strong">Annotation Protocol:</strong>{" "}
                   Three clinicians drew 3D bounding boxes around each face, left
                   ear, and right ear in 3D Slicer (
                   <a href="#figure-3" className="text-accent hover:underline">
@@ -216,7 +214,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Dataset Split:</strong> A
+                  <strong className="text-strong">Dataset Split:</strong> A
                   hold-out set of 83 CT and 84 MRI series, never seen during
                   development, was reserved for final evaluation.
                 </span>
@@ -251,8 +249,8 @@ export default function ProjectPage() {
                   sizes="(max-width: 768px) 100vw, 320px"
                 />
               </div>
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 1.</span> Sample CT head
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 1.</span> Sample CT head
                 scans from the dataset showing 3D reconstructions of patient
                 facial features.
               </figcaption>
@@ -286,8 +284,8 @@ export default function ProjectPage() {
                   sizes="(max-width: 768px) 100vw, 320px"
                 />
               </div>
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 2.</span> MRI head scans
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 2.</span> MRI head scans
                 across different sequences: T1-weighted (left), T2-weighted
                 (center), and FLAIR (right).
               </figcaption>
@@ -321,8 +319,8 @@ export default function ProjectPage() {
                   sizes="(max-width: 768px) 100vw, 320px"
                 />
               </div>
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 3.</span> 3D bounding box
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 3.</span> 3D bounding box
                 annotations in 3D Slicer for right ear (left), face (center),
                 and left ear (right).
               </figcaption>
@@ -330,14 +328,14 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Methods">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               Once the data were prepared, we designed a two-stage pipeline that
               balances speed, accuracy, and anatomical safety.
             </p>
 
-            <ul className="space-y-4 text-gray-300 mb-6 text-justify">
+            <ul className="space-y-4 text-body mb-6 text-justify">
               <li>
-                <strong className="text-gray-200">
+                <strong className="text-strong">
                   Stage 1 (3D Object Detector):
                 </strong>{" "}
                 EfficientDet-style backbone with depth-wise separable
@@ -347,7 +345,7 @@ export default function ProjectPage() {
                 variability.
               </li>
               <li>
-                <strong className="text-gray-200">
+                <strong className="text-strong">
                   Stage 2 (Region-selective Anonymizer):
                 </strong>{" "}
                 For every detected box, CUDA kernels apply either block-wise
@@ -357,7 +355,7 @@ export default function ProjectPage() {
                 downstream neuro-analysis.
               </li>
               <li>
-                <strong className="text-gray-200">Latency Engineering:</strong>{" "}
+                <strong className="text-strong">Latency Engineering:</strong>{" "}
                 The network runs at 37 ms per slice on an NVIDIA RTX 3090 and
                 880 ms per slice on a 24-core Threadripper, enabling both
                 real-time GPU workflows and overnight CPU batch jobs.
@@ -366,17 +364,17 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Results">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               Rigorous testing on an unseen cohort of 83 CT and 84 MRI series
               shows that Deep Deface meets both speed and accuracy targets while
               guaranteeing that no brain voxels are altered.
             </p>
 
-            <ul className="space-y-2 text-gray-300 mb-4 text-justify">
+            <ul className="space-y-2 text-body mb-4 text-justify">
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">CT Performance:</strong> The
+                  <strong className="text-strong">CT Performance:</strong> The
                   model reaches an F1-score of{" "}
                   <span className="font-semibold">96.0%</span>, with a mean
                   Average Precision (mAP) of 74.1%. Faces are found most
@@ -387,7 +385,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">MRI Performance:</strong>{" "}
+                  <strong className="text-strong">MRI Performance:</strong>{" "}
                   Performance remains high, yielding{" "}
                   <span className="font-semibold">93.9%</span> F1 and 92.6% mAP
                   across T1, T2, and FLAIR sequences. MRI faces show
@@ -398,7 +396,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Safety Margin:</strong> Zero
+                  <strong className="text-strong">Safety Margin:</strong> Zero
                   false negatives on intracranial tissue were observed – every
                   voxel belonging to the brain proper remained unmodified,
                   confirming the 2 mm padding rule effectively protects
@@ -408,7 +406,7 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Throughput:</strong> On an
+                  <strong className="text-strong">Throughput:</strong> On an
                   NVIDIA RTX 3090, the end-to-end pipeline processes a slice in
                   37 milliseconds, implying a typical 300-slice head volume is
                   anonymized in &lt;11 seconds, fast enough for real-time PACS
@@ -417,7 +415,7 @@ export default function ProjectPage() {
               </li>
             </ul>
 
-            <p className="text-gray-300 leading-relaxed mb-6 text-justify">
+            <p className="text-body leading-relaxed mb-6 text-justify">
               Visual evaluation of model predictions shows accurate detection
               across all views (
               <a href="#figure-4" className="text-accent hover:underline">
@@ -464,10 +462,10 @@ export default function ProjectPage() {
                   />
                 </AutoplayVideo>
               </div>
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 4.</span> Detection
-                results on CT data across axial (left), coronal (center), and
-                sagittal (right) views.
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 4.</span> Detection results
+                on CT data across axial (left), coronal (center), and sagittal
+                (right) views.
               </figcaption>
             </figure>
 
@@ -505,23 +503,23 @@ export default function ProjectPage() {
                   />
                 </AutoplayVideo>
               </div>
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 5.</span> Detection
-                results on MRI data across axial (left), coronal (center), and
-                sagittal (right) views.
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 5.</span> Detection results
+                on MRI data across axial (left), coronal (center), and sagittal
+                (right) views.
               </figcaption>
             </figure>
           </Section>
 
           <Section title="Conclusion">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               Deep Deface proves privacy and data fidelity can coexist: it
               neutralizes biometric risk while preserving 100% of brain voxels,
               which is key for downstream AI diagnostics. The solution enables
               secure data sharing across institutions while maintaining full
               compliance with privacy regulations.
             </p>
-            <p className="text-gray-300 leading-relaxed text-justify">
+            <p className="text-body leading-relaxed text-justify">
               Next steps include PET/SPECT support, on-device inference for edge
               scanners, and auditable logs to comply with evolving biometric
               regulations.

@@ -186,7 +186,7 @@ export default function ProjectPage() {
 
           <Section title="Overview">
             <div className="prose prose-invert max-w-none">
-              <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+              <p className="text-body leading-relaxed mb-4 text-justify">
                 This project addresses a critical need in modern cardiology:
                 fast and accurate detection of coronary artery stenosis during
                 invasive angiography. Despite angiography being the gold
@@ -197,7 +197,7 @@ export default function ProjectPage() {
                 learning-based object detection models to identify stenotic
                 lesions in real time.
               </p>
-              <p className="text-gray-300 leading-relaxed text-justify">
+              <p className="text-body leading-relaxed text-justify">
                 Eight convolutional neural network architectures were trained
                 and benchmarked on angiographic images from 100 patients. The
                 study compared trade-offs between model accuracy and inference
@@ -213,16 +213,16 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Data">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               The dataset consisted of 8,325 grayscale angiographic images
               (512×512 to 1000×1000 px) from 100 patients diagnosed with
               coronary artery disease:
             </p>
-            <ul className="space-y-2 text-gray-300 mb-6 text-justify">
+            <ul className="space-y-2 text-body mb-6 text-justify">
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Acquisition:</strong> Images
+                  <strong className="text-strong">Acquisition:</strong> Images
                   acquired using Coroscop (Siemens) and Innova (GE Healthcare)
                   systems at the Kemerovo Cardiology Center
                 </span>
@@ -230,23 +230,23 @@ export default function ProjectPage() {
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Patient Criteria:</strong>{" "}
-                  All patients had either angiographically confirmed ≥70%
-                  stenosis or functionally verified ischemia
+                  <strong className="text-strong">Patient Criteria:</strong> All
+                  patients had either angiographically confirmed ≥70% stenosis
+                  or functionally verified ischemia
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Data Split:</strong>{" "}
-                  Training (80%), validation (10%), and test (10%) sets split by
-                  patient to preserve clinical independence
+                  <strong className="text-strong">Data Split:</strong> Training
+                  (80%), validation (10%), and test (10%) sets split by patient
+                  to preserve clinical independence
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
                 <span>
-                  <strong className="text-gray-200">Annotation:</strong> Manual
+                  <strong className="text-strong">Annotation:</strong> Manual
                   labeling performed by trained cardiologists using the{" "}
                   <a
                     href="https://labelbox.com/"
@@ -263,25 +263,25 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Methods">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               Eight CNN object detection models were evaluated to find the
               optimal balance between accuracy and real-time performance:
             </p>
 
-            <ul className="space-y-4 text-gray-300 mb-6 text-justify">
+            <ul className="space-y-4 text-body mb-6 text-justify">
               <li>
-                <strong className="text-gray-200">Model Architectures:</strong>{" "}
+                <strong className="text-strong">Model Architectures:</strong>{" "}
                 SSD MobileNet V1/V2, SSD ResNet-50, Faster-RCNN ResNet-50/101,
                 RFCN ResNet-101, Faster-RCNN Inception ResNet, and NASNet were
                 tested for their complementary strengths.
               </li>
               <li>
-                <strong className="text-gray-200">Transfer Learning:</strong>{" "}
-                All models were pretrained on the COCO dataset and fine-tuned on
-                the medical angiographic dataset.
+                <strong className="text-strong">Transfer Learning:</strong> All
+                models were pretrained on the COCO dataset and fine-tuned on the
+                medical angiographic dataset.
               </li>
               <li>
-                <strong className="text-gray-200">
+                <strong className="text-strong">
                   Training Infrastructure:
                 </strong>{" "}
                 Amazon SageMaker with Bayesian optimization for hyperparameter
@@ -289,12 +289,12 @@ export default function ProjectPage() {
                 rate.
               </li>
               <li>
-                <strong className="text-gray-200">Loss Functions:</strong>{" "}
-                Smooth L1 for localization and Focal Loss for classification to
-                handle class imbalance effectively.
+                <strong className="text-strong">Loss Functions:</strong> Smooth
+                L1 for localization and Focal Loss for classification to handle
+                class imbalance effectively.
               </li>
               <li>
-                <strong className="text-gray-200">
+                <strong className="text-strong">
                   Optimization Strategies:
                 </strong>{" "}
                 Hard example mining (used in MobileNet V2) and architectural
@@ -304,7 +304,7 @@ export default function ProjectPage() {
           </Section>
 
           <Section title="Results">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               The comparative evaluation of eight deep learning models revealed
               three standout performers, each excelling in different aspects (
               <a href="#figure-1" className="text-accent hover:underline">
@@ -313,9 +313,9 @@ export default function ProjectPage() {
               ):
             </p>
 
-            <ul className="space-y-4 text-gray-300 mb-6 text-justify">
+            <ul className="space-y-4 text-body mb-6 text-justify">
               <li>
-                <strong className="text-gray-200">
+                <strong className="text-strong">
                   Faster-RCNN Inception ResNet
                 </strong>{" "}
                 (highest accuracy): mAP 0.95, F1-score 0.96, inference speed 3
@@ -323,13 +323,13 @@ export default function ProjectPage() {
                 complex or borderline stenotic cases.
               </li>
               <li>
-                <strong className="text-gray-200">SSD MobileNet V2</strong>{" "}
+                <strong className="text-strong">SSD MobileNet V2</strong>{" "}
                 (fastest): mAP 0.83, F1-score 0.80, inference speed 38 FPS.
                 Well-suited for real-time use in high-throughput settings or
                 emergency diagnostics.
               </li>
               <li>
-                <strong className="text-gray-200">RFCN ResNet-101</strong> (best
+                <strong className="text-strong">RFCN ResNet-101</strong> (best
                 balance): mAP 0.94, F1-score 0.96, inference speed 10 FPS.
                 Particularly well-suited for live clinical workflows, offering a
                 practical compromise for quasi-real-time surgical environments.
@@ -404,14 +404,14 @@ export default function ProjectPage() {
                   sizes="(max-width: 768px) 50vw, 240px"
                 />
               </div>
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 1.</span> Performance
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 1.</span> Performance
                 comparison of eight CNN object detection models on coronary
                 angiography images.
               </figcaption>
             </figure>
 
-            <p className="text-gray-300 leading-relaxed mb-6 text-justify">
+            <p className="text-body leading-relaxed mb-6 text-justify">
               The detection capabilities were further validated using
               angiographic sequences during minimally invasive surgeries (
               <a href="#figure-2" className="text-accent hover:underline">
@@ -423,7 +423,7 @@ export default function ProjectPage() {
             {/* Figure 2: Surgery Videos */}
             <figure id="figure-2" className="scroll-mt-24">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="rounded-xl overflow-hidden border border-white/10">
+                <div className="rounded-xl overflow-hidden border border-line">
                   <AutoplayVideo
                     aspectRatio="1 / 1"
                     src="/portfolio/stenosis-spotter/surgery-1-rfcn-resnet-101.mp4"
@@ -433,7 +433,7 @@ export default function ProjectPage() {
                     Your browser does not support the video tag.
                   </AutoplayVideo>
                 </div>
-                <div className="rounded-xl overflow-hidden border border-white/10">
+                <div className="rounded-xl overflow-hidden border border-line">
                   <AutoplayVideo
                     aspectRatio="1 / 1"
                     src="/portfolio/stenosis-spotter/surgery-2-rfcn-resnet-101.mp4"
@@ -443,7 +443,7 @@ export default function ProjectPage() {
                     Your browser does not support the video tag.
                   </AutoplayVideo>
                 </div>
-                <div className="rounded-xl overflow-hidden border border-white/10">
+                <div className="rounded-xl overflow-hidden border border-line">
                   <AutoplayVideo
                     aspectRatio="1 / 1"
                     src="/portfolio/stenosis-spotter/surgery-3-rfcn-resnet-101.mp4"
@@ -454,16 +454,16 @@ export default function ProjectPage() {
                   </AutoplayVideo>
                 </div>
               </div>
-              <figcaption className="text-center text-sm text-gray-400 mt-3">
-                <span className="text-gray-300">Figure 2.</span> Real-time
-                stenosis detection during live minimally invasive surgery using
-                RFCN ResNet-101.
+              <figcaption className="text-center text-sm text-muted mt-3">
+                <span className="text-body">Figure 2.</span> Real-time stenosis
+                detection during live minimally invasive surgery using RFCN
+                ResNet-101.
               </figcaption>
             </figure>
           </Section>
 
           <Section title="Conclusion">
-            <p className="text-gray-300 leading-relaxed mb-4 text-justify">
+            <p className="text-body leading-relaxed mb-4 text-justify">
               This project demonstrated the feasibility of real-time coronary
               stenosis detection using deep learning. By identifying optimal
               trade-offs between inference speed and accuracy, the solution
@@ -471,7 +471,7 @@ export default function ProjectPage() {
               decision support. The RFCN ResNet-101 model shows strong potential
               for real-world integration.
             </p>
-            <p className="text-gray-300 leading-relaxed text-justify">
+            <p className="text-body leading-relaxed text-justify">
               Future directions include enhancing multivessel disease detection,
               expanding dataset diversity, and integrating guidance systems for
               surgical intervention planning.

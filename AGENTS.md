@@ -40,8 +40,8 @@ Optional body explaining why the change was needed, wrapped at ~72 columns.
 - Subject: imperative mood ("add", not "added"), lower case after the colon,
   no trailing period, 72 characters or fewer
 - One logical change per commit; do not bundle unrelated edits. Merging squashes
-  the branch into one commit with an empty body, so these subjects live in the branch
-  history and in the pull request's commit list, not in `main`
+  the branch into one commit with an empty body, and the branch is deleted afterwards,
+  so these subjects stay only in the pull request's commit list, not in `main`
 - Body explains _why_, not _what_. The diff already shows what changed
 - No trailers at all, other than a genuine `Co-Authored-By` for a human collaborator
 
@@ -70,7 +70,8 @@ The problem this solves, in one or two sentences. Not a restatement of What.
 - Merging squashes, and GitHub appends `(#NN)` to the title, so the title becomes
   the commit subject in `main`. Keep it to about 65 characters so the result
   still fits 72. This holds for a single-commit pull request too: the repository's
-  squash setting is `PR_TITLE`
+  squash setting is `PR_TITLE` for the title and `BLANK` for the message, so merge
+  without `--body`
 - `What` lists changes, not files. The diff already shows the files
 - `Why` explains the problem, not the solution
 - `Verified` records what was actually run and what it printed. Numbers are
@@ -136,7 +137,9 @@ is not finished until they agree.
 
 - **CV**: the repository `/Users/viacheslav/projects/personal/cv` (`AGENTS.md` there) and the
   Figma file `nL1NJcrj3lWBJCnaTAlxup`. The CV prints the experience entries, the home summary,
-  the featured projects on the home page (`components/FeaturedProjects.jsx`) and the referees.
+  the featured projects on the home page (`components/FeaturedProjects.jsx`), the referees, and a
+  hand-picked selection of the public publications with the totals line (`stats` in
+  `lib/publications.generated.json`, see "Publications data" below).
   "Experience summaries", "Home summary" and "Experience link order" below cover the first two.
   After a pull request that changes one of them merges, carry the change into the CV, as that
   repository's `AGENTS.md` says. `00_rules/sources.md` there says which place is the source of what
@@ -219,6 +222,8 @@ word, sits in two more places: the `Text Card - Summary` instance on the first p
 version in Figma, and the bio in the README of the GitHub profile repository
 (`ViacheslavDanilov/ViacheslavDanilov`). Changing it in one place means changing it in all three.
 
+- The paper count in the summary is the exact number from `stats.peerReviewed`, not a rounded
+  phrase. After a sync that changes it, the CV and the profile README get the new number too
 - Order: the site pull request first. Once it has merged, the CV and the profile README follow
 - The CV box is 513 pt wide and holds four lines. A fifth line pushes the page content past its
   limit. Count the lines in Figma before editing, and when the new text does not fit, shorten it
@@ -261,6 +266,28 @@ renders, but write them in the same order so the source reads like the page.
 Cards on `/references` are sorted in code: by category (Research, Medicine, Industry, Pharma),
 then by name as written on the card. A new entry goes anywhere in `REFERENCES_DATA` and lands in
 its place. The filter tabs list the categories in the same order.
+
+## Publications data
+
+The publications come from the private repository `research-record`
+(`/Users/viacheslav/projects/personal/research-record`), which is the source of record. It is not
+edited from here, and the site cannot read it at build time.
+
+- `npm run publications:sync -- <path to research-record>` writes `lib/publications.generated.json`
+  from `data/publications.json`. Only records with `"public": true` pass, and only the fields the
+  site shows. Never add `score`, `note` or `metrics`, and never read `private/`
+- `stats` in the same file holds the five totals the page text shows. They are counted over the
+  whole record, private entries too, and only the totals leave it
+- Run it after the record changes, and commit the result. Never edit the generated file by hand
+- `lib/publications-site.json` holds what the record does not have, keyed by record `id`: `tags`,
+  `featured`, and `location` for a conference. `npm run check` fails when a record has no entry
+  or an entry has no record
+- A title, venue, year or link is changed in the record, not here
+- The record holds every work, the site shows the ones marked `public`, and the CV prints a
+  hand-picked part of those, so each count is the same or smaller than the one before it. A work
+  shown here or in the CV that the record lacks is added to the record first
+- The CV selects some of these works by hand in Figma. After a sync that changes a title, a link or
+  a total, carry the change into the CV too
 
 ## Portfolio project pages
 

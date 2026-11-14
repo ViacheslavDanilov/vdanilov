@@ -3,7 +3,7 @@
 import CountUp from "@/components/CountUp";
 import { GlowCard } from "@/components/ui/glow-card";
 
-const Statistics = () => {
+const Statistics = ({ publications }) => {
   const stats = [
     {
       value: 10,
@@ -27,7 +27,7 @@ const Statistics = () => {
       delay: 0.2,
     },
     {
-      value: 48,
+      value: publications,
       suffix: "",
       label: "Research Publications",
       duration: 2,
@@ -55,10 +55,10 @@ const Statistics = () => {
       className="w-full max-w-7xl mx-auto px-6 py-12 lg:min-h-[min(100svh,72rem)] lg:flex lg:flex-col lg:justify-center"
     >
       <div className="mb-12 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-light mb-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-strong mb-4">
           Career Highlights
         </h2>
-        <p className="text-gray-400 mt-3 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-muted mt-3 max-w-2xl mx-auto leading-relaxed">
           Building scalable ML and AI solutions and advancing research across
           multiple domains, companies and countries
         </p>
@@ -82,7 +82,7 @@ const Statistics = () => {
                 />
                 <span className="text-accent">{stat.suffix}</span>
               </div>
-              <p className="text-sm md:text-base text-gray-400 leading-relaxed">
+              <p className="text-sm md:text-base text-muted leading-relaxed">
                 {stat.label}
               </p>
             </div>
