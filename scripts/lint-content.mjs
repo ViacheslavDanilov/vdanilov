@@ -117,6 +117,23 @@ for (const file of tracked("app", "components")) {
     });
 }
 
+// Publications: lib/publications-site.json holds the site-only fields, one entry for each
+// record in lib/publications.generated.json and none for a record that is no longer there
+const generated = JSON.parse(
+  readFileSync("lib/publications.generated.json", "utf8"),
+).publications.map((publication) => publication.id);
+const siteOnly = Object.keys(
+  JSON.parse(readFileSync("lib/publications-site.json", "utf8")),
+);
+for (const id of generated.filter((id) => !siteOnly.includes(id))) {
+  problems.push(`lib/publications-site.json: no entry for ${id}`);
+}
+for (const id of siteOnly.filter((id) => !generated.includes(id))) {
+  problems.push(
+    `lib/publications-site.json: ${id} is not in lib/publications.generated.json`,
+  );
+}
+
 if (problems.length > 0) {
   console.error(problems.join("\n"));
   console.error(`\n${problems.length} content problem(s)`);
