@@ -76,7 +76,7 @@ const EXPERIENCES_DATA = [
     summary:
       "Led the ML on the SafeICP project, which read intracranial pressure from blood flow without surgery; now on Huawei's depth-aware video bokeh and supervising 2 PhD students and a postdoc",
     responsibilities: [
-      "Led the ML on the SafeICP project with the Institute of Photonic Sciences and surgeons at Vall d'Hebron: intracranial pressure from blood flow, no surgery, at 5.3 mmHg mean error against the invasive probe",
+      "Led the ML on the SafeICP project with the Institute of Photonic Sciences and Vall d'Hebron surgeons: intracranial pressure from blood flow, no surgery, at 5.3 mmHg mean error against the invasive probe",
       "Build the training data and the depth baseline for Huawei's depth-aware video bokeh, a model that has to run on the phone inside a 100 GFLOP budget",
       "Supervise 2 PhD students and a postdoc on time-series and medical ML",
     ],
