@@ -131,11 +131,11 @@ const RESOURCES = [
   { label: "Models", url: "https://zenodo.org/doi/10.5281/zenodo.8393555" },
   {
     label: "Dataset 1",
-    url: "https://data.mendeley.com/datasets/8gf9vpkhgy/2",
+    url: "https://data.mendeley.com/datasets/8gf9vpkhgy",
   },
   {
     label: "Dataset 2",
-    url: "https://data.mendeley.com/datasets/36fjrg9s69/1",
+    url: "https://data.mendeley.com/datasets/36fjrg9s69",
   },
 ];
 
