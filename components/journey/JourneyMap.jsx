@@ -4,11 +4,11 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { geoNaturalEarth1, geoPath } from "d3-geo";
 import { feature } from "topojson-client";
 import world from "world-atlas/land-110m.json";
-import { LEGS, PLACES, STOPS, journeyAt } from "@/lib/journey";
+import { LEGS, PLACES, REMOTE_SPANS, STOPS, journeyAt } from "@/lib/journey";
 
 const W = 1200;
 const H = 675;
-const SAFE = { top: 120, right: 80, bottom: 170, left: 80 };
+const SAFE = { top: 120, right: 80, bottom: 240, left: 80 };
 const PAD = (W * 10) / 360;
 const K_STAY = 6;
 const STAY_ZOOM = { tomsk: 3 };
@@ -22,10 +22,14 @@ const DOT_ALPHA = 0.3;
 const LEVELS = 5;
 const TILE = 60;
 const TAU = Math.PI * 2;
+const EDGE = 18;
+const LINK_FADE = 0.006;
+const LINK_DASH = 7;
 
 const INK = "var(--ink, #fff)";
 const ACCENT = "var(--accent-text, #03b1fb)";
 const SURFACE = "var(--surface, #151a1f)";
+const SHORT_ORG = { "Intelerad Medical Systems": "Intelerad" };
 const PLANE_D =
   "M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z";
 
@@ -196,6 +200,71 @@ const cameraAt = ({ phase, stopIndex, t }) => {
   return mid;
 };
 
+const anchorAt = ({ phase, stopIndex, t }) => {
+  if (phase === "stay") return POS[STOPS[stopIndex].place];
+  const { a, b, c } = ARCS[stopIndex];
+  return quadAt(a, c, b, sine(t));
+};
+
+// Variant A: pull out to show where a new remote role is, then come back
+const revealCameraAt = (state, base) => {
+  if (!state.reveal) return base;
+  const w = ramp(state.t, 0, 0.3) * (1 - ramp(state.t, 0.7, 1));
+  if (w <= 0) return base;
+  const wide = frameAround([
+    anchorAt(state),
+    ...state.remote.map((role) => POS[role.place]),
+  ]);
+  return blend(base, wide, w);
+};
+
+const linkArc = (a, b) => {
+  let nx = b[1] - a[1];
+  let ny = a[0] - b[0];
+  if (ny > 0) {
+    nx = -nx;
+    ny = -ny;
+  }
+  return {
+    a,
+    b,
+    c: [(a[0] + b[0]) / 2 + nx * BEND, (a[1] + b[1]) / 2 + ny * BEND],
+  };
+};
+
+// Where a curve from inside the view first leaves it, and through which edge
+const exitPoint = ({ a, b, c }) => {
+  const inside = ([x, y]) =>
+    x >= EDGE && x <= W - EDGE && y >= EDGE && y <= H - EDGE;
+  if (inside(b)) return null;
+  let prev = a;
+  for (let n = 1; n <= 96; n++) {
+    const p = quadAt(a, c, b, n / 96);
+    if (!inside(p)) {
+      const x = Math.min(W - EDGE, Math.max(EDGE, prev[0]));
+      const y = Math.min(H - EDGE, Math.max(EDGE, prev[1]));
+      const edge =
+        p[0] < EDGE
+          ? "left"
+          : p[0] > W - EDGE
+            ? "right"
+            : p[1] < EDGE
+              ? "top"
+              : "bottom";
+      return { x, y, edge, t: n / 96 };
+    }
+    prev = p;
+  }
+  return null;
+};
+
+const CHIP_SHIFT = {
+  left: "translate(0,-50%)",
+  right: "translate(-100%,-50%)",
+  top: "translate(-50%,0)",
+  bottom: "translate(-50%,-100%)",
+};
+
 // The label sits on the side the comet does not come from
 const SIDES = STOPS.map((stop, i) => {
   const arc = ARCS[i - 1] ?? ARCS[i];
@@ -246,13 +315,14 @@ const sceneAt = (state) => {
   };
 };
 
-export default function JourneyMap({ progress }) {
+export default function JourneyMap({ progress, variant }) {
   const canvasRef = useRef(null);
   const [size, setSize] = useState(0);
   const [theme, setTheme] = useState(0);
 
   const state = journeyAt(progress);
-  const cam = cameraAt(state);
+  const cam =
+    variant === "a" ? revealCameraAt(state, cameraAt(state)) : cameraAt(state);
   const scene = sceneAt(state);
 
   useEffect(() => {
@@ -315,6 +385,51 @@ export default function JourneyMap({ progress }) {
     }
   }
 
+  // Variants A and B: a dotted link from where I am to each remote employer
+  const links = [];
+  if (variant === "a" || variant === "b") {
+    const anchor = anchorAt(state);
+    for (const span of REMOTE_SPANS) {
+      const grow = ramp(
+        progress,
+        span.revealStart,
+        span.revealStart + (span.revealEnd - span.revealStart) * 0.5,
+      );
+      const fade = 1 - ramp(progress, span.end - LINK_FADE, span.end);
+      if (grow <= 0 || fade <= 0) continue;
+      const arc = linkArc(at(anchor), at(POS[span.role.place]));
+      const exit = exitPoint(arc);
+      const [p0, pc, p1] = quadSlice(
+        arc.a,
+        arc.c,
+        arc.b,
+        0,
+        Math.max(0.001, grow),
+      );
+      links.push({
+        key: span.role.org,
+        role: span.role,
+        opacity: fade,
+        d: `M${fmt(p0)}Q${fmt(pc)} ${fmt(p1)}`,
+        exit: exit && grow >= exit.t ? exit : null,
+        named: state.reveal === span.role,
+        end: arc.b,
+        arrived: grow >= 1,
+      });
+    }
+  }
+  // Chips on the same edge keep apart
+  const chips = links
+    .filter((link) => link.exit)
+    .sort((m, n) => m.exit.y - n.exit.y);
+  for (let n = 1; n < chips.length; n++) {
+    const prev = chips[n - 1].exit;
+    const cur = chips[n].exit;
+    if (prev.edge === cur.edge && Math.abs(cur.y - prev.y) < 30) {
+      chips[n].exit = { ...cur, y: prev.y + 30 };
+    }
+  }
+
   return (
     <>
       <canvas
@@ -347,6 +462,40 @@ export default function JourneyMap({ progress }) {
             </linearGradient>
           )}
         </defs>
+
+        {links.map((link) => (
+          <g key={link.key} opacity={link.opacity}>
+            <path
+              d={link.d}
+              fill="none"
+              stroke={ACCENT}
+              strokeWidth="2.25"
+              strokeLinecap="round"
+              strokeDasharray={`0.1 ${LINK_DASH}`}
+              strokeDashoffset={-progress * 2400}
+            />
+            {link.arrived && !link.exit && (
+              <g>
+                <circle
+                  cx={link.end[0]}
+                  cy={link.end[1]}
+                  r="5"
+                  fill={SURFACE}
+                  stroke={ACCENT}
+                  strokeWidth="2"
+                />
+                {link.named && (
+                  <Label
+                    x={link.end[0]}
+                    y={link.end[1]}
+                    text={`${PLACES[link.role.place].city} · ${SHORT_ORG[link.role.org] ?? link.role.org}`}
+                    side="right"
+                  />
+                )}
+              </g>
+            )}
+          </g>
+        ))}
 
         {comet && (
           <g fill="none" strokeLinecap="round" stroke="url(#journey-tail)">
@@ -396,6 +545,33 @@ export default function JourneyMap({ progress }) {
           </g>
         )}
       </svg>
+      {chips.map(({ key, role, exit, opacity }) => (
+        <div
+          key={key}
+          className="pointer-events-none absolute whitespace-nowrap rounded-full border border-[color-mix(in_srgb,var(--accent-text,#03b1fb)_50%,transparent)] bg-[var(--surface,#151a1f)] px-2.5 py-1 text-xs text-[var(--ink,#fff)]"
+          style={{
+            left: `${(exit.x / W) * 100}%`,
+            top: `${(exit.y / H) * 100}%`,
+            transform: CHIP_SHIFT[exit.edge],
+            opacity,
+          }}
+        >
+          <span className="text-[var(--accent-text,#03b1fb)]">
+            {exit.edge === "left"
+              ? "← "
+              : exit.edge === "right"
+                ? "→ "
+                : exit.edge === "top"
+                  ? "↑ "
+                  : "↓ "}
+          </span>
+          {PLACES[role.place].city}
+          <span className="text-[var(--text-muted,#9ca3af)]">
+            {" · "}
+            {SHORT_ORG[role.org] ?? role.org}
+          </span>
+        </div>
+      ))}
     </>
   );
 }

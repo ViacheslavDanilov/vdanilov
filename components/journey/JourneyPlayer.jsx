@@ -5,8 +5,6 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import { AnimatePresence, motion } from "motion/react";
 import {
-  JOURNEY_END_MS,
-  JOURNEY_START_MS,
   PLACES,
   REMOTE,
   STOPS,
@@ -17,7 +15,7 @@ import {
   formatMonth,
 } from "@/lib/journey";
 
-const DURATION_MS = 60000;
+const DURATION_MS = 75000;
 const MAX_STEP_MS = 100;
 const REDUCED_QUERY = "(prefers-reduced-motion: reduce)";
 const WIDE_QUERY = "(min-width: 768px)";
@@ -28,15 +26,20 @@ const JourneyMap = dynamic(() => import("@/components/journey/JourneyMap"), {
 const MIN_LABEL_GAP_PX = 36;
 const EASE_OUT = [0.23, 1, 0.32, 1];
 
-// The scale is calendar time; playback pace is story time, so short visits still get screen time
-const SPAN_MS = JOURNEY_END_MS - JOURNEY_START_MS;
-const calendarAt = (ms) => (ms - JOURNEY_START_MS) / SPAN_MS;
+// The scale is story time, so a quiet year takes less room than a busy one
 const SLIDER_STEPS = 4000;
 
-const YEARS = Array.from({ length: 11 }, (_, i) => 2016 + i).map((year) => ({
+const YEARS = Array.from({ length: 19 }, (_, i) => 2008 + i).map((year) => ({
   year,
-  at: calendarAt(Date.UTC(year, 0, 1)),
+  at: progressOfDate(Date.UTC(year, 0, 1)),
 }));
+
+const VARIANTS = [
+  { key: "lanes", label: "Lanes" },
+  { key: "a", label: "A · Reveal" },
+  { key: "b", label: "B · Edge" },
+  { key: "e", label: "E · Card" },
+];
 
 const SHORT_ORG = { "Intelerad Medical Systems": "Intelerad" };
 const LANES = REMOTE.map((role) => {
@@ -46,8 +49,8 @@ const LANES = REMOTE.map((role) => {
     name: SHORT_ORG[role.org] ?? role.org,
     where: country === "United States" ? `${city}, US` : city,
     period: stopPeriod(role),
-    from: calendarAt(toMs(role.from)),
-    to: calendarAt(toMs(role.to)),
+    from: progressOfDate(toMs(role.from)),
+    to: progressOfDate(toMs(role.to)),
   };
 });
 
@@ -94,8 +97,8 @@ const useWidth = (ref) => {
   return width;
 };
 
-// Year hairlines and the remote bars share the slider's calendar scale
-const Lanes = memo(function Lanes({ active, labelled }) {
+// Year hairlines and the remote bars share the slider's story scale
+const Lanes = memo(function Lanes({ active, labelled, bars }) {
   return (
     <>
       <div
@@ -124,43 +127,44 @@ const Lanes = memo(function Lanes({ active, labelled }) {
           />
         ))}
       </div>
-      {LANES.map((lane, n) => {
-        const live = active.includes(lane.org);
-        return (
-          <div key={lane.org} className="contents">
-            <div
-              className="col-start-1 flex flex-col justify-center pr-2 text-right text-xs leading-tight"
-              style={{ gridRow: n + 3 }}
-            >
-              <span
-                className={`font-medium transition-colors duration-300 motion-reduce:transition-none ${live ? "text-[var(--ink,#fff)]" : "text-[var(--text,#d1d5db)]"}`}
-              >
-                {lane.name}
-                <span className="font-normal text-[var(--text-muted,#9ca3af)]">
-                  {" / "}
-                  {lane.where}
-                </span>
-              </span>
-              <span className="text-xs tabular-nums text-[var(--text-muted,#9ca3af)]">
-                {lane.period}
-              </span>
-            </div>
-            <div
-              className="relative col-start-2 mx-[7px] h-[38px]"
-              style={{ gridRow: n + 3 }}
-              aria-hidden="true"
-            >
+      {bars &&
+        LANES.map((lane, n) => {
+          const live = active.includes(lane.org);
+          return (
+            <div key={lane.org} className="contents">
               <div
-                className={`${BAR} ${live ? BAR_LIVE : BAR_IDLE}`}
-                style={{
-                  left: `${lane.from * 100}%`,
-                  width: `${(lane.to - lane.from) * 100}%`,
-                }}
-              />
+                className="col-start-1 flex flex-col justify-center pr-2 text-right text-xs leading-tight"
+                style={{ gridRow: n + 3 }}
+              >
+                <span
+                  className={`font-medium transition-colors duration-300 motion-reduce:transition-none ${live ? "text-[var(--ink,#fff)]" : "text-[var(--text,#d1d5db)]"}`}
+                >
+                  {lane.name}
+                  <span className="font-normal text-[var(--text-muted,#9ca3af)]">
+                    {" / "}
+                    {lane.where}
+                  </span>
+                </span>
+                <span className="text-xs tabular-nums text-[var(--text-muted,#9ca3af)]">
+                  {lane.period}
+                </span>
+              </div>
+              <div
+                className="relative col-start-2 mx-[7px] h-[38px]"
+                style={{ gridRow: n + 3 }}
+                aria-hidden="true"
+              >
+                <div
+                  className={`${BAR} ${live ? BAR_LIVE : BAR_IDLE}`}
+                  style={{
+                    left: `${lane.from * 100}%`,
+                    width: `${(lane.to - lane.from) * 100}%`,
+                  }}
+                />
+              </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
     </>
   );
 });
@@ -170,6 +174,7 @@ export default function JourneyPlayer({ label }) {
   const wide = useMediaQuery(WIDE_QUERY);
   const [progress, setProgress] = useState(0);
   const [playing, setPlaying] = useState(false);
+  const [variant, setVariant] = useState("a");
   const progressRef = useRef(0);
   const containerRef = useRef(null);
   const scaleRef = useRef(null);
@@ -233,7 +238,6 @@ export default function JourneyPlayer({ label }) {
   const stop = STOPS[state.stopIndex];
   const place = PLACES[stop.place];
   const dateLabel = formatMonth(state.dateMs);
-  const calendar = calendarAt(state.dateMs);
   const active = state.remote.map((role) => role.org).join("|");
 
   const labelled = useMemo(() => {
@@ -256,8 +260,27 @@ export default function JourneyPlayer({ label }) {
       aria-label={label}
       className="hidden w-full max-w-6xl flex-col gap-4 px-6 text-[var(--text,#d1d5db)] md:flex"
     >
+      <div
+        role="radiogroup"
+        aria-label="Remote roles view"
+        className="flex items-center gap-2 self-end text-xs"
+      >
+        <span className="text-[var(--text-muted,#9ca3af)]">Remote roles:</span>
+        {VARIANTS.map(({ key, label: name }) => (
+          <button
+            key={key}
+            type="button"
+            role="radio"
+            aria-checked={variant === key}
+            onClick={() => setVariant(key)}
+            className={`rounded-full border px-3 py-1 transition-colors duration-150 ${variant === key ? "border-[var(--accent-text,#03b1fb)] text-[var(--ink,#fff)]" : "border-[var(--line,rgba(255,255,255,0.1))] text-[var(--text-muted,#9ca3af)] hover:text-[var(--ink,#fff)]"}`}
+          >
+            {name}
+          </button>
+        ))}
+      </div>
       <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl border border-[var(--line,rgba(255,255,255,0.1))] bg-[var(--surface,#151a1f)]">
-        {wide && <JourneyMap progress={progress} />}
+        {wide && <JourneyMap progress={progress} variant={variant} />}
         <div className="pointer-events-none absolute left-4 top-4 text-xs uppercase tracking-widest text-[var(--text-muted,#9ca3af)]">
           {label}
         </div>
@@ -285,6 +308,23 @@ export default function JourneyPlayer({ label }) {
               </div>
             </motion.div>
           </AnimatePresence>
+          {variant !== "lanes" && state.remote.length > 0 && (
+            <ul className="mx-4 mt-3 flex flex-col gap-1 border-t border-[var(--line,rgba(255,255,255,0.1))] pt-3 text-sm">
+              {state.remote.map((role) => (
+                <li key={role.org} className="flex items-baseline gap-2">
+                  <span className="text-xs uppercase tracking-wider text-[var(--accent-text,#03b1fb)]">
+                    Remote
+                  </span>
+                  <span className="text-[var(--ink,#fff)]">
+                    {SHORT_ORG[role.org] ?? role.org}
+                  </span>
+                  <span className="text-[var(--text-muted,#9ca3af)]">
+                    {PLACES[role.place].city}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          )}
           <div className="px-4 pb-4">
             <Link
               href="/experience"
@@ -317,18 +357,17 @@ export default function JourneyPlayer({ label }) {
           >
             <div
               className="h-full origin-left bg-[var(--accent-text,#03b1fb)]"
-              style={{ transform: `scaleX(${calendar})` }}
+              style={{ transform: `scaleX(${progress})` }}
             />
           </div>
           <input
             type="range"
             min={0}
             max={SLIDER_STEPS}
-            value={Math.round(calendar * SLIDER_STEPS)}
+            value={Math.round(progress * SLIDER_STEPS)}
             onChange={(event) => {
               setPlaying(false);
-              const at = Number(event.target.value) / SLIDER_STEPS;
-              update(progressOfDate(JOURNEY_START_MS + at * SPAN_MS));
+              update(Number(event.target.value) / SLIDER_STEPS);
             }}
             aria-label="Journey timeline"
             aria-valuetext={dateLabel}
@@ -339,7 +378,7 @@ export default function JourneyPlayer({ label }) {
           {dateLabel}
         </div>
 
-        <Lanes active={active} labelled={labelled} />
+        <Lanes active={active} labelled={labelled} bars={variant === "lanes"} />
 
         <div
           className="pointer-events-none relative col-start-2 row-span-5 row-start-1"
@@ -348,7 +387,7 @@ export default function JourneyPlayer({ label }) {
           <div className="absolute inset-x-[7px] bottom-0 top-5">
             <span
               className="absolute inset-y-0 w-0.5 -translate-x-1/2 bg-[var(--ink,#fff)] opacity-70"
-              style={{ left: `${calendar * 100}%` }}
+              style={{ left: `${progress * 100}%` }}
             />
           </div>
         </div>
