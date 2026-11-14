@@ -137,7 +137,9 @@ is not finished until they agree.
 
 - **CV**: the repository `/Users/viacheslav/projects/personal/cv` (`AGENTS.md` there) and the
   Figma file `nL1NJcrj3lWBJCnaTAlxup`. The CV prints the experience entries, the home summary,
-  the featured projects on the home page (`components/FeaturedProjects.jsx`) and the referees.
+  the featured projects on the home page (`components/FeaturedProjects.jsx`), the referees, and a
+  hand-picked selection of the public publications with the totals line (`stats` in
+  `lib/publications.generated.json`, see "Publications data" below).
   "Experience summaries", "Home summary" and "Experience link order" below cover the first two.
   After a pull request that changes one of them merges, carry the change into the CV, as that
   repository's `AGENTS.md` says. `00_rules/sources.md` there says which place is the source of what
@@ -281,6 +283,8 @@ edited from here, and the site cannot read it at build time.
   `featured`, and `location` for a conference. `npm run check` fails when a record has no entry
   or an entry has no record
 - A title, venue, year or link is changed in the record, not here
+- The CV selects some of these works by hand in Figma. After a sync that changes a title, a link or
+  a total, carry the change into the CV too
 
 ## Portfolio project pages
 
