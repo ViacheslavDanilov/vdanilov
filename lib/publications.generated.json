@@ -285,7 +285,7 @@
       "title": "Dataset for COVID-19 segmentation and severity scoring",
       "venue": "Mendeley Data",
       "year": "2022",
-      "url": "https://doi.org/10.17632/36fjrg9s69.1",
+      "url": "https://doi.org/10.17632/36fjrg9s69",
       "authorPosition": "first",
       "type": "Dataset"
     },
@@ -294,7 +294,7 @@
       "title": "Chest X-ray dataset for lung segmentation",
       "venue": "Mendeley Data",
       "year": "2022",
-      "url": "https://doi.org/10.17632/8gf9vpkhgy.1",
+      "url": "https://doi.org/10.17632/8gf9vpkhgy",
       "authorPosition": "first",
       "type": "Dataset"
     },
@@ -303,7 +303,7 @@
       "title": "Angiographic dataset for stenosis detection",
       "venue": "Mendeley Data",
       "year": "2021",
-      "url": "https://doi.org/10.17632/ydrm75xywg.2",
+      "url": "https://doi.org/10.17632/ydrm75xywg",
       "authorPosition": "first",
       "type": "Dataset"
     },
@@ -312,7 +312,7 @@
       "title": "Aortography keypoint tracking for TAVI",
       "venue": "Mendeley Data",
       "year": "2021",
-      "url": "https://doi.org/10.17632/pgynfy766g.2",
+      "url": "https://doi.org/10.17632/pgynfy766g",
       "authorPosition": "first",
       "type": "Dataset"
     }
