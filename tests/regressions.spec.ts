@@ -1401,7 +1401,7 @@ test.describe("Home hero", () => {
     await page.goto("/");
     const hero = page.locator("#hero");
     const video = (await hero.locator("video").boundingBox())!;
-    const bio = (await hero.getByText("published nearly 50").boundingBox())!;
+    const bio = (await hero.getByText("peer-reviewed papers").boundingBox())!;
     const name = (await hero.locator("h1").boundingBox())!;
     const icons = (await hero
       .getByRole("link", { name: "Email" })
@@ -1420,7 +1420,7 @@ test.describe("Home hero", () => {
     await page.setViewportSize({ width: 1440, height: 900 });
     await page.goto("/");
     const hero = page.locator("#hero");
-    const bio = (await hero.getByText("published nearly 50").boundingBox())!;
+    const bio = (await hero.getByText("peer-reviewed papers").boundingBox())!;
     const video = (await hero.locator("video").locator("..").boundingBox())!;
     const centre = (b: { x: number; width: number }) => b.x + b.width / 2;
     const first = (await hero
@@ -1563,7 +1563,9 @@ test.describe("Home hero", () => {
       await page.goto("/");
       const hero = page.locator("#hero");
       const video = (await hero.locator("video").locator("..").boundingBox())!;
-      const text = (await hero.getByText("published nearly 50").boundingBox())!;
+      const text = (await hero
+        .getByText("peer-reviewed papers")
+        .boundingBox())!;
       const left = video.x;
       const right = width - (text.x + text.width);
       expect(Math.abs(left - right)).toBeLessThanOrEqual(24);
@@ -1574,7 +1576,7 @@ test.describe("Home hero", () => {
     await page.goto("/");
     const style = await page
       .locator("#hero")
-      .getByText("published nearly 50")
+      .getByText("peer-reviewed papers")
       .evaluate((el) => {
         const s = getComputedStyle(el);
         return [s.hyphens, s.textAlign, el.closest("html")!.lang];
@@ -1656,7 +1658,7 @@ test.describe("Home hero", () => {
           rect(hero.querySelector('a[aria-label="Download CV"]')!),
           rect(
             [...hero.querySelectorAll("p")].find((p) =>
-              p.textContent!.includes("published nearly"),
+              p.textContent!.includes("peer-reviewed papers"),
             )!,
           ),
         ];
@@ -1677,7 +1679,7 @@ test.describe("Home hero", () => {
       await hero.locator("video").boundingBox(),
       await hero.getByRole("link", { name: "LinkedIn" }).boundingBox(),
       await hero.getByRole("link", { name: "Download CV" }).boundingBox(),
-      await hero.getByText("published nearly 50").boundingBox(),
+      await hero.getByText("peer-reviewed papers").boundingBox(),
     ].map((box) => box!.y);
     expect(tops).toEqual([...tops].sort((a, b) => a - b));
   });
