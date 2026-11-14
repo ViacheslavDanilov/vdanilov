@@ -220,6 +220,8 @@ word, sits in two more places: the `Text Card - Summary` instance on the first p
 version in Figma, and the bio in the README of the GitHub profile repository
 (`ViacheslavDanilov/ViacheslavDanilov`). Changing it in one place means changing it in all three.
 
+- The paper count in the summary is the exact number from `stats.peerReviewed`, not a rounded
+  phrase. After a sync that changes it, the CV and the profile README get the new number too
 - Order: the site pull request first. Once it has merged, the CV and the profile README follow
 - The CV box is 513 pt wide and holds four lines. A fifth line pushes the page content past its
   limit. Count the lines in Figma before editing, and when the new text does not fit, shorten it
