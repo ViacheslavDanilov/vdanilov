@@ -23,15 +23,12 @@ export default function Counters({
     <dl
       className={
         compact
-          ? "flex gap-8"
+          ? "grid w-[27rem] grid-cols-4"
           : "grid grid-cols-2 gap-x-4 gap-y-5 sm:grid-cols-4"
       }
     >
       {items.map(({ label, value }) => (
-        <div
-          key={label}
-          className={`flex flex-col ${compact ? "items-end text-right" : "items-center text-center"}`}
-        >
+        <div key={label} className="flex flex-col items-center text-center">
           <dt className="order-2 text-xs text-[var(--text-muted,#9ca3af)]">
             {label}
           </dt>
