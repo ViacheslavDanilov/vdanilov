@@ -26,18 +26,22 @@ export default function Counters({ counts = TOTALS, fixed, animate = true }) {
             {label}
           </dt>
           <dd className="relative order-1 h-9 overflow-hidden text-3xl font-bold tabular-nums text-[var(--ink,#fff)]">
-            <AnimatePresence initial={false} mode="popLayout">
-              <motion.span
-                key={value}
-                className="block"
-                initial={animate ? { y: "60%", opacity: 0 } : false}
-                animate={{ y: 0, opacity: 1 }}
-                exit={{ y: "-60%", opacity: 0 }}
-                transition={{ duration: 0.35, ease: EASE_OUT }}
-              >
-                {value}
-              </motion.span>
-            </AnimatePresence>
+            {animate ? (
+              <AnimatePresence initial={false} mode="popLayout">
+                <motion.span
+                  key={value}
+                  className="block"
+                  initial={{ y: "60%", opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: "-60%", opacity: 0 }}
+                  transition={{ duration: 0.35, ease: EASE_OUT }}
+                >
+                  {value}
+                </motion.span>
+              </AnimatePresence>
+            ) : (
+              <span className="block">{value}</span>
+            )}
           </dd>
         </div>
       ))}
