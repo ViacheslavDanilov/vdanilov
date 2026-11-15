@@ -487,7 +487,7 @@ const VISITING_ROLES_DATA = [
     logoBrightness: 1.1,
   },
   {
-    id: "trento-visiting-2022",
+    id: "trento-visiting-scientist",
     title: "Visiting Research Scientist",
     company: "University of Trento",
     type: "Visiting",
@@ -498,11 +498,11 @@ const VISITING_ROLES_DATA = [
     logo: "/experience/visiting-roles/uot.svg",
     logoLight: "/experience/visiting-roles/uot-on-light.svg",
     summary:
-      "Hosted by Prof. Farid Melgani on an Erasmus+ mobility grant, built machine learning models that replace finite element simulations in the generative design of prosthetic heart valves",
+      "Built machine learning models that stand in for finite element simulations in the generative design of prosthetic heart valves, in Prof. Farid Melgani's group on an Erasmus+ grant",
     responsibilities: [
       "Returned to the group of Prof. Farid Melgani on an Erasmus+ staff mobility grant, five years after the first visit",
       "Trained ML models on 11,565 simulated valve geometries to predict leaflet opening area and peak stress, at R² above 96%",
-      "Drafted the paper with the Kemerovo Cardiology Center that paired these models with six optimization algorithms for 95% design efficacy",
+      "Drafted the paper with the Kemerovo Cardiology Center, published in 2023 in Frontiers in Bioengineering and Biotechnology",
     ],
     links: [
       {
