@@ -363,7 +363,7 @@ const REMOTE_TARGETS = REMOTE_KEYS.map((key) => {
 
 const HIT = 20;
 
-export default function JourneyMap({ progress, onJump, onSeek }) {
+export default function JourneyMap({ progress, onJump, onSeek, onPicked }) {
   const canvasRef = useRef(null);
   const [hovered, setHovered] = useState(null);
   const [size, setSize] = useState(0);
@@ -668,7 +668,11 @@ export default function JourneyMap({ progress, onJump, onSeek }) {
         <button
           key={key}
           type="button"
-          onClick={go}
+          onClick={() => {
+            go();
+            // The button unmounts with the final view, so focus moves first
+            onPicked();
+          }}
           aria-label={`Go to ${label}`}
           className="group pointer-events-none absolute size-4 -translate-x-1/2 -translate-y-1/2 rounded-full focus-visible:outline-2 focus-visible:outline-[var(--accent-text,#03b1fb)]"
           style={{ left: `${(x / W) * 100}%`, top: `${(y / H) * 100}%` }}

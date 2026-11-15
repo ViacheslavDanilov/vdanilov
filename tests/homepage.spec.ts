@@ -103,6 +103,8 @@ test.describe("Homepage - Career Journey", () => {
         hasText: "Miami",
       }),
     ).toBeVisible();
+    // The pressed target leaves with the final view, so focus moves to the timeline
+    await expect(page.locator("#journey input[type=range]")).toBeFocused();
   });
 
   test("sound is on by default and turning it off is remembered", async ({

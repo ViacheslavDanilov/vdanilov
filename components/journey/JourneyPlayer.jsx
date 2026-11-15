@@ -154,6 +154,7 @@ export default function JourneyPlayer({ children }) {
   const progressRef = useRef(0);
   const containerRef = useRef(null);
   const scaleRef = useRef(null);
+  const rangeRef = useRef(null);
   const startedRef = useRef(false);
   const previousRef = useRef(null);
   const scaleWidth = useWidth(scaleRef);
@@ -304,7 +305,12 @@ export default function JourneyPlayer({ children }) {
       <div className="hidden flex-col gap-3 md:flex">
         <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl border border-[var(--line,rgba(255,255,255,0.1))] bg-[var(--surface,#151a1f)]">
           {wide && near && (
-            <JourneyMap progress={progress} onJump={jumpTo} onSeek={seekTo} />
+            <JourneyMap
+              progress={progress}
+              onJump={jumpTo}
+              onSeek={seekTo}
+              onPicked={() => rangeRef.current?.focus()}
+            />
           )}
           <div className="pointer-events-none absolute right-0 top-0 rounded-tr-2xl bg-[radial-gradient(ellipse_at_top_right,var(--surface,#151a1f)_45%,transparent_72%)] pb-12 pl-16 pr-6 pt-5">
             <Counters counts={counts} animate={!reducedMotion} compact />
@@ -429,6 +435,7 @@ export default function JourneyPlayer({ children }) {
                 />
               </div>
               <input
+                ref={rangeRef}
                 type="range"
                 min={0}
                 max={SLIDER_STEPS}
