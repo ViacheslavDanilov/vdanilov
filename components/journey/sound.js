@@ -79,3 +79,13 @@ export const playLink = () => {
   tone(audio, at, 1318.5, 0.012, 0.25, 1.2);
   tone(audio, at, 1322, 0.012, 0.25, 1.2);
 };
+
+// A wide, slow chord that opens up when the route pulls out to the whole map
+export const playOutro = () => {
+  const audio = context();
+  if (!audio) return;
+  const at = audio.currentTime;
+  [110, 164.81, 220, 277.18, 329.63, 440].forEach((frequency, i) =>
+    tone(audio, at + i * 0.12, frequency, 0.018, 0.9, 3.6),
+  );
+};

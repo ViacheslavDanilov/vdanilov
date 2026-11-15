@@ -23,6 +23,7 @@ import {
   playLanding,
   playLink,
   playTakeoff,
+  playOutro,
   unlockSound,
 } from "@/components/journey/sound";
 
@@ -248,6 +249,7 @@ export default function JourneyPlayer({ children }) {
     if (previous.phase === "stay" && state.phase === "fly") playTakeoff();
     if (previous.phase === "fly" && state.phase === "stay") playLanding();
     if (state.reveal && state.reveal !== previous.reveal) playLink();
+    if (previous.phase !== "outro" && state.phase === "outro") playOutro();
   });
 
   const stop = STOPS[state.stopIndex];
