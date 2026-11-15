@@ -16,6 +16,7 @@ import {
 const W = 1200;
 const H = 675;
 const SAFE = { top: 120, right: 80, bottom: 240, left: 80 };
+const WORLD_SAFE = { top: 100, right: 40, bottom: 20, left: 40 };
 const PAD = (W * 10) / 360;
 const K_STAY = 6;
 const STAY_ZOOM = { tomsk: 3 };
@@ -155,13 +156,13 @@ const ARCS = LEGS.map(({ from, to }) => {
   return { a, b, c };
 });
 
-const centered = (x, y, k) => ({
-  x: x - (SAFE.left - SAFE.right) / 2 / k,
-  y: y - (SAFE.top - SAFE.bottom) / 2 / k,
+const centered = (x, y, k, safe = SAFE) => ({
+  x: x - (safe.left - safe.right) / 2 / k,
+  y: y - (safe.top - safe.bottom) / 2 / k,
   k,
 });
 
-const frameAround = (points) => {
+const frameAround = (points, safe = SAFE) => {
   const xs = points.map((p) => p[0]);
   const ys = points.map((p) => p[1]);
   const minX = Math.min(...xs);
@@ -170,10 +171,10 @@ const frameAround = (points) => {
   const maxY = Math.max(...ys);
   const k = Math.min(
     K_STAY,
-    (W - SAFE.left - SAFE.right) / (maxX - minX + 2 * PAD),
-    (H - SAFE.top - SAFE.bottom) / (maxY - minY + 2 * PAD),
+    (W - safe.left - safe.right) / (maxX - minX + 2 * PAD),
+    (H - safe.top - safe.bottom) / (maxY - minY + 2 * PAD),
   );
-  return centered((minX + maxX) / 2, (minY + maxY) / 2, k);
+  return centered((minX + maxX) / 2, (minY + maxY) / 2, k, safe);
 };
 
 const STAY_FRAMES = STOPS.map((stop) =>
@@ -196,6 +197,7 @@ const FIRST_STOP = Object.fromEntries(
 );
 const WORLD_FRAME = frameAround(
   [...PLACE_KEYS, ...REMOTE_KEYS].map((key) => POS[key]),
+  WORLD_SAFE,
 );
 
 // Stay: frame the city. Flight: zoom out to both endpoints, hold, zoom in on the destination
