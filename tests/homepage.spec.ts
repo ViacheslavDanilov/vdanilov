@@ -1,4 +1,5 @@
 import { test, expect, type Page } from "@playwright/test";
+import { REMOTE_SPANS } from "../lib/journey.js";
 
 test.describe("Homepage - Basic Page Tests", () => {
   test("has correct title", async ({ page }) => {
@@ -64,6 +65,29 @@ test.describe("Homepage - Career Journey", () => {
       has: page.getByText("Countries", { exact: true }),
     });
     await expect(countries.locator("dd")).toHaveText("1");
+  });
+
+  test("a remote role's start does not bring back the last flight", async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 1280, height: 800 });
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    await page.goto("/");
+
+    const section = page.locator("#journey");
+    await expect(section.getByText("12 cities, 9 countries")).toBeVisible();
+    for (const { revealStart, revealEnd } of REMOTE_SPANS) {
+      const step = Math.ceil(
+        (revealStart + 0.05 * (revealEnd - revealStart)) * 4000,
+      );
+      await seek(page, step);
+      await expect(section.locator("input[type=range]")).toHaveValue(
+        String(step),
+      );
+      await expect(
+        section.locator('g[stroke="url(#journey-tail)"]'),
+      ).toHaveCount(0);
+    }
   });
 
   test("a remote city on the final map jumps to its role", async ({ page }) => {

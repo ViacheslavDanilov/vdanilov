@@ -329,10 +329,11 @@ const sceneAt = (state) => {
   }
   if (phase === "stay") {
     const retract = EASE_IN_OUT(clamp01(t / RETRACT));
+    // Only the first piece of a stay follows a flight; a remote start splits it later
     return {
       cities: [{ index: i, show: 1, halo: 1 }],
       comet:
-        i > 0
+        i > 0 && !state.reveal
           ? { arc: ARCS[i - 1], start: lerp(1 - TAIL, 1, retract), head: 1 }
           : null,
       plane: 0,
