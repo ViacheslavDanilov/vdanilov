@@ -63,6 +63,11 @@ test.describe("Homepage - Career Journey", () => {
     await expect(section.getByText("Tomsk, Russia")).toBeVisible();
     await expect(section.getByText("BSc in Robotics")).toBeVisible();
     await expect(section.getByText("Tomsk State University")).toHaveCount(0);
+    // In 2016 three roles run at once and the card names only the most senior
+    await seek(page, 450);
+    await expect(section.getByText("Research Scientist")).toBeVisible();
+    await expect(section.getByText("SIBUR")).toHaveCount(0);
+    await seek(page, 0);
     const countries = section.locator("dl:visible > div", {
       has: page.getByText("Countries", { exact: true }),
     });

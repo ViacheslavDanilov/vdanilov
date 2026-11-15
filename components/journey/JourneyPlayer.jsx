@@ -16,7 +16,7 @@ import {
   countsAt,
   journeyAt,
   progressOfDate,
-  rolesAt,
+  roleAt,
   stopPeriod,
   formatMonth,
 } from "@/lib/journey";
@@ -59,14 +59,6 @@ const STEPS = [...STOP_STARTS.map((at) => at + JUMP_INTO_STAY), 1];
 const dateText = (ms) => (ms >= JOURNEY_END_MS ? "Present" : formatMonth(ms));
 
 const SHORT_ORG = { "Intelerad Medical Systems": "Intelerad" };
-// Active roles grouped by organisation, in the order they started
-const byOrg = (roles) =>
-  Object.entries(
-    roles.reduce((groups, { org, role }) => {
-      (groups[org] ??= []).push(role);
-      return groups;
-    }, {}),
-  );
 
 const RANGE =
   "relative h-5 w-full cursor-pointer appearance-none bg-transparent focus-visible:outline-none " +
@@ -273,7 +265,7 @@ export default function JourneyPlayer({ children }) {
 
   const stop = STOPS[state.stopIndex];
   const place = PLACES[stop.place];
-  const roles = rolesAt(stop, state.dateMs);
+  const role = roleAt(stop, state.dateMs);
   const outro = state.phase === "outro";
   if (outro && !seenOutro) setSeenOutro(true);
   const dateLabel = dateText(state.dateMs);
@@ -366,21 +358,16 @@ export default function JourneyPlayer({ children }) {
                       {place.city}, {place.country}{" "}
                       <span aria-hidden="true">{place.flag}</span>
                     </div>
-                    {byOrg(roles).map(([org, titles]) => (
-                      <div key={org} className="mt-1 text-sm">
-                        {titles.map((title) => (
-                          <div
-                            key={title}
-                            className="text-[var(--text,#d1d5db)]"
-                          >
-                            {title}
-                          </div>
-                        ))}
-                        <div className="text-[var(--text-muted,#9ca3af)]">
-                          {org}
+                    {role && (
+                      <>
+                        <div className="text-sm text-[var(--text,#d1d5db)]">
+                          {role.role}
                         </div>
-                      </div>
-                    ))}
+                        <div className="text-sm text-[var(--text-muted,#9ca3af)]">
+                          {role.org}
+                        </div>
+                      </>
+                    )}
                   </>
                 )}
               </motion.div>
