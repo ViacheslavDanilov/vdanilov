@@ -4,8 +4,8 @@ import world from "world-atlas/land-110m.json";
 import { PLACES, REMOTE, STOPS } from "@/lib/journey";
 
 const W = 360;
-const H = 210;
-const PAD = 16;
+const H = 270;
+const PAD = 22;
 
 const KEYS = [...new Set(STOPS.map((stop) => stop.place))];
 const REMOTE_KEYS = [...new Set(REMOTE.map((role) => role.place))];
@@ -50,9 +50,9 @@ const arc = (a, b, bend = 0.2) => {
   return `M${fmt(a)}Q${fmt(c)} ${fmt(b)}`;
 };
 const LABELS = [
-  { key: "tomsk", dx: 0, dy: -7, anchor: "middle" },
+  { key: "tomsk", dx: 2, dy: -7, anchor: "end" },
   { key: "barcelona", dx: -5, dy: 11, anchor: "end" },
-  { key: "montreal", dx: -6, dy: -4, anchor: "end" },
+  { key: "montreal", dx: -4, dy: -7, anchor: "start" },
   { key: "cambridge", dx: 7, dy: 4, anchor: "start" },
   { key: "miami", dx: 7, dy: 4, anchor: "start" },
 ];
