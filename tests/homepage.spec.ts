@@ -38,10 +38,8 @@ test.describe("Homepage - Career Journey", () => {
       ["12", "Cities"],
       ["12", "Universities"],
       ["3", "Remote teams"],
-      ["20+", "ML and AI projects"],
-      ["48", "Peer-reviewed papers"],
     ]) {
-      const item = section.locator("dl > div", {
+      const item = section.locator("dl:visible > div", {
         has: page.getByText(label, { exact: true }),
       });
       await expect(item.locator("dd")).toHaveText(value);
@@ -62,7 +60,7 @@ test.describe("Homepage - Career Journey", () => {
     await expect(section.getByText("12 cities, 9 countries")).toBeVisible();
     await seek(page, 0);
     await expect(section.getByText("Tomsk, Russia")).toBeVisible();
-    const countries = section.locator("dl > div", {
+    const countries = section.locator("dl:visible > div", {
       has: page.getByText("Countries", { exact: true }),
     });
     await expect(countries.locator("dd")).toHaveText("1");
@@ -107,7 +105,7 @@ test.describe("Homepage - Career Journey", () => {
       section.getByRole("img", { name: /Route through/ }),
     ).toBeVisible();
     await expect(section.locator("canvas")).toHaveCount(0);
-    const countries = section.locator("dl > div", {
+    const countries = section.locator("dl:visible > div", {
       has: page.getByText("Countries", { exact: true }),
     });
     await expect(countries.locator("dd")).toHaveText("9");

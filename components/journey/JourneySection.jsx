@@ -1,13 +1,6 @@
 import JourneyPlayer from "@/components/journey/JourneyPlayer";
 import JourneySnapshot from "@/components/journey/JourneySnapshot";
 import { PLACES, REMOTE, TOTALS } from "@/lib/journey";
-import { PEER_REVIEWED } from "@/lib/publications";
-
-const FIXED = [
-  { label: "ML and AI projects", value: "20+" },
-  { label: "Peer-reviewed papers", value: PEER_REVIEWED },
-];
-
 const REMOTE_CITIES = [...new Set(REMOTE.map((role) => role.place))].map(
   (key) => PLACES[key].city,
 );
@@ -31,7 +24,7 @@ export default function JourneySection() {
           engineering in {TOTALS.countries} countries
         </p>
       </div>
-      <JourneyPlayer fixed={FIXED}>
+      <JourneyPlayer>
         <div className="md:hidden">
           <JourneySnapshot />
           <p className="mt-3 text-center text-sm text-muted">

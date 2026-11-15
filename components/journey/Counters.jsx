@@ -12,20 +12,32 @@ const LIVE = [
   { key: "remote", label: "Remote teams" },
 ];
 
-// Story counters, then the totals that do not depend on the route
-export default function Counters({ counts = TOTALS, fixed, animate = true }) {
-  const items = [
-    ...LIVE.map(({ key, label }) => ({ label, value: counts[key] })),
-    ...fixed,
-  ];
+// Counters that follow the story; compact sits on the map, the default stands alone
+export default function Counters({
+  counts = TOTALS,
+  animate = true,
+  compact = false,
+}) {
+  const items = LIVE.map(({ key, label }) => ({ label, value: counts[key] }));
   return (
-    <dl className="grid grid-cols-3 gap-x-4 gap-y-5 md:grid-cols-6">
+    <dl
+      className={
+        compact
+          ? "flex gap-8"
+          : "grid grid-cols-2 gap-x-4 gap-y-5 sm:grid-cols-4"
+      }
+    >
       {items.map(({ label, value }) => (
-        <div key={label} className="flex flex-col items-center text-center">
+        <div
+          key={label}
+          className={`flex flex-col ${compact ? "items-end text-right" : "items-center text-center"}`}
+        >
           <dt className="order-2 text-xs text-[var(--text-muted,#9ca3af)]">
             {label}
           </dt>
-          <dd className="relative order-1 h-9 overflow-hidden text-3xl font-bold tabular-nums text-[var(--ink,#fff)]">
+          <dd
+            className={`relative order-1 overflow-hidden font-bold tabular-nums text-[var(--ink,#fff)] ${compact ? "h-8 text-2xl" : "h-9 text-3xl"}`}
+          >
             {animate ? (
               <AnimatePresence initial={false} mode="popLayout">
                 <motion.span

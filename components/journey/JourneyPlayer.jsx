@@ -142,7 +142,7 @@ const PlayIcon = ({ playing }) =>
     </svg>
   );
 
-export default function JourneyPlayer({ fixed, children }) {
+export default function JourneyPlayer({ children }) {
   const reducedMotion = useMediaQuery(REDUCED_QUERY);
   const wide = useMediaQuery(WIDE_QUERY);
   const [progress, setProgress] = useState(0);
@@ -241,7 +241,7 @@ export default function JourneyPlayer({ fixed, children }) {
   const place = PLACES[stop.place];
   const outro = state.phase === "outro";
   const dateLabel = formatMonth(state.dateMs);
-  const counts = wide ? countsAt(state) : TOTALS;
+  const counts = countsAt(state);
 
   const labelled = useMemo(() => {
     let lastLabelled = -1;
@@ -281,11 +281,9 @@ export default function JourneyPlayer({ fixed, children }) {
 
   return (
     <div ref={containerRef} className="flex w-full flex-col gap-6">
-      <Counters
-        counts={counts}
-        fixed={fixed}
-        animate={wide && !reducedMotion}
-      />
+      <div className="md:hidden">
+        <Counters animate={false} />
+      </div>
       {children}
 
       <div className="hidden flex-col gap-3 md:flex">
@@ -293,6 +291,9 @@ export default function JourneyPlayer({ fixed, children }) {
           {wide && near && (
             <JourneyMap progress={progress} onJump={jumpTo} onSeek={seekTo} />
           )}
+          <div className="pointer-events-none absolute right-0 top-0 rounded-tr-2xl bg-[radial-gradient(ellipse_at_top_right,var(--surface,#151a1f)_45%,transparent_72%)] pb-12 pl-16 pr-6 pt-5">
+            <Counters counts={counts} animate={!reducedMotion} compact />
+          </div>
           <div className="absolute bottom-4 left-4 w-[22rem] rounded-xl border border-[var(--line,rgba(255,255,255,0.1))] bg-[color-mix(in_srgb,var(--bg,#0a0e14)_82%,transparent)] backdrop-blur">
             <AnimatePresence initial={false} mode="popLayout">
               <motion.div
