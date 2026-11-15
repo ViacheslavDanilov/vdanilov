@@ -61,13 +61,13 @@ test.describe("Homepage - Career Journey", () => {
     await expect(section.getByText("12 cities, 9 countries")).toBeVisible();
     await seek(page, 0);
     await expect(section.getByText("Tomsk, Russia")).toBeVisible();
-    await expect(section.getByText("BSc in Robotics")).toBeVisible();
-    await expect(section.getByText("Tomsk State University")).toHaveCount(0);
-    // Mid-2016 has three Tomsk roles running; the card names the most senior
-    await seek(page, Math.round(progressOfDate(Date.UTC(2016, 5, 1)) * 4000));
+    // A stay names the most senior role it overlaps, for the whole stay
     await expect(
-      section.getByText("Research Scientist", { exact: true }),
+      section.getByText("MSc in Computer Engineering"),
     ).toBeVisible();
+    await expect(section.getByText("Tomsk State University")).toHaveCount(0);
+    await seek(page, Math.round(progressOfDate(Date.UTC(2014, 5, 1)) * 4000));
+    await expect(section.getByText("Senior Research Scientist")).toBeVisible();
     await expect(
       section.getByText("PhD Student in Computer Science"),
     ).toHaveCount(0);

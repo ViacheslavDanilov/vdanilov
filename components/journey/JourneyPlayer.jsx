@@ -16,7 +16,7 @@ import {
   countsAt,
   journeyAt,
   progressOfDate,
-  roleAt,
+  roleOf,
   stopPeriod,
   formatMonth,
 } from "@/lib/journey";
@@ -265,7 +265,7 @@ export default function JourneyPlayer({ children }) {
 
   const stop = STOPS[state.stopIndex];
   const place = PLACES[stop.place];
-  const role = roleAt(stop, state.dateMs);
+  const role = roleOf(stop);
   const outro = state.phase === "outro";
   if (outro && !seenOutro) setSeenOutro(true);
   const dateLabel = dateText(state.dateMs);
