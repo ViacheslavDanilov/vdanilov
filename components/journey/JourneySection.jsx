@@ -1,9 +1,6 @@
 import JourneyPlayer from "@/components/journey/JourneyPlayer";
 import JourneySnapshot from "@/components/journey/JourneySnapshot";
-import { PLACES, REMOTE, TOTALS } from "@/lib/journey";
-const REMOTE_CITIES = [...new Set(REMOTE.map((role) => role.place))].map(
-  (key) => PLACES[key].city,
-);
+import { TOTALS } from "@/lib/journey";
 
 export default function JourneySection() {
   return (
@@ -27,10 +24,6 @@ export default function JourneySection() {
       <JourneyPlayer>
         <div className="md:hidden">
           <JourneySnapshot />
-          <p className="mt-3 text-center text-sm text-muted">
-            Remote teams in {REMOTE_CITIES.slice(0, -1).join(", ")} and{" "}
-            {REMOTE_CITIES.at(-1)}
-          </p>
         </div>
       </JourneyPlayer>
     </section>
