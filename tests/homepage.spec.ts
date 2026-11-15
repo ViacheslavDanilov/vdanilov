@@ -61,6 +61,8 @@ test.describe("Homepage - Career Journey", () => {
     await expect(section.getByText("12 cities, 9 countries")).toBeVisible();
     await seek(page, 0);
     await expect(section.getByText("Tomsk, Russia")).toBeVisible();
+    await expect(section.getByText("BSc in Robotics")).toBeVisible();
+    await expect(section.getByText("Tomsk State University")).toHaveCount(0);
     const countries = section.locator("dl:visible > div", {
       has: page.getByText("Countries", { exact: true }),
     });

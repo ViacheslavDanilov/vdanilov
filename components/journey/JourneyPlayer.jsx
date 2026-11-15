@@ -16,6 +16,7 @@ import {
   countsAt,
   journeyAt,
   progressOfDate,
+  rolesAt,
   stopPeriod,
   formatMonth,
 } from "@/lib/journey";
@@ -263,6 +264,7 @@ export default function JourneyPlayer({ children }) {
 
   const stop = STOPS[state.stopIndex];
   const place = PLACES[stop.place];
+  const roles = rolesAt(stop, state.dateMs);
   const outro = state.phase === "outro";
   const dateLabel = dateText(state.dateMs);
   const counts = countsAt(state);
@@ -354,12 +356,18 @@ export default function JourneyPlayer({ children }) {
                       {place.city}, {place.country}{" "}
                       <span aria-hidden="true">{place.flag}</span>
                     </div>
-                    <div className="text-sm text-[var(--text,#d1d5db)]">
-                      {stop.role}
-                    </div>
-                    <div className="text-sm text-[var(--text-muted,#9ca3af)]">
-                      {stop.org}
-                    </div>
+                    {roles.length > 0 && (
+                      <>
+                        <div className="text-sm text-[var(--text,#d1d5db)]">
+                          {roles.map((role) => role.role).join(", ")}
+                        </div>
+                        <div className="text-sm text-[var(--text-muted,#9ca3af)]">
+                          {[...new Set(roles.map((role) => role.org))].join(
+                            ", ",
+                          )}
+                        </div>
+                      </>
+                    )}
                   </>
                 )}
               </motion.div>
