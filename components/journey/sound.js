@@ -1,9 +1,12 @@
-// Quiet synthesized cues for the journey; nothing plays until a click creates the context
+// Quiet synthesized cues for the journey; nothing plays before the page gets a click or key press
 let ctx = null;
 let master = null;
 
+const locked = () => navigator.userActivation?.hasBeenActive === false;
+
 const context = () => {
   if (!ctx) {
+    if (locked()) return null;
     ctx = new (window.AudioContext || window.webkitAudioContext)();
     master = ctx.createGain();
     master.gain.value = 0.5;
@@ -35,6 +38,7 @@ export const unlockSound = () => context();
 // A long breath of air opening up through a low-pass filter
 export const playTakeoff = () => {
   const audio = context();
+  if (!audio) return;
   const at = audio.currentTime;
   const seconds = 2.2;
   const buffer = audio.createBuffer(
@@ -60,6 +64,7 @@ export const playTakeoff = () => {
 // A warm A major chord that swells in
 export const playLanding = () => {
   const audio = context();
+  if (!audio) return;
   const at = audio.currentTime;
   [220, 277.18, 329.63].forEach((frequency) =>
     tone(audio, at, frequency, 0.025, 0.35, 2.2),
@@ -69,6 +74,7 @@ export const playLanding = () => {
 // Two high tones a few hertz apart, so they shimmer
 export const playLink = () => {
   const audio = context();
+  if (!audio) return;
   const at = audio.currentTime;
   tone(audio, at, 1318.5, 0.012, 0.25, 1.2);
   tone(audio, at, 1322, 0.012, 0.25, 1.2);

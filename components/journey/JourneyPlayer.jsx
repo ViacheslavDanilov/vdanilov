@@ -91,9 +91,9 @@ const useWidth = (ref) => {
 
 const readSound = () => {
   try {
-    return window.localStorage.getItem(SOUND_KEY) === "on";
+    return window.localStorage.getItem(SOUND_KEY) !== "off";
   } catch {
-    return false;
+    return true;
   }
 };
 
@@ -148,7 +148,7 @@ export default function JourneyPlayer({ children }) {
   const [progress, setProgress] = useState(0);
   const [playing, setPlaying] = useState(false);
   const [near, setNear] = useState(false);
-  const [sound, setSound] = useState(false);
+  const [sound, setSound] = useState(true);
   const [hover, setHover] = useState(null);
   const progressRef = useRef(0);
   const containerRef = useRef(null);
@@ -163,6 +163,19 @@ export default function JourneyPlayer({ children }) {
   }, []);
 
   useEffect(() => setSound(readSound()), []);
+
+  // Browsers keep audio locked until the first click or key press on the page
+  useEffect(() => {
+    if (!sound) return;
+    const unlock = () => unlockSound();
+    const options = { once: true, capture: true };
+    document.addEventListener("pointerdown", unlock, options);
+    document.addEventListener("keydown", unlock, options);
+    return () => {
+      document.removeEventListener("pointerdown", unlock, options);
+      document.removeEventListener("keydown", unlock, options);
+    };
+  }, [sound]);
 
   useEffect(() => {
     if (reducedMotion) {

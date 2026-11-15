@@ -76,20 +76,25 @@ test.describe("Homepage - Career Journey", () => {
     await expect(page.locator("#journey").getByText("Symfa")).toBeVisible();
   });
 
-  test("sound is off by default and the choice is remembered", async ({
+  test("sound is on by default and turning it off is remembered", async ({
     page,
   }) => {
     await page.setViewportSize({ width: 1280, height: 800 });
     await page.goto("/");
 
     const sound = page.getByRole("button", { name: "Sound" });
-    await expect(sound).toHaveAttribute("aria-pressed", "false");
-    await sound.click();
     await expect(sound).toHaveAttribute("aria-pressed", "true");
+    // A click before hydration does nothing, so retry until it toggles
+    await expect(async () => {
+      await sound.click();
+      await expect(sound).toHaveAttribute("aria-pressed", "false", {
+        timeout: 500,
+      });
+    }).toPass();
     await page.reload();
     await expect(page.getByRole("button", { name: "Sound" })).toHaveAttribute(
       "aria-pressed",
-      "true",
+      "false",
     );
   });
 
