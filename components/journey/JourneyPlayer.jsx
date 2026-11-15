@@ -168,6 +168,7 @@ export default function JourneyPlayer({ children }) {
   const [near, setNear] = useState(false);
   const [sound, setSound] = useState(true);
   const [hover, setHover] = useState(null);
+  const [seenOutro, setSeenOutro] = useState(false);
   const progressRef = useRef(0);
   const containerRef = useRef(null);
   const scaleRef = useRef(null);
@@ -274,6 +275,7 @@ export default function JourneyPlayer({ children }) {
   const place = PLACES[stop.place];
   const roles = rolesAt(stop, state.dateMs);
   const outro = state.phase === "outro";
+  if (outro && !seenOutro) setSeenOutro(true);
   const dateLabel = dateText(state.dateMs);
   const counts = countsAt(state);
 
@@ -400,13 +402,26 @@ export default function JourneyPlayer({ children }) {
                 ))}
               </ul>
             )}
-            <div className="px-4 pb-4">
+            <div className="mt-2 flex flex-wrap gap-x-4 px-4 pb-4 text-sm">
               <Link
                 href="/experience"
-                className="mt-2 inline-block text-sm text-[var(--accent-text,#03b1fb)] hover:underline"
+                className="text-[var(--accent-text,#03b1fb)] hover:underline"
               >
                 {outro ? "Explore experience" : "See on Experience"}
               </Link>
+              {seenOutro && !outro && !playing && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    seekTo(1);
+                    // The button unmounts with the city view, so focus goes to the timeline
+                    rangeRef.current?.focus();
+                  }}
+                  className="text-[var(--accent-text,#03b1fb)] hover:underline"
+                >
+                  Back to the whole map
+                </button>
+              )}
             </div>
           </div>
         </div>

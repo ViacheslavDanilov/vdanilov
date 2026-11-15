@@ -134,6 +134,25 @@ test.describe("Homepage - Career Journey", () => {
     await expect(page.locator("#journey input[type=range]")).toBeFocused();
   });
 
+  test("a city picked on the final map leads back to the whole map", async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 1280, height: 800 });
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    await page.goto("/");
+
+    const section = page.locator("#journey");
+    const back = section.getByRole("button", { name: "Back to the whole map" });
+    await expect(back).toHaveCount(0);
+    await page.getByRole("button", { name: "Go to Trento" }).focus();
+    await page.keyboard.press("Enter");
+    await expect(section.getByText("12 cities, 9 countries")).toHaveCount(0);
+    await back.click();
+    await expect(section.getByText("12 cities, 9 countries")).toBeVisible();
+    await expect(back).toHaveCount(0);
+    await expect(section.locator("input[type=range]")).toBeFocused();
+  });
+
   test("sound is on by default and turning it off is remembered", async ({
     page,
   }) => {
