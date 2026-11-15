@@ -67,6 +67,29 @@ test.describe("Homepage - Career Journey", () => {
     await expect(countries.locator("dd")).toHaveText("1");
   });
 
+  test("arrow keys step from stop to stop and the end reads Present", async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 1280, height: 800 });
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    await page.goto("/");
+
+    const section = page.locator("#journey");
+    await expect(section.getByText("12 cities, 9 countries")).toBeVisible();
+    await expect(section.getByText("Present", { exact: true })).toBeVisible();
+    await expect(section.getByText("2007", { exact: true })).toBeVisible();
+    await seek(page, 0);
+    const timeline = section.getByRole("slider", { name: "Journey timeline" });
+    await timeline.focus();
+    await page.keyboard.press("ArrowRight");
+    await expect(section.getByText("Lisbon, Portugal")).toBeVisible();
+    await page.keyboard.press("ArrowLeft");
+    await expect(section.getByText("Tomsk, Russia")).toBeVisible();
+    await page.keyboard.press("End");
+    await page.keyboard.press("ArrowLeft");
+    await expect(section.getByText("Barcelona, Spain")).toBeVisible();
+  });
+
   test("a remote role's start does not bring back the last flight", async ({
     page,
   }) => {

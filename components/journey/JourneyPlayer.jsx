@@ -44,10 +44,18 @@ const JUMP_INTO_STAY = 0.004;
 
 const START_YEAR = new Date(JOURNEY_START_MS).getUTCFullYear();
 const END_YEAR = new Date(JOURNEY_END_MS).getUTCFullYear();
-const YEARS = Array.from(
-  { length: END_YEAR - START_YEAR },
-  (_, i) => START_YEAR + 1 + i,
-).map((year) => ({ year, at: progressOfDate(Date.UTC(year, 0, 1)) }));
+const YEARS = [
+  { year: START_YEAR, at: 0 },
+  ...Array.from({ length: END_YEAR - START_YEAR }, (_, i) => {
+    const year = START_YEAR + 1 + i;
+    return { year, at: progressOfDate(Date.UTC(year, 0, 1)) };
+  }),
+];
+// Arrow keys step from stop to stop, ending on the final view
+const STEPS = [...STOP_STARTS.map((at) => at + JUMP_INTO_STAY), 1];
+
+// The last month of the story reads as today
+const dateText = (ms) => (ms >= JOURNEY_END_MS ? "Present" : formatMonth(ms));
 
 const SHORT_ORG = { "Intelerad Medical Systems": "Intelerad" };
 
@@ -256,7 +264,7 @@ export default function JourneyPlayer({ children }) {
   const stop = STOPS[state.stopIndex];
   const place = PLACES[stop.place];
   const outro = state.phase === "outro";
-  const dateLabel = formatMonth(state.dateMs);
+  const dateLabel = dateText(state.dateMs);
   const counts = countsAt(state);
 
   const labelled = useMemo(() => {
@@ -292,7 +300,7 @@ export default function JourneyPlayer({ children }) {
     const at = Math.min(1, Math.max(0, (event.clientX - box.left) / box.width));
     const target = journeyAt(at);
     const city = PLACES[STOPS[target.stopIndex].place].city;
-    setHover({ at, text: `${city} · ${formatMonth(target.dateMs)}` });
+    setHover({ at, text: `${city} · ${dateText(target.dateMs)}` });
   };
 
   return (
@@ -443,6 +451,19 @@ export default function JourneyPlayer({ children }) {
                 onChange={(event) => {
                   setPlaying(false);
                   update(Number(event.target.value) / SLIDER_STEPS);
+                }}
+                onKeyDown={(event) => {
+                  const forward =
+                    event.key === "ArrowRight" || event.key === "ArrowUp";
+                  const back =
+                    event.key === "ArrowLeft" || event.key === "ArrowDown";
+                  if (!forward && !back) return;
+                  event.preventDefault();
+                  const at = progressRef.current;
+                  const next = forward
+                    ? STEPS.find((step) => step > at + JUMP_INTO_STAY)
+                    : STEPS.findLast((step) => step < at - JUMP_INTO_STAY);
+                  seekTo(next ?? (forward ? 1 : 0));
                 }}
                 aria-label="Journey timeline"
                 aria-valuetext={`${dateLabel}, ${place.city}`}
