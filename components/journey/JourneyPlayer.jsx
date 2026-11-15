@@ -52,8 +52,8 @@ const YEARS = [
     return { year, at: progressOfDate(Date.UTC(year, 0, 1)) };
   }),
 ];
-// Arrow keys step from stop to stop, ending on the final view
-const STEPS = [...STOP_STARTS.map((at) => at + JUMP_INTO_STAY), 1];
+// Arrow keys step from stop to stop, from the very start to the final view
+const STEPS = [0, ...STOP_STARTS.slice(1).map((at) => at + JUMP_INTO_STAY), 1];
 
 // The last month of the story reads as today
 const dateText = (ms) => (ms >= JOURNEY_END_MS ? "Present" : formatMonth(ms));

@@ -92,6 +92,7 @@ test.describe("Homepage - Career Journey", () => {
     await expect(section.getByText("Lisbon, Portugal")).toBeVisible();
     await page.keyboard.press("ArrowLeft");
     await expect(section.getByText("Tomsk, Russia")).toBeVisible();
+    await expect(section.getByText("Sep 2007", { exact: true })).toBeVisible();
     await page.keyboard.press("End");
     await page.keyboard.press("ArrowLeft");
     await expect(section.getByText("Barcelona, Spain")).toBeVisible();
