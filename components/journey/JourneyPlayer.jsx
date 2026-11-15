@@ -1,58 +1,54 @@
 "use client";
 
-import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { AnimatePresence, motion } from "motion/react";
+import Counters from "@/components/journey/Counters";
 import {
+  JOURNEY_END_MS,
+  JOURNEY_START_MS,
+  OUTRO_START,
   PLACES,
-  REMOTE,
   STOPS,
+  STOP_STARTS,
+  TOTALS,
+  countsAt,
   journeyAt,
   progressOfDate,
   stopPeriod,
-  toMs,
   formatMonth,
 } from "@/lib/journey";
+import {
+  playLanding,
+  playLink,
+  playTakeoff,
+  unlockSound,
+} from "@/components/journey/sound";
 
-const DURATION_MS = 75000;
+const DURATION_MS = 80000;
 const MAX_STEP_MS = 100;
 const REDUCED_QUERY = "(prefers-reduced-motion: reduce)";
 const WIDE_QUERY = "(min-width: 768px)";
+const SOUND_KEY = "journey-sound";
 
 const JourneyMap = dynamic(() => import("@/components/journey/JourneyMap"), {
   ssr: false,
 });
 const MIN_LABEL_GAP_PX = 36;
 const EASE_OUT = [0.23, 1, 0.32, 1];
-
-// The scale is story time, so a quiet year takes less room than a busy one
 const SLIDER_STEPS = 4000;
+// Lands a jump just after the stay starts, once the tail has pulled in
+const JUMP_INTO_STAY = 0.004;
 
-const YEARS = Array.from({ length: 19 }, (_, i) => 2008 + i).map((year) => ({
-  year,
-  at: progressOfDate(Date.UTC(year, 0, 1)),
-}));
-
-const VARIANTS = [
-  { key: "lanes", label: "Lanes" },
-  { key: "a", label: "A · Reveal" },
-  { key: "b", label: "B · Edge" },
-  { key: "e", label: "E · Card" },
-];
+const START_YEAR = new Date(JOURNEY_START_MS).getUTCFullYear();
+const END_YEAR = new Date(JOURNEY_END_MS).getUTCFullYear();
+const YEARS = Array.from(
+  { length: END_YEAR - START_YEAR },
+  (_, i) => START_YEAR + 1 + i,
+).map((year) => ({ year, at: progressOfDate(Date.UTC(year, 0, 1)) }));
 
 const SHORT_ORG = { "Intelerad Medical Systems": "Intelerad" };
-const LANES = REMOTE.map((role) => {
-  const { city, country } = PLACES[role.place];
-  return {
-    org: role.org,
-    name: SHORT_ORG[role.org] ?? role.org,
-    where: country === "United States" ? `${city}, US` : city,
-    period: stopPeriod(role),
-    from: progressOfDate(toMs(role.from)),
-    to: progressOfDate(toMs(role.to)),
-  };
-});
 
 const RANGE =
   "relative h-5 w-full cursor-pointer appearance-none bg-transparent focus-visible:outline-none " +
@@ -66,12 +62,8 @@ const RANGE =
   "[&:focus-visible::-moz-range-thumb]:outline-2 [&:focus-visible::-moz-range-thumb]:outline-offset-2 " +
   "[&:focus-visible::-moz-range-thumb]:outline-[var(--accent-text,#03b1fb)]";
 
-const BAR =
-  "absolute inset-y-1.5 rounded-md border transition-[background-color,border-color] duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] motion-reduce:transition-none";
-const BAR_IDLE =
-  "border-[color-mix(in_srgb,var(--accent-text,#03b1fb)_40%,transparent)] bg-[color-mix(in_srgb,var(--accent-text,#03b1fb)_14%,transparent)]";
-const BAR_LIVE =
-  "border-[var(--accent-text,#03b1fb)] bg-[color-mix(in_srgb,var(--accent-text,#03b1fb)_65%,transparent)]";
+const ROUND_BUTTON =
+  "flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[var(--line,rgba(255,255,255,0.1))] text-[var(--ink,#fff)] transition-[transform,border-color] duration-150 ease-[cubic-bezier(0.23,1,0.32,1)] hover:border-[var(--accent-text,#03b1fb)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent-text,#03b1fb)] motion-safe:active:scale-[0.97] motion-reduce:transition-none";
 
 const useMediaQuery = (media) => {
   const [matches, setMatches] = useState(false);
@@ -97,88 +89,72 @@ const useWidth = (ref) => {
   return width;
 };
 
-// Year hairlines and the remote bars share the slider's story scale
-const Lanes = memo(function Lanes({ active, labelled, bars }) {
-  return (
-    <>
-      <div
-        className="relative col-start-2 row-start-2 mx-[7px] h-5 text-xs tabular-nums text-[var(--text-muted,#9ca3af)]"
-        aria-hidden="true"
-      >
-        {labelled.map(({ year, at }) => (
-          <span
-            key={year}
-            className="absolute top-0.5 -translate-x-1/2"
-            style={{ left: `${at * 100}%` }}
-          >
-            {year}
-          </span>
-        ))}
-      </div>
-      <div
-        className="pointer-events-none relative col-start-2 mx-[7px] row-span-3 row-start-3"
-        aria-hidden="true"
-      >
-        {YEARS.map(({ year, at }) => (
-          <span
-            key={year}
-            className="absolute inset-y-0 w-px bg-[var(--line,rgba(255,255,255,0.1))]"
-            style={{ left: `${at * 100}%` }}
-          />
-        ))}
-      </div>
-      {bars &&
-        LANES.map((lane, n) => {
-          const live = active.includes(lane.org);
-          return (
-            <div key={lane.org} className="contents">
-              <div
-                className="col-start-1 flex flex-col justify-center pr-2 text-right text-xs leading-tight"
-                style={{ gridRow: n + 3 }}
-              >
-                <span
-                  className={`font-medium transition-colors duration-300 motion-reduce:transition-none ${live ? "text-[var(--ink,#fff)]" : "text-[var(--text,#d1d5db)]"}`}
-                >
-                  {lane.name}
-                  <span className="font-normal text-[var(--text-muted,#9ca3af)]">
-                    {" / "}
-                    {lane.where}
-                  </span>
-                </span>
-                <span className="text-xs tabular-nums text-[var(--text-muted,#9ca3af)]">
-                  {lane.period}
-                </span>
-              </div>
-              <div
-                className="relative col-start-2 mx-[7px] h-[38px]"
-                style={{ gridRow: n + 3 }}
-                aria-hidden="true"
-              >
-                <div
-                  className={`${BAR} ${live ? BAR_LIVE : BAR_IDLE}`}
-                  style={{
-                    left: `${lane.from * 100}%`,
-                    width: `${(lane.to - lane.from) * 100}%`,
-                  }}
-                />
-              </div>
-            </div>
-          );
-        })}
-    </>
-  );
-});
+const readSound = () => {
+  try {
+    return window.localStorage.getItem(SOUND_KEY) === "on";
+  } catch {
+    return false;
+  }
+};
 
-export default function JourneyPlayer({ label }) {
+const writeSound = (on) => {
+  try {
+    window.localStorage.setItem(SOUND_KEY, on ? "on" : "off");
+  } catch {}
+};
+
+const SpeakerIcon = ({ on }) => (
+  <svg viewBox="0 0 24 24" className="size-4" fill="none" aria-hidden="true">
+    <path
+      d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"
+      fill="currentColor"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinejoin="round"
+    />
+    {on ? (
+      <path
+        d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+    ) : (
+      <path
+        d="M16 9.5l5 5M21 9.5l-5 5"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+    )}
+  </svg>
+);
+
+const PlayIcon = ({ playing }) =>
+  playing ? (
+    <svg viewBox="0 0 24 24" className="size-4" aria-hidden="true">
+      <rect x="6" y="5" width="4" height="14" rx="1" fill="currentColor" />
+      <rect x="14" y="5" width="4" height="14" rx="1" fill="currentColor" />
+    </svg>
+  ) : (
+    <svg viewBox="0 0 24 24" className="size-4" aria-hidden="true">
+      <path d="M7 4.5v15l12.5-7.5z" fill="currentColor" />
+    </svg>
+  );
+
+export default function JourneyPlayer({ fixed, children }) {
   const reducedMotion = useMediaQuery(REDUCED_QUERY);
   const wide = useMediaQuery(WIDE_QUERY);
   const [progress, setProgress] = useState(0);
   const [playing, setPlaying] = useState(false);
-  const [variant, setVariant] = useState("a");
+  const [near, setNear] = useState(false);
+  const [sound, setSound] = useState(false);
+  const [hover, setHover] = useState(null);
   const progressRef = useRef(0);
   const containerRef = useRef(null);
   const scaleRef = useRef(null);
   const startedRef = useRef(false);
+  const previousRef = useRef(null);
   const scaleWidth = useWidth(scaleRef);
 
   const update = useCallback((value) => {
@@ -186,12 +162,26 @@ export default function JourneyPlayer({ label }) {
     setProgress(value);
   }, []);
 
+  useEffect(() => setSound(readSound()), []);
+
   useEffect(() => {
     if (reducedMotion) {
       setPlaying(false);
       update(1);
     }
   }, [reducedMotion, update]);
+
+  // Fetch the map code a little before the block scrolls into view
+  useEffect(() => {
+    const node = containerRef.current;
+    if (!node) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => entry.isIntersecting && setNear(true),
+      { rootMargin: "600px 0px" },
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     const node = containerRef.current;
@@ -201,6 +191,7 @@ export default function JourneyPlayer({ label }) {
         if (
           entry.isIntersecting &&
           !startedRef.current &&
+          window.matchMedia(WIDE_QUERY).matches &&
           !window.matchMedia(REDUCED_QUERY).matches
         ) {
           startedRef.current = true;
@@ -235,10 +226,22 @@ export default function JourneyPlayer({ label }) {
   }, [playing, update]);
 
   const state = journeyAt(progress);
+
+  // Cues play only while the story runs on its own, never while scrubbing
+  useEffect(() => {
+    const previous = previousRef.current;
+    previousRef.current = state;
+    if (!previous || !playing || !sound) return;
+    if (previous.phase === "stay" && state.phase === "fly") playTakeoff();
+    if (previous.phase === "fly" && state.phase === "stay") playLanding();
+    if (state.reveal && state.reveal !== previous.reveal) playLink();
+  });
+
   const stop = STOPS[state.stopIndex];
   const place = PLACES[stop.place];
+  const outro = state.phase === "outro";
   const dateLabel = formatMonth(state.dateMs);
-  const active = state.remote.map((role) => role.org).join("|");
+  const counts = wide ? countsAt(state) : TOTALS;
 
   const labelled = useMemo(() => {
     let lastLabelled = -1;
@@ -254,144 +257,204 @@ export default function JourneyPlayer({ label }) {
     setPlaying((value) => !value);
   };
 
+  const toggleSound = () => {
+    const next = !sound;
+    if (next) unlockSound();
+    setSound(next);
+    writeSound(next);
+  };
+
+  const seekTo = (value) => {
+    setPlaying(false);
+    update(value);
+  };
+
+  const jumpTo = (index) => seekTo(STOP_STARTS[index] + JUMP_INTO_STAY);
+
+  const hoverAt = (event) => {
+    const box = scaleRef.current.getBoundingClientRect();
+    const at = Math.min(1, Math.max(0, (event.clientX - box.left) / box.width));
+    const target = journeyAt(at);
+    const city = PLACES[STOPS[target.stopIndex].place].city;
+    setHover({ at, text: `${city} · ${formatMonth(target.dateMs)}` });
+  };
+
   return (
-    <section
-      ref={containerRef}
-      aria-label={label}
-      className="hidden w-full max-w-6xl flex-col gap-4 px-6 text-[var(--text,#d1d5db)] md:flex"
-    >
-      <div
-        role="radiogroup"
-        aria-label="Remote roles view"
-        className="flex items-center gap-2 self-end text-xs"
-      >
-        <span className="text-[var(--text-muted,#9ca3af)]">Remote roles:</span>
-        {VARIANTS.map(({ key, label: name }) => (
-          <button
-            key={key}
-            type="button"
-            role="radio"
-            aria-checked={variant === key}
-            onClick={() => setVariant(key)}
-            className={`rounded-full border px-3 py-1 transition-colors duration-150 ${variant === key ? "border-[var(--accent-text,#03b1fb)] text-[var(--ink,#fff)]" : "border-[var(--line,rgba(255,255,255,0.1))] text-[var(--text-muted,#9ca3af)] hover:text-[var(--ink,#fff)]"}`}
-          >
-            {name}
-          </button>
-        ))}
-      </div>
-      <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl border border-[var(--line,rgba(255,255,255,0.1))] bg-[var(--surface,#151a1f)]">
-        {wide && <JourneyMap progress={progress} variant={variant} />}
-        <div className="pointer-events-none absolute left-4 top-4 text-xs uppercase tracking-widest text-[var(--text-muted,#9ca3af)]">
-          {label}
-        </div>
-        <div className="absolute bottom-4 left-4 w-[22rem] rounded-xl border border-[var(--line,rgba(255,255,255,0.1))] bg-[color-mix(in_srgb,var(--bg,#0a0e14)_82%,transparent)] backdrop-blur">
-          <AnimatePresence initial={false} mode="popLayout">
-            <motion.div
-              key={state.stopIndex}
-              className="px-4 pt-4"
-              initial={{ opacity: 0, y: reducedMotion ? 0 : 6 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.22, ease: EASE_OUT }}
-            >
-              <div className="text-xs text-[var(--text-muted,#9ca3af)]">
-                {stopPeriod(stop)}
-              </div>
-              <div className="text-lg font-semibold text-[var(--ink,#fff)]">
-                {place.city}, {place.country}
-              </div>
-              <div className="text-sm text-[var(--text,#d1d5db)]">
-                {stop.role}
-              </div>
-              <div className="text-sm text-[var(--text-muted,#9ca3af)]">
-                {stop.org}
-              </div>
-            </motion.div>
-          </AnimatePresence>
-          {variant !== "lanes" && state.remote.length > 0 && (
-            <ul className="mx-4 mt-3 flex flex-col gap-1 border-t border-[var(--line,rgba(255,255,255,0.1))] pt-3 text-sm">
-              {state.remote.map((role) => (
-                <li key={role.org} className="flex items-baseline gap-2">
-                  <span className="text-xs uppercase tracking-wider text-[var(--accent-text,#03b1fb)]">
-                    Remote
-                  </span>
-                  <span className="text-[var(--ink,#fff)]">
-                    {SHORT_ORG[role.org] ?? role.org}
-                  </span>
-                  <span className="text-[var(--text-muted,#9ca3af)]">
-                    {PLACES[role.place].city}
-                  </span>
-                </li>
-              ))}
-            </ul>
+    <div ref={containerRef} className="flex w-full flex-col gap-6">
+      <Counters
+        counts={counts}
+        fixed={fixed}
+        animate={wide && !reducedMotion}
+      />
+      {children}
+
+      <div className="hidden flex-col gap-3 md:flex">
+        <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl border border-[var(--line,rgba(255,255,255,0.1))] bg-[var(--surface,#151a1f)]">
+          {wide && near && (
+            <JourneyMap progress={progress} onJump={jumpTo} onSeek={seekTo} />
           )}
-          <div className="px-4 pb-4">
-            <Link
-              href="/experience"
-              className="mt-2 inline-block text-sm text-[var(--accent-text,#03b1fb)] hover:underline"
-            >
-              See on Experience
-            </Link>
+          <div className="absolute bottom-4 left-4 w-[22rem] rounded-xl border border-[var(--line,rgba(255,255,255,0.1))] bg-[color-mix(in_srgb,var(--bg,#0a0e14)_82%,transparent)] backdrop-blur">
+            <AnimatePresence initial={false} mode="popLayout">
+              <motion.div
+                key={outro ? "outro" : state.stopIndex}
+                className="px-4 pt-4"
+                initial={{ opacity: 0, y: reducedMotion ? 0 : 6 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.22, ease: EASE_OUT }}
+              >
+                {outro ? (
+                  <>
+                    <div className="text-xs text-[var(--text-muted,#9ca3af)]">
+                      {START_YEAR} – Present
+                    </div>
+                    <div className="text-lg font-semibold text-[var(--ink,#fff)]">
+                      {TOTALS.cities} cities, {TOTALS.countries} countries
+                    </div>
+                    <div className="text-sm text-[var(--text,#d1d5db)]">
+                      Select a city on the map to go back to it
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div className="text-xs text-[var(--text-muted,#9ca3af)]">
+                      {stopPeriod(stop)}
+                    </div>
+                    <div className="text-lg font-semibold text-[var(--ink,#fff)]">
+                      {place.city}, {place.country}{" "}
+                      <span aria-hidden="true">{place.flag}</span>
+                    </div>
+                    <div className="text-sm text-[var(--text,#d1d5db)]">
+                      {stop.role}
+                    </div>
+                    <div className="text-sm text-[var(--text-muted,#9ca3af)]">
+                      {stop.org}
+                    </div>
+                  </>
+                )}
+              </motion.div>
+            </AnimatePresence>
+            {state.remote.length > 0 && (
+              <ul className="mx-4 mt-3 flex flex-col gap-1 border-t border-[var(--line,rgba(255,255,255,0.1))] pt-3 text-sm">
+                {state.remote.map((role) => (
+                  <li key={role.org} className="flex items-baseline gap-2">
+                    <span className="text-xs uppercase tracking-wider text-[var(--accent-text,#03b1fb)]">
+                      Remote
+                    </span>
+                    <span className="text-[var(--ink,#fff)]">
+                      {SHORT_ORG[role.org] ?? role.org}
+                    </span>
+                    <span className="text-[var(--text-muted,#9ca3af)]">
+                      {PLACES[role.place].city}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            )}
+            <div className="px-4 pb-4">
+              <Link
+                href="/experience"
+                className="mt-2 inline-block text-sm text-[var(--accent-text,#03b1fb)] hover:underline"
+              >
+                {outro ? "Explore experience" : "See on Experience"}
+              </Link>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className="grid grid-cols-[12rem_1fr_6rem] gap-x-4">
-        <div className="col-start-1 row-start-1 flex h-10 items-center justify-end">
+        <div className="flex items-start gap-3">
           <button
             type="button"
             onClick={togglePlay}
             aria-label={playing ? "Pause" : "Play"}
-            className="h-10 w-10 shrink-0 rounded-full border border-[var(--line,rgba(255,255,255,0.1))] text-sm text-[var(--ink,#fff)] transition-[transform,border-color] duration-150 ease-[cubic-bezier(0.23,1,0.32,1)] hover:border-[var(--accent-text,#03b1fb)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent-text,#03b1fb)] motion-safe:active:scale-[0.97] motion-reduce:transition-none"
+            className={ROUND_BUTTON}
           >
-            {playing ? "❚❚" : "▶"}
+            <PlayIcon playing={playing} />
           </button>
-        </div>
-        <div
-          ref={scaleRef}
-          className="relative col-start-2 row-start-1 flex h-10 items-center"
-        >
-          <div
-            className="absolute inset-x-[7px] h-1 overflow-hidden rounded-full bg-[color-mix(in_srgb,var(--text-muted,#9ca3af)_30%,transparent)]"
-            aria-hidden="true"
+          <button
+            type="button"
+            onClick={toggleSound}
+            aria-label="Sound"
+            aria-pressed={sound}
+            className={ROUND_BUTTON}
           >
+            <SpeakerIcon on={sound} />
+          </button>
+          <div className="relative mx-2 flex-1">
             <div
-              className="h-full origin-left bg-[var(--accent-text,#03b1fb)]"
-              style={{ transform: `scaleX(${progress})` }}
-            />
+              ref={scaleRef}
+              className="relative flex h-10 items-center"
+              onPointerMove={hoverAt}
+              onPointerLeave={() => setHover(null)}
+            >
+              <div
+                className="absolute inset-x-[7px] h-1 overflow-hidden rounded-full bg-[color-mix(in_srgb,var(--text-muted,#9ca3af)_30%,transparent)]"
+                aria-hidden="true"
+              >
+                <div
+                  className="h-full origin-left bg-[var(--accent-text,#03b1fb)]"
+                  style={{ transform: `scaleX(${progress})` }}
+                />
+              </div>
+              <div
+                className="pointer-events-none absolute inset-x-[7px] h-1"
+                aria-hidden="true"
+              >
+                {STOPS.map((s, i) => (
+                  <span
+                    key={i}
+                    className={`absolute top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full ${s.kind === "home" ? "size-1.5" : "size-1"} ${STOP_STARTS[i] <= progress ? "bg-[var(--bg,#0a0e14)]" : "bg-[var(--text-muted,#9ca3af)]"}`}
+                    style={{ left: `${STOP_STARTS[i] * 100}%` }}
+                  />
+                ))}
+                <span
+                  className="absolute top-1/2 h-2.5 w-px -translate-y-1/2 bg-[var(--text-muted,#9ca3af)]"
+                  style={{ left: `${OUTRO_START * 100}%` }}
+                />
+              </div>
+              <input
+                type="range"
+                min={0}
+                max={SLIDER_STEPS}
+                value={Math.round(progress * SLIDER_STEPS)}
+                onChange={(event) => {
+                  setPlaying(false);
+                  update(Number(event.target.value) / SLIDER_STEPS);
+                }}
+                aria-label="Journey timeline"
+                aria-valuetext={`${dateLabel}, ${place.city}`}
+                className={RANGE}
+              />
+              {hover && (
+                <div
+                  className="pointer-events-none absolute bottom-full mb-1 -translate-x-1/2 whitespace-nowrap rounded-md border border-[var(--line,rgba(255,255,255,0.1))] bg-[var(--surface,#151a1f)] px-2 py-0.5 text-xs text-[var(--ink,#fff)]"
+                  style={{ left: `${hover.at * 100}%` }}
+                  aria-hidden="true"
+                >
+                  {hover.text}
+                </div>
+              )}
+            </div>
+            <div
+              className="relative mx-[7px] h-5 text-xs tabular-nums text-[var(--text-muted,#9ca3af)]"
+              aria-hidden="true"
+            >
+              {labelled.map(({ year, at }) => (
+                <span
+                  key={year}
+                  className="absolute top-0.5 -translate-x-1/2"
+                  style={{ left: `${at * 100}%` }}
+                >
+                  {year}
+                </span>
+              ))}
+            </div>
           </div>
-          <input
-            type="range"
-            min={0}
-            max={SLIDER_STEPS}
-            value={Math.round(progress * SLIDER_STEPS)}
-            onChange={(event) => {
-              setPlaying(false);
-              update(Number(event.target.value) / SLIDER_STEPS);
-            }}
-            aria-label="Journey timeline"
-            aria-valuetext={dateLabel}
-            className={RANGE}
-          />
-        </div>
-        <div className="col-start-3 row-start-1 flex h-10 items-center justify-end text-sm tabular-nums text-[var(--ink,#fff)]">
-          {dateLabel}
-        </div>
-
-        <Lanes active={active} labelled={labelled} bars={variant === "lanes"} />
-
-        <div
-          className="pointer-events-none relative col-start-2 row-span-5 row-start-1"
-          aria-hidden="true"
-        >
-          <div className="absolute inset-x-[7px] bottom-0 top-5">
-            <span
-              className="absolute inset-y-0 w-0.5 -translate-x-1/2 bg-[var(--ink,#fff)] opacity-70"
-              style={{ left: `${progress * 100}%` }}
-            />
+          <div className="flex h-10 w-20 items-center justify-end text-sm tabular-nums text-[var(--ink,#fff)]">
+            {dateLabel}
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 }

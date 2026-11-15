@@ -4,7 +4,14 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { geoNaturalEarth1, geoPath } from "d3-geo";
 import { feature } from "topojson-client";
 import world from "world-atlas/land-110m.json";
-import { LEGS, PLACES, REMOTE_SPANS, STOPS, journeyAt } from "@/lib/journey";
+import {
+  LEGS,
+  PLACES,
+  REMOTE,
+  REMOTE_SPANS,
+  STOPS,
+  journeyAt,
+} from "@/lib/journey";
 
 const W = 1200;
 const H = 675;
@@ -29,7 +36,6 @@ const LINK_DASH = 7;
 const INK = "var(--ink, #fff)";
 const ACCENT = "var(--accent-text, #03b1fb)";
 const SURFACE = "var(--surface, #151a1f)";
-const SHORT_ORG = { "Intelerad Medical Systems": "Intelerad" };
 const PLANE_D =
   "M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z";
 
@@ -183,9 +189,21 @@ const blend = (from, to, t) => ({
   k: Math.exp(lerp(Math.log(from.k), Math.log(to.k), t)),
 });
 
+const PLACE_KEYS = [...new Set(STOPS.map((stop) => stop.place))];
+const REMOTE_KEYS = [...new Set(REMOTE.map((role) => role.place))];
+const FIRST_STOP = Object.fromEntries(
+  PLACE_KEYS.map((key) => [key, STOPS.findIndex((s) => s.place === key)]),
+);
+const WORLD_FRAME = frameAround(
+  [...PLACE_KEYS, ...REMOTE_KEYS].map((key) => POS[key]),
+);
+
 // Stay: frame the city. Flight: zoom out to both endpoints, hold, zoom in on the destination
 const cameraAt = ({ phase, stopIndex, t }) => {
   if (phase === "stay") return STAY_FRAMES[stopIndex];
+  if (phase === "outro") {
+    return blend(STAY_FRAMES[stopIndex], WORLD_FRAME, ramp(t, 0, 0.6));
+  }
   const mid = FLY_FRAMES[stopIndex];
   if (t < ZOOM_PHASE) {
     return blend(STAY_FRAMES[stopIndex], mid, EASE_IN_OUT(t / ZOOM_PHASE));
@@ -201,12 +219,12 @@ const cameraAt = ({ phase, stopIndex, t }) => {
 };
 
 const anchorAt = ({ phase, stopIndex, t }) => {
-  if (phase === "stay") return POS[STOPS[stopIndex].place];
+  if (phase !== "fly") return POS[STOPS[stopIndex].place];
   const { a, b, c } = ARCS[stopIndex];
   return quadAt(a, c, b, sine(t));
 };
 
-// Variant A: pull out to show where a new remote role is, then come back
+// Pull out to show where a new remote role is, then come back
 const revealCameraAt = (state, base) => {
   if (!state.reveal) return base;
   const w = ramp(state.t, 0, 0.3) * (1 - ramp(state.t, 0.7, 1));
@@ -292,6 +310,21 @@ const Label = ({ x, y, text, side }) => (
 // What is on the map at progress p: up to two cities and one comet
 const sceneAt = (state) => {
   const { phase, stopIndex: i, t } = state;
+  if (phase === "outro") {
+    return {
+      cities: [
+        {
+          index: i,
+          show: 1,
+          halo: 1 - ramp(t, 0.2, 0.6),
+          label: 1 - ramp(t, 0.3, 0.6),
+        },
+      ],
+      comet: null,
+      plane: 0,
+      ghosts: ramp(t, 0.35, 0.85),
+    };
+  }
   if (phase === "stay") {
     const retract = EASE_IN_OUT(clamp01(t / RETRACT));
     return {
@@ -315,14 +348,22 @@ const sceneAt = (state) => {
   };
 };
 
-export default function JourneyMap({ progress, variant }) {
+const REMOTE_TARGETS = REMOTE_KEYS.map((key) => ({
+  key,
+  at: REMOTE_SPANS.find((span) => span.role.place === key).revealStart,
+  label: PLACES[key].city,
+}));
+
+const HIT = 20;
+
+export default function JourneyMap({ progress, onJump, onSeek }) {
   const canvasRef = useRef(null);
+  const [hovered, setHovered] = useState(null);
   const [size, setSize] = useState(0);
   const [theme, setTheme] = useState(0);
 
   const state = journeyAt(progress);
-  const cam =
-    variant === "a" ? revealCameraAt(state, cameraAt(state)) : cameraAt(state);
+  const cam = revealCameraAt(state, cameraAt(state));
   const scene = sceneAt(state);
 
   useEffect(() => {
@@ -385,9 +426,9 @@ export default function JourneyMap({ progress, variant }) {
     }
   }
 
-  // Variants A and B: a dotted link from where I am to each remote employer
+  // A dotted link from where I am to each remote employer
   const links = [];
-  if (variant === "a" || variant === "b") {
+  {
     const anchor = anchorAt(state);
     for (const span of REMOTE_SPANS) {
       const grow = ramp(
@@ -430,6 +471,40 @@ export default function JourneyMap({ progress, variant }) {
     }
   }
 
+  // In the final view every place is a target; the pointer picks the nearest one
+  const targets =
+    scene.ghosts > 0.5
+      ? [
+          ...PLACE_KEYS.map((key) => ({
+            key,
+            label: PLACES[key].city,
+            go: () => onJump(FIRST_STOP[key]),
+          })),
+          ...REMOTE_TARGETS.map(({ key, at: target }) => ({
+            key,
+            label: PLACES[key].city,
+            go: () => onSeek(target),
+          })),
+        ].map((target) => ({ ...target, p: at(POS[target.key]) }))
+      : [];
+  const hoveredTarget = targets.find((target) => target.key === hovered);
+
+  const nearest = (event) => {
+    const box = event.currentTarget.getBoundingClientRect();
+    const x = ((event.clientX - box.left) / box.width) * W;
+    const y = ((event.clientY - box.top) / box.height) * H;
+    let best = null;
+    let bestDistance = HIT;
+    for (const target of targets) {
+      const d = Math.hypot(target.p[0] - x, target.p[1] - y);
+      if (d < bestDistance) {
+        best = target;
+        bestDistance = d;
+      }
+    }
+    return best;
+  };
+
   return (
     <>
       <canvas
@@ -463,6 +538,29 @@ export default function JourneyMap({ progress, variant }) {
           )}
         </defs>
 
+        {scene.ghosts > 0 && (
+          <g opacity={scene.ghosts}>
+            {PLACE_KEYS.map((key) => {
+              const [x, y] = at(POS[key]);
+              return <circle key={key} cx={x} cy={y} r="3.5" fill={INK} />;
+            })}
+            {REMOTE_KEYS.map((key) => {
+              const [x, y] = at(POS[key]);
+              return (
+                <circle
+                  key={key}
+                  cx={x}
+                  cy={y}
+                  r="4"
+                  fill={SURFACE}
+                  stroke={ACCENT}
+                  strokeWidth="2"
+                />
+              );
+            })}
+          </g>
+        )}
+
         {links.map((link) => (
           <g key={link.key} opacity={link.opacity}>
             <path
@@ -488,7 +586,7 @@ export default function JourneyMap({ progress, variant }) {
                   <Label
                     x={link.end[0]}
                     y={link.end[1]}
-                    text={`${PLACES[link.role.place].city} · ${SHORT_ORG[link.role.org] ?? link.role.org}`}
+                    text={PLACES[link.role.place].city}
                     side="right"
                   />
                 )}
@@ -504,7 +602,7 @@ export default function JourneyMap({ progress, variant }) {
           </g>
         )}
 
-        {scene.cities.map(({ index, show, halo }) => {
+        {scene.cities.map(({ index, show, halo, label = 1 }) => {
           if (show <= 0) return null;
           const [x, y] = at(POS[STOPS[index].place]);
           return (
@@ -517,12 +615,16 @@ export default function JourneyMap({ progress, variant }) {
                 opacity={halo}
               />
               <circle cx={x} cy={y} r="4.5" fill={INK} />
-              <Label
-                x={x}
-                y={y}
-                text={PLACES[STOPS[index].place].city}
-                side={SIDES[index]}
-              />
+              {label > 0 && (
+                <g opacity={label}>
+                  <Label
+                    x={x}
+                    y={y}
+                    text={PLACES[STOPS[index].place].city}
+                    side={SIDES[index]}
+                  />
+                </g>
+              )}
             </g>
           );
         })}
@@ -545,6 +647,35 @@ export default function JourneyMap({ progress, variant }) {
           </g>
         )}
       </svg>
+      {targets.length > 0 && (
+        <div
+          className="absolute inset-0"
+          style={{ cursor: hoveredTarget ? "pointer" : "default" }}
+          onPointerMove={(event) => setHovered(nearest(event)?.key ?? null)}
+          onPointerLeave={() => setHovered(null)}
+          onClick={(event) => nearest(event)?.go()}
+          aria-hidden="true"
+        />
+      )}
+      {targets.map(({ key, label, go, p: [x, y] }) => (
+        <button
+          key={key}
+          type="button"
+          onClick={go}
+          aria-label={`Go to ${label}`}
+          className="group pointer-events-none absolute size-4 -translate-x-1/2 -translate-y-1/2 rounded-full focus-visible:outline-2 focus-visible:outline-[var(--accent-text,#03b1fb)]"
+          style={{ left: `${(x / W) * 100}%`, top: `${(y / H) * 100}%` }}
+        >
+          <span
+            className={`absolute -inset-1 rounded-full bg-[var(--accent-text,#03b1fb)] transition-opacity duration-150 group-focus-visible:opacity-40 ${hovered === key ? "opacity-40" : "opacity-0"}`}
+          />
+          <span
+            className={`absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 whitespace-nowrap rounded-md border border-[var(--line,rgba(255,255,255,0.1))] bg-[var(--surface,#151a1f)] px-2 py-0.5 text-xs font-semibold text-[var(--ink,#fff)] transition-opacity duration-150 group-focus-visible:opacity-100 ${hovered === key ? "opacity-100" : "opacity-0"}`}
+          >
+            {label}
+          </span>
+        </button>
+      ))}
       {chips.map(({ key, role, exit, opacity }) => (
         <div
           key={key}
@@ -566,10 +697,6 @@ export default function JourneyMap({ progress, variant }) {
                   : "↓ "}
           </span>
           {PLACES[role.place].city}
-          <span className="text-[var(--text-muted,#9ca3af)]">
-            {" · "}
-            {SHORT_ORG[role.org] ?? role.org}
-          </span>
         </div>
       ))}
     </>

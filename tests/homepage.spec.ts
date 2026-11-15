@@ -7,41 +7,112 @@ test.describe("Homepage - Basic Page Tests", () => {
   });
 });
 
-test.describe("Homepage - Statistics Section", () => {
-  test("statistics section has correct heading", async ({ page }) => {
+test.describe("Homepage - Career Journey", () => {
+  const seek = (page: Page, value: number) =>
+    page.locator("#journey input[type=range]").evaluate((el, v) => {
+      const input = el as HTMLInputElement;
+      Object.getOwnPropertyDescriptor(
+        HTMLInputElement.prototype,
+        "value",
+      )!.set!.call(input, String(v));
+      input.dispatchEvent(new Event("input", { bubbles: true }));
+    }, value);
+
+  test("journey section has its heading", async ({ page }) => {
     await page.goto("/");
     await expect(
-      page.getByRole("heading", { name: "Career Highlights" }),
+      page.getByRole("heading", { name: "Career Journey" }),
     ).toBeVisible();
   });
 
-  test("all 6 statistics are visible", async ({ page }) => {
-    await page.goto("/");
-
-    const statLabels = [
-      "Years of Expertise",
-      "ML and AI Projects",
-      "Lines of Code Written",
-      "Research Publications",
-      "Universities Worked At",
-      "Countries of Long-term Living",
-    ];
-
-    for (const label of statLabels) {
-      await expect(page.getByText(label, { exact: true })).toBeVisible();
-    }
-  });
-
-  test("statistic numbers are displayed", async ({ page }) => {
-    // Reduced motion shows the final numbers without the count-up animation
+  test("reduced motion opens on the totals and the summary card", async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 1280, height: 800 });
     await page.emulateMedia({ reducedMotion: "reduce" });
     await page.goto("/");
 
-    const statsSection = page.locator("#statistics");
-    await expect(statsSection).toBeVisible();
-    for (const value of ["10+", "20+", "50k", "48", "12", "6"]) {
-      await expect(statsSection).toContainText(value);
+    const section = page.locator("#journey");
+    for (const [value, label] of [
+      ["9", "Countries"],
+      ["12", "Cities"],
+      ["12", "Universities"],
+      ["3", "Remote teams"],
+      ["20+", "ML and AI projects"],
+      ["48", "Peer-reviewed papers"],
+    ]) {
+      const item = section.locator("dl > div", {
+        has: page.getByText(label, { exact: true }),
+      });
+      await expect(item.locator("dd")).toHaveText(value);
     }
+    await expect(section.getByText("12 cities, 9 countries")).toBeVisible();
+    await expect(page.getByRole("button", { name: "Play" })).toBeVisible();
+  });
+
+  test("scrubbing to the start shows Tomsk and resets the counters", async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 1280, height: 800 });
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    await page.goto("/");
+
+    await seek(page, 0);
+    const section = page.locator("#journey");
+    await expect(section.getByText("Tomsk, Russia")).toBeVisible();
+    const countries = section.locator("dl > div", {
+      has: page.getByText("Countries", { exact: true }),
+    });
+    await expect(countries.locator("dd")).toHaveText("1");
+  });
+
+  test("a remote city on the final map jumps to its role", async ({ page }) => {
+    await page.setViewportSize({ width: 1280, height: 800 });
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    await page.goto("/");
+
+    await page.getByRole("button", { name: "Go to Miami" }).focus();
+    await page.keyboard.press("Enter");
+    await expect(page.locator("#journey").getByText("Symfa")).toBeVisible();
+  });
+
+  test("sound is off by default and the choice is remembered", async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 1280, height: 800 });
+    await page.goto("/");
+
+    const sound = page.getByRole("button", { name: "Sound" });
+    await expect(sound).toHaveAttribute("aria-pressed", "false");
+    await sound.click();
+    await expect(sound).toHaveAttribute("aria-pressed", "true");
+    await page.reload();
+    await expect(page.getByRole("button", { name: "Sound" })).toHaveAttribute(
+      "aria-pressed",
+      "true",
+    );
+  });
+
+  test("phones get the totals and a static route, without the map", async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 360, height: 780 });
+    await page.goto("/");
+
+    const section = page.locator("#journey");
+    await section.scrollIntoViewIfNeeded();
+    await expect(
+      section.getByRole("img", { name: /Route through/ }),
+    ).toBeVisible();
+    await expect(section.locator("canvas")).toHaveCount(0);
+    const countries = section.locator("dl > div", {
+      has: page.getByText("Countries", { exact: true }),
+    });
+    await expect(countries.locator("dd")).toHaveText("9");
+    const width = await page.evaluate(
+      () => document.documentElement.scrollWidth,
+    );
+    expect(width).toBeLessThanOrEqual(360);
   });
 });
 
