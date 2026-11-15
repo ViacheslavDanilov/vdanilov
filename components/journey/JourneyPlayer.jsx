@@ -59,6 +59,14 @@ const STEPS = [...STOP_STARTS.map((at) => at + JUMP_INTO_STAY), 1];
 const dateText = (ms) => (ms >= JOURNEY_END_MS ? "Present" : formatMonth(ms));
 
 const SHORT_ORG = { "Intelerad Medical Systems": "Intelerad" };
+// Active roles grouped by organisation, in the order they started
+const byOrg = (roles) =>
+  Object.entries(
+    roles.reduce((groups, { org, role }) => {
+      (groups[org] ??= []).push(role);
+      return groups;
+    }, {}),
+  );
 
 const RANGE =
   "relative h-5 w-full cursor-pointer appearance-none bg-transparent focus-visible:outline-none " +
@@ -356,18 +364,21 @@ export default function JourneyPlayer({ children }) {
                       {place.city}, {place.country}{" "}
                       <span aria-hidden="true">{place.flag}</span>
                     </div>
-                    {roles.length > 0 && (
-                      <>
-                        <div className="text-sm text-[var(--text,#d1d5db)]">
-                          {roles.map((role) => role.role).join(", ")}
+                    {byOrg(roles).map(([org, titles]) => (
+                      <div key={org} className="mt-1 text-sm">
+                        {titles.map((title) => (
+                          <div
+                            key={title}
+                            className="text-[var(--text,#d1d5db)]"
+                          >
+                            {title}
+                          </div>
+                        ))}
+                        <div className="text-[var(--text-muted,#9ca3af)]">
+                          {org}
                         </div>
-                        <div className="text-sm text-[var(--text-muted,#9ca3af)]">
-                          {[...new Set(roles.map((role) => role.org))].join(
-                            ", ",
-                          )}
-                        </div>
-                      </>
-                    )}
+                      </div>
+                    ))}
                   </>
                 )}
               </motion.div>
