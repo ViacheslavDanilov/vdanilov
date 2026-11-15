@@ -124,6 +124,25 @@ test.describe("Homepage - Career Journey", () => {
     );
     expect(width).toBeLessThanOrEqual(360);
   });
+
+  test("phones never start audio for the journey", async ({ page }) => {
+    await page.setViewportSize({ width: 360, height: 780 });
+    await page.addInitScript(() => {
+      const Original = window.AudioContext;
+      window.AudioContext = class extends Original {
+        constructor(options?: AudioContextOptions) {
+          super(options);
+          document.documentElement.dataset.audio = "started";
+        }
+      };
+    });
+    await page.goto("/");
+    await page.waitForLoadState("networkidle");
+
+    await page.getByRole("heading", { name: "Career Journey" }).click();
+    await page.keyboard.press("a");
+    await expect(page.locator("html")).not.toHaveAttribute("data-audio");
+  });
 });
 
 test.describe("Homepage - Navigation Tests", () => {

@@ -167,7 +167,7 @@ export default function JourneyPlayer({ children }) {
 
   // Browsers keep audio locked until the first click or key press on the page
   useEffect(() => {
-    if (!sound) return;
+    if (!sound || !wide) return;
     const unlock = () => unlockSound();
     const options = { once: true, capture: true };
     document.addEventListener("pointerdown", unlock, options);
@@ -176,7 +176,7 @@ export default function JourneyPlayer({ children }) {
       document.removeEventListener("pointerdown", unlock, options);
       document.removeEventListener("keydown", unlock, options);
     };
-  }, [sound]);
+  }, [sound, wide]);
 
   useEffect(() => {
     if (reducedMotion) {
