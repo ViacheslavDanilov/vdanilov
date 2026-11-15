@@ -1,5 +1,5 @@
 import { test, expect, type Page } from "@playwright/test";
-import { REMOTE_SPANS } from "../lib/journey.js";
+import { REMOTE_SPANS, STOP_STARTS } from "../lib/journey.js";
 
 test.describe("Homepage - Basic Page Tests", () => {
   test("has correct title", async ({ page }) => {
@@ -75,7 +75,11 @@ test.describe("Homepage - Career Journey", () => {
     await page.goto("/");
 
     const section = page.locator("#journey");
+    const trail = section.locator('g[stroke="url(#journey-tail)"]');
     await expect(section.getByText("12 cities, 9 countries")).toBeVisible();
+    // Just after a landing the trail is there, which also waits for the map
+    await seek(page, Math.ceil((STOP_STARTS[7] + 0.0005) * 4000));
+    await expect(trail).toHaveCount(1);
     for (const { revealStart, revealEnd } of REMOTE_SPANS) {
       const step = Math.ceil(
         (revealStart + 0.05 * (revealEnd - revealStart)) * 4000,
@@ -84,9 +88,7 @@ test.describe("Homepage - Career Journey", () => {
       await expect(section.locator("input[type=range]")).toHaveValue(
         String(step),
       );
-      await expect(
-        section.locator('g[stroke="url(#journey-tail)"]'),
-      ).toHaveCount(0);
+      await expect(trail).toHaveCount(0);
     }
   });
 
