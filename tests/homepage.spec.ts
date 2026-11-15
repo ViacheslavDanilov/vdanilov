@@ -57,8 +57,10 @@ test.describe("Homepage - Career Journey", () => {
     await page.emulateMedia({ reducedMotion: "reduce" });
     await page.goto("/");
 
-    await seek(page, 0);
     const section = page.locator("#journey");
+    // The summary card shows once the player has hydrated and opened at the end
+    await expect(section.getByText("12 cities, 9 countries")).toBeVisible();
+    await seek(page, 0);
     await expect(section.getByText("Tomsk, Russia")).toBeVisible();
     const countries = section.locator("dl > div", {
       has: page.getByText("Countries", { exact: true }),
