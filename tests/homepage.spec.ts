@@ -1,5 +1,5 @@
 import { test, expect, type Page } from "@playwright/test";
-import { REMOTE_SPANS, STOP_STARTS } from "../lib/journey.js";
+import { REMOTE_SPANS, STOP_STARTS, progressOfDate } from "../lib/journey.js";
 
 test.describe("Homepage - Basic Page Tests", () => {
   test("has correct title", async ({ page }) => {
@@ -63,9 +63,14 @@ test.describe("Homepage - Career Journey", () => {
     await expect(section.getByText("Tomsk, Russia")).toBeVisible();
     await expect(section.getByText("BSc in Robotics")).toBeVisible();
     await expect(section.getByText("Tomsk State University")).toHaveCount(0);
-    // In 2016 three roles run at once and the card names only the most senior
-    await seek(page, 450);
-    await expect(section.getByText("Research Scientist")).toBeVisible();
+    // Mid-2016 has three Tomsk roles running; the card names the most senior
+    await seek(page, Math.round(progressOfDate(Date.UTC(2016, 5, 1)) * 4000));
+    await expect(
+      section.getByText("Research Scientist", { exact: true }),
+    ).toBeVisible();
+    await expect(
+      section.getByText("PhD Student in Computer Science"),
+    ).toHaveCount(0);
     await expect(section.getByText("SIBUR")).toHaveCount(0);
     await seek(page, 0);
     const countries = section.locator("dl:visible > div", {
