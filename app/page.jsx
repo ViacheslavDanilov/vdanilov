@@ -2,11 +2,10 @@ import Hero from "@/components/Hero";
 import ExpertiseSection from "@/components/ExpertiseSection";
 import FeaturedProjects from "@/components/FeaturedProjects";
 import LogoGrid from "@/components/LogoGrid";
-import Statistics from "@/components/Statistics";
+import JourneySection from "@/components/journey/JourneySection";
 import LightRays from "@/components/ui/light-rays";
 import PagePrefetcher from "@/components/PagePrefetcher";
 import { pageMetadata, SITE_DESCRIPTION } from "@/lib/metadata";
-import { PEER_REVIEWED } from "@/lib/publications";
 
 export const metadata = pageMetadata({
   description: SITE_DESCRIPTION,
@@ -22,7 +21,7 @@ export default function Home() {
       </div>
       <div className="flex flex-col items-center pt-4 lg:pt-0 pb-12">
         <Hero />
-        <Statistics publications={PEER_REVIEWED} />
+        <JourneySection />
         <FeaturedProjects />
         <ExpertiseSection />
         <LogoGrid />
