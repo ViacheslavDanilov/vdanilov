@@ -80,12 +80,18 @@ export const playLink = () => {
   tone(audio, at, 1322, 0.012, 0.25, 1.2);
 };
 
-// A wide, slow chord that opens up when the route pulls out to the whole map
+// A high chord with each note doubled a few hertz apart, so it shimmers as the map opens
 export const playOutro = () => {
   const audio = context();
   if (!audio) return;
   const at = audio.currentTime;
-  [110, 164.81, 220, 277.18, 329.63, 440].forEach((frequency, i) =>
-    tone(audio, at + i * 0.12, frequency, 0.018, 0.9, 3.6),
+  [
+    [880, 883],
+    [1108.73, 1111.5],
+    [1318.5, 1322],
+  ].forEach((pair, i) =>
+    pair.forEach((frequency) =>
+      tone(audio, at + i * 0.2, frequency, 0.009, 1.2, 3.2),
+    ),
   );
 };
