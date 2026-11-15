@@ -74,6 +74,11 @@ test.describe("Homepage - Career Journey", () => {
     await page.getByRole("button", { name: "Go to Miami" }).focus();
     await page.keyboard.press("Enter");
     await expect(page.locator("#journey").getByText("Symfa")).toBeVisible();
+    await expect(
+      page.locator('#journey svg[viewBox="0 0 1200 675"] text', {
+        hasText: "Miami",
+      }),
+    ).toBeVisible();
   });
 
   test("sound is on by default and turning it off is remembered", async ({

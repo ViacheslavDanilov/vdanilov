@@ -350,11 +350,15 @@ const sceneAt = (state) => {
   };
 };
 
-const REMOTE_TARGETS = REMOTE_KEYS.map((key) => ({
-  key,
-  at: REMOTE_SPANS.find((span) => span.role.place === key).revealStart,
-  label: PLACES[key].city,
-}));
+// Halfway through the reveal the camera is out and the link has reached the city
+const REMOTE_TARGETS = REMOTE_KEYS.map((key) => {
+  const span = REMOTE_SPANS.find((s) => s.role.place === key);
+  return {
+    key,
+    at: (span.revealStart + span.revealEnd) / 2,
+    label: PLACES[key].city,
+  };
+});
 
 const HIT = 20;
 
