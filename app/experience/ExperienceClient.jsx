@@ -512,11 +512,6 @@ const VISITING_ROLES_DATA = [
         type: "Journal Article",
       },
       {
-        title: "Certificate of attendance",
-        url: "/documents/certificate-of-attendance-trento.pdf",
-        type: "Certificate",
-      },
-      {
         title: "ProValve Design",
         url: "/portfolio/provalve-design",
         type: "Project Overview",
