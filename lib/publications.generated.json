@@ -1,10 +1,10 @@
 {
   "stats": {
-    "peerReviewed": 48,
-    "datasets": 8,
+    "peerReviewed": 49,
+    "datasets": 9,
     "firstAuthor": 32,
     "seniorAuthor": 4,
-    "q1Journals": 14
+    "q1Journals": 13
   },
   "publications": [
     {
@@ -243,6 +243,15 @@
       "year": "2024",
       "url": "https://quantori.com/blog/harnessing-ai-for-histopathology-a-leap-towards-precision-medicine",
       "type": "Blog Post"
+    },
+    {
+      "id": "danilov-2026-layerwise",
+      "title": "LayerWise",
+      "venue": "Hugging Face",
+      "year": "2026",
+      "url": "https://huggingface.co/datasets/vdanilov/layerwise-bokeh",
+      "authorPosition": "first",
+      "type": "Dataset"
     },
     {
       "id": "danilov-2025-oct",

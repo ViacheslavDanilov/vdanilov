@@ -1,4 +1,8 @@
 {
+  "danilov-2026-layerwise": {
+    "tags": ["Computer Vision", "Synthetic Data", "Depth Estimation"],
+    "featured": true
+  },
   "laptev-2026-joint": {
     "tags": ["TAVI", "Medical Imaging", "Segmentation"],
     "featured": false
