@@ -5,11 +5,9 @@ import { GlowCard } from "@/components/ui/glow-card";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { CompanyLogo } from "@/components/ExperienceCard";
+import NowrapTail from "@/components/ui/nowrap-tail";
 
 const CertificateCard = ({ certificate }) => {
-  const words = certificate.title.split(" ");
-  const lastWord = words.pop();
-
   return (
     <article className="h-full w-full animate-card-in motion-reduce:animate-card-fade-in">
       <GlowCard className="w-full h-full p-5 pb-3 group" spotlightSize={180}>
@@ -31,9 +29,7 @@ const CertificateCard = ({ certificate }) => {
                 className="group/title relative after:absolute after:-top-4 after:-bottom-1 after:-inset-x-3 focus-visible:after:hidden block md:whitespace-nowrap text-md font-bold text-strong group-hover:text-accent transition-colors w-fit"
               >
                 <span className="uppercase tracking-wide">
-                  {words.length > 0 && `${words.join(" ")} `}
-                  <span className="whitespace-nowrap">
-                    {lastWord}
+                  <NowrapTail text={certificate.title}>
                     <span
                       className="inline-block ml-2 align-[-1px] transition-transform duration-300 motion-safe:group-hover/title:translate-x-1"
                       style={{ width: "0.75rem", height: "0.75rem" }}
@@ -48,7 +44,7 @@ const CertificateCard = ({ certificate }) => {
                         }}
                       />
                     </span>
-                  </span>
+                  </NowrapTail>
                 </span>
               </a>
 

@@ -2166,3 +2166,49 @@ test.describe("Reduced motion", () => {
     });
   }
 });
+
+test.describe("Link icons", () => {
+  // The icon after a link title never wraps onto a line of its own
+  const orphanedIcons = (page: Page) =>
+    page.evaluate(() => {
+      const out: string[] = [];
+      for (const svg of document.querySelectorAll("a svg.svg-inline--fa")) {
+        const link = svg.closest("a")!;
+        const icon = svg.getBoundingClientRect();
+        if (!icon.width || !(link as HTMLElement).offsetParent) continue;
+        const walker = document.createTreeWalker(link, NodeFilter.SHOW_TEXT);
+        let last: Text | null = null;
+        let node: Node | null;
+        while ((node = walker.nextNode())) {
+          const before =
+            node.compareDocumentPosition(svg) &
+            Node.DOCUMENT_POSITION_FOLLOWING;
+          if (node.textContent!.trim() && before) last = node as Text;
+        }
+        if (!last) continue;
+        const text = last.textContent!.trimEnd();
+        const range = document.createRange();
+        range.setStart(last, text.length - 1);
+        range.setEnd(last, text.length);
+        if (icon.top >= range.getBoundingClientRect().bottom - 2) {
+          out.push(text.slice(-40));
+        }
+      }
+      return out;
+    });
+
+  for (const path of ["/experience/", "/publications/"]) {
+    test(`icons stay with the last word on ${path}`, async ({ page }) => {
+      await page.goto(path);
+      for (const tab of await page
+        .getByRole("button", { name: "Links", exact: true })
+        .all()) {
+        await tab.click();
+      }
+      for (let width = 340; width <= 1500; width += 20) {
+        await page.setViewportSize({ width, height: 900 });
+        expect(await orphanedIcons(page), `at ${width}px`).toEqual([]);
+      }
+    });
+  }
+});
