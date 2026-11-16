@@ -3,6 +3,7 @@
 import React from "react";
 import { GlowCard } from "@/components/ui/glow-card";
 import { Badge } from "@/components/ui/badge";
+import NowrapTail from "@/components/ui/nowrap-tail";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowRight,
@@ -85,22 +86,23 @@ const PublicationCard = ({ publication }) => {
                 className="group/link inline"
               >
                 <h2 className="text-base font-semibold text-strong leading-snug group-hover:text-accent transition-colors inline">
-                  {title}
-                  <span
-                    className="inline-block ml-1.5 align-baseline transition-transform duration-300 motion-safe:group-hover/link:translate-x-1"
-                    style={{ width: "0.75rem", height: "0.75rem" }}
-                  >
-                    <FontAwesomeIcon
-                      icon={faArrowRight}
-                      className="opacity-60"
-                      style={{
-                        width: "0.75rem",
-                        height: "0.75rem",
-                        display: "block",
-                      }}
-                      aria-hidden="true"
-                    />
-                  </span>
+                  <NowrapTail text={title}>
+                    <span
+                      className="inline-block ml-1.5 align-baseline transition-transform duration-300 motion-safe:group-hover/link:translate-x-1"
+                      style={{ width: "0.75rem", height: "0.75rem" }}
+                    >
+                      <FontAwesomeIcon
+                        icon={faArrowRight}
+                        className="opacity-60"
+                        style={{
+                          width: "0.75rem",
+                          height: "0.75rem",
+                          display: "block",
+                        }}
+                        aria-hidden="true"
+                      />
+                    </span>
+                  </NowrapTail>
                 </h2>
               </a>
             ) : (

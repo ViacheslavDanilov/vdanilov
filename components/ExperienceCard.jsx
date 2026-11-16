@@ -13,6 +13,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { GlowCard } from "@/components/ui/glow-card";
 import { Tab } from "@/components/ui/tab";
 import { Badge } from "@/components/ui/badge";
+import NowrapTail from "@/components/ui/nowrap-tail";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faExternalLink,
@@ -184,13 +185,16 @@ const LinksList = ({ links }) => (
               className="text-sm text-accent hover:text-strong transition-colors inline gap-2 group align-top"
               aria-label={`${pub.type}: ${pub.title}`}
             >
-              <span className="leading-relaxed break-words">{pub.title}</span>
-              <FontAwesomeIcon
-                icon={faExternalLink}
-                className="w-3 h-3 ml-1 opacity-70 group-hover:opacity-100 transition-opacity inline"
-                style={{ width: "0.75rem", height: "0.75rem" }}
-                aria-hidden="true"
-              />
+              <span className="leading-relaxed break-words">
+                <NowrapTail text={pub.title}>
+                  <FontAwesomeIcon
+                    icon={faExternalLink}
+                    className="w-3 h-3 ml-1 opacity-70 group-hover:opacity-100 transition-opacity inline"
+                    style={{ width: "0.75rem", height: "0.75rem" }}
+                    aria-hidden="true"
+                  />
+                </NowrapTail>
+              </span>
             </a>
           )}
         </div>

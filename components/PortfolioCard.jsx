@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
+import NowrapTail from "@/components/ui/nowrap-tail";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarAlt, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
@@ -87,22 +88,23 @@ const PortfolioCard = ({
         <div className="mb-2">
           <Link href={projectUrl} className="group/title inline py-3.5">
             <Title className="text-lg font-semibold text-strong transition-colors duration-300 group-hover:text-accent inline">
-              {title}
-              <span
-                className="inline-block ml-1.5 align-baseline transition-transform duration-300 motion-safe:group-hover/title:translate-x-1"
-                style={{ width: "0.75rem", height: "0.75rem" }}
-              >
-                <FontAwesomeIcon
-                  icon={faArrowRight}
-                  className="opacity-60"
-                  style={{
-                    width: "0.75rem",
-                    height: "0.75rem",
-                    display: "block",
-                  }}
-                  aria-hidden="true"
-                />
-              </span>
+              <NowrapTail text={title}>
+                <span
+                  className="inline-block ml-1.5 align-baseline transition-transform duration-300 motion-safe:group-hover/title:translate-x-1"
+                  style={{ width: "0.75rem", height: "0.75rem" }}
+                >
+                  <FontAwesomeIcon
+                    icon={faArrowRight}
+                    className="opacity-60"
+                    style={{
+                      width: "0.75rem",
+                      height: "0.75rem",
+                      display: "block",
+                    }}
+                    aria-hidden="true"
+                  />
+                </span>
+              </NowrapTail>
             </Title>
           </Link>
         </div>
