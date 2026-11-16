@@ -8,6 +8,17 @@ const nextConfig = {
     qualities: [100, 90, 75],
   },
 
+  // The LayerWise page was called Video Bokeh; shared links to the old URL keep working
+  async redirects() {
+    return [
+      {
+        source: "/portfolio/video-bokeh",
+        destination: "/portfolio/layerwise/",
+        permanent: true,
+      },
+    ];
+  },
+
   // Browser caching for static assets (filenames are unhashed, so not immutable).
   // Skips /_next, whose filenames are hashed and already served as immutable.
   async headers() {

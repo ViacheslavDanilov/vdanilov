@@ -385,7 +385,7 @@ test.describe("Homepage - Featured Projects Section", () => {
       "Deep BrainWatch",
       "Sales Pilot",
       "Immune Profiler",
-      "Video Bokeh",
+      "LayerWise",
     ];
 
     // Scroll way down to ensure projects section is in view
@@ -408,7 +408,7 @@ test.describe("Homepage - Featured Projects Section", () => {
       "Deep BrainWatch",
       "Sales Pilot",
       "Immune Profiler",
-      "Video Bokeh",
+      "LayerWise",
     ]) {
       await expect(page.locator(`img[alt="${title}"]`)).toBeVisible();
     }
