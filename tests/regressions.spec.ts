@@ -2197,13 +2197,20 @@ test.describe("Link icons", () => {
       return out;
     });
 
-  for (const path of ["/experience/", "/publications/"]) {
+  for (const path of [
+    "/experience/",
+    "/publications/",
+    "/portfolio/",
+    "/education/",
+  ]) {
     test(`icons stay with the last word on ${path}`, async ({ page }) => {
       await page.goto(path);
       for (const tab of await page
         .getByRole("button", { name: "Links", exact: true })
         .all()) {
-        await tab.click();
+        // A real click is a mousedown outside the card opened before it, which closes it
+        await tab.dispatchEvent("click");
+        await expect(tab).toHaveAttribute("aria-expanded", "true");
       }
       for (let width = 340; width <= 1500; width += 20) {
         await page.setViewportSize({ width, height: 900 });
