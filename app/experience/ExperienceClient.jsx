@@ -89,7 +89,7 @@ const EXPERIENCES_DATA = [
       },
       {
         title:
-          "Intracranial pressure and cerebral blood flow pulse dynamics in patients with idiopathic normal pressure hydrocephalus during Katzman infusion test: a pilot optical monitoring study",
+          "Intracranial pressure and cerebral blood flow pulse dynamics in patients with idiopathic normal pressure hydrocephalus during Katzman infusion test: A pilot optical monitoring study",
         url: "https://doi.org/10.1364/ECBO.2025.S4F.2",
         type: "Conference Paper",
       },
@@ -171,7 +171,7 @@ const EXPERIENCES_DATA = [
     links: [
       {
         title:
-          "Harnessing AI for Histopathology: A Leap Towards Precision Medicine",
+          "Harnessing AI for histopathology: A leap towards precision medicine",
         url: "https://quantori.com/blog/harnessing-ai-for-histopathology-a-leap-towards-precision-medicine",
         type: "Blog Post",
       },
