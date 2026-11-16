@@ -246,7 +246,7 @@
     },
     {
       "id": "danilov-2026-layerwise",
-      "title": "LayerWise",
+      "title": "LayerWise: Synthetic video with exact depth, optical flow and rendered bokeh",
       "venue": "Hugging Face",
       "year": "2026",
       "url": "https://huggingface.co/datasets/vdanilov/layerwise-bokeh",
