@@ -46,8 +46,8 @@ const PROJECTS = [
     image: "/portfolio/previews/immune-profiler.jpg",
   },
   {
-    id: "video-bokeh",
-    title: "Video Bokeh",
+    id: "layerwise",
+    title: "LayerWise",
     client: "Huawei",
     location: "Nice · France 🇫🇷",
     description:
@@ -60,8 +60,8 @@ const PROJECTS = [
       "Next.js",
       "Hugging Face",
     ],
-    link: "/portfolio/video-bokeh",
-    image: "/portfolio/previews/video-bokeh.jpg",
+    link: "/portfolio/layerwise",
+    image: "/portfolio/previews/layerwise.jpg",
   },
 ];
 

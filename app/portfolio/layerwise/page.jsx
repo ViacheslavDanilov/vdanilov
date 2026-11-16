@@ -14,13 +14,13 @@ import Section from "@/components/project/Section";
 import NextProject from "@/components/project/NextProject";
 
 export const metadata = pageMetadata({
-  title: "Video Bokeh",
+  title: "LayerWise",
   description:
     "Synthetic video with exact depth, alpha masks, optical flow and rendered bokeh for training depth-aware video bokeh models, with a library, a fixed set of 300 sequences and a web demo.",
-  path: "/portfolio/video-bokeh/",
+  path: "/portfolio/layerwise/",
   image: {
-    url: "/portfolio/previews/video-bokeh.jpg",
-    alt: "Video Bokeh - synthetic video with exact depth and rendered bokeh",
+    url: "/portfolio/previews/layerwise.jpg",
+    alt: "LayerWise - synthetic video with exact depth and rendered bokeh",
   },
 });
 
@@ -116,11 +116,11 @@ const TEAM_MEMBERS = [
 const RESOURCES = [
   {
     label: "GitHub",
-    url: "https://github.com/ViacheslavDanilov/video-bokeh",
+    url: "https://github.com/ViacheslavDanilov/layerwise-bokeh",
   },
   {
     label: "Dataset",
-    url: "https://huggingface.co/datasets/vdanilov/video-bokeh",
+    url: "https://huggingface.co/datasets/vdanilov/layerwise-bokeh",
   },
 ];
 
@@ -148,11 +148,11 @@ export default function ProjectPage() {
     <div className="min-h-screen pt-24">
       <div className="w-full max-w-5xl mx-auto px-6 py-12 md:py-24">
         <ProjectHeader
-          title="Video Bokeh"
+          title="LayerWise"
           subtitle="Synthetic video with exact depth, alpha masks, optical flow and bokeh for training depth-aware video bokeh models"
           banner={{
-            image: "/portfolio/previews/video-bokeh.jpg",
-            alt: "Video Bokeh - synthetic video with exact depth and rendered bokeh",
+            image: "/portfolio/previews/layerwise.jpg",
+            alt: "LayerWise - synthetic video with exact depth and rendered bokeh",
           }}
           client={{
             name: "Huawei",
@@ -183,7 +183,7 @@ export default function ProjectPage() {
               <p className="text-body leading-relaxed mb-4 text-justify">
                 Published real pairs are still images taken at two apertures,
                 and video pairs are hard to capture, so every video bokeh
-                dataset synthesizes its defocus. Video Bokeh is a pipeline that
+                dataset synthesizes its defocus. LayerWise is a pipeline that
                 composes such video from still-image layers, and a dataset made
                 with it. Each sequence holds its all-in-focus frames, their
                 disparity and a soft alpha mask for every object. On request it
@@ -208,13 +208,13 @@ export default function ProjectPage() {
               <div className="mx-auto w-full max-w-3xl rounded-xl overflow-hidden border border-line">
                 <AutoplayVideo
                   aspectRatio="16 / 9"
-                  poster="/portfolio/video-bokeh/demo-video-bokeh-poster.webp"
+                  poster="/portfolio/layerwise/demo-layerwise-poster.webp"
                   controls
-                  aria-label="Video Bokeh web demo: generating a sequence and comparing its streams"
+                  aria-label="LayerWise web demo: generating a sequence and comparing its streams"
                   className="block w-full h-auto"
                 >
                   <source
-                    src="/portfolio/video-bokeh/demo-video-bokeh.mp4"
+                    src="/portfolio/layerwise/demo-layerwise.mp4"
                     type="video/mp4"
                   />
                   Your browser does not support the video tag.
@@ -282,13 +282,13 @@ export default function ProjectPage() {
               <div className="relative mx-auto w-full max-w-2xl rounded-xl overflow-hidden border border-line">
                 <AutoplayVideo
                   aspectRatio="3 / 2"
-                  poster="/portfolio/video-bokeh/demo-video-bokeh-streams-poster.webp"
+                  poster="/portfolio/layerwise/demo-layerwise-streams-poster.webp"
                   controls
-                  aria-label="The six streams of one Video Bokeh sequence: all-in-focus, bokeh, disparity, alpha, optical flow and occlusion"
+                  aria-label="The six streams of one LayerWise sequence: all-in-focus, bokeh, disparity, alpha, optical flow and occlusion"
                   className="block w-full h-auto"
                 >
                   <source
-                    src="/portfolio/video-bokeh/demo-video-bokeh-streams.mp4"
+                    src="/portfolio/layerwise/demo-layerwise-streams.mp4"
                     type="video/mp4"
                   />
                   Your browser does not support the video tag.
@@ -312,7 +312,7 @@ export default function ProjectPage() {
             {/* Figure 3: Example sequences */}
             <figure id="figure-3" className="scroll-mt-24">
               <ImageLightbox
-                src="/portfolio/video-bokeh/examples.webp"
+                src="/portfolio/layerwise/examples.webp"
                 alt="Three example sequences at two time steps each, with the all-in-focus frame, alpha masks, disparity, optical flow, occlusion mask and bokeh"
                 width={2063}
                 height={2273}
@@ -365,7 +365,7 @@ export default function ProjectPage() {
             {/* Figure 4: Pipeline */}
             <figure id="figure-4" className="scroll-mt-24">
               <ImageLightbox
-                src="/portfolio/video-bokeh/pipeline.webp"
+                src="/portfolio/layerwise/pipeline.webp"
                 alt="Pipeline overview: Stage A builds a library of disparity maps from foregrounds and backgrounds, and Stage B composites layers into sequences with disparity, alpha masks, optical flow, occlusion masks and bokeh"
                 width={2750}
                 height={761}
@@ -431,13 +431,13 @@ export default function ProjectPage() {
               <div className="relative mx-auto w-full max-w-4xl rounded-xl overflow-hidden border border-line">
                 <AutoplayVideo
                   aspectRatio="4 / 1"
-                  poster="/portfolio/video-bokeh/demo-video-bokeh-strengths-poster.webp"
+                  poster="/portfolio/layerwise/demo-layerwise-strengths-poster.webp"
                   controls
-                  aria-label="One Video Bokeh sequence in focus and at bokeh strengths 8, 16 and 32"
+                  aria-label="One LayerWise sequence in focus and at bokeh strengths 8, 16 and 32"
                   className="block w-full h-auto"
                 >
                   <source
-                    src="/portfolio/video-bokeh/demo-video-bokeh-strengths.mp4"
+                    src="/portfolio/layerwise/demo-layerwise-strengths.mp4"
                     type="video/mp4"
                   />
                   Your browser does not support the video tag.
@@ -469,7 +469,7 @@ export default function ProjectPage() {
 
           <Section title="Conclusion">
             <p className="text-body leading-relaxed mb-4 text-justify">
-              Video Bokeh gives a depth-aware bokeh model exact supervision at
+              LayerWise gives a depth-aware bokeh model exact supervision at
               object edges, where real data is hardest to get, and generates it
               cheaply enough to run inside a training loop. Its sequences are
               composed from flat layers rather than rendered from 3D scenes, so
@@ -485,7 +485,7 @@ export default function ProjectPage() {
             </p>
           </Section>
 
-          <NextProject id="video-bokeh" />
+          <NextProject id="layerwise" />
         </div>
       </div>
       <div className="pb-24" />
