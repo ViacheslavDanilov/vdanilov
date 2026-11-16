@@ -223,7 +223,8 @@ export default function ProjectPage() {
               <figcaption className="text-center text-sm text-muted mt-3">
                 <span className="text-body">Figure 1.</span> Walkthrough of the
                 web demo: generating a sequence, comparing its streams side by
-                side, and changing the bokeh strength.
+                side, zooming in frame by frame, and the same sequence at three
+                bokeh strengths.
               </figcaption>
             </figure>
           </Section>
