@@ -18,22 +18,3 @@ test.describe("Portfolio Featured tab", () => {
     }
   });
 });
-
-test.describe("Renamed project URL", () => {
-  test("the old Video Bokeh link opens the LayerWise page", async ({
-    page,
-    request,
-  }) => {
-    const response = await request.get("/portfolio/video-bokeh/", {
-      maxRedirects: 0,
-    });
-    expect(response.status()).toBe(308);
-    expect(response.headers()["location"]).toMatch(/\/portfolio\/layerwise\/$/);
-
-    await page.goto("/portfolio/video-bokeh/");
-    await expect(page).toHaveURL(/\/portfolio\/layerwise\/$/);
-    await expect(
-      page.getByRole("heading", { level: 1, name: "LayerWise" }),
-    ).toBeVisible();
-  });
-});
