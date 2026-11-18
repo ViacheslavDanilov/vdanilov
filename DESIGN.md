@@ -210,7 +210,7 @@ Pills for anything clickable and small (nav, buttons, badges, tabs, accent bar).
 ### Chips
 
 - **Badge:** 12px text, weight 500, pill, tinted fill plus border in one of five hues, optional 12px icon.
-- **Keyword highlight:** cyan 10% fill, cyan text, weight 600, 8px by 3px padding and a 12px radius. `highlightKeywords` renders it in responsibility lines and education content. The home hero paragraph does not use it: its two roles are semibold white. Experience summaries are plain body-colour text with a 2px cyan 40% left border and 12px of left padding.
+- **Keyword highlight:** cyan 10% fill, cyan text, weight 600, 8px by 3px padding and a 12px radius. `highlightKeywords` renders it in education content; the Experience responsibility lines use the soft form, cyan semibold text with no fill. The home hero paragraph does not use it: its two roles are semibold white. Experience summaries are plain body-colour text with a 2px cyan 40% left border and 12px of left padding.
 
 ### Cards / Containers
 
@@ -236,7 +236,7 @@ Pills for anything clickable and small (nav, buttons, badges, tabs, accent bar).
 - Pill buttons; the selected one gets a cyan 20% pill with a 60% border that slides between tabs (spring, 0.4s). Pressing a tab scales it to 0.95.
 - **Filter chips** (Portfolio, Publications, References) are the same pill with a 1px white 20% border and a white 5% fill at rest, brighter on hover. The border is about 1.5:1 on the page, so the label carries the contrast. Each chip is 44px tall with the 36px pill inset 4px, and has 14px of side padding.
 - Below md the chips sit in one row that scrolls sideways, with a 2rem fade at each edge that still has chips beyond it, and the selected chip is scrolled to the middle. From md they wrap centred and the rows are balanced, so no chip is left alone on a row. Below 50rem the row keeps the 1.5rem page gutter; from 50rem it is a 52rem measure, and the six-chip rows keep at least 24px to spare.
-- The accordion tabs on Experience and Education cards keep the plain look: no border or fill at rest.
+- The toggles on Education cards keep the plain look: no border or fill at rest. On Experience cards they are a compact segmented pill, centred, with a Paper Light 10% border and a slate 30% fill at rest, and the open one takes the cyan pill. Each segment keeps a 44px target.
 - A filter name is about 16 characters and never more than 20, so a chip stays under about 220px (Image-Guided Surgery, the longest, is 218px with its count) and the phone row shows more than two chips. The same name labels the badge on a portfolio card, so change both together.
 
 ### Footer
