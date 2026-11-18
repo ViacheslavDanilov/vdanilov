@@ -196,7 +196,7 @@ Depth is mostly tonal and translucent: glass fills, blur, and hairline borders. 
 
 ## Shapes
 
-Pills for anything clickable and small (nav, buttons, badges, tabs, accent bar). Cards use 16px (14px for the glow border). Logo tiles 16px, keyword highlights 12px, menu items 12px. Borders are 1px hairlines at 10 to 20% white or Paper Light, except the 1.5px glow card border; the portrait has a 4px cyan 20% ring. The people portraits on team and reference cards (2px ring) are transparent and sit on a cool slate radial gradient (`#e2e8f0` centre to `#94a3b8` edge, the `bg-photo` utility), clipped inside the ring so the ring stays dark.
+Pills for anything clickable and small (nav, buttons, badges, tabs, accent bar). Cards use 16px (14px for the glow border). Logo tiles 16px, keyword highlights 12px, menu items 12px. Borders are 1px hairlines at 10 to 20% white or Paper Light, except the 1.5px glow card border and the 5% rail of the Experience card toggles; the portrait has a 4px cyan 20% ring. The people portraits on team and reference cards (2px ring) are transparent and sit on a cool slate radial gradient (`#e2e8f0` centre to `#94a3b8` edge, the `bg-photo` utility), clipped inside the ring so the ring stays dark.
 
 ## Components
 
@@ -215,7 +215,7 @@ Pills for anything clickable and small (nav, buttons, badges, tabs, accent bar).
 ### Cards / Containers
 
 - **Expertise list:** below lg, six rows in one column, each with a 16:10 picture above its label, title, justified text and an optional cyan link. From lg, two equal columns: a picture pinned in the left one (sticky, near the middle of the screen, 16px radius, 10% white border) and the rows in the right one, 64px apart, each with a 2px rule on its left. The row on the middle line of the screen, or under the pointer or keyboard focus, is active: its rule turns cyan, it is fully opaque (the others sit at 75%, which keeps their cyan link and label at 4.5:1) and its picture fades in over 500ms. Without motion the picture changes at once. A row links only where there is a page for it: a small "View projects" link to the portfolio filter, or "View experience" on the research row. The link is never the whole row. Rows without a page have no link and no tab stop.
-- **Glow card:** 16px radius, 6% grey fill, 1.5px border in the same grey, 2px blur. Padding is 20px on list and project cards and 24px on home cards. On desktop a radial spotlight follows the pointer across fill and border. Off below 768px.
+- **Glow card:** 16px radius, 6% grey fill, 1.5px border in the same grey, 2px blur. Padding is 20px on list and project cards and 24px on home cards. Experience cards differ: the core roles have 20px on phones and 24px from md, and the visiting roles 16px on phones and 20px from md, with no category badge. On desktop a radial spotlight follows the pointer across fill and border. Off below 768px.
 - **Portfolio card:** an opaque card fill with a 1px white 10% border and no pointer glow or blur, because it carries a full-width image. On hover the border turns cyan 30% and a faint cyan shadow appears. It is the one card that is not glass. Pressing it scales it to 0.99.
 - **Logo tile:** 64px square, 16px radius, slate 50% fill, Paper Light 10% border. From md, hover scales it to 1.03 and turns the border cyan 30%.
 
