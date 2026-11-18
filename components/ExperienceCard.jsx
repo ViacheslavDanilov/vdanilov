@@ -14,10 +14,7 @@ import { GlowCard } from "@/components/ui/glow-card";
 import { Badge } from "@/components/ui/badge";
 import NowrapTail from "@/components/ui/nowrap-tail";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faExternalLink,
-  faChevronDown,
-} from "@fortawesome/free-solid-svg-icons";
+import { faExternalLink } from "@fortawesome/free-solid-svg-icons";
 import { cn } from "@/lib/utils";
 
 // --- CONFIGURATION CONSTANTS ---
@@ -205,7 +202,7 @@ const LinksList = ({ links }) => (
   </ul>
 );
 
-// Company logo component; compact is a 40px tile
+// Company logo component
 export const CompanyLogo = ({
   logo,
   logoLight,
@@ -214,13 +211,12 @@ export const CompanyLogo = ({
   className = "",
   brightness = 1,
   priority = false,
-  compact = false,
 }) => (
   <a
     href={url}
     target="_blank"
     rel="noopener noreferrer"
-    className={`relative ${compact ? "w-10 h-10 rounded-xl" : "w-16 h-16 rounded-2xl"} flex-shrink-0 overflow-hidden border border-strong/10 bg-surface/50 cursor-pointer transition-all duration-300 motion-safe:md:hover:scale-[1.03] md:hover:border-accent/30 ${className}`}
+    className={`relative w-16 h-16 flex-shrink-0 rounded-2xl overflow-hidden border border-strong/10 bg-surface/50 cursor-pointer transition-all duration-300 motion-safe:md:hover:scale-[1.03] md:hover:border-accent/30 ${className}`}
     aria-label={`${company} website`}
   >
     <Image
@@ -228,7 +224,7 @@ export const CompanyLogo = ({
       alt={`${company} logo`}
       width={512}
       height={512}
-      className={`object-contain p-1 ${compact ? "rounded-xl" : "rounded-2xl"} w-full h-full brightness-(--logo-brightness) light:brightness-100 ${logoLight ? "light:hidden" : ""}`}
+      className={`object-contain p-1 rounded-2xl w-full h-full brightness-(--logo-brightness) light:brightness-100 ${logoLight ? "light:hidden" : ""}`}
       style={{ "--logo-brightness": brightness }}
       priority={priority}
     />
@@ -240,14 +236,14 @@ export const CompanyLogo = ({
         aria-hidden="true"
         width={512}
         height={512}
-        className={`hidden light:block object-contain p-1 ${compact ? "rounded-xl" : "rounded-2xl"} w-full h-full`}
+        className="hidden light:block object-contain p-1 rounded-2xl w-full h-full"
         loading={priority ? "eager" : undefined}
       />
     )}
   </a>
 );
 
-// Job info: centred on phones, left-aligned from md; compact puts the dates on the title line from xl
+// Job info: centred on phones, left-aligned from md; the title's cap line meets the logo's top edge
 const JobInfo = ({
   title,
   company,
@@ -256,73 +252,52 @@ const JobInfo = ({
   duration,
   location,
   badge,
-  compact = false,
 }) => (
-  <div
-    className={cn(
-      "flex flex-col items-center text-center md:items-start md:text-left gap-1 md:gap-1.5 md:flex-1",
-      compact && "xl:relative",
-    )}
-  >
-    <div className="flex flex-col items-center md:flex-row md:items-start md:justify-between md:gap-3 md:self-stretch">
+  <div className="flex flex-col items-center text-center md:items-start md:text-left gap-1 md:gap-1.5 md:flex-1 md:-mt-1.5">
+    <div className="flex flex-col items-center md:flex-row md:items-baseline md:justify-between md:gap-3 md:self-stretch">
       <h3 className="text-md font-bold uppercase tracking-wider text-strong">
         {title}
       </h3>
       {badge}
     </div>
-    <div className="flex flex-col items-center md:items-start md:max-lg:flex-row md:max-lg:items-baseline xl:flex-row xl:items-baseline gap-x-2">
-      <a
-        href={url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="relative after:absolute after:-inset-3 text-sm font-medium text-strong md:hover:text-accent uppercase cursor-pointer transition-colors"
-        aria-label={`${company} website`}
-      >
-        {company}
-      </a>
-      <span
-        className="hidden md:max-lg:inline xl:inline text-sm text-muted"
-        aria-hidden="true"
-      >
-        •
-      </span>
-      <span className="text-sm text-muted">{location}</span>
-    </div>
-    <div
-      className={cn(
-        "flex flex-wrap gap-2 text-sm text-muted justify-center md:justify-start",
-        compact && "xl:absolute xl:right-0 xl:top-0.5 xl:flex-nowrap",
-      )}
+    <a
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="relative after:absolute after:-inset-3 text-sm font-medium text-strong md:hover:text-accent uppercase cursor-pointer transition-colors"
+      aria-label={`${company} website`}
     >
+      {company}
+    </a>
+    <div className="flex flex-wrap gap-2 text-sm text-muted justify-center md:justify-start">
       <span>{period}</span>
       <span aria-hidden="true">•</span>
       <span>{duration}</span>
     </div>
+    <p className="text-sm text-muted mb-0">{location}</p>
   </div>
 );
 
-// A text toggle with a chevron; the open one turns accent
-const Toggle = ({ label, expanded, ...props }) => (
+// A tab label over a hairline; the accent underline slides to the open one
+const TabButton = ({ label, selected, layoutId, ...props }) => (
   <button
     type="button"
-    aria-expanded={expanded}
+    aria-expanded={selected}
     className={cn(
-      "-my-2 flex h-11 cursor-pointer items-center gap-1.5 rounded-lg px-3 text-sm font-medium transition-colors motion-safe:active:scale-95",
+      "relative flex h-11 cursor-pointer items-center rounded-md px-3.5 text-sm font-medium transition-colors motion-safe:active:scale-95",
       "focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-focus",
-      expanded ? "text-accent" : "text-body hover:text-strong",
+      selected ? "text-strong" : "text-body hover:text-strong",
     )}
     {...props}
   >
     {label}
-    <FontAwesomeIcon
-      icon={faChevronDown}
-      className={cn(
-        "motion-safe:transition-transform",
-        expanded && "rotate-180",
-      )}
-      style={{ width: "0.625rem", height: "0.625rem" }}
-      aria-hidden="true"
-    />
+    {selected && (
+      <motion.span
+        layoutId={layoutId}
+        transition={{ type: "spring", duration: 0.4 }}
+        className="absolute inset-x-0 -bottom-px h-0.5 rounded-full bg-focus"
+      />
+    )}
   </button>
 );
 
@@ -384,14 +359,7 @@ const ExperienceCard = ({ experience, compact = false }) => {
         spotlightSize={300}
       >
         {/* Header: stacked and centred on phones, a row from md */}
-        <div
-          className={cn(
-            "max-md:relative flex flex-col gap-3 md:flex-row",
-            compact
-              ? "md:items-start md:gap-4 xl:items-center"
-              : "md:items-start md:gap-5",
-          )}
-        >
+        <div className="max-md:relative flex flex-col gap-3 md:flex-row md:items-start md:gap-5">
           <CompanyLogo
             logo={experience.logo}
             logoLight={experience.logoLight}
@@ -399,7 +367,6 @@ const ExperienceCard = ({ experience, compact = false }) => {
             url={COMPANY_URLS[experience.company]}
             brightness={experience.logoBrightness}
             priority={experience.logoPriority}
-            compact={compact}
             className="max-md:z-10 self-center md:self-auto"
           />
           <JobInfo
@@ -409,7 +376,6 @@ const ExperienceCard = ({ experience, compact = false }) => {
             period={experience.period}
             duration={experience.duration}
             location={experience.location}
-            compact={compact}
             badge={
               // A compact card has no badge: every visit is research
               experience.category &&
@@ -432,17 +398,18 @@ const ExperienceCard = ({ experience, compact = false }) => {
           </p>
         )}
 
-        {/* Toggles */}
+        {/* Tabs */}
         <div
-          className="flex items-center justify-center md:justify-start md:-ml-3"
+          className="-mt-3 flex justify-center border-b border-line"
           role="group"
           aria-label="Job information"
         >
           {tabs.map((tab) => (
-            <Toggle
+            <TabButton
               key={tab.id}
               label={tab.label}
-              expanded={activeTab === tab.id}
+              selected={activeTab === tab.id}
+              layoutId={`tab-${experience.id}`}
               aria-controls={
                 activeTab === tab.id
                   ? `${experience.id}-${tab.id}-panel`
