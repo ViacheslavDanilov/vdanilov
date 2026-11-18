@@ -285,14 +285,16 @@ const Segment = ({ label, selected, layoutId, ...props }) => (
     aria-expanded={selected}
     className={cn(
       "group relative -my-2 flex h-11 cursor-pointer items-center rounded-full px-3.5 text-sm font-semibold outline-none transition-[color,scale] motion-safe:active:scale-95",
-      selected ? "text-strong" : "text-body hover:text-strong",
+      selected
+        ? "text-strong light:text-accent"
+        : "text-body hover:text-strong",
     )}
     {...props}
   >
     <span
       className={cn(
         "absolute inset-x-0 inset-y-2 rounded-full transition-colors group-focus-visible:outline-2 group-focus-visible:outline-focus",
-        !selected && "group-hover:bg-ink/5",
+        !selected && "group-hover:bg-ink/5 light:group-hover:bg-focus/8",
       )}
       aria-hidden="true"
     />
@@ -300,7 +302,7 @@ const Segment = ({ label, selected, layoutId, ...props }) => (
       <motion.span
         layoutId={layoutId}
         transition={{ type: "spring", duration: 0.4 }}
-        className="absolute inset-x-0 inset-y-2 rounded-full border border-accent/40 bg-accent/15"
+        className="absolute inset-x-0 inset-y-2 rounded-full border border-accent/40 bg-accent/15 light:border-focus/40 light:bg-focus/10"
       />
     )}
     <span className="relative">{label}</span>
@@ -407,7 +409,7 @@ const ExperienceCard = ({ experience, compact = false }) => {
         {/* Tabs: a segmented control as wide as its two labels */}
         <div
           className={cn(
-            "flex w-fit items-center justify-self-center gap-0.5 rounded-full border border-strong/5 bg-ink/5 p-0.5",
+            "flex w-fit items-center justify-self-center gap-0.5 rounded-full border border-strong/5 bg-ink/5 p-0.5 light:border-line light:bg-transparent",
             compact ? "md:-my-1" : "-my-1 md:-my-2",
           )}
           role="group"
