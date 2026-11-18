@@ -379,8 +379,10 @@ test.describe("Filter chips", () => {
     for (const badge of new Set(badges)) expect(chips).toContain(badge);
   });
 
-  test("the accordion tabs on a card have no outline", async ({ page }) => {
-    await page.goto("/experience/");
+  test("the accordion tabs on an Education card have no outline", async ({
+    page,
+  }) => {
+    await page.goto("/education/");
     const tab = page.locator("article button[aria-expanded]").first();
     expect(
       await tab.evaluate(
