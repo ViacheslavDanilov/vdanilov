@@ -11,7 +11,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "motion/react";
 import { GlowCard } from "@/components/ui/glow-card";
-import { Tab } from "@/components/ui/tab";
 import { Badge } from "@/components/ui/badge";
 import NowrapTail from "@/components/ui/nowrap-tail";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -279,6 +278,35 @@ const JobInfo = ({
   </div>
 );
 
+// A segment: a 44px tap box around a 28px pill
+const Segment = ({ label, selected, layoutId, ...props }) => (
+  <button
+    type="button"
+    aria-expanded={selected}
+    className={cn(
+      "group relative -my-2 flex h-11 cursor-pointer items-center rounded-full px-3.5 text-sm font-semibold outline-none transition-[color,scale] motion-safe:active:scale-95",
+      selected ? "text-strong" : "text-body hover:text-strong",
+    )}
+    {...props}
+  >
+    <span
+      className={cn(
+        "absolute inset-x-0 inset-y-2 rounded-full transition-colors group-focus-visible:outline-2 group-focus-visible:outline-focus",
+        !selected && "group-hover:bg-ink/5",
+      )}
+      aria-hidden="true"
+    />
+    {selected && (
+      <motion.span
+        layoutId={layoutId}
+        transition={{ type: "spring", duration: 0.4 }}
+        className="absolute inset-x-0 inset-y-2 rounded-full border border-accent/40 bg-accent/15"
+      />
+    )}
+    <span className="relative">{label}</span>
+  </button>
+);
+
 const ExperienceCard = ({ experience, compact = false }) => {
   const [activeTab, setActiveTab] = useState(null);
   const cardRef = useRef(null);
@@ -378,23 +406,25 @@ const ExperienceCard = ({ experience, compact = false }) => {
 
         {/* Tabs: a segmented control as wide as its two labels */}
         <div
-          className="flex w-fit items-center gap-1 justify-self-center rounded-full border border-strong/10 bg-surface/30 p-1"
+          className={cn(
+            "flex w-fit items-center justify-self-center gap-0.5 rounded-full border border-strong/5 bg-ink/5 p-0.5",
+            compact ? "md:-my-1" : "-my-1 md:-my-2",
+          )}
           role="group"
           aria-label="Job information"
         >
           {tabs.map((tab) => (
-            <Tab
+            <Segment
               key={tab.id}
-              text={tab.label}
+              label={tab.label}
               selected={activeTab === tab.id}
-              aria-expanded={activeTab === tab.id}
+              layoutId={`tab-${experience.id}`}
               aria-controls={
                 activeTab === tab.id
                   ? `${experience.id}-${tab.id}-panel`
                   : undefined
               }
-              setSelected={() => handleTabClick(tab.id)}
-              layoutId={`tab-${experience.id}`}
+              onClick={() => handleTabClick(tab.id)}
             />
           ))}
         </div>
@@ -411,7 +441,7 @@ const ExperienceCard = ({ experience, compact = false }) => {
               className="overflow-hidden"
               id={`${experience.id}-${activeTab}-panel`}
             >
-              <div className="py-2">{tabContent}</div>
+              <div className="pb-2">{tabContent}</div>
             </motion.div>
           )}
         </AnimatePresence>
