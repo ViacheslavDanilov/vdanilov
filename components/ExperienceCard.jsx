@@ -11,16 +11,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "motion/react";
 import { GlowCard } from "@/components/ui/glow-card";
-import { Tab } from "@/components/ui/tab";
 import { Badge } from "@/components/ui/badge";
 import NowrapTail from "@/components/ui/nowrap-tail";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faExternalLink,
-  faBriefcase,
-  faLink,
-  faFlask,
+  faChevronDown,
 } from "@fortawesome/free-solid-svg-icons";
+import { cn } from "@/lib/utils";
 
 // --- CONFIGURATION CONSTANTS ---
 const COMPANY_URLS = {
@@ -111,9 +109,10 @@ const HIGHLIGHT_KEYWORDS = [
 
 const HIGHLIGHT_CLASS =
   "inline-block bg-accent/10 text-accent font-semibold px-2 py-0.75 rounded-xl";
+const SOFT_HIGHLIGHT_CLASS = "text-accent font-semibold";
 
-// Helper to highlight keywords in a string
-export function highlightKeywords(text) {
+// Helper to highlight keywords in a string; soft drops the chip
+export function highlightKeywords(text, soft = false) {
   if (typeof text !== "string") return text;
   let result = [text];
   HIGHLIGHT_KEYWORDS.forEach((word) => {
@@ -123,7 +122,10 @@ export function highlightKeywords(text) {
             i < arr.length - 1
               ? [
                   seg,
-                  <span key={word + i} className={HIGHLIGHT_CLASS}>
+                  <span
+                    key={word + i}
+                    className={soft ? SOFT_HIGHLIGHT_CLASS : HIGHLIGHT_CLASS}
+                  >
                     {word}
                   </span>,
                 ]
@@ -142,7 +144,7 @@ const ResponsibilitiesList = ({ items }) => (
       <li key={index} className="flex items-start gap-3">
         <BulletPoint />
         <p className="text-sm text-body leading-relaxed text-justify">
-          {highlightKeywords(item)}
+          {highlightKeywords(item, true)}
         </p>
       </li>
     ))}
@@ -203,7 +205,7 @@ const LinksList = ({ links }) => (
   </ul>
 );
 
-// Company logo component
+// Company logo component; compact is a 40px tile
 export const CompanyLogo = ({
   logo,
   logoLight,
@@ -212,12 +214,13 @@ export const CompanyLogo = ({
   className = "",
   brightness = 1,
   priority = false,
+  compact = false,
 }) => (
   <a
     href={url}
     target="_blank"
     rel="noopener noreferrer"
-    className={`relative w-16 h-16 flex-shrink-0 rounded-2xl overflow-hidden border border-strong/10 bg-surface/50 cursor-pointer transition-all duration-300 motion-safe:md:hover:scale-[1.03] md:hover:border-accent/30 ${className}`}
+    className={`relative ${compact ? "w-10 h-10 rounded-xl" : "w-16 h-16 rounded-2xl"} flex-shrink-0 overflow-hidden border border-strong/10 bg-surface/50 cursor-pointer transition-all duration-300 motion-safe:md:hover:scale-[1.03] md:hover:border-accent/30 ${className}`}
     aria-label={`${company} website`}
   >
     <Image
@@ -225,7 +228,7 @@ export const CompanyLogo = ({
       alt={`${company} logo`}
       width={512}
       height={512}
-      className={`object-contain p-1 rounded-2xl w-full h-full brightness-(--logo-brightness) light:brightness-100 ${logoLight ? "light:hidden" : ""}`}
+      className={`object-contain p-1 ${compact ? "rounded-xl" : "rounded-2xl"} w-full h-full brightness-(--logo-brightness) light:brightness-100 ${logoLight ? "light:hidden" : ""}`}
       style={{ "--logo-brightness": brightness }}
       priority={priority}
     />
@@ -237,14 +240,14 @@ export const CompanyLogo = ({
         aria-hidden="true"
         width={512}
         height={512}
-        className="hidden light:block object-contain p-1 rounded-2xl w-full h-full"
+        className={`hidden light:block object-contain p-1 ${compact ? "rounded-xl" : "rounded-2xl"} w-full h-full`}
         loading={priority ? "eager" : undefined}
       />
     )}
   </a>
 );
 
-// Job info component: centred on phones, left-aligned from md
+// Job info: centred on phones, left-aligned from md; compact puts the dates on the title line from xl
 const JobInfo = ({
   title,
   company,
@@ -252,33 +255,78 @@ const JobInfo = ({
   period,
   duration,
   location,
-  className = "",
+  badge,
+  compact = false,
 }) => (
   <div
-    className={`flex flex-col items-center text-center md:items-start md:text-left gap-2 ${className}`}
+    className={cn(
+      "flex flex-col items-center text-center md:items-start md:text-left gap-1 md:gap-1.5 md:flex-1",
+      compact && "xl:relative",
+    )}
   >
-    <h3 className="text-md font-bold uppercase tracking-wider text-strong">
-      {title}
-    </h3>
-    <a
-      href={url}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="relative after:absolute after:-inset-3 text-sm font-medium text-strong md:hover:text-accent uppercase cursor-pointer transition-colors"
-      aria-label={`${company} website`}
+    <div className="flex flex-col items-center md:flex-row md:items-start md:justify-between md:gap-3 md:self-stretch">
+      <h3 className="text-md font-bold uppercase tracking-wider text-strong">
+        {title}
+      </h3>
+      {badge}
+    </div>
+    <div className="flex flex-col items-center md:items-start md:max-lg:flex-row md:max-lg:items-baseline xl:flex-row xl:items-baseline gap-x-2">
+      <a
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="relative after:absolute after:-inset-3 text-sm font-medium text-strong md:hover:text-accent uppercase cursor-pointer transition-colors"
+        aria-label={`${company} website`}
+      >
+        {company}
+      </a>
+      <span
+        className="hidden md:max-lg:inline xl:inline text-sm text-muted"
+        aria-hidden="true"
+      >
+        •
+      </span>
+      <span className="text-sm text-muted">{location}</span>
+    </div>
+    <div
+      className={cn(
+        "flex flex-wrap gap-2 text-sm text-muted justify-center md:justify-start",
+        compact && "xl:absolute xl:right-0 xl:top-0.5 xl:flex-nowrap",
+      )}
     >
-      {company}
-    </a>
-    <div className="flex flex-wrap gap-2 text-sm text-muted justify-center md:justify-start">
       <span>{period}</span>
       <span aria-hidden="true">•</span>
       <span>{duration}</span>
     </div>
-    <p className="text-sm text-muted mb-0">{location}</p>
   </div>
 );
 
-const ExperienceCard = ({ experience }) => {
+// A text toggle with a chevron; the open one turns accent
+const Toggle = ({ label, expanded, ...props }) => (
+  <button
+    type="button"
+    aria-expanded={expanded}
+    className={cn(
+      "-my-2 flex h-11 cursor-pointer items-center gap-1.5 rounded-lg px-3 text-sm font-medium transition-colors motion-safe:active:scale-95",
+      "focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-focus",
+      expanded ? "text-accent" : "text-body hover:text-strong",
+    )}
+    {...props}
+  >
+    {label}
+    <FontAwesomeIcon
+      icon={faChevronDown}
+      className={cn(
+        "motion-safe:transition-transform",
+        expanded && "rotate-180",
+      )}
+      style={{ width: "0.625rem", height: "0.625rem" }}
+      aria-hidden="true"
+    />
+  </button>
+);
+
+const ExperienceCard = ({ experience, compact = false }) => {
   const [activeTab, setActiveTab] = useState(null);
   const cardRef = useRef(null);
 
@@ -295,10 +343,8 @@ const ExperienceCard = ({ experience }) => {
   }, [activeTab]);
 
   const tabs = [
-    { id: "responsibilities", label: "Responsibilities", icon: faBriefcase },
-    ...(experience.links.length > 0
-      ? [{ id: "links", label: "Links", icon: faLink }]
-      : []),
+    { id: "responsibilities", label: "Responsibilities" },
+    ...(experience.links.length > 0 ? [{ id: "links", label: "Links" }] : []),
   ];
 
   // Optimized tab click handler with useCallback
@@ -320,20 +366,32 @@ const ExperienceCard = ({ experience }) => {
     }
   }, [activeTab, experience.responsibilities, experience.links]);
 
-  // Category badge configuration
   const category =
     experience.category === "research"
-      ? { variant: "blue", icon: faFlask, label: "Research" }
-      : { variant: "teal", icon: faBriefcase, label: "Industry" };
+      ? { variant: "blue", label: "Research" }
+      : { variant: "teal", label: "Industry" };
 
   return (
     <article
       ref={cardRef}
       className="self-start w-full animate-card-in motion-reduce:animate-card-fade-in"
     >
-      <GlowCard className="w-full h-full p-5" spotlightSize={300}>
+      <GlowCard
+        className={cn(
+          "w-full h-full",
+          compact ? "p-4 gap-3 md:p-5 md:gap-4" : "p-5 gap-4 md:p-6 md:gap-5",
+        )}
+        spotlightSize={300}
+      >
         {/* Header: stacked and centred on phones, a row from md */}
-        <div className="max-md:relative mb-4 flex flex-col gap-3 md:flex-row md:items-start md:gap-6">
+        <div
+          className={cn(
+            "max-md:relative flex flex-col gap-3 md:flex-row",
+            compact
+              ? "md:items-start md:gap-4 xl:items-center"
+              : "md:items-start md:gap-5",
+          )}
+        >
           <CompanyLogo
             logo={experience.logo}
             logoLight={experience.logoLight}
@@ -341,58 +399,56 @@ const ExperienceCard = ({ experience }) => {
             url={COMPANY_URLS[experience.company]}
             brightness={experience.logoBrightness}
             priority={experience.logoPriority}
+            compact={compact}
             className="max-md:z-10 self-center md:self-auto"
           />
-          <div className="md:flex-1 md:flex md:items-start md:justify-between md:gap-4">
-            <JobInfo
-              title={experience.title}
-              company={experience.company}
-              url={COMPANY_URLS[experience.company]}
-              period={experience.period}
-              duration={experience.duration}
-              location={experience.location}
-              className="space-y-2"
-            />
-            {/* Category badge: top-right corner on phones, beside the job info from md */}
-            {experience.category && (
-              <Badge
-                variant={category.variant}
-                icon={category.icon}
-                className="absolute top-0 right-0 md:static md:flex-shrink-0"
-              >
-                {category.label}
-              </Badge>
-            )}
-          </div>
+          <JobInfo
+            title={experience.title}
+            company={experience.company}
+            url={COMPANY_URLS[experience.company]}
+            period={experience.period}
+            duration={experience.duration}
+            location={experience.location}
+            compact={compact}
+            badge={
+              // A compact card has no badge: every visit is research
+              experience.category &&
+              !compact && (
+                <Badge
+                  variant={category.variant}
+                  className="absolute top-0 right-0 md:static md:shrink-0 px-2 py-0.5"
+                >
+                  {category.label}
+                </Badge>
+              )
+            }
+          />
         </div>
 
         {/* Summary */}
         {experience.summary && (
-          <p className="mb-4 border-l-2 border-accent/40 pl-3 text-sm leading-relaxed text-body">
+          <p className="border-l-2 border-accent/40 pl-3 text-sm leading-relaxed text-body">
             {experience.summary}
           </p>
         )}
 
-        {/* Tabs */}
+        {/* Toggles */}
         <div
-          className="flex items-center justify-center gap-1 mb-4 bg-surface/30 rounded-full p-1 border border-strong/10"
+          className="flex items-center justify-center md:justify-start md:-ml-3"
           role="group"
           aria-label="Job information"
         >
           {tabs.map((tab) => (
-            <Tab
+            <Toggle
               key={tab.id}
-              text={tab.label}
-              icon={tab.icon}
-              selected={activeTab === tab.id}
-              aria-expanded={activeTab === tab.id}
+              label={tab.label}
+              expanded={activeTab === tab.id}
               aria-controls={
                 activeTab === tab.id
                   ? `${experience.id}-${tab.id}-panel`
                   : undefined
               }
-              setSelected={() => handleTabClick(tab.id)}
-              layoutId={`tab-${experience.id}`}
+              onClick={() => handleTabClick(tab.id)}
             />
           ))}
         </div>
