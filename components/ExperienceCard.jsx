@@ -11,6 +11,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "motion/react";
 import { GlowCard } from "@/components/ui/glow-card";
+import { Tab } from "@/components/ui/tab";
 import { Badge } from "@/components/ui/badge";
 import NowrapTail from "@/components/ui/nowrap-tail";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -278,29 +279,6 @@ const JobInfo = ({
   </div>
 );
 
-// A tab label over a hairline; the accent underline slides to the open one
-const TabButton = ({ label, selected, layoutId, ...props }) => (
-  <button
-    type="button"
-    aria-expanded={selected}
-    className={cn(
-      "relative flex h-11 cursor-pointer items-center rounded-md px-3.5 text-sm font-medium transition-colors motion-safe:active:scale-95",
-      "focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-focus",
-      selected ? "text-strong" : "text-body hover:text-strong",
-    )}
-    {...props}
-  >
-    {label}
-    {selected && (
-      <motion.span
-        layoutId={layoutId}
-        transition={{ type: "spring", duration: 0.4 }}
-        className="absolute inset-x-0 -bottom-px h-0.5 rounded-full bg-focus"
-      />
-    )}
-  </button>
-);
-
 const ExperienceCard = ({ experience, compact = false }) => {
   const [activeTab, setActiveTab] = useState(null);
   const cardRef = useRef(null);
@@ -398,24 +376,25 @@ const ExperienceCard = ({ experience, compact = false }) => {
           </p>
         )}
 
-        {/* Tabs */}
+        {/* Tabs: a segmented control as wide as its two labels */}
         <div
-          className="-mt-3 flex justify-center border-b border-line"
+          className="flex w-fit items-center gap-1 justify-self-center rounded-full border border-strong/10 bg-surface/30 p-1"
           role="group"
           aria-label="Job information"
         >
           {tabs.map((tab) => (
-            <TabButton
+            <Tab
               key={tab.id}
-              label={tab.label}
+              text={tab.label}
               selected={activeTab === tab.id}
-              layoutId={`tab-${experience.id}`}
+              aria-expanded={activeTab === tab.id}
               aria-controls={
                 activeTab === tab.id
                   ? `${experience.id}-${tab.id}-panel`
                   : undefined
               }
-              onClick={() => handleTabClick(tab.id)}
+              setSelected={() => handleTabClick(tab.id)}
+              layoutId={`tab-${experience.id}`}
             />
           ))}
         </div>
