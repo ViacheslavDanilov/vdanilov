@@ -362,6 +362,25 @@ test.describe("Homepage - Hero Section", () => {
     await expect(page.locator("#hero ul")).toBeVisible();
   });
 
+  test("the CV menu stays on screen when the button is near the bottom", async ({
+    page,
+  }) => {
+    for (const [width, height] of [
+      [360, 640],
+      [1366, 657],
+      [1440, 900],
+    ]) {
+      await page.setViewportSize({ width, height });
+      await page.goto("/");
+      await page.getByRole("button", { name: "Download CV" }).click();
+      const menu = (await page.locator("#hero ul").boundingBox())!;
+      expect([width, menu.y >= 0 && menu.y + menu.height <= height]).toEqual([
+        width,
+        true,
+      ]);
+    }
+  });
+
   test("the master CV is linked nowhere on the home page", async ({ page }) => {
     await page.goto("/");
     await page.getByRole("button", { name: "Download CV" }).click();

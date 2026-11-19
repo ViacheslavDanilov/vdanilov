@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useId, useRef, useState } from "react";
+import { useEffect, useId, useLayoutEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronDown,
@@ -12,9 +12,19 @@ import { cn } from "@/lib/utils";
 
 export default function CvMenu() {
   const [open, setOpen] = useState(false);
+  const [above, setAbove] = useState(false);
   const rootRef = useRef(null);
   const buttonRef = useRef(null);
+  const menuRef = useRef(null);
   const menuId = useId();
+
+  useLayoutEffect(() => {
+    if (!open) return;
+    const menu = menuRef.current;
+    const anchor = menu.offsetParent.getBoundingClientRect();
+    const room = menu.offsetHeight + 8;
+    setAbove(anchor.bottom + room > window.innerHeight && anchor.top >= room);
+  }, [open]);
 
   useEffect(() => {
     if (!open) return;
@@ -65,8 +75,12 @@ export default function CvMenu() {
 
       {open && (
         <ul
+          ref={menuRef}
           id={menuId}
-          className="absolute left-1/2 top-full z-30 mt-2 w-[min(16rem,calc(100vw-3rem))] -translate-x-1/2 rounded-2xl border border-line bg-surface/95 p-1.5 text-left shadow-card backdrop-blur-xl"
+          className={cn(
+            "absolute left-1/2 z-30 w-[min(16rem,calc(100vw-3rem))] -translate-x-1/2 rounded-2xl border border-line bg-surface/95 p-1.5 text-left shadow-card backdrop-blur-xl",
+            above ? "bottom-full mb-2" : "top-full mt-2",
+          )}
         >
           {CV_VERSIONS.map((cv) => (
             <li key={cv.id}>
