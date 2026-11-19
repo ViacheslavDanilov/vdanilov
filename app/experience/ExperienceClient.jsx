@@ -250,9 +250,9 @@ const EXPERIENCES_DATA = [
     location: "Montreal • Canada 🇨🇦",
     logo: "/experience/core-roles/intelerad.svg",
     summary:
-      "Built ML on MRI and CT: de-identification running in Biospective's PACS, contrast classification and body part recognition for Bristol Myers Squibb, and medical text OCR",
+      "Built ML on MRI and CT: de-identification deployed in Biospective's PACS, contrast classification and body part recognition for Bristol Myers Squibb, and medical text OCR",
     responsibilities: [
-      "Built the de-identification model Biospective runs in PACS: faces and ears gone from CT and MRI at 96% and 94% F1, keeping every intracranial voxel behind a 2 mm margin",
+      "Built the de-identification model Biospective deployed in PACS: faces and ears gone from CT and MRI at 96% and 94% F1, keeping every intracranial voxel behind a 2 mm margin",
       "Added contrast classification and body part recognition on CT and MRI for Bristol Myers Squibb, sorting trial scans before anyone opened them",
       "Brought medical text recognition into the product, retraining CLOVA OCR and adding the CRAFT detector for text regions",
     ],
@@ -276,10 +276,10 @@ const EXPERIENCES_DATA = [
     location: "Tomsk • Russia 🇷🇺",
     logo: "/experience/core-roles/tpu.svg",
     summary:
-      "Supervised 5 developers on stenosis detection running in live surgery and TAVI tracking for the Kemerovo Cardiology Center, and catheter segmentation in ultrasound for Boston Children's Hospital",
+      "Supervised 5 developers on stenosis detection used in live surgery and TAVI tracking for the Kemerovo Cardiology Center, and catheter segmentation in ultrasound for Boston Children's Hospital",
     responsibilities: [
       "Supervised 5 developers on computer vision and ML across cardiology, pediatric surgery and industry",
-      "Developed real-time coronary stenosis detection that runs in live surgery at the Kemerovo Cardiology Center, at 94% mAP and 10 FPS",
+      "Developed real-time coronary stenosis detection used in live surgery at the Kemerovo Cardiology Center, at 94% mAP and 10 FPS",
       "Tracked aorta and catheter keypoints for TAVI at 97% accuracy and 90 FPS, guiding valve placement",
       "Segmented catheters in 3D ultrasound for Boston Children's Hospital at 93.6% Dice, 13 points above U-Net, despite speckle and low resolution",
       "Built wildfire detection from video at 95.6% accuracy and 9 FPS, over remote Siberian forest",
