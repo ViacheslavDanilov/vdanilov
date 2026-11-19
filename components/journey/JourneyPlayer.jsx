@@ -314,7 +314,7 @@ export default function JourneyPlayer({ children }) {
       </div>
       {children}
 
-      <div className="hidden flex-col gap-3 md:flex">
+      <div className="mx-auto hidden w-full max-w-[max(52rem,calc((100svh-19.75rem)*16/9))] flex-col gap-3 md:flex">
         <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl border border-[var(--line,rgba(255,255,255,0.1))] bg-[var(--surface,#151a1f)]">
           {wide && near && (
             <JourneyMap

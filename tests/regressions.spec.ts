@@ -1069,6 +1069,21 @@ test.describe("Small polish", () => {
     await expect(chip).toHaveCSS("font-size", "12px");
   });
 
+  for (const [width, height] of [
+    [1440, 900],
+    [1920, 1080],
+  ]) {
+    test(`the journey block fits one screen at ${width}x${height}`, async ({
+      page,
+    }) => {
+      await page.setViewportSize({ width, height });
+      await page.goto("/");
+      const box = await page.locator("#journey").boundingBox();
+
+      expect(box!.height).toBeLessThanOrEqual(height);
+    });
+  }
+
   for (const width of [1280, 1440, 1920]) {
     test(`featured project chips sit on one row at ${width}px`, async ({
       page,
