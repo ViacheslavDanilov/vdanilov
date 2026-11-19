@@ -1084,6 +1084,30 @@ test.describe("Small polish", () => {
     });
   }
 
+  for (const width of [1280, 1440, 1920]) {
+    test(`featured project chips sit on one row at ${width}px`, async ({
+      page,
+    }) => {
+      await page.setViewportSize({ width, height: 900 });
+      await page.goto("/");
+      const rows = await page
+        .locator("section div.flex-wrap.mt-auto")
+        .evaluateAll((lists) =>
+          lists.map(
+            (list) =>
+              new Set(
+                [...list.children].map((chip) =>
+                  Math.round(chip.getBoundingClientRect().top),
+                ),
+              ).size,
+          ),
+        );
+
+      expect(rows).toHaveLength(4);
+      expect(rows).toEqual([1, 1, 1, 1]);
+    });
+  }
+
   test("the page sets a theme colour for the browser bar", async ({
     request,
   }) => {
