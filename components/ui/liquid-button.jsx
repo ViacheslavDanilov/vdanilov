@@ -8,29 +8,10 @@ import { cn } from "@/lib/utils";
 const BUTTON_CLASSES =
   "inline-flex items-center transition-colors justify-center cursor-pointer gap-2 whitespace-nowrap rounded-full font-medium transition-[color,box-shadow,transform] disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:ring-focus focus-visible:ring-[3px] border border-line bg-transparent motion-safe:active:scale-[0.975] duration-300 transition text-strong h-12 rounded-full px-8 has-[>svg]:px-6";
 
-// Link variant for <a> tags
-export function LiquidButtonLink({
-  className,
-  textClassName,
-  hoverClassName = "bg-ink/10",
-  href,
-  target,
-  ariaLabel,
-  children,
-  ...props
-}) {
-  const Comp = href.startsWith("/") ? Link : "a";
-
+// Light layer, glass shadow, blur backdrop and the label, shared by both variants
+function ButtonLayers({ hoverClassName, textClassName, children }) {
   return (
-    <Comp
-      href={href}
-      target={target}
-      rel={target === "_blank" ? "noopener noreferrer" : undefined}
-      aria-label={ariaLabel}
-      data-slot="button"
-      className={cn("group/button relative", BUTTON_CLASSES, className)}
-      {...props}
-    >
+    <>
       {/* Light layer that fades in on hover and focus */}
       <div
         aria-hidden="true"
@@ -61,6 +42,66 @@ export function LiquidButtonLink({
       <div className={cn("pointer-events-none z-10", textClassName)}>
         {children}
       </div>
+    </>
+  );
+}
+
+// Link variant for <a> tags
+export function LiquidButtonLink({
+  className,
+  textClassName,
+  hoverClassName = "bg-ink/10",
+  href,
+  target,
+  ariaLabel,
+  children,
+  ...props
+}) {
+  const Comp = href.startsWith("/") ? Link : "a";
+
+  return (
+    <Comp
+      href={href}
+      target={target}
+      rel={target === "_blank" ? "noopener noreferrer" : undefined}
+      aria-label={ariaLabel}
+      data-slot="button"
+      className={cn("group/button relative", BUTTON_CLASSES, className)}
+      {...props}
+    >
+      <ButtonLayers
+        hoverClassName={hoverClassName}
+        textClassName={textClassName}
+      >
+        {children}
+      </ButtonLayers>
     </Comp>
+  );
+}
+
+// Button variant for actions that open something
+export function LiquidButton({
+  className,
+  textClassName,
+  hoverClassName = "bg-ink/10",
+  ariaLabel,
+  children,
+  ...props
+}) {
+  return (
+    <button
+      type="button"
+      aria-label={ariaLabel}
+      data-slot="button"
+      className={cn("group/button relative", BUTTON_CLASSES, className)}
+      {...props}
+    >
+      <ButtonLayers
+        hoverClassName={hoverClassName}
+        textClassName={textClassName}
+      >
+        {children}
+      </ButtonLayers>
+    </button>
   );
 }
