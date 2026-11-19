@@ -120,7 +120,7 @@ const EducationCard = ({ education }) => {
             priority={education.logoPriority}
             className="self-center md:self-auto"
           />
-          <div className="flex flex-col items-center text-center gap-1 md:gap-1.5 md:flex-1 md:items-stretch md:text-left md:-mt-1.5">
+          <div className="flex flex-col items-center text-center gap-2 md:gap-1.5 md:flex-1 md:items-stretch md:text-left md:-mt-1.5">
             <h3 className="text-md font-bold uppercase tracking-wider text-strong">
               {education.degree}
             </h3>
