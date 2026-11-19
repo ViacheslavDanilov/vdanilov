@@ -316,12 +316,20 @@ test.describe("Homepage - Hero Section", () => {
       "https://drive.google.com/file/d/1bE5CESQ41rQEfIBX1KdMHofyzrFVcXcf/view",
     );
     await expect(main).toHaveAttribute("target", "_blank");
+    await expect(main).toHaveAccessibleName(
+      "Download CV (Industry CV, 3 pages)",
+    );
 
     const button = page.getByRole("button", { name: "Choose CV version" });
+    const contact = page.locator("#hero").getByRole("link", {
+      name: "Contact me",
+    });
+    const before = await contact.boundingBox();
     await expect(button).toBeVisible();
     await expect(button).toHaveAttribute("aria-expanded", "false");
     await button.click();
     await expect(button).toHaveAttribute("aria-expanded", "true");
+    expect(await contact.boundingBox()).toEqual(before);
 
     const items = page.locator("#hero ul a");
     await expect(items).toHaveText([/Industry CV/, /Academic CV/]);
@@ -335,7 +343,7 @@ test.describe("Homepage - Hero Section", () => {
     }
   });
 
-  test("the CV menu closes on Escape, outside click and focus leaving", async ({
+  test("the CV menu opens on Enter and Space, closes on Escape, outside click and focus leaving", async ({
     page,
   }) => {
     await page.goto("/");
@@ -356,7 +364,9 @@ test.describe("Homepage - Hero Section", () => {
     await page.mouse.click(5, 300);
     await expect(menu).toHaveCount(0);
 
-    await button.click();
+    await button.focus();
+    await page.keyboard.press("Space");
+    await expect(menu).toBeVisible();
     await page.keyboard.press("Tab");
     await page.keyboard.press("Tab");
     await page.keyboard.press("Tab");
@@ -398,6 +408,7 @@ test.describe("Homepage - Hero Section", () => {
     page,
   }) => {
     for (const [width, height] of [
+      [320, 640],
       [360, 640],
       [1366, 657],
       [1440, 900],
@@ -406,10 +417,24 @@ test.describe("Homepage - Hero Section", () => {
       await page.goto("/");
       await page.getByRole("button", { name: "Choose CV version" }).click();
       const menu = (await page.locator("#hero ul").boundingBox())!;
-      expect([width, menu.y >= 0 && menu.y + menu.height <= height]).toEqual([
+      expect([
         width,
-        true,
-      ]);
+        menu.y >= 0 && menu.y + menu.height <= height,
+        menu.x >= 0 && menu.x + menu.width <= width,
+      ]).toEqual([width, true, true]);
+      // Centred under the pill from 640px, under the button row below it
+      const offset = await page.locator("#hero ul").evaluate((ul) => {
+        const centre = (el: Element) => {
+          const box = el.getBoundingClientRect();
+          return box.left + box.width / 2;
+        };
+        const anchor =
+          innerWidth >= 640
+            ? ul.previousElementSibling!
+            : ul.parentElement!.parentElement!;
+        return Math.abs(centre(ul) - centre(anchor));
+      });
+      expect([width, offset]).toEqual([width, expect.closeTo(0, 0)]);
     }
   });
 
