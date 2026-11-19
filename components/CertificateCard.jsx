@@ -10,10 +10,10 @@ import NowrapTail from "@/components/ui/nowrap-tail";
 const CertificateCard = ({ certificate }) => {
   return (
     <article className="h-full w-full animate-card-in motion-reduce:animate-card-fade-in">
-      <GlowCard className="w-full h-full p-5 pb-3 group" spotlightSize={180}>
-        {/* Stacked and centred on phones, a row from md */}
-        <div className="flex flex-col items-center justify-center gap-4 h-full md:flex-row md:justify-start md:gap-0">
-          <div className="contents md:flex md:flex-row md:items-start md:gap-5 md:w-full">
+      <GlowCard className="w-full h-full p-4 gap-0 group" spotlightSize={180}>
+        {/* Logo beside the text at every width */}
+        <div className="flex h-full items-center">
+          <div className="flex w-full items-center gap-4 md:gap-5">
             <CompanyLogo
               logo={certificate.logo}
               company={certificate.organization}
@@ -21,7 +21,7 @@ const CertificateCard = ({ certificate }) => {
               brightness={certificate.logoBrightness || 1}
             />
 
-            <div className="flex flex-col gap-2 items-center text-center md:flex-1 md:min-w-0 md:items-stretch md:text-left">
+            <div className="flex min-w-0 flex-1 flex-col gap-2 items-stretch text-left">
               <a
                 href={certificate.url}
                 target="_blank"
@@ -48,18 +48,19 @@ const CertificateCard = ({ certificate }) => {
                 </span>
               </a>
 
-              <a
-                href={certificate.organizationUrl || certificate.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="relative after:absolute after:-top-1 after:-bottom-5 after:-inset-x-3 focus-visible:after:hidden text-sm font-medium text-strong md:hover:text-accent uppercase tracking-wider transition-colors cursor-pointer w-fit md:truncate"
-              >
-                {certificate.organization}
-              </a>
-
-              {certificate.date && (
-                <div className="text-sm text-muted">{certificate.date}</div>
-              )}
+              <div className="flex flex-wrap items-baseline gap-x-3 text-sm">
+                <a
+                  href={certificate.organizationUrl || certificate.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative after:absolute after:-top-1 after:-bottom-5 after:-inset-x-3 focus-visible:after:hidden font-medium text-strong md:hover:text-accent uppercase tracking-wider transition-colors cursor-pointer w-fit"
+                >
+                  {certificate.organization}
+                </a>
+                {certificate.date && (
+                  <span className="text-muted">{certificate.date}</span>
+                )}
+              </div>
             </div>
           </div>
         </div>
