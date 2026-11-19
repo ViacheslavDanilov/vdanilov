@@ -140,11 +140,11 @@ const FeaturedProjects = () => {
                 {project.description}
               </p>
 
-              <div className="flex flex-wrap gap-2 mt-auto">
+              <div className="flex flex-wrap gap-1.5 mt-auto">
                 {project.stack.map((tech) => (
                   <span
                     key={tech}
-                    className="px-3 py-1 text-xs font-medium rounded-full bg-ink/5 text-body border border-line"
+                    className="px-2.5 py-1 text-xs font-medium rounded-full bg-ink/5 text-body border border-line"
                   >
                     {tech}
                   </span>
