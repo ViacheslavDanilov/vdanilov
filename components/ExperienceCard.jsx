@@ -127,8 +127,8 @@ export function highlightKeywords(text) {
   return result;
 }
 
-// Responsibilities list component
-const ResponsibilitiesList = ({ items }) => (
+// Bullet list of text lines, keywords highlighted
+export const BulletList = ({ items }) => (
   <ul className="space-y-3" role="list">
     {items.map((item, index) => (
       <li key={index} className="flex items-start gap-3">
@@ -257,7 +257,7 @@ const JobInfo = ({
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className="relative after:absolute after:-inset-x-3 after:-inset-y-1 text-sm font-medium text-strong md:hover:text-accent uppercase cursor-pointer transition-colors"
+      className="relative after:absolute after:-inset-x-3 after:-inset-y-1 focus-visible:after:hidden text-sm font-medium text-strong md:hover:text-accent uppercase cursor-pointer transition-colors"
       aria-label={`${company} website`}
     >
       {company}
@@ -382,7 +382,7 @@ const ExperienceCard = ({ experience, compact = false }) => {
 
     switch (activeTab) {
       case "responsibilities":
-        return <ResponsibilitiesList items={experience.responsibilities} />;
+        return <BulletList items={experience.responsibilities} />;
       case "links":
         return <LinksList links={experience.links} />;
       default:
