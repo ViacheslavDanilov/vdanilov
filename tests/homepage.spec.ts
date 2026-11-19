@@ -363,6 +363,27 @@ test.describe("Homepage - Hero Section", () => {
     await expect(menu).toHaveCount(0);
   });
 
+  test("choosing a CV opens it in a new tab and closes the menu", async ({
+    page,
+    context,
+  }) => {
+    await context.route("https://drive.google.com/**", (route) =>
+      route.fulfill({ body: "" }),
+    );
+    await page.goto("/");
+    const button = page.getByRole("button", { name: "Choose CV version" });
+    await button.click();
+    const popup = page.waitForEvent("popup");
+    await page.locator("#hero ul a").nth(1).click();
+    const tab = await popup;
+    await tab.waitForURL(
+      "https://drive.google.com/file/d/1RpvMc8mo-8BpBisBqaH4sxwlR_xDpqdR/view",
+    );
+    await expect(page.locator("#hero ul")).toHaveCount(0);
+    await expect(button).toHaveAttribute("aria-expanded", "false");
+    await expect(button).toBeFocused();
+  });
+
   test("the CV menu stays open when focus moves to the page, as a click in it does in Safari", async ({
     page,
   }) => {

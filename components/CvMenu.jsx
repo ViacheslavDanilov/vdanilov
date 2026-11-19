@@ -118,6 +118,13 @@ export default function CvMenu() {
                 href={cv.url}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() =>
+                  // Close after the click, so the link is still in the page when it opens
+                  setTimeout(() => {
+                    setOpen(false);
+                    buttonRef.current?.focus();
+                  })
+                }
                 className="flex min-h-14 flex-col justify-center rounded-xl px-4 outline-none transition-colors hover:bg-ink/5 focus-visible:ring-[3px] focus-visible:ring-focus"
               >
                 <span className="text-sm font-medium text-strong">
