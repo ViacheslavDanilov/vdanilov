@@ -51,12 +51,19 @@ export default function CvMenu() {
 
   const [main] = CV_VERSIONS;
   const segment =
-    "flex items-center justify-center outline-none transition-colors duration-300 hover:bg-accent/10 focus-visible:ring-[3px] focus-visible:ring-focus";
+    "group/segment relative isolate flex cursor-pointer items-center justify-center outline-none focus-visible:ring-[3px] focus-visible:ring-focus";
+  const hoverLayer = (
+    <span
+      aria-hidden="true"
+      data-slot="button-hover"
+      className="pointer-events-none absolute inset-0 -z-10 rounded-[inherit] bg-accent/10 opacity-0 transition-opacity duration-300 group-hover/segment:opacity-100 group-focus-visible/segment:opacity-100"
+    />
+  );
 
   return (
     <div ref={rootRef} className="sm:relative">
       {/* Split button: the left part downloads the default CV, the right part opens the choice */}
-      <div className="inline-flex h-12 items-stretch rounded-full border border-accent/40 bg-accent/15 text-sm font-medium text-strong shadow-liquid backdrop-blur-[12px] sm:h-14">
+      <div className="inline-flex h-12 items-stretch rounded-full border border-accent/40 bg-accent/15 text-sm font-medium text-strong shadow-liquid backdrop-blur-[12px] transition-transform duration-300 motion-safe:has-[:active]:scale-[0.975] sm:h-14">
         <a
           href={main.url}
           target="_blank"
@@ -66,6 +73,7 @@ export default function CvMenu() {
             "gap-2 rounded-l-full pl-2.5 pr-2 sm:pl-8 sm:pr-6",
           )}
         >
+          {hoverLayer}
           <span className="hidden sm:inline-flex">
             <FontAwesomeIcon icon={faFileArrowDown} className="w-4 h-4" />
           </span>
@@ -86,6 +94,7 @@ export default function CvMenu() {
             "w-11 rounded-r-full border-l border-accent/40 sm:w-12",
           )}
         >
+          {hoverLayer}
           <FontAwesomeIcon
             icon={faChevronDown}
             className={cn(

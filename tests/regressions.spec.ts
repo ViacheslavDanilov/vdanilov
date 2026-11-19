@@ -1647,8 +1647,15 @@ test.describe("Home hero", () => {
     page,
   }) => {
     await page.goto("/");
-    for (const name of ["Contact me"]) {
-      const button = heroButton(page, name);
+    const hero = page.locator("#hero");
+    for (const [name, button] of [
+      ["Download CV", hero.getByRole("link", { name: "Download CV" })],
+      [
+        "Choose CV version",
+        hero.getByRole("button", { name: "Choose CV version" }),
+      ],
+      ["Contact me", heroButton(page, "Contact me")],
+    ] as const) {
       const layer = button.locator('[data-slot="button-hover"]');
       const state = () =>
         button.evaluate((el) => {
