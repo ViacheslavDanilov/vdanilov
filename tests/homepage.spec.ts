@@ -448,25 +448,24 @@ test.describe("Homepage - Hero Section", () => {
     }
   });
 
-  test("the CV menu opened above the button stays clear of the navbar", async ({
+  test("the CV menu opened above the button is drawn over the navbar", async ({
     page,
   }) => {
     await page.setViewportSize({ width: 568, height: 320 });
     await page.goto("/");
-    // Scroll down, then up, so the navbar shows and the pill sits 160px from the top
-    await page.locator("#hero").evaluate(async (hero) => {
+    const nav = page.locator("nav");
+    const shown = "matrix(1, 0, 0, 1, 0, 0)";
+    // Scrolling down to put the pill 160px from the top hides the navbar; focus brings it back
+    await page.locator("#hero").evaluate((hero) => {
       const pill = hero.querySelector('a[href*="drive.google.com"]')!;
       const top = pill.getBoundingClientRect().top + scrollY;
-      const settle = () => new Promise((done) => setTimeout(done, 100));
-      scrollTo({ top: top - 120, behavior: "instant" });
-      await settle();
       scrollTo({ top: top - 160, behavior: "instant" });
-      await settle();
     });
-    await expect(page.locator("nav")).toHaveCSS(
-      "transform",
-      "matrix(1, 0, 0, 1, 0, 0)",
+    await expect(nav).not.toHaveCSS("transform", shown);
+    await nav.evaluate((el) =>
+      el.querySelector("a")!.focus({ preventScroll: true }),
     );
+    await expect(nav).toHaveCSS("transform", shown);
     await page.getByRole("button", { name: "Choose CV version" }).click();
     const [above, onTop] = await page.locator("#hero ul").evaluate((ul) => {
       const box = ul.getBoundingClientRect();
