@@ -55,9 +55,9 @@ const PROJECTS = [
     stack: [
       "PyTorch",
       "Python",
-      "Depth Anything V2",
       "FastAPI",
       "Next.js",
+      "Depth Anything",
       "Hugging Face",
     ],
     link: "/portfolio/layerwise",
