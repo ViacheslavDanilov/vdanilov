@@ -1212,6 +1212,11 @@ test.describe("Last small tap targets at 360px", () => {
       "/education/",
       'main a[aria-label$="website"]:not(:has(img))',
     ],
+    [
+      "company links",
+      "/experience/",
+      'main a[aria-label$="website"]:not(:has(img))',
+    ],
   ];
 
   test("tap areas stay out of the keyboard focus ring", async ({ page }) => {
