@@ -264,7 +264,7 @@ const JobInfo = ({
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className="relative after:absolute after:-inset-3 text-sm font-medium text-strong md:hover:text-accent uppercase cursor-pointer transition-colors"
+      className="relative after:absolute after:-inset-x-3 after:-inset-y-1 text-sm font-medium text-strong md:hover:text-accent uppercase cursor-pointer transition-colors"
       aria-label={`${company} website`}
     >
       {company}
@@ -406,47 +406,50 @@ const ExperienceCard = ({ experience, compact = false }) => {
           </p>
         )}
 
-        {/* Tabs: a segmented control as wide as its two labels */}
+        {/* Toggles and panel share one block, so the panel opens without a gap jump */}
         <div
           className={cn(
-            "flex w-fit items-center justify-self-center gap-0.5 rounded-full border border-strong/5 bg-ink/5 p-0.5 light:border-line light:bg-transparent",
+            "flex flex-col",
             compact ? "md:-my-1" : "-my-1 md:-my-2",
           )}
-          role="group"
-          aria-label="Job information"
         >
-          {tabs.map((tab) => (
-            <Segment
-              key={tab.id}
-              label={tab.label}
-              selected={activeTab === tab.id}
-              layoutId={`tab-${experience.id}`}
-              aria-controls={
-                activeTab === tab.id
-                  ? `${experience.id}-${tab.id}-panel`
-                  : undefined
-              }
-              onClick={() => handleTabClick(tab.id)}
-            />
-          ))}
-        </div>
+          <div
+            className="flex w-fit items-center self-center gap-0.5 rounded-full border border-strong/5 bg-ink/5 p-0.5 light:border-line light:bg-transparent"
+            role="group"
+            aria-label="Job information"
+          >
+            {tabs.map((tab) => (
+              <Segment
+                key={tab.id}
+                label={tab.label}
+                selected={activeTab === tab.id}
+                layoutId={`tab-${experience.id}`}
+                aria-controls={
+                  activeTab === tab.id
+                    ? `${experience.id}-${tab.id}-panel`
+                    : undefined
+                }
+                onClick={() => handleTabClick(tab.id)}
+              />
+            ))}
+          </div>
 
-        {/* Tab Content with Accordion Animation */}
-        <AnimatePresence initial={false}>
-          {activeTab && (
-            <motion.div
-              key={`content-${experience.id}-${activeTab}`}
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="overflow-hidden"
-              id={`${experience.id}-${activeTab}-panel`}
-            >
-              <div className="pb-2">{tabContent}</div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+          <AnimatePresence initial={false}>
+            {activeTab && (
+              <motion.div
+                key={`content-${experience.id}-${activeTab}`}
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                className="overflow-hidden"
+                id={`${experience.id}-${activeTab}-panel`}
+              >
+                <div className="py-3">{tabContent}</div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
       </GlowCard>
     </article>
   );

@@ -909,7 +909,7 @@ test.describe("Touch targets at 360px", () => {
     });
   }
 
-  test("Experience company links take a tap 21px above and below", async ({
+  test("Experience company links keep their tap area off the title and dates", async ({
     page,
   }) => {
     await page.goto("/experience/");
@@ -921,10 +921,15 @@ test.describe("Touch targets at 360px", () => {
           link.scrollIntoView({ block: "center" });
           const { left, top, width, height } = link.getBoundingClientRect();
           const x = left + width / 2;
-          return [-21, 21]
-            .map((dy) => document.elementFromPoint(x, top + height / 2 + dy))
-            .filter((hit) => !link.contains(hit))
-            .map(() => link.textContent);
+          const at = (dy: number) =>
+            document.elementFromPoint(x, top + height / 2 + dy);
+          const reach = height / 2 + 3;
+          return [
+            ...[-reach, reach].filter((dy) => !link.contains(at(dy))),
+            ...[-(height / 2 + 8), height / 2 + 8].filter((dy) =>
+              link.contains(at(dy)),
+            ),
+          ].map(() => link.textContent);
         }),
       );
 
