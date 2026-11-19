@@ -14,21 +14,8 @@ import {
   highlightKeywords,
   BulletPoint,
   CardToggles,
+  BulletList,
 } from "@/components/ExperienceCard";
-
-// Content List Component
-const ContentList = ({ items }) => (
-  <ul className="space-y-3" role="list">
-    {items.map((item, index) => (
-      <li key={index} className="flex items-start gap-3">
-        <BulletPoint />
-        <p className="text-sm text-body leading-relaxed text-justify">
-          {highlightKeywords(item)}
-        </p>
-      </li>
-    ))}
-  </ul>
-);
 
 const EducationCard = ({ education }) => {
   const [activeTab, setActiveTab] = useState(null);
@@ -76,7 +63,7 @@ const EducationCard = ({ education }) => {
 
     switch (activeTab) {
       case "coreCourses":
-        return <ContentList items={education.coreCourses} />;
+        return <BulletList items={education.coreCourses} />;
       case "thesis":
         return (
           <div className="flex items-start gap-3">
