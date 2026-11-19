@@ -303,17 +303,64 @@ test.describe("Homepage - Hero Section", () => {
     );
   });
 
-  test("CV download button is visible and has correct link", async ({
+  test("Download CV opens a menu with the industry and academic CVs", async ({
     page,
   }) => {
     await page.goto("/");
 
-    const cvButton = page.getByRole("link", { name: /Download CV/i });
-    await expect(cvButton).toBeVisible();
-    await expect(cvButton).toHaveAttribute(
-      "href",
-      /^https:\/\/drive\.google\.com\/file\/d\/1viI3o1RBDoreQcbCwe5zc2NTWpxU7ouk\/view$/,
-    );
+    const button = page.getByRole("button", { name: "Download CV" });
+    await expect(button).toBeVisible();
+    await expect(button).toHaveAttribute("aria-expanded", "false");
+    await button.click();
+    await expect(button).toHaveAttribute("aria-expanded", "true");
+
+    const items = page.locator("#hero ul a");
+    await expect(items).toHaveText([/Industry CV/, /Academic CV/]);
+    for (const item of await items.all()) {
+      await expect(item).toHaveAttribute(
+        "href",
+        /^https:\/\/drive\.google\.com\/file\/d\/[\w-]+\/view$/,
+      );
+      await expect(item).toHaveAttribute("target", "_blank");
+      expect((await item.boundingBox())!.height).toBeGreaterThanOrEqual(44);
+    }
+  });
+
+  test("the CV menu closes on Escape, outside click and focus leaving", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    const button = page.getByRole("button", { name: "Download CV" });
+    const menu = page.locator("#hero ul");
+
+    await button.focus();
+    await page.keyboard.press("Enter");
+    await expect(menu).toBeVisible();
+    await page.keyboard.press("Escape");
+    await expect(menu).toHaveCount(0);
+    await expect(button).toBeFocused();
+
+    await button.click();
+    await expect(menu).toBeVisible();
+    await page.mouse.click(5, 300);
+    await expect(menu).toHaveCount(0);
+
+    await button.click();
+    await page.keyboard.press("Tab");
+    await page.keyboard.press("Tab");
+    await page.keyboard.press("Tab");
+    await expect(menu).toHaveCount(0);
+  });
+
+  test("the master CV is linked nowhere on the home page", async ({ page }) => {
+    await page.goto("/");
+    await page.getByRole("button", { name: "Download CV" }).click();
+    const hrefs = await page
+      .locator("a[href*='drive.google.com']")
+      .evaluateAll((links) => links.map((a) => a.getAttribute("href")));
+
+    expect(hrefs).toHaveLength(2);
+    expect(hrefs.join(" ")).not.toContain("1viI3o1RBDoreQcbCwe5zc2NTWpxU7ouk");
   });
 
   test("all 6 social links are present in the hero, in order", async ({

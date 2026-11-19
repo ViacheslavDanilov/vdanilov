@@ -55,6 +55,12 @@ const cardsSettled = (page: Page) =>
       ),
   );
 
+// Download CV is a button that opens the CV menu; Contact me is a link
+const heroButton = (page: Page, name: string) =>
+  page
+    .locator("#hero")
+    .getByRole(name === "Download CV" ? "button" : "link", { name });
+
 test.describe("Experience dates west of UTC", () => {
   test.use({ timezoneId: "America/Los_Angeles" });
 
@@ -1406,10 +1412,7 @@ test.describe("Home hero", () => {
       await page.goto("/");
       const tops = [];
       for (const name of ["Download CV", "Contact me"]) {
-        const box = (await page
-          .locator("#hero")
-          .getByRole("link", { name })
-          .boundingBox())!;
+        const box = (await heroButton(page, name).boundingBox())!;
         tops.push(box.y);
         expect([name, box.y + box.height <= height - 8]).toEqual([name, true]);
         expect([name, box.x >= 0 && box.x + box.width <= width]).toEqual([
@@ -1469,9 +1472,7 @@ test.describe("Home hero", () => {
     const bio = (await hero.getByText("peer-reviewed papers").boundingBox())!;
     const video = (await hero.locator("video").locator("..").boundingBox())!;
     const centre = (b: { x: number; width: number }) => b.x + b.width / 2;
-    const first = (await hero
-      .getByRole("link", { name: "Download CV" })
-      .boundingBox())!;
+    const first = (await heroButton(page, "Download CV").boundingBox())!;
     const last = (await hero
       .getByRole("link", { name: "Contact me" })
       .boundingBox())!;
@@ -1647,7 +1648,7 @@ test.describe("Home hero", () => {
   }) => {
     await page.goto("/");
     for (const name of ["Download CV", "Contact me"]) {
-      const button = page.locator("#hero").getByRole("link", { name });
+      const button = heroButton(page, name);
       const layer = button.locator('[data-slot="button-hover"]');
       const state = () =>
         button.evaluate((el) => {
@@ -1676,10 +1677,9 @@ test.describe("Home hero", () => {
   }) => {
     await page.goto("/");
     const fill = (name: string) =>
-      page
-        .locator("#hero")
-        .getByRole("link", { name })
-        .evaluate((el) => getComputedStyle(el).backgroundColor);
+      heroButton(page, name).evaluate(
+        (el) => getComputedStyle(el).backgroundColor,
+      );
     expect(await fill("Contact me")).toBe("rgba(0, 0, 0, 0)");
     expect(await fill("Download CV")).toMatch(/\/ 0\.15\)$/);
   });
@@ -1701,7 +1701,7 @@ test.describe("Home hero", () => {
           rect(hero.querySelector("[data-depth-flip]")!),
           rect(hero.querySelector("video")!.parentElement!),
           rect(hero.querySelector('a[aria-label="LinkedIn"] svg')!),
-          rect(hero.querySelector('a[aria-label="Download CV"]')!),
+          rect(hero.querySelector('button[aria-label="Download CV"]')!),
           rect(
             [...hero.querySelectorAll("p")].find((p) =>
               p.textContent!.includes("peer-reviewed papers"),
@@ -1724,7 +1724,7 @@ test.describe("Home hero", () => {
       await hero.locator("h1").boundingBox(),
       await hero.locator("video").boundingBox(),
       await hero.getByRole("link", { name: "LinkedIn" }).boundingBox(),
-      await hero.getByRole("link", { name: "Download CV" }).boundingBox(),
+      await heroButton(page, "Download CV").boundingBox(),
       await hero.getByText("peer-reviewed papers").boundingBox(),
     ].map((box) => box!.y);
     expect(tops).toEqual([...tops].sort((a, b) => a - b));
