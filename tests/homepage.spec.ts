@@ -459,9 +459,13 @@ test.describe("Homepage - Hero Section", () => {
     await page.locator("#hero").evaluate((hero) => {
       const pill = hero.querySelector('a[href*="drive.google.com"]')!;
       const top = pill.getBoundingClientRect().top + scrollY;
-      scrollTo({ top: top - 160, behavior: "instant" });
+      scrollTo({ top: top - 162, behavior: "instant" });
     });
-    await expect(nav).not.toHaveCSS("transform", shown);
+    // A scroll before hydration is missed, so nudge down until the navbar hides
+    await expect(async () => {
+      await page.evaluate(() => scrollBy({ top: 2, behavior: "instant" }));
+      await expect(nav).not.toHaveCSS("transform", shown, { timeout: 500 });
+    }).toPass();
     await nav.evaluate((el) =>
       el.querySelector("a")!.focus({ preventScroll: true }),
     );
