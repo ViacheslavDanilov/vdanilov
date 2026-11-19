@@ -246,7 +246,7 @@ const JobInfo = ({
   location,
   badge,
 }) => (
-  <div className="flex flex-col items-center text-center md:items-start md:text-left gap-1 md:gap-1.5 md:flex-1 md:-mt-1.5">
+  <div className="flex flex-col items-center text-center md:items-start md:text-left gap-2 md:gap-1.5 md:flex-1 md:-mt-1.5">
     <div className="flex flex-col items-center md:flex-row md:items-baseline md:justify-between md:gap-3 md:self-stretch">
       <h3 className="text-md font-bold uppercase tracking-wider text-strong">
         {title}
