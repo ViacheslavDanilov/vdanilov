@@ -127,10 +127,11 @@ const RESOURCES = [
 const TECH_STACK = [
   "Python",
   "PyTorch",
-  "Depth Anything V2",
   "FastAPI",
   "Next.js",
   "TypeScript",
+  "Depth Anything",
+  "Hugging Face",
 ];
 
 // A caption chip laid over one cell of a video that tiles several streams
@@ -339,10 +340,10 @@ export default function ProjectPage() {
             <ul className="space-y-4 text-body mb-6 text-justify">
               <li>
                 <strong className="text-strong">Stage A (Library):</strong> A
-                monocular depth estimator, Depth Anything V2 by default, gives
-                each foreground and background a disparity map, once and
-                offline. Each foreground&apos;s matte replaces the unreliable
-                estimate at its soft edge with disparity from inside the object.
+                monocular depth estimator, Depth Anything by default, gives each
+                foreground and background a disparity map, once and offline.
+                Each foreground&apos;s matte replaces the unreliable estimate at
+                its soft edge with disparity from inside the object.
               </li>
               <li>
                 <strong className="text-strong">Stage B (Sequences):</strong>{" "}
