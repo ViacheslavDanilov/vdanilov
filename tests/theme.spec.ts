@@ -325,6 +325,25 @@ test.describe("Dark islands", () => {
 });
 
 test.describe("Light polish", () => {
+  // A border in a wide-gamut colour leaves a yellow-green fringe on the pill's curve
+  test("badge borders are plain sRGB in light", async ({ browser }) => {
+    const context = await lightContext(browser, {
+      viewport: { width: 1440, height: 900 },
+    });
+    const page = await context.newPage();
+    for (const path of ["/experience/", "/education/"]) {
+      await page.goto(path);
+      const borders = await page
+        .locator("article span.rounded-full.border")
+        .evaluateAll((badges) =>
+          badges.map((el) => getComputedStyle(el).borderTopColor),
+        );
+      expect(borders.length, path).toBeGreaterThan(0);
+      for (const border of borders) expect(border).toMatch(/^rgba?\(/);
+    }
+    await context.close();
+  });
+
   test("the current page in the navbar is tinted blue in light", async ({
     browser,
   }) => {
