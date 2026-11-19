@@ -6,7 +6,6 @@ import {
   faChevronDown,
   faFileArrowDown,
 } from "@fortawesome/free-solid-svg-icons";
-import { LiquidButton } from "@/components/ui/liquid-button";
 import { CV_VERSIONS } from "@/lib/cv";
 import { cn } from "@/lib/utils";
 
@@ -50,28 +49,52 @@ export default function CvMenu() {
     };
   }, [open]);
 
+  const [main] = CV_VERSIONS;
+  const segment =
+    "flex items-center justify-center outline-none transition-colors duration-300 hover:bg-accent/10 focus-visible:ring-[3px] focus-visible:ring-focus";
+
   return (
     <div ref={rootRef} className="sm:relative">
-      <LiquidButton
-        ref={buttonRef}
-        ariaLabel="Download CV"
-        aria-expanded={open}
-        aria-controls={open ? menuId : undefined}
-        onClick={() => setOpen((current) => !current)}
-        className="px-3 sm:h-14 sm:px-10 bg-accent/15 border-accent/40"
-        hoverClassName="bg-accent/10"
-        textClassName="text-sm"
-      >
-        <FontAwesomeIcon icon={faFileArrowDown} className="w-4 h-4" />
-        &nbsp;Download CV&nbsp;
-        <FontAwesomeIcon
-          icon={faChevronDown}
+      {/* Split button: the left part downloads the default CV, the right part opens the choice */}
+      <div className="inline-flex h-12 items-stretch rounded-full border border-accent/40 bg-accent/15 text-sm font-medium text-strong shadow-liquid backdrop-blur-[12px] sm:h-14">
+        <a
+          href={main.url}
+          target="_blank"
+          rel="noopener noreferrer"
           className={cn(
-            "w-3 h-3 motion-safe:transition-transform motion-safe:duration-300",
-            open && "rotate-180",
+            segment,
+            "gap-2 rounded-l-full pl-2.5 pr-2 sm:pl-8 sm:pr-6",
           )}
-        />
-      </LiquidButton>
+        >
+          <span className="hidden sm:inline-flex">
+            <FontAwesomeIcon icon={faFileArrowDown} className="w-4 h-4" />
+          </span>
+          Download CV
+          <span className="sr-only">
+            ({main.label}, {main.pages} pages)
+          </span>
+        </a>
+        <button
+          ref={buttonRef}
+          type="button"
+          aria-label="Choose CV version"
+          aria-expanded={open}
+          aria-controls={open ? menuId : undefined}
+          onClick={() => setOpen((current) => !current)}
+          className={cn(
+            segment,
+            "w-11 rounded-r-full border-l border-accent/40 sm:w-12",
+          )}
+        >
+          <FontAwesomeIcon
+            icon={faChevronDown}
+            className={cn(
+              "w-3 h-3 motion-safe:transition-transform motion-safe:duration-300",
+              open && "rotate-180",
+            )}
+          />
+        </button>
+      </div>
 
       {open && (
         <ul

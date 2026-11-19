@@ -55,11 +55,11 @@ const cardsSettled = (page: Page) =>
       ),
   );
 
-// Download CV is a button that opens the CV menu; Contact me is a link
-const heroButton = (page: Page, name: string) =>
-  page
-    .locator("#hero")
-    .getByRole(name === "Download CV" ? "button" : "link", { name });
+// Download CV is the left part of a split button, so its box is the whole pill
+const heroButton = (page: Page, name: string) => {
+  const link = page.locator("#hero").getByRole("link", { name });
+  return name === "Download CV" ? link.locator("..") : link;
+};
 
 test.describe("Experience dates west of UTC", () => {
   test.use({ timezoneId: "America/Los_Angeles" });
@@ -1647,7 +1647,7 @@ test.describe("Home hero", () => {
     page,
   }) => {
     await page.goto("/");
-    for (const name of ["Download CV", "Contact me"]) {
+    for (const name of ["Contact me"]) {
       const button = heroButton(page, name);
       const layer = button.locator('[data-slot="button-hover"]');
       const state = () =>
@@ -1701,7 +1701,7 @@ test.describe("Home hero", () => {
           rect(hero.querySelector("[data-depth-flip]")!),
           rect(hero.querySelector("video")!.parentElement!),
           rect(hero.querySelector('a[aria-label="LinkedIn"] svg')!),
-          rect(hero.querySelector('button[aria-label="Download CV"]')!),
+          rect(hero.querySelector('a[href*="drive.google.com"]')!),
           rect(
             [...hero.querySelectorAll("p")].find((p) =>
               p.textContent!.includes("peer-reviewed papers"),

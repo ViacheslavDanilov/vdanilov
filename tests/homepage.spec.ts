@@ -303,12 +303,21 @@ test.describe("Homepage - Hero Section", () => {
     );
   });
 
-  test("Download CV opens a menu with the industry and academic CVs", async ({
+  test("Download CV is a split button: the industry CV, and a menu with both", async ({
     page,
   }) => {
     await page.goto("/");
 
-    const button = page.getByRole("button", { name: "Download CV" });
+    const main = page.locator("#hero").getByRole("link", {
+      name: /Download CV/,
+    });
+    await expect(main).toHaveAttribute(
+      "href",
+      "https://drive.google.com/file/d/1bE5CESQ41rQEfIBX1KdMHofyzrFVcXcf/view",
+    );
+    await expect(main).toHaveAttribute("target", "_blank");
+
+    const button = page.getByRole("button", { name: "Choose CV version" });
     await expect(button).toBeVisible();
     await expect(button).toHaveAttribute("aria-expanded", "false");
     await button.click();
@@ -330,7 +339,7 @@ test.describe("Homepage - Hero Section", () => {
     page,
   }) => {
     await page.goto("/");
-    const button = page.getByRole("button", { name: "Download CV" });
+    const button = page.getByRole("button", { name: "Choose CV version" });
     const menu = page.locator("#hero ul");
 
     await button.focus();
@@ -358,7 +367,7 @@ test.describe("Homepage - Hero Section", () => {
     page,
   }) => {
     await page.goto("/");
-    await page.getByRole("button", { name: "Download CV" }).focus();
+    await page.getByRole("button", { name: "Choose CV version" }).focus();
     await page.keyboard.press("Enter");
     await page.locator("main").focus();
     await expect(page.locator("#hero ul")).toBeVisible();
@@ -374,7 +383,7 @@ test.describe("Homepage - Hero Section", () => {
     ]) {
       await page.setViewportSize({ width, height });
       await page.goto("/");
-      await page.getByRole("button", { name: "Download CV" }).click();
+      await page.getByRole("button", { name: "Choose CV version" }).click();
       const menu = (await page.locator("#hero ul").boundingBox())!;
       expect([width, menu.y >= 0 && menu.y + menu.height <= height]).toEqual([
         width,
@@ -385,12 +394,12 @@ test.describe("Homepage - Hero Section", () => {
 
   test("the master CV is linked nowhere on the home page", async ({ page }) => {
     await page.goto("/");
-    await page.getByRole("button", { name: "Download CV" }).click();
+    await page.getByRole("button", { name: "Choose CV version" }).click();
     const hrefs = await page
       .locator("a[href*='drive.google.com']")
       .evaluateAll((links) => links.map((a) => a.getAttribute("href")));
 
-    expect(hrefs).toHaveLength(2);
+    expect(new Set(hrefs).size).toBe(2);
     expect(hrefs.join(" ")).not.toContain("1viI3o1RBDoreQcbCwe5zc2NTWpxU7ouk");
   });
 
