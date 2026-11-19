@@ -379,18 +379,6 @@ test.describe("Filter chips", () => {
     for (const badge of new Set(badges)) expect(chips).toContain(badge);
   });
 
-  test("the accordion tabs on an Education card have no outline", async ({
-    page,
-  }) => {
-    await page.goto("/education/");
-    const tab = page.locator("article button[aria-expanded]").first();
-    expect(
-      await tab.evaluate(
-        (el) => getComputedStyle(el, "::before").borderTopWidth,
-      ),
-    ).toBe("0px");
-  });
-
   for (const path of pages) {
     for (const width of [810, 1024, 1440]) {
       test(`${path} at ${width}px wraps with no chip alone on a row`, async ({
@@ -887,6 +875,7 @@ test.describe("Touch targets at 360px", () => {
     ["hero icons", "/", 'main a[aria-label][style*="inline-block"]'],
     ["filter tabs", "/portfolio/", "button[aria-pressed]"],
     ["card tabs", "/experience/", "article button[aria-expanded]"],
+    ["education tabs", "/education/", "article button[aria-expanded]"],
     ["footer links", "/", "footer ul a"],
     ["portfolio card titles", "/portfolio/?filter=all", "article a:has(h2)"],
   ];
@@ -909,32 +898,34 @@ test.describe("Touch targets at 360px", () => {
     });
   }
 
-  test("Experience company links keep their tap area off the title and dates", async ({
-    page,
-  }) => {
-    await page.goto("/experience/");
-    await cardsSettled(page);
-    const misses = await page
-      .locator('main a[aria-label$="website"]:not(:has(img))')
-      .evaluateAll((links) =>
-        links.flatMap((link) => {
-          link.scrollIntoView({ block: "center" });
-          const { left, top, width, height } = link.getBoundingClientRect();
-          const x = left + width / 2;
-          const at = (dy: number) =>
-            document.elementFromPoint(x, top + height / 2 + dy);
-          const reach = height / 2 + 3;
-          return [
-            ...[-reach, reach].filter((dy) => !link.contains(at(dy))),
-            ...[-(height / 2 + 8), height / 2 + 8].filter((dy) =>
-              link.contains(at(dy)),
-            ),
-          ].map(() => link.textContent);
-        }),
-      );
+  for (const path of ["/experience/", "/education/"]) {
+    test(`${path} company links keep their tap area off the title and dates`, async ({
+      page,
+    }) => {
+      await page.goto(path);
+      await cardsSettled(page);
+      const misses = await page
+        .locator('main a[aria-label$="website"]:not(:has(img))')
+        .evaluateAll((links) =>
+          links.flatMap((link) => {
+            link.scrollIntoView({ block: "center" });
+            const { left, top, width, height } = link.getBoundingClientRect();
+            const x = left + width / 2;
+            const at = (dy: number) =>
+              document.elementFromPoint(x, top + height / 2 + dy);
+            const reach = height / 2 + 3;
+            return [
+              ...[-reach, reach].filter((dy) => !link.contains(at(dy))),
+              ...[-(height / 2 + 8), height / 2 + 8].filter((dy) =>
+                link.contains(at(dy)),
+              ),
+            ].map(() => link.textContent);
+          }),
+        );
 
-    expect(misses).toEqual([]);
-  });
+      expect(misses).toEqual([]);
+    });
+  }
 
   test("a press moves a tab and a portfolio card", async ({ page }) => {
     await page.goto("/portfolio/");
@@ -1135,11 +1126,6 @@ test.describe("Last small tap targets at 360px", () => {
       "resource buttons",
       "/portfolio/deep-anatomy/",
       "main a:has-text('PhD Thesis'), main a:has-text('PhD Abstract')",
-    ],
-    [
-      "institution links",
-      "/education/",
-      'main a[aria-label$="website"]:not(:has(img))',
     ],
     ["certificate titles", "/education/", "article a.group\\/title"],
     ["certificate organisations", "/education/", "article a.tracking-wider"],
