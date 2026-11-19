@@ -352,6 +352,16 @@ test.describe("Homepage - Hero Section", () => {
     await expect(menu).toHaveCount(0);
   });
 
+  test("the CV menu stays open when focus moves to the page, as a click in it does in Safari", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    await page.getByRole("button", { name: "Download CV" }).focus();
+    await page.keyboard.press("Enter");
+    await page.locator("main").focus();
+    await expect(page.locator("#hero ul")).toBeVisible();
+  });
+
   test("the master CV is linked nowhere on the home page", async ({ page }) => {
     await page.goto("/");
     await page.getByRole("button", { name: "Download CV" }).click();

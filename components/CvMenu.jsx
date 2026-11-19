@@ -20,7 +20,11 @@ export default function CvMenu() {
     if (!open) return;
     const outside = (event) => !rootRef.current?.contains(event.target);
     const onPointerDown = (event) => outside(event) && setOpen(false);
-    const onFocusIn = (event) => outside(event) && setOpen(false);
+    // Safari moves focus to <main> on a click in the menu
+    const onFocusIn = (event) =>
+      outside(event) &&
+      !event.target.contains(rootRef.current) &&
+      setOpen(false);
     const onKeyDown = (event) => {
       if (event.key !== "Escape") return;
       setOpen(false);
