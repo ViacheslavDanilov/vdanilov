@@ -62,7 +62,7 @@ export default function CvMenu() {
 
   return (
     <div ref={rootRef} className="sm:relative">
-      {/* Split button: the left part downloads the default CV, the right part opens the choice */}
+      {/* Split button: the link opens the Industry CV, the chevron opens the menu */}
       <div className="inline-flex h-12 items-stretch rounded-full border border-accent/40 bg-accent/15 text-sm font-medium text-strong shadow-liquid backdrop-blur-[12px] transition-transform duration-300 motion-safe:has-[:active]:scale-[0.975]">
         <a
           href={main.url}
