@@ -303,17 +303,195 @@ test.describe("Homepage - Hero Section", () => {
     );
   });
 
-  test("CV download button is visible and has correct link", async ({
+  test("Download CV is a split button: the industry CV, and a menu with both", async ({
     page,
   }) => {
     await page.goto("/");
 
-    const cvButton = page.getByRole("link", { name: /Download CV/i });
-    await expect(cvButton).toBeVisible();
-    await expect(cvButton).toHaveAttribute(
+    const main = page.locator("#hero").getByRole("link", {
+      name: /Download CV/,
+    });
+    await expect(main).toHaveAttribute(
       "href",
-      /^https:\/\/drive\.google\.com\/file\/d\/1viI3o1RBDoreQcbCwe5zc2NTWpxU7ouk\/view$/,
+      "https://drive.google.com/file/d/1bE5CESQ41rQEfIBX1KdMHofyzrFVcXcf/view",
     );
+    await expect(main).toHaveAttribute("target", "_blank");
+    await expect(main).toHaveAccessibleName(
+      "Download CV (Industry CV, 3 pages)",
+    );
+
+    const button = page.getByRole("button", { name: "Choose CV version" });
+    const contact = page.locator("#hero").getByRole("link", {
+      name: "Contact me",
+    });
+    const before = await contact.boundingBox();
+    await expect(button).toBeVisible();
+    await expect(button).toHaveAttribute("aria-expanded", "false");
+    await button.click();
+    await expect(button).toHaveAttribute("aria-expanded", "true");
+    expect(await contact.boundingBox()).toEqual(before);
+
+    const items = page.locator("#hero ul a");
+    await expect(items).toHaveText([/Industry CV/, /Academic CV/]);
+    for (const item of await items.all()) {
+      await expect(item).toHaveAttribute(
+        "href",
+        /^https:\/\/drive\.google\.com\/file\/d\/[\w-]+\/view$/,
+      );
+      await expect(item).toHaveAttribute("target", "_blank");
+      expect((await item.boundingBox())!.height).toBeGreaterThanOrEqual(44);
+    }
+  });
+
+  test("the CV menu opens on Enter and Space, closes on Escape, outside click and focus leaving", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    const button = page.getByRole("button", { name: "Choose CV version" });
+    const menu = page.locator("#hero ul");
+
+    await button.focus();
+    await page.keyboard.press("Enter");
+    await expect(menu).toBeVisible();
+    await page.keyboard.press("Tab");
+    await expect(page.locator("#hero ul a").first()).toBeFocused();
+    await page.keyboard.press("Escape");
+    await expect(menu).toHaveCount(0);
+    await expect(button).toBeFocused();
+
+    await button.click();
+    await expect(menu).toBeVisible();
+    await page.mouse.click(5, 300);
+    await expect(menu).toHaveCount(0);
+
+    await button.focus();
+    await page.keyboard.press("Space");
+    await expect(menu).toBeVisible();
+    await page.keyboard.press("Tab");
+    await page.keyboard.press("Tab");
+    await page.keyboard.press("Tab");
+    await expect(menu).toHaveCount(0);
+  });
+
+  test("choosing a CV opens it in a new tab and closes the menu", async ({
+    page,
+    context,
+  }) => {
+    await context.route("https://drive.google.com/**", (route) =>
+      route.fulfill({ body: "" }),
+    );
+    await page.goto("/");
+    const button = page.getByRole("button", { name: "Choose CV version" });
+    await button.click();
+    const popup = page.waitForEvent("popup");
+    await page.locator("#hero ul a").nth(1).click();
+    const tab = await popup;
+    await tab.waitForURL(
+      "https://drive.google.com/file/d/1RpvMc8mo-8BpBisBqaH4sxwlR_xDpqdR/view",
+    );
+    await expect(page.locator("#hero ul")).toHaveCount(0);
+    await expect(button).toHaveAttribute("aria-expanded", "false");
+    await expect(button).toBeFocused();
+
+    await button.click();
+    const next = page.waitForEvent("popup");
+    await page
+      .locator("#hero")
+      .getByRole("link", { name: /Download CV/ })
+      .click();
+    await (await next).waitForURL(/1bE5CESQ41rQEfIBX1KdMHofyzrFVcXcf/);
+    await expect(page.locator("#hero ul")).toHaveCount(0);
+    await expect(button).toHaveAttribute("aria-expanded", "false");
+  });
+
+  test("the CV menu stays open when focus moves to the page, as a click in it does in Safari", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    await page.getByRole("button", { name: "Choose CV version" }).focus();
+    await page.keyboard.press("Enter");
+    await page.locator("main").focus();
+    await expect(page.locator("#hero ul")).toBeVisible();
+  });
+
+  test("the CV menu stays on screen when the button is near the bottom", async ({
+    page,
+  }) => {
+    for (const [width, height] of [
+      [320, 640],
+      [360, 640],
+      [1366, 657],
+      [1440, 900],
+    ]) {
+      await page.setViewportSize({ width, height });
+      await page.goto("/");
+      await page.getByRole("button", { name: "Choose CV version" }).click();
+      const menu = (await page.locator("#hero ul").boundingBox())!;
+      expect([
+        width,
+        menu.y >= 0 && menu.y + menu.height <= height,
+        menu.x >= 0 && menu.x + menu.width <= width,
+      ]).toEqual([width, true, true]);
+      // Centred under the pill from 640px, under the button row below it
+      const offset = await page.locator("#hero ul").evaluate((ul) => {
+        const centre = (el: Element) => {
+          const box = el.getBoundingClientRect();
+          return box.left + box.width / 2;
+        };
+        const anchor =
+          innerWidth >= 640
+            ? ul.previousElementSibling!
+            : ul.parentElement!.parentElement!;
+        return Math.abs(centre(ul) - centre(anchor));
+      });
+      expect([width, offset]).toEqual([width, expect.closeTo(0, 0)]);
+    }
+  });
+
+  test("the CV menu opened above the button is drawn over the navbar", async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 568, height: 320 });
+    await page.goto("/");
+    const nav = page.locator("nav");
+    const shown = "matrix(1, 0, 0, 1, 0, 0)";
+    // Scrolling down to put the pill 160px from the top hides the navbar; focus brings it back
+    await page.locator("#hero").evaluate((hero) => {
+      const pill = hero.querySelector('a[href*="drive.google.com"]')!;
+      const top = pill.getBoundingClientRect().top + scrollY;
+      scrollTo({ top: top - 162, behavior: "instant" });
+    });
+    // A scroll before hydration is missed, so nudge down until the navbar hides
+    await expect(async () => {
+      await page.evaluate(() => scrollBy({ top: 2, behavior: "instant" }));
+      await expect(nav).not.toHaveCSS("transform", shown, { timeout: 500 });
+    }).toPass();
+    await nav.evaluate((el) =>
+      el.querySelector("a")!.focus({ preventScroll: true }),
+    );
+    await expect(nav).toHaveCSS("transform", shown);
+    await page.getByRole("button", { name: "Choose CV version" }).click();
+    const [above, onTop] = await page.locator("#hero ul").evaluate((ul) => {
+      const box = ul.getBoundingClientRect();
+      const pill = ul.previousElementSibling!.getBoundingClientRect();
+      const hit = document.elementFromPoint(
+        box.left + box.width / 2,
+        box.top + 8,
+      );
+      return [box.bottom <= pill.top, ul.contains(hit)];
+    });
+    expect([above, onTop]).toEqual([true, true]);
+  });
+
+  test("the master CV is linked nowhere on the home page", async ({ page }) => {
+    await page.goto("/");
+    await page.getByRole("button", { name: "Choose CV version" }).click();
+    const hrefs = await page
+      .locator("a[href*='drive.google.com']")
+      .evaluateAll((links) => links.map((a) => a.getAttribute("href")));
+
+    expect(new Set(hrefs).size).toBe(2);
+    expect(hrefs.join(" ")).not.toContain("1viI3o1RBDoreQcbCwe5zc2NTWpxU7ouk");
   });
 
   test("all 6 social links are present in the hero, in order", async ({

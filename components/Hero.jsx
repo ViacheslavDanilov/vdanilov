@@ -3,6 +3,7 @@ import Image from "next/image";
 import AutoplayVideo from "@/components/AutoplayVideo";
 import { PEER_REVIEWED } from "@/lib/publications";
 import DepthFlipText from "@/components/ui/depth-flip-text";
+import CvMenu from "@/components/CvMenu";
 import { LiquidButtonLink } from "@/components/ui/liquid-button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -12,7 +13,7 @@ import {
   faOrcid,
   faResearchgate,
 } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope, faFileArrowDown } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 const EMAIL = "viacheslav.v.danilov@gmail.com";
 
@@ -133,26 +134,18 @@ const Hero = () => {
             {PEER_REVIEWED} peer-reviewed papers.
           </p>
 
-          <div className="order-3 lg:order-none flex flex-wrap items-center justify-center gap-2 sm:gap-3">
-            <LiquidButtonLink
-              href="https://drive.google.com/file/d/1viI3o1RBDoreQcbCwe5zc2NTWpxU7ouk/view"
-              target="_blank"
-              ariaLabel="Download CV"
-              className="px-3.5 sm:h-14 sm:px-10 bg-accent/15 border-accent/40"
-              hoverClassName="bg-accent/10"
-              textClassName="text-sm"
-            >
-              <FontAwesomeIcon icon={faFileArrowDown} className="w-4 h-4" />
-              &nbsp;Download CV
-            </LiquidButtonLink>
+          <div className="relative order-3 lg:order-none flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+            <CvMenu />
             <LiquidButtonLink
               href={`mailto:${EMAIL}`}
               ariaLabel="Contact me"
-              className="px-3.5 sm:h-14 sm:px-10"
-              textClassName="text-sm"
+              className="px-3 sm:px-8"
+              textClassName="flex items-center gap-2 text-sm"
             >
-              <FontAwesomeIcon icon={faEnvelope} className="w-4 h-4" />
-              &nbsp;Contact me
+              <span className="hidden sm:inline-flex">
+                <FontAwesomeIcon icon={faEnvelope} className="w-4 h-4" />
+              </span>
+              Contact me
             </LiquidButtonLink>
           </div>
         </div>
