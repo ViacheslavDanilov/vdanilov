@@ -1166,9 +1166,18 @@ test.describe("Last small tap targets at 360px", () => {
     });
   }
 
+  // Narrow tap areas, kept out of the 44px list, still hide their area on focus
+  const narrowTargets = [
+    [
+      "institution links",
+      "/education/",
+      'main a[aria-label$="website"]:not(:has(img))',
+    ],
+  ];
+
   test("tap areas stay out of the keyboard focus ring", async ({ page }) => {
     test.setTimeout(120_000);
-    for (const [name, path, selector] of targets) {
+    for (const [name, path, selector] of [...targets, ...narrowTargets]) {
       await page.goto(path, { waitUntil: "domcontentloaded" });
       await page.keyboard.press("Shift");
       const focused = await page.locator(selector).evaluateAll((links) =>
