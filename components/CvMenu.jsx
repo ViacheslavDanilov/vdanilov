@@ -67,7 +67,7 @@ export default function CvMenu() {
         <FontAwesomeIcon
           icon={faChevronDown}
           className={cn(
-            "w-3 h-3 transition-transform duration-300",
+            "w-3 h-3 motion-safe:transition-transform motion-safe:duration-300",
             open && "rotate-180",
           )}
         />
