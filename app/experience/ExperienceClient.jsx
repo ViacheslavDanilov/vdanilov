@@ -160,7 +160,7 @@ const EXPERIENCES_DATA = [
     logo: "/experience/core-roles/quantori.svg",
     logoLight: "/experience/core-roles/quantori-on-light.svg",
     summary:
-      "Led 6 developers in ML and computer vision: tumor immune phenotyping for Boehringer Ingelheim, chromosomal instability for Volastra, and explainable chest radiography for Beth Israel",
+      "Led 6 developers in ML and computer vision: tumor immune phenotyping for Boehringer Ingelheim, chromosomal instability for Volastra, and explainable chest radiography for Beth Israel Deaconess",
     responsibilities: [
       "Led 6 developers across ML, data science and computer vision for pharma and hospital clients",
       "Turned histopathology slides into tumor immune phenotypes for Boehringer Ingelheim with a cell classifier at 89% weighted F1, replacing a pathologist's manual read",
