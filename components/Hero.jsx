@@ -139,11 +139,13 @@ const Hero = () => {
             <LiquidButtonLink
               href={`mailto:${EMAIL}`}
               ariaLabel="Contact me"
-              className="px-3 sm:h-14 sm:px-10"
-              textClassName="text-sm"
+              className="px-3 sm:px-8"
+              textClassName="flex items-center gap-2 text-sm"
             >
-              <FontAwesomeIcon icon={faEnvelope} className="w-4 h-4" />
-              &nbsp;Contact me
+              <span className="hidden sm:inline-flex">
+                <FontAwesomeIcon icon={faEnvelope} className="w-4 h-4" />
+              </span>
+              Contact me
             </LiquidButtonLink>
           </div>
         </div>

@@ -68,8 +68,8 @@ components:
     backgroundColor: "transparent"
     textColor: "{colors.paper-light}"
     rounded: "{rounded.full}"
-    height: "56px"
-    padding: "0 40px"
+    height: "48px"
+    padding: "0 32px"
   glow-card:
     backgroundColor: "rgba(153,153,153,0.06)"
     textColor: "{colors.paper-light}"
@@ -199,7 +199,7 @@ Pills for anything clickable and small (nav, buttons, badges, tabs, accent bar).
 
 ### Buttons
 
-- **Shape:** full pill, 56px tall at the main size.
+- **Shape:** full pill, 48px tall at the main size.
 - **Primary (glass):** transparent fill, white 10% border, blur 12px, inset highlight shadows, light text at 14px, weight 500.
 - **Primary tint:** the one main action on a screen (Download CV in the hero) adds a cyan 15% fill (about 25% on hover, from the hover layer) and a cyan 40% border to the glass button. The second action stays plain glass.
 - **Hover / Focus:** a light layer fades in over 300ms (white 10% on the glass button, cyan 10% on the tinted Download CV), the button does not scale, and a 3px solid cyan focus ring shows on keyboard focus. Pressing scales it to 0.975. The fade is an opacity change on its own layer, which Chrome and Safari both paint at once; changing the background of the button itself lit slowly in Safari. Scaling on hover is left out because Chrome re-rasterises the label at the start and end of the scale, which shows as a blink of the text. The button has no `will-change`.
@@ -222,7 +222,7 @@ Pills for anything clickable and small (nav, buttons, badges, tabs, accent bar).
 - Below lg everything is one centred column in this order: name, roles, video, icons, buttons, paragraph, so that both buttons show on the first screen of a 360px phone, with at least 8px to spare. The page wrapper adds only 16px above the hero on phones, and the icons sit 24px under the video. The next role sits over the current one on one line, so the slot never wraps and never moves the layout. Each cycle holds 2 seconds and flips for about 1.5. Hovering pauses the flip. Screen readers get the three roles as one list and the changing slot is hidden from them. With reduced motion all three show, stacked, and never change.
 - The blocks of the hero (name, roles, video, icons, buttons, paragraph) are 24px apart edge to edge on phones and tablets and 32px apart from lg, within about 3px, because the name, roles and paragraph have tight line heights that keep the box gaps equal to the visible ones.
 - The paragraph is in the body colour and names the two roles in semibold white, with no chip and no colour, so the tone and weight set them apart and the first line starts flush with the text below it.
-- The one h1 on the page is the name. Download CV is a split button, one tinted pill with two parts. The left part opens the Industry CV (3 pages) in the Drive viewer in a new tab, where it can be downloaded. The right part, a chevron 44px wide (48px from 640px), opens a small menu with Industry CV and Academic CV (4 pages). The menu is a glass panel 16rem wide (or the screen width less 3rem), centred under the pill from 640px and under the button row below it, and opens above the pill when there is room above and none below. It closes on Escape, on a click outside and when focus leaves. Below 640px the left part drops its icon so both buttons stay on one row at 360px. The master CV is not linked from the site. Contact me opens an email. The profile icons are 44px targets. Both buttons are 48px tall below 640px and 56px from 640px. Contact me has 12px side padding (40px from 640px), and the left part of the pill has 10px before the label and 8px after it (32px and 24px from 640px), so both fit one row on a 360px phone: 298 of 312px in Chromium on macOS and 308 in Chromium on Linux, where the text renders wider.
+- The one h1 on the page is the name. Download CV is a split button, one tinted pill with two parts. The left part opens the Industry CV (3 pages) in the Drive viewer in a new tab, where it can be downloaded. The right part, a chevron 44px wide, opens a small menu with Industry CV and Academic CV (4 pages). The menu is a glass panel 16rem wide (or the screen width less 3rem), centred under the pill from 640px and under the button row below it, and opens above the pill when there is room above and none below. It closes on Escape, on a click outside and when focus leaves. Both buttons follow one rule: 48px tall at every width, and the icon (file, envelope) shows from 640px and is dropped below it, so both stay on one row on a 360px phone. The master CV is not linked from the site. Contact me opens an email. The profile icons are 44px targets. Side padding is 12px below 640px and 32px from it, and the left part of the pill has 12px before the label and 10px after it. The row takes 281 of 312px on a 360px phone in Chromium on macOS.
 
 ### Navigation
 

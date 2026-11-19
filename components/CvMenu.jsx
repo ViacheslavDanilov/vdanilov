@@ -63,14 +63,14 @@ export default function CvMenu() {
   return (
     <div ref={rootRef} className="sm:relative">
       {/* Split button: the left part downloads the default CV, the right part opens the choice */}
-      <div className="inline-flex h-12 items-stretch rounded-full border border-accent/40 bg-accent/15 text-sm font-medium text-strong shadow-liquid backdrop-blur-[12px] transition-transform duration-300 motion-safe:has-[:active]:scale-[0.975] sm:h-14">
+      <div className="inline-flex h-12 items-stretch rounded-full border border-accent/40 bg-accent/15 text-sm font-medium text-strong shadow-liquid backdrop-blur-[12px] transition-transform duration-300 motion-safe:has-[:active]:scale-[0.975]">
         <a
           href={main.url}
           target="_blank"
           rel="noopener noreferrer"
           className={cn(
             segment,
-            "gap-2 rounded-l-full pl-2.5 pr-2 sm:pl-8 sm:pr-6",
+            "gap-2 rounded-l-full pl-3 pr-2.5 sm:pl-8 sm:pr-6",
           )}
         >
           {hoverLayer}
@@ -82,6 +82,7 @@ export default function CvMenu() {
             ({main.label}, {main.pages} pages)
           </span>
         </a>
+        <span aria-hidden="true" className="my-3 w-px bg-ink/20" />
         <button
           ref={buttonRef}
           type="button"
@@ -89,10 +90,7 @@ export default function CvMenu() {
           aria-expanded={open}
           aria-controls={open ? menuId : undefined}
           onClick={() => setOpen((current) => !current)}
-          className={cn(
-            segment,
-            "w-11 rounded-r-full border-l border-accent/40 sm:w-12",
-          )}
+          className={cn(segment, "w-11 rounded-r-full")}
         >
           {hoverLayer}
           <FontAwesomeIcon
