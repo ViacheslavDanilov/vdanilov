@@ -3,8 +3,9 @@ import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { GlowCard } from "@/components/ui/glow-card";
+import { PROJECTS as ALL_PROJECTS } from "@/lib/projects";
 
-const PROJECTS = [
+const FEATURED = [
   {
     id: "deep-brainwatch",
     title: "Deep BrainWatch",
@@ -64,6 +65,13 @@ const PROJECTS = [
     image: "/portfolio/previews/layerwise.jpg",
   },
 ];
+
+// Newest first, by the project's date in lib/projects.js, the order the CV prints too
+const PROJECTS = FEATURED.map((project) => {
+  const entry = ALL_PROJECTS.find(({ id }) => id === project.id);
+  if (!entry) throw new Error(`Unknown project: ${project.id}`);
+  return { ...project, date: entry.date };
+}).sort((a, b) => new Date(b.date) - new Date(a.date));
 
 const FeaturedProjects = () => {
   return (
