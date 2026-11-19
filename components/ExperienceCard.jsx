@@ -127,8 +127,8 @@ export function highlightKeywords(text) {
   return result;
 }
 
-// Responsibilities list component
-const ResponsibilitiesList = ({ items }) => (
+// Bullet list of text lines, keywords highlighted
+export const BulletList = ({ items }) => (
   <ul className="space-y-3" role="list">
     {items.map((item, index) => (
       <li key={index} className="flex items-start gap-3">
@@ -382,7 +382,7 @@ const ExperienceCard = ({ experience, compact = false }) => {
 
     switch (activeTab) {
       case "responsibilities":
-        return <ResponsibilitiesList items={experience.responsibilities} />;
+        return <BulletList items={experience.responsibilities} />;
       case "links":
         return <LinksList links={experience.links} />;
       default:
