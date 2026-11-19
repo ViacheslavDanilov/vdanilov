@@ -11,16 +11,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "motion/react";
 import { GlowCard } from "@/components/ui/glow-card";
-import { Tab } from "@/components/ui/tab";
 import { Badge } from "@/components/ui/badge";
 import NowrapTail from "@/components/ui/nowrap-tail";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faExternalLink,
-  faBriefcase,
-  faLink,
-  faFlask,
-} from "@fortawesome/free-solid-svg-icons";
+import { faExternalLink } from "@fortawesome/free-solid-svg-icons";
+import { cn } from "@/lib/utils";
 
 // --- CONFIGURATION CONSTANTS ---
 const COMPANY_URLS = {
@@ -111,9 +106,10 @@ const HIGHLIGHT_KEYWORDS = [
 
 const HIGHLIGHT_CLASS =
   "inline-block bg-accent/10 text-accent font-semibold px-2 py-0.75 rounded-xl";
+const SOFT_HIGHLIGHT_CLASS = "text-accent font-semibold";
 
-// Helper to highlight keywords in a string
-export function highlightKeywords(text) {
+// Helper to highlight keywords in a string; soft drops the chip
+export function highlightKeywords(text, soft = false) {
   if (typeof text !== "string") return text;
   let result = [text];
   HIGHLIGHT_KEYWORDS.forEach((word) => {
@@ -123,7 +119,10 @@ export function highlightKeywords(text) {
             i < arr.length - 1
               ? [
                   seg,
-                  <span key={word + i} className={HIGHLIGHT_CLASS}>
+                  <span
+                    key={word + i}
+                    className={soft ? SOFT_HIGHLIGHT_CLASS : HIGHLIGHT_CLASS}
+                  >
                     {word}
                   </span>,
                 ]
@@ -142,7 +141,7 @@ const ResponsibilitiesList = ({ items }) => (
       <li key={index} className="flex items-start gap-3">
         <BulletPoint />
         <p className="text-sm text-body leading-relaxed text-justify">
-          {highlightKeywords(item)}
+          {highlightKeywords(item, true)}
         </p>
       </li>
     ))}
@@ -244,7 +243,7 @@ export const CompanyLogo = ({
   </a>
 );
 
-// Job info component: centred on phones, left-aligned from md
+// Job info: centred on phones, left-aligned from md; the title's cap line meets the logo's top edge
 const JobInfo = ({
   title,
   company,
@@ -252,19 +251,20 @@ const JobInfo = ({
   period,
   duration,
   location,
-  className = "",
+  badge,
 }) => (
-  <div
-    className={`flex flex-col items-center text-center md:items-start md:text-left gap-2 ${className}`}
-  >
-    <h3 className="text-md font-bold uppercase tracking-wider text-strong">
-      {title}
-    </h3>
+  <div className="flex flex-col items-center text-center md:items-start md:text-left gap-1 md:gap-1.5 md:flex-1 md:-mt-1.5">
+    <div className="flex flex-col items-center md:flex-row md:items-baseline md:justify-between md:gap-3 md:self-stretch">
+      <h3 className="text-md font-bold uppercase tracking-wider text-strong">
+        {title}
+      </h3>
+      {badge}
+    </div>
     <a
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className="relative after:absolute after:-inset-3 text-sm font-medium text-strong md:hover:text-accent uppercase cursor-pointer transition-colors"
+      className="relative after:absolute after:-inset-x-3 after:-inset-y-1 text-sm font-medium text-strong md:hover:text-accent uppercase cursor-pointer transition-colors"
       aria-label={`${company} website`}
     >
       {company}
@@ -278,7 +278,38 @@ const JobInfo = ({
   </div>
 );
 
-const ExperienceCard = ({ experience }) => {
+// A segment: a 44px tap box around a 28px pill
+const Segment = ({ label, selected, layoutId, ...props }) => (
+  <button
+    type="button"
+    aria-expanded={selected}
+    className={cn(
+      "group relative -my-2 flex h-11 cursor-pointer items-center rounded-full px-3.5 text-sm font-semibold outline-none transition-[color,scale] motion-safe:active:scale-95",
+      selected
+        ? "text-strong light:text-accent"
+        : "text-body hover:text-strong",
+    )}
+    {...props}
+  >
+    <span
+      className={cn(
+        "absolute inset-x-0 inset-y-2 rounded-full transition-colors group-focus-visible:outline-2 group-focus-visible:outline-focus",
+        !selected && "group-hover:bg-ink/5 light:group-hover:bg-focus/8",
+      )}
+      aria-hidden="true"
+    />
+    {selected && (
+      <motion.span
+        layoutId={layoutId}
+        transition={{ type: "spring", duration: 0.4 }}
+        className="absolute inset-x-0 inset-y-2 rounded-full border border-accent/40 bg-accent/15 light:border-focus/40 light:bg-focus/10"
+      />
+    )}
+    <span className="relative">{label}</span>
+  </button>
+);
+
+const ExperienceCard = ({ experience, compact = false }) => {
   const [activeTab, setActiveTab] = useState(null);
   const cardRef = useRef(null);
 
@@ -295,10 +326,8 @@ const ExperienceCard = ({ experience }) => {
   }, [activeTab]);
 
   const tabs = [
-    { id: "responsibilities", label: "Responsibilities", icon: faBriefcase },
-    ...(experience.links.length > 0
-      ? [{ id: "links", label: "Links", icon: faLink }]
-      : []),
+    { id: "responsibilities", label: "Responsibilities" },
+    ...(experience.links.length > 0 ? [{ id: "links", label: "Links" }] : []),
   ];
 
   // Optimized tab click handler with useCallback
@@ -320,20 +349,25 @@ const ExperienceCard = ({ experience }) => {
     }
   }, [activeTab, experience.responsibilities, experience.links]);
 
-  // Category badge configuration
   const category =
     experience.category === "research"
-      ? { variant: "blue", icon: faFlask, label: "Research" }
-      : { variant: "teal", icon: faBriefcase, label: "Industry" };
+      ? { variant: "blue", label: "Research" }
+      : { variant: "teal", label: "Industry" };
 
   return (
     <article
       ref={cardRef}
       className="self-start w-full animate-card-in motion-reduce:animate-card-fade-in"
     >
-      <GlowCard className="w-full h-full p-5" spotlightSize={300}>
+      <GlowCard
+        className={cn(
+          "w-full h-full",
+          compact ? "p-4 gap-3 md:p-5 md:gap-4" : "p-5 gap-4 md:p-6 md:gap-5",
+        )}
+        spotlightSize={300}
+      >
         {/* Header: stacked and centred on phones, a row from md */}
-        <div className="max-md:relative mb-4 flex flex-col gap-3 md:flex-row md:items-start md:gap-6">
+        <div className="max-md:relative flex flex-col gap-3 md:flex-row md:items-start md:gap-5">
           <CompanyLogo
             logo={experience.logo}
             logoLight={experience.logoLight}
@@ -343,76 +377,79 @@ const ExperienceCard = ({ experience }) => {
             priority={experience.logoPriority}
             className="max-md:z-10 self-center md:self-auto"
           />
-          <div className="md:flex-1 md:flex md:items-start md:justify-between md:gap-4">
-            <JobInfo
-              title={experience.title}
-              company={experience.company}
-              url={COMPANY_URLS[experience.company]}
-              period={experience.period}
-              duration={experience.duration}
-              location={experience.location}
-              className="space-y-2"
-            />
-            {/* Category badge: top-right corner on phones, beside the job info from md */}
-            {experience.category && (
-              <Badge
-                variant={category.variant}
-                icon={category.icon}
-                className="absolute top-0 right-0 md:static md:flex-shrink-0"
-              >
-                {category.label}
-              </Badge>
-            )}
-          </div>
+          <JobInfo
+            title={experience.title}
+            company={experience.company}
+            url={COMPANY_URLS[experience.company]}
+            period={experience.period}
+            duration={experience.duration}
+            location={experience.location}
+            badge={
+              // A compact card has no badge: every visit is research
+              experience.category &&
+              !compact && (
+                <Badge
+                  variant={category.variant}
+                  className="absolute top-0 right-0 md:static md:shrink-0 px-2 py-0.5"
+                >
+                  {category.label}
+                </Badge>
+              )
+            }
+          />
         </div>
 
         {/* Summary */}
         {experience.summary && (
-          <p className="mb-4 border-l-2 border-accent/40 pl-3 text-sm leading-relaxed text-body">
+          <p className="border-l-2 border-accent/40 pl-3 text-sm leading-relaxed text-body">
             {experience.summary}
           </p>
         )}
 
-        {/* Tabs */}
+        {/* Toggles and panel share one block, so the panel opens without a gap jump */}
         <div
-          className="flex items-center justify-center gap-1 mb-4 bg-surface/30 rounded-full p-1 border border-strong/10"
-          role="group"
-          aria-label="Job information"
-        >
-          {tabs.map((tab) => (
-            <Tab
-              key={tab.id}
-              text={tab.label}
-              icon={tab.icon}
-              selected={activeTab === tab.id}
-              aria-expanded={activeTab === tab.id}
-              aria-controls={
-                activeTab === tab.id
-                  ? `${experience.id}-${tab.id}-panel`
-                  : undefined
-              }
-              setSelected={() => handleTabClick(tab.id)}
-              layoutId={`tab-${experience.id}`}
-            />
-          ))}
-        </div>
-
-        {/* Tab Content with Accordion Animation */}
-        <AnimatePresence initial={false}>
-          {activeTab && (
-            <motion.div
-              key={`content-${experience.id}-${activeTab}`}
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="overflow-hidden"
-              id={`${experience.id}-${activeTab}-panel`}
-            >
-              <div className="py-2">{tabContent}</div>
-            </motion.div>
+          className={cn(
+            "flex flex-col",
+            compact ? "md:-my-1" : "-my-1 md:-my-2",
           )}
-        </AnimatePresence>
+        >
+          <div
+            className="flex w-fit items-center self-center gap-0.5 rounded-full border border-strong/5 bg-ink/5 p-0.5 light:border-line light:bg-transparent"
+            role="group"
+            aria-label="Job information"
+          >
+            {tabs.map((tab) => (
+              <Segment
+                key={tab.id}
+                label={tab.label}
+                selected={activeTab === tab.id}
+                layoutId={`tab-${experience.id}`}
+                aria-controls={
+                  activeTab === tab.id
+                    ? `${experience.id}-${tab.id}-panel`
+                    : undefined
+                }
+                onClick={() => handleTabClick(tab.id)}
+              />
+            ))}
+          </div>
+
+          <AnimatePresence initial={false}>
+            {activeTab && (
+              <motion.div
+                key={`content-${experience.id}-${activeTab}`}
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                className="overflow-hidden"
+                id={`${experience.id}-${activeTab}-panel`}
+              >
+                <div className="py-3">{tabContent}</div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
       </GlowCard>
     </article>
   );
