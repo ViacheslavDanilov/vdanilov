@@ -81,10 +81,7 @@ components:
     rounded: "{rounded.full}"
     padding: "4px 12px"
   keyword-highlight:
-    backgroundColor: "rgba(3,177,251,0.10)"
     textColor: "{colors.signal-cyan}"
-    rounded: "{rounded.xl}"
-    padding: "3px 8px"
   tab-selected:
     backgroundColor: "rgba(3,177,251,0.20)"
     rounded: "{rounded.full}"
@@ -128,7 +125,7 @@ A restrained dark palette: ink ground, slate cards, one cyan accent, and a cool 
 - **Paper Light** (#f1f4f8): primary text, headings, button text.
 - **Text Soft** (#c4ccd8): inactive nav, the hero roles and paragraph. Body copy uses the same body token (`text-body`).
 - **Text Muted** (#9aa5b4): dates, locations, secondary lines.
-- **Glass lines**: the glow card border is 1.5px in the same 6% grey as its fill. Logo tiles and tab rails use Paper Light at 10%, the mobile menu white at 10%, and the nav pill white at 20%.
+- **Glass lines**: the glow card border is 1.5px in the same 6% grey as its fill. Logo tiles use Paper Light at 10%, the mobile menu white at 10%, and the nav pill white at 20%.
 
 ### Light theme
 
@@ -196,7 +193,7 @@ Depth is mostly tonal and translucent: glass fills, blur, and hairline borders. 
 
 ## Shapes
 
-Pills for anything clickable and small (nav, buttons, badges, tabs, accent bar). Cards use 16px (14px for the glow border). Logo tiles 16px, keyword highlights 12px, menu items 12px. Borders are 1px hairlines at 10 to 20% white or Paper Light, except the 1.5px glow card border and the 5% rail of the Experience card toggles; the portrait has a 4px cyan 20% ring. The people portraits on team and reference cards (2px ring) are transparent and sit on a cool slate radial gradient (`#e2e8f0` centre to `#94a3b8` edge, the `bg-photo` utility), clipped inside the ring so the ring stays dark.
+Pills for anything clickable and small (nav, buttons, badges, tabs, accent bar). Cards use 16px (14px for the glow border). Logo tiles 16px, menu items 12px. Borders are 1px hairlines at 10 to 20% white or Paper Light, except the 1.5px glow card border and the 5% rail of the Experience and Education card toggles; the portrait has a 4px cyan 20% ring. The people portraits on team and reference cards (2px ring) are transparent and sit on a cool slate radial gradient (`#e2e8f0` centre to `#94a3b8` edge, the `bg-photo` utility), clipped inside the ring so the ring stays dark.
 
 ## Components
 
@@ -210,7 +207,7 @@ Pills for anything clickable and small (nav, buttons, badges, tabs, accent bar).
 ### Chips
 
 - **Badge:** 12px text, weight 500, pill, tinted fill plus border in one of five hues, optional 12px icon.
-- **Keyword highlight:** cyan 10% fill, cyan text, weight 600, 8px by 3px padding and a 12px radius. `highlightKeywords` renders it in education content; the Experience responsibility lines use the soft form, cyan semibold text with no fill. The home hero paragraph does not use it: its two roles are semibold white. Experience summaries are plain body-colour text with a 2px cyan 40% left border and 12px of left padding.
+- **Keyword highlight:** cyan text, weight 600, with no fill. `highlightKeywords` renders it in the Experience responsibility lines and the Education course and thesis lists. The home hero paragraph does not use it: its two roles are semibold white. Experience summaries are plain body-colour text with a 2px cyan 40% left border and 12px of left padding.
 
 ### Cards / Containers
 
@@ -236,7 +233,7 @@ Pills for anything clickable and small (nav, buttons, badges, tabs, accent bar).
 - Pill buttons; the selected one gets a cyan 20% pill with a 60% border that slides between tabs (spring, 0.4s). Pressing a tab scales it to 0.95.
 - **Filter chips** (Portfolio, Publications, References) are the same pill with a 1px white 20% border and a white 5% fill at rest, brighter on hover. The border is about 1.5:1 on the page, so the label carries the contrast. Each chip is 44px tall with the 36px pill inset 4px, and has 14px of side padding.
 - Below md the chips sit in one row that scrolls sideways, with a 2rem fade at each edge that still has chips beyond it, and the selected chip is scrolled to the middle. From md they wrap centred and the rows are balanced, so no chip is left alone on a row. Below 50rem the row keeps the 1.5rem page gutter; from 50rem it is a 52rem measure, and the six-chip rows keep at least 24px to spare.
-- The toggles on Education cards keep the plain look: no border or fill at rest. On Experience cards they are a compact segmented pill, centred and 34px tall, with a Paper Light 5% border and a white 5% fill at rest, and the open one takes a cyan 15% pill with a 40% border. In light the rest state is only a 1px Line hairline with no fill, and the open one takes Accent text (#0067c0) at 10% with a 40% border and the same colour for the label, so no grey sits on the white card. Each segment keeps a 44px target, which reaches 5px above and below the pill. The pill sits 12px under the summary and 16px above the card edge.
+- The toggles on Experience and Education cards are one compact segmented pill (`CardToggles`), centred and 34px tall, with a Paper Light 5% border and a white 5% fill at rest, and the open one takes a cyan 15% pill with a 40% border. In light the rest state is only a 1px Line hairline with no fill, and the open one takes Accent text (#0067c0) at 10% with a 40% border and the same colour for the label, so no grey sits on the white card. Each segment keeps a 44px target, which reaches 5px above and below the pill. The pill sits 12px under the summary (under the header on Education) and 16px above the card edge.
 - A filter name is about 16 characters and never more than 20, so a chip stays under about 220px (Image-Guided Surgery, the longest, is 218px with its count) and the phone row shows more than two chips. The same name labels the badge on a portfolio card, so change both together.
 
 ### Footer
@@ -253,7 +250,7 @@ Pills for anything clickable and small (nav, buttons, badges, tabs, accent bar).
 - **Do** keep grey tiers: Paper Light for headings, Text Soft for body, Text Muted for metadata.
 - **Do** disable pointer glow below 768px and keep touch panning and pinch zoom intact.
 - **Do** wrap every hover, focus or press effect that moves, scales or turns in `motion-safe:`, so a visitor who asks for less motion keeps the colour change and loses the movement. `npm run check` fails on one that is not wrapped.
-- **Do** give every link and button a 44px tap target at 360px, except links inside running text, the link lists in an Experience card's Links tab, the company name in an Experience card header (its area reaches 4px above and below the text, so it stays off the title and the dates), and the skip link. Where neighbours sit closer than 44px (icon rows, footer lists) the areas share the space. The visible size stays small: the extra area is padding offset by a negative margin, or a pseudo-element where a parent's spacing would clash.
+- **Do** give every link and button a 44px tap target at 360px, except links inside running text, the link lists in an Experience card's Links tab, the company or institution name in an Experience or Education card header (its area reaches 4px above and below the text, so it stays off the title and the dates), and the skip link. Where neighbours sit closer than 44px (icon rows, footer lists) the areas share the space. The visible size stays small: the extra area is padding offset by a negative margin, or a pseudo-element where a parent's spacing would clash.
 - **Do** size the home sections from the screen, not from fixed pixels: from lg, `lg:min-h-[min(100svh,72rem)]` with content centred (`lg:min-h-[min(calc(100svh-6rem),66rem)]` on the hero, to allow for the page's top padding), and 48px of padding on every section. The expertise list is the exception: it is taller than a screen and has no minimum height.
 - **Do** reference colour roles, not literal values, in new components.
 

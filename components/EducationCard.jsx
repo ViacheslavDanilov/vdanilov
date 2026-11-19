@@ -7,19 +7,13 @@ import React, {
   useRef,
   useEffect,
 } from "react";
-import { AnimatePresence, motion } from "motion/react";
 import { GlowCard } from "@/components/ui/glow-card";
-import { Tab } from "@/components/ui/tab";
 import { Badge } from "@/components/ui/badge";
-import {
-  faBook,
-  faGraduationCap,
-  faAward,
-} from "@fortawesome/free-solid-svg-icons";
 import {
   CompanyLogo,
   highlightKeywords,
   BulletPoint,
+  CardToggles,
 } from "@/components/ExperienceCard";
 
 // Content List Component
@@ -59,14 +53,12 @@ const EducationCard = ({ education }) => {
       t.push({
         id: "coreCourses",
         label: "Core Courses",
-        icon: faBook,
       });
     }
     if (education.thesis) {
       t.push({
         id: "thesis",
         label: "Thesis",
-        icon: faGraduationCap,
       });
     }
     // Generic fallback or other sections can be added here
@@ -105,14 +97,16 @@ const EducationCard = ({ education }) => {
       ref={cardRef}
       className="self-start w-full animate-card-in motion-reduce:animate-card-fade-in"
     >
-      <GlowCard className="w-full h-full p-5" spotlightSize={300}>
+      <GlowCard
+        className="w-full h-full p-5 gap-4 md:p-6 md:gap-5"
+        spotlightSize={300}
+      >
         {/* Header: stacked and centred on phones, a row from md */}
-        <div className="relative mb-4 flex flex-col gap-3 md:flex-row md:items-start md:gap-6">
+        <div className="relative flex flex-col gap-3 md:flex-row md:items-start md:gap-5">
           {education.honors && (
             <Badge
               variant="teal"
-              icon={faAward}
-              className="absolute top-0 right-0"
+              className="absolute top-0 right-0 px-2 py-0.5"
             >
               {education.honors}
             </Badge>
@@ -126,7 +120,7 @@ const EducationCard = ({ education }) => {
             priority={education.logoPriority}
             className="self-center md:self-auto"
           />
-          <div className="flex flex-col items-center text-center gap-2 md:flex-1 md:items-stretch md:text-left">
+          <div className="flex flex-col items-center text-center gap-2 md:gap-1.5 md:flex-1 md:items-stretch md:text-left md:-mt-1.5">
             <h3 className="text-md font-bold uppercase tracking-wider text-strong">
               {education.degree}
             </h3>
@@ -135,7 +129,7 @@ const EducationCard = ({ education }) => {
               href={education.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="relative after:absolute after:-inset-3 focus-visible:after:hidden text-sm font-medium text-strong md:hover:text-accent uppercase cursor-pointer transition-colors max-w-full"
+              className="relative after:absolute after:-inset-x-3 after:-inset-y-1 focus-visible:after:hidden text-sm font-medium text-strong md:hover:text-accent uppercase cursor-pointer transition-colors max-w-full"
               aria-label={`${education.institution} website`}
             >
               {education.institution}
@@ -154,49 +148,16 @@ const EducationCard = ({ education }) => {
           </div>
         </div>
 
-        {/* Tabs - Only show if there are tabs */}
         {tabs.length > 0 && (
-          <>
-            <div
-              className="flex items-center justify-center gap-1 mb-4 bg-surface/30 rounded-full p-1 border border-strong/10"
-              role="group"
-              aria-label="Education information"
-            >
-              {tabs.map((tab) => (
-                <Tab
-                  key={tab.id}
-                  text={tab.label}
-                  icon={tab.icon}
-                  selected={activeTab === tab.id}
-                  aria-expanded={activeTab === tab.id}
-                  aria-controls={
-                    activeTab === tab.id
-                      ? `${education.id}-${tab.id}-panel`
-                      : undefined
-                  }
-                  setSelected={() => handleTabClick(tab.id)}
-                  layoutId={`tab-${education.id}`}
-                />
-              ))}
-            </div>
-
-            {/* Tab Content with Accordion Animation */}
-            <AnimatePresence initial={false}>
-              {activeTab && (
-                <motion.div
-                  key={`content-${education.id}-${activeTab}`}
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: "auto" }}
-                  exit={{ opacity: 0, height: 0 }}
-                  transition={{ duration: 0.3, ease: "easeInOut" }}
-                  className="overflow-hidden"
-                  id={`${education.id}-${activeTab}-panel`}
-                >
-                  <div className="py-2">{tabContent}</div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </>
+          <CardToggles
+            id={education.id}
+            label="Education information"
+            tabs={tabs}
+            activeTab={activeTab}
+            onToggle={handleTabClick}
+          >
+            {tabContent}
+          </CardToggles>
         )}
       </GlowCard>
     </article>

@@ -127,7 +127,6 @@ export default function FilteredGrid({
         {options.map((option) => (
           <Tab
             key={option.id}
-            outlined
             text={`${option.label} (${counts[option.id]})`}
             icon={option.icon}
             selected={activeFilter === option.id}

@@ -104,12 +104,8 @@ const HIGHLIGHT_KEYWORDS = [
   "BCN MedTech",
 ];
 
-const HIGHLIGHT_CLASS =
-  "inline-block bg-accent/10 text-accent font-semibold px-2 py-0.75 rounded-xl";
-const SOFT_HIGHLIGHT_CLASS = "text-accent font-semibold";
-
-// Helper to highlight keywords in a string; soft drops the chip
-export function highlightKeywords(text, soft = false) {
+// Helper to highlight keywords in a string
+export function highlightKeywords(text) {
   if (typeof text !== "string") return text;
   let result = [text];
   HIGHLIGHT_KEYWORDS.forEach((word) => {
@@ -119,10 +115,7 @@ export function highlightKeywords(text, soft = false) {
             i < arr.length - 1
               ? [
                   seg,
-                  <span
-                    key={word + i}
-                    className={soft ? SOFT_HIGHLIGHT_CLASS : HIGHLIGHT_CLASS}
-                  >
+                  <span key={word + i} className="text-accent font-semibold">
                     {word}
                   </span>,
                 ]
@@ -141,7 +134,7 @@ const ResponsibilitiesList = ({ items }) => (
       <li key={index} className="flex items-start gap-3">
         <BulletPoint />
         <p className="text-sm text-body leading-relaxed text-justify">
-          {highlightKeywords(item, true)}
+          {highlightKeywords(item)}
         </p>
       </li>
     ))}
@@ -309,6 +302,54 @@ const Segment = ({ label, selected, layoutId, ...props }) => (
   </button>
 );
 
+// Toggles and their panel share one block, so the panel opens without a gap jump
+export const CardToggles = ({
+  id,
+  label,
+  tabs,
+  activeTab,
+  onToggle,
+  compact = false,
+  children,
+}) => (
+  <div className={cn("flex flex-col", compact ? "md:-my-1" : "-my-1 md:-my-2")}>
+    <div
+      className="flex w-fit items-center self-center gap-0.5 rounded-full border border-strong/5 bg-ink/5 p-0.5 light:border-line light:bg-transparent"
+      role="group"
+      aria-label={label}
+    >
+      {tabs.map((tab) => (
+        <Segment
+          key={tab.id}
+          label={tab.label}
+          selected={activeTab === tab.id}
+          layoutId={`tab-${id}`}
+          aria-controls={
+            activeTab === tab.id ? `${id}-${tab.id}-panel` : undefined
+          }
+          onClick={() => onToggle(tab.id)}
+        />
+      ))}
+    </div>
+
+    <AnimatePresence initial={false}>
+      {activeTab && (
+        <motion.div
+          key={`content-${id}-${activeTab}`}
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: "auto" }}
+          exit={{ opacity: 0, height: 0 }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+          className="overflow-hidden"
+          id={`${id}-${activeTab}-panel`}
+        >
+          <div className="py-3">{children}</div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  </div>
+);
+
 const ExperienceCard = ({ experience, compact = false }) => {
   const [activeTab, setActiveTab] = useState(null);
   const cardRef = useRef(null);
@@ -406,50 +447,16 @@ const ExperienceCard = ({ experience, compact = false }) => {
           </p>
         )}
 
-        {/* Toggles and panel share one block, so the panel opens without a gap jump */}
-        <div
-          className={cn(
-            "flex flex-col",
-            compact ? "md:-my-1" : "-my-1 md:-my-2",
-          )}
+        <CardToggles
+          id={experience.id}
+          label="Job information"
+          tabs={tabs}
+          activeTab={activeTab}
+          onToggle={handleTabClick}
+          compact={compact}
         >
-          <div
-            className="flex w-fit items-center self-center gap-0.5 rounded-full border border-strong/5 bg-ink/5 p-0.5 light:border-line light:bg-transparent"
-            role="group"
-            aria-label="Job information"
-          >
-            {tabs.map((tab) => (
-              <Segment
-                key={tab.id}
-                label={tab.label}
-                selected={activeTab === tab.id}
-                layoutId={`tab-${experience.id}`}
-                aria-controls={
-                  activeTab === tab.id
-                    ? `${experience.id}-${tab.id}-panel`
-                    : undefined
-                }
-                onClick={() => handleTabClick(tab.id)}
-              />
-            ))}
-          </div>
-
-          <AnimatePresence initial={false}>
-            {activeTab && (
-              <motion.div
-                key={`content-${experience.id}-${activeTab}`}
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                exit={{ opacity: 0, height: 0 }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-                className="overflow-hidden"
-                id={`${experience.id}-${activeTab}-panel`}
-              >
-                <div className="py-3">{tabContent}</div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
+          {tabContent}
+        </CardToggles>
       </GlowCard>
     </article>
   );
