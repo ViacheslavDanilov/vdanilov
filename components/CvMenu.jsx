@@ -68,6 +68,7 @@ export default function CvMenu() {
           href={main.url}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => setOpen(false)}
           className={cn(
             segment,
             "gap-2 rounded-l-full pl-3 pr-2.5 sm:pl-8 sm:pr-6",

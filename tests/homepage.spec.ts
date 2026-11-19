@@ -392,6 +392,16 @@ test.describe("Homepage - Hero Section", () => {
     await expect(page.locator("#hero ul")).toHaveCount(0);
     await expect(button).toHaveAttribute("aria-expanded", "false");
     await expect(button).toBeFocused();
+
+    await button.click();
+    const next = page.waitForEvent("popup");
+    await page
+      .locator("#hero")
+      .getByRole("link", { name: /Download CV/ })
+      .click();
+    await (await next).waitForURL(/1bE5CESQ41rQEfIBX1KdMHofyzrFVcXcf/);
+    await expect(page.locator("#hero ul")).toHaveCount(0);
+    await expect(button).toHaveAttribute("aria-expanded", "false");
   });
 
   test("the CV menu stays open when focus moves to the page, as a click in it does in Safari", async ({
