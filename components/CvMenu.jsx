@@ -58,7 +58,7 @@ export default function CvMenu() {
         aria-expanded={open}
         aria-controls={open ? menuId : undefined}
         onClick={() => setOpen((current) => !current)}
-        className="px-3.5 sm:h-14 sm:px-10 bg-accent/15 border-accent/40"
+        className="px-3 sm:h-14 sm:px-10 bg-accent/15 border-accent/40"
         hoverClassName="bg-accent/10"
         textClassName="text-sm"
       >
