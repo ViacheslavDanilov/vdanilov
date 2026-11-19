@@ -108,7 +108,7 @@ export default function CvMenu() {
           ref={menuRef}
           id={menuId}
           className={cn(
-            "absolute left-1/2 z-30 w-[min(16rem,calc(100vw-3rem))] -translate-x-1/2 rounded-2xl border border-line bg-surface/95 p-1.5 text-left shadow-card backdrop-blur-xl",
+            "absolute left-1/2 z-[60] w-[min(16rem,calc(100vw-3rem))] -translate-x-1/2 rounded-2xl border border-line bg-surface/95 p-1.5 text-left shadow-card backdrop-blur-xl",
             above ? "bottom-full mb-2" : "top-full mt-2",
           )}
         >

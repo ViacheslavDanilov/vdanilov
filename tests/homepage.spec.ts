@@ -413,6 +413,38 @@ test.describe("Homepage - Hero Section", () => {
     }
   });
 
+  test("the CV menu opened above the button stays clear of the navbar", async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 568, height: 320 });
+    await page.goto("/");
+    // Scroll down, then up, so the navbar shows and the pill sits 160px from the top
+    await page.locator("#hero").evaluate(async (hero) => {
+      const pill = hero.querySelector('a[href*="drive.google.com"]')!;
+      const top = pill.getBoundingClientRect().top + scrollY;
+      const settle = () => new Promise((done) => setTimeout(done, 100));
+      scrollTo({ top: top - 120, behavior: "instant" });
+      await settle();
+      scrollTo({ top: top - 160, behavior: "instant" });
+      await settle();
+    });
+    await expect(page.locator("nav")).toHaveCSS(
+      "transform",
+      "matrix(1, 0, 0, 1, 0, 0)",
+    );
+    await page.getByRole("button", { name: "Choose CV version" }).click();
+    const [above, onTop] = await page.locator("#hero ul").evaluate((ul) => {
+      const box = ul.getBoundingClientRect();
+      const pill = ul.previousElementSibling!.getBoundingClientRect();
+      const hit = document.elementFromPoint(
+        box.left + box.width / 2,
+        box.top + 8,
+      );
+      return [box.bottom <= pill.top, ul.contains(hit)];
+    });
+    expect([above, onTop]).toEqual([true, true]);
+  });
+
   test("the master CV is linked nowhere on the home page", async ({ page }) => {
     await page.goto("/");
     await page.getByRole("button", { name: "Choose CV version" }).click();
