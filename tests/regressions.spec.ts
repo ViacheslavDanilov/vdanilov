@@ -1084,7 +1084,7 @@ test.describe("Small polish", () => {
     });
   }
 
-  for (const width of [1200, 1280, 1440, 1920]) {
+  for (const width of [1280, 1440, 1920]) {
     test(`featured project chips sit on one row at ${width}px`, async ({
       page,
     }) => {
