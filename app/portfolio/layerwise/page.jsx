@@ -125,8 +125,8 @@ const RESOURCES = [
 ];
 
 const TECH_STACK = [
-  "Python",
   "PyTorch",
+  "Python",
   "FastAPI",
   "Next.js",
   "TypeScript",
