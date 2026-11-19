@@ -336,6 +336,8 @@ test.describe("Homepage - Hero Section", () => {
     await button.focus();
     await page.keyboard.press("Enter");
     await expect(menu).toBeVisible();
+    await page.keyboard.press("Tab");
+    await expect(page.locator("#hero ul a").first()).toBeFocused();
     await page.keyboard.press("Escape");
     await expect(menu).toHaveCount(0);
     await expect(button).toBeFocused();
