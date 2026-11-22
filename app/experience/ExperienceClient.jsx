@@ -116,7 +116,7 @@ const EXPERIENCES_DATA = [
       "Led an R&D group of 5 developers and researchers in AI, ML and agents, and served as the architect and lead engineer on the InsurTech systems it built for AmTrust, CNA, Lumos Insurance and GNP",
     responsibilities: [
       "Led an R&D group of 5 developers and researchers in AI, ML and agents, and acted as architect and lead engineer on the InsurTech systems it built for AmTrust, CNA, Lumos Insurance and GNP",
-      "Shipped a multi-tenant compliance platform for construction insurance: 4 web apps, a FastAPI backend, and an OCR worker that grades coverage",
+      "Shipped a multi-tenant compliance platform for construction insurance: 4 web apps, a FastAPI backend, and a document worker",
       "Built 6 InsurTech prototypes for claim intake, fraud scoring, pricing and forecasting; about half were taken into client work",
       "Cut claim intake to about a minute per form, from a carrier baseline of 107,000 claims a year keyed by 30 staff, using OCR and LLM mapping with confidence checks",
       "Built explainability into the fraud and pricing models with AutoGluon and SHAP, ranking the drivers behind each fraud score and premium",
