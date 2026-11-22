@@ -201,8 +201,10 @@ is not finished until they agree.
   `people/README.md` there describe the layout, sizes and formats. Read them before adding or
   changing an asset
 - `public/` holds only what the site serves, derived from Drive. A project preview is
-  `portfolio/_previews/jpg/<slug>.jpg` copied to `public/portfolio/previews/<slug>.jpg`. Videos
-  are not kept in Drive. The CV PDFs have their own copy in `My Drive/CV`
+  `portfolio/_previews/jpg/<slug>.jpg` copied to `public/portfolio/previews/<slug>.jpg`. A demo
+  video's site copy is lightweight and lives only in `public/`; its high-quality master, poster
+  and rebuild sources go to Drive `portfolio/<slug>/video/` (see `cover-lens/video/README.md`).
+  The CV PDFs have their own copy in `My Drive/CV`
 - People photos: Drive `people/` holds `cutouts/` (one transparent master per person),
   `originals/` (the source photo and the raw generator output), `site/` (`webp-alpha/` for the
   site, `png/` and `webp/` on grey `#dadada` for the CV) and `tools/`. `public/people/<slug>.webp`
