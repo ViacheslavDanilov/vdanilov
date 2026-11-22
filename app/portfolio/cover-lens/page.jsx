@@ -333,6 +333,7 @@ export default function ProjectPage() {
                 <AutoplayVideo
                   aspectRatio="16 / 9"
                   poster="/portfolio/cover-lens/demo-cover-lens-poster.webp"
+                  soundHint
                   controls
                   aria-label="CoverLens admin portal walkthrough: certificate upload, extraction, Document Review checks and the project compliance list"
                   className="block w-full h-auto"
