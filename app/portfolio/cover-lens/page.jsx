@@ -345,12 +345,13 @@ export default function ProjectPage() {
                 </AutoplayVideo>
               </div>
               <figcaption className="text-center text-sm text-muted mt-3">
-                <span className="text-body">Figure 2.</span> Walkthrough of the
-                admin portal on fictional demo data: a certificate is uploaded
-                and read, Document Review checks it against the project
-                requirements (a general liability limit below the bar turns
-                red), and the project list shows each vendor&apos;s status. The
-                recording covers extraction and grading only.
+                <span className="text-body">Figure 2.</span> Demo with
+                voice-over and captions, recorded in the admin portal on
+                fictional data: a certificate is uploaded and read, Document
+                Review checks it against the project requirements (a general
+                liability limit below the bar turns red), a two-page bundle is
+                split into a certificate and a policy, and the project list
+                shows each vendor&apos;s status.
               </figcaption>
             </figure>
 
