@@ -24,11 +24,13 @@ export default function AutoplayVideo({
 
   useEffect(() => {
     const video = ref.current;
+    const handleVolume = () => setMuted(video.muted);
+    video.addEventListener("volumechange", handleVolume);
 
     // Reduced motion: no autoplay, but load enough to show the first frame
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       video.preload = "metadata";
-      return;
+      return () => video.removeEventListener("volumechange", handleVolume);
     }
 
     // Resume on scroll only if the viewer did not pause it
@@ -41,10 +43,8 @@ export default function AutoplayVideo({
     const handlePlay = () => {
       pausedByViewer = false;
     };
-    const handleVolume = () => setMuted(video.muted);
     video.addEventListener("pause", handlePause);
     video.addEventListener("play", handlePlay);
-    video.addEventListener("volumechange", handleVolume);
 
     const observer = new IntersectionObserver(
       ([entry]) => {
