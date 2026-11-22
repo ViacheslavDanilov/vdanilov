@@ -159,7 +159,6 @@ export default function ProjectPage() {
                 The AI work covers the document pipeline, its AI integration,
                 the retrieval and the semantic matching. The grading, the
                 form-read, the operations read and the portals were team work.
-                Aleksandr Nasstrom wrote most of the grader and the form-read.
               </p>
             </div>
           </Section>
