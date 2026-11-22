@@ -212,7 +212,7 @@ export default function ProjectPage() {
 </figure>
 ```
 
-Encode videos as H.264 at about twice their displayed width, with `-movflags +faststart`. Keep the audio track of a demo with narration or music, as AAC at 160 to 192 kbit/s; a looping clip with no sound has none. The player starts muted, and the viewer unmutes it.
+Encode videos as H.264 at about twice their displayed width, with `-movflags +faststart`. Keep the audio track of a demo with narration or music, as AAC at 160 to 192 kbit/s; a looping clip with no sound has none. The player starts muted. Pass `soundHint` to `AutoplayVideo` for a demo with sound: it adds a "Sound on" button over the player that unmutes the video and restarts it. Without the prop there is no button.
 
 ---
 

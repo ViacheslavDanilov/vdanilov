@@ -62,25 +62,29 @@ export default function ProjectHeader({
           ))}
         </div>
 
-        <div className="h-px bg-strong/10 my-8" />
+        {resources.length > 0 && (
+          <>
+            <div className="h-px bg-strong/10 my-8" />
 
-        <div className="flex flex-wrap gap-x-2 gap-y-2.5">
-          {resources.map((resource) => (
-            <a
-              key={resource.label}
-              href={resource.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="relative after:absolute after:-inset-y-1.5 after:inset-x-0 focus-visible:after:hidden inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-lg bg-accent/10 text-accent border border-accent/30 hover:bg-accent/20 transition-colors"
-            >
-              {resource.label}
-              <FontAwesomeIcon
-                icon={faExternalLinkAlt}
-                className="w-2.5 h-2.5"
-              />
-            </a>
-          ))}
-        </div>
+            <div className="flex flex-wrap gap-x-2 gap-y-2.5">
+              {resources.map((resource) => (
+                <a
+                  key={resource.label}
+                  href={resource.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative after:absolute after:-inset-y-1.5 after:inset-x-0 focus-visible:after:hidden inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-lg bg-accent/10 text-accent border border-accent/30 hover:bg-accent/20 transition-colors"
+                >
+                  {resource.label}
+                  <FontAwesomeIcon
+                    icon={faExternalLinkAlt}
+                    className="w-2.5 h-2.5"
+                  />
+                </a>
+              ))}
+            </div>
+          </>
+        )}
       </header>
     </>
   );
