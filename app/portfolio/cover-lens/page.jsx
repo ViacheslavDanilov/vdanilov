@@ -38,12 +38,12 @@ const HIGHLIGHTS_ITEMS = [
   {
     icon: faCogs,
     label: "Action",
-    text: "Built a pipeline on LlamaCloud Parse, Split and Extract that types each segment, indexed policy text in pgvector, and matched wording by vector and full-text search behind a two-signal gate.",
+    text: "Built a pipeline on LlamaCloud Parse, Split and Extract that types each segment, and matched wording by vector and full-text search over pgvector behind a two-signal gate.",
   },
   {
     icon: faChartLine,
     label: "Result",
-    text: "The pipeline reads uploaded bundles into structured records that a deterministic grader checks, and the wording gate was calibrated on 17 cases from two insurance carriers, replacing manual document review.",
+    text: "The pipeline reads uploaded bundles into structured records that a deterministic grader checks, and the wording gate was calibrated on 17 cases from two vendors' policy bundles, replacing manual document review.",
   },
 ];
 
@@ -158,8 +158,9 @@ export default function ProjectPage() {
               <p className="text-body leading-relaxed text-justify">
                 Viacheslav Danilov built the document pipeline, its AI
                 integration, the retrieval and the semantic matching. The
-                grading, the form-read and the portals were team work, with the
-                grader and the form-read mostly by Aleksandr Nasstrom.
+                grading, the form-read, the operations read and the portals were
+                team work. Aleksandr Nasstrom wrote most of the grader and the
+                form-read.
               </p>
             </div>
           </Section>
@@ -199,8 +200,9 @@ export default function ProjectPage() {
                 <span className="text-accent mt-1">•</span>
                 <span>
                   <strong className="text-strong">Calibration set:</strong> 17
-                  cases from two insurance carriers, 8 from one and 9 from the
-                  other, used to set the thresholds of the wording match.
+                  cases from the policy bundles of two vendors, 8 from one and 9
+                  from the other, used to set the thresholds of the wording
+                  match.
                 </span>
               </li>
             </ul>
@@ -358,8 +360,8 @@ export default function ProjectPage() {
                 <span>
                   <strong className="text-strong">Documents:</strong> A bundle
                   is split into typed segments, and each segment is read into
-                  the fields of its schema. Scans and images take the same path
-                  as born-digital files.
+                  the fields of its schema. Images are converted to PDFs before
+                  parsing.
                 </span>
               </li>
               <li className="flex items-start gap-2">
@@ -375,7 +377,7 @@ export default function ProjectPage() {
                 <span>
                   <strong className="text-strong">Wording match:</strong> The
                   gate thresholds of 0.90 and 0.60 come from calibration on 17
-                  cases from two insurance carriers. In that calibration, a
+                  cases from two vendors' policy bundles. In that calibration, a
                   look-alike clause scored a higher cosine (0.7015) than the
                   true hit (0.4950), so cosine alone cannot decide. Wording
                   coverage corrects it.
@@ -402,8 +404,8 @@ export default function ProjectPage() {
             </p>
             <p className="text-body leading-relaxed text-justify">
               The wording match is retrieval and does not check negation. Its
-              thresholds rest on 17 calibration cases from two insurance
-              carriers, which is a small set.
+              thresholds rest on 17 calibration cases from two vendors' policy
+              bundles, which is a small set.
             </p>
           </Section>
 
