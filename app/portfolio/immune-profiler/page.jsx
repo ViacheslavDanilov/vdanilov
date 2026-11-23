@@ -88,6 +88,16 @@ const TEAM_MEMBERS = [
     },
   },
   {
+    name: "Artem Terentyuk",
+    role: "Project Manager",
+    organization: "Quantori",
+    location: "Cambridge · United States 🇺🇸",
+    photo: "/people/artem-terentyuk.webp",
+    links: {
+      linkedin: "https://www.linkedin.com/in/artem-terentyuk-99b6b573/",
+    },
+  },
+  {
     name: "Yury Popov",
     role: "Histopathologist",
     organization: "AstraZeneca",
