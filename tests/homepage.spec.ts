@@ -561,7 +561,7 @@ test.describe("Homepage - Featured Projects Section", () => {
 
     const projects = [
       "Deep BrainWatch",
-      "Sales Pilot",
+      "CoverLens",
       "Immune Profiler",
       "LayerWise",
     ];
@@ -584,7 +584,7 @@ test.describe("Homepage - Featured Projects Section", () => {
     // Preview images go through next/image, so match them by alt text
     for (const title of [
       "Deep BrainWatch",
-      "Sales Pilot",
+      "CoverLens",
       "Immune Profiler",
       "LayerWise",
     ]) {
@@ -598,7 +598,7 @@ test.describe("Homepage - Featured Projects Section", () => {
 
     const clients = [
       "Vall d'Hebron Hospital",
-      "Symfa",
+      "GNP Brokerage",
       "Boehringer Ingelheim",
       "Huawei",
     ];
