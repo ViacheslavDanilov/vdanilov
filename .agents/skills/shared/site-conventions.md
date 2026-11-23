@@ -160,8 +160,13 @@ reimplement what an installed skill already does. `vendored` means a copy under
 | Stress a component with worst-case data                                       | `break-ui`, see "Design skills" below                        | vendored         |
 | Make the site feel native on a phone                                          | `mobile-native`, see "Design skills" below                   | vendored         |
 | Find why an animation drops frames, or pick a cheap property to animate       | `animation-performance`                                      | vendored         |
+| Make, redo or review a narrated demo film                                     | `demo-video`, `demo-video-review`                            | own              |
 | Polish site copy                                                              | `editor`, `no-ai-slop`                                       | global           |
 | Nothing above fits the task                                                   | `find-skills`, see below                                     | global           |
+
+`own` means the skill is written for the owner's demo video kit. The kit on Google Drive
+(`portfolio/_video-kit/skills/`) is the only place it is edited. The copy here is replaced by
+`sync_skills.py --to .agents/skills`, never edited, and `MANIFEST.sha256` in this folder lists its files.
 
 **If a listed skill is not installed, say so out loud and continue by hand.** Never skip the
 step silently, and never pretend a delegated pass ran.
