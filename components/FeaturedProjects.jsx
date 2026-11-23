@@ -25,15 +25,15 @@ const FEATURED = [
     image: "/portfolio/previews/deep-brainwatch.jpg",
   },
   {
-    id: "sales-pilot",
-    title: "Sales Pilot",
-    client: "Symfa",
-    location: "Miami · United States 🇺🇸",
+    id: "cover-lens",
+    title: "CoverLens",
+    client: "GNP Brokerage",
+    location: "New York · United States 🇺🇸",
     description:
-      "An end-to-end AI system that automates outbound lead generation by scoring jobs, contacts, and companies using hybrid heuristic-embedding models. It transforms slow manual sourcing into a scalable, data-driven workflow that dramatically cuts time-to-lead from days to minutes while boosting targeting accuracy and conversion potential.",
-    stack: ["Python", "OpenAI API", "scikit-learn", "DVC", "CI/CD", "LLM"],
-    link: "/portfolio/sales-pilot",
-    image: "/portfolio/previews/sales-pilot.jpg",
+      "An AI document pipeline for an insurance compliance platform that checks subcontractor insurance against project requirements. It reads certificates, policies and endorsements into structured records with LlamaCloud, and matches requirement wording by vector and full-text search over pgvector behind a two-signal gate. A deterministic grader decides pass or fail, and the wording gate was calibrated on 17 cases from two vendors' policy bundles, replacing manual document review.",
+    stack: ["Python", "FastAPI", "LlamaCloud", "OpenAI", "pgvector"],
+    link: "/portfolio/cover-lens",
+    image: "/portfolio/previews/cover-lens.jpg",
   },
   {
     id: "immune-profiler",
