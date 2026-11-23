@@ -16,7 +16,7 @@ export default function NextProject({ id }) {
             key={project.id}
             project={project}
             titleAs="h3"
-            sizes="(max-width: 767px) calc(100vw - 3rem), (max-width: 1023px) calc(50vw - 2.25rem), 476px"
+            sizes="(max-width: 767px) calc((100vw - 3rem) * 1.25), (max-width: 1023px) calc((50vw - 2.25rem) * 1.25), 596px"
           />
         ))}
       </div>

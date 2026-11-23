@@ -25,8 +25,9 @@ const CATEGORY_LABELS = {
   "industry-ai-ml": "Industry AI/ML",
 };
 
+// The wide preview is cropped to 16:10, so its full width is 1.19 times the card, and 1.25 leaves room for the size steps
 const GRID_SIZES =
-  "(max-width: 767px) calc(100vw - 3rem), (max-width: 1023px) calc(50vw - 2.25rem), (max-width: 1279px) calc(33vw - 2rem), 395px";
+  "(max-width: 767px) calc((100vw - 3rem) * 1.25), (max-width: 1023px) calc((50vw - 2.25rem) * 1.25), (max-width: 1279px) calc((33vw - 2rem) * 1.25), 494px";
 
 const PortfolioCard = ({
   project,
