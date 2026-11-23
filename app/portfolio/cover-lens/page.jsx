@@ -374,9 +374,9 @@ export default function ProjectPage() {
                   <strong className="text-strong">Wording match:</strong> The
                   gate thresholds of 0.90 and 0.60 come from calibration on 17
                   cases from two vendors' policy bundles. In that calibration, a
-                  look-alike clause scored a higher cosine (0.7015) than the
-                  true hit (0.4950), so cosine alone cannot decide. Wording
-                  coverage corrects it.
+                  look-alike clause scored a higher cosine (0.70) than the true
+                  hit (0.50), so cosine alone cannot decide. Wording coverage
+                  corrects it.
                 </span>
               </li>
               <li className="flex items-start gap-2">
