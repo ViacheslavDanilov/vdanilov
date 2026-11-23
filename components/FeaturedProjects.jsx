@@ -101,11 +101,12 @@ const FeaturedProjects = () => {
                   className="block mb-4 sm:mb-0 sm:flex-shrink-0"
                 >
                   <div className="relative w-48 h-48 sm:w-40 sm:h-40 rounded-lg overflow-hidden bg-surface border border-line">
+                    {/* Wide previews are cropped square, so sizes is the width of the whole picture */}
                     <Image
                       src={project.image}
                       alt={project.title}
                       fill
-                      sizes="(max-width: 640px) 192px, 160px"
+                      sizes="(max-width: 640px) 366px, 305px"
                       quality={90}
                       className="object-cover"
                     />
