@@ -328,7 +328,8 @@ export default function ProjectPage() {
                   aspectRatio="16 / 9"
                   poster="/portfolio/claim-assistant/demo-claim-assistant-poster.webp"
                   controls
-                  aria-label="Claim Assistant end-to-end claim intake and review walkthrough"
+                  soundHint
+                  aria-label="Narrated Claim Assistant walkthrough: claim intake, coverage call, field review and export"
                   className="block w-full h-auto"
                 >
                   <source
