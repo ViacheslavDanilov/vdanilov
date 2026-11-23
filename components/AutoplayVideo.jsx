@@ -88,7 +88,7 @@ export default function AutoplayVideo({
         <button
           type="button"
           onClick={turnSoundOn}
-          className="absolute top-2 right-2 md:top-3 md:right-3 inline-flex items-center gap-1.5 md:gap-2 rounded-full border border-on-scrim/25 bg-scrim/65 px-2.5 py-1 md:px-3.5 md:py-2 text-xs md:text-sm font-medium text-on-scrim backdrop-blur-sm transition-colors hover:bg-scrim/80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-scrim"
+          className="absolute top-2 right-2 md:top-3 md:right-3 inline-flex items-center gap-1.5 md:gap-2 rounded-full border border-line bg-surface/85 px-2.5 py-1 md:px-3.5 md:py-2 text-xs md:text-sm font-medium text-strong shadow-md backdrop-blur-sm transition-colors hover:bg-surface focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
         >
           <FontAwesomeIcon icon={faVolumeHigh} aria-hidden="true" />
           Sound on

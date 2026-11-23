@@ -47,7 +47,6 @@
 @theme {
   --color-on-accent: #0a0e14;
   --color-scrim: #000;
-  --color-on-scrim: #fff;
 }
 
 @theme inline {
