@@ -1,0 +1,93 @@
+WEBVTT
+
+1
+00:00:00.600 --> 00:00:05.020
+Risk Profiler scores the fraud risk
+of a claim, and explains every score.
+
+2
+00:00:05.900 --> 00:00:09.822
+Fraudulent claims leave insurers
+with heavy financial exposure.
+
+3
+00:00:10.160 --> 00:00:12.426
+Reviewing every claim by hand is costly.
+
+4
+00:00:12.770 --> 00:00:15.060
+And blanket approval
+risks paying out fraud.
+
+5
+00:00:15.910 --> 00:00:17.607
+First, it scores each claim.
+
+6
+00:00:17.950 --> 00:00:20.141
+It explains how each fact moved the score.
+
+7
+00:00:20.480 --> 00:00:22.738
+And it reports on the case
+in plain language.
+
+8
+00:00:23.600 --> 00:00:25.677
+A claim is described by ten facts.
+
+9
+00:00:29.080 --> 00:00:32.360
+The model puts the fraud probability
+at 35%.
+
+10
+00:00:32.700 --> 00:00:36.462
+That is below the 65% threshold,
+so the risk is low.
+
+11
+00:00:38.380 --> 00:00:39.681
+Now two facts change.
+
+12
+00:00:39.681 --> 00:00:43.707
+The claim moves to a Friday,
+and the driver has four past claims.
+
+13
+00:00:47.680 --> 00:00:52.477
+82%. Above the threshold,
+so the claim is flagged as likely fraud.
+
+14
+00:00:55.680 --> 00:00:59.006
+Each bar shows how one fact
+moves the score, up or down.
+
+15
+00:01:01.130 --> 00:01:03.377
+The biggest push comes
+from the four past claims.
+
+16
+00:01:04.680 --> 00:01:06.395
+Green bars pull the score down.
+
+17
+00:01:08.170 --> 00:01:11.348
+A language model writes
+a short summary for the analyst.
+
+18
+00:01:11.700 --> 00:01:15.530
+It names the four past claims,
+and recommends further investigation.
+
+19
+00:01:16.680 --> 00:01:17.597
+Risk Profiler.
+
+20
+00:01:17.597 --> 00:01:19.498
+Fraud scores you can explain.
