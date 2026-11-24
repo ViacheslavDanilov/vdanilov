@@ -37,7 +37,7 @@ The product repository and the site page named in the storyboard. If something i
    something the voice talks about, text outside the safe area, a host, a key or a real name on any frame.
 4. **Sound and words.** Read `lines.tsv` aloud against the transcript in `qa.md`. Check the product name as spoken, the numbers as
    words, the line lengths against the scenes. List what only ears can judge for the owner (row 18 of `CHECKLIST.md`).
-5. **Rules.** The hard rules of `demo-video` SKILL.md: tokens only, caps, no em dash (scan every text file of the film folder),
+5. **Rules.** The hard rules of `demo-video` SKILL.md: no text about where the data or the model comes from (public, synthetic, fictional, fake, "trained on"; a disclaimer pill is only a neutral label; finding it is a must-fix), tokens only, caps, no em dash (scan every text file of the film folder),
    no `-v2` names, file and encode profile, size cap, the archive layout.
 6. **Loop.** Frame 0 is the finished title card, the last frames are its ground, the last 0.1 s is silent.
 
