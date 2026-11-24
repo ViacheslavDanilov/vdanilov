@@ -38,7 +38,7 @@ python3 scripts/film.py sheet film.json --every 2 --out sheet.png
 
 `build` mixes the sound (`mix.py`: voice bus -18 LUFS, bed -25 LUFS ducked by the voice, final trim to -18 LUFS), renders every frame in Python, encodes once, muxes,
 writes the poster and prints the size against the cap. `--remux` replaces only the audio of a finished file.
-Profiles: `web` (the site), `web-17` and `web-19` (the size ladder), `master` (Drive). Cap for the site: 20 MB and 2.0 Mbit/s.
+Profiles: `web` (the site), `web-17`, `web-19` and `web-21` (the size ladder; `web-21` only for films whose dense text needs the size cap), `master` (Drive). Cap for the site: 20 MB and 2.0 Mbit/s.
 When `web` is over the cap, the build names the next profile.
 
 `film.py frames film.json --png DIR --at 0,630,...` writes single composed frames; `film.py sheet --mp4 FILE` makes a contact
