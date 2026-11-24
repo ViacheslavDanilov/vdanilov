@@ -322,7 +322,7 @@ export default function ProjectPage() {
               <a href="#figure-2" className="text-accent hover:underline">
                 Figure 2
               </a>{" "}
-              shows the flow in the admin portal, on fictional demo data.
+              shows the flow in the admin portal.
             </p>
 
             {/* Figure 2: Demo */}
