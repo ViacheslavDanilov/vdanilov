@@ -295,6 +295,7 @@ export default function ProjectPage() {
                 <AutoplayVideo
                   aspectRatio="16 / 9"
                   poster="/portfolio/insurecast/demo-insurecast-poster.webp"
+                  captions="/portfolio/insurecast/demo-insurecast-en.vtt"
                   controls
                   aria-label="InsureCast segment forecasting and scenario stress-testing walkthrough"
                   className="block w-full h-auto"
