@@ -345,8 +345,8 @@ export default function ProjectPage() {
               </div>
               <figcaption className="text-center text-sm text-muted mt-3">
                 <span className="text-body">Figure 2.</span> Walkthrough of the
-                admin portal on fictional data: certificate extraction,
-                requirement checks, and bundle splitting.
+                admin portal: certificate extraction, requirement checks, and
+                bundle splitting.
               </figcaption>
             </figure>
 
