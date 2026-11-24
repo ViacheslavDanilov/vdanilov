@@ -18,11 +18,24 @@ Source of the numbers: `$VIDEO_KIT/paper/tokens.json`. This page names tokens an
 | title    | name, two-line subtitle, audience line                                         | frame 0 is the finished card and the poster                                                  |
 | problem  | kicker, two-line headline, one or two bullets (one or two lines each)          | three builds: headline, bullet 1, bullet 2                                                   |
 | solution | kicker, one-line headline, three tiles (digit, title, two-line body), footnote | the only approved layout has three tiles. Four tiles is an owner decision with a new mock-up |
-| close    | name, motto, one or two lines                                                  | no URL, no credit line, no presenter, no client name                                         |
+| close    | name, motto, one or two lines                                                  | same composition as the title card. No URL, no credit line, no presenter, no client name     |
 
 Caps: `caps_chars` (the owner's character caps) and `caps_px` (rendered widths) in `tokens.json`. The count is a proxy, the
 width is the limit. `film.py lint` fails on the width and warns on the count. A tile title that is over its width (for
 example `Summarize`) becomes a shorter word (`Report`).
+
+### Title and closing card
+
+Both cards have three tiers in the same three styles. Tier 1 is the name (`title`, 160 px bold, ink). Tier 2 is `subtitle` (56 px Regular, slate
+`text`): the two-line subtitle on the title card, the motto (one line, on the first subtitle line) on the closing card. Tier 3 is `audience` (40 px
+Regular, muted): the audience line on the title card, the one or two description lines on the closing card.
+
+The name and the accent rule (`layout.title.rule`, 52 px under the name's flat letters) sit at the same place on every film and on both cards.
+Every gap between neighbouring blocks is one value, `Paper.rule_gap` (the ink gap from the name to the rule, 52 px; 54 for a name that ends in flat
+letters, as Risk Profiler). Name to rule is set by the rule's position. Rule to tier 2 is `Paper.equal_gap_dy`: the rule bottom to the highest ink of
+the first line. Tier 2 to tier 3 is `Paper.next_block_baseline`: the lowest ink of the last line of tier 2 to the highest ink of the first line of
+tier 3 (both over the whole line). Tier 3 on the closing card has the pitch `layout.close.lines_pitch` (54 px). Every line
+is centred on its ink (`Paper.ink_x`), not on its advance box. Check by pixels, not by tokens.
 
 ## Overlays
 
