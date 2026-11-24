@@ -9,6 +9,8 @@ export default function AutoplayVideo({
   aspectRatio,
   style,
   soundHint = false,
+  captions,
+  children,
   ...props
 }) {
   const ref = useRef(null);
@@ -76,7 +78,13 @@ export default function AutoplayVideo({
       preload="none"
       style={aspectRatio ? { aspectRatio, ...style } : style}
       {...props}
-    />
+    >
+      {children}
+      {/* No default attribute: captions stay off until the viewer turns them on */}
+      {captions && (
+        <track kind="captions" srcLang="en" label="English" src={captions} />
+      )}
+    </video>
   );
 
   if (!soundHint) return video;
