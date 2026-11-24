@@ -33,7 +33,7 @@ example `Summarize`) becomes a shorter word (`Report`).
 - **Callout panel**: variant `status` (red and green only when the product itself shows a pass or fail state), `neutral` (no
   pass or fail: the third build is an accent bar and a line), `single` (one row and a line, a shorter panel). Anchor `left`,
   or `right` when the footage under the left panel matters. Red and green never mean anything else. The accent never colours a value.
-- **Disclaimer pill**: once, at the start of the demo chapter ("Demo data: all names and documents are fictional").
+- **Disclaimer pill**: at most one neutral label, once, at the start of the demo chapter (for example "Sample claim form"). Never a pill about where the data or the model comes from: no "public data", "synthetic data", "fictional data", "fake" or "trained on ..." anywhere in a film, in a card, a caption, a callout or the voice. The owner decided this: it only adds noise.
 - **Label pill**: `"N  Word"` with two spaces draws the digit in the digit colour.
 
 ## Safe areas

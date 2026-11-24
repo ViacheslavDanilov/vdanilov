@@ -67,6 +67,7 @@ Each phase ends in a gate. Do not start the next phase before the gate is passed
 - File names carry no version label: `demo-<slug>-web.mp4`, never `-v2`. A site file keeps its name and is overwritten. The site caches
   media for a week, so say in the pull request that a browser needs a hard reload.
 - No em dash anywhere: cards, lines, storyboard, comments, commit messages, pull request text.
+- No text about where the data or the model comes from (public, synthetic, fictional, fake, "trained on ..."): not in cards, captions, callouts, pills or the voice. A disclaimer pill is at most a neutral label such as "Sample claim form".
 - Product repositories are read only: render and edit on copies. Never run a product's production stack.
 - Never write to the Drive kit from a film task. A kit change is its own task, with an entry in `CHANGELOG.md`.
 - Check the disk before a render (`df -h`): a 4K PNG render takes about 1.5 GB per 2000 frames. One film at a time.
