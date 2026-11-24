@@ -301,7 +301,9 @@ export default function ProjectPage() {
                 <AutoplayVideo
                   aspectRatio="16 / 9"
                   poster="/portfolio/risk-profiler/demo-risk-profiler-poster.webp"
+                  captions="/portfolio/risk-profiler/demo-risk-profiler-en.vtt"
                   controls
+                  soundHint
                   aria-label="Risk Profiler fraud scoring and SHAP explainability walkthrough"
                   className="block w-full h-auto"
                 >

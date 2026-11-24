@@ -295,7 +295,9 @@ export default function ProjectPage() {
                 <AutoplayVideo
                   aspectRatio="16 / 9"
                   poster="/portfolio/insurance-pricing/demo-insurance-pricing-poster.webp"
+                  captions="/portfolio/insurance-pricing/demo-insurance-pricing-en.vtt"
                   controls
+                  soundHint
                   aria-label="Insurance Pricing quote estimation and what-if walkthrough"
                   className="block w-full h-auto"
                 >

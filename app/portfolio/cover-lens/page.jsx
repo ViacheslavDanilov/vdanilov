@@ -322,7 +322,7 @@ export default function ProjectPage() {
               <a href="#figure-2" className="text-accent hover:underline">
                 Figure 2
               </a>{" "}
-              shows the flow in the admin portal, on fictional demo data.
+              shows the flow in the admin portal.
             </p>
 
             {/* Figure 2: Demo */}
@@ -345,8 +345,8 @@ export default function ProjectPage() {
               </div>
               <figcaption className="text-center text-sm text-muted mt-3">
                 <span className="text-body">Figure 2.</span> Walkthrough of the
-                admin portal on fictional data: certificate extraction,
-                requirement checks, and bundle splitting.
+                admin portal: certificate extraction, requirement checks, and
+                bundle splitting.
               </figcaption>
             </figure>
 

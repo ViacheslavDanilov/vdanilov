@@ -327,6 +327,7 @@ export default function ProjectPage() {
                 <AutoplayVideo
                   aspectRatio="16 / 9"
                   poster="/portfolio/claim-assistant/demo-claim-assistant-poster.webp"
+                  captions="/portfolio/claim-assistant/demo-claim-assistant-en.vtt"
                   controls
                   soundHint
                   aria-label="Narrated Claim Assistant walkthrough: claim intake, coverage call, field review and export"
