@@ -262,8 +262,8 @@ export default function ProjectPage() {
                 <strong className="text-strong">Review Workflow:</strong> A
                 side-by-side review UI highlights each field on the source PDF,
                 supports inline editing and approval, surfaces a dedicated
-                low-confidence queue (&lt;80%), and gates export to ASC until
-                all fields are approved.
+                low-confidence queue (&lt;80%), and keeps export to ASC disabled
+                until every low-confidence field is reviewed.
               </li>
             </ul>
           </Section>
