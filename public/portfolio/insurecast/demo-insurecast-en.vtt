@@ -1,0 +1,102 @@
+WEBVTT
+
+1
+00:00:00.400 --> 00:00:04.534
+InsureCast forecasts monthly
+insurance claims, and the cost per claim.
+
+2
+00:00:05.330 --> 00:00:08.542
+Reserve planning needs
+a forward view of claims and cost.
+
+3
+00:00:08.990 --> 00:00:13.515
+Spreadsheets and one-off models are hard
+to reproduce, segment and stress-test.
+
+4
+00:00:14.300 --> 00:00:15.461
+Pick a segment.
+
+5
+00:00:15.461 --> 00:00:18.791
+Forecast up to 12 months,
+with a 95% range.
+
+6
+00:00:18.791 --> 00:00:20.262
+Then test what-ifs.
+
+7
+00:00:21.720 --> 00:00:25.254
+A segment is one state,
+one industry and one claim type.
+
+8
+00:00:28.070 --> 00:00:30.952
+Here: Texas, construction,
+lost-time claims.
+
+9
+00:00:33.170 --> 00:00:35.696
+Update, and both charts
+refit to the new segment.
+
+10
+00:00:39.400 --> 00:00:42.269
+A conclusion follows,
+written from the same numbers.
+
+11
+00:00:43.230 --> 00:00:44.472
+Gray is the history.
+
+12
+00:00:44.472 --> 00:00:46.832
+Blue dashes are the 12-month forecast.
+
+13
+00:00:47.180 --> 00:00:49.908
+The shaded band is the 95% range.
+
+14
+00:00:49.908 --> 00:00:51.726
+It widens further out.
+
+15
+00:00:52.420 --> 00:00:54.541
+Cost per claim is forecast the same way.
+
+16
+00:00:57.370 --> 00:01:01.742
+Now a what-if: cost per claim up 10%,
+claim counts up 15%.
+
+17
+00:01:04.370 --> 00:01:06.009
+Update, and both charts lift.
+
+18
+00:01:07.030 --> 00:01:12.628
+December's cost per claim rises
+from about $22,000 to $24,000.
+
+19
+00:01:13.730 --> 00:01:15.859
+Every month in the table carries
+the what-if.
+
+20
+00:01:16.770 --> 00:01:20.247
+One forecast feeds
+the charts, the table and the conclusion.
+
+21
+00:01:21.380 --> 00:01:22.021
+InsureCast.
+
+22
+00:01:22.021 --> 00:01:25.460
+Forecast claims and cost per claim,
+then test the what-ifs.
