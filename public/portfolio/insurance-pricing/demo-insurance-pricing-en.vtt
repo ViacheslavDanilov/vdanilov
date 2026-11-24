@@ -1,0 +1,97 @@
+WEBVTT
+
+1
+00:00:00.450 --> 00:00:05.051
+Insurance Pricing estimates annual
+charges and explains every estimate.
+
+2
+00:00:05.670 --> 00:00:08.323
+Good pricing models are often a black box.
+
+3
+00:00:08.670 --> 00:00:11.974
+They are hard for non-technical
+stakeholders to interpret.
+
+4
+00:00:12.730 --> 00:00:14.577
+It estimates annual charges.
+
+5
+00:00:14.880 --> 00:00:17.436
+It explains how each
+detail moved the estimate.
+
+6
+00:00:17.740 --> 00:00:20.175
+And it interprets the result
+in plain language.
+
+7
+00:00:21.470 --> 00:00:25.881
+Here is one sample applicant:
+48, a smoker, with two children.
+
+8
+00:00:27.300 --> 00:00:30.206
+Six details go in,
+and one estimate comes out.
+
+9
+00:00:31.530 --> 00:00:35.927
+A trained model puts her
+estimate at about $33,000 a year.
+
+10
+00:00:38.130 --> 00:00:41.887
+Each bar shows how one detail
+moved the estimate, up or down.
+
+11
+00:00:43.450 --> 00:00:44.771
+Smoking adds the most.
+
+12
+00:00:46.020 --> 00:00:49.295
+A language model then writes
+the reasons in plain English.
+
+13
+00:00:49.700 --> 00:00:51.060
+Here, they match the chart.
+
+14
+00:00:52.800 --> 00:00:54.216
+Now change one detail.
+
+15
+00:00:54.216 --> 00:00:55.438
+She does not smoke.
+
+16
+00:00:57.070 --> 00:00:57.937
+Estimate again.
+
+17
+00:00:59.530 --> 00:01:02.637
+The estimate falls by about $23,000.
+
+18
+00:01:06.350 --> 00:01:09.192
+Not smoking now pulls
+the estimate down the most.
+
+19
+00:01:10.530 --> 00:01:13.314
+The estimate, the bars
+and the reasons all update.
+
+20
+00:01:14.550 --> 00:01:15.667
+Insurance Pricing.
+
+21
+00:01:15.667 --> 00:01:18.645
+Every estimate comes
+with the reasons behind it.
