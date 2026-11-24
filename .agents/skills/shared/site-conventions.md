@@ -166,7 +166,7 @@ reimplement what an installed skill already does. `vendored` means a copy under
 
 `own` means the skill is written for the owner's demo video kit. The kit on Google Drive
 (`portfolio/_video-kit/skills/`) is the only place it is edited. The copy here is replaced by
-`sync_skills.py --to .agents/skills`, never edited, and `MANIFEST.sha256` in this folder lists its files.
+`sync_skills.py --to .agents/skills`, never edited, and `.agents/skills/MANIFEST.sha256` lists its files.
 
 **If a listed skill is not installed, say so out loud and continue by hand.** Never skip the
 step silently, and never pretend a delegated pass ran.
