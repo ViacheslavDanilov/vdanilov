@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { Children, useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faVolumeHigh } from "@fortawesome/free-solid-svg-icons";
 
@@ -9,6 +9,8 @@ export default function AutoplayVideo({
   aspectRatio,
   style,
   soundHint = false,
+  captions,
+  children,
   ...props
 }) {
   const ref = useRef(null);
@@ -67,6 +69,11 @@ export default function AutoplayVideo({
     };
   }, []);
 
+  // Sources first, then the track, then the fallback text
+  const items = Children.toArray(children);
+  const sources = items.filter((item) => item.type === "source");
+  const fallback = items.filter((item) => item.type !== "source");
+
   const video = (
     <video
       ref={ref}
@@ -76,7 +83,14 @@ export default function AutoplayVideo({
       preload="none"
       style={aspectRatio ? { aspectRatio, ...style } : style}
       {...props}
-    />
+    >
+      {sources}
+      {/* No default attribute: captions stay off until the viewer turns them on */}
+      {captions && (
+        <track kind="captions" srcLang="en" label="English" src={captions} />
+      )}
+      {fallback}
+    </video>
   );
 
   if (!soundHint) return video;

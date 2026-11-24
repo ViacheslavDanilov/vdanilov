@@ -1,0 +1,101 @@
+WEBVTT
+
+1
+00:00:00.600 --> 00:00:05.107
+Claim Assistant turns filled claim
+forms into structured, validated data.
+
+2
+00:00:05.900 --> 00:00:08.635
+Before, staff re-keyed
+each claim form by hand.
+
+3
+00:00:08.980 --> 00:00:12.584
+About 107,000 claims
+a year, with 30 staff.
+
+4
+00:00:12.920 --> 00:00:15.742
+Intake ran 12 hours
+a day, on weekdays only.
+
+5
+00:00:16.530 --> 00:00:18.495
+Claim Assistant works in 3 steps.
+
+6
+00:00:18.495 --> 00:00:20.817
+It reads each field, with a confidence.
+
+7
+00:00:21.160 --> 00:00:23.488
+It checks the claim against
+its policy record.
+
+8
+00:00:23.830 --> 00:00:27.892
+And fields below 80% confidence
+go to a person for review.
+
+9
+00:00:30.270 --> 00:00:32.647
+Here is a handwritten Florida claim form.
+
+10
+00:00:33.900 --> 00:00:38.108
+54 fields are read,
+and 31 are flagged as low confidence.
+
+11
+00:00:38.450 --> 00:00:41.675
+Checked against the policy, the coverage
+call is uncertain.
+
+12
+00:00:42.020 --> 00:00:46.341
+It writes out why: a likely match,
+but not verified with high certainty.
+
+13
+00:00:46.930 --> 00:00:49.621
+Every value links back to where
+it was read on the form.
+
+14
+00:00:50.980 --> 00:00:53.310
+The loss description
+is traced the same way.
+
+15
+00:00:55.950 --> 00:01:00.173
+Here, the company name was read
+from the wrong line, at 36%.
+
+16
+00:01:02.700 --> 00:01:05.964
+A person corrects
+it and approves it: 100%.
+
+17
+00:01:08.050 --> 00:01:11.898
+Once all 31 flagged fields
+are reviewed, export unlocks.
+
+18
+00:01:13.850 --> 00:01:15.431
+The claim is ready for export.
+
+19
+00:01:15.770 --> 00:01:18.624
+People handle only
+the exceptions that need a human.
+
+20
+00:01:20.530 --> 00:01:21.493
+Claim Assistant.
+
+21
+00:01:21.493 --> 00:01:25.225
+Staff review the exceptions, instead
+of re-keying every claim.
