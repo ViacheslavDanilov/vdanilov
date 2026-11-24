@@ -297,6 +297,7 @@ export default function ProjectPage() {
                   poster="/portfolio/insurecast/demo-insurecast-poster.webp"
                   captions="/portfolio/insurecast/demo-insurecast-en.vtt"
                   controls
+                  soundHint
                   aria-label="InsureCast segment forecasting and scenario stress-testing walkthrough"
                   className="block w-full h-auto"
                 >
